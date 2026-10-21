@@ -28,3 +28,4 @@ Session: arena-90bbe96f. Required working branch: `arena/90bbe96f-olbg3` (platfo
 | Verified form / recent results / player news ingestion | needs review | unassigned | review.html; no fabricated history |
 | Validated independent models, all markets, picks, confidence and unique 30-word evidence-backed prose | needs review | unassigned | review.html and markets.html; outputs withheld |
 | OLBG complete enumeration and cross-source reconciliation | needs review | unassigned | review.html; popular tips are not full coverage |
+- Follow-up PR https://github.com/buffedlizard55-lab/OLBG3/pull/2 merged successfully after branch build 39548645134 passed. Audit and live-route checks now in main. Observed Pages API still reports legacy build_type despite successful artifact deployment; applying explicit workflow-token API switch to prevent parallel legacy builder overwriting the artifact site.
