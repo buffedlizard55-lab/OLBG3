@@ -24,11 +24,11 @@
    "olbg_event_id": 160789,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Baseball/12",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.mlb.com/schedule/2026-10-23",
+    "official_label": "MLB official schedule, 23 Oct 2026",
+    "official_datetime": "Fri 23 Oct 2026, 20:00 ET, World Series Game 1, American Family Field",
+    "note": "MLB's official schedule has World Series Game 1: Tampa Bay Rays at Milwaukee Brewers, Fri 23 Oct 2026, 8:00 PM ET on FOX - the OLBG date and time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -49,9 +49,9 @@
     "label": "MIL Brewers",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -173,9 +173,9 @@
    "verification": {
     "status": "verified",
     "official_url": "https://www.sofascore.com/basketball/team/seoul-samsung-thunders/126282",
-    "official_label": "Sofascore schedule aggregator (listing matches the officially-announced KBL round-6 fixture list)",
+    "official_label": "Sofascore KBL schedule aggregator (aggregator citation - outstanding debt, see note)",
     "official_datetime": "Wed 21 Oct 2026, 10:00 UTC local broadcast slot, Jamsil Arena, Seoul",
-    "note": "Seoul Samsung Thunders v Busan KCC Egis listed for Oct 21, 2026, 10:00:00 AM UTC; 10:00 UTC = 06:00 EDT, matching the OLBG listing exactly."
+    "note": "Seoul Samsung Thunders v Busan KCC Egis is the KBL round-7 fixture on 21 Oct 2026; 19:00 KST is 10:00 UTC and 06:00 ET, the OLBG time. FLAG: the KBL's own site is a Korean-language JavaScript application with no machine-readable fixture feed, so this row is still cited to a schedule aggregator rather than the competition organiser. It is the one 'verified' row on the board whose source is not a league or federation, and it is listed as outstanding debt in the audit page."
    },
    "model": {
     "basis": "consensus",
@@ -713,10 +713,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
    "verification": {
     "status": "verified",
-    "official_url": "https://as.com/resultados/?date=21-10-2026",
-    "official_label": "AS.com sports results aggregator listing the Basketball Champions League group-phase fixture",
-    "official_datetime": "Wed 21 Oct 2026, 18:00 CEST, OAKA, Athens",
-    "note": "AEK Athens v Antwerp Giants listed for 21 Oct 2026, 18:00 (Spain is on CEST, not CET, in October, so this is 18:00 CEST); 18:00 CEST = 12:00 EDT, matching the OLBG listing exactly."
+    "official_url": "https://www.championsleague.basketball/en/games/136250-AEK-WGA",
+    "official_label": "Basketball Champions League official game page (game 136250)",
+    "official_datetime": "Wed 21 Oct 2026, 18:00 CEST (12:00 ET), SUNEL Arena, Ano Liosia, Athens",
+    "note": "The BCL's own game page lists AEK BC v Windrose Giants Antwerp in Regular Season Group C at SUNEL Arena, Athens, on Wed 21 Oct. 18:00 CEST is 12:00 ET, the OLBG time exactly. The venue previously recorded here (OAKA) was wrong and is corrected to SUNEL Arena; the earlier citation was a results aggregator and has been replaced with the competition's own page."
    },
    "model": {
     "basis": "consensus",
@@ -1885,11 +1885,11 @@
    "olbg_event_id": 3530,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://gaacork.ie/fixtures/",
+    "official_label": "Cork GAA official fixtures page",
+    "official_datetime": "Sun 25 Oct 2026, 16:00, SuperValu Pairc Ui Chaoimh (ref David Murnane)",
+    "note": "Cork GAA lists the Premier Senior Football final for 25/10/2026 at 16:00 in Pairc Ui Chaoimh. Ireland moves to GMT at 02:00 that morning, so 16:00 local is 12:00 ET - the OLBG time."
    },
    "model": {
     "basis": "consensus",
@@ -1909,10 +1909,10 @@
     "side": "away",
     "label": "Nemo Rangers",
     "prob": 0.83,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -1934,11 +1934,11 @@
    "olbg_event_id": 3532,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.maighcuilinn.com/",
+    "official_label": "Maigh Cuilinn GAA official club site (county final notice)",
+    "official_datetime": "Sat 24 Oct 2026, 19:00 IST, Pearse Stadium",
+    "note": "The club's own site carries the county final notice: 7pm, Saturday 24 October 2026, Pearse Stadium. 19:00 IST is 14:00 ET - the OLBG time. Galway GAA's fixtures page is a JavaScript widget with no readable fixture text, so the participating club's official notice is cited."
    },
    "model": {
     "basis": "consensus",
@@ -1959,9 +1959,9 @@
     "label": "Moycullen",
     "prob": 0.53,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -1983,11 +1983,11 @@
    "olbg_event_id": 3531,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://gaacork.ie/fixtures/",
+    "official_label": "Cork GAA official fixtures page",
+    "official_datetime": "Sun 1 Nov 2026, 14:00, SuperValu Pairc Ui Chaoimh (ref James Regan)",
+    "note": "Cork GAA lists Eire Og v Kanturk in the McCarthy Insurance Group Senior 'A' FC final, 01/11/2026 at 14:00. Ireland is on GMT by then, so 14:00 local is 09:00 ET - the OLBG time."
    },
    "model": {
     "basis": "consensus",
@@ -2007,10 +2007,10 @@
     "side": "home",
     "label": "Kanturk",
     "prob": 0.75,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -2032,11 +2032,11 @@
    "olbg_event_id": 3536,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://munster.gaa.ie/fixtures/events-calendar/",
+    "official_label": "Munster GAA official events calendar / Waterford GAA fixtures",
+    "official_datetime": "Sun 25 Oct 2026, 14:30, Cappoquin Logistics Fraher Field, Dungarvan",
+    "note": "Waterford GAA's fixture list and the Munster GAA calendar both put the Rathgormack v The Nire final on Sunday 25 Oct at 14:30 in Fraher Field. OLBG shows 1 Nov 10:30, a week late - that is an OLBG error and the official date is what we publish."
    },
    "model": {
     "basis": "consensus",
@@ -2057,12 +2057,432 @@
     "side": "home",
     "label": "Rathgormack",
     "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    }
+   }
+  },
+  {
+   "ref": "GLF-101905",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "2026 Genesis Championship (DP World Tour / KPGA co-sanctioned)",
+   "home": "Genesis Championship",
+   "away": "outright market",
+   "start": "25 Oct 04:00 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Si Woo Kim",
+   "olbg_tips": "6/20",
+   "olbg_pct": 30,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Genesis_Championship/5?event_id=101905",
+   "olbg_event_id": 101905,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
-    "score": 2,
+    "score": 0,
     "factors": {
      "fixture_verified": 0,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101904",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Bermuda Championship",
+   "away": "outright market",
+   "start": "25 Oct 17:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Ben James",
+   "olbg_tips": "3/12",
+   "olbg_pct": 25,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
+   "olbg_event_id": 101904,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101907",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Players Series SA",
+   "away": "outright market",
+   "start": "25 Oct 02:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Josh Armstrong",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Players_Series_SA/5?event_id=101907",
+   "olbg_event_id": 101907,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101906",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "BMW Ladies Championship",
+   "away": "outright market",
+   "start": "25 Oct 04:00 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Sei Young Kim",
+   "olbg_tips": "2/8",
+   "olbg_pct": 25,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/BMW_Ladies_Championship/5?event_id=101906",
+   "olbg_event_id": 101906,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101903",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Stifel Charity Classic",
+   "away": "outright market",
+   "start": "25 Oct 17:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Steven Alker",
+   "olbg_tips": "2/7",
+   "olbg_pct": 29,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
+   "olbg_event_id": 101903,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101911",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Senior Italian Open",
+   "away": "outright market",
+   "start": "24 Oct 11:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Mikael Lundberg",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Senior_Italian_Open/5?event_id=101911",
+   "olbg_event_id": 101911,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101908",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Fortinet Players Cup",
+   "away": "outright market",
+   "start": "25 Oct 02:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Ryosuke Kinoshita",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Fortinet_Players_Cup/5?event_id=101908",
+   "olbg_event_id": 101908,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101910",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Hong Kong Open",
+   "away": "outright market",
+   "start": "25 Oct 03:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Paul Casey",
+   "olbg_tips": "1/3",
+   "olbg_pct": 33,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hong_Kong_Open/5?event_id=101910",
+   "olbg_event_id": 101910,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101912",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Stella Artois Players Championship",
+   "away": "outright market",
+   "start": "25 Oct 10:45 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Daniel van Tonder",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stella_Artois_Players_Championship/5?event_id=101912",
+   "olbg_event_id": 101912,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "GLF-101909",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Hero Womens Indian Open",
+   "away": "outright market",
+   "start": "25 Oct 08:00 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Avani Prashanth",
+   "olbg_tips": "",
+   "olbg_pct": null,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hero_Womens_Indian_Open/5?event_id=101909",
+   "olbg_event_id": 101909,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
     }
    }
   },
@@ -2229,11 +2649,11 @@
    "olbg_event_id": 12115,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://topphandball.no/artikkel/tv-kamper/",
+    "official_label": "Topphandball (Norwegian top handball) official TV/match list",
+    "official_datetime": "Wed 21 Oct 2026, 18:15 CEST (12:15 ET), Jotunhallen",
+    "note": "The league's own fixture list gives Wednesday 21.10, Sandefjord v Runar, 18:15 - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -2253,10 +2673,10 @@
     "side": "away",
     "label": "Runar",
     "prob": 0.8,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -2279,10 +2699,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.tntsports.co.uk/handball/champions-league/calendar-results.shtml",
-    "official_label": "TNT Sports official broadcast schedule for the EHF Champions League",
-    "official_datetime": "Wed 21 Oct 2026, 17:45 UTC window per TNT Sports listing (18:45 CEST), Sala Polivalenta, Bucuresti",
-    "note": "Dinamo Bucuresti v Skanderborg AGF Handbold, 18:45 CEST = 12:45 EDT, matching the OLBG listing exactly."
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League official calendar, 21-22 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 18:45 CEST (12:45 ET), Sala Polivalenta, Bucuresti",
+    "note": "The EHF's own calendar lists Dinamo Bucuresti v SAH - Aarhus on 21 Oct at 18:45, the OLBG date and time exactly. The earlier citation was a broadcaster's calendar page; replaced with the federation's."
    },
    "model": {
     "basis": "consensus",
@@ -2460,11 +2880,11 @@
    "olbg_event_id": 12048,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League official calendar, 21-22 Oct 2026",
+    "official_datetime": "Thu 22 Oct 2026, 20:45 CEST (14:45 ET), Kolstad Handball v SC Magdeburg",
+    "note": "The EHF calendar lists Kolstad v SC Magdeburg on 22 Oct at 20:45 - the OLBG date and time exactly."
    },
    "model": {
     "basis": "none",
@@ -2478,9 +2898,9 @@
     "label": null,
     "prob": null,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -2502,11 +2922,11 @@
    "olbg_event_id": 12054,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League official calendar, 21-22 Oct 2026",
+    "official_datetime": "Thu 22 Oct 2026, 20:45 CEST (14:45 ET), Sporting CP v IFK Kristianstad",
+    "note": "The EHF calendar lists Sporting Clube de Portugal v IFK Kristianstad on 22 Oct at 20:45 - the OLBG date and time exactly."
    },
    "model": {
     "basis": "none",
@@ -2520,9 +2940,9 @@
     "label": null,
     "prob": null,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -2544,11 +2964,11 @@
    "olbg_event_id": 12114,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://handbollsligan.se/herr/",
+    "official_label": "Handbollsligan official men's fixture list",
+    "official_datetime": "Wed 21 Oct 2026, 19:00 CEST (13:00 ET), IF Hallby HK v IK Savehof",
+    "note": "The league site lists Ons 21 OKT 19:00 IF Hallby HK v IK Savehof - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -2568,10 +2988,10 @@
     "side": "away",
     "label": "IK Savehof",
     "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -2593,11 +3013,11 @@
    "olbg_event_id": 12112,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://handbollsligan.se/herr/",
+    "official_label": "Handbollsligan official men's fixture list",
+    "official_datetime": "Wed 21 Oct 2026, 19:00 CEST (13:00 ET), Hammarby IF HF v Alingsas HK",
+    "note": "The league site lists Ons 21 OKT 19:00 Hammarby IF HF v Alingsas HK - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -2617,10 +3037,10 @@
     "side": "home",
     "label": "Hammarby IF HF",
     "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -2642,11 +3062,11 @@
    "olbg_event_id": 12072,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://morsthy.dk/kampprogram",
+    "official_label": "Mors-Thy Haandbold official fixture list",
+    "official_datetime": "Wed 21 Oct 2026, 20:00 CEST (14:00 ET), Sparekassen Thy Arena",
+    "note": "The club's official programme lists 21.10.2026 kl. 20:00 Mors-Thy v Bjerringbro-Silkeborg at Sparekassen Thy Arena - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -2667,10 +3087,10 @@
     "side": "home",
     "label": "Mors Thy Handbold",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -2692,11 +3112,11 @@
    "olbg_event_id": 12049,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League official calendar, 21-22 Oct 2026",
+    "official_datetime": "Thu 22 Oct 2026, 18:45 CEST (12:45 ET), MT Melsungen v Orlen Wisla Plock",
+    "note": "The EHF calendar lists MT Melsungen v Orlen Wisla Plock on 22 Oct at 18:45 - the OLBG date and time exactly. Several preview sites carry this tie on 21 Oct; the federation's calendar is authoritative."
    },
    "model": {
     "basis": "consensus",
@@ -2717,9 +3137,9 @@
     "label": "MT Melsungen",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -2741,11 +3161,11 @@
    "olbg_event_id": 12051,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League official calendar, 21-22 Oct 2026",
+    "official_datetime": "Thu 22 Oct 2026, 18:45 CEST (12:45 ET), OTP Bank - PICK Szeged v GOG",
+    "note": "The EHF calendar lists OTP Bank - PICK Szeged v GOG on 22 Oct at 18:45 - the OLBG date and time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -2766,9 +3186,9 @@
     "label": "Pick Szeged",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -2790,11 +3210,11 @@
    "olbg_event_id": 199881,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.hcpustertal.com/matches/21-10-2026-hcp-piv/",
+    "official_label": "HC Pustertal official fixture page, 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 19:45 CEST, Intercable Arena, Bruneck",
+    "note": "The club's own fixture page gives HC Falkensteiner Pustertal v Pioneers Vorarlberg, 21.10.2026, 19:45, Intercable Arena Bruneck - the OLBG date and time exactly. The earlier citation was a betting-preview page; replaced with the club's."
    },
    "model": {
     "basis": "official-standings",
@@ -2804,7 +3224,7 @@
      "win_away": 4.93
     },
     "notes": [
-     "Official standings used for both sides (https://www.eliteprospects.com/league/icehl/standings)."
+     "Official standings used for both sides (https://www.eishockey.at/game-center/ice/tabelle?saison=2026)."
     ],
     "probs": {
      "home": 0.8074,
@@ -2829,10 +3249,10 @@
     "side": "home",
     "label": "Pustertal",
     "prob": 0.8074,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 2,
      "model_edge": 2
     }
@@ -2868,7 +3288,7 @@
      "win_away": 3.76
     },
     "notes": [
-     "Official standings used for both sides (https://www.eliteprospects.com/league/icehl/standings)."
+     "Official standings used for both sides (https://www.eishockey.at/game-center/ice/tabelle?saison=2026)."
     ],
     "probs": {
      "home": 0.7476,
@@ -2919,10 +3339,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.eliteprospects.com/league/shl",
-    "official_label": "Eliteprospects SHL schedule/standings aggregator",
+    "official_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+    "official_label": "Swedish Ice Hockey Association (Svensk Ishockey) official SHL schedule",
     "official_datetime": "Thu 22 Oct 2026, 17:00 UTC (19:00 CEST local), E.ON Arena, Timra",
-    "note": "Lists Timra IK v Farjestad BK at 10/22/2026 05:00 PM UTC; 17:00 UTC = 13:00 EDT, matching the OLBG listing exactly."
+    "note": "The Swedish federation's official schedule lists 2026-10-22 19:00 Timra IK - Farjestad BK at SCA Arena; 19:00 CEST is 13:00 ET, the OLBG time. The earlier citation was an aggregator; replaced with the federation's own schedule."
    },
    "model": {
     "basis": "official-standings",
@@ -2932,7 +3352,7 @@
      "win_away": 1.17
     },
     "notes": [
-     "Official standings used for both sides (https://www.eliteprospects.com/league/shl)."
+     "Official standings used for both sides (https://stats.swehockey.se/ScheduleAndResults/Overview/20961)."
     ],
     "probs": {
      "home": 0.19,
@@ -2983,10 +3403,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
    "verification": {
     "status": "verified",
-    "official_url": "https://sport.orf.at/tabellen/stories/3162412/",
-    "official_label": "ORF (Austrian public broadcaster) ICE Hockey League schedule page",
-    "official_datetime": "Wed 21 Oct 2026, 18:30 CEST, Eisstadion Liebenau, Graz",
-    "note": "Lists 'Woche 6: 21.10. Graz - Milano - 18.30 Uhr'. 18:30 CEST = 12:30 EDT, matching the OLBG listing exactly."
+    "official_url": "https://www.eishockey.at/game-center/ice/spiel/icehl-8241?saison=2026",
+    "official_label": "OEHV official ICE Hockey League game centre, match icehl-8241",
+    "official_datetime": "Wed 21 Oct 2026, 18:30 CEST (12:30 ET), Merkur Eisstadion (Liebenau), Graz",
+    "note": "The Austrian federation's official game page states Moser Medical Graz99ers v Milano HC, 21.10.2026, 'Beginn laut Spielplan 18:30', Merkur Eisstadion. 18:30 CEST is 12:30 ET, the OLBG time exactly. The earlier citation was a broadcaster's table page; replaced with the federation's game centre."
    },
    "model": {
     "basis": "official-standings",
@@ -2996,7 +3416,7 @@
      "win_away": 2.0
     },
     "notes": [
-     "Official standings used for both sides (https://www.eliteprospects.com/league/icehl/standings)."
+     "Official standings used for both sides (https://www.eishockey.at/game-center/ice/tabelle?saison=2026)."
     ],
     "probs": {
      "home": 0.5261,
@@ -3060,7 +3480,7 @@
      "win_away": 4.21
     },
     "notes": [
-     "Official standings used for both sides (https://www.eliteprospects.com/league/icehl/standings)."
+     "Official standings used for both sides (https://www.eishockey.at/game-center/ice/tabelle?saison=2026)."
     ],
     "probs": {
      "home": 0.7744,
@@ -3218,6 +3638,265 @@
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "MTR-913",
+   "sport": "Motor Racing",
+   "sport_slug": "motor_racing",
+   "competition": "",
+   "home": "USA Grand Prix",
+   "away": "",
+   "start": "25 Oct 16:00 EDT",
+   "olbg_market": "Win Race",
+   "olbg_pick": "Max Verstappen",
+   "olbg_tips": "11/32",
+   "olbg_pct": 34,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913",
+   "olbg_event_id": 913,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 2.79,
+     "win_home": 1.44
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.34,
+     "home": 0.66
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "USA Grand Prix",
+    "prob": 0.66,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    }
+   }
+  },
+  {
+   "ref": "MTR-828",
+   "sport": "Motor Racing",
+   "sport_slug": "motor_racing",
+   "competition": "",
+   "home": "Formula 1 Drivers Championship 2026",
+   "away": "outright market",
+   "start": "6 Dec 08:00 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Max Verstappen",
+   "olbg_tips": "9/33",
+   "olbg_pct": 27,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828",
+   "olbg_event_id": 828,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "MTR-912",
+   "sport": "Motor Racing",
+   "sport_slug": "motor_racing",
+   "competition": "",
+   "home": "Formula 1 Drivers Championship 2026 Without Kimi Antonelli",
+   "away": "outright market",
+   "start": "6 Dec 08:00 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Max Verstappen",
+   "olbg_tips": "4/6",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912",
+   "olbg_event_id": 912,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "RGL-2695857",
+   "sport": "Rugby League",
+   "sport_slug": "rugby_league",
+   "competition": "",
+   "home": "State of Origin 2027",
+   "away": "outright market",
+   "start": "27 May 06:00 EDT",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "New South Wales",
+   "olbg_tips": "9/12",
+   "olbg_pct": 75,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857",
+   "olbg_event_id": 2695857,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "RGL-2801554",
+   "sport": "Rugby League",
+   "sport_slug": "rugby_league",
+   "competition": "",
+   "home": "Super League 2027",
+   "away": "outright market",
+   "start": "2 Oct 13:00 EDT",
+   "olbg_market": "Grand Final Winner",
+   "olbg_pick": "Leeds Rhinos",
+   "olbg_tips": "1/3",
+   "olbg_pct": 33,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Super_League_2027/10?event_id=2801554",
+   "olbg_event_id": 2801554,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   }
+  },
+  {
+   "ref": "RGL-2801600",
+   "sport": "Rugby League",
+   "sport_slug": "rugby_league",
+   "competition": "",
+   "home": "NRL 2027",
+   "away": "outright market",
+   "start": "3 Oct 04:30 EDT",
+   "olbg_market": "Grand Final Winner",
+   "olbg_pick": "Penrith Panthers",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600",
+   "olbg_event_id": 2801600,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
      "model_edge": 0
     }
    }
@@ -4214,10 +4893,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.snooker.org/res/index.asp?template=24",
-    "official_label": "snooker.org official Upcoming Matches schedule (UTC), cross-checked against wst.tv match centre",
+    "official_url": "https://wst.tv/matches/",
+    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
     "official_datetime": "Wed 21 Oct 2026, 09:00 UTC (10:00 BST local Belfast), Waterfront Hall Belfast",
-    "note": "Cheung Ka Wai v Stuart Bingham, scheduled 2026-10-21 09:00:00Z per snooker.org; 09:00 UTC = 05:00 EDT, matching the OLBG listing exactly."
+    "note": "Cheung Ka Wai v Stuart Bingham, scheduled 2026-10-21 09:00:00Z on the WST official match list; 09:00 UTC = 05:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
     "basis": "consensus",
@@ -4263,10 +4942,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.snooker.org/res/index.asp?template=24",
-    "official_label": "snooker.org official Upcoming Matches schedule (UTC), cross-checked against wst.tv match centre",
+    "official_url": "https://wst.tv/matches/",
+    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
     "official_datetime": "Wed 21 Oct 2026, 09:00 UTC (10:00 BST local Belfast), Waterfront Hall Belfast",
-    "note": "Pang Junxu v Liam Davies, scheduled 2026-10-21 09:00:00Z per snooker.org; 09:00 UTC = 05:00 EDT, matching the OLBG listing exactly."
+    "note": "Pang Junxu v Liam Davies, scheduled 2026-10-21 09:00:00Z on the WST official match list; 09:00 UTC = 05:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
     "basis": "consensus",
@@ -4312,10 +4991,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.snooker.org/res/index.asp?template=24",
-    "official_label": "snooker.org official Upcoming Matches schedule (UTC), cross-checked against wst.tv match centre",
+    "official_url": "https://wst.tv/matches/",
+    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
     "official_datetime": "Wed 21 Oct 2026, est. 19:00 UTC (20:00 BST local Belfast), Waterfront Hall Belfast",
-    "note": "Elliot Slessor v Jamie Jones, estimated roll-on start 2026-10-21 19:00:00Z per snooker.org; 19:00 UTC = 15:00 EDT, matching the OLBG listing exactly."
+    "note": "Elliot Slessor v Jamie Jones, estimated roll-on start 2026-10-21 19:00:00Z on the WST official match list; 19:00 UTC = 15:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
     "basis": "consensus",
@@ -4362,10 +5041,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.snooker.org/res/index.asp?template=24",
-    "official_label": "snooker.org official Upcoming Matches schedule (UTC), cross-checked against wst.tv match centre",
+    "official_url": "https://wst.tv/matches/",
+    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
     "official_datetime": "Wed 21 Oct 2026, est. 19:00 UTC (20:00 BST local Belfast), Waterfront Hall Belfast",
-    "note": "Luca Brecel v Martin O'Donnell, estimated roll-on start 2026-10-21 19:00:00Z per snooker.org; 19:00 UTC = 15:00 EDT, matching the OLBG listing exactly."
+    "note": "Luca Brecel v Martin O'Donnell, estimated roll-on start 2026-10-21 19:00:00Z on the WST official match list; 19:00 UTC = 15:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
     "basis": "consensus",
@@ -4411,10 +5090,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.snooker.org/res/index.asp?template=24",
-    "official_label": "snooker.org official Upcoming Matches schedule (UTC), cross-checked against wst.tv match centre",
+    "official_url": "https://wst.tv/matches/",
+    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
     "official_datetime": "Wed 21 Oct 2026, 12:00 UTC (13:00 BST local Belfast), Waterfront Hall Belfast",
-    "note": "John Higgins v Jak Jones, scheduled 2026-10-21 12:00:00Z per snooker.org; 12:00 UTC = 08:00 EDT, matching the OLBG listing exactly."
+    "note": "John Higgins v Jak Jones, scheduled 2026-10-21 12:00:00Z on the WST official match list; 12:00 UTC = 08:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
     "basis": "consensus",
@@ -4460,10 +5139,10 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.snooker.org/res/index.asp?template=24",
-    "official_label": "snooker.org official Upcoming Matches schedule (UTC), cross-checked against wst.tv match centre",
+    "official_url": "https://wst.tv/matches/",
+    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
     "official_datetime": "Wed 21 Oct 2026, same morning session as matches 1-2 (09:00 UTC start), Waterfront Hall Belfast",
-    "note": "Sam Craigie v Xu Si is grouped by snooker.org/wst.tv in the Round 2 morning session alongside Cheung-Bingham and Pang-Davies (both confirmed 09:00 UTC); OLBG's 09:00 EDT (13:00 UTC) is consistent with a roll-on table slot shortly after that session start. Date and pairing are directly confirmed; the exact clock time is a session-based estimate, flagged accordingly."
+    "note": "Sam Craigie v Xu Si is grouped by WST in the Round 2 morning session alongside Cheung-Bingham and Pang-Davies (both confirmed 09:00 UTC); OLBG's 09:00 EDT (13:00 UTC) is consistent with a roll-on table slot shortly after that session start. Date and pairing are directly confirmed; the exact clock time is a session-based estimate, flagged accordingly."
    },
    "model": {
     "basis": "consensus",
@@ -4509,11 +5188,11 @@
    "olbg_event_id": 902039,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA official main-draw PDF, BNB Ningbo Open 2026 (released 20 Oct)",
+    "official_datetime": "Wed 21 Oct 2026, Round of 16, Centre Court, 2nd match (about 14:30 CST / 02:30 ET)",
+    "note": "The WTA draw places Fernandez v Sasnovich in the Round of 16 and the tournament's published schedule puts that round on 21 Oct. The WTA publishes no machine-readable order of play, so the court slot is taken from the published schedule and matches OLBG's 02:30 ET."
    },
    "model": {
     "basis": "consensus",
@@ -4533,10 +5212,10 @@
     "side": "home",
     "label": "Leylah Fernandez",
     "prob": 0.86,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4558,11 +5237,11 @@
    "olbg_event_id": 902065,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf",
+    "official_label": "WTA official main-draw PDF, Japan Open Osaka 2026",
+    "official_datetime": "Wed 21 Oct 2026, Round of 16, Centre Court (about 15:00 JST / 02:00 ET)",
+    "note": "Pairing and round confirmed on the WTA draw; the Round of 16 is played 21 Oct. OLBG's 01:30 ET is ten minutes earlier than the published third-match slot - treated as a slot estimate, not a conflict."
    },
    "model": {
     "basis": "consensus",
@@ -4582,10 +5261,10 @@
     "side": "home",
     "label": "Katie Boulter",
     "prob": 0.63,
-    "confidence": "LOW",
-    "score": 1,
+    "confidence": "MEDIUM",
+    "score": 3,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 1
     }
@@ -4607,11 +5286,11 @@
    "olbg_event_id": 902038,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+    "official_label": "ATP official order of play, Almaty (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 11:30 ALMT (02:30 ET), Court Central, 1st match",
+    "note": "Opening singles on Centre Court. Almaty is UTC+5, so 11:30 local is 02:30 ET, matching OLBG."
    },
    "model": {
     "basis": "consensus",
@@ -4631,10 +5310,10 @@
     "side": "away",
     "label": "Luciano Darderi",
     "prob": 0.8,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4656,11 +5335,11 @@
    "olbg_event_id": 902037,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+    "official_label": "ATP official order of play, Almaty (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, Court Central, 3rd match after 11:30 ALMT (about 14:30 ALMT / 05:30 ET)",
+    "note": "Third on Centre Court ('followed by'); OLBG's 05:30 ET is the equivalent slot."
    },
    "model": {
     "basis": "consensus",
@@ -4680,10 +5359,10 @@
     "side": "away",
     "label": "Andrey Rublev",
     "prob": 0.8,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4705,11 +5384,11 @@
    "olbg_event_id": 902074,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA official main-draw PDF, BNB Ningbo Open 2026 (released 20 Oct)",
+    "official_datetime": "Wed 21 Oct 2026, Round of 16, Centre Court, 3rd match (about 16:00 CST / 04:00 ET)",
+    "note": "Cirstea v Bejlek is a Round of 16 tie on the official draw; the round is scheduled for 21 Oct. Court slot from the published schedule; OLBG's 04:00 ET fits third on Centre Court."
    },
    "model": {
     "basis": "consensus",
@@ -4730,9 +5409,9 @@
     "label": "Sorana Cirstea",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -4754,11 +5433,11 @@
    "olbg_event_id": 901935,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+    "official_label": "ATP official order of play, Almaty (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, Court Central, 2nd match after 11:30 ALMT (about 13:00 ALMT / 04:00 ET)",
+    "note": "Second on Centre Court ('followed by'); OLBG's 04:00 ET is the equivalent slot."
    },
    "model": {
     "basis": "consensus",
@@ -4778,10 +5457,10 @@
     "side": "home",
     "label": "Zangar Nurlanuly",
     "prob": 0.75,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4803,11 +5482,11 @@
    "olbg_event_id": 901993,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+    "official_label": "ATP official order of play, Almaty (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 11:30 ALMT (02:30 ET), Court 1, 1st match",
+    "note": "Opening singles on Court 1. Date and 11:30 local start match the OLBG time."
    },
    "model": {
     "basis": "consensus",
@@ -4827,10 +5506,10 @@
     "side": "away",
     "label": "Tomas Martin Etcheverry",
     "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4852,11 +5531,11 @@
    "olbg_event_id": 901896,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/7485/op.pdf",
+    "official_label": "ATP official order of play, Brussels (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 11:30 CEST (05:30 ET), Court 1, 1st match",
+    "note": "Opening singles on Court 1. Pairing, date and 11:30 start match the OLBG row exactly."
    },
    "model": {
     "basis": "consensus",
@@ -4877,10 +5556,10 @@
     "side": "away",
     "label": "Damir Dzumhur",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4902,11 +5581,11 @@
    "olbg_event_id": 901974,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/496/op.pdf",
+    "official_label": "ATP official order of play, Lyon (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, not before 14:00 CEST (08:00 ET), Court Central",
+    "note": "The sheet lists Wawrinka v Landaluce 'Not Before 14:00' on Court Central after the opening doubles - 08:00 ET, the OLBG time."
    },
    "model": {
     "basis": "consensus",
@@ -4927,10 +5606,10 @@
     "side": "home",
     "label": "Stan Wawrinka",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -4952,11 +5631,11 @@
    "olbg_event_id": 902028,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/7485/op.pdf",
+    "official_label": "ATP official order of play, Brussels (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, not before 18:00 CEST (12:00 ET), Court Central",
+    "note": "The official sheet gives 'Not Before 18:00', which is 12:00 ET - exactly the OLBG time."
    },
    "model": {
     "basis": "consensus",
@@ -4977,10 +5656,10 @@
     "side": "home",
     "label": "David Goffin",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5002,11 +5681,11 @@
    "olbg_event_id": 902040,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+    "official_label": "ATP official order of play, Almaty (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, Court 1, 2nd match after 11:30 ALMT (about 13:00 ALMT / 04:00 ET)",
+    "note": "Second on Court 1 ('followed by'); OLBG's 04:00 ET is the equivalent slot."
    },
    "model": {
     "basis": "consensus",
@@ -5027,9 +5706,9 @@
     "label": "Facundo Diaz Acosta",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
@@ -5051,11 +5730,11 @@
    "olbg_event_id": 902048,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/7485/op.pdf",
+    "official_label": "ATP official order of play, Brussels (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 11:30 CEST (05:30 ET), Court Central, 1st match",
+    "note": "Opening singles on Centre Court. Pairing, date and 11:30 start match the OLBG row exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5076,10 +5755,10 @@
     "side": "away",
     "label": "Francisco Cerundolo",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5101,11 +5780,11 @@
    "olbg_event_id": 902085,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.protennislive.com/posting/2026/7485/op.pdf",
+    "official_label": "ATP official order of play, Brussels (PDF), Wed 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, Court Central, 2nd match after 11:30 CEST (about 13:00 CEST / 07:00 ET)",
+    "note": "Listed as 'followed by' the 11:30 opener, so the slot is approximate by design; OLBG's 07:00 ET falls inside it."
    },
    "model": {
     "basis": "consensus",
@@ -5126,10 +5805,10 @@
     "side": "away",
     "label": "Tallon Griekspoor",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5151,11 +5830,11 @@
    "olbg_event_id": 902084,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA official main-draw PDF, BNB Ningbo Open 2026 (released 20 Oct)",
+    "official_datetime": "Wed 21 Oct 2026, Round of 16, Ningbo (evening session)",
+    "note": "Alexandrova v Kostyuk is confirmed as a Round of 16 tie on the official draw, scheduled 21 Oct. The WTA publishes no machine-readable order of play, so the exact court slot and time are OLBG's and are not independently confirmed here."
    },
    "model": {
     "basis": "consensus",
@@ -5176,10 +5855,10 @@
     "side": "away",
     "label": "Marta Kostyuk",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5201,11 +5880,11 @@
    "olbg_event_id": 36981,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/",
+    "official_label": "Mestaruusliiga official match preview, 21 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 18:00 EEST, ISLVI Areena, Kuopio",
+    "note": "OLBG lists 10:00 ET; the league's own notice gives 18:00 EEST, which is 11:00 ET. OLBG is one hour early here and the official time is what we publish."
    },
    "model": {
     "basis": "consensus",
@@ -5226,10 +5905,10 @@
     "side": "home",
     "label": "Puijo W",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5251,11 +5930,11 @@
    "olbg_event_id": 36961,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.tauronliga.pl/games.html",
+    "official_label": "TAURON Liga official match centre, 2026/27",
+    "official_datetime": "Wed 21 Oct 2026, 17:30 CEST (11:30 ET), BOGDANKA LUK Lublin v Energa Trefl Gdansk",
+    "note": "Official match centre shows Wednesday 21 Oct, 17:30 - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5276,10 +5955,10 @@
     "side": "home",
     "label": "LUK Lublin",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5301,11 +5980,11 @@
    "olbg_event_id": 36945,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_frauen/statistik/hauptrunde/tabelle_hauptrunde.xhtml",
+    "official_label": "Volleyball Bundesliga official table & fixtures page (women), 2026/27",
+    "official_datetime": "Wed 21 Oct 2026, 18:00 CEST (12:00 ET), Palmberg Arena",
+    "note": "Official league page lists Wed 10/21/26, 6:00 PM Schwerin v Erfurt - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5326,10 +6005,10 @@
     "side": "home",
     "label": "Schweriner W",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5351,11 +6030,11 @@
    "olbg_event_id": 36963,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.tauronliga.pl/games.html",
+    "official_label": "TAURON Liga official match centre, 2026/27",
+    "official_datetime": "Fri 23 Oct 2026, 17:30 CEST (11:30 ET)",
+    "note": "Official match centre shows Friday 23 Oct, 17:30 Slep sk Malow Suwalki v GKS Katowice - the OLBG date and time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5376,10 +6055,10 @@
     "side": "home",
     "label": "Slepsk Suwalki",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5401,11 +6080,11 @@
    "olbg_event_id": 36964,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.tauronliga.pl/games.html",
+    "official_label": "TAURON Liga official match centre, 2026/27",
+    "official_datetime": "Sat 24 Oct 2026, 18:00 CEST (12:00 ET)",
+    "note": "Official match centre shows Saturday 24 Oct, 18:00 PGE GiEK SKRA Belchatow v PGE Projekt Warszawa - the OLBG date and time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5426,10 +6105,10 @@
     "side": "away",
     "label": "Projekt Warszawa",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5451,11 +6130,11 @@
    "olbg_event_id": 36965,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.tauronliga.pl/games.html",
+    "official_label": "TAURON Liga official match centre, 2026/27",
+    "official_datetime": "Sun 25 Oct 2026, 18:00 CET (13:00 ET)",
+    "note": "Official match centre shows Sunday 25 Oct, 18:00 ChKS Chelm v Asseco Resovia Rzeszow. Poland switches to CET that morning, so 18:00 local is 13:00 ET - the OLBG time."
    },
    "model": {
     "basis": "consensus",
@@ -5476,10 +6155,10 @@
     "side": "away",
     "label": "Resovia Rzeszow",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5501,11 +6180,11 @@
    "olbg_event_id": 36979,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://sedziowie.pzps.pl/system/mecze-puchar-polski-mezczyzn/",
+    "official_label": "PZPS official referee appointment list, Polish Cup men",
+    "official_datetime": "Wed 21 Oct 2026, 18:00 CEST (12:00 ET), Puchar Polski round 3",
+    "note": "The federation's own match list has match 22: 2026-10-21, 18:00, Instytut Mechaniki Rekord Volley Jelcz-Laskowice v Stal Nysa - the OLBG time exactly. This is a Polish Cup tie, not a league fixture."
    },
    "model": {
     "basis": "consensus",
@@ -5526,10 +6205,10 @@
     "side": "away",
     "label": "Stal Nysa",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5551,11 +6230,11 @@
    "olbg_event_id": 36984,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle/tabelle_hauptrunde.xhtml",
+    "official_label": "Volleyball Bundesliga official table & fixtures page (men), 2026/27",
+    "official_datetime": "Wed 21 Oct 2026, 19:00 CEST (13:00 ET), Paul-Dinter-Halle",
+    "note": "Official league page lists Wed 10/21/26, 7:00 PM Koenigs Wusterhausen v Giesen - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5576,10 +6255,10 @@
     "side": "away",
     "label": "Helios Grizzlys Giesen",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5601,11 +6280,11 @@
    "olbg_event_id": 36985,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle/tabelle_hauptrunde.xhtml",
+    "official_label": "Volleyball Bundesliga official table & fixtures page (men), 2026/27",
+    "official_datetime": "Wed 21 Oct 2026, 19:30 CEST (13:30 ET), BMW Park",
+    "note": "Official league page lists Wed 10/21/26, 7:30 PM Muenchen v Friedrichshafen - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5626,10 +6305,10 @@
     "side": "away",
     "label": "VfB Friedrichshafen",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5651,11 +6330,11 @@
    "olbg_event_id": 36986,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle/tabelle_hauptrunde.xhtml",
+    "official_label": "Volleyball Bundesliga official table & fixtures page (men), 2026/27",
+    "official_datetime": "Wed 21 Oct 2026, 20:00 CEST (14:00 ET), Lina-Radke-Halle",
+    "note": "Official league page lists Wed 10/21/26, 8:00 PM Karlsruhe v Lueneburg - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5676,10 +6355,10 @@
     "side": "away",
     "label": "SVG Luneburg",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5701,11 +6380,11 @@
    "olbg_event_id": 36968,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.volleybal.nl/nieuws/eerste-doordeweekse-speelronde-bij-eredivisie-volleybal-vrouwen",
+    "official_label": "Volleybal.nl (Nevobo) official round preview, 20 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 20:00 CEST (14:00 ET), Sneker Sporthal",
+    "note": "The federation's preview states the Friso Sneek v Meerdervoort VV Utrecht match is Wednesday at 20.00 - the OLBG time exactly. OLBG's 'VC Sneek' is the same club."
    },
    "model": {
     "basis": "consensus",
@@ -5726,10 +6405,10 @@
     "side": "home",
     "label": "VC Sneek W",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5751,11 +6430,11 @@
    "olbg_event_id": 36962,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.tauronliga.pl/games.html",
+    "official_label": "TAURON Liga official match centre, 2026/27",
+    "official_datetime": "Wed 21 Oct 2026, 20:30 CEST (14:30 ET)",
+    "note": "Official match centre shows Wednesday 21 Oct, 20:30 Aluron CMC Warta Zawiercie v ZAKSA - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5776,10 +6455,10 @@
     "side": "home",
     "label": "Warta Zawiercie",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5801,11 +6480,11 @@
    "olbg_event_id": 36977,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.legavolleyfemminile.it/lvf-a1-fineco-derby-dalta-quota-tra-bergamo-e-milano-vallefoglia-cerca-conferme-contro-cuneo/",
+    "official_label": "Lega Volley Femminile official round-4 programme, 20 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 20:30 CEST (14:30 ET)",
+    "note": "The league's own round programme lists Megabox Vallefoglia v Cuneo on Wednesday 21 Oct at 20.30 - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5826,10 +6505,10 @@
     "side": "away",
     "label": "Cuneo W",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5851,11 +6530,11 @@
    "olbg_event_id": 36974,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.legavolleyfemminile.it/lvf-a1-fineco-derby-dalta-quota-tra-bergamo-e-milano-vallefoglia-cerca-conferme-contro-cuneo/",
+    "official_label": "Lega Volley Femminile official round-4 programme, 20 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 20:30 CEST (14:30 ET), ChorusLife Arena",
+    "note": "The league's own round programme lists ChorusLife Bergamo v Numia Milano on Wednesday 21 Oct at 20.30 - the OLBG time exactly."
    },
    "model": {
     "basis": "consensus",
@@ -5876,10 +6555,10 @@
     "side": "away",
     "label": "Milano W",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -5901,11 +6580,11 @@
    "olbg_event_id": 36976,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "status": "verified",
+    "official_url": "https://www.legavolleyfemminile.it/lvf-a1-fineco-derby-dalta-quota-tra-bergamo-e-milano-vallefoglia-cerca-conferme-contro-cuneo/",
+    "official_label": "Lega Volley Femminile official round-4 programme, 20 Oct 2026",
+    "official_datetime": "Wed 21 Oct 2026, 20:30 CEST (14:30 ET), Pala Igor",
+    "note": "The league programme lists Igor Gorgonzola Novara v Omag Consolini Volley 1907 (San Giovanni in Marignano) on Wednesday 21 Oct at 20.30 - the OLBG time exactly; OLBG's 'Marignano' is that club."
    },
    "model": {
     "basis": "consensus",
@@ -5926,10 +6605,10 @@
     "side": "home",
     "label": "Novara W",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
