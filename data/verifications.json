@@ -1,595 +1,1702 @@
 {
-  "retrieved_at": "2026-10-21T05:40:00Z",
-  "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate).",
-  "sources": [
-    {
-      "id": "S-OLBG-ALL",
-      "name": "OLBG \u2014 Betting Tips (all sports)",
-      "url": "https://www.olbg.com/betting-tips",
-      "class": "official",
-      "note": "Publisher's own page; source for every OLBG field in data/raw/olbg-harvest-20261021.tsv. Also the source for the exclusion taxonomy (sport list)."
-    },
-    {
-      "id": "S-OLBG-CRI",
-      "name": "OLBG \u2014 Cricket tips",
-      "url": "https://www.olbg.com/betting-tips/Cricket/7",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-TEN",
-      "name": "OLBG \u2014 Tennis tips",
-      "url": "https://www.olbg.com/betting-tips/Tennis/3",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-BKB",
-      "name": "OLBG \u2014 Basketball tips",
-      "url": "https://www.olbg.com/betting-tips/Basketball/4",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-SNO",
-      "name": "OLBG \u2014 Snooker tips",
-      "url": "https://www.olbg.com/betting-tips/Snooker/8",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-DAR",
-      "name": "OLBG \u2014 Darts tips",
-      "url": "https://www.olbg.com/betting-tips/Darts/15",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-RGU",
-      "name": "OLBG \u2014 Rugby Union tips",
-      "url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-RGL",
-      "name": "OLBG \u2014 Rugby League tips",
-      "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-IH",
-      "name": "OLBG \u2014 Ice Hockey tips",
-      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-BSB",
-      "name": "OLBG \u2014 Baseball tips",
-      "url": "https://www.olbg.com/betting-tips/Baseball/12",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-VOL",
-      "name": "OLBG \u2014 Volleyball tips",
-      "url": "https://www.olbg.com/betting-tips/Volleyball/21",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-HB",
-      "name": "OLBG \u2014 Handball tips",
-      "url": "https://www.olbg.com/betting-tips/Handball/20",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-GLF",
-      "name": "OLBG \u2014 Golf tips",
-      "url": "https://www.olbg.com/betting-tips/Golf/5",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-MOT",
-      "name": "OLBG \u2014 Motor Racing tips",
-      "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-GAA",
-      "name": "OLBG \u2014 Gaelic Football tips",
-      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
-      "class": "official"
-    },
-    {
-      "id": "S-OLBG-GRY",
-      "name": "OLBG \u2014 Greyhound tips",
-      "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
-      "class": "official"
-    },
-    {
-      "id": "S-PDC-EC26",
-      "name": "PDC \u2014 2026 Machineseeker European Championship schedule confirmed (official)",
-      "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "class": "official",
-      "quote": "\u00a3750,000 ... Westfalenhalle from October 22-25 ... Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8: Luke Woodhouse v Dirk van Duijvenbode ... Luke Humphries v Ryan Searle ..."
-    },
-    {
-      "id": "S-MLB-WS",
-      "name": "MLB.com \u2014 2026 postseason / World Series schedule (official)",
-      "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
-      "class": "official",
-      "quote": "Friday, Oct. 23 Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes)"
-    },
-    {
-      "id": "S-ESPN-WS",
-      "name": "ESPN \u2014 Rays vs Brewers game page",
-      "url": "https://www.espn.com/mlb/game/_/gameId/401908042/rays-brewers",
-      "class": "secondary",
-      "quote": "World Series - Game 1 ... American Family Field, 8:00 PM, October 23, 2026 ... Rays 98-64 ... Brewers 103-59"
-    },
-    {
-      "id": "S-NBA-WAS",
-      "name": "NBA / Washington Wizards \u2014 2026-27 schedule announcement (official)",
-      "url": "https://www.nba.com/wizards/news/wizards-announce-2026-27schedule",
-      "class": "official",
-      "quote": "Season Opener set for Oct. 21 Against Milwaukee"
-    },
-    {
-      "id": "S-ESPN-NHL",
-      "name": "ESPN \u2014 NHL schedule, Wednesday 21 October 2026",
-      "url": "https://www.espn.com/nhl/schedule",
-      "class": "secondary",
-      "quote": "Wednesday, October 21, 2026 ... Philadelphia @ Buffalo 7:30 PM TNT truTV"
-    },
-    {
-      "id": "S-CBS-NHL-BUF",
-      "name": "CBS Sports \u2014 Buffalo Sabres 2026-27 schedule/results",
-      "url": "https://www.cbssports.com/nhl/teams/BUF/buffalo-sabres/",
-      "class": "secondary",
-      "quote": "Oct 10 vs UTA L 4-1; Oct 12 vs FLA W 5-3; Oct 13 @ MON L 4-3 SO; Oct 15 @ TOR W 5-4 OT; Oct 17 @ MON L 4-3 OT ... BUF -185, O/U 5.5"
-    },
-    {
-      "id": "S-ESPN-NHL-PHI",
-      "name": "ESPN \u2014 Philadelphia Flyers 2026-27 results",
-      "url": "https://www.espn.com/nhl/team/schedule/_/name/phi",
-      "class": "secondary",
-      "quote": "Sat, Oct 17 vs Ottawa W 3-1; Mon, Oct 19 vs Colorado W 3-2"
-    },
-    {
-      "id": "S-SNOOKER-ORG",
-      "name": "snooker.org \u2014 2026 BetVictor Northern Ireland Open results and upcoming matches",
-      "url": "https://www.snooker.org/res/index.asp?event=2548",
-      "class": "primary",
-      "quote": "Rd 1: John Higgins [7] 4-1 Liam Highfield; Jak Jones [30] 4-1 Tom Ford. Upcoming: Rd 2 (7) John Higgins v Jak Jones, 2026-10-21 12:00:00Z"
-    },
-    {
-      "id": "S-WST-NIO",
-      "name": "World Snooker Tour \u2014 match centre, BetVictor Northern Ireland Open 2026",
-      "url": "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7",
-      "class": "official",
-      "quote": "BetVictor Northern Ireland Open 2026 Round 1 ... John Higgins v Liam Highfield"
-    },
-    {
-      "id": "S-BBC-NIO",
-      "name": "BBC Sport \u2014 Northern Ireland Open 2026 guide",
-      "url": "https://www.bbc.com/sport/snooker/articles/ck86zqje2n0po",
-      "class": "secondary",
-      "quote": "11th edition ... 18-25 October at the Waterfront Hall in Belfast ... first prize of \u00a3100,000 and the Alex Higgins Trophy"
-    },
-    {
-      "id": "S-DPWT-GEN",
-      "name": "DP World Tour \u2014 Genesis Championship 2026 (official tournament page)",
-      "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
-      "class": "official",
-      "quote": "22 - 25 Oct 2026"
-    },
-    {
-      "id": "S-DPWT-GEN-NEWS",
-      "name": "DP World Tour \u2014 Genesis Championship tenth edition at Woo Jeong Hills CC",
-      "url": "https://www.europeantour.com/dpworld-tour/news/articles/detail/genesis-championship-marks-its-tenth-edition-at-woo-jeong-hills-cc-this-october/",
-      "class": "official",
-      "quote": "co-sanctioned by the KPGA TOUR and the DP World Tour ... total prize fund of US$4 million ... October 22 to 25 at Woo Jeong Hills Country Club in Cheonan"
-    },
-    {
-      "id": "S-SBS-GEN",
-      "name": "SBS News \u2014 Genesis Championship preview",
-      "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008805966",
-      "class": "secondary",
-      "quote": "Woo Jeong Hills Country Club (par 71) in Cheonan ... October 22 through October 25 ... $4.0 million"
-    },
-    {
-      "id": "S-CRICINFO-NZIND",
-      "name": "ESPNcricinfo \u2014 India tour of New Zealand 2026-27 schedule",
-      "url": "https://www.cricinfo.com/series/india-in-new-zealand-2026-27-1539421/match-schedule-fixtures-and-results",
-      "class": "primary",
-      "quote": "Thu, 22 Oct '26 \u2014 1st T20I (N) \u2022 Christchurch ... 7:00 am GMT | 8:00 pm Local"
-    },
-    {
-      "id": "S-WIKI-NZIND",
-      "name": "Wikipedia \u2014 Indian cricket team in New Zealand in 2026-27",
-      "url": "https://en.wikipedia.org/wiki/Indian_cricket_team_in_New_Zealand_in_2026%E2%80%9327",
-      "class": "secondary",
-      "quote": "1st T20I 22 October 2026 20:00 (N) ... Hagley Oval, Christchurch"
-    },
-    {
-      "id": "S-ATP-CAL",
-      "name": "ATP Tour \u2014 2026 ATP Tour calendar (official PDF)",
-      "url": "https://www.atptour.com/-/media/files/calendar-pdfs/2025/2026-atp-tour-calendar-december-2025.pdf",
-      "class": "official",
-      "quote": "19 Oct-25 Oct Almaty Open ... BNP Paribas Fortis European Open Brussels ... Grand Prix Auvergne-Rhone-Alpes Lyon"
-    },
-    {
-      "id": "S-ATP-LYON",
-      "name": "ATP Tour \u2014 Lyon tournament page",
-      "url": "https://www.atptour.com/en/tournaments/lyon/496/overview",
-      "class": "official",
-      "quote": "19 - 25 October, 2026 Lyon, France"
-    },
-    {
-      "id": "S-URC-FIX",
-      "name": "United Rugby Championship \u2014 2026/27 fixtures in full (official)",
-      "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
-      "class": "official",
-      "quote": "ROUND 4 \u2014 FRIDAY, OCTOBER 23: Cardiff v Hollywoodbets Sharks; Edinburgh v Lions. SATURDAY, OCTOBER 24: Vodacom Bulls v Ulster."
-    },
-    {
-      "id": "S-BBC-URC",
-      "name": "BBC Sport \u2014 United Rugby Championship scores & fixtures, 23-24 October 2026",
-      "url": "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
-      "class": "secondary",
-      "quote": "Connacht v Zebre 19:45; Bulls v Ulster 12:45; Stormers v Scarlets 15:00; Leinster v Munster 18:00 (24 Oct)."
-    },
-    {
-      "id": "S-WIKI-URC",
-      "name": "Wikipedia \u2014 2026-27 United Rugby Championship, Round 4",
-      "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship",
-      "class": "secondary",
-      "quote": "23 October Connacht v Zebre; 24 October Bulls v Ulster, Stormers v Scarlets, Leinster v Munster"
-    },
-    {
-      "id": "S-EHF-PSG",
-      "name": "EHF Champions League \u2014 Paris Saint-Germain club page (official)",
-      "url": "https://ehfcl.eurohandball.com/men/2026-27/clubs/details/hputODilVqNbBbAttPlUww/ParisSaintGermain/",
-      "class": "official",
-      "quote": "Wed Oct 21, 2026 18:45, Zagreb (CRO) \u2014 HC Zagreb vs Paris Saint-Germain \u2014 Group Phase C"
-    },
-    {
-      "id": "S-WIKI-EHF",
-      "name": "Wikipedia \u2014 2026-27 EHF Champions League group stage",
-      "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_EHF_Champions_League",
-      "class": "secondary",
-      "quote": "Group C row Aalborg H\u00e5ndbold \u2014 next fixture 21 Oct; Group Phase Round 5 21-22 October 2026"
-    }
-  ],
-  "event_verifications": {
-    "160789": {
-      "competition": "MLB World Series 2026, Game 1",
-      "venue": "American Family Field, Milwaukee, Wisconsin",
-      "start_local": "2026-10-23 20:00 ET",
-      "status": "verified",
-      "sources": [
-        "S-MLB-WS",
-        "S-ESPN-WS"
-      ],
-      "facts": [
-        "Brewers finished the regular season 103-59 and are the National League champion, sweeping the Dodgers 4-0 in the NLCS (ESPN / S-ESPN-WS).",
-        "Rays finished 98-64 and are the American League champion, beating Cleveland 4-2 in the ALCS (ESPN / S-ESPN-WS).",
-        "This is Milwaukee's first World Series appearance since 1982 and Tampa Bay's first since 2020 (S-ESPN-WS)."
-      ]
-    },
-    "534889": {
-      "competition": "NBA 2026-27 regular season (season opener)",
-      "venue": "Capital One Arena, Washington, D.C.",
-      "start_local": "2026-10-21 19:00 ET",
-      "status": "verified",
-      "sources": [
-        "S-NBA-WAS"
-      ],
-      "facts": [
-        "Washington's season opener is 21 October 2026 against Milwaukee (S-NBA-WAS).",
-        "Both teams enter 0-0: this is the first regular-season game of 2026-27 for each."
-      ]
-    },
-    "199897": {
-      "competition": "NHL 2026-27 regular season",
-      "venue": "KeyBank Center, Buffalo, New York",
-      "start_local": "2026-10-21 19:30 ET",
-      "status": "verified",
-      "sources": [
-        "S-ESPN-NHL",
-        "S-CBS-NHL-BUF"
-      ],
-      "facts": [
-        "Buffalo are 4-3-2 after nine games: L 4-1 vs UTA, W 5-3 vs FLA, L 4-3 SO at MON, W 5-4 OT at TOR, L 4-3 OT at MON (S-CBS-NHL-BUF).",
-        "Philadelphia are 2-6-3 and have won their last two: 3-1 vs Ottawa and 3-2 vs Colorado (S-ESPN-NHL-PHI)."
-      ],
-      "discrepancy": "OLBG lists this game as 'Tomorrow 00:37'. The official puck-drop is 21 Oct 2026 19:30 ET. See data/flagged.json FL-004."
-    },
-    "9934": {
-      "competition": "BetVictor Northern Ireland Open 2026 (World Snooker Tour ranking event), Round 2",
-      "venue": "Waterfront Hall, Belfast",
-      "start_local": "2026-10-21 12:00 UTC",
-      "status": "verified",
-      "sources": [
-        "S-SNOOKER-ORG",
-        "S-WST-NIO",
-        "S-BBC-NIO"
-      ],
-      "facts": [
-        "John Higgins [7] beat Liam Highfield 4-1 in round one (S-SNOOKER-ORG).",
-        "Jak Jones [30] beat Tom Ford 4-1 in round one (S-SNOOKER-ORG).",
-        "The event runs 18-25 October 2026 at the Waterfront Hall, Belfast, for a \u00a3100,000 first prize and the Alex Higgins Trophy (S-BBC-NIO)."
-      ]
-    },
-    "32337": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "188814": {
-      "competition": "India tour of New Zealand 2026-27, 1st T20I",
-      "venue": "Hagley Oval, Christchurch",
-      "start_local": "2026-10-22 20:00 NZDT",
-      "status": "verified",
-      "sources": [
-        "S-CRICINFO-NZIND",
-        "S-WIKI-NZIND"
-      ],
-      "facts": [
-        "First match of a five-match T20I series, 22 October 2026 at Hagley Oval (S-CRICINFO-NZIND, S-WIKI-NZIND).",
-        "Caveat: no team form, squad or selection data was verified for this fixture, so it is not used for a high-confidence prediction."
-      ]
-    },
-    "101905": {
-      "competition": "2026 Genesis Championship (DP World Tour / KPGA co-sanctioned)",
-      "venue": "Woo Jeong Hills Country Club, Cheonan, South Korea",
-      "start_local": "2026-10-22 to 2026-10-25",
-      "status": "partially_verified",
-      "sources": [
-        "S-DPWT-GEN",
-        "S-DPWT-GEN-NEWS",
-        "S-SBS-GEN"
-      ],
-      "facts": [
-        "Runs 22-25 October 2026, $4 million purse, co-sanctioned by the KPGA Tour and DP World Tour (S-DPWT-GEN-NEWS)."
-      ],
-      "discrepancy": "Course par is reported as 71 by SBS/other outlets and 72 elsewhere; par is therefore left blank. See FL-005."
-    },
-    "32324": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32334": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32325": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32322": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32330": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32323": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32329": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32335": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32332": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32333": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32327": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32328": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "32326": {
-      "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
-      "venue": "Westfalenhalle, Dortmund, Germany",
-      "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
-      "sources": [
-        "S-PDC-EC26"
-      ],
-      "facts": [
-        "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
-    },
-    "609577": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
-      "venue": "Dexcom Stadium, Galway",
-      "start_local": "2026-10-23 19:45 IRE/UK",
-      "status": "verified",
-      "sources": [
-        "S-URC-FIX",
-        "S-BBC-URC",
-        "S-WIKI-URC"
-      ],
-      "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
-      ]
-    },
-    "609576": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
-      "venue": "Loftus Versfeld, Pretoria",
-      "start_local": "2026-10-24 12:45 IRE/UK",
-      "status": "verified",
-      "sources": [
-        "S-URC-FIX",
-        "S-BBC-URC",
-        "S-WIKI-URC"
-      ],
-      "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
-      ]
-    },
-    "609580": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
-      "venue": null,
-      "start_local": "2026-10-24 15:00 IRE/UK",
-      "status": "verified",
-      "sources": [
-        "S-BBC-URC",
-        "S-WIKI-URC"
-      ],
-      "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
-      ],
-      "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016."
-    },
-    "609578": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
-      "venue": null,
-      "start_local": "2026-10-24 18:00 IRE/UK",
-      "status": "verified",
-      "sources": [
-        "S-BBC-URC",
-        "S-WIKI-URC"
-      ],
-      "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
-      ],
-      "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016."
-    },
-    "12053": {
-      "competition": "EHF Champions League Men 2026-27, Group Phase C",
-      "venue": "Arena Zagreb, Zagreb",
-      "start_local": "2026-10-21 18:45 CEST",
-      "status": "verified",
-      "sources": [
-        "S-EHF-PSG"
-      ],
-      "facts": [
-        "Official EHF club page lists HC Zagreb vs Paris Saint-Germain on Wed 21 Oct 2026 at 18:45 in Zagreb, Group Phase C (S-EHF-PSG)."
-      ]
-    },
-    "12044": {
-      "competition": "EHF Champions League Men 2026-27, Group Phase C",
-      "venue": null,
-      "start_local": "2026-10-21",
-      "status": "partially_verified",
-      "sources": [
-        "S-WIKI-EHF"
-      ],
-      "facts": [
-        "Aalborg H\u00e5ndbold's next Group C fixture is dated 21 October 2026 in the competition standings (S-WIKI-EHF). The opponent and venue are not stated in the retrieved text, so the fixture is matched on the OLBG name only."
-      ]
-    }
+ "retrieved_at": "2026-10-21T05:40:00Z",
+ "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate).",
+ "sources": [
+  {
+   "id": "S-OLBG-ALL",
+   "name": "OLBG — Betting Tips (all sports)",
+   "url": "https://www.olbg.com/betting-tips",
+   "class": "official",
+   "note": "Publisher's own page; source for every OLBG field in data/raw/olbg-harvest-20261021.tsv. Also the source for the exclusion taxonomy (sport list)."
+  },
+  {
+   "id": "S-OLBG-CRI",
+   "name": "OLBG — Cricket tips",
+   "url": "https://www.olbg.com/betting-tips/Cricket/7",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-TEN",
+   "name": "OLBG — Tennis tips",
+   "url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-BKB",
+   "name": "OLBG — Basketball tips",
+   "url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-SNO",
+   "name": "OLBG — Snooker tips",
+   "url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-DAR",
+   "name": "OLBG — Darts tips",
+   "url": "https://www.olbg.com/betting-tips/Darts/15",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-RGU",
+   "name": "OLBG — Rugby Union tips",
+   "url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-RGL",
+   "name": "OLBG — Rugby League tips",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-IH",
+   "name": "OLBG — Ice Hockey tips",
+   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-BSB",
+   "name": "OLBG — Baseball tips",
+   "url": "https://www.olbg.com/betting-tips/Baseball/12",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-VOL",
+   "name": "OLBG — Volleyball tips",
+   "url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-HB",
+   "name": "OLBG — Handball tips",
+   "url": "https://www.olbg.com/betting-tips/Handball/20",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-GLF",
+   "name": "OLBG — Golf tips",
+   "url": "https://www.olbg.com/betting-tips/Golf/5",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-MOT",
+   "name": "OLBG — Motor Racing tips",
+   "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-GAA",
+   "name": "OLBG — Gaelic Football tips",
+   "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+   "class": "official"
+  },
+  {
+   "id": "S-OLBG-GRY",
+   "name": "OLBG — Greyhound tips",
+   "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "class": "official"
+  },
+  {
+   "id": "S-PDC-EC26",
+   "name": "PDC — 2026 Machineseeker European Championship schedule confirmed (official)",
+   "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+   "class": "official",
+   "quote": "£750,000 ... Westfalenhalle from October 22-25 ... Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8: Luke Woodhouse v Dirk van Duijvenbode ... Luke Humphries v Ryan Searle ..."
+  },
+  {
+   "id": "S-MLB-WS",
+   "name": "MLB.com — 2026 postseason / World Series schedule (official)",
+   "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
+   "class": "official",
+   "quote": "Friday, Oct. 23 Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes)"
+  },
+  {
+   "id": "S-ESPN-WS",
+   "name": "ESPN — Rays vs Brewers game page",
+   "url": "https://www.espn.com/mlb/game/_/gameId/401908042/rays-brewers",
+   "class": "secondary",
+   "quote": "World Series - Game 1 ... American Family Field, 8:00 PM, October 23, 2026 ... Rays 98-64 ... Brewers 103-59"
+  },
+  {
+   "id": "S-NBA-WAS",
+   "name": "NBA / Washington Wizards — 2026-27 schedule announcement (official)",
+   "url": "https://www.nba.com/wizards/news/wizards-announce-2026-27schedule",
+   "class": "official",
+   "quote": "Season Opener set for Oct. 21 Against Milwaukee"
+  },
+  {
+   "id": "S-ESPN-NHL",
+   "name": "ESPN — NHL schedule, Wednesday 21 October 2026",
+   "url": "https://www.espn.com/nhl/schedule",
+   "class": "secondary",
+   "quote": "Wednesday, October 21, 2026 ... Philadelphia @ Buffalo 7:30 PM TNT truTV"
+  },
+  {
+   "id": "S-CBS-NHL-BUF",
+   "name": "CBS Sports — Buffalo Sabres 2026-27 schedule/results",
+   "url": "https://www.cbssports.com/nhl/teams/BUF/buffalo-sabres/",
+   "class": "secondary",
+   "quote": "Oct 10 vs UTA L 4-1; Oct 12 vs FLA W 5-3; Oct 13 @ MON L 4-3 SO; Oct 15 @ TOR W 5-4 OT; Oct 17 @ MON L 4-3 OT ... BUF -185, O/U 5.5"
+  },
+  {
+   "id": "S-ESPN-NHL-PHI",
+   "name": "ESPN — Philadelphia Flyers 2026-27 results",
+   "url": "https://www.espn.com/nhl/team/schedule/_/name/phi",
+   "class": "secondary",
+   "quote": "Sat, Oct 17 vs Ottawa W 3-1; Mon, Oct 19 vs Colorado W 3-2"
+  },
+  {
+   "id": "S-SNOOKER-ORG",
+   "name": "snooker.org — 2026 BetVictor Northern Ireland Open results and upcoming matches",
+   "url": "https://www.snooker.org/res/index.asp?event=2548",
+   "class": "primary",
+   "quote": "Rd 1: John Higgins [7] 4-1 Liam Highfield; Jak Jones [30] 4-1 Tom Ford. Upcoming: Rd 2 (7) John Higgins v Jak Jones, 2026-10-21 12:00:00Z"
+  },
+  {
+   "id": "S-WST-NIO",
+   "name": "World Snooker Tour — match centre, BetVictor Northern Ireland Open 2026",
+   "url": "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7",
+   "class": "official",
+   "quote": "BetVictor Northern Ireland Open 2026 Round 1 ... John Higgins v Liam Highfield"
+  },
+  {
+   "id": "S-BBC-NIO",
+   "name": "BBC Sport — Northern Ireland Open 2026 guide",
+   "url": "https://www.bbc.com/sport/snooker/articles/ck86zqje2n0po",
+   "class": "secondary",
+   "quote": "11th edition ... 18-25 October at the Waterfront Hall in Belfast ... first prize of £100,000 and the Alex Higgins Trophy"
+  },
+  {
+   "id": "S-DPWT-GEN",
+   "name": "DP World Tour — Genesis Championship 2026 (official tournament page)",
+   "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+   "class": "official",
+   "quote": "22 - 25 Oct 2026"
+  },
+  {
+   "id": "S-DPWT-GEN-NEWS",
+   "name": "DP World Tour — Genesis Championship tenth edition at Woo Jeong Hills CC",
+   "url": "https://www.europeantour.com/dpworld-tour/news/articles/detail/genesis-championship-marks-its-tenth-edition-at-woo-jeong-hills-cc-this-october/",
+   "class": "official",
+   "quote": "co-sanctioned by the KPGA TOUR and the DP World Tour ... total prize fund of US$4 million ... October 22 to 25 at Woo Jeong Hills Country Club in Cheonan"
+  },
+  {
+   "id": "S-SBS-GEN",
+   "name": "SBS News — Genesis Championship preview",
+   "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008805966",
+   "class": "secondary",
+   "quote": "Woo Jeong Hills Country Club (par 71) in Cheonan ... October 22 through October 25 ... $4.0 million"
+  },
+  {
+   "id": "S-CRICINFO-NZIND",
+   "name": "ESPNcricinfo — India tour of New Zealand 2026-27 schedule",
+   "url": "https://www.cricinfo.com/series/india-in-new-zealand-2026-27-1539421/match-schedule-fixtures-and-results",
+   "class": "primary",
+   "quote": "Thu, 22 Oct '26 — 1st T20I (N) • Christchurch ... 7:00 am GMT | 8:00 pm Local"
+  },
+  {
+   "id": "S-WIKI-NZIND",
+   "name": "Wikipedia — Indian cricket team in New Zealand in 2026-27",
+   "url": "https://en.wikipedia.org/wiki/Indian_cricket_team_in_New_Zealand_in_2026%E2%80%9327",
+   "class": "secondary",
+   "quote": "1st T20I 22 October 2026 20:00 (N) ... Hagley Oval, Christchurch"
+  },
+  {
+   "id": "S-ATP-CAL",
+   "name": "ATP Tour — 2026 ATP Tour calendar (official PDF)",
+   "url": "https://www.atptour.com/-/media/files/calendar-pdfs/2025/2026-atp-tour-calendar-december-2025.pdf",
+   "class": "official",
+   "quote": "19 Oct-25 Oct Almaty Open ... BNP Paribas Fortis European Open Brussels ... Grand Prix Auvergne-Rhone-Alpes Lyon"
+  },
+  {
+   "id": "S-ATP-LYON",
+   "name": "ATP Tour — Lyon tournament page",
+   "url": "https://www.atptour.com/en/tournaments/lyon/496/overview",
+   "class": "official",
+   "quote": "19 - 25 October, 2026 Lyon, France"
+  },
+  {
+   "id": "S-URC-FIX",
+   "name": "United Rugby Championship — 2026/27 fixtures in full (official)",
+   "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+   "class": "official",
+   "quote": "ROUND 4 — FRIDAY, OCTOBER 23: Cardiff v Hollywoodbets Sharks; Edinburgh v Lions. SATURDAY, OCTOBER 24: Vodacom Bulls v Ulster."
+  },
+  {
+   "id": "S-BBC-URC",
+   "name": "BBC Sport — United Rugby Championship scores & fixtures, 23-24 October 2026",
+   "url": "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
+   "class": "secondary",
+   "quote": "Connacht v Zebre 19:45; Bulls v Ulster 12:45; Stormers v Scarlets 15:00; Leinster v Munster 18:00 (24 Oct)."
+  },
+  {
+   "id": "S-WIKI-URC",
+   "name": "Wikipedia — 2026-27 United Rugby Championship, Round 4",
+   "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship",
+   "class": "secondary",
+   "quote": "23 October Connacht v Zebre; 24 October Bulls v Ulster, Stormers v Scarlets, Leinster v Munster"
+  },
+  {
+   "id": "S-EHF-PSG",
+   "name": "EHF Champions League — Paris Saint-Germain club page (official)",
+   "url": "https://ehfcl.eurohandball.com/men/2026-27/clubs/details/hputODilVqNbBbAttPlUww/ParisSaintGermain/",
+   "class": "official",
+   "quote": "Wed Oct 21, 2026 18:45, Zagreb (CRO) — HC Zagreb vs Paris Saint-Germain — Group Phase C"
+  },
+  {
+   "id": "S-WIKI-EHF",
+   "name": "Wikipedia — 2026-27 EHF Champions League group stage",
+   "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_EHF_Champions_League",
+   "class": "secondary",
+   "quote": "Group C row Aalborg Håndbold — next fixture 21 Oct; Group Phase Round 5 21-22 October 2026"
+  },
+  {
+   "id": "S-NBA-SCHED",
+   "name": "NBA.com official schedule, Oct 21-22 2026",
+   "url": "https://www.nba.com/schedule?date=10%2F21%2F2026",
+   "class": "official"
+  },
+  {
+   "id": "S-EHF-CAL",
+   "name": "EHF Champions League Men official calendar",
+   "url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+   "class": "official"
+  },
+  {
+   "id": "S-LNR-PD2",
+   "name": "LNR Pro D2 official calendar, Journee 8",
+   "url": "https://prod2.lnr.fr/calendrier-et-resultats",
+   "class": "official"
+  },
+  {
+   "id": "S-LNR-T14",
+   "name": "LNR Top 14 official calendar, Journee 7",
+   "url": "https://top14.lnr.fr/calendrier-et-resultats",
+   "class": "official"
+  },
+  {
+   "id": "S-ATP-ALMATY",
+   "name": "ATP Tour official results, Almaty (9410)",
+   "url": "https://www.atptour.com/en/scores/current/almaty/9410/results",
+   "class": "official"
+  },
+  {
+   "id": "S-ATP-BRUSSELS",
+   "name": "ATP Tour official results, Brussels (7485)",
+   "url": "https://www.atptour.com/en/scores/current/brussels/7485/results",
+   "class": "official"
+  },
+  {
+   "id": "S-ATP-ALMATY-NEWS",
+   "name": "ATP Tour news: Mannarino sets Rublev showdown in Almaty",
+   "url": "https://www.atptour.com/en/news/mannarino-vukic-almaty-2026-monday",
+   "class": "official"
+  },
+  {
+   "id": "S-WTA-NINGBO",
+   "name": "WTA official draws, BNB Ningbo Open 2026",
+   "url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws",
+   "class": "official"
+  },
+  {
+   "id": "S-WTA-OSAKA",
+   "name": "WTA official draws, Kinoshita Group Japan Open (Osaka) 2026",
+   "url": "https://www.wtatennis.com/tournaments/405/osaka/2026/draws",
+   "class": "official"
+  },
+  {
+   "id": "S-NHL-1021",
+   "name": "NHL.com official schedule, Oct 21 2026",
+   "url": "https://www.nhl.com/schedule/2026-10-21",
+   "class": "official"
+  },
+  {
+   "id": "S-ICE-GC",
+   "name": "ICE Hockey League game centre (Austrian federation feed)",
+   "url": "https://www.eishockey.at/game-center/ice?diviID=1280",
+   "class": "primary"
+  },
+  {
+   "id": "S-KAC-SP",
+   "name": "EC-KAC official fixtures page",
+   "url": "https://www.kac.at/spiele/",
+   "class": "official"
+  },
+  {
+   "id": "S-ICE-STD",
+   "name": "win2day ICE Hockey League official standings",
+   "url": "https://www.ice.hockey/",
+   "class": "official"
+  },
+  {
+   "id": "S-SHL-SE",
+   "name": "SHL official league site (schedule listings)",
+   "url": "https://www.shl.se/",
+   "class": "official"
+  },
+  {
+   "id": "S-EUROTV",
+   "name": "EuroLeague TV official schedule",
+   "url": "https://euroleague.tv/schedule",
+   "class": "official"
+  },
+  {
+   "id": "S-BKT-ECUP",
+   "name": "BKT EuroCup official competition pages",
+   "url": "https://www.euroleaguebasketball.com/eurocup/",
+   "class": "official"
+  },
+  {
+   "id": "S-CSA-FIX",
+   "name": "Cricket South Africa 2026/27 domestic fixture list (CSA announcement)",
+   "url": "https://cricket.co.za/",
+   "class": "primary",
+   "note": "CSA's published 2026/27 domestic schedule (club names as announced by CSA)."
+  },
+  {
+   "id": "S-CRICINFO-FIX",
+   "name": "ESPNcricinfo official fixtures board",
+   "url": "https://www.cricinfo.com/ci/content/match/fixtures",
+   "class": "primary"
+  },
+  {
+   "id": "S-ICC-AFG",
+   "name": "ICC official: Afghanistan multi-format series vs Bangladesh and Zimbabwe",
+   "url": "https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe",
+   "class": "official"
+  },
+  {
+   "id": "S-BBC-CRI-NAM",
+   "name": "BBC Sport fixtures: Ireland in Namibia 2026",
+   "url": "https://www.bbc.com/sport/cricket/articles/cr74p31v8d7xo",
+   "class": "secondary"
+  },
+  {
+   "id": "S-PZPS",
+   "name": "Polish Volleyball Federation (PZPS) official referee/match system, PlusLiga",
+   "url": "https://sedziowie.pzps.pl/system/mecze-plusliga/",
+   "class": "primary"
+  },
+  {
+   "id": "S-VFB-VB",
+   "name": "VfB Friedrichshafen official fixture list 2026/27",
+   "url": "https://www.vfb-volleyball.de/team/spielplan/",
+   "class": "official"
+  },
+  {
+   "id": "S-PGA-BERMUDA",
+   "name": "Butterfield Bermuda Championship official event site",
+   "url": "https://www.butterfieldbdachampionship.com/",
+   "class": "official"
+  },
+  {
+   "id": "S-LPGA-BMW",
+   "name": "LPGA official tournament page, BMW Ladies Championship",
+   "url": "https://www.lpga.com/tournaments/bmw-lpga-championship/results",
+   "class": "official"
+  },
+  {
+   "id": "S-BBC-GOLF",
+   "name": "BBC Sport golf calendar",
+   "url": "https://www.bbc.co.uk/sport/golf/calendar",
+   "class": "secondary"
+  },
+  {
+   "id": "S-AP-GOLF",
+   "name": "AP event previews: PGA Tour / LPGA / Champions week of Oct 19 2026",
+   "url": "https://apnews.com/article/pga-tour-bermuda-lpga-european-tour-asia-cc8d85ef7a726c2150184a314999baa2",
+   "class": "secondary"
+  },
+  {
+   "id": "S-LET-HERO",
+   "name": "Ladies European Tour 2026 schedule (Hero Women's Indian Open, 25 Oct)",
+   "url": "https://en.wikipedia.org/wiki/2026_Ladies_European_Tour",
+   "class": "secondary"
+  },
+  {
+   "id": "S-F1-USGP",
+   "name": "Formula 1 official: United States Grand Prix 2026",
+   "url": "https://www.formula1.com/en/racing/2026/united-states",
+   "class": "official"
+  },
+  {
+   "id": "S-F1-NEWS",
+   "name": "Formula 1 official weekend timetable article",
+   "url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+   "class": "official"
+  },
+  {
+   "id": "S-SCORES24-HB",
+   "name": "Scores24 fixture listing (corroboration only)",
+   "url": "https://scores24.live/en/handball/m-21-10-2026-hammarby-hb-alingsaas-prediction",
+   "class": "secondary"
+  },
+  {
+   "id": "S-SG-KBL",
+   "name": "Sportsgambler live-basketball schedule listing (corroboration only)",
+   "url": "https://www.sportsgambler.com/live-streaming/basketball/",
+   "class": "secondary"
   }
+ ],
+ "event_verifications": {
+  "160789": {
+   "competition": "MLB World Series 2026, Game 1",
+   "venue": "American Family Field, Milwaukee, Wisconsin",
+   "start_local": "2026-10-23 20:00 ET",
+   "status": "verified",
+   "sources": [
+    "S-MLB-WS",
+    "S-ESPN-WS"
+   ],
+   "facts": [
+    "Brewers finished the regular season 103-59 and are the National League champion, sweeping the Dodgers 4-0 in the NLCS (ESPN / S-ESPN-WS).",
+    "Rays finished 98-64 and are the American League champion, beating Cleveland 4-2 in the ALCS (ESPN / S-ESPN-WS).",
+    "This is Milwaukee's first World Series appearance since 1982 and Tampa Bay's first since 2020 (S-ESPN-WS)."
+   ]
+  },
+  "534889": {
+   "competition": "NBA 2026-27 regular season (season opener)",
+   "venue": "Capital One Arena, Washington, D.C.",
+   "start_local": "2026-10-21 19:00 ET",
+   "status": "verified",
+   "sources": [
+    "S-NBA-WAS"
+   ],
+   "facts": [
+    "Washington's season opener is 21 October 2026 against Milwaukee (S-NBA-WAS).",
+    "Both teams enter 0-0: this is the first regular-season game of 2026-27 for each."
+   ]
+  },
+  "199897": {
+   "competition": "NHL 2026-27 regular season",
+   "venue": "KeyBank Center, Buffalo, New York",
+   "start_local": "2026-10-21 19:30 ET",
+   "status": "verified",
+   "sources": [
+    "S-ESPN-NHL",
+    "S-CBS-NHL-BUF"
+   ],
+   "facts": [
+    "Buffalo are 4-3-2 after nine games: L 4-1 vs UTA, W 5-3 vs FLA, L 4-3 SO at MON, W 5-4 OT at TOR, L 4-3 OT at MON (S-CBS-NHL-BUF).",
+    "Philadelphia are 2-6-3 and have won their last two: 3-1 vs Ottawa and 3-2 vs Colorado (S-ESPN-NHL-PHI)."
+   ],
+   "discrepancy": "OLBG lists this game as 'Tomorrow 00:37'. The official puck-drop is 21 Oct 2026 19:30 ET. See data/flagged.json FL-004."
+  },
+  "9934": {
+   "competition": "BetVictor Northern Ireland Open 2026 (World Snooker Tour ranking event), Round 2",
+   "venue": "Waterfront Hall, Belfast",
+   "start_local": "2026-10-21 12:00 UTC",
+   "status": "verified",
+   "sources": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO",
+    "S-BBC-NIO"
+   ],
+   "facts": [
+    "John Higgins [7] beat Liam Highfield 4-1 in round one (S-SNOOKER-ORG).",
+    "Jak Jones [30] beat Tom Ford 4-1 in round one (S-SNOOKER-ORG).",
+    "The event runs 18-25 October 2026 at the Waterfront Hall, Belfast, for a £100,000 first prize and the Alex Higgins Trophy (S-BBC-NIO)."
+   ]
+  },
+  "32337": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "188814": {
+   "competition": "India tour of New Zealand 2026-27, 1st T20I",
+   "venue": "Hagley Oval, Christchurch",
+   "start_local": "2026-10-22 20:00 NZDT",
+   "status": "verified",
+   "sources": [
+    "S-CRICINFO-NZIND",
+    "S-WIKI-NZIND"
+   ],
+   "facts": [
+    "First match of a five-match T20I series, 22 October 2026 at Hagley Oval (S-CRICINFO-NZIND, S-WIKI-NZIND).",
+    "Caveat: no team form, squad or selection data was verified for this fixture, so it is not used for a high-confidence prediction."
+   ]
+  },
+  "101905": {
+   "competition": "2026 Genesis Championship (DP World Tour / KPGA co-sanctioned)",
+   "venue": "Woo Jeong Hills Country Club, Cheonan, South Korea",
+   "start_local": "2026-10-22 to 2026-10-25",
+   "status": "partially_verified",
+   "sources": [
+    "S-DPWT-GEN",
+    "S-DPWT-GEN-NEWS",
+    "S-SBS-GEN"
+   ],
+   "facts": [
+    "Runs 22-25 October 2026, $4 million purse, co-sanctioned by the KPGA Tour and DP World Tour (S-DPWT-GEN-NEWS)."
+   ],
+   "discrepancy": "Course par is reported as 71 by SBS/other outlets and 72 elsewhere; par is therefore left blank. See FL-005."
+  },
+  "32324": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32334": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32325": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32322": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32330": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32323": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32329": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32335": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32332": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32333": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32327": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32328": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "32326": {
+   "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue": "Westfalenhalle, Dortmund, Germany",
+   "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "status": "verified",
+   "sources": [
+    "S-PDC-EC26"
+   ],
+   "facts": [
+    "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
+   ]
+  },
+  "609577": {
+   "competition": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue": "Dexcom Stadium, Galway",
+   "start_local": "2026-10-23 19:45 IRE/UK",
+   "status": "verified",
+   "sources": [
+    "S-URC-FIX",
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "facts": [
+    "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
+   ]
+  },
+  "609576": {
+   "competition": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue": "Loftus Versfeld, Pretoria",
+   "start_local": "2026-10-24 12:45 IRE/UK",
+   "status": "verified",
+   "sources": [
+    "S-URC-FIX",
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "facts": [
+    "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
+   ]
+  },
+  "609580": {
+   "competition": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue": null,
+   "start_local": "2026-10-24 15:00 IRE/UK",
+   "status": "verified",
+   "sources": [
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "facts": [
+    "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
+   ],
+   "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016."
+  },
+  "609578": {
+   "competition": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue": null,
+   "start_local": "2026-10-24 18:00 IRE/UK",
+   "status": "verified",
+   "sources": [
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "facts": [
+    "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
+   ],
+   "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016."
+  },
+  "12053": {
+   "competition": "EHF Champions League Men 2026-27, Group Phase C",
+   "venue": "Arena Zagreb, Zagreb",
+   "start_local": "2026-10-21 18:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-PSG"
+   ],
+   "facts": [
+    "Official EHF club page lists HC Zagreb vs Paris Saint-Germain on Wed 21 Oct 2026 at 18:45 in Zagreb, Group Phase C (S-EHF-PSG)."
+   ]
+  },
+  "12044": {
+   "competition": "EHF Champions League Men 2026-27, Group Phase C",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "partially_verified",
+   "sources": [
+    "S-WIKI-EHF"
+   ],
+   "facts": [
+    "Aalborg Håndbold's next Group C fixture is dated 21 October 2026 in the competition standings (S-WIKI-EHF). The opponent and venue are not stated in the retrieved text, so the fixture is matched on the OLBG name only."
+   ]
+  },
+  "534888": {
+   "competition": "NBA 2026-27 regular season",
+   "venue": "Kia Center, Orlando, Florida",
+   "start_local": "2026-10-21 19:00 ET",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHED"
+   ],
+   "facts": [
+    "Atlanta Hawks at Orlando Magic, Wednesday 21 October 2026, 7:00 PM ET (S-NBA-SCHED)."
+   ]
+  },
+  "535673": {
+   "competition": "NBA 2026-27 regular season",
+   "venue": "Scotiabank Arena, Toronto",
+   "start_local": "2026-10-21 19:30 ET",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHED"
+   ],
+   "facts": [
+    "Chicago Bulls at Toronto Raptors, Wednesday 21 October 2026, 7:30 PM ET (S-NBA-SCHED)."
+   ]
+  },
+  "534892": {
+   "competition": "NBA 2026-27 regular season",
+   "venue": "Smoothie King Center, New Orleans",
+   "start_local": "2026-10-21 20:00 ET",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHED"
+   ],
+   "facts": [
+    "Indiana Pacers at New Orleans Pelicans, Wednesday 21 October 2026, 8:00 PM ET (S-NBA-SCHED)."
+   ]
+  },
+  "534893": {
+   "competition": "NBA 2026-27 regular season",
+   "venue": "Moda Center, Portland",
+   "start_local": "2026-10-21 22:00 ET",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHED"
+   ],
+   "facts": [
+    "Phoenix Suns at Portland Trail Blazers, Wednesday 21 October 2026, 10:00 PM ET (S-NBA-SCHED)."
+   ]
+  },
+  "534843": {
+   "competition": "NBA 2026-27 regular season",
+   "venue": "Paycom Center, Oklahoma City",
+   "start_local": "2026-10-22 21:30 ET",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHED"
+   ],
+   "facts": [
+    "Denver Nuggets at Oklahoma City Thunder, Thursday 22 October 2026, 9:30 PM ET (S-NBA-SCHED)."
+   ]
+  },
+  "12045": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21 18:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: Dinamo Bucuresti vs SAH (Skanderborg Aarhus Handbold) (2026-10-21 18:45 CEST listed as 18:45 CEST)."
+   ]
+  },
+  "12052": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21 18:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: RK Partizan AdmiralBet vs FC Porto (2026-10-21 18:45 CEST listed as 18:45 CEST)."
+   ]
+  },
+  "12055": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21 18:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: One Veszprem HC vs Fuchse Berlin (2026-10-21 18:45 CEST listed as 18:45 CEST)."
+   ]
+  },
+  "12050": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21 20:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: HBC Nantes vs HC Vardar 1961 (2026-10-21 20:45 CEST listed as 20:45 CEST)."
+   ]
+  },
+  "12047": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21 20:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: HC Kriens-Luzern vs Industria Kielce (2026-10-21 20:45 CEST listed as 20:45 CEST)."
+   ]
+  },
+  "12051": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-22 18:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: OTP Bank - PICK Szeged vs GOG (2026-10-22 18:45 CEST listed as 18:45 CEST)."
+   ]
+  },
+  "12049": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-22 18:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: MT Melsungen vs Orlen Wisla Plock (2026-10-22 18:45 CEST listed as 18:45 CEST)."
+   ]
+  },
+  "12054": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-22 20:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: Sporting Clube de Portugal vs IFK Kristianstad (2026-10-22 20:45 CEST listed as 20:45 CEST)."
+   ]
+  },
+  "12048": {
+   "competition": "EHF Champions League Men 2026-27",
+   "venue": null,
+   "start_local": "2026-10-22 20:45 CEST",
+   "status": "verified",
+   "sources": [
+    "S-EHF-CAL"
+   ],
+   "facts": [
+    "Listed on the official EHF CL calendar: Kolstad Handball vs SC Magdeburg (2026-10-22 20:45 CEST listed as 20:45 CEST)."
+   ]
+  },
+  "609556": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-22 21:00 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): US Montauban vs Oyonnax Rugby, 2026-10-22 21:00 CET."
+   ]
+  },
+  "609557": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 19:00 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): RC Narbonnais vs CA Brive, 2026-10-23 19:00 CET."
+   ]
+  },
+  "609558": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 19:30 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): SU Agen vs Nissa Rugby (Nice), 2026-10-23 19:30 CET."
+   ]
+  },
+  "609563": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 19:30 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): Soyaux-Angouleme XV vs US Dax, 2026-10-23 19:30 CET."
+   ]
+  },
+  "609560": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 19:30 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): Stade Aurillacois vs USON Nevers, 2026-10-23 19:30 CET."
+   ]
+  },
+  "609559": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 19:30 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): Valence Romans vs Colomiers Rugby, 2026-10-23 19:30 CET."
+   ]
+  },
+  "609562": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 21:00 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): Provence Rugby vs AS Beziers Herault, 2026-10-23 21:00 CET."
+   ]
+  },
+  "609561": {
+   "competition": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-23 21:00 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-PD2"
+   ],
+   "facts": [
+    "Listed on the official Pro D2 calendar (J8): FC Grenoble Rugby vs Biarritz Olympique PB, 2026-10-23 21:00 CET."
+   ]
+  },
+  "609564": {
+   "competition": "Top 14 2026-27, Journee 7 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-24 16:35 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-T14"
+   ],
+   "facts": [
+    "Listed on the official Top 14 calendar (J7): Aviron Bayonnais vs LOU Rugby, 2026-10-24 16:35 CET."
+   ]
+  },
+  "609567": {
+   "competition": "Top 14 2026-27, Journee 7 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-24 16:35 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-T14"
+   ],
+   "facts": [
+    "Listed on the official Top 14 calendar (J7): Stade Toulousain vs USA Perpignan, 2026-10-24 16:35 CET."
+   ]
+  },
+  "609554": {
+   "competition": "Top 14 2026-27, Journee 7 (LNR)",
+   "venue": null,
+   "start_local": "2026-10-25 21:05 CET",
+   "status": "verified",
+   "sources": [
+    "S-LNR-T14"
+   ],
+   "facts": [
+    "Listed on the official Top 14 calendar (J7): Stade Rochelais vs Union Bordeaux-Begles, 2026-10-25 21:05 CET."
+   ]
+  },
+  "902037": {
+   "competition": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 16",
+   "venue": "Almaty, Kazakhstan",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-ALMATY",
+    "S-ATP-ALMATY-NEWS"
+   ],
+   "facts": [
+    "ATP's own news states Mannarino set a second-round meeting with fourth seed Andrey Rublev at the indoor ATP 250 tournament in Almaty (S-ATP-ALMATY-NEWS). Both players appear in the official Almaty draw (S-ATP-ALMATY)."
+   ]
+  },
+  "901935": {
+   "competition": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 32",
+   "venue": "Almaty, Kazakhstan",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-ALMATY"
+   ],
+   "facts": [
+    "Zangar Nurlanuly (Kazakh wildcard) drawn against Tomas Machac in the Almaty main draw; ATP results/draw pages list the Almaty field (S-ATP-ALMATY)."
+   ]
+  },
+  "902038": {
+   "competition": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 16",
+   "venue": "Almaty, Kazakhstan",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-ALMATY"
+   ],
+   "facts": [
+    "James Duckworth vs (2) Luciano Darderi shown live on the ATP Tour official scores hub (Almaty, tournament id 9410)."
+   ]
+  },
+  "901993": {
+   "competition": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 32",
+   "venue": "Almaty, Kazakhstan",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-ALMATY"
+   ],
+   "facts": [
+    "Mattia Bellucci vs (6) Tomas Martin Etcheverry shown on the ATP Tour official scores hub (Almaty, tournament id 9410)."
+   ]
+  },
+  "902040": {
+   "competition": "ATP Almaty Open 2026 (ATP 250, indoor hard)",
+   "venue": "Almaty, Kazakhstan",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-ALMATY"
+   ],
+   "facts": [
+    "Facundo Diaz Acosta and Nikoloz Basilashvili are both in the official Almaty player field (S-ATP-ALMATY)."
+   ]
+  },
+  "901896": {
+   "competition": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250)",
+   "venue": "Brussels, Belgium",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-BRUSSELS"
+   ],
+   "facts": [
+    "Dino Prizmic and Damir Dzumhur both appear in the official Brussels draw field (S-ATP-BRUSSELS)."
+   ]
+  },
+  "902048": {
+   "competition": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250), Round of 16",
+   "venue": "Brussels, Belgium",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-BRUSSELS"
+   ],
+   "facts": [
+    "Official ATP Brussels draw shows the pairing M. Damm (LL) v F. Cerundolo (3) (S-ATP-BRUSSELS)."
+   ]
+  },
+  "902085": {
+   "competition": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250), Round of 16",
+   "venue": "Brussels, Belgium",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-BRUSSELS"
+   ],
+   "facts": [
+    "Mariano Navone won his R32 on 21 Oct (beat Juan Manuel Cerundolo 7-6(10) 6-2); Tallon Griekspoor won his R32 (beat Max Schoenhaus), setting up this R16 on the official results page (S-ATP-BRUSSELS)."
+   ]
+  },
+  "902028": {
+   "competition": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250), Round of 32",
+   "venue": "Brussels, Belgium",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-BRUSSELS"
+   ],
+   "facts": [
+    "Official ATP Brussels draw shows the pairing D. Goffin (WC) v R. Bertola (LL) (S-ATP-BRUSSELS)."
+   ]
+  },
+  "901974": {
+   "competition": "Grand Prix Auvergne-Rhone-Alpes (Lyon) 2026 (ATP 250), Round of 32",
+   "venue": "Lyon, France",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-ATP-LYON"
+   ],
+   "facts": [
+    "ATP Tour's site lists Stan Wawrinka v Martin Landaluce among the week's featured head-to-head match-ups; both are in the Lyon tournament field (S-ATP-LYON)."
+   ]
+  },
+  "902039": {
+   "competition": "BNB Ningbo Open 2026 (WTA 500), Round of 16",
+   "venue": "Ningbo, China",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-WTA-NINGBO"
+   ],
+   "facts": [
+    "Official WTA Ningbo draw released; the singles draw contains the Fernandez / Sasnovich section (S-WTA-NINGBO)."
+   ]
+  },
+  "902084": {
+   "competition": "BNB Ningbo Open 2026 (WTA 500), Round of 16",
+   "venue": "Ningbo, China",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-WTA-NINGBO"
+   ],
+   "facts": [
+    "Official WTA Ningbo draw released; Ekaterina Alexandrova and (3) Marta Kostyuk are placed in the same R16 slot (S-WTA-NINGBO)."
+   ],
+   "discrepancy": "OLBG shows 'Today 07:00' for this match; WTA/Ningbo session times are local China time. Time label is OLBG's own (US Eastern convention)."
+  },
+  "902074": {
+   "competition": "BNB Ningbo Open 2026 (WTA 500), Round of 16",
+   "venue": "Ningbo, China",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-WTA-NINGBO"
+   ],
+   "facts": [
+    "Official WTA Ningbo draw released; Sorana Cirstea (8) and Sara Bejlek appear in the draw (S-WTA-NINGBO)."
+   ]
+  },
+  "902065": {
+   "competition": "Kinoshita Group Japan Open (Osaka) 2026 (WTA)",
+   "venue": "Osaka, Japan",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-WTA-OSAKA"
+   ],
+   "facts": [
+    "Official WTA Osaka (Japan Open) singles draw released; Katie Boulter and Viktorija Golubic are in the draw (S-WTA-OSAKA)."
+   ]
+  },
+  "9929": {
+   "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue": "Waterfront Hall, Belfast",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "facts": [
+    "Listed on the official NIO upcoming-matches board (event 2548): Pang Junxu [26] v Liam Davies [89] - Wed 21 Oct, session 1."
+   ]
+  },
+  "9933": {
+   "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue": "Waterfront Hall, Belfast",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "facts": [
+    "Listed on the official NIO upcoming-matches board (event 2548): Cheung Ka Wai [106] v Stuart Bingham [19] - Wed 21 Oct, session 1."
+   ]
+  },
+  "9930": {
+   "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue": "Waterfront Hall, Belfast",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "facts": [
+    "Listed on the official NIO upcoming-matches board (event 2548): Sam Craigie [70] v Xu Si [36] - Wed 21 Oct (estimated 09:00 America/New_York listing)."
+   ]
+  },
+  "9931": {
+   "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue": "Waterfront Hall, Belfast",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "facts": [
+    "Listed on the official NIO upcoming-matches board (event 2548): Elliot Slessor [22] v Jamie Jones [60] - Wed 21 Oct (estimated 15:00 listing)."
+   ]
+  },
+  "9932": {
+   "competition": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue": "Waterfront Hall, Belfast",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "facts": [
+    "Listed on the official NIO upcoming-matches board (event 2548): Luca Brecel [39] v Martin O'Donnell [55] - Wed 21 Oct (estimated 15:00 listing)."
+   ]
+  },
+  "199881": {
+   "competition": "win2day ICE Hockey League 2026/27 (Austria)",
+   "venue": null,
+   "start_local": "2026-10-21 19:45",
+   "status": "verified",
+   "sources": [
+    "S-ICE-GC"
+   ],
+   "facts": [
+    "Official game centre lists 21.10.2026 19:45 HC Falkensteiner Pustertal v Pioneers Vorarlberg (S-ICE-GC)."
+   ]
+  },
+  "199876": {
+   "competition": "win2day ICE Hockey League 2026/27 (Austria)",
+   "venue": null,
+   "start_local": "2026-10-21 18:30",
+   "status": "verified",
+   "sources": [
+    "S-ICE-GC"
+   ],
+   "facts": [
+    "Official game centre lists 21.10.2026 18:30 Moser Medical Graz99ers v Milano HC (S-ICE-GC)."
+   ]
+  },
+  "199880": {
+   "competition": "win2day ICE Hockey League 2026/27 (Austria)",
+   "venue": "Heidi Horten-Arena, Klagenfurt",
+   "start_local": "2026-10-21 19:15",
+   "status": "verified",
+   "sources": [
+    "S-KAC-SP",
+    "S-ICE-GC"
+   ],
+   "facts": [
+    "EC-KAC official fixtures page lists Mi 21 Okt 2026 19:15 v Fehervar AV19 at the Heidi Horten-Arena (S-KAC-SP)."
+   ]
+  },
+  "199896": {
+   "competition": "NHL 2026-27 regular season",
+   "venue": "Canadian Tire Centre, Ottawa",
+   "start_local": "2026-10-21 19:30 ET",
+   "status": "verified",
+   "sources": [
+    "S-NHL-1021"
+   ],
+   "facts": [
+    "NHL.com schedule for Wed 21 Oct lists Panthers @ Senators, 7:30 PM EDT (gamecenter fla-vs-ott) (S-NHL-1021)."
+   ],
+   "discrepancy": "OLBG lists this game as 'Tomorrow 00:37'. Official puck drop is 21 Oct 19:30 ET. See time-label flag."
+  },
+  "199901": {
+   "competition": "SHL 2026/27 (Sweden)",
+   "venue": "SCA Arena, Timra",
+   "start_local": "2026-10-22 19:00 CET",
+   "status": "verified",
+   "sources": [
+    "S-SHL-SE"
+   ],
+   "facts": [
+    "SHL schedule listings for Thu 22 Oct 2026 show Timra IK v Farjestad BK, 19:00, SCA Arena (S-SHL-SE; corroborated by Swedish TV/schedule boards)."
+   ]
+  },
+  "535919": {
+   "competition": "Turkish Airlines EuroLeague 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-EUROTV"
+   ],
+   "facts": [
+    "EuroLeague TV official schedule: Hapoel IBI Tel Aviv v Virtus Bologna, Wed 21 Oct 2026 (S-EUROTV)."
+   ]
+  },
+  "535923": {
+   "competition": "Turkish Airlines EuroLeague 2026-27",
+   "venue": null,
+   "start_local": "2026-10-22",
+   "status": "verified",
+   "sources": [
+    "S-EUROTV"
+   ],
+   "facts": [
+    "EuroLeague TV official schedule: Panathinaikos AKTOR Athens v Kosner Baskonia Vitoria-Gasteiz, Thu 22 Oct 2026 (S-EUROTV)."
+   ]
+  },
+  "535949": {
+   "competition": "BKT EuroCup 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-EUROTV",
+    "S-BKT-ECUP"
+   ],
+   "facts": [
+    "EuroLeague TV official schedule: U-BT Cluj-Napoca v London Lions, Wed 21 Oct 2026 (S-EUROTV)."
+   ]
+  },
+  "535952": {
+   "competition": "BKT EuroCup 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-EUROTV",
+    "S-BKT-ECUP"
+   ],
+   "facts": [
+    "EuroLeague TV official schedule: PAOK Thessaloniki v ratiopharm ulm, Wed 21 Oct 2026 (S-EUROTV)."
+   ]
+  },
+  "535950": {
+   "competition": "BKT EuroCup 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-BKT-ECUP"
+   ],
+   "facts": [
+    "BKT EuroCup Wednesday slate includes Bosna Sarajevo v Bahcesehir Koleji (S-BKT-ECUP; corroborated by live-basketball listings)."
+   ]
+  },
+  "535956": {
+   "competition": "BKT EuroCup 2026-27",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-BKT-ECUP"
+   ],
+   "facts": [
+    "BKT EuroCup Wednesday slate includes Hapoel Jerusalem v Rigas Zelli (S-BKT-ECUP; corroborated by live-basketball listings)."
+   ]
+  },
+  "535966": {
+   "competition": "KBL 2026-27 (Korean Basketball League)",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified_secondary_only",
+   "sources": [
+    "S-SG-KBL"
+   ],
+   "facts": [
+    "Listed on a live-basketball schedule as Seoul Thunders v KCC Egis, 21 Oct (KBL). Official KBL schedule page not retrieved in this pass."
+   ]
+  },
+  "188824": {
+   "competition": "ODI Tri-Nation Series in UAE 2026 (Afghanistan-Bangladesh-Zimbabwe), 3rd Match",
+   "venue": null,
+   "start_local": "2026-10-21 15:30 local (D/N)",
+   "status": "verified",
+   "sources": [
+    "S-ICC-AFG",
+    "S-CRICINFO-FIX"
+   ],
+   "facts": [
+    "ICC's official announcement lists the ODI Tri-Nation Series fixture '21 October: Afghanistan v Bangladesh' (S-ICC-AFG). ESPNcricinfo fixtures board lists '3rd Match, UAE ODI Tri-Series, 21 Oct, 11:30 GMT' (S-CRICINFO-FIX)."
+   ],
+   "discrepancy": "Venue disputed between sources: several fixtures boards say Abu Dhabi (Sheikh Zayed), while other listings and the cricinfo live page say Sharjah Cricket Stadium. Venue left blank pending a single official confirmation."
+  },
+  "188823": {
+   "competition": "CSA T20 Challenge 2026, Pool A",
+   "venue": "Diamond Oval, Kimberley",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-CSA-FIX"
+   ],
+   "facts": [
+    "CSA's published 2026/27 domestic schedule: '21 October 2026 - Northern Cape Heat vs Garden Route Badgers - Kimberley Oval, Kimberley' (S-CSA-FIX)."
+   ]
+  },
+  "188810": {
+   "competition": "CSA T20 Challenge 2026, Pool A",
+   "venue": "NWU Oval / Senwes Park, Potchefstroom",
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-CSA-FIX"
+   ],
+   "facts": [
+    "CSA's published 2026/27 domestic schedule: '21 October 2026 - North West Dragons vs Wenbro Limpopo Impalas - NWU Oval, Potchefstroom' (S-CSA-FIX)."
+   ]
+  },
+  "188811": {
+   "competition": "CSA T20 Challenge 2026, Pool B",
+   "venue": "Willowmoore Park, Benoni",
+   "start_local": "2026-10-22",
+   "status": "verified",
+   "sources": [
+    "S-CSA-FIX"
+   ],
+   "facts": [
+    "CSA's published 2026/27 domestic schedule: '22 October 2026 - World Sports Betting Eastern Storm vs Moothee Ram Tuskers - Willowmoore Park, Benoni' (S-CSA-FIX)."
+   ]
+  },
+  "188825": {
+   "competition": "CSA T20 Challenge 2026, Pool B",
+   "venue": "Uplands College, White River",
+   "start_local": "2026-10-22",
+   "status": "verified",
+   "sources": [
+    "S-CSA-FIX"
+   ],
+   "facts": [
+    "CSA's published 2026/27 domestic schedule: '22 October 2026 - Mpumalanga Rhinos vs CSA Emerging - Uplands College, White River' (S-CSA-FIX)."
+   ]
+  },
+  "188828": {
+   "competition": "Ireland tour of Namibia 2026-27, 1st ODI",
+   "venue": "Windhoek (High Performance Oval / Namibia Cricket Ground)",
+   "start_local": "2026-10-22",
+   "status": "verified",
+   "sources": [
+    "S-CRICINFO-FIX",
+    "S-BBC-CRI-NAM"
+   ],
+   "facts": [
+    "ESPNcricinfo fixtures: 'Namibia v Ireland at Windhoek, 1st ODI, 22 Oct, 08:00 GMT' (S-CRICINFO-FIX). BBC Sport's tour page lists the 1st ODI on 22 October in Windhoek (S-BBC-CRI-NAM)."
+   ],
+   "discrepancy": "Ground named 'High Performance Oval' by some fixtures boards and 'Namibia Cricket Ground' by others (same Windhoek complex)."
+  },
+  "188829": {
+   "competition": "Pakistan ODI Tri-Series 2026, 3rd Match",
+   "venue": "Rawalpindi Cricket Stadium",
+   "start_local": "2026-10-22 10:00 local",
+   "status": "verified",
+   "sources": [
+    "S-CRICINFO-FIX"
+   ],
+   "facts": [
+    "ESPNcricinfo fixtures: 'England v Sri Lanka at Rawalpindi, Pakistan ODI Tri-Series, 22 Oct, 08:00 GMT' (S-CRICINFO-FIX)."
+   ]
+  },
+  "188826": {
+   "competition": "New Zealand Women tour of Australia 2026-27, 3rd T20I",
+   "venue": "North Sydney Oval, Sydney",
+   "start_local": "2026-10-22 19:15 local",
+   "status": "verified",
+   "sources": [
+    "S-CRICINFO-FIX"
+   ],
+   "facts": [
+    "ESPNcricinfo lists 'Australia Women v New Zealand Women, 3rd T20I (N), North Sydney, 22 Oct 2026' (S-CRICINFO-FIX)."
+   ],
+   "discrepancy": "One fixtures board (cricketworld) names Junction Oval, Melbourne; ESPNcricinfo and ESPN both say North Sydney. Venue recorded from the majority source; see flagged register."
+  },
+  "36961": {
+   "competition": "PlusLiga 2026-27 (Poland)",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-PZPS"
+   ],
+   "facts": [
+    "Polish Volleyball Federation (PZPS) match system lists 2026-10-21 BOGDANKA LUK Lublin v Trefl Gdansk SA (S-PZPS)."
+   ]
+  },
+  "36962": {
+   "competition": "PlusLiga 2026-27 (Poland)",
+   "venue": null,
+   "start_local": "2026-10-21",
+   "status": "verified",
+   "sources": [
+    "S-PZPS"
+   ],
+   "facts": [
+    "Polish Volleyball Federation (PZPS) match system lists 2026-10-21 Aluron CMC Warta Zawiercie v ZAKSA Kedzierzyn-Koźle (S-PZPS)."
+   ]
+  },
+  "36985": {
+   "competition": "1. Volleyball Bundesliga 2026-27 (Germany)",
+   "venue": null,
+   "start_local": "2026-10-21 19:30",
+   "status": "verified",
+   "sources": [
+    "S-VFB-VB"
+   ],
+   "facts": [
+    "VfB Friedrichshafen official fixture list: 'Mittwoch, 21.10.2026 19:30 Uhr - WWK Volleys Munchen : VfB Friedrichshafen' (S-VFB-VB)."
+   ]
+  },
+  "36984": {
+   "competition": "1. Volleyball Bundesliga 2026-27 (Germany)",
+   "venue": null,
+   "start_local": "2026-10-21 19:00",
+   "status": "verified_secondary_only",
+   "sources": [
+    "S-VFB-VB"
+   ],
+   "facts": [
+    "Bundesliga club schedule boards for 21.10.2026 19:00 list Netzhoppers KW v TSV (Helios Grizzlys) Giesen; Giesen and Netzhoppers both appear in VfB Friedrichshafen's official 2026/27 fixture grid (S-VFB-VB)."
+   ]
+  },
+  "101904": {
+   "competition": "PGA Tour: Butterfield Bermuda Championship 2026",
+   "venue": "Port Royal Golf Club, Southampton Parish, Bermuda",
+   "start_local": "2026-10-22 to 2026-10-25",
+   "status": "verified",
+   "sources": [
+    "S-PGA-BERMUDA",
+    "S-BBC-GOLF"
+   ],
+   "facts": [
+    "Official event site: 'The Butterfield Bermuda Championship is a PGA TOUR event that will be staged at Port Royal Golf Club and played October 22-25, 2026' (S-PGA-BERMUDA). BBC golf calendar agrees (S-BBC-GOLF)."
+   ]
+  },
+  "101906": {
+   "competition": "LPGA Tour: BMW Ladies Championship 2026",
+   "venue": "Pine Beach Golf Links, Haenam-gun, Republic of Korea",
+   "start_local": "2026-10-22 to 2026-10-25",
+   "status": "verified",
+   "sources": [
+    "S-LPGA-BMW",
+    "S-BBC-GOLF"
+   ],
+   "facts": [
+    "LPGA official tournament page: 'October 22-25, 2026 | Haenam-gun, Jeollanam-do, Republic of Korea | Pine Beach Golf Links' (S-LPGA-BMW)."
+   ]
+  },
+  "101903": {
+   "competition": "PGA Tour Champions: Stifel Charity Classic 2026",
+   "venue": "Norwood Hills Country Club, St. Louis",
+   "start_local": "2026-10-22 to 2026-10-25",
+   "status": "verified_secondary_only",
+   "sources": [
+    "S-AP-GOLF"
+   ],
+   "facts": [
+    "AP's tournament preview for the week lists the Stifel Charity Classic (PGA Tour Champions, Charles Schwab Cup Playoffs) at Norwood Hills CC, St. Louis (S-AP-GOLF)."
+   ]
+  },
+  "101909": {
+   "competition": "Ladies European Tour 2026: Hero Women's Indian Open",
+   "venue": "India",
+   "start_local": "2026-10-22 to 2026-10-25",
+   "status": "verified_secondary_only",
+   "sources": [
+    "S-LET-HERO"
+   ],
+   "facts": [
+    "LET 2026 schedule lists Hero Women's Indian Open, week of 25 October, India (S-LET-HERO)."
+   ]
+  },
+  "913": {
+   "competition": "Formula 1 MSC Cruises United States Grand Prix 2026 (FIA Formula One World Championship)",
+   "venue": "Circuit of the Americas, Austin, Texas",
+   "start_local": "2026-10-25 15:00 local (race); practices 23-24 Oct",
+   "status": "verified",
+   "sources": [
+    "S-F1-USGP",
+    "S-F1-NEWS"
+   ],
+   "facts": [
+    "Formula 1 official race page lists the United States Grand Prix weekend 23-25 October 2026 at the Circuit of the Americas (S-F1-USGP). Official timetable article: Grand Prix Sunday 25 October, 56 laps (S-F1-NEWS)."
+   ],
+   "discrepancy": "Round number differs between outlets (18 in F1/Wikipedia listings, 19 in one preview). Round number not recorded."
+  },
+  "828": {
+   "competition": "Formula 1 Drivers Championship 2026 (outright market, not a fixture)",
+   "venue": null,
+   "start_local": null,
+   "status": "verified_market_row",
+   "sources": [
+    "S-F1-NEWS"
+   ],
+   "facts": [
+    "This row is an outright championship market, not a match. Championship state as published by Formula 1: Kimi Antonelli leads the drivers' standings (approaching Austin with a lead over team-mate George Russell) (S-F1-NEWS)."
+   ]
+  },
+  "912": {
+   "competition": "Formula 1 Drivers Championship 2026 Without Kimi Antonelli (outright derivative market, not a fixture)",
+   "venue": null,
+   "start_local": null,
+   "status": "verified_market_row",
+   "sources": [
+    "S-F1-NEWS"
+   ],
+   "facts": [
+    "Outright derivative market excluding the championship leader. F1's official reporting confirms Antonelli is the standings leader this market is built around (S-F1-NEWS)."
+   ]
+  }
+ }
 }

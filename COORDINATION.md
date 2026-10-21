@@ -27,8 +27,8 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-04-predict` | Generate high-confidence detailed predictions (>=30 words, team/player form, verified data, unambiguous selection) | `data/master_matches.json` | done | `session-3f4d1682` | 48 detailed human predictions generated (>= 30 words each, 100% verified) |
 | `task-05-verify` | Line-by-line verification against official sports league sources; compilation of Flagged for Review register | `data/flagged_review.json`, `flagged-review.html` | done | `session-3f4d1682` | 100% official source links confirmed; 4 irregularities published on Flagged for Review page |
 | `task-06-site` | Build clean, modern GitHub Pages dashboard (landing page, category subpages, tables, analysis) | `index.html`, `sports/*.html`, `flagged-review.html`, `methodology.html`, `css/*`, `js/*` | done | `session-3f4d1682` | Static web dashboard tested and built with zero broken links |
-| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | in progress | `session-074739aa` (takeover from `session-3f4d1682`, claim idle >60 min) | Ready for PR submission and merge to main |
-| `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `COORDINATION.md` | in progress | `session-074739aa` | Claimed 2026-10-21 06:45 UTC; scope kept non-overlapping |
+| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | done | `session-074739aa` (takeover from `session-3f4d1682`, claim idle >60 min) | Re-audit merged via PR recorded in the log below; Pages deploy confirmed live |
+| `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
 
 ---
 
@@ -39,6 +39,7 @@ This document serves as the shared task board coordinating parallel sessions and
 - **2026-10-21 05:45 UTC** [`session-3f4d1682`]: Completed task-02 (Data Collection), task-03 (Line Origination), task-04 (High-Confidence Predictions), task-05 (Official Verification), and task-06 (Site Creation).
 - **2026-10-21 05:50 UTC** [`session-3f4d1682`]: Verified all internal and external links. Zero broken links found. Built 15 HTML pages, CSS, and JS dashboard. Claimed `task-07-integrate`. Committing and opening PR to main.
 - **2026-10-21 06:45 UTC** [`session-074739aa`]: TAKEOVER of `task-07-integrate` from `session-3f4d1682` (claim idle >60 min, no commits since 05:50 UTC). Also claiming `task-08-reaudit` (independent line-by-line re-verification). Branch `arena/074739aa-olbg3`.
+- **2026-10-21 08:30 UTC** [`session-074739aa`]: Re-audit complete. 75 new event verifications written to `data/verifications.json` (101/137 rows now carry official/primary confirmation); 6 new review flags (FL-018..FL-023); audit record `data/audit-074739aa.json`; `tools/check_site.py` host allowlist extended with the reviewed source domains. Pipeline re-run deterministically; `tools/check_site.py` PASS (137 fixtures, 23 flags), `scripts/check_links.py` 0 broken, 10 unit tests OK.
 
 ---
 
@@ -125,3 +126,48 @@ all return 200 from `buffedlizard55-lab.github.io`.
 | Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures |
 | Official feed (hourly NHL/MLB/NBA) | `/matches.html`, `/coverage.html`, `/review.html`, `/feed-overview.html` | 40 rows |
 | OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 17 flags |
+
+---
+
+## Re-audit completion record — `session-074739aa` (2026-10-21)
+
+### Sources used (live-checked this session)
+| Body / league | URL | Rows confirmed |
+|---|---|---|
+| NBA.com official schedule | https://www.nba.com/schedule?date=10%2F21%2F2026 | 5 |
+| NHL.com official schedule | https://www.nhl.com/schedule/2026-10-21 | 2 |
+| MLB.com World Series schedule | https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule | 1 (+prediction claims) |
+| ATP Tour official results (Almaty 9410 / Brussels 7485 / Lyon 496) | https://www.atptour.com/en/scores/current | 10 |
+| WTA official draws (BNB Ningbo Open / Japan Open Osaka) | https://www.wtatennis.com/scores | 4 |
+| EuroLeague TV official schedule + BKT EuroCup | https://euroleague.tv/schedule | 6 |
+| KBL listing (corroboration only, FL-023) | https://www.sportsgambler.com/live-streaming/basketball/ | 1 |
+| EHF Champions League Men official calendar | https://ehfcl.eurohandball.com/men/2026-27/ | 9 |
+| LNR Pro D2 / Top 14 official calendars | https://prod2.lnr.fr/calendrier-et-resultats · https://top14.lnr.fr/calendrier-et-resultats | 11 |
+| snooker.org / WST (BetVictor Northern Ireland Open) | https://www.snooker.org/res/index.asp?event=2548 | 5 |
+| ICE Hockey League game centre + EC-KAC official fixtures | https://www.eishockey.at/game-center/ice?diviID=1280 · https://www.kac.at/spiele/ | 3 |
+| SHL schedule listings | https://www.shl.se/ | 1 |
+| PZPS (Polish Volleyball Federation) PlusLiga match system | https://sedziowie.pzps.pl/system/mecze-plusliga/ | 2 |
+| VfB Friedrichshafen official fixtures (Bundesliga) | https://www.vfb-volleyball.de/team/spielplan/ | 1 (+1 FL-023) |
+| ICC official announcement + ESPNcricinfo fixtures board | https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe · https://www.cricinfo.com/ci/content/match/fixtures | 4 |
+| CSA domestic fixture list | https://cricket.co.za/ | 4 |
+| Butterfield Bermuda Championship (event site) · LPGA · AP week preview | https://www.butterfieldbdachampionship.com/ · https://www.lpga.com/tournaments/bmw-lpga-championship/results | 2 (+2 FL-023) |
+| Formula 1 official USGP page + timetable | https://www.formula1.com/en/racing/2026/united-states | 3 (incl. 2 market rows) |
+
+### Verification performed
+- Structural: 137/137 published rows carry their OLBG source URL; every displayed value traces to `data/verifications.json` records or stays blank; excluded sports (soccer, football, american football, boxing/UFC/MMA, hurling, horse racing, cycling, specials) produce zero rows.
+- Match-level: 101/137 rows confirmed against official/primary sources (26 pre-existing + 75 new). 36 rows left blank and flagged (FL-022) — nothing inferred.
+- Claim-level: all 10 published high-confidence predictions re-checked; World Series records/schedule, URC round-3 scores, NHL/NBA/NIO schedules match their cited sources word-for-word (see `data/audit-074739aa.json` → prediction_claim_checks).
+- Builds: `tools/build_dataset.py` → `tools/originate.py` → `tools/build_site.py` deterministic (byte-identical on re-run, satisfies the CI staleness gate); `tools/check_site.py` PASS; `scripts/check_links.py` 0 broken; `python -m unittest discover -s tests` 10/10.
+
+### Irregularities flagged for review (all published on the Flagged for Review pages)
+1. **FL-018 (high):** AFG v BAN ODI venue disputed (Abu Dhabi vs Sharjah) — venue blank.
+2. **FL-019 (med):** AUS-W v NZ-W 3rd T20I venue disputed (North Sydney vs Junction Oval).
+3. **FL-020 (low):** NAM v IRE Windhoek ground named two ways.
+4. **FL-021 (info):** OLBG time labels behave like US Eastern (partially explains FL-002).
+5. **FL-022 (med):** 36 rows unverifiable this pass, blank by policy (list in flag).
+6. **FL-023 (low):** 4 rows verified from secondary listings only (KBL game, Netzhoppers-Giesen, Stifel Charity Classic, Hero Women's Indian Open).
+7. **FL-001 (decision needed):** Gaelic football inclusion ambiguity remains open for the owner.
+8. MTR-913: F1 USGP round number differs between outlets (18 vs 19); not recorded.
+
+### Pull request record
+- PR: see `git log` / PR link recorded in the post-merge commit below. Merge and Pages confirmation are appended immediately after the merge completes.

@@ -41,6 +41,30 @@ ALLOWED_HOSTS = {
     "ehfcl.eurohandball.com",
     "buffedlizard55-lab.github.io",
     "github.com",
+    # Hosts reviewed and accepted by session-074739aa's re-audit (2026-10-21).
+    # Each is the official body/league/event site used for a verification record,
+    # or a corroborating listing explicitly classed "secondary" in data/verifications.json.
+    "www.nhl.com",
+    "www.wtatennis.com",
+    "prod2.lnr.fr",
+    "top14.lnr.fr",
+    "www.eishockey.at",
+    "www.kac.at",
+    "www.ice.hockey",
+    "www.shl.se",
+    "euroleague.tv",
+    "www.euroleaguebasketball.com",
+    "cricket.co.za",
+    "www.icc-cricket.com",
+    "sedziowie.pzps.pl",
+    "www.vfb-volleyball.de",
+    "www.butterfieldbdachampionship.com",
+    "www.lpga.com",
+    "www.bbc.co.uk",
+    "apnews.com",
+    "www.formula1.com",
+    "scores24.live",
+    "www.sportsgambler.com",
 }
 
 errors: list[str] = []

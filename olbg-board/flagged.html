@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">17 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">23 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -142,6 +142,48 @@
   <p>The EHF Champions League round-5 window (21-22 October 2026) is confirmed, and Zagreb v PSG is confirmed fixture-by-fixture by the EHF club page. The other thirteen handball rows are domestic or cross-border fixtures whose competition is not named by OLBG and could not be confirmed fixture-by-fixture in this pass, so they stay blank.</p>
   <p class="muted small">Affected rows: HAN-12053, HAN-12044, HAN-12050, HAN-12055, HAN-12115, HAN-12045, HAN-12052, HAN-12047, HAN-12048, HAN-12054, HAN-12114, HAN-12112, HAN-12072, HAN-12049, HAN-12051</p>
   <ul class="srclist"><li><a href="https://ehfcl.eurohandball.com/men/2026-27/clubs/details/hputODilVqNbBbAttPlUww/ParisSaintGermain/" rel="noopener nofollow" target="_blank">EHF Champions League — Paris Saint-Germain club page (official)</a></li></ul>
+</article>
+<article class="card flag" id="FL-018">
+  <div class="flag-head"><span class="tag">FL-018</span> <span class="sev sev-high">high</span></div>
+  <h2>Afghanistan v Bangladesh ODI venue is stated differently by different fixtures boards</h2>
+  <p>The 21 October tri-series ODI is confirmed by the ICC&#x27;s own announcement (21 October: Afghanistan v Bangladesh) and by ESPNcricinfo&#x27;s fixtures board (3rd Match, UAE ODI Tri-Series, 11:30 GMT). The VENUE, however, is disputed: several fixtures boards list Abu Dhabi (Sheikh Zayed), while other listings and the cricinfo live page say Sharjah Cricket Stadium (where the final is also scheduled). The venue field is left blank rather than guessing.</p>
+  <p class="muted small">Affected rows: CRI-188824</p>
+  <ul class="srclist"><li><a href="https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe" rel="noopener nofollow" target="_blank">ICC - Afghanistan announce multi-format series (official)</a></li><li><a href="https://www.cricinfo.com/ci/content/match/fixtures" rel="noopener nofollow" target="_blank">ESPNcricinfo fixtures board</a></li></ul>
+</article>
+<article class="card flag" id="FL-019">
+  <div class="flag-head"><span class="tag">FL-019</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Australia Women v New Zealand Women 3rd T20I: venue named two ways</h2>
+  <p>ESPNcricinfo and ESPN both list the 3rd T20I at North Sydney Oval on 22 October. One fixtures board (CricketWorld) lists Junction Oval, Melbourne instead. The row records North Sydney (majority source) and flags the conflict for manual review. Kick-off is 19:15 local per ESPNcricinfo.</p>
+  <p class="muted small">Affected rows: CRI-188826</p>
+  <ul class="srclist"><li><a href="https://www.cricinfo.com/ci/content/match/fixtures" rel="noopener nofollow" target="_blank">ESPNcricinfo fixtures board</a></li><li><a href="https://www.espn.com/cricket/scores/series/24268" rel="noopener nofollow" target="_blank">ESPN series page - NZ Women tour of Australia</a></li></ul>
+</article>
+<article class="card flag" id="FL-020">
+  <div class="flag-head"><span class="tag">FL-020</span> <span class="sev sev-low">low</span></div>
+  <h2>Namibia v Ireland ground named two ways in Windhoek</h2>
+  <p>The 1st ODI on 22 October is confirmed by ESPNcricinfo and BBC Sport. The ground is called &#x27;High Performance Oval&#x27; by some boards and &#x27;Namibia Cricket Ground&#x27; by others (same Windhoek complex). City recorded; ground naming flagged.</p>
+  <p class="muted small">Affected rows: CRI-188828</p>
+  <ul class="srclist"><li><a href="https://www.bbc.com/sport/cricket/articles/cr74p31v8d7xo" rel="noopener nofollow" target="_blank">BBC Sport - Ireland in Namibia 2026 fixtures</a></li></ul>
+</article>
+<article class="card flag" id="FL-021">
+  <div class="flag-head"><span class="tag">FL-021</span> <span class="sev sev-info">info</span></div>
+  <h2>Re-audit finding on FL-002: OLBG time labels behave like US Eastern</h2>
+  <p>Session-074739aa&#x27;s line-by-line pass compared 40+ OLBG time labels with official start times. Labels sit exactly 6 hours behind France (CET/CEST), 4 hours behind GMT, and match US Eastern clock times for the NHL/NBA/cricket rows (e.g. cricinfo&#x27;s 11:30 GMT AFG-BAN start is labelled 07:30 on OLBG). The residual oddities (19:10, 19:37, 00:37) look like TV windows or a separate rounding artefact. This does not resolve FL-002 completely - OLBG still publishes no timezone - but the working interpretation is &#x27;US Eastern&#x27;. All verified_start values in data/matches.json are the OFFICIAL local times, never OLBG&#x27;s labels.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.cricinfo.com/ci/content/match/fixtures" rel="noopener nofollow" target="_blank">ESPNcricinfo fixtures board (GMT/local/EDT triplets)</a></li><li><a href="https://www.nhl.com/schedule/2026-10-21" rel="noopener nofollow" target="_blank">NHL.com official schedule, 21 Oct 2026</a></li></ul>
+</article>
+<article class="card flag" id="FL-022">
+  <div class="flag-head"><span class="tag">FL-022</span> <span class="sev sev-medium">medium</span></div>
+  <h2>36 rows remain unverified after the 2026-10-21 re-audit; fields left blank by policy</h2>
+  <p>The re-audit confirmed 101 of 137 rows against official or primary sources. The remaining 36 could not be tied to an official schedule in this pass and keep blank competition/venue/start fields exactly as published: handball domestic (Sandefjord-Runar, Hallby-Savehof, Hammarby-Alingsas, Mors Thy-Bjerringbro), volleyball (Serie A1 x3, Dutch, Finnish, PlusLiga x4 incl. Jelcz-Stal Nysa, Slepsk-GKS, Skra-Projekt, Chelm-Resovia, Bundesliga Karlsruhe-Luneburg), basketball AEK-Antwerp Giants (EuroCup slate not confirmed for this pairing), ICE HL HCB Sudtirol-Innsbruck, golf (Players Series SA, Senior Italian Open, Fortinet Players Cup, Hong Kong Open, Stella Artois Players Championship), all 5 Gaelic football rows (see FL-001), all 6 greyhound rows (daily race cards; no official racecard retrieved), and the 3 Rugby League outright markets. None of these rows were guessed or filled in.</p>
+  <p class="muted small">Affected rows: BKB-535969, ICH-199878, VOL-36981, VOL-36945, VOL-36963, VOL-36964, VOL-36965, VOL-36979, VOL-36986, VOL-36968, VOL-36977, VOL-36974, VOL-36976, HAN-12115, HAN-12114, HAN-12112, HAN-12072, GLF-101907, GLF-101911, GLF-101908, GLF-101910, GLF-101912, GFA-3530, GFA-3532, GFA-3531, GFA-3536, GFA-3327, GRY-689390, GRY-689384, GRY-689385, GRY-689387, GRY-689383, GRY-689386, RGL-2695857, RGL-2801554, RGL-2801600</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/audit-074739aa.json" rel="noopener nofollow" target="_blank">Re-audit record (this repository)</a></li></ul>
+</article>
+<article class="card flag" id="FL-023">
+  <div class="flag-head"><span class="tag">FL-023</span> <span class="sev sev-low">low</span></div>
+  <h2>Four rows are verified from corroborating listings only (official page not retrieved)</h2>
+  <p>These rows passed multi-source corroboration but the governing body&#x27;s own page could not be retrieved from this sandbox: Seoul Thunders v KCC Egis (KBL; live-basketball schedule listing), Netzhoppers KW v Helios Grizzlys Giesen (21.10. 19:00; German public-broadcaster league schedule + VfB fixture grid), Stifel Charity Classic (PGA Tour Champions; AP week preview), Hero Women&#x27;s Indian Open (Ladies European Tour; published LET calendar). They are marked verified_secondary_only in data/verifications.json so a reviewer can spot-check them first.</p>
+  <p class="muted small">Affected rows: BKB-535966, VOL-36984, GLF-101903, GLF-101909</p>
+  <ul class="srclist"><li><a href="https://apnews.com/article/pga-tour-bermuda-lpga-european-tour-asia-cc8d85ef7a726c2150184a314999baa2" rel="noopener nofollow" target="_blank">AP - PGA Tour goes to Bermuda (week preview)</a></li><li><a href="https://www.vfb-volleyball.de/team/spielplan/" rel="noopener nofollow" target="_blank">VfB Friedrichshafen official fixtures 2026/27</a></li></ul>
 </article>
 
 </main>

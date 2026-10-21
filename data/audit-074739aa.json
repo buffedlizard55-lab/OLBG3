@@ -1,0 +1,2866 @@
+{
+ "audit_id": "session-074739aa-reaudit",
+ "audited_at_utc": "2026-10-21T08:30:00Z",
+ "auditor": "session-074739aa (branch arena/074739aa-olbg3)",
+ "scope": "Line-by-line re-verification of every published row across the OLBG lines track (data/matches.json, 137 rows), the board track (data/events.json 114 events, data/master_matches.json 76 rows) and the official feed track (data/current.json 40 rows), plus claim-level checks of all 10 published high-confidence predictions.",
+ "method": [
+  "Every row must carry a source link to the OLBG listing it was transcribed from (checked programmatically: 137/137).",
+  "A field is filled only when a cited source states it explicitly. Where no official/primary source could be retrieved in this pass, competition/venue/start stay blank and the row is flagged (never inferred).",
+  "Live verification on 2026-10-21 against official bodies: NBA.com, NHL.com, MLB.com, ATP Tour, WTA, EuroLeague TV / BKT EuroCup, EHFCL, LNR (Pro D2 / Top 14), URC match centre, ICE Hockey League (ice.hockey / eishockey.at / EC-KAC), SHL, PZPS PlusLiga, VfB Friedrichshafen (Bundesliga), snooker.org / WST, ICC, ESPNcricinfo fixtures board, CSA fixture list, PGA Tour event site, LPGA, Formula1.com, PDC.",
+  "Each newly verified record stores the exact source ids in data/verifications.json (event_verifications); tools/build_dataset.py copies them into data/matches.json and the site renders them per row."
+ ],
+ "summary": {
+  "rows_total": 137,
+  "rows_with_olbg_source_link": 137,
+  "verified_preexisting": 26,
+  "verified_this_pass": 75,
+  "verified_total": 101,
+  "unverified_blank_by_policy": 36,
+  "by_sport_verified": {
+   "Cricket": 9,
+   "Tennis": 14,
+   "Basketball": 13,
+   "Snooker": 6,
+   "Darts": 14,
+   "Rugby Union": 15,
+   "Ice Hockey": 6,
+   "Baseball": 1,
+   "Volleyball": 4,
+   "Handball": 11,
+   "Golf": 5,
+   "Motor Racing": 3
+  },
+  "by_sport_unverified": {
+   "Basketball": 1,
+   "Ice Hockey": 1,
+   "Volleyball": 11,
+   "Handball": 4,
+   "Golf": 5,
+   "Gaelic Football": 5,
+   "Greyhounds": 6,
+   "Rugby League": 3
+  },
+  "blank_fields_policy": "A value is written only when a cited source states it. Unverified rows keep null competition/venue/start and appear in the Flagged for Review register (FL-022)."
+ },
+ "structural_checks": {
+  "olbg_track": {
+   "rows": 137,
+   "every_row_carries_olbg_url": true,
+   "lines": 137,
+   "lines_with_handicap_or_total_or_documented_blank": true,
+   "high_confidence_predictions": 5,
+   "prediction_word_counts": [
+    80,
+    77,
+    84,
+    79,
+    67
+   ],
+   "predictions_all_have_sources": true,
+   "flags_published": 23
+  },
+  "board_track": {
+   "events": 114,
+   "every_row_has_olbg_event_url": true,
+   "high_predictions_30_words_plus": 48,
+   "min_words": 38,
+   "market_families_per_row": [
+    "moneyline",
+    "handicap",
+    "totals"
+   ],
+   "note": "board track rows in data/master_matches.json (76) and data/events.json (114) all carry official_source_url / verification blocks; 4 flags in data/flagged_review.json"
+  },
+  "feed_track": {
+   "rows": 40,
+   "hosts_allowlist": [
+    "api-web.nhle.com",
+    "statsapi.mlb.com",
+    "cdn.nba.com"
+   ],
+   "betting_fields": "always blank (policy gate)"
+  },
+  "excluded_sports_present": []
+ },
+ "irregularities": [
+  {
+   "id": "IR-1",
+   "flag": "FL-018",
+   "severity": "high",
+   "summary": "AFG v BAN ODI venue disputed (Abu Dhabi vs Sharjah); venue left blank",
+   "rows": [
+    "CRI-188824"
+   ]
+  },
+  {
+   "id": "IR-2",
+   "flag": "FL-019",
+   "severity": "medium",
+   "summary": "AUS-W v NZ-W 3rd T20I venue disputed (North Sydney vs Junction Oval); majority source recorded",
+   "rows": [
+    "CRI-188826"
+   ]
+  },
+  {
+   "id": "IR-3",
+   "flag": "FL-020",
+   "severity": "low",
+   "summary": "NAM v IRE ground named two ways in Windhoek",
+   "rows": [
+    "CRI-188828"
+   ]
+  },
+  {
+   "id": "IR-4",
+   "flag": "FL-021",
+   "severity": "info",
+   "summary": "OLBG time labels behave like US Eastern (FL-002 partially explained); official starts always recorded separately",
+   "rows": []
+  },
+  {
+   "id": "IR-5",
+   "flag": "FL-022",
+   "severity": "medium",
+   "summary": "36 rows unverifiable this pass; blank + flagged, never inferred",
+   "rows": []
+  },
+  {
+   "id": "IR-6",
+   "flag": "FL-023",
+   "severity": "low",
+   "summary": "4 rows corroborated by secondary listings only (marked verified_secondary_only)",
+   "rows": [
+    "BKB-535966",
+    "VOL-36984",
+    "GLF-101903",
+    "GLF-101909"
+   ]
+  },
+  {
+   "id": "IR-7",
+   "flag": "FL-001",
+   "severity": "decision needed",
+   "summary": "Gaelic football inclusion ambiguity remains open for the owner",
+   "rows": [
+    "GFA-3530",
+    "GFA-3532",
+    "GFA-3531",
+    "GFA-3536",
+    "GFA-3327"
+   ]
+  },
+  {
+   "id": "IR-8",
+   "flag": null,
+   "severity": "low",
+   "summary": "F1 USGP round number differs between outlets (18 vs 19); round number not recorded",
+   "rows": [
+    "MTR-913"
+   ]
+  }
+ ],
+ "prediction_claim_checks": [
+  {
+   "id": "BSB-160789",
+   "verdict": "all factual claims confirmed",
+   "evidence": "MLB.com official schedule + records 103-59 / 98-64, NLCS sweep 4-0, ALCS 4-2, Game 1 Oct 23 American Family Field - each claim matches the cited sources"
+  },
+  {
+   "id": "BKB-534889",
+   "verdict": "fixture/venue claims confirmed; preseason results remain attributed to CBS",
+   "evidence": "NBA.com schedule confirms MIL @ WAS 7:00 PM ET, Capital One Arena, 21 Oct (season opener for both)"
+  },
+  {
+   "id": "ICH-199897",
+   "verdict": "fixture confirmed; form claims remain attributed to CBS/ESPN",
+   "evidence": "NHL.com schedule confirms PHI @ BUF 7:30 PM EDT 21 Oct (gamecenter phi-vs-buf)"
+  },
+  {
+   "id": "SNO-9934",
+   "verdict": "draw and schedule confirmed",
+   "evidence": "snooker.org event 2548 lists Higgins [7] v Jak Jones [30], Rd 2, Wed 21 Oct"
+  },
+  {
+   "id": "DAR-32337",
+   "verdict": "schedule claim consistent with PDC announcement cited",
+   "evidence": "PDC official announcement source retained; no contradiction found in this pass"
+  },
+  {
+   "id": "RGU-04",
+   "verdict": "round-3 scores in the text match the official URC match centre record",
+   "evidence": "data/official.json round3_results_urc: Glasgow 36-19 Connacht; Zebre 12-29 Edinburgh - both cited in the prediction"
+  },
+  {
+   "id": "RGU-07",
+   "verdict": "round-3 scores match official record",
+   "evidence": "Bulls 57-15 Lions on 10 Oct appears verbatim in the official round-3 results block"
+  },
+  {
+   "id": "RGU-11",
+   "verdict": "round-3 scores match official record",
+   "evidence": "Stormers 39-22 Sharks on 10 Oct appears verbatim in the official round-3 results block"
+  },
+  {
+   "id": "RGU-14",
+   "verdict": "round-3 scores match official record",
+   "evidence": "Leinster 29-5 Cardiff claim consistent with the official results block"
+  },
+  {
+   "id": "IHO-06",
+   "verdict": "fixture confirmed; standings claims attributed to NHL.com standings page",
+   "evidence": "NHL.com schedule confirms FLA @ OTT 7:30 PM EDT 21 Oct"
+  }
+ ],
+ "rows": [
+  {
+   "id": "CRI-188824",
+   "sport": "Cricket",
+   "event_name": "Afghanistan vs Bangladesh One Day Match",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Afghanistan_vs_Bangladesh_One_Day_Match/7?event_id=188824",
+   "market": "Win Match",
+   "olbg_time_label": "Today 07:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "ODI Tri-Nation Series in UAE 2026 (Afghanistan-Bangladesh-Zimbabwe), 3rd Match",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 15:30 local (D/N)",
+   "source_ids": [
+    "S-ICC-AFG",
+    "S-CRICINFO-FIX"
+   ],
+   "source_urls": [
+    "https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe",
+    "https://www.cricinfo.com/ci/content/match/fixtures"
+   ],
+   "discrepancy": "Venue disputed between sources: several fixtures boards say Abu Dhabi (Sheikh Zayed), while other listings and the cricinfo live page say Sharjah Cricket Stadium. Venue left blank pending a single official confirmation.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188823",
+   "sport": "Cricket",
+   "event_name": "Northern Cape Heat vs Garden Route Badgers T20",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Northern_Cape_Heat_vs_Garden_Route_Badgers_T20/7?event_id=188823",
+   "market": "Win Match",
+   "olbg_time_label": "Today 07:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "CSA T20 Challenge 2026, Pool A",
+   "venue_recorded": "Diamond Oval, Kimberley",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-CSA-FIX"
+   ],
+   "source_urls": [
+    "https://cricket.co.za/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188810",
+   "sport": "Cricket",
+   "event_name": "North West Dragons vs Limpopo Impalas T20",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/North_West_Dragons_vs_Limpopo_Impalas_T20/7?event_id=188810",
+   "market": "Win Match",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "CSA T20 Challenge 2026, Pool A",
+   "venue_recorded": "NWU Oval / Senwes Park, Potchefstroom",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-CSA-FIX"
+   ],
+   "source_urls": [
+    "https://cricket.co.za/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188814",
+   "sport": "Cricket",
+   "event_name": "New Zealand vs India 1st T20 Match",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_1st_T20_Match/7?event_id=188814",
+   "market": "Win Match",
+   "olbg_time_label": "Tomorrow 03:00",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "India tour of New Zealand 2026-27, 1st T20I",
+   "venue_recorded": "Hagley Oval, Christchurch",
+   "official_start_recorded": "2026-10-22 20:00 NZDT",
+   "source_ids": [
+    "S-CRICINFO-NZIND",
+    "S-WIKI-NZIND"
+   ],
+   "source_urls": [
+    "https://www.cricinfo.com/series/india-in-new-zealand-2026-27-1539421/match-schedule-fixtures-and-results",
+    "https://en.wikipedia.org/wiki/Indian_cricket_team_in_New_Zealand_in_2026%E2%80%9327"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188811",
+   "sport": "Cricket",
+   "event_name": "Eastern Storm vs Tuskers T20",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Eastern_Storm_vs_Tuskers_T20/7?event_id=188811",
+   "market": "Win Match",
+   "olbg_time_label": "Tomorrow 12:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "CSA T20 Challenge 2026, Pool B",
+   "venue_recorded": "Willowmoore Park, Benoni",
+   "official_start_recorded": "2026-10-22",
+   "source_ids": [
+    "S-CSA-FIX"
+   ],
+   "source_urls": [
+    "https://cricket.co.za/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188828",
+   "sport": "Cricket",
+   "event_name": "Namibia vs Ireland 1st ODI",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Namibia_vs_Ireland_1st_ODI/7?event_id=188828",
+   "market": "Win Match",
+   "olbg_time_label": "Tomorrow 04:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Ireland tour of Namibia 2026-27, 1st ODI",
+   "venue_recorded": "Windhoek (High Performance Oval / Namibia Cricket Ground)",
+   "official_start_recorded": "2026-10-22",
+   "source_ids": [
+    "S-CRICINFO-FIX",
+    "S-BBC-CRI-NAM"
+   ],
+   "source_urls": [
+    "https://www.cricinfo.com/ci/content/match/fixtures",
+    "https://www.bbc.com/sport/cricket/articles/cr74p31v8d7xo"
+   ],
+   "discrepancy": "Ground named 'High Performance Oval' by some fixtures boards and 'Namibia Cricket Ground' by others (same Windhoek complex).",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188829",
+   "sport": "Cricket",
+   "event_name": "England vs Sri Lanka One Day Match",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_vs_Sri_Lanka_One_Day_Match/7?event_id=188829",
+   "market": "Win Match",
+   "olbg_time_label": "Tomorrow 04:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pakistan ODI Tri-Series 2026, 3rd Match",
+   "venue_recorded": "Rawalpindi Cricket Stadium",
+   "official_start_recorded": "2026-10-22 10:00 local",
+   "source_ids": [
+    "S-CRICINFO-FIX"
+   ],
+   "source_urls": [
+    "https://www.cricinfo.com/ci/content/match/fixtures"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188826",
+   "sport": "Cricket",
+   "event_name": "Australia W vs New Zealand W 3rd T20 Match",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Australia_W_vs_New_Zealand_W_3rd_T20_Match/7?event_id=188826",
+   "market": "Win Match",
+   "olbg_time_label": "Tomorrow 04:15",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "New Zealand Women tour of Australia 2026-27, 3rd T20I",
+   "venue_recorded": "North Sydney Oval, Sydney",
+   "official_start_recorded": "2026-10-22 19:15 local",
+   "source_ids": [
+    "S-CRICINFO-FIX"
+   ],
+   "source_urls": [
+    "https://www.cricinfo.com/ci/content/match/fixtures"
+   ],
+   "discrepancy": "One fixtures board (cricketworld) names Junction Oval, Melbourne; ESPNcricinfo and ESPN both say North Sydney. Venue recorded from the majority source; see flagged register.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "CRI-188825",
+   "sport": "Cricket",
+   "event_name": "Mpumalanga Rhinos vs South Africa Emerging T20",
+   "olbg_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Mpumalanga_Rhinos_vs_South_Africa_Emerging_T20/7?event_id=188825",
+   "market": "Win Match",
+   "olbg_time_label": "Tomorrow 07:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "CSA T20 Challenge 2026, Pool B",
+   "venue_recorded": "Uplands College, White River",
+   "official_start_recorded": "2026-10-22",
+   "source_ids": [
+    "S-CSA-FIX"
+   ],
+   "source_urls": [
+    "https://cricket.co.za/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902039",
+   "sport": "Tennis",
+   "event_name": "Leylah Fernandez vs Aliaksandra Sasnovich",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Leylah_Fernandez_vs_Aliaksandra_Sasnovich/3?event_id=902039",
+   "market": "Win Match",
+   "olbg_time_label": "Today 02:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNB Ningbo Open 2026 (WTA 500), Round of 16",
+   "venue_recorded": "Ningbo, China",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-WTA-NINGBO"
+   ],
+   "source_urls": [
+    "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902065",
+   "sport": "Tennis",
+   "event_name": "Katie Boulter vs Viktorija Golubic",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katie_Boulter_vs_Viktorija_Golubic/3?event_id=902065",
+   "market": "Win Match",
+   "olbg_time_label": "Today 01:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Kinoshita Group Japan Open (Osaka) 2026 (WTA)",
+   "venue_recorded": "Osaka, Japan",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-WTA-OSAKA"
+   ],
+   "source_urls": [
+    "https://www.wtatennis.com/tournaments/405/osaka/2026/draws"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902038",
+   "sport": "Tennis",
+   "event_name": "James Duckworth vs Luciano Darderi",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/James_Duckworth_vs_Luciano_Darderi/3?event_id=902038",
+   "market": "Win Match",
+   "olbg_time_label": "Today 02:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 16",
+   "venue_recorded": "Almaty, Kazakhstan",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-ALMATY"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/almaty/9410/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902037",
+   "sport": "Tennis",
+   "event_name": "Adrian Mannarino vs Andrey Rublev",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Adrian_Mannarino_vs_Andrey_Rublev/3?event_id=902037",
+   "market": "Win Match",
+   "olbg_time_label": "Today 05:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 16",
+   "venue_recorded": "Almaty, Kazakhstan",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-ALMATY",
+    "S-ATP-ALMATY-NEWS"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/almaty/9410/results",
+    "https://www.atptour.com/en/news/mannarino-vukic-almaty-2026-monday"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902074",
+   "sport": "Tennis",
+   "event_name": "Sorana Cirstea vs Sara Bejlek",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Sorana_Cirstea_vs_Sara_Bejlek/3?event_id=902074",
+   "market": "Win Match",
+   "olbg_time_label": "Today 04:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNB Ningbo Open 2026 (WTA 500), Round of 16",
+   "venue_recorded": "Ningbo, China",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-WTA-NINGBO"
+   ],
+   "source_urls": [
+    "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-901935",
+   "sport": "Tennis",
+   "event_name": "Zangar Nurlanuly vs Tomas Machac",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Zangar_Nurlanuly_vs_Tomas_Machac/3?event_id=901935",
+   "market": "1st Set Winner",
+   "olbg_time_label": "Today 04:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 32",
+   "venue_recorded": "Almaty, Kazakhstan",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-ALMATY"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/almaty/9410/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-901993",
+   "sport": "Tennis",
+   "event_name": "Mattia Bellucci vs Tomas Martin Etcheverry",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mattia_Bellucci_vs_Tomas_Martin_Etcheverry/3?event_id=901993",
+   "market": "Set Betting",
+   "olbg_time_label": "Today 02:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "ATP Almaty Open 2026 (ATP 250, indoor hard), Round of 32",
+   "venue_recorded": "Almaty, Kazakhstan",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-ALMATY"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/almaty/9410/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-901896",
+   "sport": "Tennis",
+   "event_name": "Dino Prizmic vs Damir Dzumhur",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Dino_Prizmic_vs_Damir_Dzumhur/3?event_id=901896",
+   "market": "Win Match",
+   "olbg_time_label": "Today 05:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250)",
+   "venue_recorded": "Brussels, Belgium",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-BRUSSELS"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/brussels/7485/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-901974",
+   "sport": "Tennis",
+   "event_name": "Stan Wawrinka vs Martin Landaluce",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stan_Wawrinka_vs_Martin_Landaluce/3?event_id=901974",
+   "market": "Win Match",
+   "olbg_time_label": "Today 08:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Grand Prix Auvergne-Rhone-Alpes (Lyon) 2026 (ATP 250), Round of 32",
+   "venue_recorded": "Lyon, France",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-LYON"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/tournaments/lyon/496/overview"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902028",
+   "sport": "Tennis",
+   "event_name": "David Goffin vs Remy Bertola",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Remy_Bertola/3?event_id=902028",
+   "market": "Win Match",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250), Round of 32",
+   "venue_recorded": "Brussels, Belgium",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-BRUSSELS"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/brussels/7485/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902040",
+   "sport": "Tennis",
+   "event_name": "Facundo Diaz Acosta vs Nikoloz Basilashvili",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Facundo_Diaz_Acosta_vs_Nikoloz_Basilashvili/3?event_id=902040",
+   "market": "Set Betting",
+   "olbg_time_label": "Today 04:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "ATP Almaty Open 2026 (ATP 250, indoor hard)",
+   "venue_recorded": "Almaty, Kazakhstan",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-ALMATY"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/almaty/9410/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902048",
+   "sport": "Tennis",
+   "event_name": "Martin Damm vs Francisco Cerundolo",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Martin_Damm_vs_Francisco_Cerundolo/3?event_id=902048",
+   "market": "Set Betting",
+   "olbg_time_label": "Today 05:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250), Round of 16",
+   "venue_recorded": "Brussels, Belgium",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-BRUSSELS"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/brussels/7485/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902085",
+   "sport": "Tennis",
+   "event_name": "Mariano Navone vs Tallon Griekspoor",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mariano_Navone_vs_Tallon_Griekspoor/3?event_id=902085",
+   "market": "Win Match",
+   "olbg_time_label": "Today 07:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNP Paribas Fortis European Open, Brussels 2026 (ATP 250), Round of 16",
+   "venue_recorded": "Brussels, Belgium",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-ATP-BRUSSELS"
+   ],
+   "source_urls": [
+    "https://www.atptour.com/en/scores/current/brussels/7485/results"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "TEN-902084",
+   "sport": "Tennis",
+   "event_name": "Ekaterina Alexandrova vs Marta Kostyuk",
+   "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ekaterina_Alexandrova_vs_Marta_Kostyuk/3?event_id=902084",
+   "market": "Win Match",
+   "olbg_time_label": "Today 07:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BNB Ningbo Open 2026 (WTA 500), Round of 16",
+   "venue_recorded": "Ningbo, China",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-WTA-NINGBO"
+   ],
+   "source_urls": [
+    "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+   ],
+   "discrepancy": "OLBG shows 'Today 07:00' for this match; WTA/Ningbo session times are local China time. Time label is OLBG's own (US Eastern convention).",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-534889",
+   "sport": "Basketball",
+   "event_name": "MIL Bucks @ WAS Wizards",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIL_Bucks_@_WAS_Wizards/4?event_id=534889",
+   "market": "Money Line",
+   "olbg_time_label": "Today 19:10",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "NBA 2026-27 regular season (season opener)",
+   "venue_recorded": "Capital One Arena, Washington, D.C.",
+   "official_start_recorded": "2026-10-21 19:00 ET",
+   "source_ids": [
+    "S-NBA-WAS"
+   ],
+   "source_urls": [
+    "https://www.nba.com/wizards/news/wizards-announce-2026-27schedule"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535919",
+   "sport": "Basketball",
+   "event_name": "Hapoel Tel Aviv vs Virtus Bologna",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Hapoel_Tel_Aviv_vs_Virtus_Bologna/4?event_id=535919",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Turkish Airlines EuroLeague 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-EUROTV"
+   ],
+   "source_urls": [
+    "https://euroleague.tv/schedule"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535966",
+   "sport": "Basketball",
+   "event_name": "Seoul Thunders vs KCC Egis",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Seoul_Thunders_vs_KCC_Egis/4?event_id=535966",
+   "market": "Money Line",
+   "olbg_time_label": "Today 06:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "KBL 2026-27 (Korean Basketball League)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-SG-KBL"
+   ],
+   "source_urls": [
+    "https://www.sportsgambler.com/live-streaming/basketball/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-534888",
+   "sport": "Basketball",
+   "event_name": "ATL Hawks @ ORL Magic",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/ATL_Hawks_@_ORL_Magic/4?event_id=534888",
+   "market": "Money Line",
+   "olbg_time_label": "Today 19:10",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "NBA 2026-27 regular season",
+   "venue_recorded": "Kia Center, Orlando, Florida",
+   "official_start_recorded": "2026-10-21 19:00 ET",
+   "source_ids": [
+    "S-NBA-SCHED"
+   ],
+   "source_urls": [
+    "https://www.nba.com/schedule?date=10%2F21%2F2026"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535673",
+   "sport": "Basketball",
+   "event_name": "CHI Bulls @ TOR Raptors",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/CHI_Bulls_@_TOR_Raptors/4?event_id=535673",
+   "market": "Money Line",
+   "olbg_time_label": "Today 19:40",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "NBA 2026-27 regular season",
+   "venue_recorded": "Scotiabank Arena, Toronto",
+   "official_start_recorded": "2026-10-21 19:30 ET",
+   "source_ids": [
+    "S-NBA-SCHED"
+   ],
+   "source_urls": [
+    "https://www.nba.com/schedule?date=10%2F21%2F2026"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535952",
+   "sport": "Basketball",
+   "event_name": "PAOK vs Ratiopharm Ulm",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euro_Cup/PAOK_vs_Ratiopharm_Ulm/4?event_id=535952",
+   "market": "Money Line",
+   "olbg_time_label": "Today 13:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BKT EuroCup 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-EUROTV",
+    "S-BKT-ECUP"
+   ],
+   "source_urls": [
+    "https://euroleague.tv/schedule",
+    "https://www.euroleaguebasketball.com/eurocup/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535950",
+   "sport": "Basketball",
+   "event_name": "Bosna Sarajevo vs Bahcesehir Koleji",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euro_Cup/Bosna_Sarajevo_vs_Bahcesehir_Koleji/4?event_id=535950",
+   "market": "Money Line",
+   "olbg_time_label": "Today 13:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BKT EuroCup 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-BKT-ECUP"
+   ],
+   "source_urls": [
+    "https://www.euroleaguebasketball.com/eurocup/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535956",
+   "sport": "Basketball",
+   "event_name": "Hapoel Jerusalem vs Rigas Zelli",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euro_Cup/Hapoel_Jerusalem_vs_Rigas_Zelli/4?event_id=535956",
+   "market": "Money Line",
+   "olbg_time_label": "Today 14:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BKT EuroCup 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-BKT-ECUP"
+   ],
+   "source_urls": [
+    "https://www.euroleaguebasketball.com/eurocup/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-534892",
+   "sport": "Basketball",
+   "event_name": "IND Pacers @ NO Pelicans",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/IND_Pacers_@_NO_Pelicans/4?event_id=534892",
+   "market": "Money Line",
+   "olbg_time_label": "Today 20:10",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "NBA 2026-27 regular season",
+   "venue_recorded": "Smoothie King Center, New Orleans",
+   "official_start_recorded": "2026-10-21 20:00 ET",
+   "source_ids": [
+    "S-NBA-SCHED"
+   ],
+   "source_urls": [
+    "https://www.nba.com/schedule?date=10%2F21%2F2026"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-534893",
+   "sport": "Basketball",
+   "event_name": "PHX Suns @ POR Trail Blazers",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/PHX_Suns_@_POR_Trail_Blazers/4?event_id=534893",
+   "market": "Money Line",
+   "olbg_time_label": "Today 22:10",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "NBA 2026-27 regular season",
+   "venue_recorded": "Moda Center, Portland",
+   "official_start_recorded": "2026-10-21 22:00 ET",
+   "source_ids": [
+    "S-NBA-SCHED"
+   ],
+   "source_urls": [
+    "https://www.nba.com/schedule?date=10%2F21%2F2026"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535923",
+   "sport": "Basketball",
+   "event_name": "Panathinaikos vs Baskonia",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Baskonia/4?event_id=535923",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 14:15",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Turkish Airlines EuroLeague 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-22",
+   "source_ids": [
+    "S-EUROTV"
+   ],
+   "source_urls": [
+    "https://euroleague.tv/schedule"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-534843",
+   "sport": "Basketball",
+   "event_name": "DEN Nuggets @ OKC Thunder",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DEN_Nuggets_@_OKC_Thunder/4?event_id=534843",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 21:40",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "NBA 2026-27 regular season",
+   "venue_recorded": "Paycom Center, Oklahoma City",
+   "official_start_recorded": "2026-10-22 21:30 ET",
+   "source_ids": [
+    "S-NBA-SCHED"
+   ],
+   "source_urls": [
+    "https://www.nba.com/schedule?date=10%2F21%2F2026"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535949",
+   "sport": "Basketball",
+   "event_name": "U BT Cluj Napoca vs London Lions",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euro_Cup/U_BT_Cluj_Napoca_vs_London_Lions/4?event_id=535949",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BKT EuroCup 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-EUROTV",
+    "S-BKT-ECUP"
+   ],
+   "source_urls": [
+    "https://euroleague.tv/schedule",
+    "https://www.euroleaguebasketball.com/eurocup/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BKB-535969",
+   "sport": "Basketball",
+   "event_name": "AEK vs Antwerp Giants",
+   "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Basketball_Champions_League/AEK_vs_Antwerp_Giants/4?event_id=535969",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "SNO-9933",
+   "sport": "Snooker",
+   "event_name": "Cheung Ka Wai v Stuart Bingham",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Cheung_Ka_Wai_v_Stuart_Bingham/8?event_id=9933",
+   "market": "Win Match",
+   "olbg_time_label": "Today 05:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue_recorded": "Waterfront Hall, Belfast",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "source_urls": [
+    "https://www.snooker.org/res/index.asp?event=2548",
+    "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "SNO-9929",
+   "sport": "Snooker",
+   "event_name": "Pang Junxu v Liam Davies",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Pang_Junxu_v_Liam_Davies/8?event_id=9929",
+   "market": "Win Match",
+   "olbg_time_label": "Today 05:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue_recorded": "Waterfront Hall, Belfast",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "source_urls": [
+    "https://www.snooker.org/res/index.asp?event=2548",
+    "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "SNO-9931",
+   "sport": "Snooker",
+   "event_name": "Elliot Slessor v Jamie Jones",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Elliot_Slessor_v_Jamie_Jones/8?event_id=9931",
+   "market": "Win Match",
+   "olbg_time_label": "Today 15:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue_recorded": "Waterfront Hall, Belfast",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "source_urls": [
+    "https://www.snooker.org/res/index.asp?event=2548",
+    "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "SNO-9932",
+   "sport": "Snooker",
+   "event_name": "Luca Brecel v Martin O Donnell",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Luca_Brecel_v_Martin_O_Donnell/8?event_id=9932",
+   "market": "Win Match",
+   "olbg_time_label": "Today 15:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue_recorded": "Waterfront Hall, Belfast",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "source_urls": [
+    "https://www.snooker.org/res/index.asp?event=2548",
+    "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "SNO-9934",
+   "sport": "Snooker",
+   "event_name": "John Higgins v Jak Jones",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/John_Higgins_v_Jak_Jones/8?event_id=9934",
+   "market": "Win Match",
+   "olbg_time_label": "Today 08:00",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "BetVictor Northern Ireland Open 2026 (World Snooker Tour ranking event), Round 2",
+   "venue_recorded": "Waterfront Hall, Belfast",
+   "official_start_recorded": "2026-10-21 12:00 UTC",
+   "source_ids": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO",
+    "S-BBC-NIO"
+   ],
+   "source_urls": [
+    "https://www.snooker.org/res/index.asp?event=2548",
+    "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7",
+    "https://www.bbc.com/sport/snooker/articles/ck86zqje2n0po"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "SNO-9930",
+   "sport": "Snooker",
+   "event_name": "Sam Craigie v Xu Si",
+   "olbg_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Sam_Craigie_v_Xu_Si/8?event_id=9930",
+   "market": "Win Match",
+   "olbg_time_label": "Today 09:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "BetVictor Northern Ireland Open 2026 (WST ranking event), Round 2",
+   "venue_recorded": "Waterfront Hall, Belfast",
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-SNOOKER-ORG",
+    "S-WST-NIO"
+   ],
+   "source_urls": [
+    "https://www.snooker.org/res/index.asp?event=2548",
+    "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32324",
+   "sport": "Darts",
+   "event_name": "Luke Woodhouse vs Dirk van Duijvenbode",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Dirk_van_Duijvenbode/15?event_id=32324",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 13:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32334",
+   "sport": "Darts",
+   "event_name": "Niels Zonneveld vs Cameron Menzies",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Niels_Zonneveld_vs_Cameron_Menzies/15?event_id=32334",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 14:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32325",
+   "sport": "Darts",
+   "event_name": "Gerwyn Price vs Rob Cross",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Rob_Cross/15?event_id=32325",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 14:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32322",
+   "sport": "Darts",
+   "event_name": "James Wade vs Damon Heta",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/James_Wade_vs_Damon_Heta/15?event_id=32322",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 15:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32337",
+   "sport": "Darts",
+   "event_name": "Luke Humphries vs Ryan Searle",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Humphries_vs_Ryan_Searle/15?event_id=32337",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 15:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32330",
+   "sport": "Darts",
+   "event_name": "Danny Noppert vs Stephen Bunting",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Danny_Noppert_vs_Stephen_Bunting/15?event_id=32330",
+   "market": "Total Legs",
+   "olbg_time_label": "Tomorrow 13:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32323",
+   "sport": "Darts",
+   "event_name": "Gian van Veen vs Andrew Gilding",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gian_van_Veen_vs_Andrew_Gilding/15?event_id=32323",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 16:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32329",
+   "sport": "Darts",
+   "event_name": "Ross Smith vs Karel Sedlacek",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ross_Smith_vs_Karel_Sedlacek/15?event_id=32329",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "Tomorrow 16:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32335",
+   "sport": "Darts",
+   "event_name": "Jonny Clayton vs Niko Springer",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Jonny_Clayton_vs_Niko_Springer/15?event_id=32335",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "23 Oct 14:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32332",
+   "sport": "Darts",
+   "event_name": "Ryan Joyce vs Jermaine Wattimena",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ryan_Joyce_vs_Jermaine_Wattimena/15?event_id=32332",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "23 Oct 13:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32333",
+   "sport": "Darts",
+   "event_name": "Krzysztof Ratajski vs Dave Chisnall",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Krzysztof_Ratajski_vs_Dave_Chisnall/15?event_id=32333",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "23 Oct 13:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32327",
+   "sport": "Darts",
+   "event_name": "Nathan Aspinall vs Cristo Reyes",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Nathan_Aspinall_vs_Cristo_Reyes/15?event_id=32327",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "23 Oct 14:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32328",
+   "sport": "Darts",
+   "event_name": "Luke Littler vs William OConnor",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Littler_vs_William_OConnor/15?event_id=32328",
+   "market": "Handicap 2-way",
+   "olbg_time_label": "23 Oct 15:15",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "DAR-32326",
+   "sport": "Darts",
+   "event_name": "Wessel Nijman vs Martin Schindler",
+   "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Wessel_Nijman_vs_Martin_Schindler/15?event_id=32326",
+   "market": "Win Match 2-way",
+   "olbg_time_label": "23 Oct 15:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
+   "venue_recorded": "Westfalenhalle, Dortmund, Germany",
+   "official_start_recorded": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
+   "source_ids": [
+    "S-PDC-EC26"
+   ],
+   "source_urls": [
+    "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609556",
+   "sport": "Rugby Union",
+   "event_name": "Montauban v Oyonnax",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Montauban_v_Oyonnax/9?event_id=609556",
+   "market": "To Win",
+   "olbg_time_label": "Tomorrow 15:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-22 21:00 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609558",
+   "sport": "Rugby Union",
+   "event_name": "Agen v Nissa",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Agen_v_Nissa/9?event_id=609558",
+   "market": "To Win",
+   "olbg_time_label": "23 Oct 13:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 19:30 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609563",
+   "sport": "Rugby Union",
+   "event_name": "Soyaux Angouleme v Dax",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Soyaux_Angouleme_v_Dax/9?event_id=609563",
+   "market": "To Win",
+   "olbg_time_label": "23 Oct 13:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 19:30 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609577",
+   "sport": "Rugby Union",
+   "event_name": "Connacht v Zebre Parma",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Connacht_v_Zebre_Parma/9?event_id=609577",
+   "market": "To Win",
+   "olbg_time_label": "23 Oct 14:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue_recorded": "Dexcom Stadium, Galway",
+   "official_start_recorded": "2026-10-23 19:45 IRE/UK",
+   "source_ids": [
+    "S-URC-FIX",
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "source_urls": [
+    "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+    "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609557",
+   "sport": "Rugby Union",
+   "event_name": "Narbonne v Brive",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Narbonne_v_Brive/9?event_id=609557",
+   "market": "To Win",
+   "olbg_time_label": "23 Oct 13:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 19:00 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609560",
+   "sport": "Rugby Union",
+   "event_name": "Aurillac v Nevers",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Aurillac_v_Nevers/9?event_id=609560",
+   "market": "To Win",
+   "olbg_time_label": "23 Oct 13:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 19:30 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609576",
+   "sport": "Rugby Union",
+   "event_name": "Bulls v Ulster",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bulls_v_Ulster/9?event_id=609576",
+   "market": "Handicap",
+   "olbg_time_label": "24 Oct 07:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue_recorded": "Loftus Versfeld, Pretoria",
+   "official_start_recorded": "2026-10-24 12:45 IRE/UK",
+   "source_ids": [
+    "S-URC-FIX",
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "source_urls": [
+    "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+    "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609559",
+   "sport": "Rugby Union",
+   "event_name": "Valence Romans v Colomiers",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Valence_Romans_v_Colomiers/9?event_id=609559",
+   "market": "To Win",
+   "olbg_time_label": "23 Oct 13:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 19:30 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609561",
+   "sport": "Rugby Union",
+   "event_name": "Grenoble v Biarritz",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Grenoble_v_Biarritz/9?event_id=609561",
+   "market": "Handicap",
+   "olbg_time_label": "23 Oct 15:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 21:00 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609562",
+   "sport": "Rugby Union",
+   "event_name": "Provence v Beziers",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Provence_v_Beziers/9?event_id=609562",
+   "market": "Handicap",
+   "olbg_time_label": "23 Oct 15:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Pro D2 2026-27, Journee 8 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-23 21:00 CET",
+   "source_ids": [
+    "S-LNR-PD2"
+   ],
+   "source_urls": [
+    "https://prod2.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609580",
+   "sport": "Rugby Union",
+   "event_name": "Stormers v Scarlets",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Stormers_v_Scarlets/9?event_id=609580",
+   "market": "To Win",
+   "olbg_time_label": "24 Oct 10:00",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-24 15:00 IRE/UK",
+   "source_ids": [
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "source_urls": [
+    "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship"
+   ],
+   "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609564",
+   "sport": "Rugby Union",
+   "event_name": "Bayonne v Lyon",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bayonne_v_Lyon/9?event_id=609564",
+   "market": "Handicap",
+   "olbg_time_label": "24 Oct 10:35",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Top 14 2026-27, Journee 7 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-24 16:35 CET",
+   "source_ids": [
+    "S-LNR-T14"
+   ],
+   "source_urls": [
+    "https://top14.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609567",
+   "sport": "Rugby Union",
+   "event_name": "Toulouse v Perpignan",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Toulouse_v_Perpignan/9?event_id=609567",
+   "market": "Handicap",
+   "olbg_time_label": "24 Oct 10:35",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Top 14 2026-27, Journee 7 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-24 16:35 CET",
+   "source_ids": [
+    "S-LNR-T14"
+   ],
+   "source_urls": [
+    "https://top14.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609578",
+   "sport": "Rugby Union",
+   "event_name": "Leinster v Munster",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Leinster_v_Munster/9?event_id=609578",
+   "market": "To Win",
+   "olbg_time_label": "24 Oct 13:00",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "BKT United Rugby Championship 2026-27, Round 4",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-24 18:00 IRE/UK",
+   "source_ids": [
+    "S-BBC-URC",
+    "S-WIKI-URC"
+   ],
+   "source_urls": [
+    "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship"
+   ],
+   "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGU-609554",
+   "sport": "Rugby Union",
+   "event_name": "La Rochelle v Bordeaux",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/La_Rochelle_v_Bordeaux/9?event_id=609554",
+   "market": "To Win",
+   "olbg_time_label": "25 Oct 16:05",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Top 14 2026-27, Journee 7 (LNR)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-25 21:05 CET",
+   "source_ids": [
+    "S-LNR-T14"
+   ],
+   "source_urls": [
+    "https://top14.lnr.fr/calendrier-et-resultats"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199881",
+   "sport": "Ice Hockey",
+   "event_name": "Pustertal vs Pioneers Vorarlberg",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Austria_EHL/Pustertal_vs_Pioneers_Vorarlberg/13?event_id=199881",
+   "market": "Money Line",
+   "olbg_time_label": "Today 18:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "win2day ICE Hockey League 2026/27 (Austria)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 19:45",
+   "source_ids": [
+    "S-ICE-GC"
+   ],
+   "source_urls": [
+    "https://www.eishockey.at/game-center/ice?diviID=1280"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199878",
+   "sport": "Ice Hockey",
+   "event_name": "HCB Sudtirol Alperia vs HC TWK Innsbruck",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Austria_EHL/HCB_Sudtirol_Alperia_vs_HC_TWK_Innsbruck/13?event_id=199878",
+   "market": "Money Line",
+   "olbg_time_label": "Today 18:45",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199901",
+   "sport": "Ice Hockey",
+   "event_name": "Timra IK vs Farjestad BK",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Timra_IK_vs_Farjestad_BK/13?event_id=199901",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 18:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "SHL 2026/27 (Sweden)",
+   "venue_recorded": "SCA Arena, Timra",
+   "official_start_recorded": "2026-10-22 19:00 CET",
+   "source_ids": [
+    "S-SHL-SE"
+   ],
+   "source_urls": [
+    "https://www.shl.se/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199876",
+   "sport": "Ice Hockey",
+   "event_name": "Graz 99ers vs Milano HC",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Austria_EHL/Graz_99ers_vs_Milano_HC/13?event_id=199876",
+   "market": "Puck Line",
+   "olbg_time_label": "Today 17:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "win2day ICE Hockey League 2026/27 (Austria)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 18:30",
+   "source_ids": [
+    "S-ICE-GC"
+   ],
+   "source_urls": [
+    "https://www.eishockey.at/game-center/ice?diviID=1280"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199880",
+   "sport": "Ice Hockey",
+   "event_name": "KAC Klagenfurt vs Fehervar AV19",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Austria_EHL/KAC_Klagenfurt_vs_Fehervar_AV19/13?event_id=199880",
+   "market": "Money Line",
+   "olbg_time_label": "Today 18:15",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "win2day ICE Hockey League 2026/27 (Austria)",
+   "venue_recorded": "Heidi Horten-Arena, Klagenfurt",
+   "official_start_recorded": "2026-10-21 19:15",
+   "source_ids": [
+    "S-KAC-SP",
+    "S-ICE-GC"
+   ],
+   "source_urls": [
+    "https://www.kac.at/spiele/",
+    "https://www.eishockey.at/game-center/ice?diviID=1280"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199897",
+   "sport": "Ice Hockey",
+   "event_name": "PHI Flyers @ BUF Sabres",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/PHI_Flyers_@_BUF_Sabres/13?event_id=199897",
+   "market": "Game Totals",
+   "olbg_time_label": "Tomorrow 00:37",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "NHL 2026-27 regular season",
+   "venue_recorded": "KeyBank Center, Buffalo, New York",
+   "official_start_recorded": "2026-10-21 19:30 ET",
+   "source_ids": [
+    "S-ESPN-NHL",
+    "S-CBS-NHL-BUF"
+   ],
+   "source_urls": [
+    "https://www.espn.com/nhl/schedule",
+    "https://www.cbssports.com/nhl/teams/BUF/buffalo-sabres/"
+   ],
+   "discrepancy": "OLBG lists this game as 'Tomorrow 00:37'. The official puck-drop is 21 Oct 2026 19:30 ET. See data/flagged.json FL-004.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "ICH-199896",
+   "sport": "Ice Hockey",
+   "event_name": "FLA Panthers @ OTT Senators",
+   "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/FLA_Panthers_@_OTT_Senators/13?event_id=199896",
+   "market": "Game Totals",
+   "olbg_time_label": "Tomorrow 00:37",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "NHL 2026-27 regular season",
+   "venue_recorded": "Canadian Tire Centre, Ottawa",
+   "official_start_recorded": "2026-10-21 19:30 ET",
+   "source_ids": [
+    "S-NHL-1021"
+   ],
+   "source_urls": [
+    "https://www.nhl.com/schedule/2026-10-21"
+   ],
+   "discrepancy": "OLBG lists this game as 'Tomorrow 00:37'. Official puck drop is 21 Oct 19:30 ET. See time-label flag.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "BSB-160789",
+   "sport": "Baseball",
+   "event_name": "TB Rays @ MIL Brewers",
+   "olbg_url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789",
+   "market": "Money Line",
+   "olbg_time_label": "23 Oct 20:00",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "MLB World Series 2026, Game 1",
+   "venue_recorded": "American Family Field, Milwaukee, Wisconsin",
+   "official_start_recorded": "2026-10-23 20:00 ET",
+   "source_ids": [
+    "S-MLB-WS",
+    "S-ESPN-WS"
+   ],
+   "source_urls": [
+    "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
+    "https://www.espn.com/mlb/game/_/gameId/401908042/rays-brewers"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36981",
+   "sport": "Volleyball",
+   "event_name": "Puijo W vs Orpo W",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Puijo_W_vs_Orpo_W/21?event_id=36981",
+   "market": "Win Match",
+   "olbg_time_label": "Today 10:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36961",
+   "sport": "Volleyball",
+   "event_name": "LUK Lublin vs Trefl Gdansk",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/LUK_Lublin_vs_Trefl_Gdansk/21?event_id=36961",
+   "market": "Win Match",
+   "olbg_time_label": "Today 11:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "PlusLiga 2026-27 (Poland)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-PZPS"
+   ],
+   "source_urls": [
+    "https://sedziowie.pzps.pl/system/mecze-plusliga/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36945",
+   "sport": "Volleyball",
+   "event_name": "Schweriner W vs Erfurt W",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Schweriner_W_vs_Erfurt_W/21?event_id=36945",
+   "market": "Win Match",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36963",
+   "sport": "Volleyball",
+   "event_name": "Slepsk Suwalki vs GKS Katowice",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Slepsk_Suwalki_vs_GKS_Katowice/21?event_id=36963",
+   "market": "Win Match",
+   "olbg_time_label": "23 Oct 11:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36964",
+   "sport": "Volleyball",
+   "event_name": "PGE Skra Belchatow vs Projekt Warszawa",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/PGE_Skra_Belchatow_vs_Projekt_Warszawa/21?event_id=36964",
+   "market": "Win Match",
+   "olbg_time_label": "24 Oct 12:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36965",
+   "sport": "Volleyball",
+   "event_name": "CHKS Chelm vs Resovia Rzeszow",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965",
+   "market": "Win Match",
+   "olbg_time_label": "25 Oct 13:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36979",
+   "sport": "Volleyball",
+   "event_name": "Jelcz Laskowice vs Stal Nysa",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Jelcz_Laskowice_vs_Stal_Nysa/21?event_id=36979",
+   "market": "Win Match",
+   "olbg_time_label": "Today 12:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36984",
+   "sport": "Volleyball",
+   "event_name": "Netzhoppers KW vs Helios Grizzlys Giesen",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Netzhoppers_KW_vs_Helios_Grizzlys_Giesen/21?event_id=36984",
+   "market": "Win Match",
+   "olbg_time_label": "Today 13:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "1. Volleyball Bundesliga 2026-27 (Germany)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 19:00",
+   "source_ids": [
+    "S-VFB-VB"
+   ],
+   "source_urls": [
+    "https://www.vfb-volleyball.de/team/spielplan/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36985",
+   "sport": "Volleyball",
+   "event_name": "WWK Volleys Munchen vs VfB Friedrichshafen",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/WWK_Volleys_Munchen_vs_VfB_Friedrichshafen/21?event_id=36985",
+   "market": "Win Match",
+   "olbg_time_label": "Today 13:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "1. Volleyball Bundesliga 2026-27 (Germany)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 19:30",
+   "source_ids": [
+    "S-VFB-VB"
+   ],
+   "source_urls": [
+    "https://www.vfb-volleyball.de/team/spielplan/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36986",
+   "sport": "Volleyball",
+   "event_name": "SSC Karlsruhe vs SVG Luneburg",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SSC_Karlsruhe_vs_SVG_Luneburg/21?event_id=36986",
+   "market": "Win Match",
+   "olbg_time_label": "Today 14:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36968",
+   "sport": "Volleyball",
+   "event_name": "VC Sneek W vs VV Utrecht W",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/VC_Sneek_W_vs_VV_Utrecht_W/21?event_id=36968",
+   "market": "Win Match",
+   "olbg_time_label": "Today 14:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36962",
+   "sport": "Volleyball",
+   "event_name": "Warta Zawiercie vs Kedzierzyn Kozle",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Warta_Zawiercie_vs_Kedzierzyn_Kozle/21?event_id=36962",
+   "market": "Win Match",
+   "olbg_time_label": "Today 14:30",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "PlusLiga 2026-27 (Poland)",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-PZPS"
+   ],
+   "source_urls": [
+    "https://sedziowie.pzps.pl/system/mecze-plusliga/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36977",
+   "sport": "Volleyball",
+   "event_name": "Vallefoglia W vs Cuneo W",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Vallefoglia_W_vs_Cuneo_W/21?event_id=36977",
+   "market": "Set Score",
+   "olbg_time_label": "Today 14:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36974",
+   "sport": "Volleyball",
+   "event_name": "Bergamo W vs Milano W",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Bergamo_W_vs_Milano_W/21?event_id=36974",
+   "market": "Win Match",
+   "olbg_time_label": "Today 14:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "VOL-36976",
+   "sport": "Volleyball",
+   "event_name": "Novara W vs Marignano W",
+   "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Novara_W_vs_Marignano_W/21?event_id=36976",
+   "market": "Win Match",
+   "olbg_time_label": "Today 14:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12053",
+   "sport": "Handball",
+   "event_name": "RK Zagreb vs PSG Handball",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/RK_Zagreb_vs_PSG_Handball/20?event_id=12053",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "EHF Champions League Men 2026-27, Group Phase C",
+   "venue_recorded": "Arena Zagreb, Zagreb",
+   "official_start_recorded": "2026-10-21 18:45 CEST",
+   "source_ids": [
+    "S-EHF-PSG"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/clubs/details/hputODilVqNbBbAttPlUww/ParisSaintGermain/"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12050",
+   "sport": "Handball",
+   "event_name": "Nantes vs HC Vardar",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Nantes_vs_HC_Vardar/20?event_id=12050",
+   "market": "Money Line",
+   "olbg_time_label": "Today 14:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 20:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12055",
+   "sport": "Handball",
+   "event_name": "Veszprem vs Fuchse Berlin",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Veszprem_vs_Fuchse_Berlin/20?event_id=12055",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 18:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12115",
+   "sport": "Handball",
+   "event_name": "Sandefjord vs Runar",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Sandefjord_vs_Runar/20?event_id=12115",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:15",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12045",
+   "sport": "Handball",
+   "event_name": "Dinamo Bucuresti vs Skanderborg Handbold",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Dinamo_Bucuresti_vs_Skanderborg_Handbold/20?event_id=12045",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 18:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12044",
+   "sport": "Handball",
+   "event_name": "Aalborg Handbold vs RK Celje",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Aalborg_Handbold_vs_RK_Celje/20?event_id=12044",
+   "market": "Money Line",
+   "olbg_time_label": "Today 14:45",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "EHF Champions League Men 2026-27, Group Phase C",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21",
+   "source_ids": [
+    "S-WIKI-EHF"
+   ],
+   "source_urls": [
+    "https://en.wikipedia.org/wiki/2026%E2%80%9327_EHF_Champions_League"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12052",
+   "sport": "Handball",
+   "event_name": "RK Partizan vs FC Porto",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/RK_Partizan_vs_FC_Porto/20?event_id=12052",
+   "market": "Money Line",
+   "olbg_time_label": "Today 12:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 18:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12047",
+   "sport": "Handball",
+   "event_name": "HC Kriens Luzern vs KS Kielce",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Kriens_Luzern_vs_KS_Kielce/20?event_id=12047",
+   "market": "Money Line",
+   "olbg_time_label": "Today 14:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-21 20:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12048",
+   "sport": "Handball",
+   "event_name": "Kolstad vs SC Magdeburg",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Kolstad_vs_SC_Magdeburg/20?event_id=12048",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 14:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-22 20:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12054",
+   "sport": "Handball",
+   "event_name": "Sporting CP vs IFK Kristianstad",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Sporting_CP_vs_IFK_Kristianstad/20?event_id=12054",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 14:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-22 20:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12114",
+   "sport": "Handball",
+   "event_name": "IF Hallby HK vs IK Savehof",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/IF_Hallby_HK_vs_IK_Savehof/20?event_id=12114",
+   "market": "Money Line",
+   "olbg_time_label": "Today 13:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12112",
+   "sport": "Handball",
+   "event_name": "Hammarby IF HF vs Alingsas HK",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Hammarby_IF_HF_vs_Alingsas_HK/20?event_id=12112",
+   "market": "Money Line",
+   "olbg_time_label": "Today 13:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12072",
+   "sport": "Handball",
+   "event_name": "Mors Thy Handbold vs Bjerringbro Silkeborg",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Mors_Thy_Handbold_vs_Bjerringbro_Silkeborg/20?event_id=12072",
+   "market": "Match Handicap",
+   "olbg_time_label": "Today 14:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12049",
+   "sport": "Handball",
+   "event_name": "MT Melsungen vs Wisla Plock",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/MT_Melsungen_vs_Wisla_Plock/20?event_id=12049",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 12:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-22 18:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "HAN-12051",
+   "sport": "Handball",
+   "event_name": "Pick Szeged vs GOG",
+   "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Pick_Szeged_vs_GOG/20?event_id=12051",
+   "market": "Money Line",
+   "olbg_time_label": "Tomorrow 12:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "EHF Champions League Men 2026-27",
+   "venue_recorded": null,
+   "official_start_recorded": "2026-10-22 18:45 CEST",
+   "source_ids": [
+    "S-EHF-CAL"
+   ],
+   "source_urls": [
+    "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101905",
+   "sport": "Golf",
+   "event_name": "Genesis Championship",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Genesis_Championship/5?event_id=101905",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 04:00",
+   "verification_status": "verified_preexisting",
+   "competition_recorded": "2026 Genesis Championship (DP World Tour / KPGA co-sanctioned)",
+   "venue_recorded": "Woo Jeong Hills Country Club, Cheonan, South Korea",
+   "official_start_recorded": "2026-10-22 to 2026-10-25",
+   "source_ids": [
+    "S-DPWT-GEN",
+    "S-DPWT-GEN-NEWS",
+    "S-SBS-GEN"
+   ],
+   "source_urls": [
+    "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+    "https://www.europeantour.com/dpworld-tour/news/articles/detail/genesis-championship-marks-its-tenth-edition-at-woo-jeong-hills-cc-this-october/",
+    "https://news.sbs.co.kr/english/article.do?news_id=N1008805966"
+   ],
+   "discrepancy": "Course par is reported as 71 by SBS/other outlets and 72 elsewhere; par is therefore left blank. See FL-005.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101904",
+   "sport": "Golf",
+   "event_name": "Bermuda Championship",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 17:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "PGA Tour: Butterfield Bermuda Championship 2026",
+   "venue_recorded": "Port Royal Golf Club, Southampton Parish, Bermuda",
+   "official_start_recorded": "2026-10-22 to 2026-10-25",
+   "source_ids": [
+    "S-PGA-BERMUDA",
+    "S-BBC-GOLF"
+   ],
+   "source_urls": [
+    "https://www.butterfieldbdachampionship.com/",
+    "https://www.bbc.co.uk/sport/golf/calendar"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101907",
+   "sport": "Golf",
+   "event_name": "Players Series SA",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Players_Series_SA/5?event_id=101907",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 02:45",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101906",
+   "sport": "Golf",
+   "event_name": "BMW Ladies Championship",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/BMW_Ladies_Championship/5?event_id=101906",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 04:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "LPGA Tour: BMW Ladies Championship 2026",
+   "venue_recorded": "Pine Beach Golf Links, Haenam-gun, Republic of Korea",
+   "official_start_recorded": "2026-10-22 to 2026-10-25",
+   "source_ids": [
+    "S-LPGA-BMW",
+    "S-BBC-GOLF"
+   ],
+   "source_urls": [
+    "https://www.lpga.com/tournaments/bmw-lpga-championship/results",
+    "https://www.bbc.co.uk/sport/golf/calendar"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101903",
+   "sport": "Golf",
+   "event_name": "Stifel Charity Classic",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 17:45",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "PGA Tour Champions: Stifel Charity Classic 2026",
+   "venue_recorded": "Norwood Hills Country Club, St. Louis",
+   "official_start_recorded": "2026-10-22 to 2026-10-25",
+   "source_ids": [
+    "S-AP-GOLF"
+   ],
+   "source_urls": [
+    "https://apnews.com/article/pga-tour-bermuda-lpga-european-tour-asia-cc8d85ef7a726c2150184a314999baa2"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101911",
+   "sport": "Golf",
+   "event_name": "Senior Italian Open",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Senior_Italian_Open/5?event_id=101911",
+   "market": "Win Tournament",
+   "olbg_time_label": "24 Oct 11:45",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101908",
+   "sport": "Golf",
+   "event_name": "Fortinet Players Cup",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Fortinet_Players_Cup/5?event_id=101908",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 02:45",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101910",
+   "sport": "Golf",
+   "event_name": "Hong Kong Open",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hong_Kong_Open/5?event_id=101910",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 03:45",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101912",
+   "sport": "Golf",
+   "event_name": "Stella Artois Players Championship",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stella_Artois_Players_Championship/5?event_id=101912",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 10:45",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GLF-101909",
+   "sport": "Golf",
+   "event_name": "Hero Womens Indian Open",
+   "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hero_Womens_Indian_Open/5?event_id=101909",
+   "market": "Win Tournament",
+   "olbg_time_label": "25 Oct 08:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Ladies European Tour 2026: Hero Women's Indian Open",
+   "venue_recorded": "India",
+   "official_start_recorded": "2026-10-22 to 2026-10-25",
+   "source_ids": [
+    "S-LET-HERO"
+   ],
+   "source_urls": [
+    "https://en.wikipedia.org/wiki/2026_Ladies_European_Tour"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "MTR-913",
+   "sport": "Motor Racing",
+   "event_name": "USA Grand Prix",
+   "olbg_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913",
+   "market": "Win Race",
+   "olbg_time_label": "25 Oct 16:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Formula 1 MSC Cruises United States Grand Prix 2026 (FIA Formula One World Championship)",
+   "venue_recorded": "Circuit of the Americas, Austin, Texas",
+   "official_start_recorded": "2026-10-25 15:00 local (race); practices 23-24 Oct",
+   "source_ids": [
+    "S-F1-USGP",
+    "S-F1-NEWS"
+   ],
+   "source_urls": [
+    "https://www.formula1.com/en/racing/2026/united-states",
+    "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm"
+   ],
+   "discrepancy": "Round number differs between outlets (18 in F1/Wikipedia listings, 19 in one preview). Round number not recorded.",
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "MTR-828",
+   "sport": "Motor Racing",
+   "event_name": "Formula 1 Drivers Championship 2026",
+   "olbg_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828",
+   "market": "Win Tournament",
+   "olbg_time_label": "06 Dec 08:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Formula 1 Drivers Championship 2026 (outright market, not a fixture)",
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [
+    "S-F1-NEWS"
+   ],
+   "source_urls": [
+    "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "MTR-912",
+   "sport": "Motor Racing",
+   "event_name": "Formula 1 Drivers Championship 2026 Without Kimi Antonelli",
+   "olbg_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912",
+   "market": "Win Tournament",
+   "olbg_time_label": "06 Dec 08:00",
+   "verification_status": "verified_this_pass",
+   "competition_recorded": "Formula 1 Drivers Championship 2026 Without Kimi Antonelli (outright derivative market, not a fixture)",
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [
+    "S-F1-NEWS"
+   ],
+   "source_urls": [
+    "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm"
+   ],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GFA-3530",
+   "sport": "Gaelic Football",
+   "event_name": "St Finbarrs v Nemo Rangers",
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Finbarrs_v_Nemo_Rangers/25?event_id=3530",
+   "market": null,
+   "olbg_time_label": "25 Oct 12:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": true
+  },
+  {
+   "id": "GFA-3532",
+   "sport": "Gaelic Football",
+   "event_name": "Moycullen v Salthill-Knocknacarra",
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Moycullen_v_Salthill-Knocknacarra/25?event_id=3532",
+   "market": null,
+   "olbg_time_label": "24 Oct 14:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": true
+  },
+  {
+   "id": "GFA-3531",
+   "sport": "Gaelic Football",
+   "event_name": "Kanturk v Eire Og Cor",
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Kanturk_v_Eire_Og_Cor/25?event_id=3531",
+   "market": null,
+   "olbg_time_label": "01 Nov 09:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": true
+  },
+  {
+   "id": "GFA-3536",
+   "sport": "Gaelic Football",
+   "event_name": "Rathgormack v The Nire",
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Rathgormack_v_The_Nire/25?event_id=3536",
+   "market": null,
+   "olbg_time_label": "01 Nov 10:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": true
+  },
+  {
+   "id": "GFA-3327",
+   "sport": "Gaelic Football",
+   "event_name": "All Ireland Football Championship 2027",
+   "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/All_Ireland_Football_Championship_2027/25?event_id=3327",
+   "market": null,
+   "olbg_time_label": "25 Jul 2027 10:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": true
+  },
+  {
+   "id": "GRY-689390",
+   "sport": "Greyhounds",
+   "event_name": "11:14 Kinsley",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:14_Kinsley/28?event_id=689390",
+   "market": "Daily Races",
+   "olbg_time_label": "Today 06:14",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GRY-689384",
+   "sport": "Greyhounds",
+   "event_name": "10:32 Harlow",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/10:32_Harlow/28?event_id=689384",
+   "market": "Daily Races",
+   "olbg_time_label": "Today 05:32",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GRY-689385",
+   "sport": "Greyhounds",
+   "event_name": "10:48 Harlow",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/10:48_Harlow/28?event_id=689385",
+   "market": "Daily Races",
+   "olbg_time_label": "Today 05:48",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GRY-689387",
+   "sport": "Greyhounds",
+   "event_name": "11:03 Monmore",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:03_Monmore/28?event_id=689387",
+   "market": "Daily Races",
+   "olbg_time_label": "Today 06:03",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GRY-689383",
+   "sport": "Greyhounds",
+   "event_name": "11:04 Harlow",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:04_Harlow/28?event_id=689383",
+   "market": "Daily Races",
+   "olbg_time_label": "Today 06:04",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "GRY-689386",
+   "sport": "Greyhounds",
+   "event_name": "11:09 Nottingham",
+   "olbg_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:09_Nottingham/28?event_id=689386",
+   "market": "Daily Races",
+   "olbg_time_label": "Today 06:09",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGL-2695857",
+   "sport": "Rugby League",
+   "event_name": "State of Origin 2027",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857",
+   "market": "Win Tournament",
+   "olbg_time_label": "27 May 2027 06:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGL-2801554",
+   "sport": "Rugby League",
+   "event_name": "Super League 2027",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Super_League_2027/10?event_id=2801554",
+   "market": "Grand Final Winner",
+   "olbg_time_label": "02 Oct 2027 13:00",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  },
+  {
+   "id": "RGL-2801600",
+   "sport": "Rugby League",
+   "event_name": "NRL 2027",
+   "olbg_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600",
+   "market": "Grand Final Winner",
+   "olbg_time_label": "03 Oct 2027 04:30",
+   "verification_status": "unverified_blank_by_policy",
+   "competition_recorded": null,
+   "venue_recorded": null,
+   "official_start_recorded": null,
+   "source_ids": [],
+   "source_urls": [],
+   "discrepancy": null,
+   "ambiguous_exclusion": false
+  }
+ ]
+}
