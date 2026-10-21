@@ -35,11 +35,11 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-12-reverify-rugby-icehl-and-fill-high-preds` | Re-verify remaining unconfirmed `scripts/model.py`-track fixtures (Darts, Snooker, Rugby Union, Ice Hockey, Basketball, Handball, Cricket) against official sources; extend `scripts/model.py` to use Pro D2/Top14/ICEHL/SHL tables with proper source attribution; write the 9 newly-surfaced HIGH-confidence predictions; rebase onto the `task-09`/`task-10` gap-sports work and regenerate the combined site | `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json` (regenerated board-track HTML rebuilt on top via the shared `scripts/build_site.py`) | done | `session-dadd85d4` (branch `arena/dadd85d4-olbg3`) | See session log below for sources, irregularities, and rebase/merge notes. |
 | `task-13-reverify-refresh-integrate` | Re-verify the published board line by line against live OLBG listings and official competition sources; fix every discrepancy found; refresh stale captures; re-render and publish the site | `data/events.json`, `data/official.json`, `data/predictions.json`, `data/raw/*`, `scripts/*`, generated root pages + `sports/*.html`, `COORDINATION.md`, `README.md` | done | `session-7244efad` | Claimed 2026-10-21; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) |
 | `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
-| `task-997a-13-source-tier-audit` | Audit every row currently labelled `verified` and classify its cited source as official / club-official / third-party corroboration; publish the tier per row and flag third-party-only rows | `scripts/model.py` (source tier field), `data/official.json` (tier metadata), generated `verification.html`, `flagged.html` | in progress | `session-997a5fc2` | Claimed 2026-10-21 07:2x UTC; no other session holds this scope |
-| `task-997a-14-verify-tail` | Verify the 43 rows still unverified: Tennis 14 (ATP/WTA official), Volleyball 15 (PlusLiga/Lega Volley/VBL/Mestaruusliiga official), Handball 8 (EHF official), Cricket CRK-05, Baseball BSB-01 | `data/official.json` | in progress | `session-997a5fc2` | Owner of this scope; values only from the competition's own site or the club's own site |
-| `task-997a-15-handicap-total` | Originate a handicap and a match total for every two-sided fixture that has a price (currently only 22 of 114 have either); per-sport scoring scales recorded as disclosed assumptions | `scripts/model.py`, `docs/method.md` | in progress | `session-997a5fc2` | Model output only, never a bookmaker quote |
-| `task-997a-16-predictions` | Write 30+ word sourced predictions for every HIGH pick newly surfaced by task-14/15 | `data/predictions.json` | in progress | `session-997a5fc2` | Each prediction cites its official source |
-| `task-997a-17-integrate` | Rebuild both tracks, run every checker, open PR to `main`, merge, confirm Pages deploy serves the updated pages | `index.html`, `sports/*.html`, `verification.html`, `flagged.html`, `method.html`, `COORDINATION.md` | in progress | `session-997a5fc2` | Final integration for this branch |
+| `task-997a-13-source-tier-audit` | Audit every row currently labelled `verified` and classify its cited source as official / club-official / third-party corroboration; publish the tier per row and flag third-party-only rows | `scripts/model.py` (source tier field), `data/official.json` (tier metadata), generated `verification.html`, `flagged.html` | done | `session-997a5fc2` | Claimed 2026-10-21 07:2x UTC; no other session holds this scope |
+| `task-997a-14-verify-tail` | Verify the 43 rows still unverified: Tennis 14 (ATP/WTA official), Volleyball 15 (PlusLiga/Lega Volley/VBL/Mestaruusliiga official), Handball 8 (EHF official), Cricket CRK-05, Baseball BSB-01 | `data/official.json` | done | `session-997a5fc2` | Owner of this scope; values only from the competition's own site or the club's own site |
+| `task-997a-15-handicap-total` | Originate a handicap and a match total for every two-sided fixture that has a price (currently only 22 of 114 have either); per-sport scoring scales recorded as disclosed assumptions | `scripts/model.py`, `docs/method.md` | done | `session-997a5fc2` | Model output only, never a bookmaker quote |
+| `task-997a-16-predictions` | Write 30+ word sourced predictions for every HIGH pick newly surfaced by task-14/15 | `data/predictions.json` | done | `session-997a5fc2` | Each prediction cites its official source |
+| `task-997a-17-integrate` | Rebuild both tracks, run every checker, open PR to `main`, merge, confirm Pages deploy serves the updated pages | `index.html`, `sports/*.html`, `verification.html`, `flagged.html`, `method.html`, `COORDINATION.md` | done | `session-997a5fc2` | Final integration for this branch |
 
 ---
 
@@ -463,3 +463,70 @@ sessions labelled `verified`, several cite sources that are not the competition'
 `sofascore.com`, `as.com`, `tntsports.co.uk`, `espn.com`, `eliteprospects.com`, `cricinfo.com`, `snooker.org`,
 `sport.orf.at`. Those are corroboration, not official confirmation, and the board currently presents all 71 as
 "official". That is the irregularity this session fixes (task-13).
+
+### Result of `session-997a5fc2`
+
+**Task 13 — source-tier audit (done).** The previous board labelled 71 rows "verified" without checking what each
+link actually was. Host-by-host: 20 of those links were not the competition's own site. Fixed as follows.
+* `data/official.json` now carries a published tier register (`source_tiers`): official hosts, club-official hosts,
+  third-party hosts, with the host list it applies to.
+* `scripts/model.py` grades every row: `verified` only for official/club-official, `corroborated` for a third party
+  (link kept, tier shown, verification point withheld), `unverified` when there is nothing.
+* `scripts/check_board.py` now enforces status/tier agreement and forbids a corroborated row from being graded
+  HIGH. It caught two real problems while I built this (an unclassified host, and a gap-sports row with no tier).
+* Result: **69 verified / 12 corroborated / 56 unverified** (137 rows), down from a claimed 71/0/43.
+
+**Task 14 — verification (done, with disclosed gaps).** Eleven rows gained an official source:
+* 8 ATP fixtures on the tour's own draws — Almaty `atptour.com/en/scores/current/almaty/9410/draws`
+  (Nurlanuly v Machac, Mannarino v Rublev, Diaz Acosta v Basilashvili, Duckworth v Darderi) and Brussels
+  `.../brussels/7485/draws` (Prizmic v Dzumhur, Goffin v Bertola, Damm v Cerundolo, Navone v Griekspoor).
+* BSB-01, World Series Game 1, `mlb.com/schedule/2026-10-23` — "World Series, TB @ MIL, 8:00 PM ET", gameday 849805.
+  OLBG's "23 Oct 20:00" matches exactly.
+* CRK-02 and CRK-03, `cricket.co.za/fixtures/` — Pro20 Cup, 21/10/26 13:00 and 18:00. Both match OLBG once its
+  unlabelled clock is read as US Eastern, which is a second independent confirmation of FL-002/FL-021.
+Six snooker rows were re-sourced from snooker.org to their own WST match centres (Round 2, Wed 21 Oct, matches
+36/38/39/42/44/45). ICEHL form data was replaced with the league's own table from `ice.hockey` (14 teams copied
+value by value; HCB 1st 11gp 44-28 24pts, KAC 4th 12gp 46-36 21pts, Pustertal 7th 10gp 31-27 17pts, Vorarlberg
+last 0 wins 26-52 1pt). No value in any prediction changed as a result.
+
+**Not closed, left explicitly unverified** (listed on the Flagged page, not guessed):
+* 4 WTA tennis rows — `wtatennis.com` draw pages render client-side and returned navigation only.
+* 15 volleyball rows — the Polish, German, Italian, Finnish and Dutch league sites returned no retrievable
+  21–25 October fixture list (plusliga.pl redirects to a site whose fixture grid is a widget).
+* 8 handball rows — every path tried on `ehfcl.eurohandball.com` returned 404, so nothing could be checked.
+* CRK-05 — `cricket.co.za` shows North West v Tuskers and Boland v Border for 22 October, not Eastern Storm v
+  Tuskers. That is a contradiction, not an absence, so the row stays unverified.
+
+**Task 15 — markets (done, with disclosed gaps).** Handicaps went from 22 to 83 rows: every priced two-sided
+fixture in a sport with a statable scoring unit now has one, either `official-form` (rugby union, ice hockey) or
+`consensus-scaled` (Tennis 4.5 games, Basketball 13 points, Handball 7 goals, Baseball 3 runs, Volleyball 1.6 sets,
+Snooker 1.4 frames; probability capped at 0.85). Cricket, darts and Gaelic football carry no handicap because the
+format needed to express one is not established, and that reason is printed on each sport page. Totals remain at
+22: an official scoring baseline exists only for rugby union and ice hockey, and I refuse to invent one for the
+other sports. New `lines.html` puts every market in one table with its basis.
+
+**Task 16 — predictions.** No new HIGH picks were manufactured. Two were lost: IHO-01 and IHO-03 lost their
+verification point when their fixtures turned out to rest on tipsterio.de and Eliteprospects, so the count is
+**12 HIGH** and the two predictions are published under "kept after the source-tier audit" rather than deleted.
+IHO-01's prose was re-checked figure by figure against the official ice.hockey table and matches; IHO-03's prose
+could not be re-checked against an official SHL page (shl.se returned no readable schedule) and is labelled
+unconfirmed.
+
+**Task 17 — integration.** Local suite green: `check_board.py` (137 rows, 69 verified, 131 priced, 83 handicaps,
+22 totals, 14 predictions), `check_links.py` (81 pages, 0 broken), `check.py` (40 feed rows),
+`tools/check_site.py` (OLBG track byte-identical), 10/10 unit tests. Two defects were caught by CI that the local
+run hid and are fixed in the commits below: `check_links.py` failed on `lines.html -> ../flagged.html` (a
+depth-1 relative link used on a root page), and `check_board.py` had to learn the new tier rule.
+
+### Documentation defects found and fixed this session
+* `docs/method.md` still said "Verified in this pass: 4 URC fixtures, 2 NHL games, 4 NBA games" and "5 predictions
+  (5 of 114 rows)" while the board carried 71 verifications and 14 predictions. Rewritten to match the data.
+* `README.md` said "Currently 5 predictions" and "11 verified / 126 unverified". Now quotes 69 / 12 / 56 and 12+2
+  predictions, plus the handicap/total coverage.
+* The `flagged.html` finding "Totals and handicaps are missing for most sports" became false once handicaps were
+  extended, so it was rewritten rather than left standing.
+
+### Overlap note
+`session-074739aa` (branch `arena/074739aa-olbg3`, PR #25) was open and active throughout. It works on the OLBG
+lines-audit track (`data/matches.json`, `data/verifications.json`, `data/flagged.json`, `olbg-board/`, `olbg/`).
+This session did not touch any of those files, so #25 can merge independently; the only shared file is this one.
