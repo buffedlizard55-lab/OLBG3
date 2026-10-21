@@ -8,64 +8,68 @@
 <header class="topbar">
   <a class="brand" href="../index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../verification.html">Verification</a><a href="../flagged.html">Flagged for Review</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a>
+    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../verification.html">Verification</a><a href="../audit.html">Audit</a><a href="../flagged.html">Flagged for Review</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a>
   </nav>
 </header>
 <main>
 <section class="pagehead">
   <h1>Motor Racing</h1>
-  <p class="lede">3 fixtures captured from <a href="https://www.olbg.com/betting-tips/Motor_Racing/14" rel="noopener">OLBG&rsquo;s Motor Racing tips page</a>
-  (sport ID 14). 0 of them were confirmed against an official competition source;
+  <p class="lede">3 rows captured from <a href="https://www.olbg.com/betting-tips/Motor_Racing/14" rel="noopener">OLBG&rsquo;s Motor Racing tips page</a>
+  (sport ID 14): 0 two-sided fixtures and 3 outright/race markets.
+  1 of them were confirmed against an official competition source;
   the rest are published as <em>unverified</em> and listed on the <a href="../flagged.html">Flagged for Review</a> page.</p>
-  <p class="note">3 rows rendered server-side on the OLBG listing(s) at 06:45-07:05Z; each list ends in a &#x27;Load More Tips&#x27; control the fetcher cannot press, so this is OLBG&#x27;s first page, not its whole card.</p>
+  <p class="note">One Formula 1 race (United States Grand Prix, 25 Oct 2026) plus two season-long drivers&#x27; championship markets. The race start is confirmed against formula1.com; the championship markets cannot be verified before the season ends and are published unverified.</p>
 </section>
 <div class="cards">
-  <div class="card"><span class="k">3</span><span class="l">fixtures</span></div>
-  <div class="card"><span class="k">0</span><span class="l">officially verified</span></div>
+  <div class="card"><span class="k">3</span><span class="l">rows</span></div>
+  <div class="card"><span class="k">1</span><span class="l">officially verified</span></div>
   <div class="card"><span class="k">0</span><span class="l">high-confidence picks</span></div>
-  <div class="card"><span class="k">1</span><span class="l">medium-confidence picks</span></div>
+  <div class="card"><span class="k">0</span><span class="l">medium-confidence picks</span></div>
 </div>
-<h2>Fixtures, our lines and picks</h2>
-<p class="legend"><strong>Our home / Our away:</strong> decimal prices we originate (5% overround). <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
+<h2>Rows, our lines and picks</h2>
+<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% overround), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
 <strong>Basis:</strong> <code>official-league-table</code> / <code>official-standings</code> = model built on official data; <code>consensus</code> = de-vigged OLBG tip share only; <code>none</code> = no defensible input, so no price is shown.</p>
 <div class="tablewrap"><table id="tbl-motor_racing" class="board"><thead><tr>
-<th>Ref</th><th>Sport</th><th>Competition</th><th>Match</th><th>Start (as listed)</th>
-<th class="num">Our home</th><th class="num">Draw</th><th class="num">Our away</th>
+<th>Ref</th><th>Sport</th><th>Competition</th><th>Match / event</th><th>Market</th><th>Start (as listed)</th>
+<th class="num">Our price</th><th class="num">Draw</th><th class="num">Our price 2</th>
 <th>Our pick</th><th>Conf.</th><th>Basis</th><th>Official source</th>
-</tr></thead><tbody><tr data-sport="Motor Racing" data-conf="MEDIUM" data-text="usa grand prix   motor racing">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913" rel="noopener">MTR-913</a></td>
+</tr></thead><tbody><tr data-sport="Motor Racing" data-conf="LOW" data-text="usa grand prix  formula 1 motor racing">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913" rel="noopener">MTR-01</a></td>
 <td>Motor Racing</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">USA Grand Prix <span class="vs">v</span> </td>
-<td class="when">25 Oct 16:00 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Max Verstappen </td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
+<td class="comp">Formula 1</td>
+<td class="match">USA Grand Prix <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
+<td class="market">Win Race <span class="tag">race</span></td>
+<td class="when">25 Oct 16:00</td>
+<td class="num">3.62</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
+<td class="pick">Max Verstappen <span class="prob">26%</span></td>
+<td><span class="pill low">LOW</span></td>
+<td class="basis">race-prior</td>
+<td class="src"><a class="ok" href="https://www.formula1.com/en/racing/2026/united-states" rel="noopener" title="Official page lists Practice 1 23 Oct 13:30-14:30, Practice 2 23 Oct 17:00-18:00, Practice 3 24 Oct 13:30-14:30, Qualifying 24 Oct 17:00-18:00 and the Race 25 Oct 16:00, at the 5.513 km Circuit of the Americas over 56 laps. OLBG&#x27;s &#x27;25 Oct 16:00&#x27; matches the official race start.">&#10003; Formula 1 — United States Grand Prix 2026 (official race page)</a></td>
+</tr>
+<tr data-sport="Motor Racing" data-conf="LOW" data-text="formula 1 drivers championship 2026  formula 1 motor racing">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828" rel="noopener">MTR-02</a></td>
+<td>Motor Racing</td>
+<td class="comp">Formula 1</td>
+<td class="match">Formula 1 Drivers Championship 2026 <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
+<td class="market">Win Tournament <span class="tag">outright</span></td>
+<td class="when">06 Dec 08:00</td>
+<td class="num">4.48</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
+<td class="pick">Max Verstappen <span class="prob">21%</span></td>
+<td><span class="pill low">LOW</span></td>
+<td class="basis">outright-prior</td>
 <td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
 </tr>
-<tr data-sport="Motor Racing" data-conf="LOW" data-text="formula 1 drivers championship 2026 outright market  motor racing">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828" rel="noopener">MTR-828</a></td>
+<tr data-sport="Motor Racing" data-conf="LOW" data-text="formula 1 drivers championship 2026 without kimi antonelli  formula 1 motor racing">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912" rel="noopener">MTR-03</a></td>
 <td>Motor Racing</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">Formula 1 Drivers Championship 2026 <span class="vs">v</span> outright market</td>
-<td class="when">6 Dec 08:00 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Max Verstappen </td>
+<td class="comp">Formula 1</td>
+<td class="match">Formula 1 Drivers Championship 2026 Without Kimi Antonelli <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
+<td class="market">Win Tournament <span class="tag">outright</span></td>
+<td class="when">06 Dec 08:00</td>
+<td class="num">3.74</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
+<td class="pick">Max Verstappen <span class="prob">25%</span></td>
 <td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Motor Racing" data-conf="LOW" data-text="formula 1 drivers championship 2026 without kimi antonelli outright market  motor racing">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912" rel="noopener">MTR-912</a></td>
-<td>Motor Racing</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">Formula 1 Drivers Championship 2026 Without Kimi Antonelli <span class="vs">v</span> outright market</td>
-<td class="when">6 Dec 08:00 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Max Verstappen </td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
+<td class="basis">outright-prior</td>
 <td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
 </tr></tbody></table></div>
 <h2>Handicap lines</h2><p class="dim">Not originated for this sport: OLBG provides no win-share or scoring baseline here, so a handicap would be a guess. Blank rather than invented.</p>

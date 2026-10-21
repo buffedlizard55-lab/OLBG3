@@ -67,6 +67,11 @@
   "harvest_file": "raw/olbg-harvest-20261021T0650Z.tsv",
   "harvest_format": "v2",
   "harvest_timezone_note": "OLBG renders listing times in the viewer locale; for this fetcher that is US Eastern Daylight Time (UTC-4), checked against NHL and NBA official start times. Official UTC is stored in verifications.json where confirmed.",
-  "previous_harvest": "raw/olbg-harvest-20261021.tsv (05:20Z pass, retained unchanged for audit; superseded)",
+  "previous_harvest": {
+    "file": "raw/olbg-harvest-20261021.tsv",
+    "format": "v1",
+    "harvest_completed_utc": "2026-10-21T05:20:00Z",
+    "note": "05:20Z pass, retained unchanged for audit. Sports it covers that the 06:50Z pass did not re-list (Gaelic Football, Greyhounds) are carried from it, tagged per row."
+  },
   "session": "session-af0789e6"
 }

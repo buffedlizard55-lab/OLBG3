@@ -47,6 +47,40 @@ ALIASES = {
     "PHI Flyers": "Philadelphia Flyers",
     "FLA Panthers": "Florida Panthers",
     "OTT Senators": "Ottawa Senators",
+    # Pro D2 (OLBG short name -> official LNR club name)
+    "Montauban": "US Montauban",
+    "Oyonnax": "Oyonnax Rugby",
+    "Agen": "SU Agen",
+    "Nissa": "Nissa Rugby",
+    "Soyaux Angouleme": "Soyaux-Angoulême XV",
+    "Dax": "US Dax",
+    "Narbonne": "RC Narbonnais",
+    "Brive": "CA Brive",
+    "Aurillac": "Stade Aurillacois",
+    "Nevers": "USON Nevers",
+    "Colomiers": "Colomiers Rugby",
+    "Grenoble": "FC Grenoble Rugby",
+    "Biarritz": "Biarritz Olympique PB",
+    "Provence": "Provence Rugby",
+    "Beziers": "AS Béziers Hérault",
+    # Top 14
+    "Bayonne": "Aviron Bayonnais",
+    "Lyon": "LOU Rugby",
+    "Toulouse": "Stade Toulousain",
+    "Perpignan": "USA Perpignan",
+    "La Rochelle": "Stade Rochelais",
+    "Bordeaux": "Union Bordeaux-Bègles",
+    # Austria ICEHL
+    "Pustertal": "HC Pustertal",
+    "HCB Sudtirol Alperia": "HC Bolzano",
+    "HC TWK Innsbruck": "HC Innsbruck",
+    "Graz 99ers": "Graz99ers",
+    "Milano HC": "Milano Hockey Club",
+    "KAC Klagenfurt": "EC-KAC",
+    "Fehervar AV19": "Fehérvár AV19",
+    # SHL
+    "Timra IK": "Timrå IK",
+    "Farjestad BK": "Färjestad BK",
 }
 
 def official_name(n):
@@ -100,6 +134,31 @@ nhl = off["form_data"]["NHL_standings_2026_10_20"]["teams"]
 urc_src = off["form_data"]["URC_2026_27_table"]["source"]
 nhl_src = off["form_data"]["NHL_standings_2026_10_20"]["source"]
 
+# Additional official league tables gathered in later passes. Each rugby union
+# table uses an identical schema (pts/pl/w/d/l/bp/pf/pa/diff/form) so they can
+# simply be merged into one lookup by official club name; likewise the extra
+# ice hockey tables share the gf/ga/gp schema used by nhl_model. Merging does
+# NOT change any value - it only lets a fixture from any of these competitions
+# be matched against the right official table.
+prod2 = off["form_data"]["ProD2_2026_27_table"]["teams"]
+top14 = off["form_data"]["Top14_2026_27_table"]["teams"]
+icehl = off["form_data"]["ICEHL_2026_27_table"]["teams"]
+shl = off["form_data"]["SHL_2026_27_table_partial"]["teams"]
+prod2_src = off["form_data"]["ProD2_2026_27_table"]["source"]
+top14_src = off["form_data"]["Top14_2026_27_table"]["source"]
+icehl_src = off["form_data"]["ICEHL_2026_27_table"]["source"]
+shl_src = off["form_data"]["SHL_2026_27_table_partial"]["source"]
+
+rugby_tables = {}
+rugby_tables.update(urc)
+rugby_tables.update(prod2)
+rugby_tables.update(top14)
+
+hockey_tables = {}
+hockey_tables.update(nhl)
+hockey_tables.update(icehl)
+hockey_tables.update(shl)
+
 def side_of_pick(e):
     """Map OLBG's most-tipped selection to home/away/draw/None without guessing."""
     pick = (e.get("olbg_pick") or "").strip()
@@ -125,19 +184,38 @@ for e in events:
 
     # ---- 1. what do we actually know? ----
     fixture_conf = conf.get(ref)
-    home_row = urc.get(official_name(e["home"]))
-    away_row = urc.get(official_name(e["away"]))
-    nhl_home = nhl.get(official_name(e["home"])); nhl_away = nhl.get(official_name(e["away"]))
+    home_row = rugby_tables.get(official_name(e["home"]))
+    away_row = rugby_tables.get(official_name(e["away"]))
+    nhl_home = hockey_tables.get(official_name(e["home"])); nhl_away = hockey_tables.get(official_name(e["away"]))
 
     probs = None; margin = None; total = None; basis = None
     if e["sport"] == "Rugby Union" and home_row and away_row:
         probs, margin, total = rugby_model(home_row, away_row)
         basis = "official-league-table"
-        model["notes"].append(f"URC official table 2026/27 used for both sides ({urc_src}).")
+        # name which official table each side actually came from, for a transparent citation
+        def _which_table(name):
+            if name in urc: return urc_src
+            if name in prod2: return prod2_src
+            if name in top14: return top14_src
+            return "?"
+        h_src = _which_table(official_name(e["home"])); a_src = _which_table(official_name(e["away"]))
+        if h_src == a_src:
+            model["notes"].append(f"Official league table used for both sides ({h_src}).")
+        else:
+            model["notes"].append(f"Official league tables used: home side from {h_src}, away side from {a_src}.")
     elif e["sport"] == "Ice Hockey" and nhl_home and nhl_away:
         probs, margin, total = nhl_model(nhl_home, nhl_away)
         basis = "official-standings"
-        model["notes"].append(f"NHL.com official standings used for both sides ({nhl_src}).")
+        def _which_hockey_table(name):
+            if name in nhl: return nhl_src
+            if name in icehl: return icehl_src
+            if name in shl: return shl_src
+            return "?"
+        h_src = _which_hockey_table(official_name(e["home"])); a_src = _which_hockey_table(official_name(e["away"]))
+        if h_src == a_src:
+            model["notes"].append(f"Official standings used for both sides ({h_src}).")
+        else:
+            model["notes"].append(f"Official standings used: home side from {h_src}, away side from {a_src}.")
 
     side, kind = side_of_pick(e)
     if probs is None:

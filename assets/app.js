@@ -6,7 +6,8 @@
   var count = document.getElementById('count');
   if (!q || !fs || !fc) return;
 
-  var rows = Array.prototype.slice.call(document.querySelectorAll('table.board tbody tr'));
+  // only the main board table: the page also has a coverage table and a picks table
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#tbl-all tbody tr'));
 
   function apply() {
     var term = q.value.trim().toLowerCase();
@@ -21,7 +22,7 @@
       r.style.display = show ? '' : 'none';
       if (show) shown++;
     });
-    if (count) count.textContent = shown + ' of ' + rows.length + ' rows';
+    if (count) count.textContent = (shown === rows.length ? rows.length + ' rows' : shown + ' of ' + rows.length + ' rows');
   }
 
   q.addEventListener('input', apply);

@@ -44,6 +44,18 @@ OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap
                  "Match Handicap", "Set Betting", "Set Score", "1st Set Winner", ""}
 
 
+def competition_status(ev: dict) -> str:
+    """'verified' only when an official/primary-class record names the competition."""
+    if not ev.get("competition"):
+        return "not_stated_by_source"
+    st = ev.get("status") or "unverified"
+    if st in ("verified", "verified_market_row"):
+        return "verified"
+    if st == "verified_secondary_only":
+        return "corroborated_only"
+    return "partial"
+
+
 def parse_tips(tips: str) -> tuple[int | None, int | None]:
     if not tips or "/" not in tips:
         return None, None
@@ -96,74 +108,90 @@ def main() -> None:
     fmt = meta.get("harvest_format", "v1")
     fetched_at = meta.get("harvest_completed_utc", "2026-10-21T05:20:00Z")
 
+    # Sports that the primary harvest did not cover keep their rows from the previous
+    # harvest (same OLBG event ids), tagged so the reader can see the older fetch time.
+    sources = [(harvest, fmt, fetched_at, None)]
+    prev = meta.get("previous_harvest") or {}
+    if prev.get("file"):
+        sources.append((DATA / prev["file"], prev.get("format", "v1"), prev.get("harvest_completed_utc", ""),
+                        f"carried from the {prev.get('harvest_completed_utc', '')[11:16]}Z harvest: sport not re-listed in the primary harvest"))
+
     rows = []
     missing_url_parts = []
-    for line in harvest.read_text().splitlines():
-        if not line.strip() or line.startswith("#"):
-            continue
-        parts = line.split("|")
-        parts += [""] * (11 - len(parts))
-        league_label = ""
-        if fmt == "v2":
-            # v2 columns: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
-            (sport, league_label, prefix, slug, eid, date_label, time_label,
-             market, consensus, tips, note) = parts[:11]
-            pct = ""
-        else:
-            (sport, prefix, slug, eid, date_label, time_label,
-             market, consensus, tips, pct, note) = parts[:11]
+    primary_sports: set[str] = set()
+    for harvest, fmt, fetched_at, carry_note in sources:
+        for line in harvest.read_text().splitlines():
+            if not line.strip() or line.startswith("#"):
+                continue
+            parts = line.split("|")
+            parts += [""] * (11 - len(parts))
+            league_label = ""
+            if fmt == "v2":
+                # v2 columns: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
+                (sport, league_label, prefix, slug, eid, date_label, time_label,
+                 market, consensus, tips, note) = parts[:11]
+                pct = ""
+            else:
+                (sport, prefix, slug, eid, date_label, time_label,
+                 market, consensus, tips, pct, note) = parts[:11]
 
-        sport_id = SPORT_IDS.get(sport)
-        if sport_id is None:
-            missing_url_parts.append(line)
-            continue
-        url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
-        event_name = slug.replace("_", " ")
-        # The slug is lossy for "@" events; prefer the human name from the page where known.
-        display = event_name
-        home, away = split_teams(display)
-        if away:
-            away = SUFFIX_RE.sub("", away)
-        won, total = parse_tips(tips)
-        ev = ver["event_verifications"].get(eid, {})
-        if market in WIN_MARKETS:
-            family = "match_winner"
-        elif market in OUTRIGHT_MARKETS:
-            family = "outright"
-        else:
-            family = "other"
+            sport_id = SPORT_IDS.get(sport)
+            if sport_id is None:
+                missing_url_parts.append(line)
+                continue
+            if carry_note is None:
+                primary_sports.add(sport)
+            elif sport in primary_sports:
+                continue  # the primary harvest covered this sport; its listing is authoritative
+            else:
+                note = (note + "; " if note else "") + carry_note
+            url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
+            event_name = slug.replace("_", " ")
+            # The slug is lossy for "@" events; prefer the human name from the page where known.
+            display = event_name
+            home, away = split_teams(display)
+            if away:
+                away = SUFFIX_RE.sub("", away)
+            won, total = parse_tips(tips)
+            ev = ver["event_verifications"].get(eid, {})
+            if market in WIN_MARKETS:
+                family = "match_winner"
+            elif market in OUTRIGHT_MARKETS:
+                family = "outright"
+            else:
+                family = "other"
 
-        rows.append({
-            "id": f"{ID_PREFIX[sport]}-{eid}",
-            "sport": sport,
-            "olbg_sport_id": sport_id,
-            "competition": ev.get("competition") or None,
-            "competition_status": "verified" if ev.get("competition") else "not_stated_by_source",
-            "venue": ev.get("venue") or None,
-            "verified_start": ev.get("start_local") or None,
-            "event_name": display,
-            "home": home,
-            "away": away,
-            "olbg_date_label": date_label,
-            "olbg_time_label": time_label,
-            "date_iso": resolve_date(date_label, run_day),
-            "olbg_market": market or None,
-            "market_family": family,
-            "olbg_consensus_selection": consensus or None,
-            "olbg_tips": tips or None,
-            "olbg_tips_won": won,
-            "olbg_tips_total": total,
-            "olbg_confidence_pct": int(pct) if pct.strip().isdigit() else None,
-            "olbg_url": url,
-            "olbg_league_label": league_label or None,
-            "verification_status": ev.get("status") or "unverified",
-            "verification_note": ev.get("note") or None,
-            "official_start_utc": ev.get("start_utc") or None,
-            "fetched_at": fetched_at,
-            "verification_ids": ev.get("sources", []),
-            "ambiguous_exclusion": sport == "Gaelic Football",
-            "row_notes": note or None,
-        })
+            rows.append({
+                "id": f"{ID_PREFIX[sport]}-{eid}",
+                "sport": sport,
+                "olbg_sport_id": sport_id,
+                "competition": ev.get("competition") or None,
+                "competition_status": competition_status(ev),
+                "venue": ev.get("venue") or None,
+                "verified_start": ev.get("start_local") or None,
+                "event_name": display,
+                "home": home,
+                "away": away,
+                "olbg_date_label": date_label,
+                "olbg_time_label": time_label,
+                "date_iso": resolve_date(date_label, run_day),
+                "olbg_market": market or None,
+                "market_family": family,
+                "olbg_consensus_selection": consensus or None,
+                "olbg_tips": tips or None,
+                "olbg_tips_won": won,
+                "olbg_tips_total": total,
+                "olbg_confidence_pct": int(pct) if pct.strip().isdigit() else None,
+                "olbg_url": url,
+                "olbg_league_label": league_label or None,
+                "verification_status": ev.get("status") or "unverified",
+                "verification_note": ev.get("note") or None,
+                "official_start_utc": ev.get("start_utc") or None,
+                "fetched_at": fetched_at,
+                "verification_ids": ev.get("sources", []),
+                "ambiguous_exclusion": sport == "Gaelic Football",
+                "row_notes": note or None,
+            })
 
     # de-duplicate on the OLBG event id (a fixture may appear twice if two markets were listed)
     seen = {}

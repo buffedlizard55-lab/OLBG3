@@ -1,13 +1,19 @@
 {
   "generated_at": "2026-10-21T07:55:00Z",
-  "description": "Register of irregularities, open decisions and unverified blocks for the 06:50Z harvest (session-af0789e6). Nothing here blocks publication.",
+  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id').",
   "items": [
     {
       "id": "FL-001",
       "severity": "decision needed",
-      "title": "Gaelic football treated as excluded (\"football\")",
-      "detail": "The brief excludes 'football' without qualification. This pass reads that literally and leaves OLBG's Gaelic_Football (id 25) listing off the board; the earlier 05:20Z harvest had included five Gaelic football rows tagged ambiguous_exclusion. Reversible with one line in the harvest.",
-      "affected_rows": [],
+      "title": "Gaelic football is not named in the exclusion list",
+      "detail": "The brief excludes 'football', 'american football' and 'hurling' but never says Gaelic football. Gaelic football is a different sport from association football and from hurling, so it is included here, tagged ambiguous_exclusion=true on every row so the whole block can be dropped with one filter if that was not the intent.",
+      "affected_rows": [
+        "GFA-3530",
+        "GFA-3532",
+        "GFA-3531",
+        "GFA-3536",
+        "GFA-3327"
+      ],
       "sources": [
         {
           "label": "OLBG — Gaelic Football tips",
@@ -17,9 +23,486 @@
     },
     {
       "id": "FL-002",
+      "severity": "high",
+      "title": "Kick-off times on OLBG are not labelled with a timezone and are internally inconsistent",
+      "detail": "OLBG prints only 'Today', 'Tomorrow' or a date plus a clock time, never a timezone. Comparing three sports in the same retrieval: snooker 'John Higgins v Jak Jones Today 08:00' matches the official 12:00 UTC start (i.e. US Eastern); greyhound race '11:14 Kinsley' is listed as 06:14 (also US Eastern); but NHL 'PHI Flyers @ BUF Sabres Tomorrow 00:37' cannot be US Eastern, because the official puck-drop is 21 October 19:30 ET. Listed times are therefore recorded as strings only, and no scheduled start in this dataset is derived from them. Where an official start was verified it is stored separately in the 'start' field.",
+      "affected_rows": [
+        "ICH-199897",
+        "ICH-199896",
+        "SNO-9934",
+        "GRY-689390",
+        "GRY-689384",
+        "GRY-689385",
+        "GRY-689387",
+        "GRY-689383",
+        "GRY-689386"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Snooker tips (08:00 label)",
+          "url": "https://www.olbg.com/betting-tips/Snooker/8"
+        },
+        {
+          "label": "OLBG — Greyhounds tips (race 11:14 shown as 06:14)",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        },
+        {
+          "label": "ESPN — NHL schedule 21 October 2026 (19:30 ET)",
+          "url": "https://www.espn.com/nhl/schedule"
+        }
+      ]
+    },
+    {
+      "id": "FL-003",
+      "severity": "high",
+      "title": "Same golf tournament shows two different dates/times on OLBG",
+      "detail": "The golf sport page lists 'Genesis Championship — 25 Oct 04:00'. The all-sports page, retrieved minutes earlier, listed the same tournament as 'Tomorrow 02:10'. The official DP World Tour page gives 22-25 October 2026. Only the official dates are published; the OLBG labels are kept verbatim as raw strings.",
+      "affected_rows": [
+        "GLF-101905"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Golf tips",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        },
+        {
+          "label": "DP World Tour — Genesis Championship 2026 (official)",
+          "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/"
+        }
+      ]
+    },
+    {
+      "id": "FL-004",
+      "severity": "medium",
+      "title": "NHL fixture labelled 'Tomorrow 00:37' by OLBG; official start is the previous evening",
+      "detail": "OLBG shows PHI Flyers @ BUF Sabres as 'Tomorrow 00:37'. The official start is Wednesday 21 October 2026, 19:30 ET at KeyBank Center. Published start = official time; OLBG label retained as raw text. Same pattern for FLA Panthers @ OTT Senators, whose official start was not independently verified, so that row keeps only the OLBG label.",
+      "affected_rows": [
+        "ICH-199897",
+        "ICH-199896"
+      ],
+      "sources": [
+        {
+          "label": "ESPN — NHL schedule, Wednesday 21 October 2026",
+          "url": "https://www.espn.com/nhl/schedule"
+        },
+        {
+          "label": "CBS Sports — Sabres vs Flyers, BUF -185, KeyBank Center",
+          "url": "https://www.cbssports.com/nhl/teams/BUF/buffalo-sabres/"
+        }
+      ]
+    },
+    {
+      "id": "FL-005",
+      "severity": "low",
+      "title": "Genesis Championship course par reported as both 71 and 72",
+      "detail": "One preview says 'par-72 course, 7,367 yards', while SBS and the Racing Post say par 71 over 7,367 yards. The official DP World Tour pages retrieved do not state the par. Par is therefore left blank in the dataset rather than picking a side.",
+      "affected_rows": [
+        "GLF-101905"
+      ],
+      "sources": [
+        {
+          "label": "SBS News — 'Woo Jeong Hills Country Club (par 71)'",
+          "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008805966"
+        },
+        {
+          "label": "DP World Tour — Genesis Championship 2026 (official page, par not stated)",
+          "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/"
+        }
+      ]
+    },
+    {
+      "id": "FL-006",
+      "severity": "medium",
+      "title": "Competition name missing for most domestic fixtures",
+      "detail": "OLBG's tennis, cricket, rugby union, volleyball, handball and greyhound listings show no competition name in the row (the URL only says All_Events). Competition is left blank with competition_status='not_stated_by_source'. Guessing a league from team names was deliberately rejected.",
+      "affected_rows": [
+        "all rows where competition is null"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Rugby Union tips (no competition column)",
+          "url": "https://www.olbg.com/betting-tips/Rugby_Union/9"
+        }
+      ]
+    },
+    {
+      "id": "FL-007",
+      "severity": "medium",
+      "title": "Three rows were truncated at the page boundary; their tip counts are blank",
+      "detail": "The retrieved text for Ekaterina Alexandrova v Marta Kostyuk, La Rochelle v Bordeaux and Novara W v Marignano W was cut off mid-row. Tip counts and percentages are null for these, and no probability or price is originated for them. They are kept in the dataset so the coverage list stays complete.",
+      "affected_rows": [
+        "TEN-902084",
+        "RGU-609554",
+        "VOL-36976"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Tennis tips",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ]
+    },
+    {
+      "id": "FL-008",
+      "severity": "high",
+      "title": "Coverage is the first page of each sport, not the full OLBG card",
+      "detail": "Every sport page paginates behind a 'Load More Tips' control. Only the rows rendered on the first page were captured (137 rows across 15 sports). Fixtures beyond that are not in this dataset, so absence from this list must not be read as 'not happening'.",
+      "affected_rows": [
+        "all"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Betting tips (pagination control)",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-009",
+      "severity": "medium",
+      "title": "Four handball fixtures have 'Tie' as the most-tipped selection",
+      "detail": "Aalborg v RK Celje, HC Kriens Luzern v KS Kielce, Kolstad v SC Magdeburg and Sporting CP v IK Kristianstad all show the draw as the OLBG consensus. This confirms a three-way market. Our model originates two-way money lines, so the pick is the home side and the draw price is not published.",
+      "affected_rows": [
+        "HAN-12044",
+        "HAN-12047",
+        "HAN-12048",
+        "HAN-12054"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Handball tips",
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
+        }
+      ]
+    },
+    {
+      "id": "FL-010",
+      "severity": "medium",
+      "title": "Tennis consensus is sometimes not the match winner",
+      "detail": "Zangar Nurlanuly v Tomas Machac shows a '1st Set Winner' consensus, and Bellucci v Etcheverry, Diaz Acosta v Basilashvili and Damm v Cerundolo show 'Set Betting' consensus. None of these is a match-winner pick, so our match probability for those four is originated from the home/away edge only and labelled low confidence.",
+      "affected_rows": [
+        "TEN-901935",
+        "TEN-901993",
+        "TEN-902040",
+        "TEN-902048"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Tennis tips",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ]
+    },
+    {
+      "id": "FL-011",
+      "severity": "low",
+      "title": "Ninety-plus rows are carried by tiny tip samples",
+      "detail": "Many fixtures have one, two or three tips. A 100% confidence figure on a single tip is not evidence, so those rows are capped at low confidence and carry the 'small_sample_lt5_tips' flag. Confidence percentages were copied from OLBG and never recomputed.",
+      "affected_rows": [
+        "all rows with olbg_tips_total < 5"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Betting tips (tip counts as published)",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-012",
+      "severity": "medium",
+      "title": "Our handicap and total lines are model assumptions, not market data",
+      "detail": "No bookmaker prices appear in the OLBG pages we retrieved, so handicap and total lines are generated from sport-level dispersion and mean assumptions documented in data/model.md. They are our own lines, which is what was asked for, but they are not verified market quotes and should not be read as such.",
+      "affected_rows": [
+        "all"
+      ],
+      "sources": [
+        {
+          "label": "Model documentation",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/model.md"
+        }
+      ]
+    },
+    {
+      "id": "FL-013",
+      "severity": "low",
+      "title": "Outright markets have no head-to-head line",
+      "detail": "Golf tournaments, the F1 drivers' championship, the All-Ireland 2027 market, Rugby League futures and greyhound races have fields whose size is not published on the retrieved pages. No price is originated for these; the OLBG consensus selection is shown for reference only and confidence is low.",
+      "affected_rows": [
+        "GLF-*",
+        "MTR-828",
+        "MTR-912",
+        "GFA-3327",
+        "RGL-*",
+        "GRY-*"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Golf tips",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ]
+    },
+    {
+      "id": "FL-014",
+      "severity": "low",
+      "title": "Sandbox could not reach OLBG with a normal HTTP client",
+      "detail": "curl to https://www.olbg.com/ returns OpenSSL SSL_ERROR_SYSCALL (exit 35); the same is true for espn.com and bbc.co.uk in this environment. All OLBG pages were therefore retrieved with the agent's page-retrieval tool and transcribed by hand, with the retrieval timestamp stored on every row. A future run with direct HTTP access should re-harvest and diff.",
+      "affected_rows": [
+        "all"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Betting tips",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-015",
+      "severity": "info",
+      "title": "Only one baseball fixture exists and Rugby League has fixtures only in 2027",
+      "detail": "Baseball returned a single fixture (World Series Game 1) and the Rugby League page listed only outright futures for 2027, no upcoming matches. That is a property of the source at retrieval time, not a gap in the harvest.",
+      "affected_rows": [
+        "BSB-160789",
+        "RGL-2695857",
+        "RGL-2801554",
+        "RGL-2801600"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Baseball tips",
+          "url": "https://www.olbg.com/betting-tips/Baseball/12"
+        },
+        {
+          "label": "OLBG — Rugby League tips",
+          "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
+        }
+      ]
+    },
+    {
+      "id": "FL-016",
+      "severity": "low",
+      "title": "URC venue named two ways for two fixtures",
+      "detail": "For Stormers v Scarlets and Leinster v Munster the sources disagree on venue: the URC/BBC listings give 'Aviva Stadium' and 'DHL Stadium' in some places and 'Laya Arena' and 'Cape Town Stadium' in others. Venue is therefore left blank for those two rows; competition and kick-off time are agreed by all sources and are published.",
+      "affected_rows": [
+        "RGU-609580",
+        "RGU-609578"
+      ],
+      "sources": [
+        {
+          "label": "BBC Sport — URC fixtures",
+          "url": "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures"
+        },
+        {
+          "label": "Wikipedia — 2026-27 URC Round 4",
+          "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship"
+        }
+      ]
+    },
+    {
+      "id": "FL-017",
+      "severity": "low",
+      "title": "Only two handball fixtures could be tied to a competition",
+      "detail": "The EHF Champions League round-5 window (21-22 October 2026) is confirmed, and Zagreb v PSG is confirmed fixture-by-fixture by the EHF club page. The other thirteen handball rows are domestic or cross-border fixtures whose competition is not named by OLBG and could not be confirmed fixture-by-fixture in this pass, so they stay blank.",
+      "affected_rows": [
+        "HAN-12053",
+        "HAN-12044",
+        "HAN-12050",
+        "HAN-12055",
+        "HAN-12115",
+        "HAN-12045",
+        "HAN-12052",
+        "HAN-12047",
+        "HAN-12048",
+        "HAN-12054",
+        "HAN-12114",
+        "HAN-12112",
+        "HAN-12072",
+        "HAN-12049",
+        "HAN-12051"
+      ],
+      "sources": [
+        {
+          "label": "EHF Champions League — Paris Saint-Germain club page (official)",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/clubs/details/hputODilVqNbBbAttPlUww/ParisSaintGermain/"
+        }
+      ]
+    },
+    {
+      "id": "FL-018",
+      "severity": "high",
+      "title": "Afghanistan v Bangladesh ODI venue is stated differently by different fixtures boards",
+      "detail": "The 21 October tri-series ODI is confirmed by the ICC's own announcement (21 October: Afghanistan v Bangladesh) and by ESPNcricinfo's fixtures board (3rd Match, UAE ODI Tri-Series, 11:30 GMT). The VENUE, however, is disputed: several fixtures boards list Abu Dhabi (Sheikh Zayed), while other listings and the cricinfo live page say Sharjah Cricket Stadium (where the final is also scheduled). The venue field is left blank rather than guessing.",
+      "affected_rows": [
+        "CRI-188824"
+      ],
+      "sources": [
+        {
+          "label": "ICC - Afghanistan announce multi-format series (official)",
+          "url": "https://www.icc-cricket.com/news/afghanistan-announce-multi-format-series-against-bangladesh-and-zimbabwe"
+        },
+        {
+          "label": "ESPNcricinfo fixtures board",
+          "url": "https://www.cricinfo.com/ci/content/match/fixtures"
+        }
+      ]
+    },
+    {
+      "id": "FL-019",
+      "severity": "medium",
+      "title": "Australia Women v New Zealand Women 3rd T20I: venue named two ways",
+      "detail": "ESPNcricinfo and ESPN both list the 3rd T20I at North Sydney Oval on 22 October. One fixtures board (CricketWorld) lists Junction Oval, Melbourne instead. The row records North Sydney (majority source) and flags the conflict for manual review. Kick-off is 19:15 local per ESPNcricinfo.",
+      "affected_rows": [
+        "CRI-188826"
+      ],
+      "sources": [
+        {
+          "label": "ESPNcricinfo fixtures board",
+          "url": "https://www.cricinfo.com/ci/content/match/fixtures"
+        },
+        {
+          "label": "ESPN series page - NZ Women tour of Australia",
+          "url": "https://www.espn.com/cricket/scores/series/24268"
+        }
+      ]
+    },
+    {
+      "id": "FL-020",
+      "severity": "low",
+      "title": "Namibia v Ireland ground named two ways in Windhoek",
+      "detail": "The 1st ODI on 22 October is confirmed by ESPNcricinfo and BBC Sport. The ground is called 'High Performance Oval' by some boards and 'Namibia Cricket Ground' by others (same Windhoek complex). City recorded; ground naming flagged.",
+      "affected_rows": [
+        "CRI-188828"
+      ],
+      "sources": [
+        {
+          "label": "BBC Sport - Ireland in Namibia 2026 fixtures",
+          "url": "https://www.bbc.com/sport/cricket/articles/cr74p31v8d7xo"
+        }
+      ]
+    },
+    {
+      "id": "FL-021",
+      "severity": "info",
+      "title": "Re-audit finding on FL-002: OLBG time labels behave like US Eastern",
+      "detail": "Session-074739aa's line-by-line pass compared 40+ OLBG time labels with official start times. Labels sit exactly 6 hours behind France (CET/CEST), 4 hours behind GMT, and match US Eastern clock times for the NHL/NBA/cricket rows (e.g. cricinfo's 11:30 GMT AFG-BAN start is labelled 07:30 on OLBG). The residual oddities (19:10, 19:37, 00:37) look like TV windows or a separate rounding artefact. This does not resolve FL-002 completely - OLBG still publishes no timezone - but the working interpretation is 'US Eastern'. All verified_start values in data/matches.json are the OFFICIAL local times, never OLBG's labels.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "ESPNcricinfo fixtures board (GMT/local/EDT triplets)",
+          "url": "https://www.cricinfo.com/ci/content/match/fixtures"
+        },
+        {
+          "label": "NHL.com official schedule, 21 Oct 2026",
+          "url": "https://www.nhl.com/schedule/2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "FL-022",
+      "severity": "medium",
+      "title": "36 rows remain unverified after the 2026-10-21 re-audit; fields left blank by policy",
+      "detail": "The re-audit confirmed 101 of 137 rows against official or primary sources. The remaining 36 could not be tied to an official schedule in this pass and keep blank competition/venue/start fields exactly as published: handball domestic (Sandefjord-Runar, Hallby-Savehof, Hammarby-Alingsas, Mors Thy-Bjerringbro), volleyball (Serie A1 x3, Dutch, Finnish, PlusLiga x4 incl. Jelcz-Stal Nysa, Slepsk-GKS, Skra-Projekt, Chelm-Resovia, Bundesliga Karlsruhe-Luneburg), basketball AEK-Antwerp Giants (EuroCup slate not confirmed for this pairing), ICE HL HCB Sudtirol-Innsbruck, golf (Players Series SA, Senior Italian Open, Fortinet Players Cup, Hong Kong Open, Stella Artois Players Championship), all 5 Gaelic football rows (see FL-001), all 6 greyhound rows (daily race cards; no official racecard retrieved), and the 3 Rugby League outright markets. None of these rows were guessed or filled in.",
+      "affected_rows": [
+        "BKB-535969",
+        "ICH-199878",
+        "VOL-36981",
+        "VOL-36945",
+        "VOL-36963",
+        "VOL-36964",
+        "VOL-36965",
+        "VOL-36979",
+        "VOL-36986",
+        "VOL-36968",
+        "VOL-36977",
+        "VOL-36974",
+        "VOL-36976",
+        "HAN-12115",
+        "HAN-12114",
+        "HAN-12112",
+        "HAN-12072",
+        "GLF-101907",
+        "GLF-101911",
+        "GLF-101908",
+        "GLF-101910",
+        "GLF-101912",
+        "GFA-3530",
+        "GFA-3532",
+        "GFA-3531",
+        "GFA-3536",
+        "GFA-3327",
+        "GRY-689390",
+        "GRY-689384",
+        "GRY-689385",
+        "GRY-689387",
+        "GRY-689383",
+        "GRY-689386",
+        "RGL-2695857",
+        "RGL-2801554",
+        "RGL-2801600"
+      ],
+      "sources": [
+        {
+          "label": "Re-audit record (this repository)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/audit-074739aa.json"
+        }
+      ]
+    },
+    {
+      "id": "FL-023",
+      "severity": "low",
+      "title": "Four rows are verified from corroborating listings only (official page not retrieved)",
+      "detail": "These rows passed multi-source corroboration but the governing body's own page could not be retrieved from this sandbox: Seoul Thunders v KCC Egis (KBL; live-basketball schedule listing), Netzhoppers KW v Helios Grizzlys Giesen (21.10. 19:00; German public-broadcaster league schedule + VfB fixture grid), Stifel Charity Classic (PGA Tour Champions; AP week preview), Hero Women's Indian Open (Ladies European Tour; published LET calendar). They are marked verified_secondary_only in data/verifications.json so a reviewer can spot-check them first.",
+      "affected_rows": [
+        "BKB-535966",
+        "VOL-36984",
+        "GLF-101903",
+        "GLF-101909"
+      ],
+      "sources": [
+        {
+          "label": "AP - PGA Tour goes to Bermuda (week preview)",
+          "url": "https://apnews.com/article/pga-tour-bermuda-lpga-european-tour-asia-cc8d85ef7a726c2150184a314999baa2"
+        },
+        {
+          "label": "VfB Friedrichshafen official fixtures 2026/27",
+          "url": "https://www.vfb-volleyball.de/team/spielplan/"
+        }
+      ]
+    },
+    {
+      "id": "FL-024",
+      "severity": "decision needed",
+      "title": "Gaelic football: this pass did not re-harvest it; five rows carried from the 05:20Z listing",
+      "detail": "Three earlier sessions and main read the exclusion list as not covering Gaelic football (see FL-001 above) and the board keeps it. The 06:50Z pass had read 'football' literally and skipped the Gaelic_Football (id 25) listing; at merge the five 05:20Z rows (ids 3327, 3530, 3531, 3532, 3536) and the six greyhound race rows were carried into the 06:50Z dataset unchanged, each tagged 'carried from the 05:20Z harvest' in row_notes, so nothing an earlier session published was dropped. They were not re-checked against OLBG at 06:50Z. Decision still open: drop the sport with one filter (ambiguous_exclusion=true) or keep it.",
+      "affected_rows": [
+        "GFA-3327",
+        "GFA-3530",
+        "GFA-3531",
+        "GFA-3532",
+        "GFA-3536",
+        "GRY-689383",
+        "GRY-689384",
+        "GRY-689385",
+        "GRY-689386",
+        "GRY-689387",
+        "GRY-689390"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Gaelic Football tips",
+          "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+        }
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-001"
+    },
+    {
+      "id": "FL-025",
       "severity": "data quality",
       "title": "OLBG start times are rendered in the viewer's zone and run 7–10 minutes late",
-      "detail": "OLBG labels no time zone. For this fetcher the times are US Eastern (UTC-4): NHL 23:30Z appears as \"19:37\", NBA 23:00Z as \"19:10\". European fixtures convert exactly (EHF 18:45 CEST = 12:45; Almaty 19:30 = 10:30). The earlier TSV mixed UK and Eastern times; it is kept for audit, superseded.",
+      "detail": "OLBG labels no time zone. For this fetcher the times are US Eastern (UTC-4): NHL 23:30Z appears as \"19:37\", NBA 23:00Z as \"19:10\". European fixtures convert exactly (EHF 18:45 CEST = 12:45; Almaty 19:30 = 10:30). The earlier TSV mixed UK and Eastern times; it is kept for audit, superseded. Independently reached by the re-audit (FL-021 above); the two findings agree.",
       "affected_rows": [
         "ICH-199897",
         "ICH-199896"
@@ -33,10 +516,12 @@
           "label": "NBA.com games 21 Oct",
           "url": "https://www.nba.com/games?date=2026-10-21"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-002"
     },
     {
-      "id": "FL-003",
+      "id": "FL-026",
       "severity": "data quality",
       "title": "Tennis \"followed by\" matches have no official start time",
       "detail": "Seven ATP rows and one WTA row are second/third matches on a court. The official orders of play give only the session start (11:30 local) or \"followed by\"; OLBG's minute-level time for those rows is an estimate and is not confirmed.",
@@ -67,10 +552,12 @@
           "label": "WTA Ningbo match feed",
           "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches?matchStates=live,upcoming&page=0&pageSize=100"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-003"
     },
     {
-      "id": "FL-004",
+      "id": "FL-027",
       "severity": "unverified",
       "title": "Five late-night WTA rows could not be placed in a tournament",
       "detail": "Li v Sonmez, Linette v Siniakova, Stoiana v Uchijima, Kawa v Bencic and Jovic v Paolini (22:30–23:00 EDT = Thursday morning in Asia) were absent from both WTA live feeds at 06:53Z because Thursday orders of play were not yet published. Competition, round and time are blank.",
@@ -90,13 +577,15 @@
           "label": "WTA Ningbo feed",
           "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches?matchStates=live,upcoming&page=0&pageSize=100"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-004"
     },
     {
-      "id": "FL-005",
-      "severity": "data quality",
-      "title": "Earlier session memory named the wrong tennis events",
-      "detail": "The 05:20Z pass assumed Vienna/Basel (ATP) and Tokyo (WTA). The ATP \"current\" page lists Almaty, Brussels and Lyon this week (Vienna/Basel URLs redirect to 2025 archives) and the WTA lists Osaka and Ningbo. All 13 ATP rows and 2 WTA rows were matched to those events instead.",
+      "id": "FL-028",
+      "severity": "resolved",
+      "title": "Tennis events: two independent passes agree on Almaty / Brussels / Lyon / Ningbo / Osaka",
+      "detail": "An earlier working note had placed this week's ATP rows in Vienna/Basel and the WTA rows in Tokyo. Both the 074739aa re-audit and the 06:50Z sweep independently matched the rows to the ATP 250 events in Almaty, Brussels and Lyon (Vienna/Basel URLs redirect to 2025 archives) and the WTA events in Ningbo and Osaka; their records were merged with both source sets kept. Recorded so the corrected mapping is auditable.",
       "affected_rows": [
         "TEN-902037",
         "TEN-902074",
@@ -123,10 +612,12 @@
           "label": "WTA scores",
           "url": "https://www.wtatennis.com/scores"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-005"
     },
     {
-      "id": "FL-006",
+      "id": "FL-029",
       "severity": "name mismatch",
       "title": "Team names differ between OLBG and the official source",
       "detail": "EHF lists \"SAH - Aarhus\" where OLBG says \"Skanderborg Handbold\" (same match id 202711020101059). URC lists \"Vodacom Bulls\"/\"DHL Stormers\"; OLBG \"Bulls\"/\"Stormers\". EuroCup \"Riga Zelli\" vs OLBG \"Rigas Zelli\". Names are published as OLBG shows them; the official name is in the verification note.",
@@ -145,13 +636,15 @@
           "label": "URC fixtures in full",
           "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-006"
     },
     {
-      "id": "FL-007",
+      "id": "FL-030",
       "severity": "unverified",
-      "title": "Eighty rows have no official confirmation in this pass",
-      "detail": "Volleyball (20), domestic handball (8), non-NHL ice hockey (8), cricket (9 dated + outrights), Basketball Champions League (4), KBL (1), WTA (5), golf/motor/rugby-league outrights. Official pages were either script-rendered, behind cookie walls (pdc.tv), 404 (ice.hockey, volleyball-bundesliga.de, liiga.fi) or too large to page (tauronliga.pl, 16 chunks). Competition, venue and official time are blank for these rows.",
+      "title": "66 rows have no official confirmation after merging both sessions' verifications",
+      "detail": "After the merge of session-074739aa's re-audit (101 records) with session-af0789e6's 06:50Z sweep (104 records) the register holds 132 event verifications; applied to the 189-row dataset, 66 rows still have no official or primary source: Volleyball 16, Handball 8, Greyhounds 6, Tennis 5, Golf 5, Cricket 5, Gaelic Football 5, Basketball 4, Ice Hockey 4, Darts 4, Rugby League 3, Rugby Union 1. Their competition, venue and official start stay blank; the OLBG event link is the only source on those rows and they are graded LOW regardless of tip split.",
       "affected_rows": [
         "TEN-902063",
         "TEN-902071",
@@ -162,24 +655,10 @@
         "BKB-535970",
         "BKB-535971",
         "BKB-535972",
-        "BKB-535966",
         "ICH-199913",
         "ICH-199878",
-        "ICH-199881",
-        "ICH-199901",
         "ICH-199914",
-        "ICH-199876",
         "ICH-199879",
-        "ICH-199880",
-        "CRI-188824",
-        "CRI-188810",
-        "CRI-188823",
-        "CRI-188814",
-        "CRI-188811",
-        "CRI-188828",
-        "CRI-188829",
-        "CRI-188826",
-        "CRI-188825",
         "DAR-32331",
         "DAR-32336",
         "HAN-12115",
@@ -190,7 +669,6 @@
         "HAN-12113",
         "HAN-12110",
         "HAN-12076",
-        "VOL-36961",
         "VOL-36981",
         "VOL-36945",
         "VOL-36972",
@@ -200,8 +678,6 @@
         "VOL-36979",
         "VOL-36971",
         "VOL-36983",
-        "VOL-36984",
-        "VOL-36985",
         "VOL-36980",
         "VOL-36978",
         "VOL-36973",
@@ -209,19 +685,11 @@
         "VOL-36986",
         "VOL-36974",
         "VOL-36977",
-        "VOL-36962",
-        "GLF-101904",
         "GLF-101907",
-        "GLF-101906",
-        "GLF-101903",
         "GLF-101911",
         "GLF-101908",
         "GLF-101910",
         "GLF-101912",
-        "GLF-101909",
-        "MTR-913",
-        "MTR-828",
-        "MTR-912",
         "RGL-2695857",
         "RGL-2801554",
         "RGL-2801600",
@@ -232,20 +700,33 @@
         "CRI-187184",
         "CRI-187503",
         "CRI-187504",
-        "CRI-188350"
+        "CRI-188350",
+        "GFA-3530",
+        "GFA-3532",
+        "GFA-3531",
+        "GFA-3536",
+        "GFA-3327",
+        "GRY-689390",
+        "GRY-689384",
+        "GRY-689385",
+        "GRY-689387",
+        "GRY-689383",
+        "GRY-689386"
       ],
       "sources": [
         {
           "label": "OLBG — all sports",
           "url": "https://www.olbg.com/betting-tips/"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-007"
     },
     {
-      "id": "FL-008",
-      "severity": "partially verified",
-      "title": "Darts: official PDC schedule confirms the ties but not the day for most",
-      "detail": "The earlier pass read the official PDC schedule article (session structure, 19:00 CEST starts) but recorded \"22 or 23 Oct\" for most first-round ties. The article could not be re-read in this pass (cookie-consent wall in the text fetcher), so the OLBG day labels remain unconfirmed.",
+      "id": "FL-031",
+      "severity": "resolved at merge",
+      "title": "Darts: PDC schedule could not be re-read at 06:50Z; the earlier official read stands",
+      "detail": "The 06:50Z pass could not re-open the official PDC schedule article (cookie wall in the text fetcher) and had marked the 15 first-round ties 'partially verified'. The earlier session did read that page and recorded the ties and session times from it, so at merge the 'verified' status was kept with both notes attached; the day (22 or 23 Oct) is still not fixed per tie in the record.",
       "affected_rows": [
         "DAR-32324",
         "DAR-32334",
@@ -267,13 +748,15 @@
           "label": "PDC — European Championship schedule confirmed",
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-008"
     },
     {
-      "id": "FL-009",
-      "severity": "downgraded",
-      "title": "NZ v India T20 had only non-official sources",
-      "detail": "The earlier verification cited Cricinfo and Wikipedia. Neither is a governing body, so the row is downgraded to unverified and its competition/venue/time are blank until an NZC or BCCI page is read.",
+      "id": "FL-032",
+      "severity": "reclassified",
+      "title": "NZ v India 1st T20I is corroborated, not officially verified",
+      "detail": "The re-audit cited Cricinfo (classed primary) and Wikipedia for event 188814. Neither is the governing body (NZC/BCCI), so at merge the record was set to 'verified_secondary_only' - the same class as the four rows in FL-023 - and the competition/venue text was kept rather than blanked. The 06:50Z pass had blanked it; the merge keeps the earlier session's facts and lowers the class instead.",
       "affected_rows": [
         "CRI-188814"
       ],
@@ -282,10 +765,12 @@
           "label": "OLBG — Cricket tips",
           "url": "https://www.olbg.com/betting-tips/Cricket/7"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-009"
     },
     {
-      "id": "FL-010",
+      "id": "FL-033",
       "severity": "data quality",
       "title": "OLBG shows different \"most popular\" markets for the same event on different pages",
       "detail": "Chicago @ Toronto appears with a Money Line on /Basketball/4 and a Pointspread on /Basketball/NBA/4; Tappara v Ässät shows Puck Line on one hockey page and Money Line on another. The harvest keeps the first market seen and records the alternative in the row note.",
@@ -303,10 +788,12 @@
           "label": "OLBG — Other ice hockey",
           "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/13"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-010"
     },
     {
-      "id": "FL-011",
+      "id": "FL-034",
       "severity": "data quality",
       "title": "Tiny tip samples and tied splits",
       "detail": "Most rows carry 1–3 tips. Two NBA money lines (IND@NO, DAL@HOU) are exact 2-2 ties and four handball rows have \"Tie\" as the most-tipped selection. Our model shrinks every split toward even money; these rows cannot grade above LOW on tips alone.",
@@ -322,49 +809,42 @@
           "label": "OLBG — Handball tips",
           "url": "https://www.olbg.com/betting-tips/Handball/20"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-011"
     },
     {
-      "id": "FL-012",
+      "id": "FL-035",
       "severity": "method",
       "title": "Prices, handicaps and totals are model output, not market data",
-      "detail": "OLBG publishes no odds in the retrieved pages. Every price here comes from tools/originate.py (Beta(2,2)-shrunk tip split, home-field logit shift, 5% hold). HIGH picks carry a disclosed 65% probability floor justified only by the official facts quoted in the written prediction.",
+      "detail": "OLBG publishes no odds in the retrieved pages. Every price here comes from tools/originate.py (Beta(2,2)-shrunk tip split, home-field logit shift, 5% hold). HIGH picks carry a disclosed 65% probability floor justified only by the official facts quoted in the written prediction. The side rule for non-winner markets and the 0.65 HIGH floor are written up in data/model.md (Step 6).",
       "affected_rows": [],
       "sources": [
         {
           "label": "Model note",
           "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/model.md"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-012"
     },
     {
-      "id": "FL-013",
+      "id": "FL-036",
       "severity": "coverage",
       "title": "Each OLBG list is a server-rendered first page",
-      "detail": "Every sport page ends in a JavaScript \"Load More Tips\" control the fetcher cannot press. The second harvest found ~40 events the first missed by reading sub-league pages (NBA, European, NHL, Other), and one WTA tie (Fernandez v Sasnovich) present at 05:20Z was no longer rendered at 06:50Z although it has not been played. The list is therefore a sample of OLBG's card, not the whole card.",
+      "detail": "Every sport page ends in a JavaScript \"Load More Tips\" control the fetcher cannot press. The second harvest found ~40 events the first missed by reading sub-league pages (NBA, European, NHL, Other), and one WTA tie (Fernandez v Sasnovich) present at 05:20Z was no longer rendered at 06:50Z although it has not been played. The list is therefore a sample of OLBG's card, not the whole card. Same mechanism as FL-008 above; the 06:50Z pass added 57 events (sub-league pages) and lost 5 that had started (Fernandez-Sasnovich, Boulter-Golubic, Duckworth-Darderi, Bellucci-Etcheverry, Novara-Marignano), which are therefore no longer on the /olbg board.",
       "affected_rows": [],
       "sources": [
         {
           "label": "OLBG — Tennis tips",
           "url": "https://www.olbg.com/betting-tips/Tennis/3"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-013"
     },
     {
-      "id": "FL-014",
-      "severity": "environment",
-      "title": "Sandbox HTTP cannot reach OLBG or league sites",
-      "detail": "curl/urllib return exit 000 for olbg.com, nhl.com, nba.com, statsapi.mlb.com. All retrieval went through the agent page tool; scripts/update.py therefore only refreshes its feed inside GitHub Actions.",
-      "affected_rows": [],
-      "sources": [
-        {
-          "label": "OLBG",
-          "url": "https://www.olbg.com/betting-tips/"
-        }
-      ]
-    },
-    {
-      "id": "FL-015",
+      "id": "FL-037",
       "severity": "coverage",
       "title": "Outright-only sports",
       "detail": "Golf (10), Motor Racing (3), Rugby League (3), plus darts/cricket/rugby-union futures are tournament markets with no two-sided fixture; they sit in the table with no line. Rugby League shows no dated matches at all this week.",
@@ -393,10 +873,12 @@
           "label": "OLBG — Rugby League",
           "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-015"
     },
     {
-      "id": "FL-016",
+      "id": "FL-038",
       "severity": "repo hygiene",
       "title": "README and legacy builders are out of date",
       "detail": "README still references build_data_and_site.py, flagged-review.html, methodology.html and js/dashboard.js, none of which the current build produces; four superseded root scripts and data/master_matches.json remain. Three site tracks (feed, board, OLBG audit) overlap. Noted for the next session; not changed here to stay within claimed scope.",
@@ -406,10 +888,12 @@
           "label": "Repository",
           "url": "https://github.com/buffedlizard55-lab/OLBG3"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-016"
     },
     {
-      "id": "FL-017",
+      "id": "FL-039",
       "severity": "data quality",
       "title": "PlusLiga redirected to tauronliga.pl",
       "detail": "The men's Polish league URL plusliga.pl/games.html now redirects to tauronliga.pl, i.e. the competition name OLBG's rows imply (\"PlusLiga\") may be stale. Not confirmed either way; volleyball rows stay unverified.",
@@ -440,7 +924,9 @@
           "label": "TAURON Liga — mecze",
           "url": "https://www.tauronliga.pl/games.html"
         }
-      ]
+      ],
+      "raised_by": "session-af0789e6 (06:50Z pass)",
+      "original_id": "FL-017"
     }
   ]
 }

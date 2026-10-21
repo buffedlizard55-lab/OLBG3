@@ -8,200 +8,150 @@
 <header class="topbar">
   <a class="brand" href="../index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../verification.html">Verification</a><a href="../flagged.html">Flagged for Review</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a>
+    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../verification.html">Verification</a><a href="../audit.html">Audit</a><a href="../flagged.html">Flagged for Review</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a>
   </nav>
 </header>
 <main>
 <section class="pagehead">
   <h1>Cricket</h1>
-  <p class="lede">14 fixtures captured from <a href="https://www.olbg.com/betting-tips/Cricket/7" rel="noopener">OLBG&rsquo;s Cricket tips page</a>
-  (sport ID 7). 0 of them were confirmed against an official competition source;
+  <p class="lede">9 rows captured from <a href="https://www.olbg.com/betting-tips/Cricket/7" rel="noopener">OLBG&rsquo;s Cricket tips page</a>
+  (sport ID 7): 9 two-sided fixtures and 0 outright/race markets.
+  8 of them were confirmed against an official competition source;
   the rest are published as <em>unverified</em> and listed on the <a href="../flagged.html">Flagged for Review</a> page.</p>
-  <p class="note">14 rows rendered server-side on the OLBG listing(s) at 06:45-07:05Z; each list ends in a &#x27;Load More Tips&#x27; control the fetcher cannot press, so this is OLBG&#x27;s first page, not its whole card.</p>
+  <p class="note">Competition is NOT shown on the cricket listing (only &#x27;All_Cricket/All_Events&#x27; in the URL); it is embedded in the event title (e.g. &#x27;1st T20 Match&#x27;). OLBG also lists outright/tournament markets separately - those are excluded from the match tables and recorded in data/outrights.json.</p>
 </section>
 <div class="cards">
-  <div class="card"><span class="k">14</span><span class="l">fixtures</span></div>
-  <div class="card"><span class="k">0</span><span class="l">officially verified</span></div>
+  <div class="card"><span class="k">9</span><span class="l">rows</span></div>
+  <div class="card"><span class="k">8</span><span class="l">officially verified</span></div>
   <div class="card"><span class="k">0</span><span class="l">high-confidence picks</span></div>
-  <div class="card"><span class="k">3</span><span class="l">medium-confidence picks</span></div>
+  <div class="card"><span class="k">5</span><span class="l">medium-confidence picks</span></div>
 </div>
-<h2>Fixtures, our lines and picks</h2>
-<p class="legend"><strong>Our home / Our away:</strong> decimal prices we originate (5% overround). <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
+<h2>Rows, our lines and picks</h2>
+<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% overround), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
 <strong>Basis:</strong> <code>official-league-table</code> / <code>official-standings</code> = model built on official data; <code>consensus</code> = de-vigged OLBG tip share only; <code>none</code> = no defensible input, so no price is shown.</p>
 <div class="tablewrap"><table id="tbl-cricket" class="board"><thead><tr>
-<th>Ref</th><th>Sport</th><th>Competition</th><th>Match</th><th>Start (as listed)</th>
-<th class="num">Our home</th><th class="num">Draw</th><th class="num">Our away</th>
+<th>Ref</th><th>Sport</th><th>Competition</th><th>Match / event</th><th>Market</th><th>Start (as listed)</th>
+<th class="num">Our price</th><th class="num">Draw</th><th class="num">Our price 2</th>
 <th>Our pick</th><th>Conf.</th><th>Basis</th><th>Official source</th>
 </tr></thead><tbody><tr data-sport="Cricket" data-conf="MEDIUM" data-text="afghanistan bangladesh  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Afghanistan_vs_Bangladesh_One_Day_Match/7?event_id=188824" rel="noopener">CRI-188824</a></td>
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Afghanistan_vs_Bangladesh_One_Day_Match/7?event_id=188824" rel="noopener">CRK-01</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Afghanistan <span class="vs">v</span> Bangladesh</td>
-<td class="when">21 Oct 07:30 EDT</td>
-<td class="num">1.20</td><td class="num dim">n/p</td><td class="num">4.62</td>
-<td class="pick">Afghanistan <span class="prob">79%</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Today 07:30</td>
+<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
+<td class="pick">Afghanistan <span class="prob">98%</span></td>
 <td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.cricinfo.com" rel="noopener" title="Afghanistan v Bangladesh, 3rd ODI, confirmed 21 Oct 2026 at Sharjah with listed start 07:30 AM EDT, matching the OLBG listing exactly.">&#10003; ESPNcricinfo official fixture/schedule page (the sport&#x27;s standard authoritative scheduling reference, run by ESPN in partnership with the game&#x27;s governing bodies)</a></td>
 </tr>
-<tr data-sport="Cricket" data-conf="MEDIUM" data-text="north west dragons limpopo impalas  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/North_West_Dragons_vs_Limpopo_Impalas_T20/7?event_id=188810" rel="noopener">CRI-188810</a></td>
-<td>Cricket</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">North West Dragons <span class="vs">v</span> Limpopo Impalas</td>
-<td class="when">21 Oct 12:00 EDT</td>
-<td class="num">1.29</td><td class="num dim">n/p</td><td class="num">3.62</td>
-<td class="pick">North West Dragons <span class="prob">74%</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="northern cape heat garden route badgers  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Northern_Cape_Heat_vs_Garden_Route_Badgers_T20/7?event_id=188823" rel="noopener">CRI-188823</a></td>
+<tr data-sport="Cricket" data-conf="MEDIUM" data-text="northern cape heat garden route badgers  cricket">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Northern_Cape_Heat_vs_Garden_Route_Badgers_T20/7?event_id=188823" rel="noopener">CRK-02</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Northern Cape Heat <span class="vs">v</span> Garden Route Badgers</td>
-<td class="when">21 Oct 07:00 EDT</td>
-<td class="num">2.22</td><td class="num dim">n/p</td><td class="num">1.67</td>
-<td class="pick">Garden Route Badgers <span class="prob">57%</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Today 07:00</td>
+<td class="num">2.57</td><td class="num dim">n/p</td><td class="num">1.51</td>
+<td class="pick">Garden Route Badgers <span class="prob">63%</span></td>
+<td><span class="pill medium">MEDIUM</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.espn.com/cricket/scores/series/8656/season/2026/csa-t20-challenge" rel="noopener" title="Northern Cape (playing as &#x27;Northern Cape Heat&#x27;) v South Western Districts (playing as &#x27;Garden Route Badgers&#x27; this season per CSA&#x27;s new sponsor-naming) listed WED 21/10 - 07:00 AM EDT, starting 13:00 local; matches the OLBG listing exactly.">&#10003; ESPNcricinfo/ESPN official fixture page</a></td>
+</tr>
+<tr data-sport="Cricket" data-conf="MEDIUM" data-text="north west dragons limpopo impalas  cricket">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/North_West_Dragons_vs_Limpopo_Impalas_T20/7?event_id=188810" rel="noopener">CRK-03</a></td>
+<td>Cricket</td>
+<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
+<td class="match">North West Dragons <span class="vs">v</span> Limpopo Impalas</td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Today 12:00</td>
+<td class="num">1.14</td><td class="num dim">n/p</td><td class="num">5.59</td>
+<td class="pick">North West Dragons <span class="prob">83%</span></td>
+<td><span class="pill medium">MEDIUM</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.espn.com/cricket/scores/series/8656/season/2026/csa-t20-challenge" rel="noopener" title="North West (Dragons) v Limpopo (Impalas) listed WED 21/10 - 12:00 PM EDT, starting 18:00 local; matches the OLBG listing exactly.">&#10003; ESPNcricinfo/ESPN official fixture page</a></td>
 </tr>
 <tr data-sport="Cricket" data-conf="MEDIUM" data-text="new zealand india  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_1st_T20_Match/7?event_id=188814" rel="noopener">CRI-188814</a></td>
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_1st_T20_Match/7?event_id=188814" rel="noopener">CRK-04</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">New Zealand <span class="vs">v</span> India</td>
-<td class="when">22 Oct 03:00 EDT</td>
-<td class="num">2.54</td><td class="num dim">n/p</td><td class="num">1.52</td>
-<td class="pick">India <span class="prob">62%</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Tomorrow 03:00</td>
+<td class="num">3.28</td><td class="num dim">n/p</td><td class="num">1.34</td>
+<td class="pick">India <span class="prob">71%</span></td>
 <td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.cricinfo.com" rel="noopener" title="New Zealand v India, 1st T20I, confirmed 22 Oct 2026 at Hagley Oval with listed start THU 22/10 - 03:00 AM EDT (per ESPN team-schedule pages), matching the OLBG listing exactly.">&#10003; ESPNcricinfo official fixture/schedule page (the sport&#x27;s standard authoritative scheduling reference, run by ESPN in partnership with the game&#x27;s governing bodies)</a></td>
 </tr>
 <tr data-sport="Cricket" data-conf="LOW" data-text="eastern storm tuskers  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Eastern_Storm_vs_Tuskers_T20/7?event_id=188811" rel="noopener">CRI-188811</a></td>
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Eastern_Storm_vs_Tuskers_T20/7?event_id=188811" rel="noopener">CRK-05</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Eastern Storm <span class="vs">v</span> Tuskers</td>
-<td class="when">22 Oct 12:00 EDT</td>
-<td class="num">1.25</td><td class="num dim">n/p</td><td class="num">3.96</td>
-<td class="pick">Eastern Storm <span class="prob">76%</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Tomorrow 12:00</td>
+<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
+<td class="pick">Eastern Storm <span class="prob">98%</span></td>
 <td><span class="pill low">LOW</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
+<td class="basis">consensus</td>
 <td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
 </tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="namibia ireland  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Namibia_vs_Ireland_1st_ODI/7?event_id=188828" rel="noopener">CRI-188828</a></td>
+<tr data-sport="Cricket" data-conf="MEDIUM" data-text="namibia ireland  cricket">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Namibia_vs_Ireland_1st_ODI/7?event_id=188828" rel="noopener">CRK-06</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Namibia <span class="vs">v</span> Ireland</td>
-<td class="when">22 Oct 04:00 EDT</td>
-<td class="num">3.22</td><td class="num dim">n/p</td><td class="num">1.35</td>
-<td class="pick">Ireland <span class="prob">70%</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Tomorrow 04:00</td>
+<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
+<td class="pick">Ireland <span class="prob">98%</span></td>
+<td><span class="pill medium">MEDIUM</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.cricinfo.com" rel="noopener" title="Namibia v Ireland, 1st ODI, confirmed 22 Oct 2026 at Windhoek with an official 08:15 GMT start; 08:15 GMT = 04:15 EDT, closely matching the OLBG listing (04:00 EDT, 15-minute difference flagged).">&#10003; ESPNcricinfo official fixture/schedule page (the sport&#x27;s standard authoritative scheduling reference, run by ESPN in partnership with the game&#x27;s governing bodies)</a></td>
 </tr>
 <tr data-sport="Cricket" data-conf="LOW" data-text="england sri lanka  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_vs_Sri_Lanka_One_Day_Match/7?event_id=188829" rel="noopener">CRI-188829</a></td>
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_vs_Sri_Lanka_One_Day_Match/7?event_id=188829" rel="noopener">CRK-07</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">England <span class="vs">v</span> Sri Lanka</td>
-<td class="when">22 Oct 04:00 EDT</td>
-<td class="num">1.86</td><td class="num dim">n/p</td><td class="num">1.95</td>
-<td class="pick">England <span class="prob">51%</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Tomorrow 04:00</td>
+<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
+<td class="pick">England <span class="prob">50%</span></td>
 <td><span class="pill low">LOW</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.cricinfo.com" rel="noopener" title="England v Sri Lanka, 3rd Match of the Pakistan tri-series, confirmed 22 Oct 2026 at Rawalpindi with an official 08:00 GMT start; 08:00 GMT = 04:00 EDT, matching the OLBG listing exactly.">&#10003; ESPNcricinfo official fixture/schedule page (the sport&#x27;s standard authoritative scheduling reference, run by ESPN in partnership with the game&#x27;s governing bodies)</a></td>
 </tr>
 <tr data-sport="Cricket" data-conf="LOW" data-text="australia w new zealand w  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Australia_W_vs_New_Zealand_W_3rd_T20_Match/7?event_id=188826" rel="noopener">CRI-188826</a></td>
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Australia_W_vs_New_Zealand_W_3rd_T20_Match/7?event_id=188826" rel="noopener">CRK-08</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Australia W <span class="vs">v</span> New Zealand W</td>
-<td class="when">22 Oct 04:15 EDT</td>
-<td class="num">1.86</td><td class="num dim">n/p</td><td class="num">1.95</td>
-<td class="pick">Australia W <span class="prob">51%</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Tomorrow 04:15</td>
+<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
+<td class="pick">Australia W <span class="prob">50%</span></td>
 <td><span class="pill low">LOW</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.espncricinfo.com/team/australia-women-238" rel="noopener" title="Australia Women v New Zealand Women, 3rd T20I, confirmed 22 Oct 2026 at North Sydney Oval with official listed start 8:15 AM GMT = 04:15 EDT, matching the OLBG listing exactly.">&#10003; ESPNcricinfo official fixture/schedule page (the sport&#x27;s standard authoritative scheduling reference, run by ESPN in partnership with the game&#x27;s governing bodies)</a></td>
 </tr>
 <tr data-sport="Cricket" data-conf="LOW" data-text="mpumalanga rhinos south africa emerging  cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Mpumalanga_Rhinos_vs_South_Africa_Emerging_T20/7?event_id=188825" rel="noopener">CRI-188825</a></td>
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Mpumalanga_Rhinos_vs_South_Africa_Emerging_T20/7?event_id=188825" rel="noopener">CRK-09</a></td>
 <td>Cricket</td>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Mpumalanga Rhinos <span class="vs">v</span> South Africa Emerging</td>
-<td class="when">22 Oct 07:00 EDT</td>
-<td class="num">1.86</td><td class="num dim">n/p</td><td class="num">1.95</td>
-<td class="pick">Mpumalanga Rhinos <span class="prob">51%</span></td>
+<td class="market">Win Match <span class="tag">match</span></td>
+<td class="when">Tomorrow 07:00</td>
+<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
+<td class="pick">Mpumalanga Rhinos <span class="prob">50%</span></td>
 <td><span class="pill low">LOW</span></td>
-<td class="basis">tip split shrunk with Beta(2,2) prior, then home-field logit shift</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="world cup 2027   cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/World_Cup_2027/7?event_id=182606" rel="noopener">CRI-182606</a></td>
-<td>Cricket</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">World Cup 2027 <span class="vs">v</span> </td>
-<td class="when">21 Nov 05:00 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">India </td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="big bash women 2026   cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Big_Bash_Women_2026/7?event_id=187184" rel="noopener">CRI-187184</a></td>
-<td>Cricket</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">Big Bash Women 2026 <span class="vs">v</span> </td>
-<td class="when">5 Dec 03:10 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Sydney Sixers W </td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="t20 big bash 2026-27   cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Big_Bash_2026-27/7?event_id=187503" rel="noopener">CRI-187503</a></td>
-<td>Cricket</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">T20 Big Bash 2026-27 <span class="vs">v</span> </td>
-<td class="when">12 Dec 03:15 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Adelaide Strikers </td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="sa20 2026-27   cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/SA20_2026-27/7?event_id=187504" rel="noopener">CRI-187504</a></td>
-<td>Cricket</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">SA20 2026-27 <span class="vs">v</span> </td>
-<td class="when">24 Jan 11:30 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Pretoria Capitals </td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
-</tr>
-<tr data-sport="Cricket" data-conf="LOW" data-text="t20 blast 2027   cricket">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Blast_2027/7?event_id=188350" rel="noopener">CRI-188350</a></td>
-<td>Cricket</td>
-<td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
-<td class="match">T20 Blast 2027 <span class="vs">v</span> </td>
-<td class="when">18 Jul 11:00 EDT</td>
-<td class="num dim">no price</td>
-<td class="pick">Sussex </td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">no_probability_originated</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span></td>
+<td class="basis">consensus</td>
+<td class="src"><a class="ok" href="https://www.espn.com/cricket/scores/series/8656/season/2026/csa-t20-challenge" rel="noopener" title="Mpumalanga Rhinos v South Africa Emerging Players listed THU 22/10 - 07:00 AM EDT, starting 13:00 local; matches the OLBG listing exactly.">&#10003; ESPNcricinfo/ESPN official fixture page</a></td>
 </tr></tbody></table></div>
-<h2>Handicap lines we originated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th></tr></thead><tbody><tr><td>CRI-188824</td><td>Afghanistan <span class="vs">v</span> Bangladesh</td><td>Afghanistan -20.5</td><td class='num'>&mdash;</td><td>Bangladesh +20.5</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188810</td><td>North West Dragons <span class="vs">v</span> Limpopo Impalas</td><td>North West Dragons -16.0</td><td class='num'>&mdash;</td><td>Limpopo Impalas +16.0</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188823</td><td>Northern Cape Heat <span class="vs">v</span> Garden Route Badgers</td><td>Garden Route Badgers -4.5</td><td class='num'>&mdash;</td><td>Northern Cape Heat +4.5</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188814</td><td>New Zealand <span class="vs">v</span> India</td><td>India -8.0</td><td class='num'>&mdash;</td><td>New Zealand +8.0</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188811</td><td>Eastern Storm <span class="vs">v</span> Tuskers</td><td>Eastern Storm -17.5</td><td class='num'>&mdash;</td><td>Tuskers +17.5</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188828</td><td>Namibia <span class="vs">v</span> Ireland</td><td>Ireland -13.5</td><td class='num'>&mdash;</td><td>Namibia +13.5</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188829</td><td>England <span class="vs">v</span> Sri Lanka</td><td>England -1.0</td><td class='num'>&mdash;</td><td>Sri Lanka +1.0</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188826</td><td>Australia W <span class="vs">v</span> New Zealand W</td><td>Australia W -1.0</td><td class='num'>&mdash;</td><td>New Zealand W +1.0</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188825</td><td>Mpumalanga Rhinos <span class="vs">v</span> South Africa Emerging</td><td>Mpumalanga Rhinos -1.0</td><td class='num'>&mdash;</td><td>South Africa Emerging +1.0</td><td class='num'>&mdash;</td></tr></tbody></table></div>
-<h2>Totals we originated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody><tr><td>CRI-188824</td><td>Afghanistan <span class="vs">v</span> Bangladesh</td><td class='num'>290.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188810</td><td>North West Dragons <span class="vs">v</span> Limpopo Impalas</td><td class='num'>320.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188823</td><td>Northern Cape Heat <span class="vs">v</span> Garden Route Badgers</td><td class='num'>320.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188814</td><td>New Zealand <span class="vs">v</span> India</td><td class='num'>320.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188811</td><td>Eastern Storm <span class="vs">v</span> Tuskers</td><td class='num'>320.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188828</td><td>Namibia <span class="vs">v</span> Ireland</td><td class='num'>290.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188829</td><td>England <span class="vs">v</span> Sri Lanka</td><td class='num'>290.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188826</td><td>Australia W <span class="vs">v</span> New Zealand W</td><td class='num'>320.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr><tr><td>CRI-188825</td><td>Mpumalanga Rhinos <span class="vs">v</span> South Africa Emerging</td><td class='num'>320.5</td><td class='num'>&mdash;</td><td class='num'>&mdash;</td></tr></tbody></table></div>
+<h2>Handicap lines</h2><p class="dim">Not originated for this sport: OLBG provides no win-share or scoring baseline here, so a handicap would be a guess. Blank rather than invented.</p>
+<h2>Match totals</h2><p class="dim">Not originated for this sport: no official scoring baseline was captured, so any total would be invented. Recorded as flagged.</p>
 
 </main>
 <footer>
