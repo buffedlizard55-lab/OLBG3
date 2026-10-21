@@ -11,13 +11,12 @@ predictions for the high-confidence picks, and a verification log that links eve
 | `index.html` | Dashboard: coverage by sport, high-confidence picks, every row in one filterable table |
 | `predictions.html` | The written predictions (high-confidence picks only, 30+ words, sourced) |
 | `verification.html` | Row-by-row verification log: OLBG row, official value, official link, status |
-| `audit.html` | This build's review log: what was checked, what failed, what changed, sources for manual review |
 | `flagged.html` | Flagged for Review: every finding and every unverified row, with links |
 | `audit.html` | Audit log: every check this build ran, against which official page, and what changed |
 | `method.html` | Scope, model, disclosed assumptions, price formula, what we refuse to do |
 | `sports/<sport>.html` | One page per sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | The separate official-feed pipeline (NHL/MLB/NBA raw schedules, no picks) |
-| `/olbg/` | The OLBG lines audit track (137 captured rows, its own pages) |
+| `/olbg/` | The OLBG lines audit track (189 captured rows, its own pages) |
 
 ## Scope
 
@@ -53,27 +52,35 @@ each with the ambiguity recorded on the Flagged for Review page.
    numbers, better citation.
 5. **Verification** — a row is `verified` only when the specific fixture appears on the competition's own
    site, and the official wording is copied into the row. Otherwise it is `unverified`, the official fields
-   stay blank, and the row is listed on the Flagged page. Currently **113 of the 130 fixture rows verified**
-   and 1 of the 23 outright/race rows (MTR-01, the US Grand Prix, where the race start is official). The 16
-   unverified fixture rows are the golf, motor-racing and rugby-league rows captured in the latest listing pass
-   plus CRK-05; the other 22 outright/race rows are season-long or field markets with no fixture to check.
+   stay blank, and the row is listed on the Flagged page. Currently **113 of 130 fixture rows are verified**,
+   plus 1 of 23 outright/race rows (MTR-01, the US Grand Prix, where the race start is official). Seventeen
+   fixture rows remain unverified, including CRK-05; 22 outright/race rows are season-long or field markets
+   with no fixture to check.
 
 ## Build and checks
 
 ```bash
 python3 scripts/model.py              # board rows, prices, picks, confidence -> data/events.json
-python3 scripts/build_gap_sports.py   # price the outright/race markets -> data/gap_sports.json
-python3 scripts/build_site.py         # board pages -> site/
+python3 scripts/build.py              # official-feed pages/data -> site/
+python3 scripts/check.py              # official-feed invariants
+python3 scripts/build_gap_sports.py   # price outright/race markets -> data/gap_sports.json
+python3 scripts/build_site.py         # combined board pages -> site/ (after feed build)
+
 python3 scripts/check_board.py        # board invariants (sources, verification, prices, predictions)
-python3 scripts/check_links.py        # no broken local links
-python3 tools/check_site.py           # /olbg/ audit track
+python3 scripts/check_links.py        # combined site: no broken local links
+python3 tools/build_dataset.py        # /olbg/ audit track
+python3 tools/originate.py
+python3 tools/build_site.py
+python3 tools/check_site.py
 python3 -m unittest discover -s tests # source-policy tests
 ```
 
 The CI workflow (`.github/workflows/pages.yml`) additionally runs the official-feed pipeline
 (`scripts/update.py`, `scripts/build.py`, `scripts/check.py`), rebuilds both tracks, and publishes `site/`.
-Pages is currently published from the branch root (`main`, `/`), so the root HTML is a committed snapshot of
-`site/`; the workflow keeps the two in step.
+`tools/check_site.py` applies to the separate `/olbg/` lines-audit track (currently 189 captured rows, 5
+predictions, 39 flags, and 66 rows with blank official fields); its counts are not the board-track counts above. Pages is currently published
+from the branch root (`main`, `/`), so the root HTML is a committed snapshot of `site/`; the workflow keeps
+the two in step.
 
 ## Data files
 
@@ -83,7 +90,7 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
 | `data/predictions.json` | 14 predictions | board |
-| `data/matches.json`, `data/lines.json` | 137 captured rows + 137 model lines | `/olbg/` audit track |
+| `data/matches.json`, `data/lines.json` | 189 captured rows + 189 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json`, `data/flagged_review.json` | findings | documentation |
 
