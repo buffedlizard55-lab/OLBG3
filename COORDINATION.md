@@ -4,7 +4,7 @@ Session: arena-90bbe96f. Required working branch: `arena/90bbe96f-olbg3` (platfo
 
 | Task | Status | Owner | File scope |
 |---|---|---|---|
-| Repository audit, source research, final integration, dashboard, automation, tests and publication | in progress | arena-90bbe96f | All files (initial repository contains only README.md); no other claims found |
+| Repository audit, source research, final integration, dashboard, automation, tests and publication | done (partial scope; gaps below) | arena-90bbe96f | All files (initial repository contains only README.md); no other claims found |
 
 ## Log
 - 2026-10-21: Read entire starting repository (README.md only). Claimed initial integration. No match data exists to verify. Never treat absence of verified records as absence of sporting events. Official-source access and coverage must be reported explicitly.
@@ -15,3 +15,16 @@ Session: arena-90bbe96f. Required working branch: `arena/90bbe96f-olbg3` (platfo
 - Run 39548445716 passed, retrieved its committed official snapshot via git: 40 upcoming fixture records (36 NHL, 4 MLB). NBA official CDN returned HTTP 403 on GitHub runner; published as unverified, not replaced by an unofficial feed. Fixture provenance, timestamps, unique IDs, exclusions and blank unsupported fields checked by scripts/check.py. Ten unit tests pass. All generated local links resolve. External reference links for pending sports are explicitly not live-validated.
 - Pages recovery: added configure-pages with the workflow's narrowly scoped Pages-write token to switch existing legacy publishing to Actions at deployment. Existing main-root static fallback retained. Direct app Pages API write is denied, not a Git authentication failure.
 - Status: implementation/build task done for partial dashboard; comprehensive eligible-sport enumeration, NBA access, official form/history collection, validated line origination, all-market analysis and prediction prose are needs review and published on review.html. They are NOT claimed complete.
+
+## Final integration result
+- PR https://github.com/buffedlizard55-lab/OLBG3/pull/1 merged successfully 2026-10-21T05:15:39Z, merge commit `769cdd30d766f45c6c8d7db56a4b1ac31f705cad`.
+- Main build and Pages deployment passed: https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39548547826 . Workflow Pages-write configuration succeeded; direct app API denial was overcome without user credentials or manual setup.
+- Live landing page fetched and inspected at https://buffedlizard55-lab.github.io/OLBG3/ : correct dashboard title, 40 fixture records, zero predictions, timestamp and limitation notices confirmed. Hourly workflow enabled.
+- Post-publication cleanup removes temporary root static fallback and write-capable snapshot job; production uses generated Pages artifact, read-only source access plus Pages deployment permissions. Adds live-route smoke test. All future edits still on required arena branch.
+
+| Remaining task | Status | Owner | Scope / published review |
+|---|---|---|---|
+| Full eligible-sport / league discovery and official connectors | needs review | unassigned | review.html; only NHL/MLB currently fetch successfully; NBA CDN 403 |
+| Verified form / recent results / player news ingestion | needs review | unassigned | review.html; no fabricated history |
+| Validated independent models, all markets, picks, confidence and unique 30-word evidence-backed prose | needs review | unassigned | review.html and markets.html; outputs withheld |
+| OLBG complete enumeration and cross-source reconciliation | needs review | unassigned | review.html; popular tips are not full coverage |
