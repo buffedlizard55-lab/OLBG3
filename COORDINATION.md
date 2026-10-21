@@ -116,3 +116,21 @@ all return 200 from `buffedlizard55-lab.github.io`.
 | Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures |
 | Official feed (hourly NHL/MLB/NBA) | `/matches.html`, `/coverage.html`, `/review.html`, `/feed-overview.html` | 40 rows |
 | OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 17 flags |
+
+---
+
+## Session `session-4cbfb224` — verification refresh & final integration (active)
+
+**Session ID:** `session-4cbfb224`
+**Branch:** `arena/4cbfb224-olbg3` (branched from `main` @ `877def1`)
+**Started:** 2026-10-21 06:47 UTC
+**Scope (non-overlapping, claimed now):** `data/official.json`, `data/official_hubs.json` (new), `data/audit_legacy.json` (new), `scripts/build_site.py`, `scripts/model.py`, `assets/style.css`, `scripts/check_links.py`, `README.md`, `docs/*`, `COORDINATION.md`, and the generated root snapshot / `olbg/` copy. No other session is active on this branch.
+
+| Task ID | Description | Files | Status | Owner |
+|---|---|---|---|---|
+| `task-08-refresh-verify` | Add official fixture confirmations retrieved 2026-10-21 (NBA, MLB, NHL, PDC, WST, URC, F1) and official sport-hub links for every unconfirmed row | `data/official.json`, `data/official_hubs.json`, `data/verifications.json` | in progress | `session-4cbfb224` |
+| `task-09-audit-legacy` | Line-by-line audit of the superseded 76-row master track; publish corrections with official evidence | `data/audit_legacy.json`, `scripts/build_site.py` | in progress | `session-4cbfb224` |
+| `task-10-site-consolidation` | One navigation, every row carrying at least one official link, 9 sourced high-confidence predictions, stale claims removed | `scripts/build_site.py`, `assets/style.css`, generated pages | in progress | `session-4cbfb224` |
+| `task-11-integrate` | Rebuild, link-check, PR to `main`, merge, confirm Pages deploy and live routes | `COORDINATION.md`, `README.md` | unclaimed | — |
+
+**Hand-off rule:** if this session stops committing for >60 minutes, another session may take `task-11-integrate`; do not rewrite `data/official.json` without recording the source URL and retrieval date.
