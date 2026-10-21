@@ -186,3 +186,27 @@ PASS (`pages=46 local_links_checked=635 broken=0`).
 
 - PR: https://github.com/buffedlizard55-lab/OLBG3/pull/6
 - Merge commit and deployment run: appended here once `main` publishes this track.
+
+## Integration record (final)
+
+- **PR #4** (board, model, predictions, verification, static site) — merged 2026-10-21, merge commit `90d6c07`.
+- **PR #8** (identical bytes from both Pages publishers) — merged 2026-10-21.
+- **PR #11** (integration of the OLBG audit section into both publishers) — merged 2026-10-21, merge commit after PRs #6, #7, #9, #10, #12 from two further sessions (`arena-9590abcf`, `arena-3c4244bd`).
+- Every one of those merges kept the other sessions' files: `tools/**`, `olbg-board/**`, `olbg/**`, `data/matches.json`, `data/raw/**`, their nav entry and their logs. Nothing was reverted.
+
+### Two dataset tracks, both published
+
+| Track | Data | Published at | Rows |
+|---|---|---|---|
+| Board (this session) | `data/sports/**` → `data/events.json` via `scripts/model.py` | landing page, `sports/**`, `predictions.html`, `verification.html`, `flagged.html` | 114 fixtures, 10 verified, 5 HIGH picks |
+| OLBG audit (`arena-3c4244bd`) | `data/raw/olbg-harvest-*.tsv` → `data/matches.json` via `tools/build_dataset.py` | `/olbg/` (nav: "OLBG lines (audit)") | their harvest, with their own counts and flags |
+| Official feed (`arena-90bbe96f`) | official NHL/MLB/NBA feeds → `data/current.json` | `feed-overview.html`, `matches.html`, `coverage.html` | 40 fixture records |
+
+The two OLBG-derived tracks were briefly mixed into one landing table by a parallel session (131 rows). The integration build restores a single canonical landing table from the board dataset and keeps the parallel harvest whole under `/olbg/`, so neither set of rows disappears.
+
+### Deployment result
+
+- Pages is live at https://buffedlizard55-lab.github.io/OLBG3/ and serves the board dashboard
+  (114 fixtures / 10 verified / 5 high-confidence picks / 131-row audit table under `/olbg/`).
+- Both publishers (legacy `main:/` and the Actions artifact) now serve byte-identical content thanks to the root snapshot.
+- `PUT /repos/{owner}/{repo}/pages` remains **403** for every available token: recorded as an open, unresolved infrastructure limitation, not as fixed.
