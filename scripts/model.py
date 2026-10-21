@@ -236,10 +236,14 @@ top14 = off["form_data"]["Top14_2026_27_table"]["teams"]
 # standby used earlier. The two agree on the clubs this board prices.
 icehl = off["form_data"]["ICEHL_2026_27_official_table"]["teams"]
 shl = off["form_data"]["SHL_2026_27_table_partial"]["teams"]
+euroleague = off["form_data"]["EuroLeague_2026_27_table"]["teams"]
+mlb_tbl = off["form_data"]["MLB_2026_table"]["teams"]
 prod2_src = off["form_data"]["ProD2_2026_27_table"]["source"]
 top14_src = off["form_data"]["Top14_2026_27_table"]["source"]
 icehl_src = off["form_data"]["ICEHL_2026_27_official_table"]["source"]
 shl_src = off["form_data"]["SHL_2026_27_table_partial"]["source"]
+el_src = off["form_data"]["EuroLeague_2026_27_table"]["source"]
+mlb_src = off["form_data"]["MLB_2026_table"]["source"]
 
 rugby_tables = {}
 rugby_tables.update(urc)
@@ -308,6 +312,28 @@ for e in events:
             model["notes"].append(f"Official standings used for both sides ({h_src}).")
         else:
             model["notes"].append(f"Official standings used: home side from {h_src}, away side from {a_src}.")
+    elif e["sport"] == "Basketball" and official_name(e["home"]) in euroleague and official_name(e["away"]) in euroleague:
+        hr, ar = euroleague[official_name(e["home"])], euroleague[official_name(e["away"])]
+        h_adv = 0.0 if hr.get("neutral_home") else 3.2
+        exp_h = (hr["pf"] / hr["pl"] + ar["pa"] / ar["pl"]) / 2.0 + h_adv
+        exp_a = (ar["pf"] / ar["pl"] + hr["pa"] / hr["pl"]) / 2.0
+        margin = exp_h - exp_a
+        total = exp_h + exp_a
+        p_home = 1.0 - normal_cdf(-margin / 13.0)
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official EuroLeague 2026/27 standings used for both clubs ({el_src}).")
+    elif e["sport"] == "Baseball" and e["home"] in mlb_tbl and e["away"] in mlb_tbl:
+        hr, ar = mlb_tbl[e["home"]], mlb_tbl[e["away"]]
+        ph0 = hr["w"] / (hr["w"] + hr["l"])
+        pa0 = ar["w"] / (ar["w"] + ar["l"])
+        log5 = (ph0 - ph0 * pa0) / (ph0 + pa0 - 2 * ph0 * pa0)
+        p_home = min(0.85, max(0.15, log5 + 0.035))
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        margin = 3.0 * ND.inv_cdf(p_home)
+        total = ((hr["rs"] + hr["ra"]) / 162.0 + (ar["rs"] + ar["ra"]) / 162.0) / 2.0
+        basis = "official-standings"
+        model["notes"].append(f"Official MLB 162-game standings & scoring rates used ({mlb_src}).")
 
     side, kind = side_of_pick(e)
     if probs is None:
@@ -358,7 +384,7 @@ for e in events:
             if abs(line - round(line)) < 1e-9:
                 line += 0.5
             line = max(line, 0.5)
-            unit = "points" if e["sport"] == "Rugby Union" else "goals"
+            unit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs"}.get(e["sport"], "goals")
             model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line,
                                  "dog_price": 1.91, "unit": unit, "basis": "official-form",
                                  "note": ("Line derived from the projected margin built on official league data; "
@@ -390,7 +416,7 @@ for e in events:
     # Quoted only where an official scoring baseline produced a projected combined score.
     if margin is not None and total is not None:
         tline = math.floor(total) + 0.5  # always a half-point line
-        tunit = "points" if e["sport"] == "Rugby Union" else "goals"
+        tunit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs"}.get(e["sport"], "goals")
         model["total"] = {"line": tline, "over": 1.91, "under": 1.91, "unit": tunit,
                           "basis": "official-form",
                           "note": ("Line = projected combined score from official league scoring rates, rounded to a "

@@ -34,11 +34,20 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _TIERS = json.load(open(os.path.join(ROOT, "data/official.json")))["source_tiers"]
 
 
+def _bare(host):
+    host = (host or "").lower().split(":")[0].strip()
+    return host[4:] if host.startswith("www.") else host
+
+
 def source_tier(url):
-    host = urlparse(url or "").netloc.lower()
+    host = _bare(urlparse(url or "").netloc)
+    if not host:
+        return "unclassified"
     for tier in ("official", "club-official", "third-party"):
-        if host in _TIERS[tier]:
-            return tier
+        for known in _TIERS[tier]:
+            k = _bare(known)
+            if host == k or host.endswith("." + k):
+                return tier
     return "unclassified"
 
 
@@ -106,8 +115,9 @@ def main() -> None:
             prob, odds = None, None
             flags.append("no_tip_count_published")
         else:
-            prob = round((won + a) / (total + k), 4)
-            odds = price(prob)
+            raw_prob = (won + a) / (total + k)
+            prob = round(raw_prob, 4)
+            odds = price(raw_prob)
             if total < 5:
                 flags.append("small_sample_lt5_tips")
         if e["market_type"] == "outright":

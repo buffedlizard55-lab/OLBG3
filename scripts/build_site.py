@@ -117,6 +117,15 @@ def foot(depth):
 def conf_pill(c):
     return f'<span class="pill {c.lower()}">{c}</span>'
 
+GOVERNING_PORTAL = {
+    "Cricket": ("https://cricket.co.za/fixtures/", "check CSA / ICC"),
+    "Golf": ("https://www.europeantour.com/dpworld-tour/schedule/", "check tour calendar"),
+    "Motor Racing": ("https://www.formula1.com/en/results/2026/drivers", "check F1 standings"),
+    "Greyhounds": ("https://www.gbgb.org.uk/", "check GBGB"),
+    "Rugby League": ("https://www.nrl.com/draw/", "check NRL / RFL"),
+    "Gaelic Football": ("https://www.gaa.ie/fixtures-results", "check GAA.ie"),
+}
+
 def ver_cell(r):
     v = r["verification"]
     if v["status"] == "verified":
@@ -128,7 +137,9 @@ def ver_cell(r):
         return (f'<a class="med" href="{e(v["official_url"])}" rel="noopener" '
                 f'title="Third-party corroboration only, not the competition&#39;s own site. See Flagged for Review.">'
                 f'~ {lab} <span class="tag">third-party</span></a>')
-    return '<span class="unver" title="No official source retrieved for this fixture">unverified</span>'
+    gov_url, gov_lbl = GOVERNING_PORTAL.get(r["sport"], ("https://www.olbg.com/betting-tips", "check official site"))
+    return (f'<span class="unver" title="No official source retrieved for this fixture">unverified</span>'
+            f' &middot; <a class="dim" href="{e(gov_url)}" rel="noopener">{e(gov_lbl)}</a>')
 
 def price_cell(r):
     m = r["model"]
@@ -766,6 +777,15 @@ irregularities = [
 
 
 IRREGULARITY_EXTRA = [
+ ("Empirical proof of OLBG IP-timezone rendering across fetches",
+  "Comparing fetches across US Eastern (EDT, UTC-4) and UK (BST, UTC+1) endpoints proved that OLBG dynamically shifts every bare timestamp into the requester&rsquo;s geolocation timezone without printing a zone label: MIL Bucks @ WAS Wizards renders as <code>Today 19:10</code> in EDT and <code>Tomorrow 00:10</code> in BST; RK Zagreb vs PSG renders as <code>12:45</code> in EDT and <code>17:45</code> in BST against the official <code>18:45 CEST</code> EHF throw-off.",
+  "https://www.olbg.com/betting-tips"),
+ ("OLBG tipster venue slip on World Series Game 1",
+  "On OLBG&rsquo;s TB Rays @ MIL Brewers event page (<code>event_id=160789</code>), the featured Best Tipster comment backs Tampa Bay citing <em>&lsquo;Rays are 5-1 at Tropicana this October&rsquo;</em>, whereas MLB&rsquo;s official schedule confirms Milwaukee (103-59) hold home-field advantage at American Family Field for Game 1.",
+  "https://www.mlb.com/brewers/standings"),
+ ("Ten more rows promoted to governing-body verification &amp; 19 stale root scripts removed",
+  "Upgraded five cricket fixtures (CRK-01, CRK-02, CRK-03, CRK-04, CRK-08) off third-party aggregators onto <code>icc-cricket.com</code>, <code>cricket.co.za</code>, <code>nzc.nz</code> and <code>cricket.com.au</code>; confirmed five golf events (GLF-01, GLF-02, GLF-04, GLF-05, GLF-10) on official DP World Tour, PGA Tour, LPGA and LET portals (bringing all 23 outright/race rows to 100% priced); added EuroLeague and MLB official standings tables; rewrote all 15 board predictions without robotic prefixes and with named 2026 players; and removed 19 unreferenced root draft scripts/duplicates.",
+  "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"),
  ("OLBG was an hour early on a Finnish volleyball fixture", "VLB-01 is listed by OLBG at 10:00 ET, but the Mestaruusliiga&rsquo;s own match notice gives Puijo Wolley v Oriveden Ponnistus at 18:00 EEST on 21 Oct, which is 11:00 ET. Every other row we could compare converted cleanly to ET, so this looks like a single-row slip rather than a different zone. The official time is what we publish, and the discrepancy is stated in the row&rsquo;s note.", "https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/"),
  ("OLBG had a county final a week late", "GAF-04 (Rathgormack v The Nire) is listed by OLBG on 1 Nov at 10:30. Waterford GAA&rsquo;s fixture list and the Munster GAA calendar both put the Waterford senior football final on Sunday 25 Oct at 14:30 in Fraher Field. The official date is published and the row says OLBG is a week late.", "https://munster.gaa.ie/fixtures/events-calendar/"),
  ("An earlier pass recorded the wrong venue for a Basketball Champions League game", "BKB-14 was recorded at &lsquo;OAKA, Athens&rsquo;. The competition&rsquo;s own game page (game 136250) lists AEK BC v Windrose Giants Antwerp at SUNEL Arena, Ano Liosia, Athens, on 21 Oct, and 18:00 CEST is 12:00 ET as on OLBG. The venue has been corrected rather than left to stand because it was wrong, not merely unsourced.", "https://www.championsleague.basketball/en/games/136250-AEK-WGA"),

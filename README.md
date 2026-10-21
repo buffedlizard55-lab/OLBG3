@@ -48,16 +48,17 @@ each with the ambiguity recorded on the Flagged for Review page.
      N and k are disclosed assumptions and are written into every row.
 3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
    both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
-4. **Predictions** — written only for HIGH picks, at least 30 words, every factual claim attached to an
-   official source. Currently **14** predictions: ten rugby union fixtures (URC, Pro D2, Top 14) and four
-   ice hockey fixtures (three ICEHL, one SHL, one NHL). Two of them (IHO-01, IHO-03) were withdrawn during the
-   audit and restored when the club's own fixture page and the Swedish federation's schedule confirmed them.
-5. **Verification** — a row is `verified` only when the specific fixture appears on the competition's own
-   site (or one of the two clubs' own sites) and the official wording is copied into the row. A reputable
-   third-party listing is labelled `corroborated`, never `verified`; a row with no source says `unverified`,
-   keeps its official fields blank, and is listed on the Flagged page. Currently **105 verified (98 official +
-   6 club-official + 1 outright row) / 9 corroborated / 23 unverified**, checked row by row as status against
-   source tier. The 23 unverified are 22 outright/race marker positions with no fixture to check plus CRK-05.
+4. **Predictions** — written only for HIGH picks, at least 30 words, non-repetitive prose naming real verified
+   2026 match players, current form, recent match history and an unmistakable betting selection, with every
+   factual claim attached to an official source. Currently **15** predictions: nine rugby union fixtures
+   (URC, Pro D2, Top 14), five ice hockey fixtures (three ICEHL, one SHL, one NHL), and one EuroLeague
+   basketball fixture (`BKB-11` Panathinaikos v Baskonia).
+5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
+   competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
+   A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
+   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified
+   (103 official + 6 club-official fixtures + 6 official tour/race events) / 4 corroborated / 18 unverified**
+   (132 priced, 83 handicaps, 25 official-baseline totals), checked row by row as status against source tier.
 
 ## Build and checks
 

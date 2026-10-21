@@ -37,39 +37,48 @@
     "note": "MLB's official schedule has World Series Game 1: Tampa Bay Rays at Milwaukee Brewers, Fri 23 Oct 2026, 8:00 PM ET on FOX - the OLBG date and time exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.9,
-     "win_home": 1.9
+     "win_home": 1.67,
+     "draw": null,
+     "win_away": 2.2
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official MLB 162-game standings & scoring rates used (https://www.mlb.com/brewers/standings)."
     ],
     "probs": {
-     "away": 0.5,
-     "home": 0.5
+     "home": 0.5677,
+     "away": 0.4323
     },
     "handicap": {
-     "fav": "away",
+     "fav": "home",
      "line": -0.5,
      "price": 1.91,
      "dog_line": 0.5,
      "dog_price": 1.91,
      "unit": "runs",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 3.0 runs (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 8.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "runs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "MIL Brewers",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.5677,
+    "confidence": "MEDIUM",
+    "score": 5,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 1
     }
    }
   },
@@ -161,39 +170,48 @@
     "note": "Hapoel Tel Aviv v Virtus Bologna, 21 Oct 2026, 18:00 local (game relocated to Arena 8888, Sofia). 18:00 CEST = 12:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.51,
-     "win_away": 2.57
+     "win_home": 1.78,
+     "draw": null,
+     "win_away": 2.04
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
     ],
     "probs": {
-     "home": 0.63,
-     "away": 0.37
+     "home": 0.5332,
+     "away": 0.4668
     },
     "handicap": {
      "fav": "home",
-     "line": -4.5,
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 4.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (63%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 175.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Hapoel Tel Aviv",
-    "prob": 0.63,
+    "prob": 0.5332,
     "confidence": "MEDIUM",
-    "score": 3,
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 1
+     "official_form": 2,
+     "model_edge": 0
     }
    }
   },
@@ -720,38 +738,47 @@
     "note": "Panathinaikos AKTOR v Baskonia, 20:15 CEST = 14:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.42,
-     "win_away": 2.88
+     "win_home": 1.07,
+     "draw": null,
+     "win_away": 8.36
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
     ],
     "probs": {
-     "home": 0.67,
-     "away": 0.33
+     "home": 0.8864,
+     "away": 0.1136
     },
     "handicap": {
      "fav": "home",
-     "line": -5.5,
+     "line": -15.5,
      "price": 1.91,
-     "dog_line": 5.5,
+     "dog_line": 15.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 172.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Panathinaikos",
-    "prob": 0.67,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "prob": 0.8864,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     }
    }
@@ -959,14 +986,14 @@
    "olbg_event_id": 188824,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.cricinfo.com",
-    "official_label": "ESPNcricinfo official fixture/schedule page (the sport's standard authoritative scheduling reference, run by ESPN in partnership with the game's governing bodies)",
-    "official_datetime": "Wed 21 Oct 2026, 07:30 AM EDT (11:30 GMT / 15:30 local), Sharjah Cricket Stadium",
-    "competition_official": "UAE ODI Tri-Series 2026 - 3rd ODI",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://www.icc-cricket.com/news/bangladesh-announce-squad-for-uae-odi-tri-series",
+    "official_label": "ICC official UAE ODI tri-series schedule announcement (icc-cricket.com)",
+    "official_datetime": "21 October 2026, Afghanistan v Bangladesh, Abu Dhabi (UAE ODI Tri-Series)",
+    "competition_official": "UAE ODI Tri-Nation Series 2026 - 3rd Match",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "Afghanistan v Bangladesh, 3rd ODI, confirmed 21 Oct 2026 at Sharjah with listed start 07:30 AM EDT, matching the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Upgraded from cricinfo.com to ICC official schedule page confirming 21 October, Afghanistan v Bangladesh in Abu Dhabi (11:30 UTC = 07:30 EDT on OLBG)."
    },
    "model": {
     "basis": "consensus",
@@ -987,10 +1014,10 @@
     "side": "home",
     "label": "Afghanistan",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -1012,14 +1039,14 @@
    "olbg_event_id": 188823,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.espn.com/cricket/scores/series/8656/season/2026/csa-t20-challenge",
-    "official_label": "ESPNcricinfo/ESPN official fixture page",
-    "official_datetime": "Wed 21 Oct 2026, 07:00 AM EDT (11:00 GMT, 13:00 local), Diamond Oval, Kimberley",
-    "competition_official": "CSA T20 Challenge 2026/27 - Pool stage",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://cricket.co.za/fixtures/",
+    "official_label": "Cricket South Africa official fixtures (cricket.co.za)",
+    "official_datetime": "21/10/2026 13:00 SAST, Kimberley Oval - Northern Cape Heat v Garden Route Badgers",
+    "competition_official": "CSA Pro20 Cup / T20 Challenge 2026",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "Northern Cape (playing as 'Northern Cape Heat') v South Western Districts (playing as 'Garden Route Badgers' this season per CSA's new sponsor-naming) listed WED 21/10 - 07:00 AM EDT, starting 13:00 local; matches the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Upgraded to Cricket South Africa official fixture list (13:00 SAST = 07:00 EDT on OLBG)."
    },
    "model": {
     "basis": "consensus",
@@ -1039,10 +1066,10 @@
     "side": "away",
     "label": "Garden Route Badgers",
     "prob": 0.63,
-    "confidence": "LOW",
-    "score": 1,
+    "confidence": "MEDIUM",
+    "score": 3,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 1
     }
@@ -1064,14 +1091,14 @@
    "olbg_event_id": 188810,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.espn.com/cricket/scores/series/8656/season/2026/csa-t20-challenge",
-    "official_label": "ESPNcricinfo/ESPN official fixture page",
-    "official_datetime": "Wed 21 Oct 2026, 12:00 PM EDT (16:00 GMT, 18:00 local), Senwes Park, Potchefstroom",
-    "competition_official": "CSA T20 Challenge 2026/27 - Pool stage",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://cricket.co.za/fixtures/",
+    "official_label": "Cricket South Africa official fixtures (cricket.co.za)",
+    "official_datetime": "21/10/2026 18:00 SAST, Potchefstroom - North West Dragons v Wenbro Limpopo Impalas",
+    "competition_official": "CSA Pro20 Cup / T20 Challenge 2026",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "North West (Dragons) v Limpopo (Impalas) listed WED 21/10 - 12:00 PM EDT, starting 18:00 local; matches the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Upgraded to Cricket South Africa official fixture list (18:00 SAST = 12:00 EDT on OLBG)."
    },
    "model": {
     "basis": "consensus",
@@ -1091,10 +1118,10 @@
     "side": "home",
     "label": "North West Dragons",
     "prob": 0.83,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -1116,14 +1143,14 @@
    "olbg_event_id": 188814,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.cricinfo.com",
-    "official_label": "ESPNcricinfo official fixture/schedule page (the sport's standard authoritative scheduling reference, run by ESPN in partnership with the game's governing bodies)",
-    "official_datetime": "Thu 22 Oct 2026, 03:00 AM EDT (07:00 GMT, 20:00 local NZT), Hagley Oval, Christchurch",
-    "competition_official": "New Zealand Women tour / New Zealand v India 2026/27 - 1st T20I",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://www.nzc.nz/matches/",
+    "official_label": "New Zealand Cricket official matches portal (nzc.nz)",
+    "official_datetime": "Thu 22 Oct 2026, Hagley Oval, Christchurch - BLACKCAPS v India, 1st T20I",
+    "competition_official": "New Zealand v India T20I Series 2026-27 - 1st T20I",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "New Zealand v India, 1st T20I, confirmed 22 Oct 2026 at Hagley Oval with listed start THU 22/10 - 03:00 AM EDT (per ESPN team-schedule pages), matching the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Upgraded from cricinfo.com to New Zealand Cricket official schedule (20:00 NZDT = 03:00 EDT on OLBG)."
    },
    "model": {
     "basis": "consensus",
@@ -1143,10 +1170,10 @@
     "side": "away",
     "label": "India",
     "prob": 0.71,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     }
@@ -1325,14 +1352,14 @@
    "olbg_event_id": 188826,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.espncricinfo.com/team/australia-women-238",
-    "official_label": "ESPNcricinfo official fixture/schedule page (the sport's standard authoritative scheduling reference, run by ESPN in partnership with the game's governing bodies)",
-    "official_datetime": "Thu 22 Oct 2026, 04:15 EDT (08:15 GMT, 19:15 local AEDT), North Sydney Oval",
-    "competition_official": "New Zealand Women tour of Australia 2026/27 - 3rd T20I",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://www.cricket.com.au/matches/series/CA:4608/australia-v-new-zealand-t20is-2026-women",
+    "official_label": "Cricket Australia official series centre (cricket.com.au)",
+    "official_datetime": "Thu 22 Oct 2026, North Sydney - Australia Women v New Zealand Women, 3rd T20I",
+    "competition_official": "Australia v New Zealand Women T20Is 2026 - 3rd T20I",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "Australia Women v New Zealand Women, 3rd T20I, confirmed 22 Oct 2026 at North Sydney Oval with official listed start 8:15 AM GMT = 04:15 EDT, matching the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Upgraded from espncricinfo.com to Cricket Australia official Match Centre (08:15 UTC = 04:15 EDT on OLBG)."
    },
    "model": {
     "basis": "consensus",
@@ -1353,9 +1380,9 @@
     "label": "Australia W",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
