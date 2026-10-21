@@ -1,0 +1,98 @@
+name: Verify and publish dashboard
+on:
+  push:
+    branches: [main, arena/90bbe96f-olbg3, arena/9590abcf-olbg3]
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/update.py
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/build.py
+      - run: python scripts/check.py
+      - name: Rebuild the dashboard layer from the raw OLBG harvest
+        run: |
+          python3 tools/build_dataset.py
+          python3 tools/originate.py
+          python3 tools/build_site.py
+          python3 tools/check_site.py
+      - name: Fail if the committed dashboard or data is stale
+        run: |
+          # data/current.json is refreshed in the runner by scripts/update.py, so it is excluded
+          if [ -n "$(git status --porcelain docs data/matches.json data/lines.json data/predictions.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json)" ]; then
+            echo "::error::Dashboard data or docs are out of date. Run the build scripts and commit."
+            git --no-pager diff --stat docs data
+            exit 1
+          fi
+      - name: Assemble one artifact - dashboard at root, research desk under /research/
+        run: |
+          mv site site_research
+          mkdir -p site/research
+          cp -r docs/. site/
+          cp -r site_research/. site/research/
+          rm -rf site_research
+          ls site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-evidence
+          path: data/
+          retention-days: 14
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Use Actions publishing instead of legacy branch publishing
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT repos/${{ github.repository }}/pages -f build_type=workflow
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/deploy-pages@v4
+        id: deployment
+      - name: Smoke-test published pages
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          python - <<'PYTEST'
+          import json, os, urllib.request
+          base = os.environ['SITE_URL'].rstrip('/') + '/'
+          dashboard = ['index.html', 'picks.html', 'predictions.html', 'matches.html',
+                       'methodology.html', 'flagged.html', 'sports/cricket.html',
+                       'sports/baseball.html', 'assets/style.css']
+          research = ['index.html', 'matches.html', 'basketball.html', 'ice-hockey.html',
+                      'baseball.html', 'coverage.html', 'markets.html', 'review.html',
+                      'style.css', 'data.json']
+          for name in dashboard:
+              with urllib.request.urlopen(base + name, timeout=40) as r:
+                  assert r.status == 200 and r.read(), name
+          for name in research:
+              with urllib.request.urlopen(base + 'research/' + name, timeout=40) as r:
+                  body = r.read()
+                  assert r.status == 200 and body, name
+                  if name == 'data.json':
+                      data = json.loads(body)
+                      assert data['generated'] and isinstance(data['matches'], list)
+          print('Published dashboard and research routes: PASS')
+          PYTEST

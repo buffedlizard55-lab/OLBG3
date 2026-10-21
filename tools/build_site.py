@@ -55,11 +55,14 @@ def nav(active: str, depth: int) -> str:
         ("matches.html", "All matches"),
         ("methodology.html", "Method &amp; sources"),
         ("flagged.html", "Flagged for review"),
+        ("https://buffedlizard55-lab.github.io/OLBG3/research/", "Research desk"),
     ]
     out = []
     for href, label in items:
         cls = ' class="active"' if href == active else ""
-        out.append(f'<a href="{pre}{href}"{cls}>{label}</a>')
+        absolute = href.startswith("http")
+        target = ' target="_blank" rel="noopener"' if absolute else ""
+        out.append(f'<a href="{href if absolute else pre + href}"{cls}{target}>{label}</a>')
     return "".join(out)
 
 
