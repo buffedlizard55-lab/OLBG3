@@ -61,6 +61,9 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 
 ---
 
+## Session log addendum (from arena-90bbe96f, latest main)
+- PR https://github.com/buffedlizard55-lab/OLBG3/pull/3 merged; explicit Pages-settings API step failed (run 39548751220), confirming workflow token also cannot change this setting. Rolling back that step; artifact deployment itself previously succeeded twice including all ten public-route smoke tests (run 39548680799). Legacy coexistence is now published as a review flag. Wait for the legacy run to finish, then deploy the Actions artifact last. Hourly artifact deployments continue without requiring settings changes. Do not claim the settings switch succeeded.
+
 ## Change requests / edits made to another session's files (integration authority)
 
 | File | Edit | Why |
@@ -77,4 +80,4 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 ## Final integration result
 
 - Session branch `arena/6d5f01ec-olbg3`; PR #4 → `main`; see the PR thread for the merge and deployment record (also mirrored here after merge).
-- Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links.
+- Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links. origin/main
