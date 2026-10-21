@@ -205,3 +205,20 @@ Those are the same areas this session touched, so the overlap is recorded here r
   `/method.html`, and `/olbg/` (audit track unchanged).
 * Only the site pages and the data/scripts listed above were changed. `data/matches.json`,
   `data/lines.json`, `data/predictions-olbg.json`, `tools/*` and the `/olbg/` track were left untouched.
+
+## Publication record (session `session-f7221054`)
+
+| PR | What it did | Merge commit | Post-merge CI |
+|---|---|---|---|
+| [#19](https://github.com/buffedlizard55-lab/OLBG3/pull/19) | Coverage completion (15 sports / 137 rows), line-by-line audit with sources, legacy-claim relabel, docs reconciliation, `check_board.py` guard, audit page | `cb28a3a` | verify **39558081222** success · pages **39558080745** success |
+| [#20](https://github.com/buffedlizard55-lab/OLBG3/pull/20) | Records the merge/deploy result here; sport-page heading now says "Rows" | `54c52d1` | verify **39558316927** success · pages **39558317221** success |
+| [#21](https://github.com/buffedlizard55-lab/OLBG3/pull/21) | Dashboard row counter counted the coverage and picks tables too (157 vs 137); scoped to `#tbl-all` | `f805148` | verify **39558590527** success · pages **39558590114** success |
+
+All three merged without waiting for review, as instructed. Flagged irregularities do not block the merge and are
+published on `flagged.html`.
+
+**Live site after the final deploy** (fetched 2026-10-21 07:00Z, cache-busted):
+`/` shows 137 rows / 15 sports / 23 outright-race / 11 verified / 130 priced; `/sports/golf.html`,
+`/sports/greyhounds.html`, `/sports/motor_racing.html`, `/sports/rugby_league.html` each render their rows with an
+originated price and an OLBG event link; `/audit.html` lists the 10 checks with sources; `/flagged.html` lists
+16 findings and 126 unverified rows.
