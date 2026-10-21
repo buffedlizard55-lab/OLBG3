@@ -454,6 +454,18 @@ if os.path.isdir(os.path.join(ROOT, "olbg")):
     shutil.rmtree(os.path.join(OUT, "olbg"), ignore_errors=True)
     shutil.copytree(os.path.join(ROOT, "olbg"), os.path.join(OUT, "olbg"))
 
+for extra_dir in ("css", "js"):
+    src_dir = os.path.join(ROOT, extra_dir)
+    if os.path.isdir(src_dir):
+        dst_dir = os.path.join(OUT, extra_dir)
+        shutil.rmtree(dst_dir, ignore_errors=True)
+        shutil.copytree(src_dir, dst_dir)
+
+for extra_file in ("flagged-review.html", "methodology.html"):
+    src_file = os.path.join(ROOT, extra_file)
+    if os.path.isfile(src_file):
+        shutil.copyfile(src_file, os.path.join(OUT, extra_file))
+
 # --snapshot mirrors the built site into the repository root.
 # Reason: this repository's Pages site is configured for LEGACY branch publishing
 # (source: main, path: /) and the API that would switch it to Actions returns 403 for
@@ -461,7 +473,7 @@ if os.path.isdir(os.path.join(ROOT, "olbg")):
 # publisher runs last wins, so both targets must contain the same bytes or the site
 # flaps. Root is committed; site/ is generated in CI and always the fresher of the two.
 if "--snapshot" in sys.argv:
-    keep = {"data", "scripts", "docs", "tests", "assets", ".git", ".github", "site", "__pycache__"}
+    keep = {"data", "scripts", "docs", "tests", "assets", ".git", ".github", "site", "__pycache__", "css", "js"}
     for name in os.listdir(OUT):
         if name in keep:
             continue
