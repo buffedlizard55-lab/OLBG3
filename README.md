@@ -9,11 +9,11 @@ predictions for the high-confidence picks, and a verification log that links eve
 | Page | What it is |
 |---|---|
 | `index.html` | Dashboard: coverage by sport, high-confidence picks, every row in one filterable table |
-| `predictions.html` | The written predictions (high-confidence picks only, 30+ words, sourced) |
+| `predictions.html` | The written predictions (high-confidence picks, 30+ words, sourced, plus any kept after a downgrade) |
+| `lines.html` | Every market we originated for every row: money line, handicap, total, basis |
 | `verification.html` | Row-by-row verification log: OLBG row, official value, official link, status |
 | `audit.html` | This build's review log: what was checked, what failed, what changed, sources for manual review |
 | `flagged.html` | Flagged for Review: every finding and every unverified row, with links |
-| `audit.html` | Audit log: every check this build ran, against which official page, and what changed |
 | `method.html` | Scope, model, disclosed assumptions, price formula, what we refuse to do |
 | `sports/<sport>.html` | One page per sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | The separate official-feed pipeline (NHL/MLB/NBA raw schedules, no picks) |
@@ -45,15 +45,14 @@ each with the ambiguity recorded on the Flagged for Review page.
      N and k are disclosed assumptions and are written into every row.
 3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
    both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
-4. **Predictions** — written only for HIGH picks, at least 30 words, every factual claim attached to a
-   source that was actually read. Currently **13** predictions: eight rugby union fixtures (four URC,
-   four Pro D2), one Top 14 fixture and four ice-hockey fixtures. Each one was re-verified line by line
-   on 2026-10-21; eight were corrected and one (IHO-01) was withdrawn when its fixture turned out not to
-   be confirmed by an official page. The corrections are listed on `audit.html` and `flagged.html`.
+4. **Predictions** — written only for HIGH picks, at least 30 words, every factual claim attached to an
+   official source. Currently **12 counted** (ten rugby union, two ice hockey) plus **2 kept** after a
+   source-tier downgrade.
 5. **Verification** — a row is `verified` only when the specific fixture appears on the competition's own
-   site, and the official wording is copied into the row. Otherwise it is `unverified`, the official fields
-   stay blank, and the row is listed on the Flagged page. Currently **71 verified / 66 unverified**
-   (the curve moved up as later sessions verified fixtures; the count here is always the built count).
+   site (or one of the two clubs' own sites) and the official wording is copied into the row. A reputable
+   third-party listing is labelled `corroborated`, never `verified`; a row with no source says `unverified`,
+   keeps its official fields blank, and is listed on the Flagged page. Currently **69 verified (66 official +
+   3 club-official) / 12 corroborated / 56 unverified**, checked row by row as status against source tier.
 
 ## Build and checks
 
@@ -78,16 +77,17 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 13 predictions (HIGH picks only) | board |
+| `data/predictions.json` | 14 predictions (12 high-confidence + 2 kept) | board |
 | `data/matches.json`, `data/lines.json` | 137 captured rows + 137 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json`, `data/flagged_review.json` | findings | documentation |
 
 ## Known limitations (also on the site)
 
-* 66 of 137 rows have no official fixture-level confirmation yet. They are published as unverified, not
-  quietly dropped. One row that had been marked verified (IHO-01) was downgraded on 2026-10-21 because its
-  only source was a betting preview rather than an official page.
+* 56 of 137 rows have no confirmation at all and 12 more rest on a third-party listing only. Both groups are
+  published and labelled, not quietly dropped.
+* Handicaps exist for 83 rows; totals for 22 (rugby union and ice hockey only, the two sports with an official
+  scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.
 * OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
 * OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
   start time is derived from them.
