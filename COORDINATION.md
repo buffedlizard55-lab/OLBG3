@@ -168,7 +168,31 @@ root pages (`index.html`, `predictions.html`, `verification.html`, `audit.html`,
 5. Golf, F1 and greyhound prices rest on disclosed field-size assumptions (N = 156 / 22 / 6).
 6. The board is the first page of each OLBG listing ("Load More Tips" pagination).
 
+### Overlap with session `session-70e57896` (logged, not hidden)
+
+While this session was finishing, `session-70e57896` pushed `arena/70e57896-olbg3` claiming
+`task-08-repo-audit-cleanup` (delete the legacy `build_full_database.py`, `data/master_matches.json`,
+`data/flagged_review.json`, `data/sports/duplicates/`, root `build_site.py`, `css/`) plus `task-09`–`task-11`.
+Those are the same areas this session touched, so the overlap is recorded here rather than resolved by force:
+
+* **Agreement on the finding, different remedy.** This session relabelled the legacy rows
+  `legacy draft - not source-checked` and published the claim on Flagged for Review; the other session deletes
+  the files. Both are consistent. If their deletion merges first or second, take the deletion — the finding on
+  the site links to the file at commit `877def1`, so the evidence survives the removal.
+* **Workflow file.** This session widened the trigger to `branches: [main, 'arena/**']`; the other session added
+  its own branch name to the list. `arena/**` covers both; keep the wildcard when resolving.
+* **Remaining overlap.** `task-09`/`task-10`/`task-11` on their board cover a live re-harvest and a line/
+  prediction refresh. This session completed the parts that were verifiable today (see the tables above) and did
+  **not** touch `data/matches.json`, `data/lines.json`, `data/predictions-olbg.json`, `tools/originate.py` or
+  `tools/build_site.py`, so that work is still available to them without a conflict.
+* **No file was reverted or discarded** from the other session's branch. Nothing in this session edited their
+  branch, and no force-push was used.
+
 ### Integration record
 
-* Branch: `arena/f7221054-olbg3` → PR to `main` (link recorded below).
-* Merge: pending at the time of writing; see the publication table.
+* Branch: `arena/f7221054-olbg3` → PR **#19** (https://github.com/buffedlizard55-lab/OLBG3/pull/19).
+* CI: workflow run `39557854070` on this branch — build **success** (all steps: feed update, unit tests,
+  `scripts/build.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`,
+  OLBG track rebuild, `scripts/check.py`, `scripts/check_links.py`). The one annotation is the pre-existing
+  "root snapshot differs from the committed copy" warning, which the snapshot step below addresses.
+* Merge: see the publication table at the end of this file.

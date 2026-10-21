@@ -75,7 +75,7 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
 | `data/predictions.json` | 5 predictions | board |
 | `data/matches.json`, `data/lines.json` | 137 captured rows + 137 model lines | `/olbg/` audit track |
-| `data/master_matches.json` | 76 legacy rows | **nothing** — see `data/LEGACY-NOTICE.md` |
+| `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json`, `data/flagged_review.json` | findings | documentation |
 
 ## Known limitations (also on the site)
