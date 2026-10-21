@@ -81,7 +81,7 @@ def total_line(match: dict) -> tuple[float | None, str | None]:
 
 def main() -> None:
     matches = json.loads((DATA / "matches.json").read_text())
-    predictions_path = DATA / "predictions.json"
+    predictions_path = DATA / "predictions-olbg.json"
     preds = json.loads(predictions_path.read_text()) if predictions_path.exists() else {"predictions": []}
     high_ids = {p["match_id"] for p in preds.get("predictions", [])}
 

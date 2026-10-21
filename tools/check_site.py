@@ -19,7 +19,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-DOCS = ROOT / "docs"
+DOCS = ROOT / "olbg-board"
 DATA = ROOT / "data"
 
 ALLOWED_HOSTS = {
@@ -72,7 +72,7 @@ class Collector(HTMLParser):
 def main() -> int:
     matches = json.loads((DATA / "matches.json").read_text())
     lines = {x["match_id"]: x for x in json.loads((DATA / "lines.json").read_text())}
-    preds = json.loads((DATA / "predictions.json").read_text())["predictions"]
+    preds = json.loads((DATA / "predictions-olbg.json").read_text())["predictions"]
     flagged = json.loads((DATA / "flagged.json").read_text())["items"]
 
     parsers = {}

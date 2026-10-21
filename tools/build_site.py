@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-DOCS = ROOT / "docs"
+DOCS = ROOT / "olbg-board"   # published at /olbg/ inside the shared artifact
 
 E = html.escape
 
@@ -55,7 +55,7 @@ def nav(active: str, depth: int) -> str:
         ("matches.html", "All matches"),
         ("methodology.html", "Method &amp; sources"),
         ("flagged.html", "Flagged for review"),
-        ("https://buffedlizard55-lab.github.io/OLBG3/research/", "Research desk"),
+        ("https://buffedlizard55-lab.github.io/OLBG3/", "Main site"),
     ]
     out = []
     for href, label in items:
@@ -127,7 +127,7 @@ def sources_cell(match: dict, verifications: dict) -> str:
 def main() -> None:
     matches = load("matches.json", [])
     lines = {x["match_id"]: x for x in load("lines.json", [])}
-    preds = load("predictions.json", {"predictions": []})["predictions"]
+    preds = load("predictions-olbg.json", {"predictions": []})["predictions"]
     flagged = load("flagged.json", {"items": []})["items"]
     meta = load("meta.json", {})
     ver = load("verifications.json", {"sources": [], "event_verifications": {}})
