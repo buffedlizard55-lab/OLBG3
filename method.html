@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method &amp; Scope &middot; OLBG3 Match Board</title>
+<meta name="description" content="Verified multi-sport fixture board reverse-engineered from OLBG.com, with our own originated prices, picks, confidence grades and written predictions.">
+<link rel="stylesheet" href="assets/style.css">
+</head><body>
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a href="predictions.html">Predictions</a>
+    <a href="verification.html">Verification</a>
+    <a href="flagged.html">Flagged for Review</a>
+    <a href="method.html">Method &amp; Scope</a>
+  </nav>
+</header>
+<main>
+<section class="pagehead">
+  <h1>Method, scope and what we refuse to do</h1>
+</section>
+<h2>Scope</h2>
+<p>OLBG lists 20+ sports. We excluded, on instruction: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing,
+cycling and specials. Everything left that sets two sides or two players against each other is on the board.</p>
+<div class="grid2">
+  <div class="panel"><h3>Excluded</h3><ul class="tight"><li>Soccer / Football</li><li>American Football</li><li>Boxing</li><li>UFC / MMA</li><li>Hurling</li><li>Horse Racing</li><li>Cycling</li><li>Specials (TV/Politics/Awards)</li></ul></div>
+  <div class="panel"><h3>Included</h3><ul class="tight"><li><a href='sports/tennis.html'>Tennis</a> &mdash; 14 fixtures</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 14 fixtures</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 7 fixtures</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 9 fixtures</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 fixtures</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 15 fixtures</li><li><a href='sports/darts.html'>Darts</a> &mdash; 14 fixtures</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 6 fixtures</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 fixtures</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 0 fixtures</li><li><a href='sports/handball.html'>Handball</a> &mdash; 15 fixtures</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 4 fixtures</li></ul></div>
+</div>
+
+<div class="panel" style="margin-top:14px"><h3>Eligible but not captured this pass</h3><ul class="tight"><li>Golf (tournament/outright markets, no two-sided fixture)</li><li>Motor Racing (race markets, no two-sided fixture)</li><li>Greyhound Racing (race markets, no two-sided fixture)</li><li>Esports (no listing surfaced on the OLBG tips index at capture time)</li></ul>
+<p class="dim" style="margin:8px 0 0">These are race or tournament markets rather than two-sided fixtures, so they need a different schema. They are disclosed as a gap, not presented as complete.</p></div>
+
+<h2>How the OLBG site is structured (reverse-engineered)</h2>
+<pre class="code">listing : https://www.olbg.com/betting-tips/&lt;Sport_Slug&gt;/&lt;sport_id&gt;
+event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Competition&gt;/&lt;Home&gt;_v_&lt;Away&gt;/&lt;sport_id&gt;?event_id=&lt;id&gt;</pre>
+<ul class="tight">
+  <li>IDs found: Tennis 3, Basketball 4, Cricket 7, Snooker 8, Rugby Union 9, Rugby League 10, Baseball 12, Ice Hockey 13, Darts 15, Handball 20, Volleyball 21, Gaelic Football 25.</li>
+  <li>The slug without an ID is a 404; a wrong ID redirects to the right slug, so the slug is authoritative and the ID is cosmetic.</li>
+  <li>The listing exposes, per event: both sides, date/time, competition (only for some sports), the market, the most-tipped selection, the tip count and the percentage of tips on that selection.</li>
+</ul>
+
+<h2>How our lines are made</h2>
+<ol class="steps">
+  <li><strong>Rugby union (URC fixtures).</strong> Expected points for each side = mean(its points-for per game, opponent&rsquo;s points-against per game), taken from the official URC table. Home side +3 points. Margin sd 13 points gives win/draw/loss probabilities; totals come from the same expected-points pair; the handicap line is the projected margin rounded to the nearest half point.</li>
+  <li><strong>Ice hockey (NHL fixtures).</strong> Same idea with goals from the official NHL standings, home side +0.15 goals, and a logistic mapping of the goal difference to a 2-way win probability.</li>
+  <li><strong>Everything else.</strong> The only input on the page is OLBG&rsquo;s consensus tip share, so our probability equals that share, capped at 98% (a 100% share cannot be priced). No total, no handicap &mdash; there is no scoring baseline to build one from.</li>
+  <li><strong>Pricing.</strong> Decimal odds = (1 &minus; 5%) / probability, i.e. a 5% overround allocated in proportion to probability.</li>
+</ol>
+<p class="note"><strong>Disclosed assumptions</strong> (constants we chose, not measured facts):</p>
+<ul class="tight"><li>Rugby union: expected points for a side = mean(its points-for per game, opponent&#x27;s points-against per game); home side gets +3.0 points; margin sd = 13.0 points. Both constants are disclosed modelling assumptions, not measured facts.</li><li>Ice hockey: expected goals for a side = mean(its goals-for per game, opponent&#x27;s goals-against per game); home side gets +0.15 goals; 2-way win probability = logistic(1.0 * goal difference). Modelling assumption.</li><li>Draw: for 3-way sports with official data the draw band is +/-0.5 points around zero margin.</li><li>Overround: 5% total, allocated in proportion to the true (model) probabilities.</li><li>Unverified events: the only available input is the OLBG consensus tip share for one selection, so our probability equals the de-vigged consensus share. These rows are marked basis=&#x27;consensus&#x27; and can never be graded above LOW confidence.</li></ul>
+
+<h2>Confidence grading</h2>
+<p>Three factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
+model probability of the pick &ge;65% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
+A row built only on a public tip share therefore can never be graded above MEDIUM, and in practice lands on LOW.</p>
+<p>Current split: HIGH 5 &middot; MEDIUM 4 &middot; LOW 105.</p>
+
+<h2>What we will not do</h2>
+<ul class="tight">
+  <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
+  <li>We do not write predictions for picks we cannot support with verified form. That is why only 5 of 114 rows carry a written prediction.</li>
+  <li>We do not present our own prices as facts or as bookmaker odds.</li>
+</ul>
+
+</main>
+<footer>
+  <p><strong>Built 2026-10-21.</strong> Data captured from OLBG.com event pages and checked against official competition sources where stated.
+  Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
+  <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
+  <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
+</footer>
+<script src="assets/app.js"></script>
+</body></html>
