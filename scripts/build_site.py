@@ -22,7 +22,7 @@ PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/prediction
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 
 SPORT_ORDER = ["Tennis","Basketball","Ice Hockey","Cricket","Baseball","Volleyball","Darts",
-               "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football","Golf","Motor Racing"]
+               "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football"]
 SPORT_META = {}
 for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
     b = json.load(open(path))
