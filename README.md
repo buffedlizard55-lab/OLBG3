@@ -46,13 +46,15 @@ each with the ambiguity recorded on the Flagged for Review page.
 3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
    both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
 4. **Predictions** — written only for HIGH picks, at least 30 words, every factual claim attached to an
-   official source. Currently **12 counted** (ten rugby union, two ice hockey) plus **2 kept** after a
-   source-tier downgrade.
+   official source. Currently **14** predictions: ten rugby union fixtures (URC, Pro D2, Top 14) and four
+   ice hockey fixtures (three ICEHL, one SHL, one NHL). Two of them (IHO-01, IHO-03) were withdrawn during the
+   audit and restored when the club's own fixture page and the Swedish federation's schedule confirmed them.
 5. **Verification** — a row is `verified` only when the specific fixture appears on the competition's own
    site (or one of the two clubs' own sites) and the official wording is copied into the row. A reputable
    third-party listing is labelled `corroborated`, never `verified`; a row with no source says `unverified`,
-   keeps its official fields blank, and is listed on the Flagged page. Currently **69 verified (66 official +
-   3 club-official) / 12 corroborated / 56 unverified**, checked row by row as status against source tier.
+   keeps its official fields blank, and is listed on the Flagged page. Currently **105 verified (98 official +
+   6 club-official + 1 outright row) / 9 corroborated / 23 unverified**, checked row by row as status against
+   source tier. The 23 unverified are 22 outright/race marker positions with no fixture to check plus CRK-05.
 
 ## Build and checks
 
@@ -77,14 +79,14 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 14 predictions (12 high-confidence + 2 kept) | board |
+| `data/predictions.json` | 14 predictions, one per HIGH row | board |
 | `data/matches.json`, `data/lines.json` | 137 captured rows + 137 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json`, `data/flagged_review.json` | findings | documentation |
 
 ## Known limitations (also on the site)
 
-* 56 of 137 rows have no confirmation at all and 12 more rest on a third-party listing only. Both groups are
+* 23 of 137 rows have no confirmation at all and 9 more rest on a third-party listing only. Both groups are
   published and labelled, not quietly dropped.
 * Handicaps exist for 83 rows; totals for 22 (rugby union and ice hockey only, the two sports with an official
   scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.

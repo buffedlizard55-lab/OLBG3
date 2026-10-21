@@ -41,8 +41,8 @@ The tier register lives in `data/official.json` → `source_tiers`, and `scripts
 row's status disagrees with its tier (an official host may not be labelled corroborated, a third-party host may not
 be labelled verified, and a corroborated row may not be graded HIGH).
 
-Current state: **69 verified** (66 official + 3 club-official, including one outright row), **12 corroborated**,
-**56 unverified**.
+Current state: **105 verified** (98 official + 6 club-official + 1 outright row), **9 corroborated**,
+**23 unverified** (22 outright/race marker positions and CRK-05).
 
 ## 4. Originate lines — `scripts/model.py`, `scripts/build_gap_sports.py`
 
@@ -104,4 +104,4 @@ python3 -m unittest discover -s tests
 `check_board.py` enforces: an OLBG source link with an event id on every row; status/tier agreement; no official
 value on an unverified row; decimal prices that recompute; every HIGH row carries a 30+ word sourced prediction;
 no merge-conflict markers in any data file. At the last build: 137 rows, 69 verified, 131 priced, 83 handicaps,
-22 totals, 14 predictions, 80 pages, 0 broken links.
+22 totals, 14 predictions, 30 pages, 0 broken links.

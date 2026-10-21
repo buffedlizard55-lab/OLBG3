@@ -72,15 +72,26 @@ _OFF = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspa
                                    "data/official.json")))["source_tiers"]
 
 
+def _bare(host):
+    host = (host or "").lower().split(":")[0].strip()
+    return host[4:] if host.startswith("www.") else host
+
+
 def source_tier(url):
-    """official | club-official | third-party | unclassified. Never guesses in our favour."""
-    host = urlparse(url or "").netloc.lower()
-    if host in _OFF["official"]:
-        return "official"
-    if host in _OFF["club-official"]:
-        return "club-official"
-    if host in _OFF["third-party"]:
-        return "third-party"
+    """official | club-official | third-party | unclassified. Never guesses in our favour.
+
+    Hosts are compared after dropping a leading 'www.' and allowing one of our registered
+    hosts to match a subdomain (e.g. wtafiles.wtatennis.com -> wtatennis.com) so the same
+    organiser is never graded twice because of a hostname prefix.
+    """
+    host = _bare(urlparse(url or "").netloc)
+    if not host:
+        return "unclassified"
+    for tier in ("official", "club-official", "third-party"):
+        for known in _OFF[tier]:
+            k = _bare(known)
+            if host == k or host.endswith("." + k):
+                return tier
     return "unclassified"
 
 # OLBG abbreviates club names; map to the exact names used by the official source.
@@ -142,7 +153,8 @@ def verification_for(ref, conf):
     url = c.get("source", "")
     tier = source_tier(url)
     host = urlparse(url).netloc.lower()
-    tier_note = _OFF.get(tier, {}).get(host, "")
+    _reg = _OFF.get(tier) or []
+    tier_note = (list(_reg) and "") if isinstance(_reg, list) else _reg.get(host, "")
     status = "verified" if tier in ("official", "club-official") else "corroborated"
     note = c.get("note", "")
     if status == "corroborated":

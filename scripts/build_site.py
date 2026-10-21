@@ -288,8 +288,9 @@ index = head("Dashboard") + f"""
 
 <div class="notice">
   <strong>Re-verified line by line on 2026-10-21.</strong> Every high-confidence pick was re-read against the official
-  league page behind it (URC, Pro D2, Top 14, ICEHL, SHL, NHL). Eight predictions were corrected and one was withdrawn
-  when its fixture could not be confirmed from an official source. The full before-and-after is on the
+  league page behind it (URC, Pro D2, Top 14, ICEHL, SHL, NHL). Eight predictions were corrected; two were withdrawn when
+  only a third-party page backed them and restored after the club&rsquo;s own fixture page and the Swedish federation&rsquo;s
+  schedule confirmed the games. The full before-and-after is on the
   <a href="audit.html">audit page</a>; the open issues are on <a href="flagged.html">Flagged for Review</a>.
 </div>
 
@@ -390,7 +391,7 @@ predpage = head("Predictions") + f"""
   <em>and</em> official current-form data for both sides <em>and</em> a model probability of 65% or better). Every sentence that states a fact
   carries a source link. We deliberately wrote nothing for medium or low-confidence rows: there was no verified form data to base it on, and
   inventing it is worse than publishing less.</p>
-  <p class="note">Every prediction below belongs to a row that is currently graded high confidence. Where a row lost that grade in the 2026-10-21 source-tier audit, its prediction was withdrawn rather than left standing on a weaker footing; the withdrawals are named on the <a href="flagged.html">Flagged for Review</a> page.</p>
+  <p class="note">Every prediction below belongs to a row that is currently graded high confidence, and the grade is only available to a row whose fixture is on the competition&rsquo;s own site (or one of the two clubs&rsquo; own sites). A row that rests on a third-party listing is labelled <em>corroborated</em>, can never be graded high confidence, and cannot carry a prediction: <code>check_board.py</code> fails the build if one does.</p>
 </section>
 <h2>High-confidence predictions ({n_hi_preds})</h2>
 {pblocks}
@@ -571,7 +572,7 @@ AUDIT_CHECKS = [
   "ice.hockey publishes the Tabelle: HCB Südtirol Alperia 1st, 11 games, 44-28, 24 pts; EC-KAC 4th, 12 games, 46-36, 21 pts; HC Pustertal 7th, 10 games, 31-27, 17 pts; Graz99ers 8th, 30-31, 17 pts; Milano 6th, 36-36; Innsbruck 10th, 30-35; Fehérvár 13th, 23-39; Pioneers Vorarlberg 14th, 0 wins, 26-52, 1 pt. These figures now drive the ice-hockey model; the numbers quoted in the IHO-01 prediction were re-checked against them and all match.",
   "match", "https://www.ice.hockey/"),
  ("Twelve rows were labelled verified on a third-party source",
-  "Host-by-host count of the 71 rows that carried a verified label: 20 rested on a site that is not the competition&rsquo;s own. Six were upgraded to wst.tv and two to cricket.co.za in this pass; the remaining twelve (ESPNcricinfo x5, ESPN x1, Sofascore, AS, TNT Sports, ORF, Eliteprospects, tipsterio.de) are now labelled <em>corroborated</em> with the tier stated and listed on Flagged for Review. Nothing was deleted; the label was corrected.",
+  "The final host count over the 113 confirmed fixtures: 98 rest on the competition organiser&rsquo;s own domain and 6 on one of the two clubs&rsquo; own sites (both labelled verified), and 9 rest on a third party &mdash; cricinfo.com (4), espn.com (3), espncricinfo.com (1) and sofascore.com (1, BKB-03). Those 9 are labelled <em>corroborated</em>, cannot be graded HIGH and are listed on Flagged for Review. Nothing was deleted; the label was corrected.",
   "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/official.json"),
  ("Handicaps existed for only 22 of 114 fixtures",
   "scripts/model.py originated a handicap only where an official scoring table existed. It now derives a probability-implied line for every priced two-sided fixture in a sport with a statable scoring unit (83 rows), disclosed per-sport scales, capped at 85% probability, and labelled <code>consensus-scaled</code> where the input is a tip share. Cricket, darts and Gaelic football are deliberately left without a handicap and the reason is written on each sport page.",
@@ -627,8 +628,9 @@ AUDIT_CHECKS += [
   "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
  ("IHO-01 fixture had no official source and was downgraded",
   "The Pustertal v Pioneers Vorarlberg row was marked verified on the strength of a betting-preview page (tipsterio.de), which is not an official "
-  "source. The ICEHL schedule page renders fixtures client-side and returned none, and the club site carries no fixture widget. The row is now "
-  "unverified, its confidence falls from HIGH to MEDIUM, and its prediction has been withdrawn rather than kept on a weaker footing.",
+  "source. The row was re-checked later the same day against the club&rsquo;s own fixture page (hcpustertal.com/matches/21-10-2026-hcp-piv/), which "
+  "confirms the date and the pairing, so it is verified again at club-official tier and its prediction is restored; the kick-off time is still not "
+  "readable from that page and is disclosed as an OLBG-derived value.",
   "fixed", "https://www.ice.hockey/saison/spielplan"),
  ("A live OLBG listing no longer matches the captured row",
   "The baseball listing was re-read today for event 160789 (TB Rays @ MIL Brewers). It now renders '24 Oct 01:00' with the featured market "
@@ -644,7 +646,7 @@ AUDIT_CHANGES = [
  ("scripts/build_site.py",
   "Board now renders 15 sports and 137 rows, adds a Market column so a single-selection row cannot be mistaken for a two-sided one, and publishes this audit page."),
  ("data/predictions.json",
-  "RGU-14 no longer states a venue that the sources disagree on. No factual claim was added. In this pass IHO-03&rsquo;s prediction was withdrawn because its only source is a third-party database and the row can no longer be graded HIGH; IHO-01 had already been withdrawn by the re-verification pass. The board now carries 12 predictions, one for every HIGH row and no others."),
+  "RGU-14 no longer states a venue that the sources disagree on. No factual claim was added. IHO-03&rsquo;s prediction was withdrawn while its only source was Eliteprospects and then restored when the Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se) confirmed Timra v Farjestad on 22 Oct &mdash; and corrected the venue to SCA Arena. IHO-01 was restored on the club&rsquo;s own fixture page. The board carries 14 predictions, one for every HIGH row and no others, and check_board.py enforces that."),
  ("data/official.json",
   "Added 11 fixture confirmations (8 ATP, 1 MLB, 2 CSA), replaced 6 snooker sources with WST match centres, replaced 2 cricket sources with Cricket South Africa, added the official ice.hockey ICEHL table, and added a source-tier register (official / club-official / third-party) with the host list it applies to."),
  ("scripts/model.py",
@@ -662,7 +664,7 @@ AUDIT_CHANGES += [
  ("data/predictions.json",
   "Eight predictions corrected against the official tables (Pro D2 ranks for Narbonne and Beziers, a 'second-worst defence' claim, a wrong "
   "round number, an away-scoring figure presented as a home-and-away average, a 'division-high' conceding claim, an unattributed Dupont "
-  "quotation, and Dahlen's transfer timing). One prediction (IHO-01) withdrawn. Every remaining prediction now lists a source for each "
+  "quotation, and Dahlen's transfer timing). IHO-01 withdrawn during that pass and restored the same day on the club&rsquo;s own fixture page. Every prediction now lists a source for each "
   "factual claim."),
  ("data/official.json",
   "IHO-01 moved out of the confirmed-fixture set into a new 'downgraded' record that names the third-party page it had relied on and why "
@@ -757,12 +759,18 @@ irregularities = [
  ("Fourteen tennis fixtures, fifteen volleyball fixtures and eight handball fixtures had no official confirmation", "This pass closed part of that gap and recorded the rest precisely. Eight ATP fixtures are now confirmed on the tour&rsquo;s own draw pages for Almaty and Brussels. The four WTA fixtures could not be confirmed: wtatennis.com&rsquo;s draw pages render client-side and returned no draw content on retrieval, so those rows stay unverified rather than being taken from a third party. The Polish, German, Italian, Finnish and Dutch volleyball leagues&rsquo; official sites were fetched, but no machine-readable fixture list for 21&ndash;25 October could be retrieved from them, so all 15 volleyball rows stay unverified. The EHF Champions League domain (<code>ehfcl.eurohandball.com</code>) returned 404 for every path tried, so the eight unverified handball rows could not be checked this pass.", "https://www.atptour.com/en/scores/current/almaty/9410/draws"),
  ("Cricket South Africa&rsquo;s own list resolves two rows and contradicts a third", "cricket.co.za lists &lsquo;Northern Cape Heat v Garden Route Badgers, 21/10/26 13:00&rsquo; and &lsquo;North West Dragons v Wenbro Impalas, 21/10/26 18:00&rsquo;, which match CRK-02 and CRK-03 once OLBG&rsquo;s unlabelled clock is read as US Eastern (07:00 &rarr; 13:00 SAST, 12:00 &rarr; 18:00 SAST). That is now the second independent confirmation of the FL-002/FL-021 time-zone finding. The same page does <em>not</em> show &lsquo;Eastern Storm v Tuskers&rsquo; for 22 October (it lists North West v Tuskers and Boland v Border), so CRK-05 stays unverified and is not resolved by guessing which name OLBG meant.", "https://cricket.co.za/fixtures/"),
  ("ICEHL form data came from an independent database", "The Austrian league table used to price Pustertal, HCB, KAC, Graz and Milano came from Eliteprospects. The league&rsquo;s own site now supplies it: <code>ice.hockey</code> publishes the Tabelle (HCB 1st, 11 games, 44-28; Pustertal 7th, 10 games, 17 points; Vorarlberg last, 0 wins, 52 conceded), and those are the figures the model uses. Eliteprospects stays in the repo only as a standby and is no longer cited by any verified row.", "https://www.ice.hockey/"),
- ("Two written predictions were withdrawn, not reworded", "IHO-01 (Pustertal v Vorarlberg) had been graded HIGH while resting on tipsterio.de, a betting-preview site; it was withdrawn in the 2026-10-21 re-verification pass. IHO-03 (Timra v Farjestad) rested on Eliteprospects, a third-party database &mdash; the SHL\u2019s own site (shl.se) returned no readable schedule page for the fixture &mdash; so under the source-tier rule it cannot be HIGH either, and its prediction is now withdrawn on the same principle. Both rows stay on the board at MEDIUM with their official fields blank, and neither is counted as a high-confidence pick. The rule is enforced in code: check_board.py fails the build if a prediction exists for a row that is not HIGH.", "https://www.ice.hockey/"),
+ ("Sixteen markets were counted twice on the previous build", "The 2026-10-21 verification pass listed the golf, motor-racing and rugby-league outrights twice: once in data/sports/*.json (away = &lsquo;outright market&rsquo;) and again in data/gap_sports.json. The same OLBG event ids appear in both files (101905, 101904, 913, 828, 2695857 and so on). That is how a 137-row board was reported as 153 rows with &lsquo;130 two-sided fixtures&rsquo; &mdash; a golf tournament is not a two-sided fixture. This build drops the duplicate copies when the board is aggregated and prices each market once, on the outright/race track: 114 fixtures + 23 outright/race = 137 rows. Nothing was deleted from the capture; the deduplication is in code and the ids are listed here for manual review.", "https://www.olbg.com/betting-tips/Golf/5"),
+ ("A venue in the verification pass was wrong", "The re-verification pass recorded IHO-03 at &lsquo;E.ON Arena, Timra&rsquo; and repeated it in the prediction text. The Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se, overview 20961) lists 2026-10-22 19:00 Timra IK v Farjestad BK at <strong>SCA Arena</strong>. Both the row and the prediction now say SCA Arena; the venue was corrected because it was wrong, not merely unsourced.", "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"),
  ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% overround. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
 ]
 
 
 IRREGULARITY_EXTRA = [
+ ("OLBG was an hour early on a Finnish volleyball fixture", "VLB-01 is listed by OLBG at 10:00 ET, but the Mestaruusliiga&rsquo;s own match notice gives Puijo Wolley v Oriveden Ponnistus at 18:00 EEST on 21 Oct, which is 11:00 ET. Every other row we could compare converted cleanly to ET, so this looks like a single-row slip rather than a different zone. The official time is what we publish, and the discrepancy is stated in the row&rsquo;s note.", "https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/"),
+ ("OLBG had a county final a week late", "GAF-04 (Rathgormack v The Nire) is listed by OLBG on 1 Nov at 10:30. Waterford GAA&rsquo;s fixture list and the Munster GAA calendar both put the Waterford senior football final on Sunday 25 Oct at 14:30 in Fraher Field. The official date is published and the row says OLBG is a week late.", "https://munster.gaa.ie/fixtures/events-calendar/"),
+ ("An earlier pass recorded the wrong venue for a Basketball Champions League game", "BKB-14 was recorded at &lsquo;OAKA, Athens&rsquo;. The competition&rsquo;s own game page (game 136250) lists AEK BC v Windrose Giants Antwerp at SUNEL Arena, Ano Liosia, Athens, on 21 Oct, and 18:00 CEST is 12:00 ET as on OLBG. The venue has been corrected rather than left to stand because it was wrong, not merely unsourced.", "https://www.championsleague.basketball/en/games/136250-AEK-WGA"),
+ ("Fifteen rows were moved off aggregators and broadcasters onto the competition organiser", "Earlier passes verified some rows from Sofascore, AS.com, TNT Sports, tipsterio.de, ORF, Eliteprospects and snooker.org. Fourteen of those now cite the organiser instead: the WST match centre for the six Northern Ireland Open rows, the EHF calendar for HBL-05, HC Pustertal and the Austrian federation&rsquo;s game centre for IHO-01 and IHO-04, and the Swedish Ice Hockey Association&rsquo;s schedule for IHO-03. One row (BKB-03, KBL) still cites Sofascore because the league publishes no machine-readable fixture feed; it is named as outstanding debt rather than quietly counted as official.", "https://wst.tv/matches/"),
+ ("CRK-05 stays unverified on purpose", "Eastern Storm v Tuskers could not be tied to a governing-body fixture list in this pass, and the secondary sources disagree on both date and start by hours. Per the &lsquo;leave blank, don&rsquo;t infer&rsquo; rule the row keeps its blank official fields and sits on this page instead of being guessed into the verified column.", "https://www.olbg.com/betting-tips/Cricket/4"),
  ("A published prediction quoted figures that were wrong",
   "Four Pro D2 predictions contained errors that the official LNR pages contradict: Narbonne was called 14th (it is 15th), Beziers 15th "
   "(it is 14th), Beziers' 240 goals against was called 'second-worst' (Aurillac's 254 is worse), and a round-6 win at Soyaux-Angouleme "

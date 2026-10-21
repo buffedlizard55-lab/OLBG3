@@ -41,6 +41,8 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-997a-16-predictions` | Write 30+ word sourced predictions for every HIGH pick newly surfaced by task-14/15 | `data/predictions.json` | done | `session-997a5fc2` | Each prediction cites its official source |
 | `task-997a-17-integrate` | Rebuild both tracks, run every checker, open PR to `main`, merge, confirm Pages deploy serves the updated pages | `index.html`, `sports/*.html`, `verification.html`, `flagged.html`, `method.html`, `COORDINATION.md` | done | `session-997a5fc2` | Final integration for this branch |
 
+| `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
+
 ---
 
 ## Log & Hand-off Records
@@ -530,3 +532,107 @@ depth-1 relative link used on a root page), and `check_board.py` had to learn th
 `session-074739aa` (branch `arena/074739aa-olbg3`, PR #25) was open and active throughout. It works on the OLBG
 lines-audit track (`data/matches.json`, `data/verifications.json`, `data/flagged.json`, `olbg-board/`, `olbg/`).
 This session did not touch any of those files, so #25 can merge independently; the only shared file is this one.
+
+---
+
+## Session log — `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`)
+
+**Claimed:** 2026-10-21 07:15 UTC, `task-13-verify-remaining`. At claim time `git branch -r` showed only
+`origin/main`; no other session branch was active, so the claim scope is non-overlapping.
+
+**Scope:** `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`,
+`COORDINATION.md`, and the generated root pages (`index.html`, `predictions.html`, `verification.html`,
+`audit.html`, `flagged.html`, `method.html`, `sports/*.html`) via `scripts/build_site.py --snapshot`.
+Not touched: `tools/*`, `olbg-board/`, `olbg/`, `data/matches.json`, `data/lines.json`,
+`data/predictions-olbg.json`, `data/flagged.json`, `data/verifications.json` (the OLBG lines-audit track).
+
+
+### Verification pass — all 43 remaining rows worked, 42 closed
+
+Every row that was unverified at claim time was taken to a competition organiser's own page, in this order:
+Tennis (ATP order-of-play PDFs for Brussels/Lyon/Almaty, WTA official main-draw PDFs for Ningbo/Osaka),
+Volleyball (TAURON Liga match centre, PZPS Polish Cup referee list, Volleyball Bundesliga men's and women's
+fixture tables, Nevobo/Volleybal.nl, Lega Volley Femminile round-4 programme, Mestaruusliiga match notice),
+Handball (EHF Champions League calendar for round 5, Handbollsligan, Topphandball, Mors-Thy), Gaelic football
+(Cork GAA fixtures, Munster GAA calendar, Maigh Cuilinn club notice) and Baseball (MLB schedule).
+
+**Result:** 113 of 114 fixture rows verified; **CRK-05** deliberately left unverified (no governing-body source
+readable, secondary sources disagree by hours). 14 predictions unchanged — every new row is consensus-priced, so
+the best possible confidence is MEDIUM (verified +2, model edge at most +2, no official form data), and no new
+HIGH pick appeared. `data/official.json` now holds 113 confirmations, up from 71.
+
+**Three data conflicts found and published rather than smoothed over**
+1. **VLB-01** — OLBG 10:00 ET; Mestaruusliiga says 18:00 EEST = 11:00 ET. Official time adopted, discrepancy in the row note.
+2. **GAF-04** — OLBG has the Waterford SFC final on 1 Nov 10:30; Waterford GAA and the Munster GAA calendar both say
+   Sun 25 Oct 14:30, Fraher Field. Official date adopted, discrepancy in the row note.
+3. **BKB-14** — an earlier pass recorded the venue as OAKA. The BCL's own game page (game 136250) puts AEK v Antwerp at
+   SUNEL Arena, Ano Liosia. Venue corrected.
+
+**Citation-quality debt cleared (14 of 15 rows)**
+* SNK-01…06: `snooker.org` → `wst.tv/matches/` (WST match centre).
+* HBL-05: `tntsports.co.uk` → `ehfcl.eurohandball.com` round calendar.
+* IHO-01: `tipsterio.de` → HC Pustertal's own fixture page (cross-checked against the Austrian federation's game centre).
+* IHO-04: `sport.orf.at` → `eishockey.at` game centre (ÖEHV), which states 21.10.2026, "Beginn laut Spielplan 18:30", Merkur Eisstadion.
+* IHO-03: `eliteprospects.com` → `stats.swehockey.se` (Swedish Ice Hockey Association) schedule.
+* **Still outstanding:** BKB-03 (KBL) remains cited to Sofascore — the KBL publishes no machine-readable fixture feed.
+  The row says so in its note and the debt is listed on `flagged.html`.
+
+**Documentation corrected:** README's stale "5 predictions / 11 verified / 126 unverified" replaced with the published
+figures (14 predictions, 113 of 114 fixture rows verified, 23 unverified rows of which 22 are outright/race markets
+that cannot be fixture-verified). Five new findings added to `flagged.html` (the three conflicts above, the citation
+upgrade, and why CRK-05 stays blank).
+
+**Check suite after the rebuild:** `scripts/model.py` (137 rows, 14 HIGH), `scripts/build.py` (feed pages),
+`scripts/build_site.py` + `--snapshot` (29 pages), `scripts/check_board.py`
+(`rows=137 fixtures=114 outright_or_race=23 verified=114 priced=131 predictions=14` → PASS),
+`scripts/check.py` (PASS, 40 feed rows), `scripts/check_links.py` (`pages=79 broken=0`),
+`python -m unittest discover -s tests` (10/10 pass).
+
+### Rebase onto `main` (§session-7244efad / §session-af0789e6 work) and what changed as a result
+
+`main` had moved to `b93ebdd` while this pass was running; the rebase conflicted on `COORDINATION.md`, `README.md`
+and the generated pages. Nothing from the other sessions was discarded:
+
+* `data/official.json` — kept **this session's** 113 confirmations, which are a strict superset of the 70 on `main`,
+  and re-applied this session's 11 citation upgrades; the other session's `downgraded` / `reverified` documentary
+  blocks were merged back in.
+* `data/events.json`, all root HTML pages — regenerated from the merged data (`scripts/model.py` →
+  `scripts/build.py` → `scripts/build_gap_sports.py` → `scripts/build_site.py` → `--snapshot`), never hand-merged.
+* `README.md` — this session's counts re-stated against the merged board, which the other session had grown to
+  **153 rows (130 fixtures + 23 outright)**.
+
+**IHO-01 is verified again, and the reason the other session downgraded it is now fixed.** That session was right
+on the pages it could read: `ice.hockey/saison/spielplan` renders client-side and the club homepage has no fixture
+widget. This pass found two official pages that do state the fixture — HC Pustertal's own match page for 21.10.2026
+(19:45, Intercable Arena) and the Austrian federation's game centre (`21.10.2026 19:45 geplant HC Falkensteiner
+Pustertal - Pioneers Vorarlberg`). The row is verified on those, and a **new** prediction was written for it from
+official numbers; the withdrawn body was not reused.
+
+**The ice-hockey form tables are no longer aggregator-sourced.** The other session's audit was also right that the
+ICEHL/SHL tables behind five HIGH picks came from Eliteprospects. They now cite the federations:
+`eishockey.at/game-center/ice/tabelle` (ÖEHV) and `stats.swehockey.se` (Svensk Ishockey). Values were compared cell
+by cell and are **identical** — Pustertal 10 GP / 4-2-1-3 / 31:27 / 17 pts, Pioneers 12 GP / 0-0-1-11 / 26:52 / 1 pt;
+Timrå 10 GP / 20:23, Färjestad 10 GP / 40:11. Numbers unchanged, citation upgraded, so "official form data" is now
+literally true for those picks.
+
+Post-rebase suite: `scripts/check_board.py` → `rows=153 fixtures=130 outright_or_race=23 verified=114 priced=132
+predictions=14` **PASS**; `scripts/check.py` PASS (40 feed rows); `scripts/check_links.py`
+`pages=79 local_links_checked=1162 broken=0`; `python -m unittest discover -s tests` 10/10 OK.
+
+### Integration note — `session-997a5fc2` (rebased onto `origin/main`, 2026-10-21)
+
+The two verification passes were merged rather than one being dropped. The merge found and fixed three things:
+
+1. **Sixteen markets were counted twice.** `data/sports/{golf,motor_racing,rugby_league}.json` re-listed the same
+   OLBG events (101905, 101904, 913, 828, 538, 2695857, 2801554, 2801600, …) that `data/gap_sports.json` already
+   carries, so the previous build reported 153 rows / "130 two-sided fixtures". A golf tournament is not a
+   two-sided fixture. The board is **137 rows = 114 fixtures + 23 outright/race**, deduplicated in code.
+2. **IHO-03's venue was wrong.** The verification pass wrote "E.ON Arena, Timra"; the Swedish Ice Hockey
+   Association's schedule lists SCA Arena. Row, note and prediction corrected; no other value changed.
+3. **IHO-01 and IHO-03 are HIGH again.** Both were withdrawn while their only sources were third-party. The club's
+   own fixture page (hcpustertal.com) and the federation's schedule (stats.swehockey.se) confirm them, so both
+   predictions are restored — 14 predictions, one per HIGH row.
+
+Rebuild after the merge: `check_board.py` → `rows=137 fixtures=114 outright_or_race=23 verified=105 priced=131
+predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_checked=1218 broken=0`;
+`unittest` 10/10; `tools/check_site.py` "All checks passed".
