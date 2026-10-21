@@ -371,15 +371,6 @@
    "source_label": "Top 14 official league site (LNR) - 'Prochain match' (next fixture) widget on the standings page",
    "note": "Stade Rochelais (La Rochelle) host Union Bordeaux-Begles on 25 October per the official Top 14 'Prochain match' widget and feuille-de-match link j7/11864-la-rochelle-bordeaux-begles, matching the OLBG date exactly."
   },
-  "IHO-01": {
-   "status": "verified",
-   "olbg": "Today 13:45",
-   "official": "Wed 21 Oct 2026, 19:45 CEST, Intercable Arena, Bruneck",
-   "competition": "win2day ICE Hockey League 2026/27 - Round 13",
-   "source": "https://tipsterio.de/sportwetten-tipps/hc-pustertal-vs-pioneers-vorarlberg-wett-tipp-prognose-21-10-2026",
-   "source_label": "Betting-preview page citing the official ICEHL fixture and venue for HC Pustertal's home game, cross-checked against eishockeynews.de's aggregation of the official league round-13 slate",
-   "note": "HC Pustertal host Pioneers Vorarlberg, kick-off 19:45 CEST = 13:45 EDT, matching the OLBG listing exactly."
-  },
   "IHO-02": {
    "status": "verified",
    "olbg": "Today 13:45",
@@ -1835,5 +1826,48 @@
    "Rugby Union (French league fixtures)"
   ],
   "reason": "OLBG does not state the tournament for these events, and pulling every official league/Tour fixture list was beyond what could be verified in this session. They are published with blank competition + verification status 'unverified'."
+ },
+ "downgraded": {
+  "IHO-01": {
+   "status": "unverified",
+   "was": "verified (previous session)",
+   "olbg": "Today 13:45",
+   "previous_source": "https://tipsterio.de/sportwetten-tipps/hc-pustertal-vs-pioneers-vorarlberg-wett-tipp-prognose-21-10-2026",
+   "reason": "The only page retrieved for this fixture was a betting-preview site (tipsterio.de), not the competition or a club. The official ICEHL schedule page (ice.hockey/saison/spielplan) renders its fixture list client-side and returned no fixture text, and the club site hcpustertal.com carried no fixture widget. Under this project's rule - a row is verified only when the fixture appears on an official page - the row is downgraded to unverified and its confidence grade falls from HIGH to MEDIUM.",
+   "checked": "2026-10-21",
+   "checked_sources": [
+    "https://www.ice.hockey/saison/spielplan",
+    "https://www.hcpustertal.com/",
+    "https://www.eliteprospects.com/league/icehl/standings"
+   ]
+  }
+ },
+ "reverified": {
+  "date": "2026-10-21",
+  "session": "session-7244efad",
+  "sources": [
+   "https://prod2.lnr.fr/calendrier-et-resultats/2026-2027/j7",
+   "https://prod2.lnr.fr/classement",
+   "https://stats.unitedrugby.com/match-centre/2026-27/4",
+   "https://stats.unitedrugby.com/match-centre/table/2026-27",
+   "https://top14.lnr.fr/classement",
+   "https://www.bbc.co.uk/sport/rugby-union/articles/c9d95gn6w73o",
+   "https://www.eliteprospects.com/league/icehl/standings",
+   "https://www.eliteprospects.com/league/shl",
+   "https://www.eliteprospects.com/transfer/2025/11/07/jonathan-dahlen-in-a-confirmed-transaction-to-scl-tigers/613886",
+   "https://www.hcb.net/de/",
+   "https://www.hcb.net/de/luca-frigo-ist-der-20-kapitaen-in-der-geschichte-des-hcb-gazley-und-schneider-seine-assistenten/",
+   "https://www.ice.hockey/saison/tabelle",
+   "https://www.kac.at/news/2026/05/kapitaen-und-rekordhalter-bleibt/",
+   "https://www.kac.at/spiele/",
+   "https://www.kicker.de/dahlen-bringt-torgefahr-nach-langnau-war-meiers-teamkollege-und-hat-ikonenstatus-in-der-heimat-1234344/artikel",
+   "https://www.laola1.at/de/red/wintersport/eishockey/ice-hockey-league/hintergrund/warum-hundertpfund-nie-ans-karriereende-gedacht-hat/",
+   "https://www.nhl.com/schedule/2026-10-21",
+   "https://www.nhl.com/standings/2026-10-20/wildcard",
+   "https://www.planetrugby.com/news/top-14-round-up-antoine-dupont-brace-keeps-toulouse-at-the-top-while-newly-promoted-side-remain-winless",
+   "https://www.sportnews.bz/artikel/eishockey/icehl/ein-waschechter-pusterer-wird-pustertal-kapitaen",
+   "https://www.sudouest.fr/sport/rugby/antoine-dupont/quand-on-lui-donne-le-temps-de-se-preparer-au-stade-toulousain-antoine-dupont-de-retour-a-son-meilleur-niveau-31100152.php"
+  ],
+  "result": "All 13 remaining high-confidence predictions re-checked line by line; 8 corrected, 1 fixture downgraded."
  }
 }

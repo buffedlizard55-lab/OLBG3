@@ -9,7 +9,8 @@ Rules enforced (each one maps to a promise made on the site):
     formula p = (wins + a)/(total + k) with a 5% overround.
  4. Refs are unique; only in-scope sports appear; no excluded sport leaks in.
  5. Every HIGH-confidence row has a written prediction of at least 30 words with at least one
-    http(s) source; predictions never reference a row that is not on the board.
+    http(s) source, and a prediction exists only for a HIGH row; predictions never reference a row
+    that is not on the board.
  6. No data file contains unresolved merge-conflict markers.
 """
 import json
@@ -94,6 +95,11 @@ def check_rows(rows, preds):
 
         if r["pick"]["confidence"] == "HIGH" and ref not in preds:
             errors.append(f"{ref}: HIGH confidence but no written prediction")
+        # ...and the converse: a row that has been downgraded must not keep a published prediction,
+        # otherwise the site promises verified form for a pick it no longer rates.
+        if ref in preds and r["pick"]["confidence"] != "HIGH":
+            errors.append(f"{ref}: has a written prediction but is graded "
+                          f"{r['pick']['confidence']}, not HIGH")
 
     return refs
 

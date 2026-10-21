@@ -33,7 +33,7 @@ Pick = highest model probability. Confidence is a 3-factor score:
 HIGH ≥ 6 · MEDIUM 3–5 · LOW ≤ 2. A consensus-only row can score at most 4 and in practice scores 2 → LOW.
 
 ## 5. Predictions
-Written only for HIGH picks (5 of 114 rows). Each prediction names the selection, the team/player, current form and recent results, and links the official source for every factual claim. Comparative claims ("best differential", "fourth-fewest conceded") were re-checked against the official table before publishing, and two drafts were corrected because a claim was wrong.
+Written only for HIGH picks (13 of 114 rows after the 2026-10-21 re-verification; 5 before it, and one of those five, IHO-01, was withdrawn). Each prediction names the selection, the team/player, current form and recent results, and links the official source for every factual claim. Comparative claims ("best differential", "third-worst conceded") were re-checked against the official table before publishing. On 2026-10-21 the whole set was re-read against the official URC, Pro D2, Top 14, ICEHL, SHL and NHL pages: eight predictions were corrected (wrong league positions, a wrong round number, a mislabelled average, an unsupported "division-high" claim, and an unattributed quotation) and one was withdrawn. Claims that could not be traced to an official or primary page were deleted rather than reworded.
 
 ## 6. Build and check
 `python3 scripts/model.py && python3 scripts/build_site.py && python3 scripts/check_links.py`
