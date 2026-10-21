@@ -174,8 +174,10 @@ all return 200 from `buffedlizard55-lab.github.io`.
 7. **FL-001 (decision needed):** Gaelic football inclusion ambiguity remains open for the owner.
 8. MTR-913: F1 USGP round number differs between outlets (18 vs 19); not recorded.
 
-### Pull request record
-- PR: see `git log` / PR link recorded in the post-merge commit below. Merge and Pages confirmation are appended immediately after the merge completes.
+### Pull request record — updated post-merge
+- **PR:** [#25](https://github.com/buffedlizard55-lab/OLBG3/pull/25) — "Re-audit: line-by-line official-source verification (101/137 rows), 6 new review flags, audit artifact".
+- **Merge result:** merged to `main` with a merge commit on 2026-10-21 (`gh pr merge 25 --merge`). First merge attempt conflicted with parallel session work on `main` (PRs #19-#24, `session-f7221054`/`session-dadd85d4`); the conflict was confined to `COORDINATION.md` and was resolved by keeping both sessions' task-board rows and both session logs in full — nothing discarded — then the merge was retried successfully.
+- **Pages deploy:** CI run `39559853756` (Verify and publish dashboard, `main`) — build ✓ 9s, deploy ✓ 16s. Live site confirmed: https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html now serves 23 flag items including FL-018..FL-023 with their source links; `/olbg/olbg-board.html`, `/olbg/matches.html` and the 15 OLBG sport pages serve the 137-row tables.
 
 ---
 
