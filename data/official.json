@@ -1,0 +1,156 @@
+{
+  "note": "Only facts copied verbatim from official competition sources are stored here. Each block records the exact source URL and the retrieval date. Nothing in this file is inferred.",
+  "retrieved": "2026-10-21",
+  "fixture_confirmations": {
+    "RGU-04": {
+      "status": "verified",
+      "olbg": "23 Oct 14:45",
+      "official": "Fri 23 Oct 2026, 14:45, Dexcom Stadium",
+      "competition": "United Rugby Championship - Round 4",
+      "source": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+      "source_label": "URC official Match Centre, Round 4",
+      "note": "Opponents, date and time match the OLBG listing exactly."
+    },
+    "RGU-07": {
+      "status": "verified",
+      "olbg": "24 Oct 07:45",
+      "official": "Sat 24 Oct 2026, 07:45, Loftus Versfeld (Vodacom Bulls v Ulster)",
+      "competition": "United Rugby Championship - Round 4",
+      "source": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+      "source_label": "URC official Match Centre, Round 4",
+      "note": "Date and time match the OLBG listing exactly."
+    },
+    "RGU-11": {
+      "status": "verified",
+      "olbg": "24 Oct 10:00",
+      "official": "Sat 24 Oct 2026, 10:00, DHL Stadium (DHL Stormers v Scarlets)",
+      "competition": "United Rugby Championship - Round 4",
+      "source": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+      "source_label": "URC official Match Centre, Round 4",
+      "note": "Date and time match the OLBG listing exactly."
+    },
+    "RGU-14": {
+      "status": "verified",
+      "olbg": "24 Oct 13:00",
+      "official": "Sat 24 Oct 2026, 13:00, Aviva Stadium (Leinster v Munster)",
+      "competition": "United Rugby Championship - Round 4",
+      "source": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+      "source_label": "URC official Match Centre, Round 4",
+      "note": "Date and time match the OLBG listing exactly."
+    },
+    "IHO-06": {
+      "status": "verified",
+      "olbg": "Today (21 Oct) 19:37",
+      "official": "Wed 21 Oct 2026, 7:30 PM EDT, Sabres host Flyers",
+      "competition": "NHL regular season",
+      "source": "https://www.nhl.com/schedule/2026-10-21",
+      "source_label": "NHL.com official schedule, Oct 21 2026",
+      "note": "Fixture and date confirmed. DISCREPANCY: OLBG shows 19:37, NHL.com shows 7:30 PM EDT (7-minute difference)."
+    },
+    "IHO-07": {
+      "status": "verified",
+      "olbg": "Today (21 Oct) 19:37",
+      "official": "Wed 21 Oct 2026, 7:30 PM EDT, Senators host Panthers",
+      "competition": "NHL regular season",
+      "source": "https://www.nhl.com/schedule/2026-10-21",
+      "source_label": "NHL.com official schedule, Oct 21 2026",
+      "note": "Fixture and date confirmed. DISCREPANCY: OLBG shows 19:37, NHL.com shows 7:30 PM EDT (7-minute difference)."
+    },
+    "BKB-01": {
+      "status": "verified",
+      "olbg": "Today 19:10",
+      "official": "Wed 21 Oct 2026, 7:00 PM ET, Capital One Arena, Washington DC",
+      "competition": "NBA regular season",
+      "source": "https://www.nba.com/schedule?date=10%2F21%2F2026",
+      "source_label": "NBA.com official schedule, Oct 21 2026",
+      "note": "Fixture and date confirmed. DISCREPANCY: OLBG 19:10 vs NBA 7:00 PM ET (10-minute difference)."
+    },
+    "BKB-04": {
+      "status": "verified",
+      "olbg": "Today 19:10",
+      "official": "Wed 21 Oct 2026, 7:00 PM ET, Kia Center, Orlando FL",
+      "competition": "NBA regular season",
+      "source": "https://www.nba.com/schedule?date=10%2F21%2F2026",
+      "source_label": "NBA.com official schedule, Oct 21 2026",
+      "note": "Fixture and date confirmed. DISCREPANCY: OLBG 19:10 vs NBA 7:00 PM ET (10-minute difference)."
+    },
+    "BKB-05": {
+      "status": "verified",
+      "olbg": "Today 19:40",
+      "official": "Wed 21 Oct 2026, 7:30 PM ET, Scotiabank Arena, Toronto ON",
+      "competition": "NBA regular season",
+      "source": "https://www.nba.com/schedule?date=10%2F21%2F2026",
+      "source_label": "NBA.com official schedule, Oct 21 2026",
+      "note": "Fixture and date confirmed. DISCREPANCY: OLBG 19:40 vs NBA 7:30 PM ET (10-minute difference)."
+    },
+    "BKB-09": {
+      "status": "verified",
+      "olbg": "Today 20:10",
+      "official": "Wed 21 Oct 2026, 8:00 PM ET, Smoothie King Center, New Orleans LA",
+      "competition": "NBA regular season",
+      "source": "https://www.nba.com/schedule?date=10%2F21%2F2026",
+      "source_label": "NBA.com official schedule, Oct 21 2026",
+      "note": "Fixture and date confirmed. DISCREPANCY: OLBG 20:10 vs NBA 8:00 PM ET (10-minute difference)."
+    }
+  },
+  "form_data": {
+    "URC_2026_27_table": {
+      "source": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+      "source_label": "URC official league table 2026/27 (after Round 3)",
+      "retrieved": "2026-10-21",
+      "comment": "Columns transcribed exactly: PTS, PL, W, D, L, BP, PF, PA, DIFF, TF, TA, TB, LB, form (most recent last on URC site; FORM column shown as e.g. L L W).",
+      "teams": {
+        "Edinburgh":         {"pts":14,"pl":3,"w":3,"d":0,"l":0,"bp":2,"pf":80,"pa":54,"diff":26,"form":["W","W","W"]},
+        "Glasgow Warriors":  {"pts":13,"pl":3,"w":2,"d":1,"l":0,"bp":3,"pf":95,"pa":72,"diff":23,"form":["W","D","W"]},
+        "Vodacom Bulls":     {"pts":11,"pl":3,"w":2,"d":0,"l":1,"bp":3,"pf":126,"pa":54,"diff":72,"form":["W","L","W"]},
+        "DHL Stormers":      {"pts":11,"pl":3,"w":2,"d":0,"l":1,"bp":3,"pf":81,"pa":54,"diff":27,"form":["W","L","W"]},
+        "Hollywoodbets Sharks":{"pts":10,"pl":3,"w":2,"d":0,"l":1,"bp":2,"pf":89,"pa":83,"diff":6,"form":["W","W","L"]},
+        "Cardiff Rugby":     {"pts":9,"pl":3,"w":2,"d":0,"l":1,"bp":1,"pf":66,"pa":71,"diff":-5,"form":["W","W","L"]},
+        "10bet Lions":       {"pts":9,"pl":3,"w":2,"d":0,"l":1,"bp":1,"pf":77,"pa":102,"diff":-25,"form":["W","W","L"]},
+        "Dragons RFC":       {"pts":9,"pl":3,"w":1,"d":1,"l":1,"bp":3,"pf":88,"pa":83,"diff":5,"form":["D","W","L"]},
+        "Munster":           {"pts":9,"pl":3,"w":1,"d":1,"l":1,"bp":3,"pf":72,"pa":74,"diff":-2,"form":["L","W","D"]},
+        "Leinster":          {"pts":8,"pl":3,"w":1,"d":0,"l":2,"bp":4,"pf":75,"pa":58,"diff":17,"form":["L","L","W"]},
+        "Ulster":            {"pts":8,"pl":3,"w":0,"d":2,"l":1,"bp":4,"pf":88,"pa":93,"diff":-5,"form":["L","D","D"]},
+        "Scarlets":          {"pts":7,"pl":3,"w":1,"d":0,"l":2,"bp":3,"pf":68,"pa":85,"diff":-17,"form":["L","L","W"]},
+        "Ospreys":           {"pts":6,"pl":3,"w":1,"d":0,"l":2,"bp":2,"pf":81,"pa":107,"diff":-26,"form":["L","L","W"]},
+        "Connacht":          {"pts":5,"pl":3,"w":1,"d":0,"l":2,"bp":1,"pf":56,"pa":84,"diff":-28,"form":["L","W","L"]},
+        "Benetton":          {"pts":5,"pl":3,"w":0,"d":1,"l":2,"bp":3,"pf":64,"pa":68,"diff":-4,"form":["D","L","L"]},
+        "Zebre Parma":       {"pts":1,"pl":3,"w":0,"d":0,"l":3,"bp":1,"pf":52,"pa":116,"diff":-64,"form":["L","L","L"]}
+      }
+    },
+    "NHL_standings_2026_10_20": {
+      "source": "https://www.nhl.com/standings",
+      "source_label": "NHL.com official standings, dated Oct 20 2026",
+      "retrieved": "2026-10-21",
+      "comment": "Rows transcribed exactly from the NHL.com wild-card view (GP, W, L, OT, PTS, P%, GF, GA, DIFF, home, away, L10, STRK).",
+      "teams": {
+        "Ottawa Senators":  {"gp":9,"w":6,"l":3,"ot":0,"pts":12,"pct":".667","gf":24,"ga":23,"diff":1,"home":"3-1-0","away":"3-2-0","l10":"6-3-0","strk":"L1"},
+        "Florida Panthers": {"gp":9,"w":5,"l":2,"ot":2,"pts":12,"pct":".667","gf":30,"ga":25,"diff":5,"home":"2-1-0","away":"3-1-2","l10":"5-2-2","strk":"W3"},
+        "Buffalo Sabres":   {"gp":9,"w":4,"l":3,"ot":2,"pts":10,"pct":".556","gf":27,"ga":34,"diff":-7,"home":"3-2-0","away":"1-1-2","l10":"4-3-2","strk":"OT1"},
+        "Philadelphia Flyers":{"gp":11,"w":2,"l":6,"ot":3,"pts":7,"pct":".318","gf":17,"ga":36,"diff":-19,"home":"2-2-2","away":"0-4-1","l10":"2-5-3","strk":"W2"},
+        "Boston Bruins":    {"gp":10,"w":7,"l":2,"ot":1,"pts":15,"pct":".750","gf":36,"ga":22,"diff":14,"home":"3-1-0","away":"4-1-1","l10":"7-2-1","strk":"OT1"},
+        "Carolina Hurricanes":{"gp":11,"w":8,"l":2,"ot":1,"pts":17,"pct":".773","gf":42,"ga":27,"diff":15,"home":"2-1-1","away":"6-1-0","l10":"8-2-0","strk":"W1"}
+      }
+    }
+  },
+  "round3_results_urc": {
+    "source": "https://stats.unitedrugby.com/match-centre/2026-27/4",
+    "source_label": "URC official Match Centre (Round 3 results block)",
+    "comment": "Final scores shown on the official URC match centre for Round 3 (9-10 Oct 2026).",
+    "results": [
+      {"date":"Fri 09 Oct 2026","home":"Glasgow Warriors","hs":36,"away":"Connacht","as":19},
+      {"date":"Fri 09 Oct 2026","home":"Dragons RFC","hs":31,"away":"Ospreys","as":38},
+      {"date":"Sat 10 Oct 2026","home":"Vodacom Bulls","hs":57,"away":"10bet Lions","as":15},
+      {"date":"Sat 10 Oct 2026","home":"DHL Stormers","hs":39,"away":"Hollywoodbets Sharks","as":22},
+      {"date":"Sat 10 Oct 2026","home":"Zebre Parma","hs":12,"away":"Edinburgh","as":29},
+      {"date":"Sat 10 Oct 2026","home":"Scarlets","hs":27,"away":"Benetton","as":26},
+      {"date":"Sat 10 Oct 2026","home":"Ulster","hs":26,"away":"Munster","as":26},
+      {"date":"Sat 10 Oct 2026","home":"Leinster","hs":29,"away":"Cardiff Rugby","as":5}
+    ]
+  },
+  "not_verified": {
+    "comment": "Fixture identity was transcribed from the OLBG event page but NO official competition source was retrieved and confirmed in this pass. Left unverified rather than assumed.",
+    "sports": ["Tennis","Cricket","Baseball","Volleyball","Darts","Snooker","Handball","Gaelic Football","Ice Hockey (Austria EHL / SHL)","Basketball (Euroleague/Euro Cup/KBL/BCL)","Rugby Union (French league fixtures)"],
+    "reason": "OLBG does not state the tournament for these events, and pulling every official league/Tour fixture list was beyond what could be verified in this session. They are published with blank competition + verification status 'unverified'."
+  }
+}
