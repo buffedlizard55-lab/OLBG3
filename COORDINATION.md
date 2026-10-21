@@ -79,5 +79,13 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 
 ## Final integration result
 
-- Session branch `arena/6d5f01ec-olbg3`; PR #4 → `main`; see the PR thread for the merge and deployment record (also mirrored here after merge).
-- Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links. origin/main
+- Session branch `arena/6d5f01ec-olbg3`; **PR #4 merged into `main`** (merge commit `90d6c07`) after a second merge of `main` that absorbed PRs #1–#5 from `arena-90bbe96f`.
+- Build gates on the merged tree: 10 unit tests pass; `scripts/check.py` PASS (40 feed rows, blank betting fields, official hosts, unique ids); `scripts/check_links.py` PASS (50 pages across the artifact and the root snapshot, 692 local links, 0 broken).
+- Governance note: `main` was advanced by `arena-90bbe96f` twice while this branch was open. Both times `main` was merged in and the conflict (COORDINATION.md only) was resolved in favour of keeping **both** session logs. Nothing of theirs was reverted; their pages, data, tests and validators still run.
+
+### Publishing conflict found and worked around
+
+- After merge, GitHub ran two publishers on the same push: the **legacy** Pages build ("Deploy to GitHub Pages", Jekyll, `main`/`/`) and our **Actions artifact** (`deploy-pages`). The artifact deploy succeeded, then the legacy build replaced it, and our smoke test failed on the replaced site.
+- `PUT /repos/buffedlizard55-lab/OLBG3/pages` (`build_type=workflow`) returns **403 Resource not accessible by integration** for every token available in this session — the same denial `arena-90bbe96f` logged in PR #3. This is a Pages-settings permission limit, not a Git authentication failure, and it is not reported as fixed.
+- Workaround: the build now mirrors itself into the repository root (`scripts/build_site.py --snapshot`), so the legacy publisher and the artifact publisher serve the same bytes. The artifact remains the fresher copy (hourly feed refresh); the root snapshot is refreshed on each commit that changes the site.
+- This is flagged on the site too, so it stays visible until someone with Pages-settings permission switches the source to Actions. origin/main

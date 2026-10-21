@@ -5,7 +5,11 @@ from urllib.parse import unquote, urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
+# check the generated artifact AND the committed root snapshot (both are published,
+# depending on which Pages publisher runs last - see scripts/build_site.py)
 pages = glob.glob(os.path.join(SITE, "**", "*.html"), recursive=True)
+pages += glob.glob(os.path.join(ROOT, "*.html"))
+pages += glob.glob(os.path.join(ROOT, "sports", "*.html"))
 ATTR = re.compile(r'(?:href|src)="([^"]+)"')
 bad = []
 checked = 0
