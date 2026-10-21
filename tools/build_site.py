@@ -173,7 +173,7 @@ def main() -> None:
         )
 
     flag_rows = "".join(
-        f"""<tr><td><a href="flagged.html#">{E(f['id'])}</a></td><td>{E(f['severity'])}</td><td>{E(f['title'])}</td></tr>"""
+        f"""<tr><td><a href="flagged.html#{E(f['id'])}">{E(f['id'])}</a></td><td>{E(f['severity'])}</td><td>{E(f['title'])}</td></tr>"""
         for f in flagged[:6]
     )
 
