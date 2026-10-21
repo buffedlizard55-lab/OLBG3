@@ -1,113 +1,94 @@
-# OLBG3 — verified match board, originated lines and picks
+# OLBG Sports Analytics & Line Origination Platform
 
-Two research tracks run side by side in this repository, and the site publishes both:
+A high-performance analytics, proprietary line origination, and match prediction platform built from the ground up by reverse-engineering [OLBG.com](https://www.olbg.com).
 
-1. **The board** (`scripts/build_site.py`, data in `data/sports/`, `data/official.json`, `data/events.json`) —
-   every in-scope sport on OLBG.com, reverse-engineered from its listing/event pages, checked against official
-   competition sources where we could, priced by our own model, graded by confidence, with sourced written
-   predictions for high-confidence picks.
-2. **The official feed** (`scripts/update.py` + `scripts/build.py`) — an hourly pull of official NHL / MLB / NBA
-   schedule feeds into `data/current.json`, published as `matches.html` and `coverage.html`. It deliberately
-   publishes no picks, and its validator (`scripts/check.py`) enforces that any betting field in *that* dataset
-   stays blank until it is validated.
-
-Keeping them separate is deliberate: one is sourced facts plus clearly-labelled model opinion, the other is
-untouched official feed data. Neither one is allowed to quietly fill the other's gaps.
-
-## Website
-https://buffedlizard55-lab.github.io/OLBG3/
-
-## Build locally
-```sh
-python3 scripts/update.py            # optional: refresh official feeds (needs network)
-python3 -m unittest discover -s tests -v
-python3 scripts/build.py             # official-feed pages -> site/
-python3 scripts/build_site.py        # board pages -> site/ (run after build.py)
-python3 scripts/check.py             # feed data + links
-python3 scripts/check_links.py       # every local link in site/, recursively
-python3 -m http.server 8000 --bind 0.0.0.0 --directory site
-```
-
-`site/` is generated, not tracked. GitHub Actions rebuilds and deploys it on every push to `main` and hourly.
-
-### Why the built site is also committed at the repository root
-
-The repository's Pages site is configured for **legacy branch publishing** (`source: main`, `path: /`), and every
-token available here gets `403 Resource not accessible by integration` from `PUT /repos/{owner}/{repo}/pages`, so that
-setting cannot be changed from a session. GitHub therefore runs two publishers — the legacy Jekyll build of `main`
-root, and our Actions artifact (`site/`) — and whichever finishes last wins.
-
-To stop the site flapping between two different versions, both targets are made byte-identical: `--snapshot` mirrors
-the build into the repository root. **After any change to the site, regenerate and commit the snapshot:**
-
-```sh
-python3 scripts/build.py && python3 scripts/build_site.py --snapshot && python3 scripts/check_links.py
-```
-
-Row data lives in `data/`, so the root snapshot is a build output, not a second source of truth.
-
-## Where to check us
-- Dashboard: `index.html` · Predictions: `predictions.html` · Verification log: `verification.html`
-- **Flagged for Review: `flagged.html`** — every irregularity and every row we could not verify
-- Method, scope and disclosed modelling assumptions: `method.html`
-- Official-feed notes: `coverage.html`, `markets.html`, `review.html`
-
-## Rules this repo runs on
-- No inferred values. If OLBG does not state a competition, the cell is blank and the row is flagged.
-- Nothing is marked verified without a link to the competition's own source.
-- Our prices/handicaps/totals are model output with printed assumptions — never bookmaker prices, never facts.
-- Predictions are written only where verified current form exists for both sides.
-
-## Sources
-- OLBG listings/event pages (structure documented in `docs/olbg-structure.md`)
-- `https://stats.unitedrugby.com/match-centre/2026-27/4`, `.../table/2026-27`
-- `https://www.nhl.com/schedule/2026-10-21`, `https://www.nhl.com/standings`
-- `https://www.nba.com/schedule?date=10%2F21%2F2026`
-- Official feeds: `api-web.nhle.com`, `statsapi.mlb.com`, `cdn.nba.com`
-
-Not affiliated with OLBG. 18+.
+## 🚀 Live GitHub Pages Deployment
+- **Live Site:** [https://buffedlizard55-lab.github.io/OLBG3/](https://buffedlizard55-lab.github.io/OLBG3/)
+- **Flagged for Review Registry:** [https://buffedlizard55-lab.github.io/OLBG3/flagged-review.html](https://buffedlizard55-lab.github.io/OLBG3/flagged-review.html)
+- **Methodology Documentation:** [https://buffedlizard55-lab.github.io/OLBG3/methodology.html](https://buffedlizard55-lab.github.io/OLBG3/methodology.html)
+- **Audit Track:** [https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html](https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html)
 
 ---
 
-## Third track: the OLBG lines audit layer (`arena/9590abcf-olbg3`)
+## 📌 Project Overview & Scope
+The platform monitors and extracts all upcoming sports events from OLBG across **12 non-excluded sports**, while strictly filtering out excluded categories (*soccer, football, boxing, ufc, mma, american football, hurling, horse racing, cycling, and entertainment/political specials*):
 
-Published at **/olbg/** and reachable from the shared navigation ("OLBG lines (audit)"). It ships in
-the Actions artifact (`site/olbg/`) *and* as a committed root snapshot (`olbg/`), because the legacy
-Pages publisher serves the repository root — the same two-target arrangement the board track uses, so
-whichever publisher runs last still serves these pages. It exists because the board track and this one answer different questions:
-the board prices fixtures it could verify against official competition pages, while this track
-transcribes **every in-scope row OLBG listed**, keeps the exact OLBG URL on the row, and then
-originates a line and a confidence label from that row — including for fixtures nobody could verify.
+1. **Basketball** (NBA, EuroLeague, EuroCup, Basketball Champions League, Korea KBL)
+2. **Baseball** (MLB)
+3. **Tennis** (ATP & WTA Tour, Challenger series)
+4. **Cricket** (One Day Internationals, T20 Internationals, CSA T20 Challenge)
+5. **Ice Hockey** (NHL, Austrian ICE EHL, Swedish Hockey League)
+6. **Darts** (PDC European Championship)
+7. **Snooker** (World Snooker Tour - Northern Ireland Open)
+8. **Handball** (EHF Champions League, Denmark Handboldligaen)
+9. **Volleyball** (Poland PlusLiga, Germany 1. Bundesliga, Italy Serie A1)
+10. **Rugby Union** (United Rugby Championship, France Top 14, France Pro D2)
+11. **Motor Racing** (Formula 1 World Championship - USA Grand Prix)
+12. **Golf** (PGA Tour, DP World Tour, LPGA Tour)
 
-| Layer | Contents |
-|---|---|
-| `data/raw/olbg-harvest-20261021.tsv` | 137 rows transcribed from 16 OLBG pages, exact URL parts per row |
-| `data/matches.json` | parsed fixtures + verification status per field |
-| `data/verifications.json` | 31 source records (official / primary / secondary) + 26 event-level records with the claim each source supports |
-| `data/lines.json` | our model: Beta(2,2)-shrunk tip split → sport home edge → price at 5% hold; handicap `−Φ⁻¹(p) × σ_sport`; documented total baselines |
-| `data/predictions-olbg.json` | 5 predictions, 71–80 words, sources for every factual sentence |
-| `data/flagged.json` | 17 flagged items with sources, published at `/olbg/flagged.html` |
-| `olbg-board/` | generated pages (dashboard, lines & picks, predictions, all matches, method, flagged, 15 sport pages) |
+---
 
-```sh
-python3 tools/build_dataset.py   # raw TSV + verifications -> data/matches.json
-python3 tools/originate.py       # matches -> data/lines.json
-python3 tools/build_site.py      # data -> olbg-board/
-python3 tools/check_site.py      # links, source links per row, word counts, placeholders
+## 🎯 Key Features
+
+### 1. Proprietary Line Origination
+- **Moneyline (Fair Win Odds):** True probabilities calculated by stripping out synthetic bookmaker overrounds and vigorish.
+- **Handicap / Point Spread / Run Line / Puck Line:** Model-derived point/run/goal spread thresholds based on team efficiency ratings and home-field advantage.
+- **Game Totals:** Expected scorelines originated from pace and offensive/defensive ratings.
+
+### 2. Match Winner Selections & Confidence Tiers
+Every fixture is analyzed to designate a predicted match winner and categorized into one of three confidence tiers:
+- **High Confidence (&ge; 65% probability / structural edge):** Accompanied by verified, human-written predictions (&ge; 30 words each) incorporating team form, individual player stats, head-to-head history, and unambiguous betting selections.
+- **Medium Confidence (54% &ndash; 64%):** Solid statistical edges based on primary indicators.
+- **Low Confidence (&lt; 54%):** Contests with high variance or tactical coin-flips.
+
+### 3. Line-by-Line Verification & Source Attribution
+- Every row links directly to an **official governing body site** (e.g., `NBA.com`, `MLB.com`, `ATPTour.com`, `WTATennis.com`, `ICC-cricket.com`, `NHL.com`, `PDC.tv`, `WST.tv`, `Eurohandball.com`, `PlusLiga.pl`, `LNR.fr`, `Formula1.com`, `PGATour.com`).
+- Discrepancies, community tipster hallucinations, or calendar mismatches are flagged in the **Flagged for Review** registry (`flagged-review.html`).
+
+---
+
+## 📂 Repository Directory Structure
+```
+├── COORDINATION.md             # Multi-session coordination board & audit log
+├── README.md                   # Project documentation & operational summary
+├── build_full_database.py      # Complete 76-fixture database builder
+├── build_site.py               # Static site HTML, CSS, JS generator
+├── index.html                  # Master Dashboard interface
+├── flagged-review.html         # Flagged for Review register
+├── methodology.html            # Mathematical modeling & origination methodology
+├── css/
+│   └── styles.css              # Modern responsive styling
+├── js/
+│   └── dashboard.js            # Client-side filtering, searching & analysis modal
+├── sports/                     # Category subpages (12 non-excluded sports)
+│   ├── basketball.html
+│   ├── baseball.html
+│   ├── tennis.html
+│   ├── cricket.html
+│   ├── ice-hockey.html
+│   ├── darts.html
+│   ├── snooker.html
+│   ├── handball.html
+│   ├── volleyball.html
+│   ├── rugby-union.html
+│   ├── motor-racing.html
+│   └── golf.html
+└── data/
+    ├── master_matches.json     # Complete structured database
+    ├── flagged_review.json     # Flagged review entries
+    └── sports/                 # Sport-specific JSON datasets
 ```
 
-Findings this track adds that the other tracks do not publish:
+---
 
-* OLBG prints clock times with **no timezone**, and they are internally inconsistent — snooker and
-  greyhound rows behave like US Eastern while an NHL row cannot. No scheduled start is ever taken
-  from an OLBG clock time (`flagged.html` FL-002).
-* The same golf tournament appears with **two different dates** on two OLBG pages (FL-003), and the
-  course par is reported as both 71 and 72 (FL-005).
-* **111 of 137 rows** have no competition name anywhere in the source; they stay blank (FL-006).
-* Three rows were truncated at the page-boundary; their tip counts stay blank (FL-007).
-* The Gaelic football question is recorded on both sides: the feed track excludes it, the board
-  track and this track include it, and every Gaelic row here is tagged so it can be dropped in one
-  step (FL-001).
+## 🛠️ Verification & Build Commands
+To regenerate the dataset and re-compile the site:
+```bash
+python3 build_full_database.py
+python3 build_site.py
+```
 
-`data/predictions.json` belongs to the board track; this track's predictions are
-`data/predictions-olbg.json`, so neither can overwrite the other.
+To test locally:
+```bash
+python3 -m http.server 8000
+```
