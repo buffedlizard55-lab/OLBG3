@@ -1,0 +1,1512 @@
+{
+ "generated_at": "2026-10-21T07:05:00Z",
+ "source_capture": "data/raw/gap_sports_capture_20261021.json",
+ "listing_pages": {
+  "Golf": "https://www.olbg.com/betting-tips/Golf/5",
+  "Motor Racing": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+  "Greyhounds": "https://www.olbg.com/betting-tips/Greyhounds/28",
+  "Rugby League": "https://www.olbg.com/betting-tips/Rugby_League/10",
+  "Gaelic Football": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+ },
+ "model": {
+  "what": "Our own prices for OLBG outright and race-winner markets.",
+  "inputs": "Only the OLBG tip split and the disclosed field-size assumption below.",
+  "formula": "p = (wins + a) / (total + k), Beta(a,b) prior with mean 1/N; decimal odds = (1 - 0.05) / p",
+  "overround": 0.05,
+  "strength_k_by_basis": {
+   "golf_field_156": 24,
+   "f1_grid_22": 12,
+   "greyhound_six_dog": 6,
+   "state_of_origin_two_side": 4,
+   "super_league_twelve": 6,
+   "nrl_seventeen": 6,
+   "all_ireland_32": 10
+  },
+  "field_sizes": {
+   "golf_field_156": 156,
+   "f1_grid_22": 22,
+   "greyhound_six_dog": 6,
+   "state_of_origin_two_side": 2,
+   "super_league_twelve": 12,
+   "nrl_seventeen": 17,
+   "all_ireland_32": 32
+  },
+  "caveat": "Model output, not a bookmaker price and not a fact. Where the tip count is missing, no price is originated."
+ },
+ "rows": [
+  {
+   "ref": "GLF-01",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Genesis Championship",
+   "away": "",
+   "start": "25 Oct 04:00",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Si Woo Kim",
+   "olbg_tips": "6/20",
+   "olbg_pct": 30,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Genesis_Championship/5?event_id=101905",
+   "olbg_event_id": 101905,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "The official DP World Tour tournament page (https://www.europeantour.com/dpworld-tour/genesis-championship-2026/) was retrieved on 2026-10-21 but rendered no readable schedule, dates or field, so no official value is published for this row."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 6.79
+    },
+    "probs": {
+     "single": 0.1399
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Si Woo Kim",
+    "prob": 0.1399,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Earlier passes read this row as 5/18 (30%). The listing showed 6/20 at this capture; OLBG recount as tips arrive, so the share is a timestamped snapshot.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-02",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Bermuda Championship",
+   "away": "",
+   "start": "25 Oct 17:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Ben James",
+   "olbg_tips": "3/12",
+   "olbg_pct": 25,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
+   "olbg_event_id": 101904,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 10.84
+    },
+    "probs": {
+     "single": 0.0876
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Ben James",
+    "prob": 0.0876,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-03",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Players Series SA",
+   "away": "",
+   "start": "25 Oct 02:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Josh Armstrong",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Players_Series_SA/5?event_id=101907",
+   "olbg_event_id": 101907,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 11.47
+    },
+    "probs": {
+     "single": 0.0828
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Josh Armstrong",
+    "prob": 0.0828,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Two tips only: a 100% share from a sample of two is not evidence.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-04",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "BMW Ladies Championship",
+   "away": "",
+   "start": "25 Oct 04:00",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Sei Young Kim",
+   "olbg_tips": "2/8",
+   "olbg_pct": 25,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/BMW_Ladies_Championship/5?event_id=101906",
+   "olbg_event_id": 101906,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 14.12
+    },
+    "probs": {
+     "single": 0.0673
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Sei Young Kim",
+    "prob": 0.0673,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-05",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Stifel Charity Classic",
+   "away": "",
+   "start": "25 Oct 17:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Steven Alker",
+   "olbg_tips": "2/7",
+   "olbg_pct": 29,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
+   "olbg_event_id": 101903,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 13.67
+    },
+    "probs": {
+     "single": 0.0695
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Steven Alker",
+    "prob": 0.0695,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-06",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Senior Italian Open",
+   "away": "",
+   "start": "24 Oct 11:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Mikael Lundberg",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Senior_Italian_Open/5?event_id=101911",
+   "olbg_event_id": 101911,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 21.4
+    },
+    "probs": {
+     "single": 0.0444
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Mikael Lundberg",
+    "prob": 0.0444,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-07",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Fortinet Players Cup",
+   "away": "",
+   "start": "25 Oct 02:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Ryosuke Kinoshita",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Fortinet_Players_Cup/5?event_id=101908",
+   "olbg_event_id": 101908,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 21.4
+    },
+    "probs": {
+     "single": 0.0444
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Ryosuke Kinoshita",
+    "prob": 0.0444,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-08",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Hong Kong Open",
+   "away": "",
+   "start": "25 Oct 03:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Paul Casey",
+   "olbg_tips": "1/3",
+   "olbg_pct": 33,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hong_Kong_Open/5?event_id=101910",
+   "olbg_event_id": 101910,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 22.25
+    },
+    "probs": {
+     "single": 0.0427
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Paul Casey",
+    "prob": 0.0427,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-09",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Stella Artois Players Championship",
+   "away": "",
+   "start": "25 Oct 10:45",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Daniel van Tonder",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stella_Artois_Players_Championship/5?event_id=101912",
+   "olbg_event_id": 101912,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 21.4
+    },
+    "probs": {
+     "single": 0.0444
+    },
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Daniel van Tonder",
+    "prob": 0.0444,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GLF-10",
+   "sport": "Golf",
+   "sport_slug": "golf",
+   "competition": "",
+   "home": "Hero Womens Indian Open",
+   "away": "",
+   "start": "25 Oct 08:00",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Avani Prashanth",
+   "olbg_tips": null,
+   "olbg_pct": null,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hero_Womens_Indian_Open/5?event_id=101909",
+   "olbg_event_id": 101909,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official tournament page retrieved in this pass."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {},
+    "probs": {},
+    "prior": {
+     "field": 156,
+     "strength_k": 24,
+     "a": 0.1538,
+     "b": 23.8462,
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Avani Prashanth",
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "no_tip_count_published",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "The listing shows the selection but no tip count, so no probability and no price can be originated.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "MTR-01",
+   "sport": "Motor Racing",
+   "sport_slug": "motor_racing",
+   "competition": "Formula 1",
+   "home": "USA Grand Prix",
+   "away": "",
+   "start": "25 Oct 16:00",
+   "market_type": "race",
+   "olbg_market": "Win Race",
+   "olbg_pick": "Max Verstappen",
+   "olbg_tips": "11/32",
+   "olbg_pct": 34,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913",
+   "olbg_event_id": 913,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "venue": "Circuit of the Americas, Austin",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.formula1.com/en/racing/2026/united-states",
+    "official_label": "Formula 1 \u2014 United States Grand Prix 2026 (official race page)",
+    "official_datetime": "Race: Sun 25 Oct 2026, 16:00 (schedule shown in track time)",
+    "note": "Official page lists Practice 1 23 Oct 13:30-14:30, Practice 2 23 Oct 17:00-18:00, Practice 3 24 Oct 13:30-14:30, Qualifying 24 Oct 17:00-18:00 and the Race 25 Oct 16:00, at the 5.513 km Circuit of the Americas over 56 laps. OLBG's '25 Oct 16:00' matches the official race start."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 3.62
+    },
+    "probs": {
+     "single": 0.2624
+    },
+    "prior": {
+     "field": 22,
+     "strength_k": 12,
+     "a": 0.5455,
+     "b": 11.4545,
+     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Max Verstappen",
+    "prob": 0.2624,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "field_size_prior_assumed"
+   ],
+   "row_notes": "Earlier passes read 10/31 (32%). The listing showed 11/32 at this capture; the share is a timestamped snapshot.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "MTR-02",
+   "sport": "Motor Racing",
+   "sport_slug": "motor_racing",
+   "competition": "Formula 1",
+   "home": "Formula 1 Drivers Championship 2026",
+   "away": "",
+   "start": "06 Dec 08:00",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Max Verstappen",
+   "olbg_tips": "9/33",
+   "olbg_pct": 27,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828",
+   "olbg_event_id": 828,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "The season outcome cannot be verified before it happens; no official source states a champion for 2026 at capture time. The competition name 'Formula 1' is taken from the F1 race page, not from this row."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 4.48
+    },
+    "probs": {
+     "single": 0.2121
+    },
+    "prior": {
+     "field": 22,
+     "strength_k": 12,
+     "a": 0.5455,
+     "b": 11.4545,
+     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Max Verstappen",
+    "prob": 0.2121,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "MTR-03",
+   "sport": "Motor Racing",
+   "sport_slug": "motor_racing",
+   "competition": "Formula 1",
+   "home": "Formula 1 Drivers Championship 2026 Without Kimi Antonelli",
+   "away": "",
+   "start": "06 Dec 08:00",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "Max Verstappen",
+   "olbg_tips": "4/6",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912",
+   "olbg_event_id": 912,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "A 'without' market is a bookmaker construct; no official source publishes it."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 3.74
+    },
+    "probs": {
+     "single": 0.254
+    },
+    "prior": {
+     "field": 21,
+     "strength_k": 12,
+     "a": 0.5714,
+     "b": 11.4286,
+     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Max Verstappen",
+    "prob": 0.254,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Our price is originated as if the field were 21 (the 22-car assumption minus the named runner), and is labelled accordingly.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GRY-01",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "competition": "",
+   "home": "11:14 Kinsley",
+   "away": "",
+   "start": "Today 06:14",
+   "market_type": "race",
+   "olbg_market": "Daily Races",
+   "olbg_pick": "Swift Perry",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:14_Kinsley/28?event_id=689390",
+   "olbg_event_id": 689390,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "venue": "Kinsley",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GBGB racecard was retrieved. The race name and track are OLBG's own wording."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 2.53
+    },
+    "probs": {
+     "single": 0.375
+    },
+    "prior": {
+     "field": 6,
+     "strength_k": 6,
+     "a": 1.0,
+     "b": 5.0,
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Swift Perry",
+    "prob": 0.375,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Race name carries the UK clock time (11:14); OLBG's separate 'Today 06:14' label is ~5 hours earlier, which is why no start time is derived from either value (see FL-002).",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GRY-02",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "competition": "",
+   "home": "10:32 Harlow",
+   "away": "",
+   "start": "Today 05:32",
+   "market_type": "race",
+   "olbg_market": "Daily Races",
+   "olbg_pick": "Makeit Sway",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/10:32_Harlow/28?event_id=689384",
+   "olbg_event_id": 689384,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "venue": "Harlow",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GBGB racecard retrieved."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 3.33
+    },
+    "probs": {
+     "single": 0.2857
+    },
+    "prior": {
+     "field": 6,
+     "strength_k": 6,
+     "a": 1.0,
+     "b": 5.0,
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Makeit Sway",
+    "prob": 0.2857,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Single tip.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GRY-03",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "competition": "",
+   "home": "10:48 Harlow",
+   "away": "",
+   "start": "Today 05:48",
+   "market_type": "race",
+   "olbg_market": "Daily Races",
+   "olbg_pick": "Moaning Cashout",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/10:48_Harlow/28?event_id=689385",
+   "olbg_event_id": 689385,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "venue": "Harlow",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GBGB racecard retrieved."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 3.33
+    },
+    "probs": {
+     "single": 0.2857
+    },
+    "prior": {
+     "field": 6,
+     "strength_k": 6,
+     "a": 1.0,
+     "b": 5.0,
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Moaning Cashout",
+    "prob": 0.2857,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Single tip.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GRY-04",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "competition": "",
+   "home": "11:03 Monmore",
+   "away": "",
+   "start": "Today 06:03",
+   "market_type": "race",
+   "olbg_market": "Daily Races",
+   "olbg_pick": "Relentless I Am",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:03_Monmore/28?event_id=689387",
+   "olbg_event_id": 689387,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "venue": "Monmore",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GBGB racecard retrieved."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 3.33
+    },
+    "probs": {
+     "single": 0.2857
+    },
+    "prior": {
+     "field": 6,
+     "strength_k": 6,
+     "a": 1.0,
+     "b": 5.0,
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Relentless I Am",
+    "prob": 0.2857,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Single tip.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GRY-05",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "competition": "",
+   "home": "11:04 Harlow",
+   "away": "",
+   "start": "Today 06:04",
+   "market_type": "race",
+   "olbg_market": "Daily Races",
+   "olbg_pick": "Muinteoir Jane",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:04_Harlow/28?event_id=689383",
+   "olbg_event_id": 689383,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "venue": "Harlow",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GBGB racecard retrieved."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 3.33
+    },
+    "probs": {
+     "single": 0.2857
+    },
+    "prior": {
+     "field": 6,
+     "strength_k": 6,
+     "a": 1.0,
+     "b": 5.0,
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Muinteoir Jane",
+    "prob": 0.2857,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Single tip.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GRY-06",
+   "sport": "Greyhounds",
+   "sport_slug": "greyhounds",
+   "competition": "",
+   "home": "11:09 Nottingham",
+   "away": "",
+   "start": "Today 06:09",
+   "market_type": "race",
+   "olbg_market": "Daily Races",
+   "olbg_pick": "Bluejig Polly",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:09_Nottingham/28?event_id=689386",
+   "olbg_event_id": 689386,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
+   "venue": "Nottingham",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GBGB racecard retrieved."
+   },
+   "model": {
+    "basis": "race-prior",
+    "prices": {
+     "single": 3.33
+    },
+    "probs": {
+     "single": 0.2857
+    },
+    "prior": {
+     "field": 6,
+     "strength_k": 6,
+     "a": 1.0,
+     "b": 5.0,
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Bluejig Polly",
+    "prob": 0.2857,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Single tip.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "RGL-01",
+   "sport": "Rugby League",
+   "sport_slug": "rugby_league",
+   "competition": "State of Origin",
+   "home": "State of Origin 2027",
+   "away": "",
+   "start": "27 May 2027 06:00",
+   "market_type": "outright",
+   "olbg_market": "Win Tournament",
+   "olbg_pick": "New South Wales",
+   "olbg_tips": "9/12",
+   "olbg_pct": 75,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857",
+   "olbg_event_id": 2695857,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official 2027 series page retrieved; the 2027 series has not been published by the NRL at capture time."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 1.38
+    },
+    "probs": {
+     "single": 0.6875
+    },
+    "prior": {
+     "field": 2,
+     "strength_k": 4,
+     "a": 2.0,
+     "b": 2.0,
+     "basis": "State of Origin is decided between two states (New South Wales and Queensland), so the series-winner market has two outcomes. This is a fact about the competition, not a field-size assumption."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "New South Wales",
+    "prob": 0.6875,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "A three-game series winner market, originated as a two-sided market (New South Wales v Queensland).",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "RGL-02",
+   "sport": "Rugby League",
+   "sport_slug": "rugby_league",
+   "competition": "Super League",
+   "home": "Super League 2027",
+   "away": "",
+   "start": "02 Oct 2027 13:00",
+   "market_type": "outright",
+   "olbg_market": "Grand Final Winner",
+   "olbg_pick": "Leeds Rhinos",
+   "olbg_tips": "1/3",
+   "olbg_pct": 33,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Super_League_2027/10?event_id=2801554",
+   "olbg_event_id": 2801554,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official 2027 Super League page retrieved; the 2027 competition has not started."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 5.7
+    },
+    "probs": {
+     "single": 0.1667
+    },
+    "prior": {
+     "field": 12,
+     "strength_k": 6,
+     "a": 0.5,
+     "b": 5.5,
+     "basis": "Assumed 12-team Super League field for a Grand Final winner market. The competition's team count for 2027 is not published on the OLBG page; 12 is the 2026 competition size and is used as a disclosed assumption."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Leeds Rhinos",
+    "prob": 0.1667,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Three tips only.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "RGL-03",
+   "sport": "Rugby League",
+   "sport_slug": "rugby_league",
+   "competition": "NRL",
+   "home": "NRL 2027",
+   "away": "",
+   "start": "03 Oct 2027 04:30",
+   "market_type": "outright",
+   "olbg_market": "Grand Final Winner",
+   "olbg_pick": "Penrith Panthers",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600",
+   "olbg_event_id": 2801600,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official 2027 NRL page retrieved; the 2027 season has not started."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 4.91
+    },
+    "probs": {
+     "single": 0.1933
+    },
+    "prior": {
+     "field": 17,
+     "strength_k": 6,
+     "a": 0.3529,
+     "b": 5.6471,
+     "basis": "Assumed 17-team NRL field (the 2026 competition size). Not stated on the OLBG page; disclosed assumption."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Penrith Panthers",
+    "prob": 0.1933,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "small_sample_lt5_tips",
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "Single tip.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  },
+  {
+   "ref": "GFA-01",
+   "sport": "Gaelic Football",
+   "sport_slug": "gaelic_football",
+   "competition": "",
+   "home": "All Ireland Football Championship 2027",
+   "away": "",
+   "start": "25 Jul 2027 10:30",
+   "market_type": "outright",
+   "olbg_market": "",
+   "olbg_pick": "Kerry",
+   "olbg_tips": "5/7",
+   "olbg_pct": 71,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/All_Ireland_Football_Championship_2027/25?event_id=3327",
+   "olbg_event_id": 3327,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+   "venue": "",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official GAA 2027 championship page retrieved; the 2027 season has not started."
+   },
+   "model": {
+    "basis": "outright-prior",
+    "prices": {
+     "single": 3.04
+    },
+    "probs": {
+     "single": 0.3125
+    },
+    "prior": {
+     "field": 32,
+     "strength_k": 10,
+     "a": 0.3125,
+     "b": 9.6875,
+     "basis": "Assumed 32-county field for the All-Ireland Senior Football Championship winner market. Not stated on the OLBG page; disclosed assumption."
+    },
+    "notes": [
+     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
+   },
+   "pick": {
+    "side": "single",
+    "label": "Kerry",
+    "prob": 0.3125,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    }
+   },
+   "flags": [
+    "outright_no_opposing_side",
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
+   ],
+   "row_notes": "OLBG shows no market name on this row (an OLBG listing quirk already logged as a finding) but the selection is a tournament winner, not a match bet.",
+   "captured_at": "2026-10-21T07:05:00Z"
+  }
+ ]
+}
