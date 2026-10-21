@@ -17,7 +17,7 @@ predictions for the high-confidence picks, and a verification log that links eve
 | `method.html` | Scope, model, disclosed assumptions, price formula, what we refuse to do |
 | `sports/<sport>.html` | One page per sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | The separate official-feed pipeline (NHL/MLB/NBA raw schedules, no picks) |
-| `/olbg/` | The OLBG lines audit track (137 captured rows, its own pages) |
+| `/olbg/` | The OLBG lines audit track (189 captured rows, its own pages) |
 
 ## Scope
 
@@ -27,6 +27,9 @@ Greyhounds 6.
 
 Of those 137 rows, **114 are two-sided fixtures** and **23 are outright or race markets** (golf tournaments,
 the F1 race and drivers' championship, greyhound races, rugby league futures, the All-Ireland championship).
+The same 16 outright markets are listed twice upstream (in `data/sports/*.json` and again in
+`data/gap_sports.json`); the board counts and prices each OLBG event id once, which is why it reports 137 rows
+rather than 153 — a golf tournament is not a two-sided fixture.
 
 Excluded as instructed: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing, cycling,
 specials. Gaelic football, greyhound racing and motor racing are **not** on that list, so they are included —
@@ -59,11 +62,18 @@ each with the ambiguity recorded on the Flagged for Review page.
 ## Build and checks
 
 ```bash
-python3 scripts/build_gap_sports.py   # price the outright/race markets -> data/gap_sports.json
-python3 scripts/build_site.py         # board pages -> site/
+python3 scripts/model.py              # board rows, prices, picks, confidence -> data/events.json
+python3 scripts/build.py              # official-feed pages/data -> site/
+python3 scripts/check.py              # official-feed invariants
+python3 scripts/build_gap_sports.py   # price outright/race markets -> data/gap_sports.json
+python3 scripts/build_site.py         # combined board pages -> site/ (after feed build)
+
 python3 scripts/check_board.py        # board invariants (sources, verification, prices, predictions)
-python3 scripts/check_links.py        # no broken local links
-python3 tools/check_site.py           # /olbg/ audit track
+python3 scripts/check_links.py        # combined site: no broken local links
+python3 tools/build_dataset.py        # /olbg/ audit track
+python3 tools/originate.py
+python3 tools/build_site.py
+python3 tools/check_site.py
 python3 -m unittest discover -s tests # source-policy tests
 ```
 
