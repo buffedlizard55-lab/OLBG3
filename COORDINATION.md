@@ -33,6 +33,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-10-site` | Rebuild the board to render 15 sports / 137 rows, add a Market column, an Audit page and the new findings on the Flagged page | `scripts/build_site.py`, `assets/`, `index.html`, `audit.html`, `flagged.html`, `method.html`, `sports/*.html` | done | `session-f7221054` | `scripts/check_board.py` passes; `scripts/check_links.py` broken=0 |
 | `task-11-integrate` | Commit, PR to `main`, merge, confirm the Pages deploy serves the new pages | `.github/workflows/pages.yml` | in progress | `session-f7221054` | PR link and run id recorded below once merged |
 | `task-12-reverify-rugby-icehl-and-fill-high-preds` | Re-verify remaining unconfirmed `scripts/model.py`-track fixtures (Darts, Snooker, Rugby Union, Ice Hockey, Basketball, Handball, Cricket) against official sources; extend `scripts/model.py` to use Pro D2/Top14/ICEHL/SHL tables with proper source attribution; write the 9 newly-surfaced HIGH-confidence predictions; rebase onto the `task-09`/`task-10` gap-sports work and regenerate the combined site | `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json` (regenerated board-track HTML rebuilt on top via the shared `scripts/build_site.py`) | done | `session-dadd85d4` (branch `arena/dadd85d4-olbg3`) | See session log below for sources, irregularities, and rebase/merge notes. |
+| `task-13-reverify-refresh-integrate` | Re-verify the published board line by line against live OLBG listings and official competition sources; fix every discrepancy found; refresh stale captures; re-render and publish the site | `data/events.json`, `data/official.json`, `data/predictions.json`, `data/raw/*`, `scripts/*`, generated root pages + `sports/*.html`, `COORDINATION.md`, `README.md` | done | `session-7244efad` | Claimed 2026-10-21; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) |
 | `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
 
 ---
@@ -174,8 +175,10 @@ all return 200 from `buffedlizard55-lab.github.io`.
 7. **FL-001 (decision needed):** Gaelic football inclusion ambiguity remains open for the owner.
 8. MTR-913: F1 USGP round number differs between outlets (18 vs 19); not recorded.
 
-### Pull request record
-- PR: see `git log` / PR link recorded in the post-merge commit below. Merge and Pages confirmation are appended immediately after the merge completes.
+### Pull request record — updated post-merge
+- **PR:** [#25](https://github.com/buffedlizard55-lab/OLBG3/pull/25) — "Re-audit: line-by-line official-source verification (101/137 rows), 6 new review flags, audit artifact".
+- **Merge result:** merged to `main` with a merge commit on 2026-10-21 (`gh pr merge 25 --merge`). First merge attempt conflicted with parallel session work on `main` (PRs #19-#24, `session-f7221054`/`session-dadd85d4`); the conflict was confined to `COORDINATION.md` and was resolved by keeping both sessions' task-board rows and both session logs in full — nothing discarded — then the merge was retried successfully.
+- **Pages deploy:** CI run `39559853756` (Verify and publish dashboard, `main`) — build ✓ 9s, deploy ✓ 16s. Live site confirmed: https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html now serves 23 flag items including FL-018..FL-023 with their source links; `/olbg/olbg-board.html`, `/olbg/matches.html` and the 15 OLBG sport pages serve the 137-row tables.
 
 ---
 
@@ -318,6 +321,61 @@ originated price and an OLBG event link; `/audit.html` lists the 10 checks with 
 * Post-merge CI on `main`: run **39559517252** (Verify and publish dashboard) **success** and run **39559517327** (`pages build and deployment`) **success**, including the deploy job's own smoke tests of both `/olbg/*` and root routes.
 * Live verification after deploy: fetched `https://buffedlizard55-lab.github.io/OLBG3/predictions.html` directly — all 14 HIGH predictions render, including the 9 new ones (RGU-01/05/06/10/13, IHO-01/02/03/05) with their sourced facts and explicit betting selections intact.
 * Only the files in this session's claimed scope were changed; `tools/*`, `olbg-board/`, `olbg/`, and the OLBG-lines-track data files were confirmed byte-identical/not-stale both before and after each rebase.
+
+---
+
+## Session log — `session-7244efad` (branch `arena/7244efad-olbg3`)
+
+**Claimed 2026-10-21.** Task `task-13-reverify-refresh-integrate`. Files in scope: `data/events.json`,
+`data/official.json`, `data/predictions.json`, `scripts/build_site.py`, `scripts/model.py`, `scripts/check_board.py`,
+generated board pages (`index.html`, `predictions.html`, `verification.html`, `audit.html`, `flagged.html`,
+`method.html`, `sports/*.html`) and the docs. **Not** touching `tools/*`, `olbg/`, `olbg-board/` or the OLBG
+lines-audit track, which belong to session `074739aa`'s scope.
+
+Baseline before any change (re-run on `main` at `f47a2a1`): `scripts/build.py` → `scripts/build_gap_sports.py` →
+`scripts/build_site.py`; `scripts/check_board.py` PASS; `scripts/check_links.py` `pages=79 local_links_checked=1158 broken=0`;
+`python -m unittest discover -s tests` 10/10 OK. The earlier apparent "89 broken links" was an artefact of running
+`build_site.py` without `build.py` first (the feed pages it links to are written by `build.py`), not a repo defect.
+
+### What was actually re-checked (source opened, value compared, outcome)
+
+| # | Check | Source opened | Outcome |
+|---|---|---|---|
+| 1 | URC Round 4 fixtures — all four high-confidence rugby rows | https://stats.unitedrugby.com/match-centre/2026-27/4 | **match** — Connacht v Zebre Fri 23 Oct 14:45 Dexcom Stadium; Bulls v Ulster Sat 24 Oct 07:45 Loftus Versfeld; Stormers v Scarlets 10:00 DHL Stadium; Leinster v Munster 13:00 Aviva Stadium |
+| 2 | URC table figures used in four predictions | https://stats.unitedrugby.com/match-centre/table/2026-27 | **match** — Connacht 14th/5pts; Zebre 16th/1pt PA116 TA17; Bulls PF126 +72 TA7; Ulster 11th 0W PF88; Stormers 4th +27 PA54; Scarlets 12th PA85; Leinster 10th PA58 TA8; Munster 9th 72/74 |
+| 3 | NHL standings figures in the Sabres prediction | https://www.nhl.com/standings/2026-10-20/wildcard | **match** — BUF 4-3-2, 10 PTS, home 3-2-0, 27/34; PHI 2-6-3, 17 GF, away 0-4-1, W2 |
+| 4 | Pro D2 table | https://prod2.lnr.fr/classement | **defects found** — Narbonne is 15th not 14th; Beziers 14th not 15th; Beziers' 240 GA is third-worst, not second-worst |
+| 5 | Pro D2 round-7 scorelines | https://prod2.lnr.fr/calendrier-et-resultats/2026-2027/j7 | **one defect** — the Angouleme away win was round 6; round 7 was 34-24 at Nice. Dax 54-28, Colomiers 49-28, Beziers 24-25, Nevers 7-38, Oyonnax 51-25 all confirmed |
+| 6 | Top 14 table | https://top14.lnr.fr/classement | **match** — Toulouse 24 pts, 5-0-1, 197/124 +73; Perpignan 9th, 13 pts, 3-0-3 with losses to Montpellier and Racing 92 |
+| 7 | Dupont claims | Sud Ouest 18 Oct 2026, Planet Rugby, BBC | **partly fixed** — ACL history and both braces confirmed; the quoted remark was in no source and was replaced with the report's wording |
+| 8 | ICEHL table on the league's own site | https://www.ice.hockey/saison/tabelle | **match** — Bolzano 24/11, Linz 24/12, KAC 21/12, Pustertal 17/10, Innsbruck 15/12, Fehervar 13/12 GA39, Pioneers 1/12 GA52 |
+| 9 | SHL table | https://www.eliteprospects.com/league/shl | **match** — Farjestad 10 GP 27 pts 40/11; Timra 10th 12 pts |
+| 10 | Dahlen transfer | Eliteprospects transfer record, kicker | **match** — 30 goals in 50 games, SHL top scorer, joined Langnau for 2026/27; wording changed from "over the summer" because the move was agreed in Nov 2025 |
+| 11 | Glira / Frigo / Hundertpfund captain and injury claims | sportnews.bz, hcb.net, kac.at, laola1 | **match** — all confirmed and now individually linked inside the predictions |
+| 12 | Ice-hockey fixture IHO-01 | ice.hockey schedule, hcpustertal.com | **could not confirm** — only a betting-preview page existed; row downgraded, prediction withdrawn |
+| 13 | Live OLBG listing vs captured row (BSB-01) | https://www.olbg.com/betting-tips/Baseball/12 | **irregularity** — live page shows 24 Oct 01:00 / Game Totals feature / ML 4-7 ; capture holds 23 Oct 20:00 / Money Line 3-6 |
+| 14 | Live OLBG event page BKB-534889 | https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIL_Bucks_@_WAS_Wizards/4?event_id=534889 | **match** — money-line split on the page is the one the row records |
+
+**Corrections in `data/predictions.json`:** RGU-01 ("only unbeaten side" → one of two; 44.7 pts/game was a season average, not an away average; unverified top-scorer name removed), RGU-05 (rank 14→15; unverified captain removed; the 57-14 scoreline replaced by the verified 49-28 at Colomiers), RGU-06 ("division-high" conceding claim replaced by the official 222 GA), RGU-10 (rank 15→14; "second-worst" → third-worst; wrong round replaced by the verified 34-24 at Nice; unverified centre removed), RGU-13 (quotation → report wording, sources added), IHO-02 ("outright" → level on points but ahead on points percentage; unverified scorers removed), IHO-03 (transfer timing; unverified captain names removed), IHO-05 (unverified points totals removed). IHO-01 withdrawn.
+
+**Irregularities published on `flagged.html` (do not block):** the four Pro D2 prediction errors and where they were fixed; the row that had been "verified" against a betting-preview site; the non-reproducible OLBG snapshot (five-hour clock shift and changed featured market on BSB-01); plus all pre-existing findings.
+
+**Verification commands (all green after the changes):**
+`python3 scripts/model.py` → 114 fixtures, 13 HIGH / 46 MEDIUM / 55 LOW;
+`scripts/build.py`; `scripts/build_gap_sports.py`; `scripts/build_site.py`; `scripts/build_site.py --snapshot`;
+`scripts/check_board.py` → `rows=137 fixtures=114 outright_or_race=23 verified=71 priced=131 predictions=13` PASS;
+`scripts/check_links.py` → `pages=79 local_links_checked=1160 broken=0`;
+`python -m unittest discover -s tests` → 10/10;
+`tools/build_dataset.py && tools/originate.py && tools/build_site.py && tools/check_site.py` → PASS, and the OLBG
+lines-audit track stayed byte-identical (nothing in it was touched).
+
+**Guard added:** `scripts/check_board.py` now fails if a prediction exists for a row that is not graded HIGH — the
+failure mode that downgrading IHO-01 would otherwise have created.
+
+**Rebase note.** While this session worked, `main` advanced to `d4b098a` with session `074739aa`'s OLBG
+lines-audit refresh (PRs #25/#27). Their scope and mine do not overlap, so the only conflict was this file;
+their task board and logs are kept in full and my row/log are appended.
+
 
 
 

@@ -261,6 +261,13 @@ index = head("Dashboard") + f"""
   <p class="stamp">Captured {GEN} &middot; every row links to the OLBG event page it came from</p>
 </section>
 
+<div class="notice">
+  <strong>Re-verified line by line on 2026-10-21.</strong> Every high-confidence pick was re-read against the official
+  league page behind it (URC, Pro D2, Top 14, ICEHL, SHL, NHL). Eight predictions were corrected and one was withdrawn
+  when its fixture could not be confirmed from an official source. The full before-and-after is on the
+  <a href="audit.html">audit page</a>; the open issues are on <a href="flagged.html">Flagged for Review</a>.
+</div>
+
 <div class="cards">
   <div class="card"><span class="k">{len(by_sport)}</span><span class="l">sports covered</span></div>
   <div class="card"><span class="k">{n_events}</span><span class="l">rows on the board</span></div>
@@ -408,7 +415,7 @@ AUDIT_CHECKS = [
   "data/master_matches.json holds 76 rows, 71 of them marked 'Verified' and 48 marked 'High' confidence, each with a narrative containing specific figures (for example 'won seven consecutive EuroLeague home fixtures by an average of 11.2 points'). The 'official_source_url' on those rows is a sport homepage such as euroleaguebasketball.net/eurocup/ or atptour.com/en/scores, which cannot support a fixture-level or statistic-level claim. Nothing in this repo publishes that file. It has been relabelled a legacy draft and the claims are listed here for review.",
   "irregularity", "https://github.com/buffedlizard55-lab/OLBG3/blob/877def1c1c8e7456b64f5424f9ac3804126fdb15/data/master_matches.json"),
  ("README and COORDINATION board quoted numbers the site never had",
-  "Both documents said '76 fixtures' and '48 detailed predictions'. The published board carries 137 rows and 5 predictions; build_full_database.py is a legacy generator whose output is not rendered anywhere. The documents now state the published figures and point at the data files that produce them.",
+  "Both documents said '76 fixtures' and '48 detailed predictions'. The published board carries {n_events} rows and {len(PREDS)} predictions; build_full_database.py is a legacy generator whose output is not rendered anywhere. The documents now state the published figures and point at the data files that produce them.",
   "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/README.md"),
  ("Four in-scope sports were missing from the board",
   "Golf, Motor Racing, Greyhounds and Rugby League are not in the exclusion list, and the previous build disclosed them as an uncaptured gap while holding zero rows for them. All four OLBG listings were re-read at 07:05Z and 23 rows (10 golf tournaments, 1 F1 race plus 2 championship markets, 6 greyhound races, 3 rugby league outrights, 1 Gaelic football championship) are now on the board with an originated price each.",
@@ -416,6 +423,61 @@ AUDIT_CHECKS = [
  ("Official pages that could not be read are left unverified",
   "europeantour.com/genesis-championship-2026 rendered no schedule, dates or field on retrieval, and pdc.tv served a consent wall. No value was taken from either. The golf rows therefore stay unverified even though an official URL exists, and the Genesis row is published with the OLBG label only.",
   "unverified", "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/"),
+]
+
+
+# ---------- 2026-10-21 re-verification pass (session-7244efad) ----------
+# Appended to the audit log. Each entry is a check that was actually run this session against a page
+# that was actually read: the URLs below were opened, and the quoted values were copied from them.
+AUDIT_CHECKS += [
+ ("URC Round 4 fixtures re-read on the official Match Centre",
+  "All four URC rows behind the high-confidence rugby predictions were re-read on the official Round 4 page: "
+  "Connacht v Zebre Fri 23 Oct 14:45 at Dexcom Stadium; Vodacom Bulls v Ulster Sat 24 Oct 07:45 at Loftus Versfeld; "
+  "DHL Stormers v Scarlets Sat 24 Oct 10:00 at DHL Stadium; Leinster v Munster Sat 24 Oct 13:00 at Aviva Stadium. "
+  "Opponents, dates, kick-off times and venues match the rows on this board exactly.",
+  "match", "https://stats.unitedrugby.com/match-centre/2026-27/4"),
+ ("Pro D2 table and round-7 scorelines re-read on the official LNR site",
+  "Every Pro D2 figure used in the four French predictions was re-read off the official classement and the round-7 results page: "
+  "Oyonnax 33 pts (7-0, PF 313, PA 154); Provence 29 pts (7-0, PF 222); Brive 4th, 21 pts, +42, PF 206; Montauban 8th, 17 pts, PA 214; "
+  "Aurillac 9th, 16 pts, PF 240; Beziers 14th, 9 pts, PA 240; Narbonne 15th, 9 pts, PA 296; Nevers 16th, 4 pts (0-7), PA 222. "
+  "Round 7: Dax 54-28 Montauban, Colomiers 49-28 Narbonne, Beziers 24-25 Aurillac, Nevers 7-38 Agen, Nice 24-34 Provence, "
+  "Oyonnax 51-25 Valence Romans, Brive 14-26 Grenoble. These readings exposed four errors in the published predictions, corrected below.",
+  "fixed", "https://prod2.lnr.fr/classement"),
+ ("Top 14 table and the Dupont claims re-read",
+  "Toulouse: 24 pts from 6 (5-0-1), PF 197 / PA 124, diff +73, the best in the league. Perpignan: 9th, 13 pts, 3-0-3, with defeats to "
+  "Montpellier (round 3) and Racing 92 (round 5), exactly as the prediction states. Dupont's two braces (Montpellier 40-18, Bayonne 45-34) "
+  "and his ACL history were confirmed from match reports and the Sud Ouest piece of 18 October. The original sentence attributed a quotation "
+  "to Dupont that no source carried; it now cites the report instead.",
+  "fixed", "https://top14.lnr.fr/classement"),
+ ("ICEHL table read on the league's own site, not only an aggregator",
+  "The official ICEHL table shows Bolzano 1st on 24 pts (11 GP), Linz 2nd on 24 (12 GP), KAC 4th on 21 (12 GP), Pustertal 7th on 17 (10 GP), "
+  "Innsbruck 10th on 15 (12 GP), Fehervar 13th on 13 (12 GP, GA 39) and Pioneers Vorarlberg 14th on 1 pt (12 GP, GA 52). "
+  "Every figure in the four Austrian predictions matches; Fehervar's 39 goals against is second-worst only to Salzburg's 42, as now stated.",
+  "fixed", "https://www.ice.hockey/saison/tabelle"),
+ ("SHL standings and the Dahlen transfer",
+  "Farjestad: 10 GP, 8 regulation wins, 1 OTW, 1 OTL, GF 40 / GA 11, 27 pts, first. Timra: 10 GP, 12 pts, 10th. Jonathan Dahlen scored "
+  "30 goals in 50 SHL games for Timra in 2025/26 (the league's top scorer) and joined Langnau for 2026/27, confirmed on Eliteprospects' "
+  "transfer record and reported by kicker. The prediction originally said the move happened over the summer; it was agreed in November 2025, "
+  "so the wording now says 'to Langnau for 2026/27'.",
+  "fixed", "https://www.eliteprospects.com/league/shl"),
+ ("Player claims that no official source supported were removed",
+  "Eight player-level statements in the published predictions could not be confirmed from any official or primary page this session: two "
+  "Pustertal scorers' combined points total, an injury to a Pustertal forward, a 5-0 Bolzano win over Linz with a six-game streak, two KAC "
+  "players' points totals, Brive's captain, Oyonnax's top scorer and Beziers' new centre. They were deleted rather than reworded, and the "
+  "predictions were rewritten around the figures that are verified. Player facts that were confirmed (Glira, Frigo, Hundertpfund, Dahlen, "
+  "Dupont) were kept and now carry their own source link.",
+  "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
+ ("IHO-01 fixture had no official source and was downgraded",
+  "The Pustertal v Pioneers Vorarlberg row was marked verified on the strength of a betting-preview page (tipsterio.de), which is not an official "
+  "source. The ICEHL schedule page renders fixtures client-side and returned none, and the club site carries no fixture widget. The row is now "
+  "unverified, its confidence falls from HIGH to MEDIUM, and its prediction has been withdrawn rather than kept on a weaker footing.",
+  "fixed", "https://www.ice.hockey/saison/spielplan"),
+ ("A live OLBG listing no longer matches the captured row",
+  "The baseball listing was re-read today for event 160789 (TB Rays @ MIL Brewers). It now renders '24 Oct 01:00' with the featured market "
+  "'Over 5.50, Game Totals, 4/4', and its money line shows MIL Brewers 4/7 (57%) and TB Rays 3/7 (43%). The captured row records "
+  "'23 Oct 20:00', Money Line, TB Rays 3/6 (50%). The five-hour clock difference and the changed featured market are logged as an irregularity: "
+  "the captured values are kept verbatim as a timestamped snapshot and no time is derived from them.",
+  "irregularity", "https://www.olbg.com/betting-tips/Baseball/12"),
 ]
 
 AUDIT_CHANGES = [
@@ -431,12 +493,31 @@ AUDIT_CHANGES = [
   "Replaced the 76-fixture / 48-prediction claims with the published 137 rows / 5 predictions and recorded this session's checks."),
 ]
 
+AUDIT_CHANGES += [
+ ("data/predictions.json",
+  "Eight predictions corrected against the official tables (Pro D2 ranks for Narbonne and Beziers, a 'second-worst defence' claim, a wrong "
+  "round number, an away-scoring figure presented as a home-and-away average, a 'division-high' conceding claim, an unattributed Dupont "
+  "quotation, and Dahlen's transfer timing). One prediction (IHO-01) withdrawn. Every remaining prediction now lists a source for each "
+  "factual claim."),
+ ("data/official.json",
+  "IHO-01 moved out of the confirmed-fixture set into a new 'downgraded' record that names the third-party page it had relied on and why "
+  "that is not good enough. A 'reverified' block records this pass and its source list."),
+ ("scripts/check_board.py",
+  "New rule: a prediction may only exist for a HIGH-confidence row, so a downgraded row cannot keep a published prediction."),
+]
+
 def _res_pill(res):
     cls = {"match": "high", "fixed": "med", "irregularity": "warn", "unverified": "low"}.get(res, "low")
     return f'<span class="pill {cls}">{e(res)}</span>'
 
+def _audit_det(det):
+    # older entries carry live counts as placeholders; fill them at render time so a count
+    # can never go stale relative to the data the page is built from.
+    return det.replace("{n_events}", str(n_events)).replace("{len(PREDS)}", str(len(PREDS)))
+
+
 audit_rows = "".join(
-    f"<tr><td class='num'>{i+1}</td><td><strong>{chk}</strong><p>{det}</p></td><td>{_res_pill(res)}</td>"
+    f"<tr><td class='num'>{i+1}</td><td><strong>{chk}</strong><p>{_audit_det(det)}</p></td><td>{_res_pill(res)}</td>"
     f"<td><a href='{e(url)}' rel='noopener'>source</a></td></tr>"
     for i, (chk, det, res, url) in enumerate(AUDIT_CHECKS))
 
@@ -476,7 +557,7 @@ auditpage = head("Audit") + f"""
 
 <h2>What this audit does not cover</h2>
 <ul class="tight">
-  <li><strong>126 of {n_events} rows remain unverified.</strong> No official page was retrieved for those fixtures in this session, so their
+  <li><strong>{n_unverified} of {n_events} rows remain unverified.</strong> No official page was retrieved for those fixtures in this session, so their
       competition, venue and start are left blank or published as OLBG&rsquo;s raw label. They are listed row by row on
       <a href="flagged.html">Flagged for Review</a>; absence of a flag would be a stronger claim than we can support.</li>
   <li><strong>The tip shares are a snapshot.</strong> OLBG recount constantly (see check 5). Re-reading a listing tomorrow will not reproduce these
@@ -508,6 +589,25 @@ irregularities = [
  ("Totals and handicaps are missing for most sports", "A total or a handicap needs a scoring baseline and, for a handicap, two sides. We had official scoring data only for URC and NHL, so only those produce a handicap and a total. The other sports, and every outright/race row, carry none: inventing a number would be worse than leaving the cell empty. This is a deliberate gap, not an oversight.", "&mdash;"),
  ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% overround. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
 ]
+
+IRREGULARITY_EXTRA = [
+ ("A published prediction quoted figures that were wrong",
+  "Four Pro D2 predictions contained errors that the official LNR pages contradict: Narbonne was called 14th (it is 15th), Beziers 15th "
+  "(it is 14th), Beziers' 240 goals against was called 'second-worst' (Aurillac's 254 is worse), and a round-6 win at Soyaux-Angouleme "
+  "was dated to round 7. All four are corrected on the predictions page; the audit page carries the before-and-after.",
+  "https://prod2.lnr.fr/classement"),
+ ("A row was 'verified' against a betting-preview site",
+  "IHO-01 was marked verified with tipsterio.de as its source. That page is a preview, not an official competition or club page, so the row "
+  "is now unverified and its prediction has been withdrawn. This is the only row in the set whose verification depended on a non-official "
+  "domain; every other verified row cites a league, club or official stats page.",
+  "https://www.ice.hockey/saison/spielplan"),
+ ("The captured OLBG snapshot no longer reproduces",
+  "Re-reading the baseball listing today gives '24 Oct 01:00' for TB Rays @ MIL Brewers with a featured Game Totals tip, while the captured "
+  "row records '23 Oct 20:00' and a Money Line tip at 3/6 (50%). Tip counts were always known to move; a five-hour shift in the clock label "
+  "and a change of featured market were not. The captured labels are published unchanged as a snapshot, and no start time is derived from them.",
+  "https://www.olbg.com/betting-tips/Baseball/12"),
+]
+irregularities = IRREGULARITY_EXTRA + irregularities
 
 def _src(u):
     if u == "&mdash;":

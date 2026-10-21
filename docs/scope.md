@@ -50,8 +50,10 @@ disclosed rather than guessed at.
 
 ## Row count and verification status
 
-137 rows · 11 verified against an official competition source · 126 published unverified with the OLBG event
-link attached. Every row is on the board; none is silently dropped.
+137 rows · 71 verified against an official competition source · 66 published unverified with the OLBG event
+link attached. Every row is on the board; none is silently dropped. Counts are rebuilt by `scripts/build_site.py`
+and by `scripts/check_board.py`; the 2026-10-21 re-verification pass corrected eight predictions and downgraded
+one row (IHO-01) whose source was a betting preview rather than an official page.
 
 ## Rules applied to every cell
 
