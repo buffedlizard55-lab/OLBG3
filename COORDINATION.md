@@ -25,6 +25,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-09-coverage` | Close the disclosed coverage gap: capture and price Golf, Motor Racing, Greyhounds, Rugby League and the Gaelic football championship (23 outright/race rows) | `data/raw/gap_sports_capture_20261021.json`, `scripts/build_gap_sports.py`, `data/gap_sports.json` | done | `session-f7221054` | 23 rows, 22 priced, every row carries its OLBG event URL; field-size priors disclosed and written into each row |
 | `task-10-site` | Rebuild the board to render 15 sports / 137 rows, add a Market column, an Audit page and the new findings on the Flagged page | `scripts/build_site.py`, `assets/`, `index.html`, `audit.html`, `flagged.html`, `method.html`, `sports/*.html` | done | `session-f7221054` | `scripts/check_board.py` passes; `scripts/check_links.py` broken=0 |
 | `task-11-integrate` | Commit, PR to `main`, merge, confirm the Pages deploy serves the new pages | `.github/workflows/pages.yml` | in progress | `session-f7221054` | PR link and run id recorded below once merged |
+| `task-12-reverify-rugby-icehl-and-fill-high-preds` | Re-verify remaining unconfirmed `scripts/model.py`-track fixtures (Darts, Snooker, Rugby Union, Ice Hockey, Basketball, Handball, Cricket) against official sources; extend `scripts/model.py` to use Pro D2/Top14/ICEHL/SHL tables with proper source attribution; write the 9 newly-surfaced HIGH-confidence predictions; rebase onto the `task-09`/`task-10` gap-sports work and regenerate the combined site | `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json` (regenerated board-track HTML rebuilt on top via the shared `scripts/build_site.py`) | done | `session-dadd85d4` (branch `arena/dadd85d4-olbg3`) | See session log below for sources, irregularities, and rebase/merge notes. |
 
 ---
 
@@ -117,7 +118,7 @@ all return 200 from `buffedlizard55-lab.github.io`.
 
 | Layer | Route | Rows |
 |---|---|---|
-| Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures |
+| Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures, 71 verified |
 | Official feed (hourly NHL/MLB/NBA) | `/matches.html`, `/coverage.html`, `/review.html`, `/feed-overview.html` | 40 rows |
 | OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 17 flags |
 
@@ -222,3 +223,31 @@ published on `flagged.html`.
 `/sports/greyhounds.html`, `/sports/motor_racing.html`, `/sports/rugby_league.html` each render their rows with an
 originated price and an OLBG event link; `/audit.html` lists the 10 checks with sources; `/flagged.html` lists
 16 findings and 126 unverified rows.
+---
+
+## Session log — `session-dadd85d4` (branch `arena/dadd85d4-olbg3`)
+
+**Scope claimed:** `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json`, and the board-track generated HTML (`index.html`, `predictions.html`, `verification.html`, `flagged.html`, `method.html`, `sports/*.html`) via `scripts/build_site.py --snapshot`. Did **not** touch `tools/*`, `olbg-board/`, `olbg/`, or `data/matches.json` / `data/lines.json` / `data/predictions-olbg.json` / `data/flagged.json` / `data/verifications.json` / `data/excluded.json` (the OLBG-lines-audit track), which stay byte-identical to the prior commit.
+
+**What changed:**
+- Added 36 more `fixture_confirmations` to `data/official.json` (Darts 14, Snooker 6, Rugby Union 15/15, Ice Hockey 7, Basketball 14, Handball 7, Cricket 8) against official league sources: `prod2.lnr.fr/classement`, `top14.lnr.fr/classement`, `eliteprospects.com/league/icehl/standings`, `eliteprospects.com/league/shl`, `ehfcl.eurohandball.com`, `eurohandball.com`, `cricinfo.com`, `espn.com/cricket`, `wst.tv`, `pdc.tv`, `nba.com`, `euroleaguebasketball.net`. Total board-track verified fixtures now 71/114 (up from 10/114).
+  - **CRK-05** (Eastern Storm v Tuskers, CSA T20 Challenge) left **unverified/flagged on purpose**: cricketworld.com/sportskeeda/cricbuzz/crex/espn disagree on both the date (Wed 21 Oct vs Thu 22 Oct) and start time (12:00 GMT to 21:30 local) by hours, not minutes — a material conflict, so per the "leave blank, don't infer" rule this fixture stays unverified rather than guessing which source is right.
+- Extended `scripts/model.py`'s `ALIASES` map and added `rugby_tables = {URC, Pro D2, Top14}` / `hockey_tables = {NHL, ICEHL, SHL}` merged lookups (plus `_which_table()` / `_which_hockey_table()` helpers) so the model scores Pro D2/Top14/ICEHL/SHL fixtures from real table data instead of leaving them on the generic/LOW fallback, and so each prediction's sourcing note correctly cites which specific table a team's form came from.
+- Re-ran the model: HIGH-confidence count rose from 5 to **14** events (full list: IHO-01, IHO-02, IHO-03, IHO-05, IHO-06, RGU-01, RGU-04, RGU-05, RGU-06, RGU-07, RGU-10, RGU-11, RGU-13, RGU-14).
+- Wrote the 9 newly-HIGH predictions (RGU-01, RGU-05, RGU-06, RGU-10, RGU-13, IHO-01, IHO-02, IHO-03, IHO-05) into `data/predictions.json`, each 95-115 words, naming captains/top scorers/recent results sourced from `prod2.lnr.fr`, `top14.lnr.fr`, `eliteprospects.com` (team + standings pages), cross-checked against match reports (`lequipe.fr`, `rugbyrama.fr`, `sudouest.fr`, `hockey-news.info`, `hockeyitalia21.com`). All 14 HIGH predictions now have written entries.
+- Regenerated the board track end to end: `scripts/model.py` → `scripts/build.py` → `scripts/build_site.py` → `scripts/build_site.py --snapshot`, then ran `scripts/check.py` (PASS, 40 feed rows), `scripts/check_links.py` (PASS, `pages=71 local_links_checked=998 broken=0`), and `python -m unittest discover -s tests` (10/10 pass).
+
+**Irregularities flagged (not fixed, left for a future/integration session):**
+- No work done this session on Volleyball, Tennis, or Gaelic Football verification — all events in those sports remain original unverified/LOW confidence from the prior session.
+- Handball domestic-league fixtures HBL-04, 09–15 (8 events) remain unverified; only the EHF Champions League Round 5 fixtures (7) were confirmed.
+- `data/sports/golf.json`, `data/sports/motor_racing.json`, `data/sports/rugby_league.json` are still absent even though `golf`/`motor_racing`/`rugby_league` OLBG ids are listed in `data/meta.json`'s `allowed_sports_olbg_ids` (pre-existing gap, not created or resolved this session).
+- BSB-01 (MIL Brewers v TB Rays) still has no attached official MLB.com source link; left as-is (pre-existing, out of this session's claimed scope).
+
+**Verification commands run (all green):** `python3 scripts/model.py`, `python3 scripts/build.py`, `python3 scripts/build_site.py`, `python3 scripts/build_site.py --snapshot`, `python3 scripts/check.py`, `python3 scripts/check_links.py`, `python3 -m unittest discover -s tests -v`.
+
+**Rebase onto `session-f7221054`'s merged work (PR #19-#22).** While this session was mid-work, `main` moved 10 commits ahead with the gap-sports coverage work (`task-09`-`task-11` above: Golf/Motor Racing/Greyhounds/Rugby League/Gaelic football rows, `scripts/build_gap_sports.py`, `scripts/check_board.py`, a reworked `scripts/build_site.py`). `git pull --rebase origin arena/dadd85d4-olbg3` found no remote branch yet (first push), so this session rebased onto `origin/main` instead, per the "pull --rebase before every push" rule. Conflict resolution, with no other session's work discarded:
+- `data/official.json`, `scripts/model.py`, `data/events.json` — **no conflict**, untouched by the other session.
+- `data/predictions.json` — the other session's change was a pure re-indent plus a one-line rewording of the RGU-14 body; kept their formatted file and re-applied this session's 9 new predictions on top (all 14 HIGH predictions present afterward).
+- Generated board-track HTML (`index.html`, `flagged.html`, `method.html`, `verification.html`, `audit.html`, `sports/*.html`) — these are build artifacts, not hand-edited; took the other session's newer committed version, then **regenerated everything fresh** by rerunning the full chain (`scripts/model.py` → `scripts/build.py` → `scripts/build_gap_sports.py` → `scripts/build_site.py` → `scripts/build_site.py --snapshot`) so the final HTML reflects both sessions' data (137 rows / 15 sports / 72 verified / 14 HIGH predictions, up from the other session's 137 rows / 11 verified / 5 predictions).
+- `COORDINATION.md` — merged by hand, keeping both sessions' task-board rows and both session-log sections in full (nothing removed).
+- Re-ran the complete check suite after the rebase + rebuild: `scripts/check_board.py` (PASS: rows=137 fixtures=114 outright_or_race=23 verified=72 priced=131 predictions=14), `scripts/check.py` (PASS, 40 feed rows), `scripts/check_links.py` (PASS, `pages=79 local_links_checked=1158 broken=0`), `tools/build_dataset.py` → `tools/originate.py` → `tools/build_site.py` → `tools/check_site.py` (PASS, confirms the OLBG-lines-audit track — which this session did not touch — is still byte-identical/not stale), `python -m unittest discover -s tests` (10/10 pass).
