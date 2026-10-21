@@ -8,7 +8,7 @@
 <header class="topbar">
   <a class="brand" href="index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="index.html">Dashboard</a><a href="predictions.html">Predictions</a><a href="verification.html">Verification</a><a href="flagged.html">Flagged for Review</a><a href="method.html">Method &amp; Scope</a><a href="feed-overview.html">Official feed</a><a href="matches.html">Feed matches</a><a href="coverage.html">Feed coverage</a><a href="review.html">Feed review</a><a href="olbg/index.html">OLBG lines (audit)</a>
+    <a href="index.html">Dashboard</a><a href="predictions.html">Predictions</a><a href="verification.html">Verification</a><a href="audit.html">Audit</a><a href="flagged.html">Flagged for Review</a><a href="method.html">Method &amp; Scope</a><a href="feed-overview.html">Official feed</a><a href="matches.html">Feed matches</a><a href="coverage.html">Feed coverage</a><a href="review.html">Feed review</a><a href="olbg/index.html">OLBG lines (audit)</a>
   </nav>
 </header>
 <main>
@@ -17,14 +17,21 @@
 </section>
 <h2>Scope</h2>
 <p>OLBG lists 20+ sports. We excluded, on instruction: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing,
-cycling and specials. Everything left that sets two sides or two players against each other is on the board.</p>
+cycling and specials. Everything left is on the board: 114 two-sided fixtures plus the 23 outright and race markets that OLBG publishes
+for golf, Formula 1, greyhound racing, rugby league and the Gaelic football championship. A one-selection market is labelled
+&ldquo;outright&rdquo; or &ldquo;race&rdquo; in the Market column so it cannot be mistaken for a match.</p>
 <div class="grid2">
   <div class="panel"><h3>Excluded</h3><ul class="tight"><li>Soccer / Football</li><li>American Football</li><li>Boxing</li><li>UFC / MMA</li><li>Hurling</li><li>Horse Racing</li><li>Cycling</li><li>Specials (TV/Politics/Awards)</li></ul></div>
-  <div class="panel"><h3>Included</h3><ul class="tight"><li><a href='sports/tennis.html'>Tennis</a> &mdash; 14 fixtures</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 14 fixtures</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 7 fixtures</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 9 fixtures</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 fixtures</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 15 fixtures</li><li><a href='sports/darts.html'>Darts</a> &mdash; 14 fixtures</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 6 fixtures</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 fixtures</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 0 fixtures</li><li><a href='sports/handball.html'>Handball</a> &mdash; 15 fixtures</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 4 fixtures</li></ul></div>
+  <div class="panel"><h3>Included</h3><ul class="tight"><li><a href='sports/tennis.html'>Tennis</a> &mdash; 14 rows (14 fixtures, 0 outright/race)</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 14 rows (14 fixtures, 0 outright/race)</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 7 rows (7 fixtures, 0 outright/race)</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 9 rows (9 fixtures, 0 outright/race)</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 rows (1 fixtures, 0 outright/race)</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/darts.html'>Darts</a> &mdash; 14 rows (14 fixtures, 0 outright/race)</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 6 rows (6 fixtures, 0 outright/race)</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/handball.html'>Handball</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 5 rows (4 fixtures, 1 outright/race)</li><li><a href='sports/golf.html'>Golf</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li><li><a href='sports/motor_racing.html'>Motor Racing</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/greyhounds.html'>Greyhounds</a> &mdash; 6 rows (0 fixtures, 6 outright/race)</li></ul></div>
 </div>
 
-<div class="panel" style="margin-top:14px"><h3>Eligible but not captured this pass</h3><ul class="tight"><li>Golf (tournament/outright markets, no two-sided fixture)</li><li>Motor Racing (race markets, no two-sided fixture)</li><li>Greyhound Racing (race markets, no two-sided fixture)</li><li>Esports (no listing surfaced on the OLBG tips index at capture time)</li></ul>
-<p class="dim" style="margin:8px 0 0">These are race or tournament markets rather than two-sided fixtures, so they need a different schema. They are disclosed as a gap, not presented as complete.</p></div>
+<div class="panel" style="margin-top:14px"><h3>Previously disclosed gap, now closed</h3><ul class="tight"><li>Golf - now captured as 10 outright rows (data/raw/gap_sports_capture_20261021.json)</li><li>Motor Racing - now captured as 1 race and 2 outright rows</li><li>Greyhound Racing - now captured as 6 race rows</li></ul>
+<p class="dim" style="margin:8px 0 0">These four sports were missing from the previous build because their rows are race or tournament markets rather than
+two-sided fixtures. They are now captured from the same OLBG listings and priced with the one-selection model described below, so 23 rows
+(22 of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
+<code>scripts/build_gap_sports.py</code>; output: <code>data/gap_sports.json</code>.</p></div>
+<div class="panel" style="margin-top:14px"><h3>Still not captured</h3><ul class="tight"><li>Esports (no listing surfaced on the OLBG tips index at capture time)</li></ul>
+<p class="dim" style="margin:8px 0 0">No esports listing surfaced on the OLBG tips index at capture time. That is disclosed rather than guessed at.</p></div>
 
 <h2>How the OLBG site is structured (reverse-engineered)</h2>
 <pre class="code">listing : https://www.olbg.com/betting-tips/&lt;Sport_Slug&gt;/&lt;sport_id&gt;
@@ -42,6 +49,23 @@ event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Comp
   <li><strong>Everything else.</strong> The only input on the page is OLBG&rsquo;s consensus tip share, so our probability equals that share, capped at 98% (a 100% share cannot be priced). No total, no handicap &mdash; there is no scoring baseline to build one from.</li>
   <li><strong>Pricing.</strong> Decimal odds = (1 &minus; 5%) / probability, i.e. a 5% overround allocated in proportion to probability.</li>
 </ol>
+
+<h2>How outright and race prices are made (the one-selection markets)</h2>
+<p>A golf tournament, an F1 race, a greyhound race or a season-long championship has one winner and no opposing side, so there is no
+home/away split and no draw to price. Handicapping it or setting a "match total" would be invention, so we originate the win price only:</p>
+<ol class="steps">
+  <li><code>p = (wins + a) / (total + k)</code>, where the prior <code>Beta(a, b)</code> has mean <code>1/N</code> and strength <code>k</code>
+      (<code>a = k/N</code>, <code>b = k &minus; k/N</code>). In words: the OLBG tip share is shrunk toward "one chance in a field of N".</li>
+  <li>Decimal odds = <code>(1 &minus; 0.05) / p</code>, the same 5% overround as the two-sided model.</li>
+  <li>If OLBG publishes a selection but no tip count (Hero Women&rsquo;s Indian Open), no probability and no price is originated.</li>
+</ol>
+<p class="note"><strong>Disclosed assumptions.</strong> N and k are ours, not facts. OLBG does not publish a field size on any of these rows.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Field basis</th><th class="num">N assumed</th><th class="num">k (prior strength)</th><th>Why this number</th></tr></thead>
+<tbody><tr><td>all_ireland_32</td><td class='num'>10</td><td class='num'>10</td><td>32</td></tr><tr><td>f1_grid_22</td><td class='num'>12</td><td class='num'>12</td><td>22</td></tr><tr><td>golf_field_156</td><td class='num'>24</td><td class='num'>24</td><td>156</td></tr><tr><td>greyhound_six_dog</td><td class='num'>6</td><td class='num'>6</td><td>6</td></tr><tr><td>nrl_seventeen</td><td class='num'>6</td><td class='num'>6</td><td>17</td></tr><tr><td>state_of_origin_two_side</td><td class='num'>4</td><td class='num'>4</td><td>2</td></tr><tr><td>super_league_twelve</td><td class='num'>6</td><td class='num'>6</td><td>12</td></tr></tbody></table></div>
+<ul class="tight"><li><strong>all_ireland_32</strong> &mdash; Assumed 32-county field for the All-Ireland Senior Football Championship winner market. Not stated on the OLBG page; disclosed assumption.</li><li><strong>f1_grid_22</strong> &mdash; Assumed 22-car grid. formula1.com&#x27;s 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure.</li><li><strong>golf_field_156</strong> &mdash; Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.</li><li><strong>greyhound_six_dog</strong> &mdash; Assumed six-dog field, the standard UK GBGB race size. OLBG&#x27;s race rows do not state the number of runners.</li><li><strong>nrl_seventeen</strong> &mdash; Assumed 17-team NRL field (the 2026 competition size). Not stated on the OLBG page; disclosed assumption.</li><li><strong>state_of_origin_two_side</strong> &mdash; State of Origin is decided between two states (New South Wales and Queensland), so the series-winner market has two outcomes. This is a fact about the competition, not a field-size assumption.</li><li><strong>super_league_twelve</strong> &mdash; Assumed 12-team Super League field for a Grand Final winner market. The competition&#x27;s team count for 2027 is not published on the OLBG page; 12 is the 2026 competition size and is used as a disclosed assumption.</li></ul>
+<p class="dim">The figures above are written into every row (<code>data/gap_sports.json</code>) so a reviewer can recompute the price. Treat them as
+model output, never as a market quote.</p>
 <p class="note"><strong>Disclosed assumptions</strong> (constants we chose, not measured facts):</p>
 <ul class="tight"><li>Rugby union: expected points for a side = mean(its points-for per game, opponent&#x27;s points-against per game); home side gets +3.0 points; margin sd = 13.0 points. Both constants are disclosed modelling assumptions, not measured facts.</li><li>Ice hockey: expected goals for a side = mean(its goals-for per game, opponent&#x27;s goals-against per game); home side gets +0.15 goals; 2-way win probability = logistic(1.0 * goal difference). Modelling assumption.</li><li>Draw: for 3-way sports with official data the draw band is +/-0.5 points around zero margin.</li><li>Overround: 5% total, allocated in proportion to the true (model) probabilities.</li><li>Unverified events: the only available input is the OLBG consensus tip share for one selection, so our probability equals the de-vigged consensus share. These rows are marked basis=&#x27;consensus&#x27; and can never be graded above LOW confidence.</li></ul>
 
@@ -49,12 +73,13 @@ event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Comp
 <p>Three factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
 model probability of the pick &ge;65% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
 A row built only on a public tip share therefore can never be graded above MEDIUM, and in practice lands on LOW.</p>
-<p>Current split: HIGH 5 &middot; MEDIUM 4 &middot; LOW 105.</p>
+<p>Current split: HIGH 14 &middot; MEDIUM 45 &middot; LOW 78.</p>
 
 <h2>What we will not do</h2>
 <ul class="tight">
   <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
-  <li>We do not write predictions for picks we cannot support with verified form. That is why only 5 of 114 rows carry a written prediction.</li>
+  <li>We do not write predictions for picks we cannot support with verified form. That is why only 14 of 137 rows carry a written prediction.</li>
+  <li>We do not claim that a row is verified because a source exists for the competition. A row is verified only when the specific fixture appears on that source; see the <a href="audit.html">audit page</a>.</li>
   <li>We do not present our own prices as facts or as bookmaker odds.</li>
 </ul>
 
