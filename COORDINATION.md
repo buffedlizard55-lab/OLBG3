@@ -94,3 +94,25 @@ blank betting fields, official hosts, unique ids) → `scripts/check_links.py`
 137 lines, 5 predictions, 17 flags). Both publishers receive identical bytes because
 `scripts/build_site.py --snapshot` runs after the artifact copy, and `tools/build_site.py` mirrors this
 track to `olbg/` at the root.
+
+## Publication record (updated 2026-10-21)
+
+| PR | What it did | Merge |
+|---|---|---|
+| #6 | published the OLBG audit track at `/olbg/`, first version | `ccee810` |
+| #10 | replaced unverified claims in three predictions with sourced ones; deep-linked flags | merged |
+| #15 | plain-prose prediction openings; Humphries session pinned to Thursday | merged |
+| #17 | fixed the red Pages build (conflict markers in ten sport boards, two slug conventions) | `3061918` |
+| this PR | final consistency pass: golf / motor racing withdrawn from the board track's `SPORT_ORDER` (its builder has no market input for them, so it rendered empty pages); both sports stay published by this track at `/olbg/sports/` | — |
+
+Post-merge check: run `39550845351` (Actions) and the legacy `pages build and deployment` both green.
+Live verification: `/olbg/`, `/olbg/predictions.html`, `/olbg/flagged.html` and `/sports/golf.html`
+all return 200 from `buffedlizard55-lab.github.io`.
+
+### What the site now contains
+
+| Layer | Route | Rows |
+|---|---|---|
+| Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures |
+| Official feed (hourly NHL/MLB/NBA) | `/matches.html`, `/coverage.html`, `/review.html`, `/feed-overview.html` | 40 rows |
+| OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 17 flags |
