@@ -195,4 +195,13 @@ Those are the same areas this session touched, so the overlap is recorded here r
   `scripts/build.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`,
   OLBG track rebuild, `scripts/check.py`, `scripts/check_links.py`). The one annotation is the pre-existing
   "root snapshot differs from the committed copy" warning, which the snapshot step below addresses.
-* Merge: see the publication table at the end of this file.
+* Merge: **MERGED** 2026-10-21T06:51:44Z as `cb28a3a` (`gh pr merge 19 --merge`), no review wait, as instructed.
+* Post-merge CI on `main`: run **39558081222** (Verify and publish dashboard) **success** and run
+  **39558080745** (`pages build and deployment`, the legacy branch publisher) **success**.
+* Live check after deploy (all HTTP 200 and carrying the new content):
+  `/` (137 rows, 15 sports), `/audit.html` (10 checks), `/sports/golf.html` (10 outright rows with prices),
+  `/sports/greyhounds.html`, `/sports/motor_racing.html`, `/sports/rugby_league.html`,
+  `/flagged.html` (16 findings + 126 unverified rows), `/predictions.html`, `/verification.html`,
+  `/method.html`, and `/olbg/` (audit track unchanged).
+* Only the site pages and the data/scripts listed above were changed. `data/matches.json`,
+  `data/lines.json`, `data/predictions-olbg.json`, `tools/*` and the `/olbg/` track were left untouched.
