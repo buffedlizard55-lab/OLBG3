@@ -23,3 +23,15 @@ class Sources(unittest.TestCase):
         r=parse('Baseball','MLB',{'dates':[{'games':[g]}]},'https://statsapi.mlb.com')[0]
         self.assertEqual(r['home'],'Home');self.assertEqual(r['id'],'MLB-123')
 if __name__=='__main__': unittest.main()
+
+class AdditionalParsers(unittest.TestCase):
+    def test_nhl_parse(self):
+        team=lambda place,name: {'placeName':{'default':place},'commonName':{'default':name}}
+        g={'id':123,'awayTeam':team('Away','Club'),'homeTeam':team('Home','Club'),'startTimeUTC':'2026-10-21T19:00:00Z','gameState':'FUT'}
+        r=parse('Ice hockey','NHL',{'gameWeek':[{'games':[g]}]},'https://api-web.nhle.com')[0]
+        self.assertEqual(r['away'],'Away Club')
+    def test_nba_parse(self):
+        team=lambda place,name: {'teamCity':place,'teamName':name}
+        g={'gameId':'123','awayTeam':team('Away','Club'),'homeTeam':team('Home','Club'),'gameDateTimeUTC':'2026-10-21T19:00:00Z','gameStatus':1}
+        r=parse('Basketball','NBA',{'leagueSchedule':{'gameDates':[{'games':[g]}]}},'https://cdn.nba.com')[0]
+        self.assertEqual(r['home'],'Home Club')
