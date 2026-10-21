@@ -22,12 +22,19 @@ PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/prediction
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 
 SPORT_ORDER = ["Tennis","Basketball","Ice Hockey","Cricket","Baseball","Volleyball","Darts",
-               "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football"]
+               "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football","Golf","Motor Racing"]
 SPORT_META = {}
 for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
     b = json.load(open(path))
     SPORT_META[b["sport"]] = {"slug": os.path.basename(path)[:-5], "listing": b["listing_url"],
                               "note": b["listing_note"], "id": b["olbg_id"]}
+# One slug per sport: the event rows link to sports/<sport_slug>.html, so the coverage table and the
+# method page must derive their slugs from the same place or the two conventions disagree.
+SLUG_BY_SPORT = {}
+for _e in EVENTS:
+    SLUG_BY_SPORT.setdefault(_e["sport"], _e["sport_slug"])
+for _sport, _meta in SPORT_META.items():
+    _meta["slug"] = SLUG_BY_SPORT.get(_sport, _meta["slug"])
 SPORT_META["Rugby League"] = {"slug": "rugby_league", "listing": "https://www.olbg.com/betting-tips/Rugby_League/10",
     "note": "At the time of capture the Rugby League listing showed ONLY outright tournament markets (State of Origin 2027, Super League 2027 Grand Final, NRL 2027 Grand Final) and no dated match fixtures, so it contributes no rows to the match tables. Recorded on the Flagged for Review page.", "id": 10}
 
