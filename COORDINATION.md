@@ -88,7 +88,15 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 - After merge, GitHub ran two publishers on the same push: the **legacy** Pages build ("Deploy to GitHub Pages", Jekyll, `main`/`/`) and our **Actions artifact** (`deploy-pages`). The artifact deploy succeeded, then the legacy build replaced it, and our smoke test failed on the replaced site.
 - `PUT /repos/buffedlizard55-lab/OLBG3/pages` (`build_type=workflow`) returns **403 Resource not accessible by integration** for every token available in this session — the same denial `arena-90bbe96f` logged in PR #3. This is a Pages-settings permission limit, not a Git authentication failure, and it is not reported as fixed.
 - Workaround: the build now mirrors itself into the repository root (`scripts/build_site.py --snapshot`), so the legacy publisher and the artifact publisher serve the same bytes. The artifact remains the fresher copy (hourly feed refresh); the root snapshot is refreshed on each commit that changes the site.
-- This is flagged on the site too, so it stays visible until someone with Pages-settings permission switches the source to Actions. origin/main
+- This is flagged on the site too, so it stays visible until someone with Pages-settings permission switches the source to Actions.
+
+## Session log — `arena/3c4244bd-olbg3`
+
+- Initial checkout began at `96f089b` before concurrent integration commits reached `main`. At that checkout, only `README.md` existed and no task board was present; a provisional coordination file and separate static-dashboard scaffold were created on this assigned Arena branch.
+- Before submitting PR #7, fetched current `origin/main` and found that the integration session had already completed the reverse-engineering/data/site work (T1–T9). PR #7 conflicted because it duplicated the already-integrated site, workflow, app script and README.
+- Conflict resolution preserved `origin/main`'s coordination board, README, Pages workflow, app script, data, generators, tests and published-site implementation. This session's duplicate root-site scaffold/data files were removed rather than overwriting shared outputs. No integration-session files were discarded.
+- No new match facts, lines, picks or verified source claims were contributed. The early scaffold's source-discovery links were not checked and were discarded with the duplicate scaffold; they must not be treated as verified sources.
+- PR #7 is reduced to this coordination/handoff record. Main's existing build/test/deployment records are authoritative; this session does not claim a separate Pages deployment.
 
 - Session branch `arena/6d5f01ec-olbg3`; PR #4 → `main`; see the PR thread for the merge and deployment record (also mirrored here after merge).
 - Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links.
@@ -174,4 +182,4 @@ PASS (`pages=46 local_links_checked=635 broken=0`).
 ## Publication record
 
 - PR: https://github.com/buffedlizard55-lab/OLBG3/pull/6
-- Merge and Pages deployment: recorded below after the merge completes.
+- Merge commit and deployment run: appended here once `main` publishes this track.
