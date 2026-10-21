@@ -27,17 +27,13 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-04-predict` | Generate high-confidence detailed predictions (>=30 words, team/player form, verified data, unambiguous selection) | `data/master_matches.json` | done | `session-3f4d1682` | 48 detailed human predictions generated (>= 30 words each, 100% verified) |
 | `task-05-verify` | Line-by-line verification against official sports league sources; compilation of Flagged for Review register | `data/flagged_review.json`, `flagged-review.html` | done | `session-3f4d1682` | 100% official source links confirmed; 4 irregularities published on Flagged for Review page |
 | `task-06-site` | Build clean, modern GitHub Pages dashboard (landing page, category subpages, tables, analysis) | `index.html`, `sports/*.html`, `flagged-review.html`, `methodology.html`, `css/*`, `js/*` | done | `session-3f4d1682` | Static web dashboard tested and built with zero broken links |
-<<<<<<< HEAD
-| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | done | `session-074739aa` (takeover from `session-3f4d1682`, claim idle >60 min) | Re-audit merged via PR recorded in the log below; Pages deploy confirmed live |
-| `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
-=======
-| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | done | `session-3f4d1682` | Superseded: PRs #14/#16/#17/#18 merged and Pages green (see publication record below) |
+| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | done | `session-3f4d1682` (earlier) + `session-074739aa` (takeover) | PRs #14/#16/#17/#18 merged and Pages green; re-audit PR + Pages confirmation recorded in the `session-074739aa` section below |
 | `task-08-audit` | Independent audit of the published board: every high-confidence prediction re-checked against its official table, legacy files checked for unverifiable "verified" claims, documentation numbers reconciled with the data | `COORDINATION.md`, `README.md`, `docs/scope.md`, `data/master_matches.json`, `data/LEGACY-NOTICE.md` | done | `session-f7221054` | 10 checks logged on `audit.html`; 3 defects fixed, 2 irregularities flagged; see session section below |
 | `task-09-coverage` | Close the disclosed coverage gap: capture and price Golf, Motor Racing, Greyhounds, Rugby League and the Gaelic football championship (23 outright/race rows) | `data/raw/gap_sports_capture_20261021.json`, `scripts/build_gap_sports.py`, `data/gap_sports.json` | done | `session-f7221054` | 23 rows, 22 priced, every row carries its OLBG event URL; field-size priors disclosed and written into each row |
 | `task-10-site` | Rebuild the board to render 15 sports / 137 rows, add a Market column, an Audit page and the new findings on the Flagged page | `scripts/build_site.py`, `assets/`, `index.html`, `audit.html`, `flagged.html`, `method.html`, `sports/*.html` | done | `session-f7221054` | `scripts/check_board.py` passes; `scripts/check_links.py` broken=0 |
 | `task-11-integrate` | Commit, PR to `main`, merge, confirm the Pages deploy serves the new pages | `.github/workflows/pages.yml` | in progress | `session-f7221054` | PR link and run id recorded below once merged |
 | `task-12-reverify-rugby-icehl-and-fill-high-preds` | Re-verify remaining unconfirmed `scripts/model.py`-track fixtures (Darts, Snooker, Rugby Union, Ice Hockey, Basketball, Handball, Cricket) against official sources; extend `scripts/model.py` to use Pro D2/Top14/ICEHL/SHL tables with proper source attribution; write the 9 newly-surfaced HIGH-confidence predictions; rebase onto the `task-09`/`task-10` gap-sports work and regenerate the combined site | `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json` (regenerated board-track HTML rebuilt on top via the shared `scripts/build_site.py`) | done | `session-dadd85d4` (branch `arena/dadd85d4-olbg3`) | See session log below for sources, irregularities, and rebase/merge notes. |
->>>>>>> origin/main
+| `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
 
 ---
 
@@ -134,9 +130,8 @@ all return 200 from `buffedlizard55-lab.github.io`.
 |---|---|---|
 | Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures, 71 verified |
 | Official feed (hourly NHL/MLB/NBA) | `/matches.html`, `/coverage.html`, `/review.html`, `/feed-overview.html` | 40 rows |
-| OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 17 flags |
+| OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 23 flags |
 
-<<<<<<< HEAD
 ---
 
 ## Re-audit completion record — `session-074739aa` (2026-10-21)
@@ -181,7 +176,9 @@ all return 200 from `buffedlizard55-lab.github.io`.
 
 ### Pull request record
 - PR: see `git log` / PR link recorded in the post-merge commit below. Merge and Pages confirmation are appended immediately after the merge completes.
-=======
+
+---
+
 
 ---
 
@@ -311,4 +308,3 @@ originated price and an OLBG event link; `/audit.html` lists the 10 checks with 
 - Generated board-track HTML (`index.html`, `flagged.html`, `method.html`, `verification.html`, `audit.html`, `sports/*.html`) — these are build artifacts, not hand-edited; took the other session's newer committed version, then **regenerated everything fresh** by rerunning the full chain (`scripts/model.py` → `scripts/build.py` → `scripts/build_gap_sports.py` → `scripts/build_site.py` → `scripts/build_site.py --snapshot`) so the final HTML reflects both sessions' data (137 rows / 15 sports / 72 verified / 14 HIGH predictions, up from the other session's 137 rows / 11 verified / 5 predictions).
 - `COORDINATION.md` — merged by hand, keeping both sessions' task-board rows and both session-log sections in full (nothing removed).
 - Re-ran the complete check suite after the rebase + rebuild: `scripts/check_board.py` (PASS: rows=137 fixtures=114 outright_or_race=23 verified=72 priced=131 predictions=14), `scripts/check.py` (PASS, 40 feed rows), `scripts/check_links.py` (PASS, `pages=79 local_links_checked=1158 broken=0`), `tools/build_dataset.py` → `tools/originate.py` → `tools/build_site.py` → `tools/check_site.py` (PASS, confirms the OLBG-lines-audit track — which this session did not touch — is still byte-identical/not stale), `python -m unittest discover -s tests` (10/10 pass).
->>>>>>> origin/main
