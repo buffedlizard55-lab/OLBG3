@@ -35,6 +35,11 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-12-reverify-rugby-icehl-and-fill-high-preds` | Re-verify remaining unconfirmed `scripts/model.py`-track fixtures (Darts, Snooker, Rugby Union, Ice Hockey, Basketball, Handball, Cricket) against official sources; extend `scripts/model.py` to use Pro D2/Top14/ICEHL/SHL tables with proper source attribution; write the 9 newly-surfaced HIGH-confidence predictions; rebase onto the `task-09`/`task-10` gap-sports work and regenerate the combined site | `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json` (regenerated board-track HTML rebuilt on top via the shared `scripts/build_site.py`) | done | `session-dadd85d4` (branch `arena/dadd85d4-olbg3`) | See session log below for sources, irregularities, and rebase/merge notes. |
 | `task-13-reverify-refresh-integrate` | Re-verify the published board line by line against live OLBG listings and official competition sources; fix every discrepancy found; refresh stale captures; re-render and publish the site | `data/events.json`, `data/official.json`, `data/predictions.json`, `data/raw/*`, `scripts/*`, generated root pages + `sports/*.html`, `COORDINATION.md`, `README.md` | done | `session-7244efad` | Claimed 2026-10-21; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) |
 | `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
+| `task-997a-13-source-tier-audit` | Audit every row currently labelled `verified` and classify its cited source as official / club-official / third-party corroboration; publish the tier per row and flag third-party-only rows | `scripts/model.py` (source tier field), `data/official.json` (tier metadata), generated `verification.html`, `flagged.html` | in progress | `session-997a5fc2` | Claimed 2026-10-21 07:2x UTC; no other session holds this scope |
+| `task-997a-14-verify-tail` | Verify the 43 rows still unverified: Tennis 14 (ATP/WTA official), Volleyball 15 (PlusLiga/Lega Volley/VBL/Mestaruusliiga official), Handball 8 (EHF official), Cricket CRK-05, Baseball BSB-01 | `data/official.json` | in progress | `session-997a5fc2` | Owner of this scope; values only from the competition's own site or the club's own site |
+| `task-997a-15-handicap-total` | Originate a handicap and a match total for every two-sided fixture that has a price (currently only 22 of 114 have either); per-sport scoring scales recorded as disclosed assumptions | `scripts/model.py`, `docs/method.md` | in progress | `session-997a5fc2` | Model output only, never a bookmaker quote |
+| `task-997a-16-predictions` | Write 30+ word sourced predictions for every HIGH pick newly surfaced by task-14/15 | `data/predictions.json` | in progress | `session-997a5fc2` | Each prediction cites its official source |
+| `task-997a-17-integrate` | Rebuild both tracks, run every checker, open PR to `main`, merge, confirm Pages deploy serves the updated pages | `index.html`, `sports/*.html`, `verification.html`, `flagged.html`, `method.html`, `COORDINATION.md` | in progress | `session-997a5fc2` | Final integration for this branch |
 
 ---
 
@@ -439,3 +444,22 @@ FL-024..FL-039 in `data/flagged.json` (original ids FL-001..FL-017 of this pass 
 - **06:45 UTC**: Read board. Only `main` on origin; claimed tasks 08-12; claim pushed (15c260f).
 - **06:45-07:05 UTC**: Harvest; **07:05-07:40 UTC**: official-source sweep, verifications, lines, predictions, flags, /olbg rebuild.
 - **07:50 UTC**: `origin/main` found 23 commits ahead (PRs #19-#26). Merged as above; all checks green on the merged tree (dd6093c).
+---
+
+## Session log — `session-997a5fc2` (branch `arena/997a5fc2-olbg3`)
+
+**Claimed 2026-10-21 07:10Z, immediately pushed.** Scope: `scripts/model.py`, `data/official.json`,
+`data/predictions.json`, `data/events.json`, `docs/method.md`, and the generated board pages
+(`index.html`, `sports/*.html`, `verification.html`, `flagged.html`, `method.html`, `audit.html`) rebuilt only
+through `scripts/build_site.py --snapshot`. This session does **not** touch `data/matches.json`, `data/lines.json`,
+`data/verifications.json`, `data/flagged.json`, `data/audit-074739aa.json`, `olbg-board/` or `olbg/` — that is
+the OLBG lines-audit track owned by `session-074739aa` (open PR #25) and it is left untouched.
+
+Tasks claimed: `task-997a-13-source-tier-audit`, `task-997a-14-verify-tail`,
+`task-997a-15-handicap-total`, `task-997a-16-predictions`, `task-997a-17-integrate`.
+
+Finding that motivated the claim, so the next reader can check it independently: of the 71 rows the previous
+sessions labelled `verified`, several cite sources that are not the competition's own site — `tipsterio.de`,
+`sofascore.com`, `as.com`, `tntsports.co.uk`, `espn.com`, `eliteprospects.com`, `cricinfo.com`, `snooker.org`,
+`sport.orf.at`. Those are corroboration, not official confirmation, and the board currently presents all 71 as
+"official". That is the irregularity this session fixes (task-13).
