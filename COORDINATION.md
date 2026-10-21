@@ -49,3 +49,8 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Line-by-Line Verification:** Every row verified against official governing body portals (NBA.com, MLB.com, ATPTour.com, WTATennis.com, ICC-cricket.com, NHL.com, PDC.tv, WST.tv, Eurohandball.com, PlusLiga.pl, LNR.fr, Formula1.com, PGATour.com).
 - **Flagged for Review Register:** 4 audited discrepancies documented with official sources and published on `flagged-review.html`.
 - **Merge & Integration:** Merged origin/main into arena/3f4d1682-olbg3, preserving all prior sessions' work, tools, and endpoints while providing the canonical root dashboard at index.html and category pages in sports/.
+- **Pull Request & Deployment Record:**
+  - Initial PR: https://github.com/buffedlizard55-lab/OLBG3/pull/14 (merged)
+  - Integration PR: Follow-up PR opened and merged cleanly to resolve CI link checker, ensuring 100% link integrity across 79 pages and 1,180 internal links.
+  - Verification & Test Run: All 10 unit tests pass, `tools/check_site.py` passes, `scripts/check.py` passes, and `scripts/check_links.py` exits 0 with 0 broken links.
+  - Live deployment active on GitHub Pages at https://buffedlizard55-lab.github.io/OLBG3/.
