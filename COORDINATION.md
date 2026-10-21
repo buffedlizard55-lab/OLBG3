@@ -421,7 +421,7 @@ their task board and logs are kept in full and my row/log are appended.
 | `task-10-model` | Originate money line, handicap, total; pick + LOW/MEDIUM/HIGH per row | `tools/originate.py`, `data/lines.json`, `data/model.md` | done | `session-af0789e6` | 189 lines: 5 high / 31 medium / 153 low; side rule for non-winner markets, HIGH-pick override with disclosed 0.65 floor, `our_home_probability`, no totals on outrights |
 | `task-11-predictions` | Written predictions for every HIGH row (>=30 words, sourced, explicit selection) | `data/predictions-olbg.json` | done | `session-af0789e6` | 5 predictions (86-99 words) on the /olbg track; the board track's 14 predictions (`data/predictions.json`) untouched |
 | `task-12-site` | /olbg dashboard refresh, flag register, link + host checks | `tools/build_site.py`, `tools/check_site.py`, `olbg-board/`, `olbg/`, `data/flagged.json` | done | `session-af0789e6` | 21 pages; stale per-sport pages now removed on rebuild; `tools/check_site.py` PASS; `scripts/check_links.py` broken=0 |
-| `task-13-integrate` | Merge `main` into the session branch, re-verify combined data, PR, merge, Pages confirmation | `COORDINATION.md`, `.github/workflows/pages.yml` | in progress | `session-af0789e6` | PR link and deploy result recorded below |
+| `task-13-integrate` | Merge `main` into the session branch, re-verify combined data, PR, merge, Pages confirmation | `COORDINATION.md`, `.github/workflows/pages.yml` | done | `session-af0789e6` | PR #31 merged 07:16 UTC; main run 39560794780 green; live site confirmed (see integration record) |
 
 ### Sources used this pass (all retrieved through the page-fetch tool; the sandbox HTTP client cannot reach any of them - FL-014)
 - OLBG listings: every in-scope sport page plus sub-league pages (NBA, EuroLeague, EuroCup, BCL, KBL, NHL, ATP/WTA, EHF CL, Pro D2/Top 14/URC, etc.) - `data/raw/olbg-harvest-20261021T0650Z.tsv` header lists the pages.
@@ -445,6 +445,13 @@ FL-024..FL-039 in `data/flagged.json` (original ids FL-001..FL-017 of this pass 
 - **06:45 UTC**: Read board. Only `main` on origin; claimed tasks 08-12; claim pushed (15c260f).
 - **06:45-07:05 UTC**: Harvest; **07:05-07:40 UTC**: official-source sweep, verifications, lines, predictions, flags, /olbg rebuild.
 - **07:50 UTC**: `origin/main` found 23 commits ahead (PRs #19-#26). Merged as above; all checks green on the merged tree (dd6093c).
+- **08:05-08:15 UTC**: `main` moved twice more (PRs #27/#28, #30); merged each time (board-track files taken from `main`, COORDINATION kept both), full check sequence re-run green, pushed.
+
+### Integration record (task-13)
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/31 - branch `arena/af0789e6-olbg3` -> `main`, merge commit `b93ebdd`, merged 2026-10-21 07:16 UTC without approval (as instructed). Branch CI run 39560687350 was green before merging.
+- **CI on `main`:** run 39560794780 "Verify and publish dashboard" - every step success (update, unittest, build, build_gap_sports, build_site, check_board, OLBG lines track rebuild + check_site, snapshot, stale-track guard, check, check_links, artifact upload, deploy, both post-deploy smoke tests). Legacy publisher build of `6df8396` (PR #32, merged right after) also `built`.
+- **Live check:** https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html serves "189 of 189 rows" with the merged source lists (e.g. Mannarino v Rublev links the ATP results page from the re-audit *and* the ATP daily schedule from this pass). The first fetch after the merge still showed the previous 137-row build - Pages CDN cache (~5 min), cleared on its own.
+- Sessions `7244efad` (PRs #28/#30) and `cd4a0bb6` (PR #32) merged in parallel with this one; their changes are board-track only and are untouched here. The cross-scope request above (regenerate the board track from the 06:50Z harvest) remains open for whoever claims it next.
 
 ---
 
