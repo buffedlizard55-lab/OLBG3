@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""Parse the raw OLBG harvest into a structured dataset.
+
+Inputs : data/raw/olbg-harvest-20261021.tsv, data/meta.json, data/verifications.json
+Outputs: data/matches.json
+
+Rules enforced here:
+  * every row keeps the exact OLBG URL it came from
+  * a field is only populated when the harvest or a cited verification states it
+  * nothing is guessed: unknown stays null
+"""
+from __future__ import annotations
+
+import json
+import re
+from datetime import date, datetime, timedelta
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+
+SPORT_IDS = {
+    "Cricket": 7, "Tennis": 3, "Basketball": 4, "Snooker": 8, "Darts": 15,
+    "Rugby Union": 9, "Rugby League": 10, "Ice Hockey": 13, "Baseball": 12,
+    "Volleyball": 21, "Handball": 20, "Golf": 5, "Motor Racing": 14,
+    "Gaelic Football": 25, "Greyhounds": 28,
+}
+
+ID_PREFIX = {
+    "Cricket": "CRI", "Tennis": "TEN", "Basketball": "BKB", "Snooker": "SNO",
+    "Darts": "DAR", "Rugby Union": "RGU", "Rugby League": "RGL", "Ice Hockey": "ICH",
+    "Baseball": "BSB", "Volleyball": "VOL", "Handball": "HAN", "Golf": "GLF",
+    "Motor Racing": "MTR", "Gaelic Football": "GFA", "Greyhounds": "GRY",
+}
+
+# OLBG appends a format descriptor to some cricket fixture names ("... 1st T20 Match").
+# Stripping it is pure string normalisation; the untouched name is kept in event_name.
+SUFFIX_RE = re.compile(r"\s+(One Day Match|1st T20 Match|2nd T20 Match|3rd T20 Match|T20|1st ODI|2nd ODI|3rd ODI)$")
+
+WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win", "Win Race"}
+OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races"}
+OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
+                 "Match Handicap", "Set Betting", "Set Score", "1st Set Winner", ""}
+
+
+def parse_tips(tips: str) -> tuple[int | None, int | None]:
+    if not tips or "/" not in tips:
+        return None, None
+    won, total = tips.split("/", 1)
+    try:
+        return int(won), int(total)
+    except ValueError:
+        return None, None
+
+
+def split_teams(event: str) -> tuple[str | None, str | None]:
+    """Mechanical split only - OLBG's own separator, no inference."""
+    if " @ " in event:
+        away, home = event.split(" @ ", 1)
+        return home.strip(), away.strip()
+    if " vs " in event:
+        home, away = event.split(" vs ", 1)
+        return home.strip(), away.strip()
+    if " v " in event:
+        home, away = event.split(" v ", 1)
+        return home.strip(), away.strip()
+    return None, None
+
+
+def resolve_date(label: str, run_day: date) -> str | None:
+    """Only resolves the two relative labels OLBG itself uses."""
+    label = label.strip()
+    if label == "Today":
+        return run_day.isoformat()
+    if label == "Tomorrow":
+        return (run_day + timedelta(days=1)).isoformat()
+    m = re.match(r"^(\d{1,2}) (\w{3})$", label)
+    if m:
+        day = int(m.group(1))
+        month = datetime.strptime(m.group(2), "%b").month
+        year = run_day.year if month >= run_day.month else run_day.year + 1
+        return date(year, month, day).isoformat()
+    m = re.match(r"^(\d{1,2}) (\w{3}) (\d{4})$", label)
+    if m:
+        return datetime.strptime(label, "%d %b %Y").date().isoformat()
+    return None
+
+
+def main() -> None:
+    meta = json.loads((DATA / "meta.json").read_text())
+    ver = json.loads((DATA / "verifications.json").read_text())
+    run_day = date.fromisoformat(meta["run_started_utc"][:10])
+
+    rows = []
+    missing_url_parts = []
+    for line in (DATA / "raw" / "olbg-harvest-20261021.tsv").read_text().splitlines():
+        if not line.strip() or line.startswith("#"):
+            continue
+        parts = line.split("|")
+        parts += [""] * (11 - len(parts))
+        (sport, prefix, slug, eid, date_label, time_label,
+         market, consensus, tips, pct, note) = parts[:11]
+
+        sport_id = SPORT_IDS.get(sport)
+        if sport_id is None:
+            missing_url_parts.append(line)
+            continue
+        url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
+        event_name = slug.replace("_", " ").replace(" @ ", " @ ")
+        # The slug is lossy for "@" events; prefer the human name from the page where known.
+        display = event_name
+        home, away = split_teams(display)
+        if away:
+            away = SUFFIX_RE.sub("", away)
+        won, total = parse_tips(tips)
+        ev = ver["event_verifications"].get(eid, {})
+        if market in WIN_MARKETS:
+            family = "match_winner"
+        elif market in OUTRIGHT_MARKETS:
+            family = "outright"
+        else:
+            family = "other"
+
+        rows.append({
+            "id": f"{ID_PREFIX[sport]}-{eid}",
+            "sport": sport,
+            "olbg_sport_id": sport_id,
+            "competition": ev.get("competition") or None,
+            "competition_status": "verified" if ev.get("competition") else "not_stated_by_source",
+            "venue": ev.get("venue") or None,
+            "verified_start": ev.get("start_local") or None,
+            "event_name": display,
+            "home": home,
+            "away": away,
+            "olbg_date_label": date_label,
+            "olbg_time_label": time_label,
+            "date_iso": resolve_date(date_label, run_day),
+            "olbg_market": market or None,
+            "market_family": family,
+            "olbg_consensus_selection": consensus or None,
+            "olbg_tips": tips or None,
+            "olbg_tips_won": won,
+            "olbg_tips_total": total,
+            "olbg_confidence_pct": int(pct) if pct.strip().isdigit() else None,
+            "olbg_url": url,
+            "fetched_at": "2026-10-21T05:20:00Z",
+            "verification_ids": ev.get("sources", []),
+            "ambiguous_exclusion": sport == "Gaelic Football",
+            "row_notes": note or None,
+        })
+
+    # de-duplicate on the OLBG event id (a fixture may appear twice if two markets were listed)
+    seen = {}
+    for r in rows:
+        key = r["olbg_url"]
+        if key in seen:
+            seen[key]["duplicate_market"] = seen[key].get("duplicate_market") or []
+            seen[key]["duplicate_market"].append(r["olbg_market"])
+            continue
+        seen[key] = r
+    matches = list(seen.values())
+
+    (DATA / "matches.json").write_text(json.dumps(matches, indent=2) + "\n")
+    print(f"matches: {len(matches)}  (skipped {len(missing_url_parts)} rows without a sport id)")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,143 @@
+# Raw OLBG harvest — pipe-delimited, one row per OLBG listing entry.
+# Retrieved 2026-10-21 (times shown as rendered by OLBG). Sport IDs from https://www.olbg.com/betting-tips
+# Columns:
+# sport|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|pct|note
+# Full URL = https://www.olbg.com/betting-tips/{path_prefix}/{slug}/{sport_id}?event_id={event_id}
+# Blank values are left blank on purpose. Nothing is inferred.
+Cricket|Cricket/All_Cricket/All_Events|Afghanistan_vs_Bangladesh_One_Day_Match|188824|Today|07:30|Win Match|Afghanistan|7/7|100|competition not named on listing
+Cricket|Cricket/All_Cricket/All_Events|Northern_Cape_Heat_vs_Garden_Route_Badgers_T20|188823|Today|07:00|Win Match|Garden Route Badgers|5/8|63|competition not named
+Cricket|Cricket/All_Cricket/All_Events|North_West_Dragons_vs_Limpopo_Impalas_T20|188810|Today|12:00|Win Match|North West Dragons|5/6|83|competition not named
+Cricket|Cricket/All_Cricket/All_Events|New_Zealand_vs_India_1st_T20_Match|188814|Tomorrow|03:00|Win Match|India|5/7|71|series verified separately (see verifications.json)
+Cricket|Cricket/All_Cricket/All_Events|Eastern_Storm_vs_Tuskers_T20|188811|Tomorrow|12:00|Win Match|Eastern Storm|4/4|100|competition not named
+Cricket|Cricket/All_Cricket/All_Events|Namibia_vs_Ireland_1st_ODI|188828|Tomorrow|04:00|Win Match|Ireland|3/3|100|competition not named
+Cricket|Cricket/All_Cricket/All_Events|England_vs_Sri_Lanka_One_Day_Match|188829|Tomorrow|04:00|Win Match|England|1/2|50|competition not named
+Cricket|Cricket/All_Cricket/All_Events|Australia_W_vs_New_Zealand_W_3rd_T20_Match|188826|Tomorrow|04:15|Win Match|Australia W|1/2|50|women's international
+Cricket|Cricket/All_Cricket/All_Events|Mpumalanga_Rhinos_vs_South_Africa_Emerging_T20|188825|Tomorrow|07:00|Win Match|South Africa Emerging|1/2|50|competition not named
+Tennis|Tennis/All_Tennis/All_Events|Leylah_Fernandez_vs_Aliaksandra_Sasnovich|902039|Today|02:30|Win Match|Leylah Fernandez|6/7|86|tournament not named on listing
+Tennis|Tennis/All_Tennis/All_Events|Katie_Boulter_vs_Viktorija_Golubic|902065|Today|01:30|Win Match|Katie Boulter|5/8|63|tournament not named
+Tennis|Tennis/All_Tennis/All_Events|James_Duckworth_vs_Luciano_Darderi|902038|Today|02:30|Win Match|Luciano Darderi|4/5|80|tournament not named
+Tennis|Tennis/All_Tennis/All_Events|Adrian_Mannarino_vs_Andrey_Rublev|902037|Today|05:30|Win Match|Andrey Rublev|4/5|80|tournament not named
+Tennis|Tennis/All_Tennis/All_Events|Sorana_Cirstea_vs_Sara_Bejlek|902074|Today|04:00|Win Match|Sara Bejlek|3/6|50|tournament not named
+Tennis|Tennis/All_Tennis/All_Events|Zangar_Nurlanuly_vs_Tomas_Machac|901935|Today|04:00|1st Set Winner|Zangar Nurlanuly|3/4|75|OLBG consensus is a 1st-set market, not match winner
+Tennis|Tennis/All_Tennis/All_Events|Mattia_Bellucci_vs_Tomas_Martin_Etcheverry|901993|Today|02:30|Set Betting|Tomas Martin Etcheverry to win 2 - 1|2/3|67|set-betting market
+Tennis|Tennis/All_Tennis/All_Events|Dino_Prizmic_vs_Damir_Dzumhur|901896|Today|05:30|Win Match|Damir Dzumhur|2/2|100|only two tips
+Tennis|Tennis/All_Tennis/All_Events|Stan_Wawrinka_vs_Martin_Landaluce|901974|Today|08:00|Win Match|Stan Wawrinka|2/2|100|only two tips
+Tennis|Tennis/All_Tennis/All_Events|David_Goffin_vs_Remy_Bertola|902028|Today|12:00|Win Match|David Goffin|2/2|100|only two tips
+Tennis|Tennis/All_Tennis/All_Events|Facundo_Diaz_Acosta_vs_Nikoloz_Basilashvili|902040|Today|04:00|Set Betting|Nikoloz Basilashvili to win 2 - 1|1/2|50|set-betting market
+Tennis|Tennis/All_Tennis/All_Events|Martin_Damm_vs_Francisco_Cerundolo|902048|Today|05:30|Set Betting|Francisco Cerundolo to win 2 - 1|1/1|100|single tip
+Tennis|Tennis/All_Tennis/All_Events|Mariano_Navone_vs_Tallon_Griekspoor|902085|Today|07:00|Win Match|Tallon Griekspoor|1/1|100|single tip
+Tennis|Tennis/All_Tennis/All_Events|Ekaterina_Alexandrova_vs_Marta_Kostyuk|902084|Today|07:00|Win Match|Marta Kostyuk|||tip count cut off in retrieved page
+Basketball|Basketball/NBA/NBA|MIL_Bucks_@_WAS_Wizards|534889|Today|19:10|Money Line|WAS Wizards|9/11|82|US '@' notation = away team first
+Basketball|Basketball/European/Euroleague|Hapoel_Tel_Aviv_vs_Virtus_Bologna|535919|Today|12:00|Money Line|Hapoel Tel Aviv|5/8|63|
+Basketball|Basketball/Other/Korea_KBL|Seoul_Thunders_vs_KCC_Egis|535966|Today|06:00|Money Line|Seoul Thunders|3/5|60|
+Basketball|Basketball/NBA/NBA|ATL_Hawks_@_ORL_Magic|534888|Today|19:10|Money Line|ATL Hawks|3/5|60|consensus on road team
+Basketball|Basketball/NBA/NBA|CHI_Bulls_@_TOR_Raptors|535673|Today|19:40|Money Line|TOR Raptors|3/4|75|
+Basketball|Basketball/European/Euro_Cup|PAOK_vs_Ratiopharm_Ulm|535952|Today|13:00|Money Line|PAOK|2/2|100|two tips
+Basketball|Basketball/European/Euro_Cup|Bosna_Sarajevo_vs_Bahcesehir_Koleji|535950|Today|13:30|Money Line|Bahcesehir Koleji|2/3|67|
+Basketball|Basketball/European/Euro_Cup|Hapoel_Jerusalem_vs_Rigas_Zelli|535956|Today|14:00|Money Line|Hapoel Jerusalem|2/3|67|
+Basketball|Basketball/NBA/NBA|IND_Pacers_@_NO_Pelicans|534892|Today|20:10|Money Line|NO Pelicans|2/4|50|even split
+Basketball|Basketball/NBA/NBA|PHX_Suns_@_POR_Trail_Blazers|534893|Today|22:10|Money Line|PHX Suns|2/3|67|
+Basketball|Basketball/European/Euroleague|Panathinaikos_vs_Baskonia|535923|Tomorrow|14:15|Money Line|Panathinaikos|2/3|67|
+Basketball|Basketball/NBA/NBA|DEN_Nuggets_@_OKC_Thunder|534843|Tomorrow|21:40|Money Line|OKC Thunder|2/2|100|two tips
+Basketball|Basketball/European/Euro_Cup|U_BT_Cluj_Napoca_vs_London_Lions|535949|Today|12:00|Money Line|London Lions|1/2|50|
+Basketball|Basketball/European/Basketball_Champions_League|AEK_vs_Antwerp_Giants|535969|Today|12:00|Money Line|Antwerp Giants|1/2|50|
+Snooker|Snooker/All_Snooker/All_Events|Cheung_Ka_Wai_v_Stuart_Bingham|9933|Today|05:00|Win Match|Cheung Ka Wai|8/11|73|
+Snooker|Snooker/All_Snooker/All_Events|Pang_Junxu_v_Liam_Davies|9929|Today|05:00|Win Match|Pang Junxu|6/9|67|
+Snooker|Snooker/All_Snooker/All_Events|Elliot_Slessor_v_Jamie_Jones|9931|Today|15:00|Win Match|Jamie Jones|4/4|100|four tips
+Snooker|Snooker/All_Snooker/All_Events|Luca_Brecel_v_Martin_O_Donnell|9932|Today|15:00|Win Match|Martin O Donnell|4/5|80|
+Snooker|Snooker/All_Snooker/All_Events|John_Higgins_v_Jak_Jones|9934|Today|08:00|Win Match|John Higgins|3/6|50|even split
+Snooker|Snooker/All_Snooker/All_Events|Sam_Craigie_v_Xu_Si|9930|Today|09:00|Win Match|Sam Craigie|3/3|100|three tips
+Darts|Darts/All_Darts/All_Events|Luke_Woodhouse_vs_Dirk_van_Duijvenbode|32324|Tomorrow|13:15|Win Match 2-way|Dirk van Duijvenbode|7/8|88|
+Darts|Darts/All_Darts/All_Events|Niels_Zonneveld_vs_Cameron_Menzies|32334|Tomorrow|14:15|Win Match 2-way|Niels Zonneveld|6/7|86|
+Darts|Darts/All_Darts/All_Events|Gerwyn_Price_vs_Rob_Cross|32325|Tomorrow|14:45|Win Match 2-way|Gerwyn Price|5/7|71|
+Darts|Darts/All_Darts/All_Events|James_Wade_vs_Damon_Heta|32322|Tomorrow|15:15|Win Match 2-way|James Wade|5/8|63|
+Darts|Darts/All_Darts/All_Events|Luke_Humphries_vs_Ryan_Searle|32337|Tomorrow|15:45|Win Match 2-way|Luke Humphries|5/7|71|
+Darts|Darts/All_Darts/All_Events|Danny_Noppert_vs_Stephen_Bunting|32330|Tomorrow|13:45|Total Legs|Over 9.50|4/4|100|total-legs market
+Darts|Darts/All_Darts/All_Events|Gian_van_Veen_vs_Andrew_Gilding|32323|Tomorrow|16:15|Win Match 2-way|Gian van Veen|4/6|67|
+Darts|Darts/All_Darts/All_Events|Ross_Smith_vs_Karel_Sedlacek|32329|Tomorrow|16:45|Win Match 2-way|Ross Smith|4/8|50|even split
+Darts|Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|23 Oct|14:45|Win Match 2-way|Jonny Clayton|4/6|67|
+Darts|Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|23 Oct|13:15|Win Match 2-way|Ryan Joyce|2/3|67|
+Darts|Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|23 Oct|13:45|Win Match 2-way|Krzysztof Ratajski|2/4|50|even split
+Darts|Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|23 Oct|14:15|Win Match 2-way|Cristo Reyes|2/3|67|
+Darts|Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|23 Oct|15:15|Handicap 2-way|William OConnor +3.50|2/2|100|handicap market
+Darts|Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|23 Oct|15:45|Win Match 2-way|Martin Schindler|2/3|67|
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Montauban_v_Oyonnax|609556|Tomorrow|15:00|To Win|Oyonnax|5/7|71|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Agen_v_Nissa|609558|23 Oct|13:30|To Win|Nissa|3/4|75|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Soyaux_Angouleme_v_Dax|609563|23 Oct|13:30|To Win|Dax|3/3|100|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Connacht_v_Zebre_Parma|609577|23 Oct|14:45|To Win|Connacht|3/5|60|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Narbonne_v_Brive|609557|23 Oct|13:00|To Win|Narbonne|2/2|100|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Aurillac_v_Nevers|609560|23 Oct|13:30|To Win|Nevers|2/4|50|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Bulls_v_Ulster|609576|24 Oct|07:45|Handicap|Ulster +18.50|2/2|100|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Valence_Romans_v_Colomiers|609559|23 Oct|13:30|To Win|Colomiers|1/1|100|single tip
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Grenoble_v_Biarritz|609561|23 Oct|15:00|Handicap|Biarritz +11.50|1/1|100|single tip
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Provence_v_Beziers|609562|23 Oct|15:00|Handicap|Beziers +28.50|1/1|100|single tip
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Stormers_v_Scarlets|609580|24 Oct|10:00|To Win|Stormers|1/2|50|competition not named
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Bayonne_v_Lyon|609564|24 Oct|10:35|Handicap|Lyon +10.50|1/1|100|single tip
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Toulouse_v_Perpignan|609567|24 Oct|10:35|Handicap|Perpignan +23.50|1/1|100|single tip
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|Leinster_v_Munster|609578|24 Oct|13:00|To Win|Leinster|1/1|100|single tip
+Rugby Union|Rugby_Union/All_Rugby_Union/All_Events|La_Rochelle_v_Bordeaux|609554|25 Oct|16:05|To Win|La Rochelle|||tip count cut off in retrieved page
+Ice Hockey|Ice_Hockey/Other/Austria_EHL|Pustertal_vs_Pioneers_Vorarlberg|199881|Today|18:45|Money Line|Pustertal|2/2|100|
+Ice Hockey|Ice_Hockey/Other/Austria_EHL|HCB_Sudtirol_Alperia_vs_HC_TWK_Innsbruck|199878|Today|18:45|Money Line|HCB Sudtirol Alperia|2/2|100|
+Ice Hockey|Ice_Hockey/Other/Swedish_Hockey_League|Timra_IK_vs_Farjestad_BK|199901|Tomorrow|18:00|Money Line|Farjestad BK|2/2|100|
+Ice Hockey|Ice_Hockey/Other/Austria_EHL|Graz_99ers_vs_Milano_HC|199876|Today|17:30|Puck Line|Graz 99ers -1.50|1/1|100|puck-line market
+Ice Hockey|Ice_Hockey/Other/Austria_EHL|KAC_Klagenfurt_vs_Fehervar_AV19|199880|Today|18:15|Money Line|KAC Klagenfurt|1/1|100|
+Ice Hockey|Ice_Hockey/NHL/NHL|PHI_Flyers_@_BUF_Sabres|199897|Tomorrow|00:37|Game Totals|Over 5.50|1/1|100|game-totals market; listed time disagrees with official puck-drop (see flagged)
+Ice Hockey|Ice_Hockey/NHL/NHL|FLA_Panthers_@_OTT_Senators|199896|Tomorrow|00:37|Game Totals|Over 5.50|1/1|100|game-totals market
+Baseball|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|23 Oct|20:00|Money Line|TB Rays|3/6|50|even split; verified as World Series Game 1
+Volleyball|Volleyball/All_Volleyball/All_Events|Puijo_W_vs_Orpo_W|36981|Today|10:00|Win Match|Puijo W|3/3|100|competition not named
+Volleyball|Volleyball/All_Volleyball/All_Events|LUK_Lublin_vs_Trefl_Gdansk|36961|Today|11:30|Win Match|LUK Lublin|3/3|100|competition not named
+Volleyball|Volleyball/All_Volleyball/All_Events|Schweriner_W_vs_Erfurt_W|36945|Today|12:00|Win Match|Schweriner W|3/3|100|competition not named
+Volleyball|Volleyball/All_Volleyball/All_Events|Slepsk_Suwalki_vs_GKS_Katowice|36963|23 Oct|11:30|Win Match|Slepsk Suwalki|2/2|100|competition not named
+Volleyball|Volleyball/All_Volleyball/All_Events|PGE_Skra_Belchatow_vs_Projekt_Warszawa|36964|24 Oct|12:00|Win Match|Projekt Warszawa|2/2|100|competition not named
+Volleyball|Volleyball/All_Volleyball/All_Events|CHKS_Chelm_vs_Resovia_Rzeszow|36965|25 Oct|13:00|Win Match|Resovia Rzeszow|2/2|100|competition not named
+Volleyball|Volleyball/All_Volleyball/All_Events|Jelcz_Laskowice_vs_Stal_Nysa|36979|Today|12:00|Win Match|Stal Nysa|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|Netzhoppers_KW_vs_Helios_Grizzlys_Giesen|36984|Today|13:00|Win Match|Helios Grizzlys Giesen|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|WWK_Volleys_Munchen_vs_VfB_Friedrichshafen|36985|Today|13:30|Win Match|VfB Friedrichshafen|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|SSC_Karlsruhe_vs_SVG_Luneburg|36986|Today|14:00|Win Match|SVG Luneburg|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|VC_Sneek_W_vs_VV_Utrecht_W|36968|Today|14:00|Win Match|VC Sneek W|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|Warta_Zawiercie_vs_Kedzierzyn_Kozle|36962|Today|14:30|Win Match|Warta Zawiercie|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|Vallefoglia_W_vs_Cuneo_W|36977|Today|14:30|Set Score|Cuneo W to win 3-0|1/1|100|set-score market
+Volleyball|Volleyball/All_Volleyball/All_Events|Bergamo_W_vs_Milano_W|36974|Today|14:30|Win Match|Milano W|1/1|100|single tip
+Volleyball|Volleyball/All_Volleyball/All_Events|Novara_W_vs_Marignano_W|36976|Today|14:30|Win Match|Novara W|||row truncated in retrieved page
+Handball|Handball/All_Handball/All_Events|RK_Zagreb_vs_PSG_Handball|12053|Today|12:45|Money Line|PSG Handball|8/13|62|
+Handball|Handball/All_Handball/All_Events|Nantes_vs_HC_Vardar|12050|Today|14:45|Money Line|Nantes|6/10|60|
+Handball|Handball/All_Handball/All_Events|Veszprem_vs_Fuchse_Berlin|12055|Today|12:45|Money Line|Veszprem|5/11|45|minority of tips
+Handball|Handball/All_Handball/All_Events|Sandefjord_vs_Runar|12115|Today|12:15|Money Line|Runar|4/5|80|
+Handball|Handball/All_Handball/All_Events|Dinamo_Bucuresti_vs_Skanderborg_Handbold|12045|Today|12:45|Money Line|Dinamo Bucuresti|4/11|36|minority of tips
+Handball|Handball/All_Handball/All_Events|Aalborg_Handbold_vs_RK_Celje|12044|Today|14:45|Money Line|Tie|4/5|80|consensus is the draw
+Handball|Handball/All_Handball/All_Events|RK_Partizan_vs_FC_Porto|12052|Today|12:45|Money Line|RK Partizan|3/8|38|minority of tips
+Handball|Handball/All_Handball/All_Events|HC_Kriens_Luzern_vs_KS_Kielce|12047|Today|14:45|Money Line|Tie|3/6|50|consensus is the draw
+Handball|Handball/All_Handball/All_Events|Kolstad_vs_SC_Magdeburg|12048|Tomorrow|14:45|Money Line|Tie|3/6|50|consensus is the draw
+Handball|Handball/All_Handball/All_Events|Sporting_CP_vs_IFK_Kristianstad|12054|Tomorrow|14:45|Money Line|Tie|3/7|43|consensus is the draw
+Handball|Handball/All_Handball/All_Events|IF_Hallby_HK_vs_IK_Savehof|12114|Today|13:00|Money Line|IK Savehof|2/3|67|
+Handball|Handball/All_Handball/All_Events|Hammarby_IF_HF_vs_Alingsas_HK|12112|Today|13:00|Money Line|Hammarby IF HF|2/3|67|
+Handball|Handball/All_Handball/All_Events|Mors_Thy_Handbold_vs_Bjerringbro_Silkeborg|12072|Today|14:00|Match Handicap|Mors Thy Handbold +3.50|2/2|100|handicap market
+Handball|Handball/All_Handball/All_Events|MT_Melsungen_vs_Wisla_Plock|12049|Tomorrow|12:45|Money Line|MT Melsungen|2/4|50|even split
+Handball|Handball/All_Handball/All_Events|Pick_Szeged_vs_GOG|12051|Tomorrow|12:45|Money Line|GOG|2/4|50|even split
+Golf|Golf/All_Golf/All_Events|Genesis_Championship|101905|25 Oct|04:00|Win Tournament|Si Woo Kim|5/18|28|outright market
+Golf|Golf/All_Golf/All_Events|Bermuda_Championship|101904|25 Oct|17:45|Win Tournament|Ben James|3/12|25|outright market
+Golf|Golf/All_Golf/All_Events|Players_Series_SA|101907|25 Oct|02:45|Win Tournament|Josh Armstrong|2/2|100|outright market
+Golf|Golf/All_Golf/All_Events|BMW_Ladies_Championship|101906|25 Oct|04:00|Win Tournament|Sei Young Kim|2/8|25|outright market
+Golf|Golf/All_Golf/All_Events|Stifel_Charity_Classic|101903|25 Oct|17:45|Win Tournament|Steven Alker|2/7|29|outright market
+Golf|Golf/All_Golf/All_Events|Senior_Italian_Open|101911|24 Oct|11:45|Win Tournament|Mikael Lundberg|1/2|50|outright market
+Golf|Golf/All_Golf/All_Events|Fortinet_Players_Cup|101908|25 Oct|02:45|Win Tournament|Ryosuke Kinoshita|1/2|50|outright market
+Golf|Golf/All_Golf/All_Events|Hong_Kong_Open|101910|25 Oct|03:45|Win Tournament|Paul Casey|1/3|33|outright market
+Golf|Golf/All_Golf/All_Events|Stella_Artois_Players_Championship|101912|25 Oct|10:45|Win Tournament|Daniel van Tonder|1/2|50|outright market
+Golf|Golf/All_Golf/All_Events|Hero_Womens_Indian_Open|101909|25 Oct|08:00|Win Tournament|Avani Prashanth|||tip count cut off in retrieved page
+Motor Racing|Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|913|25 Oct|16:00|Win Race|Max Verstappen|10/31|32|race-winner market
+Motor Racing|Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026|828|06 Dec|08:00|Win Tournament|Max Verstappen|9/33|27|season futures
+Motor Racing|Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli|912|06 Dec|08:00|Win Tournament|Max Verstappen|4/6|67|season futures, 'without' market
+Gaelic Football|Gaelic_Football/All_Gaelic_Football/All_Events|St_Finbarrs_v_Nemo_Rangers|3530|25 Oct|12:00||Nemo Rangers +1.50|10/12|83|market not shown for this row
+Gaelic Football|Gaelic_Football/All_Gaelic_Football/All_Events|Moycullen_v_Salthill-Knocknacarra|3532|24 Oct|14:00||Moycullen -3.50|9/17|53|market not shown for this row
+Gaelic Football|Gaelic_Football/All_Gaelic_Football/All_Events|Kanturk_v_Eire_Og_Cor|3531|01 Nov|09:00||Kanturk|3/4|75|market not shown for this row
+Gaelic Football|Gaelic_Football/All_Gaelic_Football/All_Events|Rathgormack_v_The_Nire|3536|01 Nov|10:30||Rathgormack -2.50|1/1|100|market not shown for this row
+Gaelic Football|Gaelic_Football/All_Gaelic_Football/All_Events|All_Ireland_Football_Championship_2027|3327|25 Jul 2027|10:30||Kerry|5/7|71|futures row
+Greyhounds|Greyhounds/All_Greyhounds/All_Events|11:14_Kinsley|689390|Today|06:14|Daily Races|Swift Perry|2/2|100|race card time vs listed time differ (timezone, see flagged)
+Greyhounds|Greyhounds/All_Greyhounds/All_Events|10:32_Harlow|689384|Today|05:32|Daily Races|Makeit Sway|1/1|100|race card time vs listed time differ
+Greyhounds|Greyhounds/All_Greyhounds/All_Events|10:48_Harlow|689385|Today|05:48|Daily Races|Moaning Cashout|1/1|100|race card time vs listed time differ
+Greyhounds|Greyhounds/All_Greyhounds/All_Events|11:03_Monmore|689387|Today|06:03|Daily Races|Relentless I Am|1/1|100|race card time vs listed time differ
+Greyhounds|Greyhounds/All_Greyhounds/All_Events|11:04_Harlow|689383|Today|06:04|Daily Races|Muinteoir Jane|1/1|100|race card time vs listed time differ
+Greyhounds|Greyhounds/All_Greyhounds/All_Events|11:09_Nottingham|689386|Today|06:09|Daily Races|Bluejig Polly|1/1|100|race card time vs listed time differ
+Rugby League|Rugby_League/All_Rugby_League/All_Events|State_of_Origin_2027|2695857|27 May 2027|06:00|Win Tournament|New South Wales|9/12|75|futures; no match fixtures listed
+Rugby League|Rugby_League/All_Rugby_League/All_Events|Super_League_2027|2801554|02 Oct 2027|13:00|Grand Final Winner|Leeds Rhinos|1/3|33|futures; no match fixtures listed
+Rugby League|Rugby_League/All_Rugby_League/All_Events|NRL_2027|2801600|03 Oct 2027|04:30|Grand Final Winner|Penrith Panthers|1/1|100|futures; no match fixtures listed

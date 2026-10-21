@@ -13,7 +13,8 @@ os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 NAV = [("index.html", "Dashboard"), ("predictions.html", "Predictions"),
        ("verification.html", "Verification"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
-       ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review")]
+       ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review"),
+       ("olbg/index.html", "OLBG lines (audit)")]
 ev = json.load(open(os.path.join(ROOT, "data/events.json")))
 EVENTS = ev["events"]
 ASSUMPTIONS = ev["assumptions"]

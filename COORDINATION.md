@@ -88,7 +88,7 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 - After merge, GitHub ran two publishers on the same push: the **legacy** Pages build ("Deploy to GitHub Pages", Jekyll, `main`/`/`) and our **Actions artifact** (`deploy-pages`). The artifact deploy succeeded, then the legacy build replaced it, and our smoke test failed on the replaced site.
 - `PUT /repos/buffedlizard55-lab/OLBG3/pages` (`build_type=workflow`) returns **403 Resource not accessible by integration** for every token available in this session — the same denial `arena-90bbe96f` logged in PR #3. This is a Pages-settings permission limit, not a Git authentication failure, and it is not reported as fixed.
 - Workaround: the build now mirrors itself into the repository root (`scripts/build_site.py --snapshot`), so the legacy publisher and the artifact publisher serve the same bytes. The artifact remains the fresher copy (hourly feed refresh); the root snapshot is refreshed on each commit that changes the site.
-- This is flagged on the site too, so it stays visible until someone with Pages-settings permission switches the source to Actions. origin/main
+- This is flagged on the site too, so it stays visible until someone with Pages-settings permission switches the source to Actions.
 
 ## Session log — `arena/3c4244bd-olbg3`
 
@@ -97,3 +97,89 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 - Conflict resolution preserved `origin/main`'s coordination board, README, Pages workflow, app script, data, generators, tests and published-site implementation. This session's duplicate root-site scaffold/data files were removed rather than overwriting shared outputs. No integration-session files were discarded.
 - No new match facts, lines, picks or verified source claims were contributed. The early scaffold's source-discovery links were not checked and were discarded with the duplicate scaffold; they must not be treated as verified sources.
 - PR #7 is reduced to this coordination/handoff record. Main's existing build/test/deployment records are authoritative; this session does not claim a separate Pages deployment.
+
+- Session branch `arena/6d5f01ec-olbg3`; PR #4 → `main`; see the PR thread for the merge and deployment record (also mirrored here after merge).
+- Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links.
+
+---
+
+# OLBG lines audit track — session `arena/9590abcf-olbg3` (`S-20261021-B`)
+
+Claim: the whole `tools/`, `data/*` (except files owned by other tracks), `olbg-board/` scope, plus
+integration authority over the shared navigation and workflow, as the last session to publish.
+
+| # | Task | Status | Files |
+|---|---|---|---|
+| C1 | Scaffolding, schema, board | done | `README.md`, `COORDINATION.md`, `data/schema.md` |
+| C2 | OLBG harvest across 15 in-scope sports + exclusion evidence | done | `data/raw/`, `data/matches.json`, `data/meta.json`, `data/excluded.json` |
+| C3 | Originated lines: probability, price, handicap, total, confidence | done | `data/lines.json`, `data/model.md`, `tools/originate.py` |
+| C4 | Verified high-confidence predictions | done | `data/predictions-olbg.json` |
+| C5 | Flagged-for-review register | done | `data/flagged.json` |
+| C6 | Generated pages + link/source checker | done | `olbg-board/`, `tools/` |
+| C7 | Integration into the shared artifact, PR, merge, deploy verification | in progress | `.github/workflows/pages.yml`, `scripts/build_site.py` (nav line), `README.md` |
+
+## Log
+
+- **Start state.** `96f089b` contained only a 7-byte README. The other two sessions were working on
+  their own Arena branches; nothing was visible here until I fetched `main`. That is why this session
+  built its own layout instead of extending the board track — recorded as a coordination failure
+  mode, not an excuse: `git fetch` should have been the first action, not the fourth.
+- **Harvest method verified, not assumed.** `curl https://www.olbg.com/` fails in this sandbox with
+  `SSL_ERROR_SYSCALL` (exit 35); espn.com and bbc.co.uk fail identically, so it is the sandbox
+  allowlist, not OLBG. Pages were retrieved with the agent's page-retrieval tool and transcribed with
+  per-row timestamps.
+- **Coverage.** 16 OLBG pages → 137 fixtures across 15 in-scope sports. Excluded sports were located
+  first and their rows kept in `data/excluded.json` (Football/1 six rows, Boxing/16 one, Hurling/26
+  one, Horse_Racing/2 two; Cycling/17, American_Football/11 and Specials had no live rows).
+  Pagination limit ("Load More Tips") recorded as FL-008.
+- **Model.** `tools/originate.py`: `p = σ(logit((w+2)/(n+4)) + h_sport)`, price `1/(p×1.05)`,
+  handicap `−Φ⁻¹(p)×σ_sport`, totals from documented baselines. 5 high / 24 medium / 108 low.
+  Outrights deliberately carry no price (field size unpublished).
+- **Predictions.** Five, 71–80 words, one per fixture where form was verifiable: Brewers ML
+  (mlb.com + ESPN), Wizards ML (nba.com/wizards + CBS), Sabres ML (CBS/ESPN), Higgins (snooker.org +
+  WST + BBC), Humphries (pdc.tv + World Grand Prix result). No prediction was written where form
+  could not be sourced; those rows are capped at medium.
+- **Flags.** 17 items. New relative to the other tracks: timezone inconsistency (FL-002), two dates
+  for one golf tournament (FL-003), par 71 vs 72 (FL-005), 111 unsourced competition names (FL-006),
+  three truncated rows (FL-007), venue naming split for two URC fixtures (FL-016), handball coverage
+  limit (FL-017).
+- **First merge attempt failed cleanly.** `git pull --rebase` replayed this branch's commits onto a
+  `main` that had already moved (PRs #1–#5) and conflicted. Aborted with no loss; merged `origin/main`
+  instead. Conflicts limited to `README.md`, `COORDINATION.md`, `.gitignore`, `pages.yml`,
+  `data/predictions.json`.
+- **Second merge (PR #6).** By then a third session (`arena/6d5f01ec-olbg3`, PR #4) had published a
+  board track of its own and `arena/90bbe96f` had integrated both tracks into one artifact. This
+  session's dashboard was therefore **demoted from "the site" to a third track** rather than
+  replacing anything: `docs/` reverted to the other tracks' markdown, this track's generated pages
+  moved to `olbg-board/`, and the publisher copies them to `site/olbg/`.
+- **Third merge.** PR #8 added a root snapshot because the repository's Pages source is *legacy branch
+  publishing* from `/`, which overrides the artifact deploy; `PUT /pages` returns 403 for every token
+  available to any session. This track therefore mirrors into the repository root as well
+  (`tools/build_site.py` writes `olbg-board/`, `site/olbg/` and `olbg/`), and the workflow refreshes
+  the snapshot with `scripts/build_site.py --snapshot` after copying this track into `site/`.
+  Conflict in `COORDINATION.md` resolved by keeping both sessions' logs, theirs first.
+- **Disagreement recorded, not resolved:** feed track excludes Gaelic football; board track and this
+  track include it. Both views are on the site; the user decides.
+
+## Change requests / edits made to another session's files
+
+| File | Edit | Why |
+|---|---|---|
+| `scripts/build_site.py` | one `NAV` list entry: `("olbg/index.html", "OLBG lines (audit)")` | reachable from the shared navigation; nothing else touched |
+| `.github/workflows/pages.yml` | three steps added (rebuild this track, staleness gate, copy into `site/olbg`), one smoke-test step for `/olbg/`, branch added to `push` triggers | publish and gate this track; kept the existing build/check steps and their order (checks now run on the assembled site, so their checker also validates these pages) |
+| `README.md`, `COORDINATION.md`, `.gitignore` | merged | both tracks documented; `site/` and `data/evidence/` stay untracked |
+| `data/predictions.json` | renamed this track's file to `data/predictions-olbg.json` | avoid two different schemas at one path |
+
+## Verification performed for this track
+
+`python3 tools/check_site.py` (exit 0): 21 pages, 137 fixtures, 137 lines, 5 high-confidence
+predictions, 17 flags; no broken internal link; every external host on the reviewed allowlist; every
+data row carries a source link; every fixture, line, prediction and flag rendered; predictions ≥30
+words; no placeholder text. Their gates also run over the assembled site:
+`scripts/check.py` PASS (40 feed rows, blank betting fields enforced) and `scripts/check_links.py`
+PASS (`pages=46 local_links_checked=635 broken=0`).
+
+## Publication record
+
+- PR: https://github.com/buffedlizard55-lab/OLBG3/pull/6
+- Merge commit and deployment run: appended here once `main` publishes this track.

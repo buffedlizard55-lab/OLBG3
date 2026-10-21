@@ -66,3 +66,48 @@ Row data lives in `data/`, so the root snapshot is a build output, not a second 
 - Official feeds: `api-web.nhle.com`, `statsapi.mlb.com`, `cdn.nba.com`
 
 Not affiliated with OLBG. 18+.
+
+---
+
+## Third track: the OLBG lines audit layer (`arena/9590abcf-olbg3`)
+
+Published at **/olbg/** and reachable from the shared navigation ("OLBG lines (audit)"). It ships in
+the Actions artifact (`site/olbg/`) *and* as a committed root snapshot (`olbg/`), because the legacy
+Pages publisher serves the repository root — the same two-target arrangement the board track uses, so
+whichever publisher runs last still serves these pages. It exists because the board track and this one answer different questions:
+the board prices fixtures it could verify against official competition pages, while this track
+transcribes **every in-scope row OLBG listed**, keeps the exact OLBG URL on the row, and then
+originates a line and a confidence label from that row — including for fixtures nobody could verify.
+
+| Layer | Contents |
+|---|---|
+| `data/raw/olbg-harvest-20261021.tsv` | 137 rows transcribed from 16 OLBG pages, exact URL parts per row |
+| `data/matches.json` | parsed fixtures + verification status per field |
+| `data/verifications.json` | 31 source records (official / primary / secondary) + 26 event-level records with the claim each source supports |
+| `data/lines.json` | our model: Beta(2,2)-shrunk tip split → sport home edge → price at 5% hold; handicap `−Φ⁻¹(p) × σ_sport`; documented total baselines |
+| `data/predictions-olbg.json` | 5 predictions, 71–80 words, sources for every factual sentence |
+| `data/flagged.json` | 17 flagged items with sources, published at `/olbg/flagged.html` |
+| `olbg-board/` | generated pages (dashboard, lines & picks, predictions, all matches, method, flagged, 15 sport pages) |
+
+```sh
+python3 tools/build_dataset.py   # raw TSV + verifications -> data/matches.json
+python3 tools/originate.py       # matches -> data/lines.json
+python3 tools/build_site.py      # data -> olbg-board/
+python3 tools/check_site.py      # links, source links per row, word counts, placeholders
+```
+
+Findings this track adds that the other tracks do not publish:
+
+* OLBG prints clock times with **no timezone**, and they are internally inconsistent — snooker and
+  greyhound rows behave like US Eastern while an NHL row cannot. No scheduled start is ever taken
+  from an OLBG clock time (`flagged.html` FL-002).
+* The same golf tournament appears with **two different dates** on two OLBG pages (FL-003), and the
+  course par is reported as both 71 and 72 (FL-005).
+* **111 of 137 rows** have no competition name anywhere in the source; they stay blank (FL-006).
+* Three rows were truncated at the page-boundary; their tip counts stay blank (FL-007).
+* The Gaelic football question is recorded on both sides: the feed track excludes it, the board
+  track and this track include it, and every Gaelic row here is tagged so it can be dropped in one
+  step (FL-001).
+
+`data/predictions.json` belongs to the board track; this track's predictions are
+`data/predictions-olbg.json`, so neither can overwrite the other.
