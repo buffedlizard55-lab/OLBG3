@@ -1,0 +1,117 @@
+{
+  "generated": "2026-10-21T05:13:46.471684+00:00",
+  "window_start": "2026-10-21T05:13:46.471684+00:00",
+  "window_end": "2026-10-28T05:13:46.471684+00:00",
+  "matches": [],
+  "coverage": [
+    {
+      "sport": "Ice hockey",
+      "league": "NHL",
+      "source": "https://api-web.nhle.com/v1/schedule/now",
+      "status": "Unverified \u2014 fetch or schema failed: URLError: <urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
+    },
+    {
+      "sport": "Baseball",
+      "league": "MLB",
+      "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-28",
+      "status": "Unverified \u2014 fetch or schema failed: URLError: <urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
+    },
+    {
+      "sport": "Basketball",
+      "league": "NBA",
+      "source": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+      "status": "Unverified \u2014 fetch or schema failed: URLError: <urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
+    },
+    {
+      "sport": "Tennis",
+      "league": "",
+      "source": "https://www.atptour.com/en/scores/current",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Cricket",
+      "league": "",
+      "source": "https://www.icc-cricket.com/fixtures-results",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Rugby union",
+      "league": "",
+      "source": "https://www.world.rugby/tournaments/fixtures",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Rugby league",
+      "league": "",
+      "source": "https://www.intrl.sport/",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Golf",
+      "league": "",
+      "source": "https://www.pgatour.com/schedule",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Darts",
+      "league": "",
+      "source": "https://www.pdc.tv/tournaments/calendar",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Snooker",
+      "league": "",
+      "source": "https://www.wst.tv/",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Volleyball",
+      "league": "",
+      "source": "https://www.volleyballworld.com/",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Badminton",
+      "league": "",
+      "source": "https://bwfbadminton.com/calendar/",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Table tennis",
+      "league": "",
+      "source": "https://www.ittf.com/",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Esports",
+      "league": "",
+      "source": "https://lolesports.com/",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Motorsport",
+      "league": "",
+      "source": "https://www.fia.com/events",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    },
+    {
+      "sport": "Other eligible sports",
+      "league": "",
+      "source": "https://www.olbg.com/betting-tips",
+      "status": "Unverified \u2014 official connector not implemented; no completeness claim. Reference link not live-validated."
+    }
+  ],
+  "excluded": [
+    "soccer",
+    "boxing",
+    "ufc",
+    "mma",
+    "football",
+    "american football",
+    "gaelic football",
+    "hurling",
+    "horse racing",
+    "cycling",
+    "specials"
+  ]
+}
