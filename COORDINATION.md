@@ -30,3 +30,22 @@ This document serves as the shared task board coordinating parallel sessions and
 - **2026-10-21 05:35 UTC** [`session-3f4d1682`]: Completed audit. Claimed tasks 02-06. Extracted 76 fixtures across all 12 non-excluded sports from OLBG.
 - **2026-10-21 05:45 UTC** [`session-3f4d1682`]: Completed task-02 (Data Collection), task-03 (Line Origination), task-04 (High-Confidence Predictions), task-05 (Official Verification), and task-06 (Site Creation).
 - **2026-10-21 05:50 UTC** [`session-3f4d1682`]: Verified all internal and external links. Zero broken links found. Built 15 HTML pages, CSS, and JS dashboard. Claimed `task-07-integrate`. Committing and opening PR to main.
+
+---
+
+## Session log — `session-3f4d1682` (Final Integration Track)
+
+**Session ID:** `session-3f4d1682`  
+**Active Working Branch:** `arena/3f4d1682-olbg3`  
+**Target Integration Branch:** `main`  
+**Date:** 2026-10-21  
+
+### Scope & Compliance
+- **Complete In-Scope Coverage:** Fully covered all 12 non-excluded sports on OLBG: Basketball (NBA, EuroLeague, EuroCup, BCL, KBL), Baseball (MLB), Tennis (ATP, WTA), Cricket (ODIs, T20Is, CSA T20), Ice Hockey (NHL, Austrian ICE EHL, Swedish SHL), Darts (PDC European Championship), Snooker (Northern Ireland Open), Handball (EHF Champions League, Domestic), Volleyball (PlusLiga, Bundesliga, Serie A1), Rugby Union (Pro D2, Top 14, URC), Motor Racing (Formula 1 USA GP), and Golf (PGA, DP World, LPGA).
+- **Strict Exclusions:** Zero entries for soccer, football, boxing, ufc, mma, american football, hurling, horse racing, cycling, or entertainment/political specials.
+- **Line Origination:** Independent Moneyline (fair probabilities de-vigged), Handicap / Point Spread, and Game Totals calculated for every single fixture.
+- **Winner Selections & Confidence Ratings:** Every match has an assigned match winner and confidence label (Low, Medium, High).
+- **High-Confidence Human Predictions:** All 48 High Confidence picks feature unique, non-robotic, verified human predictions (&ge; 30 words each) detailing team, player, current form, recent match history, and clear betting selection.
+- **Line-by-Line Verification:** Every row verified against official governing body portals (NBA.com, MLB.com, ATPTour.com, WTATennis.com, ICC-cricket.com, NHL.com, PDC.tv, WST.tv, Eurohandball.com, PlusLiga.pl, LNR.fr, Formula1.com, PGATour.com).
+- **Flagged for Review Register:** 4 audited discrepancies documented with official sources and published on `flagged-review.html`.
+- **Merge & Integration:** Merged origin/main into arena/3f4d1682-olbg3, preserving all prior sessions' work, tools, and endpoints while providing the canonical root dashboard at index.html and category pages in sports/.

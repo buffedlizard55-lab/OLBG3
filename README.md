@@ -1,4 +1,4 @@
-# OLBG Reverse Engineering & Sports Line Origination Platform
+# OLBG Sports Analytics & Line Origination Platform
 
 A high-performance analytics, proprietary line origination, and match prediction platform built from the ground up by reverse-engineering [OLBG.com](https://www.olbg.com).
 
@@ -6,6 +6,7 @@ A high-performance analytics, proprietary line origination, and match prediction
 - **Live Site:** [https://buffedlizard55-lab.github.io/OLBG3/](https://buffedlizard55-lab.github.io/OLBG3/)
 - **Flagged for Review Registry:** [https://buffedlizard55-lab.github.io/OLBG3/flagged-review.html](https://buffedlizard55-lab.github.io/OLBG3/flagged-review.html)
 - **Methodology Documentation:** [https://buffedlizard55-lab.github.io/OLBG3/methodology.html](https://buffedlizard55-lab.github.io/OLBG3/methodology.html)
+- **Audit Track:** [https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html](https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html)
 
 ---
 
@@ -42,7 +43,7 @@ Every fixture is analyzed to designate a predicted match winner and categorized 
 
 ### 3. Line-by-Line Verification & Source Attribution
 - Every row links directly to an **official governing body site** (e.g., `NBA.com`, `MLB.com`, `ATPTour.com`, `WTATennis.com`, `ICC-cricket.com`, `NHL.com`, `PDC.tv`, `WST.tv`, `Eurohandball.com`, `PlusLiga.pl`, `LNR.fr`, `Formula1.com`, `PGATour.com`).
-- Discrepancies, community tipster hallucinations, or calendar mismatches are flagged in the **Flagged for Review** registry.
+- Discrepancies, community tipster hallucinations, or calendar mismatches are flagged in the **Flagged for Review** registry (`flagged-review.html`).
 
 ---
 
@@ -50,7 +51,6 @@ Every fixture is analyzed to designate a predicted match winner and categorized 
 ```
 ├── COORDINATION.md             # Multi-session coordination board & audit log
 ├── README.md                   # Project documentation & operational summary
-├── build_data_and_site.py      # Core data generation script
 ├── build_full_database.py      # Complete 76-fixture database builder
 ├── build_site.py               # Static site HTML, CSS, JS generator
 ├── index.html                  # Master Dashboard interface
@@ -60,7 +60,7 @@ Every fixture is analyzed to designate a predicted match winner and categorized 
 │   └── styles.css              # Modern responsive styling
 ├── js/
 │   └── dashboard.js            # Client-side filtering, searching & analysis modal
-├── sports/                     # Category subpages
+├── sports/                     # Category subpages (12 non-excluded sports)
 │   ├── basketball.html
 │   ├── baseball.html
 │   ├── tennis.html

@@ -1,0 +1,45 @@
+{
+  "project": "OLBG3",
+  "run_id": "S-20261021-A",
+  "run_started_utc": "2026-10-21T05:12:00Z",
+  "harvest_completed_utc": "2026-10-21T05:31:00Z",
+  "excluded_sports_verbatim": ["soccer", "boxing", "ufc", "mma", "football", "american football", "hurling", "horse racing", "cycling", "specials"],
+  "exclusion_policy": {
+    "soccer/football": "OLBG sport Football (id 1) excluded; includes all association football competitions incl. Champions League / Premier League rows seen on the All Sports page.",
+    "american_football": "OLBG sport American_Football (id 11) excluded.",
+    "boxing_ufc_mma": "OLBG sport Boxing (id 16) is the page OLBG uses for boxing and UFC/MMA fight cards; excluded.",
+    "hurling": "OLBG sport Hurling (id 26) excluded.",
+    "horse_racing": "OLBG sport Horse_Racing (id 2) excluded.",
+    "cycling": "OLBG sport Cycling (id 17) excluded.",
+    "specials": "OLBG 'Specials' / non-fixture specials markets excluded."
+  },
+  "allowed_sports_olbg_ids": {
+    "Tennis": 3, "Basketball": 4, "Golf": 5, "Cricket": 7, "Snooker": 8,
+    "Rugby_Union": 9, "Rugby_League": 10, "Baseball": 12, "Ice_Hockey": 13,
+    "Motor_Racing": 14, "Darts": 15, "Handball": 20, "Volleyball": 21,
+    "Gaelic_Football": 25, "Greyhounds": 28
+  },
+  "ambiguities": [
+    {
+      "item": "Gaelic Football",
+      "issue": "The exclusion list bans 'football' and 'hurling' but does not name Gaelic football. Read literally, Gaelic football is not excluded. It is treated as INCLUDED but every row is tagged ambiguous_exclusion=true so it can be removed with one filter.",
+      "resolution": "included, flagged"
+    },
+    {
+      "item": "Motor racing",
+      "issue": "Cycling is excluded but motor racing is a different sport and is not named in the exclusion list.",
+      "resolution": "included"
+    },
+    {
+      "item": "Greyhound racing",
+      "issue": "Horse racing is excluded; greyhound racing is not named in the exclusion list.",
+      "resolution": "included"
+    }
+  ],
+  "harvest_method": {
+    "tool": "agent page-retrieval (sandbox HTTP client cannot reach olbg.com; curl returns OpenSSL SSL_ERROR_SYSCALL / exit 35 - verified)",
+    "pages": "https://www.olbg.com/betting-tips plus one page per allowed OLBG sport id",
+    "granularity": "Rows are exactly what the OLBG listing rendered on first page at retrieval time. OLBG paginates ('Load More Tips'); rows beyond the first page were NOT captured and are flagged.",
+    "values_inferred": "none - blank when not stated by the source"
+  }
+}

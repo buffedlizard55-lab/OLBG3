@@ -1,0 +1,60 @@
+{
+  "captured_at": "2026-10-21T05:20:00Z",
+  "source": "https://www.olbg.com/betting-tips",
+  "purpose": "Evidence that the excluded sports were enumerated rather than silently dropped. Each row below was live on OLBG and is deliberately NOT part of the covered dataset.",
+  "excluded_sports": [
+    {
+      "exclusion": "soccer / football",
+      "olbg_sport": "Football", "olbg_sport_id": 1,
+      "rows_observed": [
+        {"event": "Real Madrid v RB Leipzig", "competition": "Champions League", "market": "Full Time Result", "selection": "Real Madrid", "tips": "15/17", "pct": 88, "event_id": 2044223},
+        {"event": "Aston Villa v Viking FK", "competition": "Champions League", "market": "Full Time Result", "selection": "Aston Villa", "tips": "13/16", "pct": 81, "event_id": 2044219},
+        {"event": "Como v Man Utd", "competition": "Champions League", "market": "Full Time Result", "selection": "Como", "tips": "12/18", "pct": 67, "event_id": 2044215},
+        {"event": "Chelsea v Tottenham", "competition": "England Premier League", "market": "Full Time Result", "selection": "Chelsea", "tips": "10/11", "pct": 91, "event_id": 2043412},
+        {"event": "Arsenal v Everton", "competition": "England Premier League", "market": "Full Time Result", "selection": "Arsenal", "tips": "9/11", "pct": 82, "event_id": 2043409},
+        {"event": "Bayern Munich v Arsenal", "competition": "Champions League", "market": "Full Time Result", "selection": "Bayern Munich", "tips": "8/16", "pct": 50, "event_id": 2044220}
+      ]
+    },
+    {
+      "exclusion": "boxing / ufc / mma",
+      "olbg_sport": "Boxing", "olbg_sport_id": 16,
+      "note": "OLBG uses its Boxing page for boxing and UFC/MMA fight cards, so all three named exclusions map to this one sport page.",
+      "rows_observed": [
+        {"event": "Nikita Krylov v Abdul Rakhman Yakhyaev", "market": "Win Fight", "selection": "Abdul Rakhman Yakhyaev", "tips": "8/10", "pct": 80, "event_id": 144462}
+      ]
+    },
+    {
+      "exclusion": "hurling",
+      "olbg_sport": "Hurling", "olbg_sport_id": 26,
+      "rows_observed": [
+        {"event": "Ballyhale Shamrocks v Tullaroan", "market": "Handicap", "selection": "Tullaroan +3.50", "tips": "8/11", "pct": 73, "event_id": 714}
+      ]
+    },
+    {
+      "exclusion": "horse racing",
+      "olbg_sport": "Horse_Racing", "olbg_sport_id": 2,
+      "rows_observed": [
+        {"event": "2:25 Newmarket", "market": "Daily Racing", "selection": "Altius", "tips": "9/9", "pct": 100, "event_id": 1134655},
+        {"event": "1:50 Newmarket", "market": "Daily Racing", "selection": "Grinanbearit", "tips": "8/9", "pct": 89, "event_id": 1134654}
+      ]
+    },
+    {
+      "exclusion": "cycling",
+      "olbg_sport": "Cycling", "olbg_sport_id": 17,
+      "rows_observed": [],
+      "note": "No cycling fixture appeared on the OLBG all-sports first page at retrieval time. The sport page exists: https://www.olbg.com/betting-tips/Cycling/17 — nothing to exclude."
+    },
+    {
+      "exclusion": "american football",
+      "olbg_sport": "American_Football", "olbg_sport_id": 11,
+      "rows_observed": [],
+      "note": "No American football fixture appeared on the all-sports first page at retrieval time. Sport page: https://www.olbg.com/betting-tips/American_Football/11"
+    },
+    {
+      "exclusion": "specials",
+      "olbg_sport": "n/a", "olbg_sport_id": null,
+      "rows_observed": [],
+      "note": "OLBG's all-sports page listed no 'Specials' non-fixture markets during this retrieval."
+    }
+  ]
+}
