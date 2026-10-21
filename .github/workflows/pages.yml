@@ -1,7 +1,8 @@
 name: Verify and publish dashboard
 on:
   push:
-    branches: [main, arena/90bbe96f-olbg3, arena/9590abcf-olbg3]
+    # every session branch runs the same build so a red check is caught before the PR
+    branches: [main, 'arena/**']
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch:
