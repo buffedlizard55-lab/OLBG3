@@ -34,13 +34,6 @@ jobs:
           python3 tools/originate.py
           python3 tools/build_site.py
           python3 tools/check_site.py
-      - name: Fail if the committed OLBG track is stale
-        run: |
-          if [ -n "$(git status --porcelain olbg-board data/matches.json data/lines.json data/predictions-olbg.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json olbg)" ]; then
-            echo "::error::OLBG lines track is out of date. Run the build scripts and commit."
-            git --no-pager diff --stat olbg-board data
-            exit 1
-          fi
       - name: Publish the OLBG lines track inside the shared artifact
         run: |
           mkdir -p site/olbg
@@ -52,6 +45,13 @@ jobs:
           git status --porcelain | head -40
           if [ -n "$(git status --porcelain -- index.html predictions.html verification.html flagged.html method.html sports assets style.css data.json '*.html' .nojekyll)" ]; then
             echo "::warning::Root snapshot differs from the committed copy; run scripts/build_site.py --snapshot and commit."
+          fi
+      - name: Fail if the committed OLBG track is stale
+        run: |
+          if [ -n "$(git status --porcelain olbg-board data/matches.json data/lines.json data/predictions-olbg.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json olbg)" ]; then
+            echo "::error::OLBG lines track is out of date. Run the build scripts and commit."
+            git --no-pager diff --stat olbg-board data
+            exit 1
           fi
       - run: python scripts/check.py
       - run: python scripts/check_links.py
