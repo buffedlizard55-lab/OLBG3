@@ -460,6 +460,10 @@ python3 tools/check_site.py      # link + integrity checks (CI runs this)</code>
 
     # ---------- write ----------
     DOCS.mkdir(exist_ok=True)
+    # drop pages from earlier harvests (e.g. a sport that has since left the scope) so the
+    # published tree never contradicts the current dataset
+    if (DOCS / "sports").exists():
+        shutil.rmtree(DOCS / "sports")
     (DOCS / "sports").mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
 

@@ -25,13 +25,17 @@ jobs:
       - run: python scripts/build.py
       # Board track: originated lines, picks, predictions, verification + flagged pages.
       # Runs after build.py so it can own the landing page and the shared navigation.
-      - run: python scripts/build_site.py
-      # OLBG lines track: 137 fixtures transcribed from OLBG with per-row source URLs,
+      # OLBG lines track: 178 fixtures transcribed from OLBG with per-row source URLs,
       # our own shrink+home-edge model, 5 sourced predictions and a 17-item flag register.
-      - name: Rebuild the OLBG lines track
+      # The board (scripts/build_site.py) is generated from the SAME rows via scripts/sync_board.py.
+      - name: Rebuild the OLBG lines track and sync the board inputs
         run: |
           python3 tools/build_dataset.py
           python3 tools/originate.py
+          python3 scripts/sync_board.py
+      - run: python scripts/build_site.py
+      - name: Build the OLBG lines pages
+        run: |
           python3 tools/build_site.py
           python3 tools/check_site.py
       - name: Publish the OLBG lines track inside the shared artifact
@@ -48,7 +52,7 @@ jobs:
           fi
       - name: Fail if the committed OLBG track is stale
         run: |
-          if [ -n "$(git status --porcelain olbg-board data/matches.json data/lines.json data/predictions-olbg.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json olbg)" ]; then
+          if [ -n "$(git status --porcelain olbg-board data/matches.json data/lines.json data/predictions-olbg.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json data/events.json data/predictions.json data/official.json data/sports olbg)" ]; then
             echo "::error::OLBG lines track is out of date. Run the build scripts and commit."
             git --no-pager diff --stat olbg-board data
             exit 1
