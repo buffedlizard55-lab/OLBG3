@@ -116,3 +116,21 @@ all return 200 from `buffedlizard55-lab.github.io`.
 | Board (verified fixtures, model, predictions) | `/index.html`, `/predictions.html`, `/verification.html`, `/flagged.html`, `/sports/<sport>.html` (12) | 114 fixtures |
 | Official feed (hourly NHL/MLB/NBA) | `/matches.html`, `/coverage.html`, `/review.html`, `/feed-overview.html` | 40 rows |
 | OLBG lines audit (this session) | `/olbg/` + 21 pages incl. `/olbg/sports/<sport>.html` (15) and `/olbg/flagged.html` | 137 rows, 137 lines, 5 predictions, 17 flags |
+
+---
+
+## Session `session-af0789e6` — refresh, verification sweep, consolidation (claimed 2026-10-21 06:45 UTC)
+
+**Branch:** `arena/af0789e6-olbg3` (Arena-managed; session-prefixed branch names are not available in this environment, so the Arena branch is the session branch). No other session branches exist on `origin` at claim time (`git branch -r` shows only `main`), so there is no overlap to coordinate against.
+
+| Task ID | Task | Scope / files | Status | Owner | Notes |
+|---|---|---|---|---|---|
+| `task-08-reharvest` | Fresh OLBG harvest for every non-excluded sport (06:45 UTC pass) and line-by-line review of the committed board rows | `data/events.json`, `data/sports/*.json`, `data/raw/` | in progress | `session-af0789e6` | Every row keeps its OLBG event URL |
+| `task-09-verify` | Official-source verification of each board row (league APIs / governing-body schedules); unverifiable rows left blank and flagged | `data/official.json`, `data/events.json` | in progress | `session-af0789e6` | Only `fetch`-confirmed official pages count |
+| `task-10-model` | Originate match-winner, handicap and total lines from official data; pick + LOW/MEDIUM/HIGH grade per row | `scripts/model.py`, `data/events.json` | in progress | `session-af0789e6` | |
+| `task-11-predictions` | Written predictions for every HIGH row (>=30 words, sourced, explicit selection) | `data/predictions.json` | in progress | `session-af0789e6` | |
+| `task-12-site` | Dashboard refresh: landing page, sport subpages, Flagged for Review page, link check | `scripts/build_site.py`, `assets/`, root snapshot | in progress | `session-af0789e6` | |
+| `task-13-integrate` | PR to `main`, merge, Pages deploy confirmation, record here | `COORDINATION.md` | unclaimed | `session-af0789e6` (will claim after 08-12) | |
+
+### Log
+- **2026-10-21 06:45 UTC** [`session-af0789e6`]: Read board. Only `main` on origin; claimed tasks 08-12. Pushing claim before any data work.
