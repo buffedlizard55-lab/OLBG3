@@ -250,7 +250,7 @@ def main() -> None:
 <td><strong>{E(m['event_name'])}</strong><br><span class="muted small">{E((m['competition'] or 'competition not stated'))} · {E(l['start'])}</span></td>
 <td class="pick">{E(l['our_pick'] or '—')}</td>
 <td class="num">{'' if l['our_price_pick'] is None else l['our_price_pick']}</td>
-<td class="num">{'' if l['our_match_probability'] is None else f"{l['our_match_probability']*100:.1f}%"}</td>
+<td class="num">{'' if l['our_pick_probability'] is None else f"{l['our_pick_probability']*100:.1f}%"}</td>
 <td class="num">{'—' if l['our_handicap_line'] is None else f"{l['our_handicap_side']} {l['our_handicap_line']:+g} {l['our_handicap_unit']}"}</td>
 <td class="num">{'—' if l['our_total_line'] is None else f"{l['our_total_line']} {l['our_total_unit']}"}</td>
 <td>{conf_badge(l['confidence'])}</td>
@@ -261,7 +261,7 @@ def main() -> None:
 <section class="hero small">
   <h1>Our lines and picks</h1>
   <p class="lede">Every fixture in scope, with the price we would put up, our handicap and total, and the confidence label.
-  Prob. is the model probability of the OLBG consensus selection; prices are ours (5% theoretical hold).
+  Prob. is our model probability of our pick (65% floor disclosed on HIGH rows); prices are ours (5% theoretical hold).
   <a href="methodology.html#model">How the numbers are made →</a></p>
   <div class="tools">
     <input id="q" type="search" placeholder="Filter by team, player, sport or competition…" aria-label="Filter rows">
@@ -460,6 +460,10 @@ python3 tools/check_site.py      # link + integrity checks (CI runs this)</code>
 
     # ---------- write ----------
     DOCS.mkdir(exist_ok=True)
+    # drop pages from earlier harvests (e.g. a sport that has since left the scope) so the
+    # published tree never contradicts the current dataset
+    if (DOCS / "sports").exists():
+        shutil.rmtree(DOCS / "sports")
     (DOCS / "sports").mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
 

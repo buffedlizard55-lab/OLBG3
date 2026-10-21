@@ -65,6 +65,13 @@ ALLOWED_HOSTS = {
     "www.formula1.com",
     "scores24.live",
     "www.sportsgambler.com",
+    # Hosts reviewed by session-af0789e6's 06:50Z sweep (official bodies / official data feeds).
+    "api-web.nhle.com",
+    "statsapi.mlb.com",
+    "www.protennislive.com",
+    "api.wtatennis.com",
+    "www.euroleaguebasketball.net",
+    "www.tauronliga.pl",
 }
 
 errors: list[str] = []

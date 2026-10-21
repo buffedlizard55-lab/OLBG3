@@ -1,0 +1,195 @@
+# Raw OLBG harvest (second pass) — pipe-delimited, one row per OLBG listing entry.
+# Retrieved 2026-10-21 06:45–07:05 UTC by session-af0789e6 via the agent page-retrieval tool
+# (the sandbox HTTP client cannot reach olbg.com; verified: curl -> exit 000).
+# TIME ZONE NOTE: OLBG renders listing times in the viewer's locale. For this fetcher the rendered
+# times are US Eastern Daylight Time (UTC-4). Checked against two official feeds before relying on it:
+#   NHL api-web.nhle.com  PHI@BUF 2026-10-21 startTimeUTC 23:30Z  -> OLBG shows "Today 19:37"  (EDT + 7 min)
+#   NBA cdn.nba.com       MIL@WAS 2026-10-21 23:00Z (7:00 PM ET)  -> OLBG shows "Today 19:10"  (EDT + 10 min)
+# The earlier harvest (olbg-harvest-20261021.tsv) mixed zones (ice hockey rows were in UK time, the
+# rest in EDT); that file is kept untouched for audit and superseded by this one.
+# Pages read: /betting-tips/{Tennis/3, Basketball/4, Basketball/NBA/4, Basketball/European/4, Ice_Hockey/13,
+#   Ice_Hockey/NHL/13, Ice_Hockey/Other/13, Baseball/12, Cricket/7, Snooker/8, Darts/15, Rugby_Union/9,
+#   Rugby_League/10, Handball/20, Volleyball/21, Golf/5, Motor_Racing/14}. Each list ends at a JS "Load More
+#   Tips" control that the fetcher cannot press, so a list is the set of events OLBG rendered server-side.
+# Columns:
+# sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
+# Full URL = https://www.olbg.com/betting-tips/{path_prefix}/{slug}/{sport_id}?event_id={event_id}
+Tennis||Tennis/All_Tennis/All_Events|Adrian_Mannarino_vs_Andrey_Rublev|902037|Today|05:30|Win Match|Andrey Rublev|6/7|
+Tennis||Tennis/All_Tennis/All_Events|Sorana_Cirstea_vs_Sara_Bejlek|902074|Today|04:00|Win Match|Sorana Cirstea|5/8|
+Tennis||Tennis/All_Tennis/All_Events|Zangar_Nurlanuly_vs_Tomas_Machac|901935|Today|04:00|1st Set Winner|Zangar Nurlanuly|4/5|
+Tennis||Tennis/All_Tennis/All_Events|Dino_Prizmic_vs_Damir_Dzumhur|901896|Today|05:30|Win Match|Damir Dzumhur|2/2|
+Tennis||Tennis/All_Tennis/All_Events|Ekaterina_Alexandrova_vs_Marta_Kostyuk|902084|Today|07:00|Win Match|Marta Kostyuk|2/2|
+Tennis||Tennis/All_Tennis/All_Events|Stan_Wawrinka_vs_Martin_Landaluce|901974|Today|08:00|Win Match|Stan Wawrinka|2/2|
+Tennis||Tennis/All_Tennis/All_Events|David_Goffin_vs_Remy_Bertola|902028|Today|12:00|Win Match|David Goffin|2/2|
+Tennis||Tennis/All_Tennis/All_Events|Facundo_Diaz_Acosta_vs_Nikoloz_Basilashvili|902040|Today|04:00|Set Betting|Nikoloz Basilashvili to win 2 - 1|1/2|
+Tennis||Tennis/All_Tennis/All_Events|Martin_Damm_vs_Francisco_Cerundolo|902048|Today|05:30|Set Betting|Francisco Cerundolo to win 2 - 1|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Mariano_Navone_vs_Tallon_Griekspoor|902085|Today|07:00|Win Match|Tallon Griekspoor|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Clement_Chidekh_vs_Jacob_Fearnley|902094|Today|08:30|Set Betting|Clement Chidekh to win 2 - 1|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Corentin_Moutet_vs_Felix_Balshaw|902095|Today|09:30|Set Betting|Corentin Moutet to win 2 - 1|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Stefanos_Tsitsipas_vs_Mikhail_Kukushkin|902083|Today|10:30|Set Betting|Stefanos Tsitsipas to win 2 - 0|1/2|
+Tennis||Tennis/All_Tennis/All_Events|Moise_Kouame_vs_Lorenzo_Musetti|902059|Today|13:00|Win Match|Moise Kouame|1/2|
+Tennis||Tennis/All_Tennis/All_Events|Benjamin_Bonzi_vs_Tommy_Paul|902102|Today|14:30|Set Betting|Tommy Paul to win 2 - 1|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Ann_Li_vs_Zeynep_Sonmez|902063|Today|22:30|Games Won|Zeynep Sonmez +3.50|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Magda_Linette_vs_Katerina_Siniakova|902071|Today|22:30|Games Won|Magda Linette +3.50|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Mary_Stoiana_vs_Moyuka_Uchijima|902067|Today|22:30|Win Match|Mary Stoiana|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Katarzyna_Kawa_vs_Belinda_Bencic|902093|Today|23:00|1st Set Winner|Belinda Bencic|1/1|
+Tennis||Tennis/All_Tennis/All_Events|Iva_Jovic_vs_Jasmine_Paolini|902075|Today|23:00|Win Match|Jasmine Paolini|1/1|
+Basketball|NBA|Basketball/NBA/NBA|MIL_Bucks_@_WAS_Wizards|534889|Today|19:10|Money Line|WAS Wizards|9/11|
+Basketball|NBA|Basketball/NBA/NBA|ATL_Hawks_@_ORL_Magic|534888|Today|19:10|Money Line|ATL Hawks|3/5|
+Basketball|NBA|Basketball/NBA/NBA|CHI_Bulls_@_TOR_Raptors|535673|Today|19:40|Money Line|TOR Raptors|3/4|NBA sub-page shows Pointspread TOR Raptors -9.50 3/3 as most popular
+Basketball|NBA|Basketball/NBA/NBA|UTA_Jazz_@_MEM_Grizzlies|534894|Today|20:10|Money Line|UTA Jazz|3/4|
+Basketball|NBA|Basketball/NBA/NBA|GS_Warriors_@_LA_Lakers|534839|Today|22:10|Money Line|GS Warriors|3/5|NBA sub-page shows Pointspread GS Warriors +6.50 3/3 as most popular
+Basketball|NBA|Basketball/NBA/NBA|MIN_Timberwolves_@_MIA_Heat|534840|Today|19:40|Money Line|MIA Heat|2/3|
+Basketball|NBA|Basketball/NBA/NBA|IND_Pacers_@_NO_Pelicans|534892|Today|20:10|Money Line|NO Pelicans|2/4|sport page shows NO Pelicans 2/4, NBA sub-page shows IND Pacers 2/4: tips split 2-2
+Basketball|NBA|Basketball/NBA/NBA|DAL_Mavericks_@_HOU_Rockets|534891|Today|20:40|Money Line|DAL Mavericks|2/4|sport page shows DAL Mavericks 2/4, NBA sub-page shows HOU Rockets 2/4: tips split 2-2
+Basketball|NBA|Basketball/NBA/NBA|PHX_Suns_@_POR_Trail_Blazers|534893|Today|22:10|Money Line|PHX Suns|2/3|
+Basketball|NBA|Basketball/NBA/NBA|SAC_Kings_@_LA_Clippers|535674|Today|22:40|Game Totals|Under 228.50|2/2|
+Basketball|NBA|Basketball/NBA/NBA|CHA_Hornets_@_BKN_Nets|534890|Today|19:40|Money Line|BKN Nets|1/2|
+Basketball|NBA|Basketball/NBA/NBA|DEN_Nuggets_@_OKC_Thunder|534843|Tomorrow|21:40|Money Line|OKC Thunder|2/2|
+Basketball|NBA|Basketball/NBA/NBA|CLE_Cavaliers_@_PHI_76ers|534845|Tomorrow|19:10|Money Line|PHI 76ers|1/1|
+Basketball|Euroleague|Basketball/European/Euroleague|Hapoel_Tel_Aviv_vs_Virtus_Bologna|535919|Today|12:00|Money Line|Hapoel Tel Aviv|5/8|
+Basketball|Euroleague|Basketball/European/Euroleague|Panathinaikos_vs_Baskonia|535923|Tomorrow|14:15|Money Line|Panathinaikos|2/3|
+Basketball|Euroleague|Basketball/European/Euroleague|Anadolu_Efes_vs_Besiktas|535918|Tomorrow|13:30|Money Line|Besiktas|1/1|
+Basketball|Euroleague|Basketball/European/Euroleague|Maccabi_Tel_Aviv_vs_Real_Madrid|535921|Tomorrow|14:05|Money Line|Maccabi Tel Aviv|1/1|
+Basketball|Euroleague|Basketball/European/Euroleague|Zalgiris_vs_Asvel_Lyon_Villeurbanne|535928|23 Oct|13:00|Money Line|Zalgiris|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|PAOK_vs_Ratiopharm_Ulm|535952|Today|13:00|Money Line|PAOK|2/2|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Bosna_Sarajevo_vs_Bahcesehir_Koleji|535950|Today|13:30|Money Line|Bahcesehir Koleji|2/3|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Hapoel_Jerusalem_vs_Rigas_Zelli|535956|Today|14:00|Money Line|Hapoel Jerusalem|2/3|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|U_BT_Cluj_Napoca_vs_London_Lions|535949|Today|12:00|Money Line|London Lions|1/2|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Cedevita_Olimpija_vs_Le_Mans|535948|Today|12:30|Pointspread|Le Mans +2.50|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Tortona_vs_San_Pablo_Burgos|535953|Today|13:00|Money Line|San Pablo Burgos|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Chemnitz_99_vs_Slask_Wroclaw|535951|Today|13:00|Money Line|Slask Wroclaw|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Frankfurt_Skyliners_vs_Tenerife|535955|Today|13:30|Money Line|Frankfurt Skyliners|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Bourg_vs_Trento|535954|Today|13:30|Money Line|Trento|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Napoli_vs_Tofas|535957|Today|14:00|Money Line|Tofas|1/1|
+Basketball|Euro Cup|Basketball/European/Euro_Cup|Maxima_Roma_vs_Venezia|535958|Today|14:30|Money Line|Venezia|1/1|
+Basketball|Basketball Champions League|Basketball/European/Basketball_Champions_League|AEK_vs_Antwerp_Giants|535969|Today|12:00|Money Line|Antwerp Giants|1/2|
+Basketball|Basketball Champions League|Basketball/European/Basketball_Champions_League|Bnei_Herzliya_vs_FC_Porto|535970|Today|12:30|Money Line|FC Porto|1/1|
+Basketball|Basketball Champions League|Basketball/European/Basketball_Champions_League|Joventut_vs_Telekom_Bonn|535971|Today|14:00|Money Line|Joventut|1/1|
+Basketball|Basketball Champions League|Basketball/European/Basketball_Champions_League|Reggio_Emilia_vs_Juventus|535972|Today|14:00|Money Line|Juventus|1/1|
+Basketball|Korea KBL|Basketball/Other/Korea_KBL|Seoul_Thunders_vs_KCC_Egis|535966|Today|06:00|Money Line|Seoul Thunders|4/7|
+Ice Hockey|Finland SM Liiga|Ice_Hockey/Other/Finland_SM_Liiga|K_Espoo_vs_Kookoo|199913|Today|11:30|Money Line|Kookoo|2/2|
+Ice Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|HCB_Sudtirol_Alperia_vs_HC_TWK_Innsbruck|199878|Today|13:45|Money Line|HCB Sudtirol Alperia|2/2|
+Ice Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Pustertal_vs_Pioneers_Vorarlberg|199881|Today|13:45|Money Line|Pustertal|2/2|
+Ice Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Timra_IK_vs_Farjestad_BK|199901|Tomorrow|13:00|Money Line|Farjestad BK|2/2|
+Ice Hockey|Finland SM Liiga|Ice_Hockey/Other/Finland_SM_Liiga|Tappara_vs_Assat|199914|Today|11:30|Puck Line|Tappara -1.50|1/1|Other sub-page shows Money Line Tappara 1/1
+Ice Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Graz_99ers_vs_Milano_HC|199876|Today|12:30|Puck Line|Milano HC +1.50|1/2|
+Ice Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Salzburg_vs_HK_Olimpija_Ljubljana|199879|Today|13:15|Money Line|HK Olimpija Ljubljana|1/1|Other sub-page shows Game Totals Over 5.50 1/1
+Ice Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|KAC_Klagenfurt_vs_Fehervar_AV19|199880|Today|13:15|Money Line|KAC Klagenfurt|1/1|
+Ice Hockey|NHL|Ice_Hockey/NHL/NHL|PHI_Flyers_@_BUF_Sabres|199897|Today|19:37|Game Totals|Over 5.50|1/1|
+Ice Hockey|NHL|Ice_Hockey/NHL/NHL|FLA_Panthers_@_OTT_Senators|199896|Today|19:37|Game Totals|Over 5.50|1/1|
+Baseball|MLB|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|23 Oct|20:00|Money Line|TB Rays|3/6|
+Cricket||Cricket/All_Cricket/All_Events|Afghanistan_vs_Bangladesh_One_Day_Match|188824|Today|07:30|Win Match|Afghanistan|9/10|
+Cricket||Cricket/All_Cricket/All_Events|North_West_Dragons_vs_Limpopo_Impalas_T20|188810|Today|12:00|Win Match|North West Dragons|6/7|
+Cricket||Cricket/All_Cricket/All_Events|Northern_Cape_Heat_vs_Garden_Route_Badgers_T20|188823|Today|07:00|Win Match|Garden Route Badgers|5/8|
+Cricket||Cricket/All_Cricket/All_Events|New_Zealand_vs_India_1st_T20_Match|188814|Tomorrow|03:00|Win Match|India|5/7|
+Cricket||Cricket/All_Cricket/All_Events|Eastern_Storm_vs_Tuskers_T20|188811|Tomorrow|12:00|Win Match|Eastern Storm|4/4|
+Cricket||Cricket/All_Cricket/All_Events|Namibia_vs_Ireland_1st_ODI|188828|Tomorrow|04:00|Win Match|Ireland|3/3|
+Cricket||Cricket/All_Cricket/All_Events|England_vs_Sri_Lanka_One_Day_Match|188829|Tomorrow|04:00|Win Match|England|1/2|
+Cricket||Cricket/All_Cricket/All_Events|Australia_W_vs_New_Zealand_W_3rd_T20_Match|188826|Tomorrow|04:15|Win Match|Australia W|1/2|
+Cricket||Cricket/All_Cricket/All_Events|Mpumalanga_Rhinos_vs_South_Africa_Emerging_T20|188825|Tomorrow|07:00|Win Match|South Africa Emerging|1/2|
+Snooker||Snooker/All_Snooker/All_Events|Cheung_Ka_Wai_v_Stuart_Bingham|9933|Today|05:00|Win Match|Cheung Ka Wai|9/14|
+Snooker||Snooker/All_Snooker/All_Events|Pang_Junxu_v_Liam_Davies|9929|Today|05:00|Win Match|Pang Junxu|6/10|
+Snooker||Snooker/All_Snooker/All_Events|John_Higgins_v_Jak_Jones|9934|Today|08:00|Win Match|Jak Jones|6/9|
+Snooker||Snooker/All_Snooker/All_Events|Luca_Brecel_v_Martin_O_Donnell|9932|Today|15:00|Win Match|Martin O Donnell|5/6|
+Snooker||Snooker/All_Snooker/All_Events|Sam_Craigie_v_Xu_Si|9930|Today|09:00|Win Match|Sam Craigie|4/5|
+Snooker||Snooker/All_Snooker/All_Events|Elliot_Slessor_v_Jamie_Jones|9931|Today|15:00|Win Match|Jamie Jones|4/5|
+Snooker||Snooker/All_Snooker/All_Events|Daniel_Wells_v_Ryan_Day|9937|Today|08:00|Win Match|Daniel Wells|2/2|
+Snooker||Snooker/All_Snooker/All_Events|Zhang_Anda_v_Mark_Williams|9936|Today|09:00|Handicap Betting|Mark Williams +0.50|1/1|
+Snooker||Snooker/All_Snooker/All_Events|Michael_Holt_v_Jordan_Brown|9935|Today|14:00|Handicap Betting|Jordan Brown +0.50|1/1|
+Darts||Darts/All_Darts/All_Events|Luke_Woodhouse_vs_Dirk_van_Duijvenbode|32324|Tomorrow|13:15|Win Match 2-way|Dirk van Duijvenbode|7/9|
+Darts||Darts/All_Darts/All_Events|Niels_Zonneveld_vs_Cameron_Menzies|32334|Tomorrow|14:15|Win Match 2-way|Niels Zonneveld|7/8|
+Darts||Darts/All_Darts/All_Events|Gerwyn_Price_vs_Rob_Cross|32325|Tomorrow|14:45|Win Match 2-way|Gerwyn Price|6/8|
+Darts||Darts/All_Darts/All_Events|James_Wade_vs_Damon_Heta|32322|Tomorrow|15:15|Win Match 2-way|James Wade|6/9|
+Darts||Darts/All_Darts/All_Events|Luke_Humphries_vs_Ryan_Searle|32337|Tomorrow|15:45|Win Match 2-way|Luke Humphries|6/8|
+Darts||Darts/All_Darts/All_Events|Gian_van_Veen_vs_Andrew_Gilding|32323|Tomorrow|16:15|Win Match 2-way|Gian van Veen|5/7|
+Darts||Darts/All_Darts/All_Events|Ross_Smith_vs_Karel_Sedlacek|32329|Tomorrow|16:45|Win Match 2-way|Karel Sedlacek|5/9|
+Darts||Darts/All_Darts/All_Events|Danny_Noppert_vs_Stephen_Bunting|32330|Tomorrow|13:45|Total Legs|Over 9.50|4/4|
+Darts||Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|23 Oct|14:45|Win Match 2-way|Jonny Clayton|4/6|
+Darts||Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|23 Oct|13:15|Win Match 2-way|Ryan Joyce|2/3|
+Darts||Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|23 Oct|13:45|Win Match 2-way|Krzysztof Ratajski|2/4|
+Darts||Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|23 Oct|14:15|Win Match 2-way|Cristo Reyes|2/3|
+Darts||Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|23 Oct|15:15|Handicap 2-way|William OConnor +3.50|2/2|
+Darts||Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|23 Oct|15:45|Win Match 2-way|Martin Schindler|2/3|
+Darts||Darts/All_Darts/All_Events|Kevin_Doets_vs_Michael_van_Gerwen|32331|23 Oct|16:15|Total Legs|Over 9.50|1/1|
+Darts||Darts/All_Darts/All_Events|Josh_Rock_vs_Chris_Dobey|32336|23 Oct|16:45|Win Match 2-way|Chris Dobey|1/2|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Montauban_v_Oyonnax|609556|Tomorrow|15:00|To Win|Oyonnax|6/8|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Agen_v_Nissa|609558|23 Oct|13:30|To Win|Nissa|3/4|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Soyaux_Angouleme_v_Dax|609563|23 Oct|13:30|To Win|Dax|3/3|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Connacht_v_Zebre_Parma|609577|23 Oct|14:45|To Win|Connacht|3/5|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Narbonne_v_Brive|609557|23 Oct|13:00|To Win|Narbonne|2/2|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Aurillac_v_Nevers|609560|23 Oct|13:30|To Win|Nevers|2/4|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Bulls_v_Ulster|609576|24 Oct|07:45|Handicap|Ulster +18.50|2/2|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Valence_Romans_v_Colomiers|609559|23 Oct|13:30|To Win|Colomiers|1/1|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Grenoble_v_Biarritz|609561|23 Oct|15:00|Handicap|Biarritz +11.50|1/1|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Provence_v_Beziers|609562|23 Oct|15:00|Handicap|Beziers +28.50|1/1|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Stormers_v_Scarlets|609580|24 Oct|10:00|To Win|Stormers|1/2|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Bayonne_v_Lyon|609564|24 Oct|10:35|Handicap|Lyon +10.50|1/1|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Toulouse_v_Perpignan|609567|24 Oct|10:35|Handicap|Perpignan +23.50|1/1|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Leinster_v_Munster|609578|24 Oct|13:00|To Win|Leinster|1/1|
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|La_Rochelle_v_Bordeaux|609554|25 Oct|16:05|To Win|La Rochelle|1/1|
+Handball||Handball/All_Handball/All_Events|RK_Zagreb_vs_PSG_Handball|12053|Today|12:45|Money Line|PSG Handball|9/14|
+Handball||Handball/All_Handball/All_Events|Veszprem_vs_Fuchse_Berlin|12055|Today|12:45|Money Line|Veszprem|6/12|
+Handball||Handball/All_Handball/All_Events|Nantes_vs_HC_Vardar|12050|Today|14:45|Money Line|Nantes|6/11|
+Handball||Handball/All_Handball/All_Events|Dinamo_Bucuresti_vs_Skanderborg_Handbold|12045|Today|12:45|Money Line|Skanderborg Handbold|5/12|
+Handball||Handball/All_Handball/All_Events|Sandefjord_vs_Runar|12115|Today|12:15|Money Line|Runar|4/6|
+Handball||Handball/All_Handball/All_Events|Aalborg_Handbold_vs_RK_Celje|12044|Today|14:45|Money Line|Tie|4/6|
+Handball||Handball/All_Handball/All_Events|RK_Partizan_vs_FC_Porto|12052|Today|12:45|Money Line|FC Porto|3/9|
+Handball||Handball/All_Handball/All_Events|IF_Hallby_HK_vs_IK_Savehof|12114|Today|13:00|Money Line|IK Savehof|3/4|
+Handball||Handball/All_Handball/All_Events|Hammarby_IF_HF_vs_Alingsas_HK|12112|Today|13:00|Money Line|Hammarby IF HF|3/4|
+Handball||Handball/All_Handball/All_Events|Mors_Thy_Handbold_vs_Bjerringbro_Silkeborg|12072|Today|14:00|Money Line|Bjerringbro-Silkeborg|3/5|
+Handball||Handball/All_Handball/All_Events|HC_Kriens_Luzern_vs_KS_Kielce|12047|Today|14:45|Money Line|HC Kriens-Luzern|3/7|
+Handball||Handball/All_Handball/All_Events|Sporting_CP_vs_IFK_Kristianstad|12054|Tomorrow|14:45|Money Line|Tie|3/7|
+Handball||Handball/All_Handball/All_Events|Kolstad_vs_SC_Magdeburg|12048|Tomorrow|14:45|Money Line|Tie|3/6|
+Handball||Handball/All_Handball/All_Events|Belgium_W_vs_Lithuania_W|12108|Today|11:15|Money Line|Belgium (W)|2/3|
+Handball||Handball/All_Handball/All_Events|HK_Malmo_vs_Lugi_HF|12113|Today|13:00|Money Line|HK Malmo|2/3|
+Handball||Handball/All_Handball/All_Events|MT_Melsungen_vs_Wisla_Plock|12049|Tomorrow|12:45|Money Line|MT Melsungen|2/4|
+Handball||Handball/All_Handball/All_Events|Pick_Szeged_vs_GOG|12051|Tomorrow|12:45|Money Line|GOG|2/4|
+Handball||Handball/All_Handball/All_Events|FC_Barcelona_vs_Montpellier|12046|Tomorrow|14:45|Money Line|Montpellier|2/6|
+Handball||Handball/All_Handball/All_Events|Estonia_W_vs_Kosovo_W|12110|23 Oct|14:00|Money Line|Kosovo (W)|2/2|
+Handball||Handball/All_Handball/All_Events|Skive_FH_vs_Aalborg_Handbold|12076|24 Oct|09:00|Money Line|Aalborg Handbold|2/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|LUK_Lublin_vs_Trefl_Gdansk|36961|Today|11:30|Win Match|LUK Lublin|5/6|
+Volleyball||Volleyball/All_Volleyball/All_Events|Puijo_W_vs_Orpo_W|36981|Today|10:00|Win Match|Puijo W|3/5|
+Volleyball||Volleyball/All_Volleyball/All_Events|Schweriner_W_vs_Erfurt_W|36945|Today|12:00|Win Match|Schweriner W|3/5|
+Volleyball||Volleyball/All_Volleyball/All_Events|Volley_Wroclaw_2_W_vs_KS_Pajeczno_W|36972|Today|09:00|Win Match|Volley Wroclaw 2 W|2/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|Slepsk_Suwalki_vs_GKS_Katowice|36963|23 Oct|11:30|Win Match|Slepsk Suwalki|2/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|PGE_Skra_Belchatow_vs_Projekt_Warszawa|36964|24 Oct|12:00|Win Match|Projekt Warszawa|2/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|CHKS_Chelm_vs_Resovia_Rzeszow|36965|25 Oct|13:00|Win Match|Resovia Rzeszow|2/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|Jelcz_Laskowice_vs_Stal_Nysa|36979|Today|12:00|Win Match|Stal Nysa|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|SMS_PZPS_Szczyrk_II_W_vs_Marba_Sedziszow_Malopolski_W|36971|Today|12:00|Set Score|Marba Sedziszow Malopolski W to win 3-1|1/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|Berlin_Volleys_vs_FT_Freiburg|36983|Today|13:00|Set Score|Berlin Volleys to win 3-1|1/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|Netzhoppers_KW_vs_Helios_Grizzlys_Giesen|36984|Today|13:00|Win Match|Helios Grizzlys Giesen|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|WWK_Volleys_Munchen_vs_VfB_Friedrichshafen|36985|Today|13:30|Win Match|VfB Friedrichshafen|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|Gwardia_Wroclaw_vs_MKS_Bedzin|36980|Today|14:00|Set Score|MKS Bedzin to win 3-2|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|Belsk_Duzy_vs_Czarni_Radom|36978|Today|14:00|Set Score|Czarni Radom to win 3-2|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|UYBA_Busto_Arsizio_W_vs_Talmassons_W|36973|Today|14:00|Set Score|UYBA Busto Arsizio W to win 3-2|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|VC_Sneek_W_vs_VV_Utrecht_W|36968|Today|14:00|Win Match|VC Sneek W|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|SSC_Karlsruhe_vs_SVG_Luneburg|36986|Today|14:00|Win Match|SVG Luneburg|1/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|Bergamo_W_vs_Milano_W|36974|Today|14:30|Win Match|Milano W|1/1|
+Volleyball||Volleyball/All_Volleyball/All_Events|Vallefoglia_W_vs_Cuneo_W|36977|Today|14:30|Set Score|Cuneo W to win 3-0|1/2|
+Volleyball||Volleyball/All_Volleyball/All_Events|Warta_Zawiercie_vs_Kedzierzyn_Kozle|36962|Today|14:30|Win Match|Warta Zawiercie|1/1|
+# ---- Non-match events (tournament / race / outright markets). Listed for completeness; not two-sided fixtures.
+Golf||Golf/All_Golf/All_Events|Genesis_Championship|101905|25 Oct|04:00|Win Tournament|Si Woo Kim|6/20|outright
+Golf||Golf/All_Golf/All_Events|Bermuda_Championship|101904|25 Oct|17:45|Win Tournament|Ben James|3/12|outright
+Golf||Golf/All_Golf/All_Events|Players_Series_SA|101907|25 Oct|02:45|Win Tournament|Josh Armstrong|2/2|outright
+Golf||Golf/All_Golf/All_Events|BMW_Ladies_Championship|101906|25 Oct|04:00|Win Tournament|Sei Young Kim|2/8|outright
+Golf||Golf/All_Golf/All_Events|Stifel_Charity_Classic|101903|25 Oct|17:45|Win Tournament|Steven Alker|2/7|outright
+Golf||Golf/All_Golf/All_Events|Senior_Italian_Open|101911|24 Oct|11:45|Win Tournament|Mikael Lundberg|1/2|outright
+Golf||Golf/All_Golf/All_Events|Fortinet_Players_Cup|101908|25 Oct|02:45|Win Tournament|Ryosuke Kinoshita|1/2|outright
+Golf||Golf/All_Golf/All_Events|Hong_Kong_Open|101910|25 Oct|03:45|Win Tournament|Paul Casey|1/3|outright
+Golf||Golf/All_Golf/All_Events|Stella_Artois_Players_Championship|101912|25 Oct|10:45|Win Tournament|Daniel van Tonder|1/2|outright
+Golf||Golf/All_Golf/All_Events|Hero_Womens_Indian_Open|101909|25 Oct|08:00|Win Tournament|Avani Prashanth||outright; tip count not rendered
+Motor Racing||Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|913|25 Oct|16:00|Win Race|Max Verstappen|11/32|race
+Motor Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026|828|06 Dec|08:00|Win Tournament|Max Verstappen|9/33|outright
+Motor Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli|912|06 Dec|08:00|Win Tournament|Max Verstappen|4/6|outright
+Rugby League||Rugby_League/All_Rugby_League/All_Events|State_of_Origin_2027|2695857|27 May 2027|06:00|Win Tournament|New South Wales|9/12|outright; no dated match fixtures on the Rugby League page
+Rugby League||Rugby_League/All_Rugby_League/All_Events|Super_League_2027|2801554|02 Oct 2027|13:00|Grand Final Winner|Leeds Rhinos|1/3|outright
+Rugby League||Rugby_League/All_Rugby_League/All_Events|NRL_2027|2801600|03 Oct 2027|04:30|Grand Final Winner|Penrith Panthers|1/1|outright
+Rugby Union||Rugby_Union/All_Rugby_Union/All_Events|Six_Nations_2027|609013|14 Mar 2027|16:00|Win Tournament|Ireland|3/9|outright
+Darts||Darts/All_Darts/All_Events|PDC_World_Championship_2027|26023|03 Jan 2027|12:00|Win Tournament|Luke Littler|23/36|outright
+Darts||Darts/All_Darts/All_Events|European_Championship|32338|25 Oct|14:00|Win Tournament|Luke Littler|2/9|outright
+Cricket||Cricket/All_Cricket/All_Events|World_Cup_2027|182606|21 Nov 2027|05:00|Outright Winner|India|6/12|outright
+Cricket||Cricket/All_Cricket/All_Events|Big_Bash_Women_2026|187184|05 Dec|03:10|Outright Winner|Sydney Sixers W|2/3|outright
+Cricket||Cricket/All_Cricket/All_Events|T20_Big_Bash_2026-27|187503|12 Dec|03:15|Outright Winner|Adelaide Strikers|1/2|outright
+Cricket||Cricket/All_Cricket/All_Events|SA20_2026-27|187504|24 Jan 2027|11:30|Outright Winner|Pretoria Capitals|1/1|outright
+Cricket||Cricket/All_Cricket/All_Events|T20_Blast_2027|188350|18 Jul 2027|11:00|Outright Winner|Sussex||outright; tip count not rendered

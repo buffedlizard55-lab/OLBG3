@@ -64,6 +64,8 @@ def round_half(x: float) -> float:
 
 def total_line(match: dict) -> tuple[float | None, str | None]:
     sport = match["sport"]
+    if match.get("market_family") == "outright" or not (match.get("home") and match.get("away")):
+        return None, None  # no two-sided fixture, so no match total
     if sport == "Cricket":
         name = match["event_name"].lower()
         if "odi" in name or "one day" in name:
@@ -84,6 +86,9 @@ def main() -> None:
     predictions_path = DATA / "predictions-olbg.json"
     preds = json.loads(predictions_path.read_text()) if predictions_path.exists() else {"predictions": []}
     high_ids = {p["match_id"] for p in preds.get("predictions", [])}
+    # The written prediction names the side; the line must agree with it.
+    high_pick = {p["match_id"]: p.get("our_pick") for p in preds.get("predictions", []) if p.get("our_pick")}
+    HIGH_FLOOR = 0.65  # disclosed: a HIGH pick backed by official form is priced at no less than 65%
 
     out = []
     for m in matches:
@@ -94,6 +99,7 @@ def main() -> None:
         flags: list[str] = []
 
         p_raw = p_shrunk = p_model = None
+        side = None
         basis = "no_probability_originated"
         if m["market_family"] == "match_winner" and won is not None and total:
             p_raw = won / total
@@ -134,7 +140,12 @@ def main() -> None:
         p_pick = None
         other = None
         if m["market_family"] in ("match_winner", "other") and p_model is not None and m["home"] and m["away"]:
-            if p_model >= 0.5:
+            if m["market_family"] == "other" and side:
+                # non-winner market: the only side signal is the one parsed from the OLBG selection text
+                pick = m["home"] if side == "home" else m["away"]
+                p_pick = p_model if side == "home" else 1 - p_model
+                other = m["away"] if side == "home" else m["home"]
+            elif p_model >= 0.5:
                 pick = consensus if consensus in (m["home"], m["away"]) else m["home"]
                 p_pick = p_model
                 other = m["away"] if pick == m["home"] else m["home"]
@@ -145,6 +156,23 @@ def main() -> None:
         elif consensus:
             pick = consensus
             flags.append("pick_carried_from_olbg_consensus_without_our_probability")
+
+        # HIGH picks: the written prediction decides the side, and the price carries a disclosed floor
+        if m["id"] in high_ids and m["home"] and m["away"]:
+            named = high_pick.get(m["id"])
+            if named in (m["home"], m["away"]):
+                pick = named
+                other = m["away"] if pick == m["home"] else m["home"]
+            if p_pick is None or p_pick < HIGH_FLOOR:
+                p_pick = HIGH_FLOOR
+                flags.append("high_confidence_floor_applied_from_official_form")
+            p_model = p_pick if pick == m["home"] else 1 - p_pick
+
+        # normalise: p_home is always the HOME side's probability (p_model above may be the
+        # consensus side's probability, depending on the branch that produced it)
+        p_home = None
+        if p_pick is not None and pick and m["home"] and m["away"]:
+            p_home = p_pick if pick == m["home"] else 1 - p_pick
 
         # handicap line, only when we have our own probability
         hc = hc_side = None
@@ -186,6 +214,7 @@ def main() -> None:
                 "basis": basis,
             },
             "our_match_probability": None if p_model is None else round(p_model, 4),
+            "our_home_probability": None if p_home is None else round(p_home, 4),
             "our_pick": pick,
             "our_pick_probability": None if p_pick is None else round(p_pick, 4),
             "our_fair_odds": None if p_pick is None else round(1 / p_pick, 2),

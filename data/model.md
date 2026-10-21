@@ -98,18 +98,31 @@ greyhounds and Gaelic football get no total line.
 
 * Pick = the side our model favours. When the OLBG row is not a winner market, we have no
   split for the money line, so the pick comes from the home edge alone and is flagged
-  `no_split_on_winner_market`.
-* Outright markets (tournaments, championships, races) get **no** price or probability,
-  because field size is not published on the retrieved pages. The OLBG consensus is shown
-  for reference and flagged.
+  `no_split_on_winner_market`. **Side rule (added 2026-10-21T07Z):** on such rows the
+  side we price is the side named in OLBG's own selection text (e.g. "Baskonia +4.5" →
+  Baskonia); if neither side is named, the home side is priced. Nothing is inferred
+  beyond that string match.
+* **HIGH-pick override (added 2026-10-21T07Z):** when a row has a written prediction in
+  `data/predictions-olbg.json`, the side named there (`our_pick`) is the pick, and its
+  probability is floored at **0.65** (price 1.47 at the 5% hold). The floor is applied
+  only where the prediction cites official current-form facts, and every row where it
+  changed the number carries the flag `high_confidence_floor_applied_from_official_form`
+  so the reader can see the 65% is a disclosed choice, not a measurement. Where the crowd
+  split alone already exceeded 0.65 the model number stands.
+* Both `our_match_probability` (probability of the side the branch computed, kept for
+  reproducibility) and `our_home_probability` (always the home side) are written; the
+  board reads the latter.
+* Outright markets (tournaments, championships, races) get **no** price, probability,
+  handicap or total, because field size is not published on the retrieved pages and there
+  is no two-sided fixture. The OLBG consensus is shown for reference and flagged.
 
 | Label | Rule |
 |---|---|
-| **high** | The match has a verified long-form prediction in `data/predictions.json`, which requires verified form/results from an official or primary source. |
+| **high** | The match has a verified long-form prediction in `data/predictions-olbg.json` (mirrored to `data/predictions.json`), which requires a verified fixture and verified form/results from an official source. |
 | **medium** | Winner market, at least 5 tips, and `|p_model − 0.5| ≥ 0.08`. |
 | **low** | Everything else: tiny samples, non-winner OLBG rows, outrights, rows with no tip data. |
 
-In this run: 5 high, 24 medium, 108 low, out of 137 rows.
+In this run (harvest 2026-10-21T06:50Z): 5 high, 31 medium, 142 low, out of 178 rows.
 
 ## What the model deliberately does not do
 

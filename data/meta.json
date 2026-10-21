@@ -1,9 +1,20 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261021-A",
-  "run_started_utc": "2026-10-21T05:12:00Z",
-  "harvest_completed_utc": "2026-10-21T05:31:00Z",
-  "excluded_sports_verbatim": ["soccer", "boxing", "ufc", "mma", "football", "american football", "hurling", "horse racing", "cycling", "specials"],
+  "run_id": "S-20261021-B",
+  "run_started_utc": "2026-10-21T06:45:00Z",
+  "harvest_completed_utc": "2026-10-21T07:05:00Z",
+  "excluded_sports_verbatim": [
+    "soccer",
+    "boxing",
+    "ufc",
+    "mma",
+    "football",
+    "american football",
+    "hurling",
+    "horse racing",
+    "cycling",
+    "specials"
+  ],
   "exclusion_policy": {
     "soccer/football": "OLBG sport Football (id 1) excluded; includes all association football competitions incl. Champions League / Premier League rows seen on the All Sports page.",
     "american_football": "OLBG sport American_Football (id 11) excluded.",
@@ -14,10 +25,21 @@
     "specials": "OLBG 'Specials' / non-fixture specials markets excluded."
   },
   "allowed_sports_olbg_ids": {
-    "Tennis": 3, "Basketball": 4, "Golf": 5, "Cricket": 7, "Snooker": 8,
-    "Rugby_Union": 9, "Rugby_League": 10, "Baseball": 12, "Ice_Hockey": 13,
-    "Motor_Racing": 14, "Darts": 15, "Handball": 20, "Volleyball": 21,
-    "Gaelic_Football": 25, "Greyhounds": 28
+    "Tennis": 3,
+    "Basketball": 4,
+    "Golf": 5,
+    "Cricket": 7,
+    "Snooker": 8,
+    "Rugby_Union": 9,
+    "Rugby_League": 10,
+    "Baseball": 12,
+    "Ice_Hockey": 13,
+    "Motor_Racing": 14,
+    "Darts": 15,
+    "Handball": 20,
+    "Volleyball": 21,
+    "Gaelic_Football": 25,
+    "Greyhounds": 28
   },
   "ambiguities": [
     {
@@ -41,5 +63,15 @@
     "pages": "https://www.olbg.com/betting-tips plus one page per allowed OLBG sport id",
     "granularity": "Rows are exactly what the OLBG listing rendered on first page at retrieval time. OLBG paginates ('Load More Tips'); rows beyond the first page were NOT captured and are flagged.",
     "values_inferred": "none - blank when not stated by the source"
-  }
+  },
+  "harvest_file": "raw/olbg-harvest-20261021T0650Z.tsv",
+  "harvest_format": "v2",
+  "harvest_timezone_note": "OLBG renders listing times in the viewer locale; for this fetcher that is US Eastern Daylight Time (UTC-4), checked against NHL and NBA official start times. Official UTC is stored in verifications.json where confirmed.",
+  "previous_harvest": {
+    "file": "raw/olbg-harvest-20261021.tsv",
+    "format": "v1",
+    "harvest_completed_utc": "2026-10-21T05:20:00Z",
+    "note": "05:20Z pass, retained unchanged for audit. Sports it covers that the 06:50Z pass did not re-list (Gaelic Football, Greyhounds) are carried from it, tagged per row."
+  },
+  "session": "session-af0789e6"
 }
