@@ -1,35 +1,52 @@
-# OLBG Research Desk
+# OLBG3 — verified match board, originated lines and picks
 
-A static, source-first dashboard scaffold for organizing non-excluded sports fixtures, independently originated betting lines, market assessments, confidence picks, and review flags. It is designed for GitHub Pages and uses plain HTML, CSS, JavaScript, and JSON.
+Two research tracks run side by side in this repository, and the site publishes both:
 
-## Important verification status
+1. **The board** (`scripts/build_site.py`, data in `data/sports/`, `data/official.json`, `data/events.json`) —
+   every in-scope sport on OLBG.com, reverse-engineered from its listing/event pages, checked against official
+   competition sources where we could, priced by our own model, graded by confidence, with sourced written
+   predictions for high-confidence picks.
+2. **The official feed** (`scripts/update.py` + `scripts/build.py`) — an hourly pull of official NHL / MLB / NBA
+   schedule feeds into `data/current.json`, published as `matches.html` and `coverage.html`. It deliberately
+   publishes no picks, and its validator (`scripts/check.py`) enforces that any betting field in *that* dataset
+   stays blank until it is validated.
 
-The initial repository had no fixture or research data. In this session, the live OLBG website and official sports schedules could not be accessed: network access was restricted to GitHub and package-registry hosts. Consequently, **no current match, event date, recent form, result, market line, injury, pick, or prediction has been independently verified or published**. The dashboard intentionally displays zero verified records rather than filling gaps with guesses.
+Keeping them separate is deliberate: one is sourced facts plus clearly-labelled model opinion, the other is
+untouched official feed data. Neither one is allowed to quietly fill the other's gaps.
 
-The category list in `data/sports.json` is provisional. Its organization URLs are source-discovery starting points only, not match-level citations or claims that the current pages were checked. See the dashboard's **Flagged for Review** section for all known limitations.
+## Website
+https://buffedlizard55-lab.github.io/OLBG3/
 
-## Local preview
-
-From the repository root, run any static web server, for example:
-
+## Build locally
 ```sh
-python3 -m http.server 8000
+python3 scripts/update.py            # optional: refresh official feeds (needs network)
+python3 -m unittest discover -s tests -v
+python3 scripts/build.py             # official-feed pages -> site/
+python3 scripts/build_site.py        # board pages -> site/ (run after build.py)
+python3 scripts/check.py             # feed data + links
+python3 scripts/check_links.py       # every local link in site/, recursively
+python3 -m http.server 8000 --bind 0.0.0.0 --directory site
 ```
 
-Open `http://localhost:8000`. On GitHub Pages, the root `index.html` is the landing page and `sports.html?category=<id>` provides category detail pages. The category filter and table read from `data/matches.json`.
+`site/` is generated, not tracked. GitHub Actions rebuilds and deploys it on every push to `main` and hourly.
 
-## Data contract
+## Where to check us
+- Dashboard: `index.html` · Predictions: `predictions.html` · Verification log: `verification.html`
+- **Flagged for Review: `flagged.html`** — every irregularity and every row we could not verify
+- Method, scope and disclosed modelling assumptions: `method.html`
+- Official-feed notes: `coverage.html`, `markets.html`, `review.html`
 
-- Every match record must include a direct, official, match-specific `matchSourceUrl`.
-- Keep fields blank when not confirmed. Do not use bookmaker pages or inference as substitutes for an official fixture fact.
-- Keep originated prices/lines separate from market prices, with methodology, evidence and timestamps.
-- Each market record should include market name, our line/price, selection, rationale, direct source URLs, and verification time.
-- A confidence label is one of `low`, `medium`, or `high`; it is an analytical judgment and must be supported by evidence, not presented as a verified fact.
-- High-confidence prediction copy must be unique, at least 30 words, and explicitly state the selection. Form, recent history and other factual details need official supporting links.
-- Add any missing, inaccessible, conflicting, or unverified facts to **Flagged for Review**; never silently fill them.
+## Rules this repo runs on
+- No inferred values. If OLBG does not state a competition, the cell is blank and the row is flagged.
+- Nothing is marked verified without a link to the competition's own source.
+- Our prices/handicaps/totals are model output with printed assumptions — never bookmaker prices, never facts.
+- Predictions are written only where verified current form exists for both sides.
 
-The schema and empty data state are in `data/matches.json`. Official source discovery links by provisional sport are in `data/sports.json`.
+## Sources
+- OLBG listings/event pages (structure documented in `docs/olbg-structure.md`)
+- `https://stats.unitedrugby.com/match-centre/2026-27/4`, `.../table/2026-27`
+- `https://www.nhl.com/schedule/2026-10-21`, `https://www.nhl.com/standings`
+- `https://www.nba.com/schedule?date=10%2F21%2F2026`
+- Official feeds: `api-web.nhle.com`, `statsapi.mlb.com`, `cdn.nba.com`
 
-## Pages workflow
-
-`.github/workflows/pages.yml` deploys this static site to GitHub Pages on pushes to `main` and on manual workflow dispatch. The repository's Pages setting must allow GitHub Actions deployments. A successful branch push alone does not confirm a live deployment.
+Not affiliated with OLBG. 18+.
