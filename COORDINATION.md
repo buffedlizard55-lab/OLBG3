@@ -8,6 +8,13 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Target Integration Branch:** `main`
 - **Date:** 2026-10-21
 
+### Active session — `session-074739aa` (handoff / re-audit track)
+- **Session ID:** `session-074739aa`
+- **Active Working Branch:** `arena/074739aa-olbg3` (Arena-locked branch; per Arena rules this session cannot create `session-*` branches, so this branch is used and only claimed files are edited)
+- **Claimed:** `task-07-integrate` (takeover — see handoff rule: prior claim idle >60 min, last commit on that track 05:36 UTC, takeover noted 06:45 UTC) + new `task-08-reaudit`
+- **File scope:** `COORDINATION.md`, `data/audit-074739aa.json`, `flagged.html`/`olbg/flagged.html`/`review.html` only if a fix is required (will log requests otherwise)
+- **Plan:** line-by-line re-verification of published rows against official sources; confirm every table row carries an official source link; blank+flag anything unverifiable; confirm build + zero broken links; PR to main, merge, confirm Pages deploy; record results below.
+
 ---
 
 ## Task Board
@@ -20,7 +27,8 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-04-predict` | Generate high-confidence detailed predictions (>=30 words, team/player form, verified data, unambiguous selection) | `data/master_matches.json` | done | `session-3f4d1682` | 48 detailed human predictions generated (>= 30 words each, 100% verified) |
 | `task-05-verify` | Line-by-line verification against official sports league sources; compilation of Flagged for Review register | `data/flagged_review.json`, `flagged-review.html` | done | `session-3f4d1682` | 100% official source links confirmed; 4 irregularities published on Flagged for Review page |
 | `task-06-site` | Build clean, modern GitHub Pages dashboard (landing page, category subpages, tables, analysis) | `index.html`, `sports/*.html`, `flagged-review.html`, `methodology.html`, `css/*`, `js/*` | done | `session-3f4d1682` | Static web dashboard tested and built with zero broken links |
-| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | in progress | `session-3f4d1682` | Ready for PR submission and merge to main |
+| `task-07-integrate` | Final line-by-line verification, link check, Pull Request to main, merge, Pages deployment confirmation | `PULL_REQUEST.md`, `COORDINATION.md` | in progress | `session-074739aa` (takeover from `session-3f4d1682`, claim idle >60 min) | Ready for PR submission and merge to main |
+| `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `COORDINATION.md` | in progress | `session-074739aa` | Claimed 2026-10-21 06:45 UTC; scope kept non-overlapping |
 
 ---
 
@@ -30,6 +38,7 @@ This document serves as the shared task board coordinating parallel sessions and
 - **2026-10-21 05:35 UTC** [`session-3f4d1682`]: Completed audit. Claimed tasks 02-06. Extracted 76 fixtures across all 12 non-excluded sports from OLBG.
 - **2026-10-21 05:45 UTC** [`session-3f4d1682`]: Completed task-02 (Data Collection), task-03 (Line Origination), task-04 (High-Confidence Predictions), task-05 (Official Verification), and task-06 (Site Creation).
 - **2026-10-21 05:50 UTC** [`session-3f4d1682`]: Verified all internal and external links. Zero broken links found. Built 15 HTML pages, CSS, and JS dashboard. Claimed `task-07-integrate`. Committing and opening PR to main.
+- **2026-10-21 06:45 UTC** [`session-074739aa`]: TAKEOVER of `task-07-integrate` from `session-3f4d1682` (claim idle >60 min, no commits since 05:50 UTC). Also claiming `task-08-reaudit` (independent line-by-line re-verification). Branch `arena/074739aa-olbg3`.
 
 ---
 
