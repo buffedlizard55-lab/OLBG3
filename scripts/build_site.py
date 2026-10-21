@@ -448,6 +448,12 @@ for asset in ("style.css", "app.js"):
     shutil.copyfile(os.path.join(ROOT, "assets", asset), os.path.join(OUT, "assets", asset))
 open(os.path.join(OUT, ".nojekyll"), "w").write("")
 
+# The third session's OLBG audit section (tools/build_site.py) is committed at ./olbg.
+# It is published at /olbg/ so both Pages publishers serve it and the shared nav link resolves.
+if os.path.isdir(os.path.join(ROOT, "olbg")):
+    shutil.rmtree(os.path.join(OUT, "olbg"), ignore_errors=True)
+    shutil.copytree(os.path.join(ROOT, "olbg"), os.path.join(OUT, "olbg"))
+
 # --snapshot mirrors the built site into the repository root.
 # Reason: this repository's Pages site is configured for LEGACY branch publishing
 # (source: main, path: /) and the API that would switch it to Actions returns 403 for
