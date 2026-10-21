@@ -80,7 +80,7 @@ Status: `unclaimed` · `in progress` · `done` · `needs review`
 ## Final integration result
 
 - Session branch `arena/6d5f01ec-olbg3`; PR #4 → `main`; see the PR thread for the merge and deployment record (also mirrored here after merge).
-- Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links. origin/main
+- Build gate: `python3 scripts/build_site.py && python3 scripts/check_links.py` → 22 pages, 0 broken local links.
 
 ---
 
