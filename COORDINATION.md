@@ -36,6 +36,8 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-13-reverify-refresh-integrate` | Re-verify the published board line by line against live OLBG listings and official competition sources; fix every discrepancy found; refresh stale captures; re-render and publish the site | `data/events.json`, `data/official.json`, `data/predictions.json`, `data/raw/*`, `scripts/*`, generated root pages + `sports/*.html`, `COORDINATION.md`, `README.md` | done | `session-7244efad` | Claimed 2026-10-21; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) |
 | `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
 
+| `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | in progress | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
+
 ---
 
 ## Log & Hand-off Records
@@ -439,3 +441,17 @@ FL-024..FL-039 in `data/flagged.json` (original ids FL-001..FL-017 of this pass 
 - **06:45 UTC**: Read board. Only `main` on origin; claimed tasks 08-12; claim pushed (15c260f).
 - **06:45-07:05 UTC**: Harvest; **07:05-07:40 UTC**: official-source sweep, verifications, lines, predictions, flags, /olbg rebuild.
 - **07:50 UTC**: `origin/main` found 23 commits ahead (PRs #19-#26). Merged as above; all checks green on the merged tree (dd6093c).
+
+---
+
+## Session log — `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`)
+
+**Claimed:** 2026-10-21 07:15 UTC, `task-13-verify-remaining`. At claim time `git branch -r` showed only
+`origin/main`; no other session branch was active, so the claim scope is non-overlapping.
+
+**Scope:** `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`,
+`COORDINATION.md`, and the generated root pages (`index.html`, `predictions.html`, `verification.html`,
+`audit.html`, `flagged.html`, `method.html`, `sports/*.html`) via `scripts/build_site.py --snapshot`.
+Not touched: `tools/*`, `olbg-board/`, `olbg/`, `data/matches.json`, `data/lines.json`,
+`data/predictions-olbg.json`, `data/flagged.json`, `data/verifications.json` (the OLBG lines-audit track).
+
