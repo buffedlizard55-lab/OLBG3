@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+"""build_gap_sports.py - originate our own prices for OLBG's outright/race markets.
+
+Input : data/raw/gap_sports_capture_20261021.json  (verbatim OLBG listing capture + our disclosed assumptions)
+Output: data/gap_sports.json                       (rows in the same schema as data/events.json)
+
+Why this exists
+---------------
+The main board (data/events.json) only carries two-sided fixtures. OLBG also publishes tournament and
+race winner markets for Golf, Motor Racing, Greyhounds, Rugby League and the Gaelic football
+championship. They are in scope (none of them is in the exclusion list) and they were previously
+disclosed as an uncaptured gap. This script prices them so the board is complete, without pretending a
+one-selection market has a second side or a handicap.
+
+The price is ours, not a bookmaker's. It is built only from inputs that are on the OLBG page plus one
+disclosed assumption (the size of the field), exactly as the two-sided model does:
+
+    prior        Beta(a, b) with mean 1/N and strength k
+                 a = k / N,  b = k - k / N
+    probability  p = (wins + a) / (total + k)        # i.e. the tip share shrunk toward 1/N
+    offered      decimal = (1 - 0.05) / p            # 5% overround, same as the two-sided model
+
+N is the field size and k is the prior strength; both are listed per basis below and copied into the
+output so every number can be reproduced and challenged. Nothing here is a verified fact.
+"""
+import json
+import os
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, "data/raw/gap_sports_capture_20261021.json")
+OUT = os.path.join(ROOT, "data/gap_sports.json")
+
+OVERROUND = 0.05
+
+# k = prior strength (how many "virtual tips" of the field-size prior we add).
+# Chosen so that a single tip on a 156-player golf field cannot imply a 60% chance.
+STRENGTH = {
+    "golf_field_156": 24,
+    "f1_grid_22": 12,
+    "greyhound_six_dog": 6,
+    "state_of_origin_two_side": 4,
+    "super_league_twelve": 6,
+    "nrl_seventeen": 6,
+    "all_ireland_32": 10,
+}
+
+
+def price(p: float) -> float:
+    """Decimal odds we would offer, with a 5% overround, rounded to 2dp."""
+    return round((1 - OVERROUND) / p, 2)
+
+
+def grade(fixture_verified: bool, prob: float) -> tuple[str, int, dict]:
+    """Same 0-6 rubric the two-sided board uses (see method page)."""
+    factors = {"fixture_verified": 2 if fixture_verified else 0, "official_form": 0, "model_edge": 0}
+    if prob >= 0.65:
+        factors["model_edge"] = 2
+    elif prob >= 0.55:
+        factors["model_edge"] = 1
+    score = sum(factors.values())
+    label = "HIGH" if score >= 6 else ("MEDIUM" if score >= 3 else "LOW")
+    return label, score, factors
+
+
+def main() -> None:
+    cap = json.load(open(SRC))
+    basis_table = cap["field_size_assumptions"]
+    rows = []
+
+    for e in cap["events"]:
+        basis = e["field_basis"]
+        if basis not in basis_table:
+            raise SystemExit(f"unknown field basis {basis} on {e['ref']}")
+        field = e.get("field_override", basis_table[basis]["field"])
+        k = STRENGTH[basis]
+        a, b = k / field, k - k / field
+
+        won, total = e["tips_won"], e["tips_total"]
+        flags = []
+        if won is None or total is None:
+            prob, odds = None, None
+            flags.append("no_tip_count_published")
+        else:
+            prob = round((won + a) / (total + k), 4)
+            odds = price(prob)
+            if total < 5:
+                flags.append("small_sample_lt5_tips")
+        if e["market_type"] == "outright":
+            flags.append("outright_no_opposing_side")
+        flags.append("field_size_prior_assumed")
+        if e["verification"]["status"] != "verified":
+            flags.append("official_source_not_retrieved")
+
+        conf, score, factors = grade(e["verification"]["status"] == "verified", prob or 0.0)
+
+        rows.append({
+            "ref": e["ref"],
+            "sport": e["sport"],
+            "sport_slug": e["sport_slug"],
+            "competition": e["competition"],
+            "home": e["event_name"],
+            "away": "",
+            "start": e["start"],
+            "market_type": e["market_type"],
+            "olbg_market": e["olbg_market"],
+            "olbg_pick": e["olbg_pick"],
+            "olbg_tips": (f"{won}/{total}" if won is not None else None),
+            "olbg_pct": e["olbg_pct"],
+            "olbg_event_url": e["olbg_event_url"],
+            "olbg_event_id": e["olbg_event_id"],
+            "olbg_listing_url": cap["listing_pages"][e["sport"]],
+            "venue": e["venue"],
+            "verification": e["verification"],
+            "model": {
+                "basis": "outright-prior" if e["market_type"] == "outright" else "race-prior",
+                "prices": ({"single": odds} if odds else {}),
+                "probs": ({"single": prob} if prob else {}),
+                "prior": {"field": field, "strength_k": k, "a": round(a, 4), "b": round(b, 4),
+                          "basis": basis_table[basis]["basis"]},
+                "notes": [
+                    "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
+                    "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page.",
+                ],
+            },
+            "pick": {
+                "side": "single",
+                "label": e["olbg_pick"],
+                "prob": prob,
+                "confidence": conf,
+                "score": score,
+                "factors": factors,
+            },
+            "flags": flags,
+            "row_notes": e["row_notes"],
+            "captured_at": cap["captured_at"],
+        })
+
+    payload = {
+        "generated_at": cap["captured_at"],
+        "source_capture": os.path.relpath(SRC, ROOT),
+        "listing_pages": cap["listing_pages"],
+        "model": {
+            "what": "Our own prices for OLBG outright and race-winner markets.",
+            "inputs": "Only the OLBG tip split and the disclosed field-size assumption below.",
+            "formula": "p = (wins + a) / (total + k), Beta(a,b) prior with mean 1/N; decimal odds = (1 - 0.05) / p",
+            "overround": OVERROUND,
+            "strength_k_by_basis": STRENGTH,
+            "field_sizes": {k: v["field"] for k, v in basis_table.items()},
+            "caveat": "Model output, not a bookmaker price and not a fact. Where the tip count is missing, no price is originated.",
+        },
+        "rows": rows,
+    }
+    with open(OUT, "w") as fh:
+        json.dump(payload, fh, indent=1)
+        fh.write("\n")
+    print(f"gap rows written: {len(rows)} -> {os.path.relpath(OUT, ROOT)}")
+    priced = sum(1 for r in rows if r["model"]["prices"])
+    print(f"priced {priced}, unpriced {len(rows) - priced}")
+
+
+if __name__ == "__main__":
+    main()
