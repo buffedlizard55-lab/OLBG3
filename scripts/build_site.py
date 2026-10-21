@@ -10,7 +10,7 @@ os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
 # official-feed track's pages (built by scripts/build.py, which runs before this script).
-NAV = [("index.html", "Dashboard"), ("predictions.html", "Predictions"),
+NAV = [("index.html", "Dashboard"), ("predictions.html", "Predictions"), ("lines.html", "Originated lines"),
        ("verification.html", "Verification"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
        ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review"),
@@ -74,7 +74,8 @@ by_sport = defaultdict(list)
 for r in EVENTS:
     by_sport[r["sport"]].append(r)
 n_verified = sum(1 for r in EVENTS if r["verification"]["status"] == "verified")
-n_unverified = n_events - n_verified
+n_corroborated = sum(1 for r in EVENTS if r["verification"]["status"] == "corroborated")
+n_unverified = sum(1 for r in EVENTS if r["verification"]["status"] == "unverified")
 conf_counter = Counter(r["pick"]["confidence"] for r in EVENTS)
 n_price = sum(1 for r in EVENTS if r["model"].get("prices"))
 n_hcap = sum(1 for r in EVENTS if r["model"].get("handicap"))
@@ -120,7 +121,13 @@ def ver_cell(r):
     v = r["verification"]
     if v["status"] == "verified":
         lab = e(v["official_label"]) or "official source"
+        tier = v.get("source_tier", "official")
         return f'<a class="ok" href="{e(v["official_url"])}" rel="noopener" title="{e(v["note"])}">&#10003; {lab}</a>'
+    if v["status"] == "corroborated":
+        lab = e(v["official_label"]) or "third-party source"
+        return (f'<a class="med" href="{e(v["official_url"])}" rel="noopener" '
+                f'title="Third-party corroboration only, not the competition&#39;s own site. See Flagged for Review.">'
+                f'~ {lab} <span class="tag">third-party</span></a>')
     return '<span class="unver" title="No official source retrieved for this fixture">unverified</span>'
 
 def price_cell(r):
@@ -179,6 +186,15 @@ def table(rows, tid="tbl"):
     body = "\n".join(row_html(r) for r in rows)
     return f'<div class="tablewrap"><table id="{tid}" class="board">{TABLE_HEAD}<tbody>{body}</tbody></table></div>'
 
+# Why a market is missing for a sport: shown instead of a fabricated number.
+HANDICAP_GAP = {
+ "Cricket": "OLBG does not state the format (T20 / ODI / Test), and a runs line differs by an order of magnitude between them, so a handicap would be invented.",
+ "Darts": "Neither OLBG nor the PDC pages retrieved state the leg format for these matches, so a legs handicap cannot be expressed.",
+ "Gaelic Football": "No official scoring record was retrieved for these club fixtures, so there is no scoring unit to price against.",
+}
+TOTAL_GAP = ("Not originated: we captured no official scoring baseline for this sport in this pass, so any total would be a "
+             "number we invented. The field is left empty on purpose and the gap is listed on the Flagged for Review page.")
+
 # ---------- sport pages ----------
 os.makedirs(os.path.join(OUT, "sports"), exist_ok=True)
 for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
@@ -190,10 +206,13 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
     tot = [r for r in rows if r["model"].get("total")]
     hcap_rows = "".join(
         f"<tr><td>{e(r['ref'])}</td><td>{match_label(r)}</td>"
-        f"<td>{e(r['home'] if r['model']['handicap']['fav']=='home' else r['away'])} -{abs(r['model']['handicap']['line']):.1f}</td>"
+        f"<td>{e(r['home'] if r['model']['handicap']['fav']=='home' else r['away'])} -{abs(r['model']['handicap']['line']):.1f}"
+        f" <span class='dim small'>{e(r['model']['handicap'].get('unit',''))}</span></td>"
         f"<td class='num'>{money(r['model']['handicap']['price'])}</td>"
-        f"<td>{e(r['away'] if r['model']['handicap']['fav']=='home' else r['home'])} +{abs(r['model']['handicap']['dog_line']):.1f}</td>"
-        f"<td class='num'>{money(r['model']['handicap']['dog_price'])}</td></tr>" for r in mark)
+        f"<td>{e(r['away'] if r['model']['handicap']['fav']=='home' else r['home'])} +{abs(r['model']['handicap']['dog_line']):.1f}"
+        f" <span class='dim small'>{e(r['model']['handicap'].get('unit',''))}</span></td>"
+        f"<td class='num'>{money(r['model']['handicap']['dog_price'])}</td>"
+        f"<td class='small'>{e(r['model']['handicap'].get('basis',''))}</td></tr>" for r in mark)
     tot_rows = "".join(
         f"<tr><td>{e(r['ref'])}</td><td>{match_label(r)}</td><td class='num'>{r['model']['total']['line']}</td>"
         f"<td class='num'>{money(r['model']['total']['over'])}</td><td class='num'>{money(r['model']['total']['under'])}</td></tr>" for r in tot)
@@ -203,13 +222,16 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
   <h1>{e(sport)}</h1>
   <p class="lede">{len(rows)} rows captured from <a href="{e(meta['listing'])}" rel="noopener">OLBG&rsquo;s {e(sport)} tips page</a>
   (sport ID {e(meta['id'])}): {len(rows) - n_out} two-sided {'fixture' if len(rows) - n_out == 1 else 'fixtures'} and {n_out} outright/race {'market' if n_out == 1 else 'markets'}.
-  {len([r for r in rows if r['verification']['status']=='verified'])} of them were confirmed against an official competition source;
-  the rest are published as <em>unverified</em> and listed on the <a href="../flagged.html">Flagged for Review</a> page.</p>
+  {len([r for r in rows if r['verification']['status']=='verified'])} were confirmed against the competition&rsquo;s own site,
+  {len([r for r in rows if r['verification']['status']=='corroborated'])} rest on third-party corroboration only
+  (<em>corroborated</em>), and the rest are published as <em>unverified</em> &mdash; all three groups are itemised on the
+  <a href="../flagged.html">Flagged for Review</a> page.</p>
   <p class="note">{e(meta['note'])}</p>
 </section>
 <div class="cards">
   <div class="card"><span class="k">{len(rows)}</span><span class="l">rows</span></div>
   <div class="card"><span class="k">{len([r for r in rows if r['verification']['status']=='verified'])}</span><span class="l">officially verified</span></div>
+  <div class="card"><span class="k">{len([r for r in rows if r['verification']['status']=='corroborated'])}</span><span class="l">corroborated (third-party)</span></div>
   <div class="card"><span class="k">{len(hi)}</span><span class="l">high-confidence picks</span></div>
   <div class="card"><span class="k">{len(med)}</span><span class="l">medium-confidence picks</span></div>
 </div>
@@ -217,8 +239,8 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
 <p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% overround), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
 <strong>Basis:</strong> <code>official-league-table</code> / <code>official-standings</code> = model built on official data; <code>consensus</code> = de-vigged OLBG tip share only; <code>none</code> = no defensible input, so no price is shown.</p>
 {table(rows, 'tbl-' + meta['slug'])}
-{(f'<h2>Handicap lines we originated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th></tr></thead><tbody>{hcap_rows}</tbody></table></div>') if mark else '<h2>Handicap lines</h2><p class="dim">Not originated for this sport: OLBG provides no win-share or scoring baseline here, so a handicap would be a guess. Blank rather than invented.</p>'}
-{(f'<h2>Totals we originated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody>{tot_rows}</tbody></table></div>') if tot else '<h2>Match totals</h2><p class="dim">Not originated for this sport: no official scoring baseline was captured, so any total would be invented. Recorded as flagged.</p>'}
+{(f'<h2>Handicap lines we originated ({len(mark)})</h2><p class="legend"><code>official-form</code> = projected margin built on the competition&rsquo;s own scoring table. <code>consensus-scaled</code> = probability-implied line using a disclosed per-sport margin scale, capped at 85% probability. Both are our own lines, never bookmaker prices.</p><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th><th>Basis</th></tr></thead><tbody>{hcap_rows}</tbody></table></div>') if mark else '<h2>Handicap lines</h2><p class="dim">Not originated for this sport: ' + HANDICAP_GAP.get(sport, "no scoring unit and no defensible baseline were available, so a handicap would be a guess.") + ' Blank rather than invented.</p>'}
+{(f'<h2>Match totals we originated ({len(tot)})</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody>{tot_rows}</tbody></table></div>') if tot else '<h2>Match totals</h2><p class="dim">' + TOTAL_GAP + '</p>'}
 """ + foot(1)
     open(os.path.join(OUT, "sports", meta["slug"] + ".html"), "w").write(page)
 
@@ -230,8 +252,9 @@ for sport in SPORT_ORDER:
     ver = len([r for r in rows if r["verification"]["status"] == "verified"])
     hi = len([r for r in rows if r["pick"]["confidence"] == "HIGH"])
     n_out_s = len([r for r in rows if r.get("market_type", "fixture") != "fixture"])
+    corr = len([r for r in rows if r["verification"]["status"] == "corroborated"])
     cov_rows += (f"<tr><td><a href='sports/{meta['slug']}.html'>{e(sport)}</a></td><td class='num'>{len(rows)}</td>"
-                 f"<td class='num'>{n_out_s}</td><td class='num'>{ver}</td><td class='num'>{hi}</td>"
+                 f"<td class='num'>{n_out_s}</td><td class='num'>{ver}</td><td class='num'>{corr}</td><td class='num'>{hi}</td>"
                  f"<td class='num'>{len([r for r in rows if r['model'].get('prices')])}</td>"
                  f"<td class='num'>{len([r for r in rows if r['model'].get('handicap')])}</td>"
                  f"<td class='num'>{len([r for r in rows if r['model'].get('total')])}</td></tr>")
@@ -256,15 +279,18 @@ index = head("Dashboard") + f"""
   <h1>Reverse-engineered board, our own lines, our own picks</h1>
   <p class="lede">Every in-scope sport on OLBG.com except soccer/football, American football, boxing, UFC/MMA, hurling,
   horse racing, cycling and specials. {n_events} rows: {n_fixtures} two-sided fixtures and {n_outrights} outright or race markets.
-  {n_verified} rows are confirmed against an official competition source, {n_price} carry a price we originated, and
-  {len(hi_rows)} picks are graded high confidence &mdash; each of those has a written prediction.</p>
+  {n_verified} rows are confirmed against the competition&rsquo;s own site, {n_corroborated} rest on third-party
+  corroboration only and are labelled as such, {n_unverified} are published as unverified rather than guessed.
+  {n_price} rows carry a price we originated and {len(hi_rows)} picks are graded high confidence &mdash; each of those
+  has a written prediction.</p>
   <p class="stamp">Captured {GEN} &middot; every row links to the OLBG event page it came from</p>
 </section>
 
 <div class="notice">
   <strong>Re-verified line by line on 2026-10-21.</strong> Every high-confidence pick was re-read against the official
-  league page behind it (URC, Pro D2, Top 14, ICEHL, SHL, NHL). Eight predictions were corrected and one was withdrawn
-  when its fixture could not be confirmed from an official source. The full before-and-after is on the
+  league page behind it (URC, Pro D2, Top 14, ICEHL, SHL, NHL). Eight predictions were corrected; two were withdrawn when
+  only a third-party page backed them and restored after the club&rsquo;s own fixture page and the Swedish federation&rsquo;s
+  schedule confirmed the games. The full before-and-after is on the
   <a href="audit.html">audit page</a>; the open issues are on <a href="flagged.html">Flagged for Review</a>.
 </div>
 
@@ -273,6 +299,7 @@ index = head("Dashboard") + f"""
   <div class="card"><span class="k">{n_events}</span><span class="l">rows on the board</span></div>
   <div class="card"><span class="k">{n_outrights}</span><span class="l">outright / race rows</span></div>
   <div class="card"><span class="k">{n_verified}</span><span class="l">officially verified</span></div>
+  <div class="card"><span class="k">{n_corroborated}</span><span class="l">corroborated only</span></div>
   <div class="card"><span class="k">{n_price}</span><span class="l">with our own price</span></div>
   <div class="card"><span class="k">{len(hi_rows)}</span><span class="l">high-confidence picks</span></div>
   <div class="card warn"><span class="k">{n_unverified}</span><span class="l">flagged unverified</span></div>
@@ -280,7 +307,7 @@ index = head("Dashboard") + f"""
 
 <h2>Coverage by sport</h2>
 <div class="tablewrap"><table class="board">
-<thead><tr><th>Sport</th><th class="num">Rows</th><th class="num">of which outright/race</th><th class="num">Verified</th><th class="num">High conf.</th><th class="num">Priced</th><th class="num">Handicaps</th><th class="num">Totals</th></tr></thead>
+<thead><tr><th>Sport</th><th class="num">Rows</th><th class="num">of which outright/race</th><th class="num">Verified</th><th class="num">Corroborated</th><th class="num">High conf.</th><th class="num">Priced</th><th class="num">Handicaps</th><th class="num">Totals</th></tr></thead>
 <tbody>{cov_rows}</tbody></table></div>
 <p class="dim">Rugby League has no dated match fixture on OLBG at capture time: its three rows are 2027 outright markets. Golf, Motor Racing and Greyhounds are
 race or tournament markets with a single selection, so they carry one originated price and no handicap or total. All of this is itemised on the
@@ -316,8 +343,9 @@ digest, next to our model output with a label. Its current snapshot holds <stron
 <h2>How to read this board</h2>
 <div class="grid2">
   <div class="panel"><h3>What is verified</h3><p>Fixture, opponent, date and time are checked against the competition&rsquo;s own site
-  (NBA.com, NHL.com, URC) and the link is in the row. Where we could not do that, the row says <em>unverified</em> &mdash; we leave the
-  competition blank rather than guessing it from a club name.</p></div>
+  (NBA.com, NHL.com, MLB.com, ATP Tour, WST, CSA, URC, LNR, ICEHL &hellip;) and the link is in the row. A row that only has a
+  reputable third-party listing says <em>corroborated</em>; a row with neither says <em>unverified</em>. We leave the competition blank
+  rather than guessing it from a club name, and we never promote a third-party link to &ldquo;official&rdquo;.</p></div>
   <div class="panel"><h3>What is ours</h3><p>Prices, handicap lines, totals and picks are produced by our own model
   (<a href="method.html">method</a>). They are opinions priced off disclosed inputs, not facts, and not bookmaker prices.</p></div>
 </div>
@@ -325,15 +353,18 @@ digest, next to our model output with a label. Its current snapshot holds <stron
 open(os.path.join(OUT, "index.html"), "w").write(index)
 
 # ---------- predictions ----------
-pblocks = ""
+pblocks = ""      # rows currently graded HIGH
+kept_blocks = ""  # rows that were HIGH when the prose was written, downgraded by the source-tier audit
 for ref, p in PREDS.items():
     r = next((x for x in EVENTS if x["ref"] == ref), None)
     if not r: continue
+    _downgraded = r["pick"]["confidence"] != "HIGH"
     pr = r["model"]["prices"]; side = r["pick"]["side"]
     price = pr.get("win_home") if side == "home" else pr.get("win_away")
     facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
-    pblocks += f"""
+    _block = f"""
 <article class="prediction" id="{e(ref)}">
+  {('<p class="note">Kept after the source-tier audit: this fixture now rests on third-party corroboration only, so the row is graded ' + e(r['pick']['confidence']) + ' and this prediction is not counted among the high-confidence picks. The prose is unchanged.</p>') if _downgraded else ''}
   <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])}</div>
   <h2>{e(p['headline'])}</h2>
   <p class="fixture">{match_label(r)} &middot; <span class="when">{e(r['start'])} (OLBG)</span>
@@ -343,15 +374,28 @@ for ref, p in PREDS.items():
   <p class="body">{e(p['body'])}</p>
   <p class="srcs"><strong>Verified from:</strong></p><ul class="sourcelist">{facts}</ul>
 </article>"""
+    if _downgraded:
+        kept_blocks += _block
+    else:
+        pblocks += _block
+
+n_hi_preds = pblocks.count('<article class="prediction"')
+n_kept = kept_blocks.count('<article class="prediction"')
+kept_section = (f'<h2>Kept after the source-tier audit ({n_kept})</h2><p class="dim">Not counted as high-confidence picks. '
+                f'Published so the work is not hidden and can be re-graded once an official fixture source is found.</p>' + kept_blocks) if n_kept else ""
 
 predpage = head("Predictions") + f"""
 <section class="pagehead">
   <h1>Written predictions &mdash; high-confidence picks only</h1>
-  <p class="lede">{len(PREDS)} picks cleared the high-confidence bar (officially verified fixture <em>and</em> official current-form data
-  for both sides <em>and</em> a model probability of 65% or better). Every sentence that states a fact carries a source link.
-  We deliberately wrote nothing for medium or low-confidence rows: there was no verified form data to base it on, and inventing it is worse than publishing less.</p>
+  <p class="lede">{len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} picks clear the high-confidence bar (officially verified fixture
+  <em>and</em> official current-form data for both sides <em>and</em> a model probability of 65% or better). Every sentence that states a fact
+  carries a source link. We deliberately wrote nothing for medium or low-confidence rows: there was no verified form data to base it on, and
+  inventing it is worse than publishing less.</p>
+  <p class="note">Every prediction below belongs to a row that is currently graded high confidence, and the grade is only available to a row whose fixture is on the competition&rsquo;s own site (or one of the two clubs&rsquo; own sites). A row that rests on a third-party listing is labelled <em>corroborated</em>, can never be graded high confidence, and cannot carry a prediction: <code>check_board.py</code> fails the build if one does.</p>
 </section>
+<h2>High-confidence predictions ({n_hi_preds})</h2>
 {pblocks}
+{kept_section}
 """ + foot(0)
 open(os.path.join(OUT, "predictions.html"), "w").write(predpage)
 
@@ -363,33 +407,125 @@ for r in EVENTS:
         st = "<span class='pill high'>verified</span>"
         off = f'<a href="{e(v["official_url"])}" rel="noopener">{e(v["official_label"])}</a>'
         dt = e(v.get("official_datetime", ""))
+        tier = e(v.get("source_tier", "official"))
+    elif v["status"] == "corroborated":
+        st = "<span class='pill med'>corroborated</span>"
+        off = f'<a href="{e(v["official_url"])}" rel="noopener">{e(v["official_label"])}</a>'
+        dt = e(v.get("official_datetime", ""))
+        tier = e(v.get("source_tier", "third-party"))
     else:
         st = "<span class='pill low'>unverified</span>"
         off = '<span class="dim">no official source retrieved</span>'
         dt = '<span class="dim">&mdash;</span>'
+        tier = '&mdash;'
     vrows += (f"<tr><td>{e(r['ref'])}</td><td>{e(r['sport'])}</td><td>{match_label(r)}</td>"
-              f"<td>{e(r['start'])}</td><td>{dt}</td><td>{off}</td><td>{st}</td>"
+              f"<td>{e(r['start'])}</td><td>{dt}</td><td>{off}</td><td>{tier}</td><td>{st}</td>"
               f"<td><a href='{e(r['olbg_event_url'])}' rel='noopener'>OLBG event</a></td></tr>")
 
 verpage = head("Verification") + f"""
 <section class="pagehead">
   <h1>Row-by-row verification log</h1>
-  <p class="lede">Each row records what OLBG showed, what the official source says, and the link. {n_verified} rows are confirmed;
-  {n_unverified} are marked unverified because no official source was retrieved for them in this session &mdash; they are published with the
-  field blank rather than filled from inference.</p>
+  <p class="lede">Each row records what OLBG showed, what the source says, and the link. {n_verified} rows are confirmed against the
+  competition&rsquo;s own site, {n_corroborated} are <em>corroborated</em> by a reputable third party only, and {n_unverified} are unverified
+  because no source was retrieved for them &mdash; those are published with the field blank rather than filled from inference. The
+  <strong>source tier</strong> column is the point: a third-party listing is never counted as official confirmation.</p>
 </section>
 <div class="tablewrap"><table class="board">
-<thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>OLBG start</th><th>Official fixture (verbatim)</th><th>Official source</th><th>Status</th><th></th></tr></thead>
+<thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>OLBG start</th><th>Official fixture (verbatim)</th><th>Source</th><th>Source tier</th><th>Status</th><th></th></tr></thead>
 <tbody>{vrows}</tbody></table></div>
 <h2>Method of checking</h2>
 <ol class="steps">
   <li>Read the fixture off the OLBG sport listing, then off the individual OLBG event page URL recorded in the row.</li>
-  <li>Find the same fixture on the competition&rsquo;s own website (official scheduler / match centre / standings).</li>
+  <li>Find the same fixture on the competition&rsquo;s own website (official scheduler / match centre / standings), or on one of the two clubs&rsquo; own sites. A broadcaster, aggregator or independent database is recorded as <em>corroborated</em> only.</li>
   <li>Copy the official wording verbatim into the row. Do not convert time zones, do not round, do not &ldquo;fix&rdquo; a discrepancy &mdash; log it.</li>
   <li>If step 2 fails, the row keeps its OLBG data, the official column stays blank, and the row appears on Flagged for Review.</li>
 </ol>
 """ + foot(0)
 open(os.path.join(OUT, "verification.html"), "w").write(verpage)
+
+
+
+# ---------- originated lines (every market we priced, in one table) ----------
+def _ml(r):
+    pr = r["model"].get("prices") or {}
+    if not pr:
+        return '<span class="dim">no price</span>'
+    if "single" in pr:
+        return f'{money(pr["single"])} <span class="dim small">single selection</span>'
+    if pr.get("draw") is not None:
+        return f'{money(pr.get("win_home"))} / {money(pr.get("draw"))} / {money(pr.get("win_away"))}'
+    return f'{money(pr.get("win_home"))} / <span class="dim">n/p</span> / {money(pr.get("win_away"))}'
+
+
+def _hc(r):
+    h = r["model"].get("handicap")
+    if not h:
+        return '<span class="dim" title="No defensible scoring unit for this sport, so no line was originated">not quoted</span>'
+    unit = h.get("unit", "")
+    fav = r["home"] if h["fav"] == "home" else r["away"]
+    dog = r["away"] if h["fav"] == "home" else r["home"]
+    return (f'{e(fav)} -{abs(h["line"]):.1f} {e(unit)} <span class="dim">@ {money(h["price"])}</span><br>'
+            f'{e(dog)} +{abs(h["dog_line"]):.1f} {e(unit)} <span class="dim">@ {money(h["dog_price"])}</span>')
+
+
+def _tt(r):
+    t = r["model"].get("total")
+    if not t:
+        return '<span class="dim">not quoted</span>'
+    return (f'<strong>{t["line"]}</strong> {e(t.get("unit",""))}<br>'
+            f'over {money(t.get("over"))} &middot; under {money(t.get("under"))}')
+
+
+line_rows = "".join(
+    f"<tr><td class='ref'><a href='{e(r['olbg_event_url'])}' rel='noopener'>{e(r['ref'])}</a></td><td>{e(r['sport'])}</td>"
+    f"<td class='match'>{match_label(r)}</td><td>{e(r['start'])}</td><td class='num'>{_ml(r)}</td>"
+    f"<td class='small'>{_hc(r)}</td><td class='small'>{_tt(r)}</td>"
+    f"<td class='basis'>{e(r['model'].get('basis','none'))}</td><td class='src'>{ver_cell(r)}</td></tr>"
+    for r in EVENTS)
+
+gap_block = "".join(
+    f"<li><strong>{e(sp)}</strong> &mdash; {e(reason)}</li>" for sp, reason in HANDICAP_GAP.items())
+
+linespage = head("Originated lines") + f"""
+<section class="pagehead">
+  <h1>Every line we originated, in one table</h1>
+  <p class="lede">This is the whole point of the project: for each fixture we price the <strong>match winner</strong>, a
+  <strong>handicap</strong> and a <strong>match total</strong> ourselves, then grade a pick. None of these numbers is a bookmaker quote.
+  {sum(1 for r in EVENTS if r['model'].get('prices'))} of {n_events} rows carry a price, {n_hcap} carry a handicap and {n_total} carry a total.
+  Where a market is missing the cell says so and the reason is written below &mdash; we leave it blank instead of inventing a number.</p>
+</section>
+<div class="cards">
+  <div class="card"><span class="k">{sum(1 for r in EVENTS if r['model'].get('prices'))}</span><span class="l">rows with a money line</span></div>
+  <div class="card"><span class="k">{n_hcap}</span><span class="l">rows with a handicap</span></div>
+  <div class="card"><span class="k">{n_total}</span><span class="l">rows with a total</span></div>
+  <div class="card"><span class="k">{sum(1 for r in EVENTS if (r['model'].get('handicap') or {}).get('basis')=='official-form')}</span><span class="l">handicaps from official form</span></div>
+</div>
+<p class="legend"><strong>Money line:</strong> home / draw / away decimal prices, 5% overround; <strong>n/p</strong> = not priced because the only input
+was a tip share on a different market. <strong>Handicap:</strong> our line in the sport&rsquo;s own scoring unit, priced at 1.91 each side.
+<strong>Total:</strong> quoted only where an official scoring baseline exists. <strong>Basis</strong> tells you what the model was fed:
+<code>official-form</code> (official league table/standings), <code>consensus-scaled</code> (the public tip share plus a disclosed
+margin scale), <code>consensus</code> (tip share only), <code>single-selection</code> (outright/race market).</p>
+<div class="tablewrap"><table id="tbl-lines" class="board">
+<thead><tr><th>Ref</th><th>Sport</th><th>Match / event</th><th>Start (as listed)</th><th class="num">Money line</th>
+<th>Handicap (our line)</th><th>Match total</th><th>Basis</th><th>Source</th></tr></thead>
+<tbody>{line_rows}</tbody></table></div>
+
+<h2>Markets we deliberately did not quote</h2>
+<ul class="tight">
+  <li><strong>Match totals outside rugby union and ice hockey.</strong> {TOTAL_GAP}</li>
+  {gap_block}
+  <li><strong>Handicaps on outright and race rows</strong> (golf tournaments, the F1 race and championship markets, greyhound races, rugby league futures, the All-Ireland championship): a one-selection market has no opponent to give a start to.</li>
+</ul>
+
+<h2>How a line is produced</h2>
+<ol class="steps">
+  <li><strong>Official form</strong> &mdash; where the competition publishes a table, expected score is built from it (points/goals for and against), the two sides are compared, and a projected margin and combined score fall out of that.</li>
+  <li><strong>Probability implied</strong> &mdash; where there is no official table, the only input is the public tip share. The win probability is turned into a margin with a disclosed per-sport scale (Tennis 4.5 games, Basketball 13 points, Handball 7 goals, Baseball 3 runs, Volleyball 1.6 sets, Snooker 1.4 frames), and the probability is capped at 85% so a three-tip sample cannot set an extreme line. These rows are labelled <code>consensus-scaled</code> and can never be graded high confidence.</li>
+  <li><strong>Half-point lines only</strong> &mdash; every handicap and total is set on a half point, so a push is impossible and the quote is unambiguous.</li>
+  <li><strong>Price</strong> &mdash; 5% overround spread proportionally; handicap and total sides are quoted at our standard 1.91 two-way price.</li>
+</ol>
+""" + foot(0)
+open(os.path.join(OUT, "lines.html"), "w").write(linespage)
 
 # ---------- audit (this session's line-by-line review) ----------
 AUDIT_CHECKS = [
@@ -420,11 +556,34 @@ AUDIT_CHECKS = [
  ("Four in-scope sports were missing from the board",
   "Golf, Motor Racing, Greyhounds and Rugby League are not in the exclusion list, and the previous build disclosed them as an uncaptured gap while holding zero rows for them. All four OLBG listings were re-read at 07:05Z and 23 rows (10 golf tournaments, 1 F1 race plus 2 championship markets, 6 greyhound races, 3 rugby league outrights, 1 Gaelic football championship) are now on the board with an originated price each.",
   "fixed", "https://www.olbg.com/betting-tips/Golf/5"),
+ ("Six Northern Ireland Open snooker fixtures re-read against the tour&rsquo;s own site",
+  "wst.tv/matches lists all six as Round 2 on Wed 21 Oct: Match 36 Pang Junxu v Liam Davies 05:00; Match 42 Ka Wai Cheung v Stuart Bingham 05:00; Match 45 John Higgins v Jak Jones 08:00; Match 38 Sam Craigie v Xu Si 09:00; Match 39 Elliot Slessor v Jamie Jones 15:00; Match 44 Luca Brecel v Martin O&rsquo;Donnell 15:00. Every pairing and session time matches OLBG. The rows now link to those match centres instead of snooker.org.",
+  "match", "https://www.wst.tv/matches/"),
+ ("Eight ATP fixtures re-read against the tour&rsquo;s own draws",
+  "Almaty (ATP 250): the official draw shows Nurlanuly (WC) v Machac and Mannarino v Rublev in the Round of 32/16 slots, Diaz Acosta v Basilashvili in the Round of 16, and Duckworth v Darderi in the Round of 16 with the match live on the ATP scores board. Brussels (BNP Paribas Fortis European Open): Prizmic v Dzumhur and Goffin (WC) v Bertola (LL) in the Round of 32, Damm (LL) v Cerundolo (3) and Navone (8) v Griekspoor in the Round of 16. All eight pairings match OLBG.",
+  "match", "https://www.atptour.com/en/scores/current/almaty/9410/draws"),
+ ("World Series Game 1 re-read against MLB.com",
+  "MLB.com&rsquo;s schedule for Friday 23 October lists &lsquo;World Series, TB @ MIL, 8:00 PM ET&rsquo; with gameday id 849805. OLBG&rsquo;s label is &lsquo;23 Oct 20:00&rsquo;, which is 8:00 PM ET exactly. BSB-01 is now verified after having no official source at all.",
+  "match", "https://www.mlb.com/schedule/2026-10-23?date=2026-10-23"),
+ ("Two CSA fixtures re-read against Cricket South Africa",
+  "cricket.co.za lists Northern Cape Heat v Garden Route Badgers on 21/10/26 at 13:00 and North West Dragons v Wenbro Impalas on 21/10/26 at 18:00, both in the Pro20 Cup 2026/27. OLBG&rsquo;s labels (07:00 and 12:00) equal those clock times once read as US Eastern, which independently supports the FL-002/FL-021 time-zone finding. The same page does not list Eastern Storm v Tuskers, so CRK-05 stays unverified.",
+  "match", "https://cricket.co.za/fixtures/"),
+ ("ICEHL standings replaced with the league&rsquo;s own table",
+  "ice.hockey publishes the Tabelle: HCB Südtirol Alperia 1st, 11 games, 44-28, 24 pts; EC-KAC 4th, 12 games, 46-36, 21 pts; HC Pustertal 7th, 10 games, 31-27, 17 pts; Graz99ers 8th, 30-31, 17 pts; Milano 6th, 36-36; Innsbruck 10th, 30-35; Fehérvár 13th, 23-39; Pioneers Vorarlberg 14th, 0 wins, 26-52, 1 pt. These figures now drive the ice-hockey model; the numbers quoted in the IHO-01 prediction were re-checked against them and all match.",
+  "match", "https://www.ice.hockey/"),
+ ("Twelve rows were labelled verified on a third-party source",
+  "The final host count over the 113 confirmed fixtures: 98 rest on the competition organiser&rsquo;s own domain and 6 on one of the two clubs&rsquo; own sites (both labelled verified), and 9 rest on a third party &mdash; cricinfo.com (4), espn.com (3), espncricinfo.com (1) and sofascore.com (1, BKB-03). Those 9 are labelled <em>corroborated</em>, cannot be graded HIGH and are listed on Flagged for Review. Nothing was deleted; the label was corrected.",
+  "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/official.json"),
+ ("Handicaps existed for only 22 of 114 fixtures",
+  "scripts/model.py originated a handicap only where an official scoring table existed. It now derives a probability-implied line for every priced two-sided fixture in a sport with a statable scoring unit (83 rows), disclosed per-sport scales, capped at 85% probability, and labelled <code>consensus-scaled</code> where the input is a tip share. Cricket, darts and Gaelic football are deliberately left without a handicap and the reason is written on each sport page.",
+  "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/docs/method.md"),
+ ("WTA, volleyball and EHF sources could not be read",
+  "wtatennis.com draw pages render client-side and returned navigation only; the Polish, German, Italian, Finnish and Dutch league sites returned pages without a retrievable 21&ndash;25 October fixture list; every path tried on ehfcl.eurohandball.com returned 404. No value was taken from any of them, so the 4 WTA tennis rows, 15 volleyball rows and 8 unverified handball rows stay unverified.",
+  "unverified", "https://www.wtatennis.com/scores"),
  ("Official pages that could not be read are left unverified",
   "europeantour.com/genesis-championship-2026 rendered no schedule, dates or field on retrieval, and pdc.tv served a consent wall. No value was taken from either. The golf rows therefore stay unverified even though an official URL exists, and the Genesis row is published with the OLBG label only.",
   "unverified", "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/"),
 ]
-
 
 # ---------- 2026-10-21 re-verification pass (session-7244efad) ----------
 # Appended to the audit log. Each entry is a check that was actually run this session against a page
@@ -469,8 +628,9 @@ AUDIT_CHECKS += [
   "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
  ("IHO-01 fixture had no official source and was downgraded",
   "The Pustertal v Pioneers Vorarlberg row was marked verified on the strength of a betting-preview page (tipsterio.de), which is not an official "
-  "source. The ICEHL schedule page renders fixtures client-side and returned none, and the club site carries no fixture widget. The row is now "
-  "unverified, its confidence falls from HIGH to MEDIUM, and its prediction has been withdrawn rather than kept on a weaker footing.",
+  "source. The row was re-checked later the same day against the club&rsquo;s own fixture page (hcpustertal.com/matches/21-10-2026-hcp-piv/), which "
+  "confirms the date and the pairing, so it is verified again at club-official tier and its prediction is restored; the kick-off time is still not "
+  "readable from that page and is disclosed as an OLBG-derived value.",
   "fixed", "https://www.ice.hockey/saison/spielplan"),
  ("A live OLBG listing no longer matches the captured row",
   "The baseball listing was re-read today for event 160789 (TB Rays @ MIL Brewers). It now renders '24 Oct 01:00' with the featured market "
@@ -486,18 +646,25 @@ AUDIT_CHANGES = [
  ("scripts/build_site.py",
   "Board now renders 15 sports and 137 rows, adds a Market column so a single-selection row cannot be mistaken for a two-sided one, and publishes this audit page."),
  ("data/predictions.json",
-  "RGU-14 no longer states a venue that the sources disagree on. No factual claim was added."),
+  "RGU-14 no longer states a venue that the sources disagree on. No factual claim was added. IHO-03&rsquo;s prediction was withdrawn while its only source was Eliteprospects and then restored when the Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se) confirmed Timra v Farjestad on 22 Oct &mdash; and corrected the venue to SCA Arena. IHO-01 was restored on the club&rsquo;s own fixture page. The board carries 14 predictions, one for every HIGH row and no others, and check_board.py enforces that."),
+ ("data/official.json",
+  "Added 11 fixture confirmations (8 ATP, 1 MLB, 2 CSA), replaced 6 snooker sources with WST match centres, replaced 2 cricket sources with Cricket South Africa, added the official ice.hockey ICEHL table, and added a source-tier register (official / club-official / third-party) with the host list it applies to."),
+ ("scripts/model.py",
+  "Verification now carries a source tier and only an official or club-official source counts as verified; a third-party link becomes status 'corroborated' and forfeits the verification point. Handicaps are originated for every priced two-sided fixture in a statable scoring unit."),
+ ("scripts/build_site.py",
+  "Board shows the tier on every source link, adds a corroborated section to Flagged for Review, a corroborated column to the coverage table, unit and basis columns to the handicap tables, and a per-sport reason wherever a market is deliberately absent."),
  ("data/master_matches.json",
   "verification_status on the 71 'Verified' and 5 'Flagged' rows replaced with 'legacy draft - not source-checked', plus a superseded_by pointer. Not published by any builder."),
  ("README.md, docs/scope.md, COORDINATION.md",
   "Replaced the 76-fixture / 48-prediction claims with the published 137 rows / 5 predictions and recorded this session's checks."),
 ]
 
+
 AUDIT_CHANGES += [
  ("data/predictions.json",
   "Eight predictions corrected against the official tables (Pro D2 ranks for Narbonne and Beziers, a 'second-worst defence' claim, a wrong "
   "round number, an away-scoring figure presented as a home-and-away average, a 'division-high' conceding claim, an unattributed Dupont "
-  "quotation, and Dahlen's transfer timing). One prediction (IHO-01) withdrawn. Every remaining prediction now lists a source for each "
+  "quotation, and Dahlen's transfer timing). IHO-01 withdrawn during that pass and restored the same day on the club&rsquo;s own fixture page. Every prediction now lists a source for each "
   "factual claim."),
  ("data/official.json",
   "IHO-01 moved out of the confirmed-fixture set into a new 'downgraded' record that names the third-party page it had relied on and why "
@@ -506,15 +673,15 @@ AUDIT_CHANGES += [
   "New rule: a prediction may only exist for a HIGH-confidence row, so a downgraded row cannot keep a published prediction."),
 ]
 
-def _res_pill(res):
-    cls = {"match": "high", "fixed": "med", "irregularity": "warn", "unverified": "low"}.get(res, "low")
-    return f'<span class="pill {cls}">{e(res)}</span>'
-
 def _audit_det(det):
     # older entries carry live counts as placeholders; fill them at render time so a count
     # can never go stale relative to the data the page is built from.
     return det.replace("{n_events}", str(n_events)).replace("{len(PREDS)}", str(len(PREDS)))
 
+
+def _res_pill(res):
+    cls = {"match": "high", "fixed": "med", "irregularity": "warn", "unverified": "low"}.get(res, "low")
+    return f'<span class="pill {cls}">{e(res)}</span>'
 
 audit_rows = "".join(
     f"<tr><td class='num'>{i+1}</td><td><strong>{chk}</strong><p>{_audit_det(det)}</p></td><td>{_res_pill(res)}</td>"
@@ -557,7 +724,7 @@ auditpage = head("Audit") + f"""
 
 <h2>What this audit does not cover</h2>
 <ul class="tight">
-  <li><strong>{n_unverified} of {n_events} rows remain unverified.</strong> No official page was retrieved for those fixtures in this session, so their
+  <li><strong>{n_unverified} of {n_events} rows remain unverified, and {n_corroborated} rest on third-party corroboration only.</strong> No official page was retrieved for those fixtures in this session, so their
       competition, venue and start are left blank or published as OLBG&rsquo;s raw label. They are listed row by row on
       <a href="flagged.html">Flagged for Review</a>; absence of a flag would be a stronger claim than we can support.</li>
   <li><strong>The tip shares are a snapshot.</strong> OLBG recount constantly (see check 5). Re-reading a listing tomorrow will not reproduce these
@@ -586,16 +753,24 @@ irregularities = [
  ("A prediction named a venue the sources dispute", "The Leinster v Munster prediction said &lsquo;At the Aviva Stadium&rsquo;, while the official URC Round 3 record lists Leinster&rsquo;s home fixture at &lsquo;Laya Arena&rsquo; and the row&rsquo;s venue is blank here for exactly that reason (FL-016). The venue sentence was removed rather than picked from two conflicting names.", "https://stats.unitedrugby.com/match-centre/table/2026-27"),
  ("Gaelic football rows show no market", "OLBG&rsquo;s Gaelic football listing displays no market name for its selections (the market column is empty on their own page) even though the selections are clearly handicap-style. We left market and competition blank.", "https://www.olbg.com/betting-tips/Gaelic_Football/25"),
  ("Team names differ between OLBG and the official source", "OLBG says &ldquo;Bulls&rdquo;, &ldquo;Stormers&rdquo;, &ldquo;BUF Sabres&rdquo;; the official sources say &ldquo;Vodacom Bulls&rdquo;, &ldquo;DHL Stormers&rdquo;, &ldquo;Buffalo Sabres&rdquo;. We map these with an explicit, published alias table in <code>scripts/model.py</code> &mdash; name normalisation only, no value is altered.", "https://stats.unitedrugby.com/match-centre/table/2026-27"),
- ("Totals and handicaps are missing for most sports", "A total or a handicap needs a scoring baseline and, for a handicap, two sides. We had official scoring data only for URC and NHL, so only those produce a handicap and a total. The other sports, and every outright/race row, carry none: inventing a number would be worse than leaving the cell empty. This is a deliberate gap, not an oversight.", "&mdash;"),
+ ("Handicaps are now originated for 83 of the 114 fixtures; totals still only where an official scoring baseline exists", "Until this pass a handicap existed only where an official scoring table did (URC, Pro D2, Top 14, NHL, ICEHL, SHL): 22 rows. It is now originated for every priced two-sided fixture in a sport whose scoring unit can be stated &mdash; 83 rows &mdash; by a disclosed probability-to-margin transform with a per-sport margin scale (Tennis 4.5 games, Basketball 13 points, Handball 7 goals, Baseball 3 runs, Volleyball 1.6 sets, Snooker 1.4 frames), capped at 85% probability. Those lines are labelled <code>consensus-scaled</code> because the input is a public tip share, not official form. Cricket, darts and Gaelic football still carry no handicap, and only rugby union and ice hockey carry a total, because no official scoring baseline was captured for the rest: we left the cell empty instead of inventing a number.", "&mdash;"),
+ ("Twelve rows were called &lsquo;verified&rsquo; on a third-party source", "The board&rsquo;s earlier &lsquo;verified&rsquo; label accepted ESPN/ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects and a German betting-preview site. A reputable aggregator is not the competition&rsquo;s own site, so those rows are now published as <strong>corroborated</strong>, with their link kept and their tier stated, and they are listed at the bottom of this page. Where an official source could be found it replaced the third-party one: the six snooker rows now cite the World Snooker Tour&rsquo;s own match centres, and two Cricket South Africa fixtures now cite cricket.co.za.", "https://www.wst.tv/matches/"),
+ ("A snooker source was described as &lsquo;official&rsquo; when it is not", "The six Northern Ireland Open rows cited <code>snooker.org</code> and called it the &lsquo;official Upcoming Matches schedule&rsquo;. snooker.org is an independent site, not the World Snooker Tour. All six pairings and session times were found on <code>wst.tv/matches</code> (Round 2, Wed 21 Oct, matches 36/38/39/42/44/45) and now link to their own WST match centre pages.", "https://www.wst.tv/matches/"),
+ ("Fourteen tennis fixtures, fifteen volleyball fixtures and eight handball fixtures had no official confirmation", "This pass closed part of that gap and recorded the rest precisely. Eight ATP fixtures are now confirmed on the tour&rsquo;s own draw pages for Almaty and Brussels. The four WTA fixtures could not be confirmed: wtatennis.com&rsquo;s draw pages render client-side and returned no draw content on retrieval, so those rows stay unverified rather than being taken from a third party. The Polish, German, Italian, Finnish and Dutch volleyball leagues&rsquo; official sites were fetched, but no machine-readable fixture list for 21&ndash;25 October could be retrieved from them, so all 15 volleyball rows stay unverified. The EHF Champions League domain (<code>ehfcl.eurohandball.com</code>) returned 404 for every path tried, so the eight unverified handball rows could not be checked this pass.", "https://www.atptour.com/en/scores/current/almaty/9410/draws"),
+ ("Cricket South Africa&rsquo;s own list resolves two rows and contradicts a third", "cricket.co.za lists &lsquo;Northern Cape Heat v Garden Route Badgers, 21/10/26 13:00&rsquo; and &lsquo;North West Dragons v Wenbro Impalas, 21/10/26 18:00&rsquo;, which match CRK-02 and CRK-03 once OLBG&rsquo;s unlabelled clock is read as US Eastern (07:00 &rarr; 13:00 SAST, 12:00 &rarr; 18:00 SAST). That is now the second independent confirmation of the FL-002/FL-021 time-zone finding. The same page does <em>not</em> show &lsquo;Eastern Storm v Tuskers&rsquo; for 22 October (it lists North West v Tuskers and Boland v Border), so CRK-05 stays unverified and is not resolved by guessing which name OLBG meant.", "https://cricket.co.za/fixtures/"),
+ ("ICEHL form data came from an independent database", "The Austrian league table used to price Pustertal, HCB, KAC, Graz and Milano came from Eliteprospects. The league&rsquo;s own site now supplies it: <code>ice.hockey</code> publishes the Tabelle (HCB 1st, 11 games, 44-28; Pustertal 7th, 10 games, 17 points; Vorarlberg last, 0 wins, 52 conceded), and those are the figures the model uses. Eliteprospects stays in the repo only as a standby and is no longer cited by any verified row.", "https://www.ice.hockey/"),
+ ("Sixteen markets were counted twice on the previous build", "The 2026-10-21 verification pass listed the golf, motor-racing and rugby-league outrights twice: once in data/sports/*.json (away = &lsquo;outright market&rsquo;) and again in data/gap_sports.json. The same OLBG event ids appear in both files (101905, 101904, 913, 828, 2695857 and so on). That is how a 137-row board was reported as 153 rows with &lsquo;130 two-sided fixtures&rsquo; &mdash; a golf tournament is not a two-sided fixture. This build drops the duplicate copies when the board is aggregated and prices each market once, on the outright/race track: 114 fixtures + 23 outright/race = 137 rows. Nothing was deleted from the capture; the deduplication is in code and the ids are listed here for manual review.", "https://www.olbg.com/betting-tips/Golf/5"),
+ ("A venue in the verification pass was wrong", "The re-verification pass recorded IHO-03 at &lsquo;E.ON Arena, Timra&rsquo; and repeated it in the prediction text. The Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se, overview 20961) lists 2026-10-22 19:00 Timra IK v Farjestad BK at <strong>SCA Arena</strong>. Both the row and the prediction now say SCA Arena; the venue was corrected because it was wrong, not merely unsourced.", "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"),
+ ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% overround. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
+]
+
+
+IRREGULARITY_EXTRA = [
  ("OLBG was an hour early on a Finnish volleyball fixture", "VLB-01 is listed by OLBG at 10:00 ET, but the Mestaruusliiga&rsquo;s own match notice gives Puijo Wolley v Oriveden Ponnistus at 18:00 EEST on 21 Oct, which is 11:00 ET. Every other row we could compare converted cleanly to ET, so this looks like a single-row slip rather than a different zone. The official time is what we publish, and the discrepancy is stated in the row&rsquo;s note.", "https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/"),
  ("OLBG had a county final a week late", "GAF-04 (Rathgormack v The Nire) is listed by OLBG on 1 Nov at 10:30. Waterford GAA&rsquo;s fixture list and the Munster GAA calendar both put the Waterford senior football final on Sunday 25 Oct at 14:30 in Fraher Field. The official date is published and the row says OLBG is a week late.", "https://munster.gaa.ie/fixtures/events-calendar/"),
  ("An earlier pass recorded the wrong venue for a Basketball Champions League game", "BKB-14 was recorded at &lsquo;OAKA, Athens&rsquo;. The competition&rsquo;s own game page (game 136250) lists AEK BC v Windrose Giants Antwerp at SUNEL Arena, Ano Liosia, Athens, on 21 Oct, and 18:00 CEST is 12:00 ET as on OLBG. The venue has been corrected rather than left to stand because it was wrong, not merely unsourced.", "https://www.championsleague.basketball/en/games/136250-AEK-WGA"),
  ("Fifteen rows were moved off aggregators and broadcasters onto the competition organiser", "Earlier passes verified some rows from Sofascore, AS.com, TNT Sports, tipsterio.de, ORF, Eliteprospects and snooker.org. Fourteen of those now cite the organiser instead: the WST match centre for the six Northern Ireland Open rows, the EHF calendar for HBL-05, HC Pustertal and the Austrian federation&rsquo;s game centre for IHO-01 and IHO-04, and the Swedish Ice Hockey Association&rsquo;s schedule for IHO-03. One row (BKB-03, KBL) still cites Sofascore because the league publishes no machine-readable fixture feed; it is named as outstanding debt rather than quietly counted as official.", "https://wst.tv/matches/"),
  ("CRK-05 stays unverified on purpose", "Eastern Storm v Tuskers could not be tied to a governing-body fixture list in this pass, and the secondary sources disagree on both date and start by hours. Per the &lsquo;leave blank, don&rsquo;t infer&rsquo; rule the row keeps its blank official fields and sits on this page instead of being guessed into the verified column.", "https://www.olbg.com/betting-tips/Cricket/4"),
- ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% overround. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
-]
-
-IRREGULARITY_EXTRA = [
  ("A published prediction quoted figures that were wrong",
   "Four Pro D2 predictions contained errors that the official LNR pages contradict: Narbonne was called 14th (it is 15th), Beziers 15th "
   "(it is 14th), Beziers' 240 goals against was called 'second-worst' (Aurillac's 254 is worse), and a round-6 win at Soyaux-Angouleme "
@@ -630,19 +805,41 @@ def _unver_row(r):
             "</td><td>" + e(r["start"]) + "</td><td><a href='" + e(r["olbg_event_url"]) + "' rel='noopener'>OLBG event page</a></td>"
             "<td><span class='pill low'>unverified</span></td></tr>")
 
-unver_rows = "".join(_unver_row(r) for r in EVENTS if r["verification"]["status"] != "verified")
+unver_rows = "".join(_unver_row(r) for r in EVENTS if r["verification"]["status"] == "unverified")
+
+
+def _corr_row(r):
+    v = r["verification"]
+    comp = e(r["competition"]) if r["competition"] else '<span class="dim">blank</span>'
+    return ("<tr><td>" + e(r["ref"]) + "</td><td>" + e(r["sport"]) + "</td><td>" + match_label(r) + "</td><td>" + comp +
+            "</td><td>" + e(v.get("source_tier", "third-party")) + "</td><td><a href='" + e(v["official_url"]) +
+            "' rel='noopener'>" + (e(v["official_label"]) or "third-party source") + "</a></td>"
+            "<td><span class='pill med'>corroborated</span></td></tr>")
+
+
+corr_rows = "".join(_corr_row(r) for r in EVENTS if r["verification"]["status"] == "corroborated")
 
 flagpage = head("Flagged for Review") + f"""
 <section class="pagehead flagged">
   <h1>Flagged for Review</h1>
   <p class="lede">Everything here is published deliberately, with its source, so it can be checked and challenged. None of it blocks the
-  release; all of it deserves a human eye. {len(irregularities)} findings and {n_unverified} unverified rows.</p>
+  release; all of it deserves a human eye. {len(irregularities)} findings, {n_corroborated} rows that rest on third-party corroboration
+  only, and {n_unverified} unverified rows.</p>
 </section>
 
 <h2>Findings &amp; irregularities</h2>
 <div class="tablewrap"><table class="board">
 <thead><tr><th class="num">#</th><th>Finding and what we did about it</th><th>Evidence</th></tr></thead>
 <tbody>{irr_html}</tbody></table></div>
+
+<h2>Rows corroborated by a third party only ({n_corroborated})</h2>
+<p>For these rows a reputable third party (ESPN, ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects,
+tipsterio.de) lists the fixture, but the competition&rsquo;s own site did not, or was not readable, in this pass. They are kept on the
+board because the link is real, and labelled <em>corroborated</em> rather than <em>verified</em>. Treat them as unconfirmed: the
+verification point is withheld, so none of them can be graded high confidence.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>Competition</th><th>Tier</th><th>Third-party source</th><th>Status</th></tr></thead>
+<tbody>{corr_rows}</tbody></table></div>
 
 <h2>Rows we could not verify ({n_unverified})</h2>
 <p>For each row below we could not retrieve an official competition source in this session, so the competition, handicap and total

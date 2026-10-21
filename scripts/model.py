@@ -17,6 +17,7 @@ Run: python3 scripts/model.py   ->  data/events.json, data/picks.json
 """
 import json, math, glob, os
 from statistics import NormalDist
+from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ND = NormalDist()
@@ -36,7 +37,62 @@ ASSUMPTIONS = [
     "Unverified events: the only available input is the OLBG consensus tip share for one selection, so our "
     "probability equals the de-vigged consensus share. These rows are marked basis='consensus' and can never "
     "be graded above LOW confidence.",
+    "Source tiers: a fixture counts as verified only when the competition's own site (or one of the two clubs' own "
+    "sites) shows it. Reputable third parties are recorded as 'corroborated', never as verified, and stay on the "
+    "Flagged for Review page.",
+    "Handicaps: for sports with no official scoring table we quote a probability-implied handicap, margin = sigma * "
+    "z(p). The per-sport sigma (Tennis 4.5 games, Basketball 13.0 points, Handball 7.0 goals, Baseball 3.0 runs, "
+    "Volleyball 1.6 sets, Snooker 1.4 frames) is a disclosed modelling assumption, not a measured value, and the "
+    "probability used is capped at 0.85 so a 3-tip public sample cannot produce an absurd line. Cricket, darts and "
+    "Gaelic football carry no handicap because the scoring format needed to express one was not established.",
+    "Totals are quoted only where an official scoring baseline was captured (rugby union points, ice-hockey goals). "
+    "Everywhere else the total field is left empty and the reason is published; we do not invent a scoring baseline.",
 ]
+
+# Disclosed per-sport scales used ONLY to express a handicap in that sport's own scoring unit.
+SPORT_SCALE = {
+    "Tennis": {"unit": "games", "sigma": 4.5},
+    "Basketball": {"unit": "points", "sigma": 13.0},
+    "Handball": {"unit": "goals", "sigma": 7.0},
+    "Baseball": {"unit": "runs", "sigma": 3.0},
+    "Volleyball": {"unit": "sets", "sigma": 1.6},
+    "Snooker": {"unit": "frames", "sigma": 1.4},
+}
+NO_HANDICAP_REASON = {
+    "Cricket": ("OLBG does not state the format (T20 / ODI / Test) and a runs handicap differs by an order of "
+                "magnitude between them, so any line would be invented"),
+    "Darts": ("neither OLBG nor the official PDC pages retrieved state the leg format for these matches, so a "
+              "legs handicap cannot be expressed"),
+    "Gaelic Football": "no official scoring record was retrieved for these club fixtures",
+}
+MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
+
+# ---------- source tiers ----------
+_OFF = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                   "data/official.json")))["source_tiers"]
+
+
+def _bare(host):
+    host = (host or "").lower().split(":")[0].strip()
+    return host[4:] if host.startswith("www.") else host
+
+
+def source_tier(url):
+    """official | club-official | third-party | unclassified. Never guesses in our favour.
+
+    Hosts are compared after dropping a leading 'www.' and allowing one of our registered
+    hosts to match a subdomain (e.g. wtafiles.wtatennis.com -> wtatennis.com) so the same
+    organiser is never graded twice because of a hostname prefix.
+    """
+    host = _bare(urlparse(url or "").netloc)
+    if not host:
+        return "unclassified"
+    for tier in ("official", "club-official", "third-party"):
+        for known in _OFF[tier]:
+            k = _bare(known)
+            if host == k or host.endswith("." + k):
+                return tier
+    return "unclassified"
 
 # OLBG abbreviates club names; map to the exact names used by the official source.
 # This is name normalisation only - no value is changed or invented.
@@ -72,7 +128,7 @@ ALIASES = {
     "Bordeaux": "Union Bordeaux-Bègles",
     # Austria ICEHL
     "Pustertal": "HC Pustertal",
-    "HCB Sudtirol Alperia": "HC Bolzano",
+    "HCB Sudtirol Alperia": "HCB Südtirol Alperia",   # name used by the league's own table (ice.hockey)
     "HC TWK Innsbruck": "HC Innsbruck",
     "Graz 99ers": "Graz99ers",
     "Milano HC": "Milano Hockey Club",
@@ -82,6 +138,33 @@ ALIASES = {
     "Timra IK": "Timrå IK",
     "Farjestad BK": "Färjestad BK",
 }
+
+def verification_for(ref, conf):
+    """Build a row's verification block, and grade its SOURCE TIER honestly.
+
+    Only the competition's own site (or one of the two clubs' own sites) counts as verified.
+    A reputable third party is published as 'corroborated' and listed on Flagged for Review.
+    """
+    c = conf.get(ref)
+    if not isinstance(c, dict):
+        return {"status": "unverified", "official_url": "", "official_label": "",
+                "official_datetime": "", "source_tier": "", "tier_note": "",
+                "note": "No official competition source retrieved and confirmed for this fixture in this pass."}
+    url = c.get("source", "")
+    tier = source_tier(url)
+    host = urlparse(url).netloc.lower()
+    _reg = _OFF.get(tier) or []
+    tier_note = (list(_reg) and "") if isinstance(_reg, list) else _reg.get(host, "")
+    status = "verified" if tier in ("official", "club-official") else "corroborated"
+    note = c.get("note", "")
+    if status == "corroborated":
+        kind = "an unclassified host" if tier == "unclassified" else "a third-party source"
+        note = (note + " | SOURCE TIER: this link is " + kind + ", not the competition's own site, so the row is "
+                "published as corroborated rather than verified and appears on Flagged for Review.")
+    return {"status": status, "official_url": url, "official_label": c.get("source_label", ""),
+            "official_datetime": c.get("official", ""), "competition_official": c.get("competition", ""),
+            "source_tier": tier, "tier_note": tier_note, "note": note}
+
 
 def official_name(n):
     return ALIASES.get(n, n)
@@ -122,6 +205,13 @@ events = []
 for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
     sport_blob = json.load(open(path))
     for e in sport_blob["events"]:
+        # Outright / race rows are priced by scripts/build_gap_sports.py from the disclosed
+        # field-size prior, not by the two-sided model. The golf, motor-racing and rugby-league
+        # capture files therefore have to be skipped here, or every one of those rows would be
+        # published twice (once from data/sports, once from data/gap_sports.json).
+        _away = str(e.get("away", "") or "").strip().lower()
+        if (not _away) or _away == "outright market" or e.get("market_type") in ("outright", "race"):
+            continue
         e["sport"] = sport_blob["sport"]
         e["sport_slug"] = os.path.basename(path).replace(".json", "")
         e["olbg_listing_url"] = sport_blob["listing_url"]
@@ -142,11 +232,13 @@ nhl_src = off["form_data"]["NHL_standings_2026_10_20"]["source"]
 # be matched against the right official table.
 prod2 = off["form_data"]["ProD2_2026_27_table"]["teams"]
 top14 = off["form_data"]["Top14_2026_27_table"]["teams"]
-icehl = off["form_data"]["ICEHL_2026_27_table"]["teams"]
+# Primary ICEHL input is now the league's OWN table (ice.hockey), not the Eliteprospects
+# standby used earlier. The two agree on the clubs this board prices.
+icehl = off["form_data"]["ICEHL_2026_27_official_table"]["teams"]
 shl = off["form_data"]["SHL_2026_27_table_partial"]["teams"]
 prod2_src = off["form_data"]["ProD2_2026_27_table"]["source"]
 top14_src = off["form_data"]["Top14_2026_27_table"]["source"]
-icehl_src = off["form_data"]["ICEHL_2026_27_table"]["source"]
+icehl_src = off["form_data"]["ICEHL_2026_27_official_table"]["source"]
 shl_src = off["form_data"]["SHL_2026_27_table_partial"]["source"]
 
 rugby_tables = {}
@@ -252,22 +344,61 @@ for e in events:
                                "win_away": f2((1 - MARGIN) / probs["away"])}
             model["probs"] = {k: round(v, 4) for k, v in probs.items()}
 
-    # handicap + total only where a projected margin exists
-    if margin is not None and probs and "home" in probs and "away" in probs:
-        fav = "home" if margin > 0 else "away"
-        # force a half-point line so a push is impossible, and never quote 0.0
-        line = math.floor(abs(margin) * 2) / 2.0
-        if abs(line - round(line)) < 1e-9:
-            line += 0.5
-        line = max(line, 0.5)
-        model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line, "dog_price": 1.91,
-                             "note": "Line derived from the model's projected margin; price is our standard 1.91 two-way quote."}
+    # ---- handicap ----
+    # 1) sports with an official scoring baseline (rugby union, ice hockey) keep the projected
+    #    margin that came out of the official league tables;
+    # 2) sports without one get a probability-implied margin in their own scoring unit, with the
+    #    sigma disclosed above and the probability capped so a small public sample cannot make an
+    #    absurd line. The basis of every line is written into the row.
+    mp = model.get("probs") or {}
+    if "home" in mp and "away" in mp:
+        if margin is not None:
+            fav = "home" if margin > 0 else "away"
+            line = math.floor(abs(margin) * 2) / 2.0
+            if abs(line - round(line)) < 1e-9:
+                line += 0.5
+            line = max(line, 0.5)
+            unit = "points" if e["sport"] == "Rugby Union" else "goals"
+            model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line,
+                                 "dog_price": 1.91, "unit": unit, "basis": "official-form",
+                                 "note": ("Line derived from the projected margin built on official league data; "
+                                          "price is our standard 1.91 two-way quote.")}
+        elif e["sport"] in SPORT_SCALE:
+            sc = SPORT_SCALE[e["sport"]]
+            p_home = min(MAX_P_FOR_LINE, max(1 - MAX_P_FOR_LINE, mp["home"]))
+            capped = (p_home != mp["home"])
+            margin_i = sc["sigma"] * ND.inv_cdf(p_home)
+            fav = "home" if margin_i > 0 else "away"
+            line = math.floor(abs(margin_i) * 2) / 2.0
+            if abs(line - round(line)) < 1e-9:
+                line += 0.5
+            line = max(line, 0.5)
+            note = (f"Probability-implied line: sigma {sc['sigma']} {sc['unit']} (disclosed assumption) times the "
+                    f"normal quantile of our win probability ({mp['home']*100:.0f}%). Price is our standard 1.91 "
+                    f"two-way quote. This is our own line, not a market price.")
+            if capped:
+                note += " The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+            if not e.get("competition"):
+                pass
+            if "home" not in (e.get("home") or "").lower() and e["sport"] == "Tennis":
+                note += " Tennis has no home side: the line is stated against the first-listed player."
+            model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line,
+                                 "dog_price": 1.91, "unit": sc["unit"], "basis": "consensus-scaled",
+                                 "note": note}
+
+    # ---- match total ----
+    # Quoted only where an official scoring baseline produced a projected combined score.
+    if margin is not None and total is not None:
         tline = math.floor(total) + 0.5  # always a half-point line
-        model["total"] = {"line": tline, "over": 1.91, "under": 1.91,
-                          "note": "Line = projected combined score rounded to the nearest half point; price is our standard 1.91 two-way quote."}
+        tunit = "points" if e["sport"] == "Rugby Union" else "goals"
+        model["total"] = {"line": tline, "over": 1.91, "under": 1.91, "unit": tunit,
+                          "basis": "official-form",
+                          "note": ("Line = projected combined score from official league scoring rates, rounded to a "
+                                   "half point; price is our standard 1.91 two-way quote.")}
 
     # ---- 3. pick + confidence ----
-    ver_pts = 2 if (fixture_conf and fixture_conf["status"] == "verified") else 0
+    _v = verification_for(ref, conf)
+    ver_pts = 2 if _v["status"] == "verified" else 0
     form_pts = 2 if basis in ("official-league-table", "official-standings") else 0
     edge_pts = 0; pick_side = None; pick_prob = None; pick_label = None
     if model.get("probs"):
@@ -294,14 +425,7 @@ for e in events:
         "olbg_event_url": e["event_url"],
         "olbg_event_id": e.get("event_id"),
         "olbg_listing_url": e["olbg_listing_url"],
-        "verification": ({"status": conf.get(ref).get("status", "unverified") if isinstance(conf.get(ref), dict) else "unverified",
-                          "official_url": conf.get(ref).get("source", "") if isinstance(conf.get(ref), dict) else "",
-                          "official_label": conf.get(ref).get("source_label", "") if isinstance(conf.get(ref), dict) else "",
-                          "official_datetime": conf.get(ref).get("official", "") if isinstance(conf.get(ref), dict) else "",
-                          "note": conf.get(ref).get("note", "") if isinstance(conf.get(ref), dict) else ""}
-                         if ref in conf else
-                         {"status": "unverified", "official_url": "", "official_label": "", "official_datetime": "",
-                          "note": "No official competition source retrieved and confirmed for this fixture in this pass."}),
+        "verification": verification_for(ref, conf),
         "model": model,
         "pick": {"side": pick_side, "label": pick_label, "prob": pick_prob,
                  "confidence": conf_label, "score": score,
@@ -320,3 +444,7 @@ for p in picks:
     if p["pick"]["confidence"] == "HIGH":
         print("  ", p["ref"], p["sport"], p["home"], "v", p["away"], "->", p["pick"]["label"], p["pick"]["prob"])
 print("rows with no win price:", sum(1 for p in picks if not p["model"].get("prices")))
+from collections import Counter as _C
+print("source tiers:", dict(_C(p["verification"]["source_tier"] or "none" for p in picks)))
+print("status:", dict(_C(p["verification"]["status"] for p in picks)))
+print("handicaps:", sum(1 for p in picks if p["model"].get("handicap")), "totals:", sum(1 for p in picks if p["model"].get("total")))

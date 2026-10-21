@@ -3,8 +3,9 @@
 
 Rules enforced (each one maps to a promise made on the site):
  1. Every row links to the OLBG event page it came from, and the link carries an event id.
- 2. A row marked 'verified' has an official http(s) URL and a label; a row marked 'unverified'
-    carries no official value at all (nothing inferred, nothing half-filled).
+ 2. A row marked 'verified' has an official http(s) URL, a label AND a source tier of official or
+    club-official; a row marked 'corroborated' has a third-party link, is never graded HIGH and never
+    claims an official tier; a row marked 'unverified' carries no official value at all.
  3. Every price is a decimal price > 1, and every outright price recomputes from the published
     formula p = (wins + a)/(total + k) with a 5% overround.
  4. Refs are unique; only in-scope sports appear; no excluded sport leaks in.
@@ -65,6 +66,18 @@ def check_rows(rows, preds):
                 errors.append(f"{ref}: marked verified without an official URL")
             if not v.get("official_label"):
                 errors.append(f"{ref}: marked verified without an official label")
+            if v.get("source_tier") not in ("official", "club-official"):
+                errors.append(f"{ref}: marked verified but its source tier is {v.get('source_tier')!r} "
+                              f"(only official / club-official may be verified)")
+        elif status == "corroborated":
+            # a third-party listing: kept, labelled, and never counted as official confirmation
+            ou = v.get("official_url", "")
+            if urlparse(ou).scheme not in ("http", "https") or not v.get("official_label"):
+                errors.append(f"{ref}: marked corroborated without a link and label")
+            if v.get("source_tier") in ("official", "club-official"):
+                errors.append(f"{ref}: marked corroborated but its source tier is official - it should be verified")
+            if r.get("pick", {}).get("confidence") == "HIGH":
+                errors.append(f"{ref}: corroborated (third-party) row graded HIGH - it must not earn the verification point")
         elif status == "unverified":
             if v.get("official_url") or v.get("official_datetime"):
                 errors.append(f"{ref}: marked unverified but carries an official value")

@@ -25,8 +25,33 @@ output so every number can be reproduced and challenged. Nothing here is a verif
 """
 import json
 import os
+from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Source tiers, exactly as scripts/model.py applies them: only a competition's own site (or a club's own
+# site) counts as verified; a third party is labelled corroborated and listed on Flagged for Review.
+_TIERS = json.load(open(os.path.join(ROOT, "data/official.json")))["source_tiers"]
+
+
+def source_tier(url):
+    host = urlparse(url or "").netloc.lower()
+    for tier in ("official", "club-official", "third-party"):
+        if host in _TIERS[tier]:
+            return tier
+    return "unclassified"
+
+
+def graded_verification(v):
+    url = v.get("official_url", "")
+    tier = source_tier(url)
+    out = dict(v, source_tier=tier)
+    if out.get("status") == "verified" and tier not in ("official", "club-official"):
+        out["status"] = "corroborated"
+        out["note"] = (out.get("note", "") + " | SOURCE TIER: third-party link, published as corroborated rather "
+                       "than verified.").strip()
+    return out
+
 SRC = os.path.join(ROOT, "data/raw/gap_sports_capture_20261021.json")
 OUT = os.path.join(ROOT, "data/gap_sports.json")
 
@@ -110,7 +135,7 @@ def main() -> None:
             "olbg_event_id": e["olbg_event_id"],
             "olbg_listing_url": cap["listing_pages"][e["sport"]],
             "venue": e["venue"],
-            "verification": e["verification"],
+            "verification": graded_verification(e["verification"]),
             "model": {
                 "basis": "outright-prior" if e["market_type"] == "outright" else "race-prior",
                 "prices": ({"single": odds} if odds else {}),

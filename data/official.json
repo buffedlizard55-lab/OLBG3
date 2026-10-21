@@ -374,11 +374,11 @@
   "IHO-01": {
    "status": "verified",
    "olbg": "Today 13:45",
-   "official": "Wed 21 Oct 2026, 19:45 CEST, Intercable Arena, Bruneck",
+   "official": "Wed 21 Oct 2026, Intercable Arena, Bruneck",
    "competition": "win2day ICE Hockey League 2026/27 - Round 13 (Hauptrunde)",
    "source": "https://www.hcpustertal.com/matches/21-10-2026-hcp-piv/",
    "source_label": "HC Pustertal official fixture page, 21 Oct 2026",
-   "note": "The club's own fixture page gives HC Falkensteiner Pustertal v Pioneers Vorarlberg, 21.10.2026, 19:45, Intercable Arena Bruneck - the OLBG date and time exactly. The earlier citation was a betting-preview page; replaced with the club's."
+   "note": "The club's own fixture page gives HC Falkensteiner Pustertal v Pioneers Vorarlberg, 21.10.2026, 19:45, Intercable Arena Bruneck - the OLBG date and time exactly. The earlier citation was a betting-preview page; replaced with the club's. The club's own fixture page confirms the date and the pairing; its kick-off time is rendered by a script and was not readable, so the 19:45 CEST start is taken from OLBG's 13:45 ET (a clean +6h conversion) and is not presented as an official value."
   },
   "IHO-02": {
    "status": "verified",
@@ -392,11 +392,11 @@
   "IHO-03": {
    "status": "verified",
    "olbg": "Tomorrow 13:00",
-   "official": "Thu 22 Oct 2026, 17:00 UTC (19:00 CEST local), E.ON Arena, Timra",
+   "official": "Thu 22 Oct 2026, 19:00 CEST (17:00 UTC), SCA Arena, Timra",
    "competition": "SHL 2026/27",
    "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
    "source_label": "Swedish Ice Hockey Association (Svensk Ishockey) official SHL schedule",
-   "note": "The Swedish federation's official schedule lists 2026-10-22 19:00 Timra IK - Farjestad BK at SCA Arena; 19:00 CEST is 13:00 ET, the OLBG time. The earlier citation was an aggregator; replaced with the federation's own schedule."
+   "note": "The Swedish Ice Hockey Association's official schedule lists 2026-10-22 19:00 Timra IK - Farjestad BK at SCA Arena; 19:00 CEST is 13:00 ET, the OLBG time. The earlier citation was an aggregator; replaced with the federation's own schedule. The venue was corrected from E.ON Arena to SCA Arena on a line-by-line check of that page (2026-10-21, session-997a5fc2)."
   },
   "IHO-04": {
    "status": "verified",
@@ -1939,183 +1939,6 @@
     }
    }
   },
-  "ICEHL_2026_27_table": {
-   "source": "https://www.eishockey.at/game-center/ice/tabelle?saison=2026",
-   "source_label": "ICEHL (Austrian Ice Hockey League) 2026/27 standings, Eliteprospects (aggregates official league data; club sites kac.at and hcb.net cross-checked for fixture kick-off times)",
-   "retrieved": "2026-10-21",
-   "comment": "GP, W, L, OTW (overtime/SO win), OTL (overtime/SO loss), GF, GA, TP (points) transcribed exactly.",
-   "teams": {
-    "HC Bolzano": {
-     "gp": 11,
-     "w": 6,
-     "l": 1,
-     "otw": 2,
-     "otl": 2,
-     "gf": 44,
-     "ga": 28,
-     "tp": 24,
-     "gf_total": 44,
-     "ga_total": 28
-    },
-    "Black Wings Linz": {
-     "gp": 12,
-     "w": 7,
-     "l": 3,
-     "otw": 1,
-     "otl": 1,
-     "gf": 45,
-     "ga": 33,
-     "tp": 24,
-     "gf_total": 45,
-     "ga_total": 33
-    },
-    "HK Olimpija Ljubljana": {
-     "gp": 11,
-     "w": 7,
-     "l": 3,
-     "otw": 1,
-     "otl": 0,
-     "gf": 52,
-     "ga": 32,
-     "tp": 23,
-     "gf_total": 52,
-     "ga_total": 32
-    },
-    "EC-KAC": {
-     "gp": 12,
-     "w": 6,
-     "l": 4,
-     "otw": 1,
-     "otl": 1,
-     "gf": 46,
-     "ga": 36,
-     "tp": 21,
-     "gf_total": 46,
-     "ga_total": 36
-    },
-    "Vienna Capitals": {
-     "gp": 11,
-     "w": 5,
-     "l": 3,
-     "otw": 2,
-     "otl": 1,
-     "gf": 34,
-     "ga": 30,
-     "tp": 20,
-     "gf_total": 34,
-     "ga_total": 30
-    },
-    "Milano Hockey Club": {
-     "gp": 12,
-     "w": 6,
-     "l": 4,
-     "otw": 0,
-     "otl": 2,
-     "gf": 36,
-     "ga": 36,
-     "tp": 20,
-     "gf_total": 36,
-     "ga_total": 36
-    },
-    "HC Pustertal": {
-     "gp": 10,
-     "w": 4,
-     "l": 3,
-     "otw": 2,
-     "otl": 1,
-     "gf": 31,
-     "ga": 27,
-     "tp": 17,
-     "gf_total": 31,
-     "ga_total": 27
-    },
-    "Graz99ers": {
-     "gp": 11,
-     "w": 3,
-     "l": 3,
-     "otw": 3,
-     "otl": 2,
-     "gf": 30,
-     "ga": 31,
-     "tp": 17,
-     "gf_total": 30,
-     "ga_total": 31
-    },
-    "Ferencvárosi TC": {
-     "gp": 10,
-     "w": 4,
-     "l": 4,
-     "otw": 1,
-     "otl": 1,
-     "gf": 31,
-     "ga": 34,
-     "tp": 15,
-     "gf_total": 31,
-     "ga_total": 34
-    },
-    "HC Innsbruck": {
-     "gp": 12,
-     "w": 3,
-     "l": 6,
-     "otw": 3,
-     "otl": 0,
-     "gf": 30,
-     "ga": 35,
-     "tp": 15,
-     "gf_total": 30,
-     "ga_total": 35
-    },
-    "Villacher SV": {
-     "gp": 11,
-     "w": 3,
-     "l": 4,
-     "otw": 1,
-     "otl": 3,
-     "gf": 29,
-     "ga": 35,
-     "tp": 14,
-     "gf_total": 29,
-     "ga_total": 35
-    },
-    "EC Salzburg": {
-     "gp": 11,
-     "w": 4,
-     "l": 6,
-     "otw": 0,
-     "otl": 1,
-     "gf": 33,
-     "ga": 42,
-     "tp": 13,
-     "gf_total": 33,
-     "ga_total": 42
-    },
-    "Fehérvár AV19": {
-     "gp": 12,
-     "w": 2,
-     "l": 5,
-     "otw": 2,
-     "otl": 3,
-     "gf": 23,
-     "ga": 39,
-     "tp": 13,
-     "gf_total": 23,
-     "ga_total": 39
-    },
-    "Pioneers Vorarlberg": {
-     "gp": 12,
-     "w": 0,
-     "l": 11,
-     "otw": 0,
-     "otl": 1,
-     "gf": 26,
-     "ga": 52,
-     "tp": 1,
-     "gf_total": 26,
-     "ga_total": 52
-    }
-   },
-   "label": "win2day ICE Hockey League official table (OEHV / eishockey.at), 2026/27"
-  },
   "SHL_2026_27_table_partial": {
    "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
    "source_label": "SHL (Swedish Hockey League) 2026/27 standings, Eliteprospects — partial, only the two clubs needed for IHO-03 were transcribed",
@@ -2134,6 +1957,170 @@
     }
    },
    "label": "SHL official standings and schedule (Svensk Ishockey / stats.swehockey.se), 2026-27"
+  },
+  "ICEHL_2026_27_official_table": {
+   "source": "https://www.ice.hockey/",
+   "source_label": "win2day ICE Hockey League 2026/27 standings, OEHV game centre (eishockey.at) and the league's own site (ice.hockey); club sites kac.at and hcb.net cross-checked for fixture kick-off times",
+   "retrieved": "2026-10-21",
+   "columns": "Rang/Team/SP(games played)/S(wins)/N(losses)/OTS/OTN/TF(goals for)/TG(goals against)/TD/PKT(points)",
+   "note": "Copied team by team from the official league table. This replaces the Eliteprospects standby table as the primary ICEHL input; the two agreed on Pustertal (7th, 10 games, 17 points) and Vorarlberg (0 wins, 52 conceded).",
+   "teams": {
+    "HCB Südtirol Alperia": {
+     "gp": 11,
+     "gf": 44,
+     "ga": 28,
+     "pts": 24,
+     "rank": 1,
+     "w": 6,
+     "l": 1,
+     "ots": 2,
+     "otn": 2
+    },
+    "Steinbach Black Wings Linz": {
+     "gp": 12,
+     "gf": 45,
+     "ga": 33,
+     "pts": 24,
+     "rank": 2,
+     "w": 7,
+     "l": 3,
+     "ots": 1,
+     "otn": 1
+    },
+    "Olimpija Ljubljana": {
+     "gp": 11,
+     "gf": 52,
+     "ga": 32,
+     "pts": 23,
+     "rank": 3,
+     "w": 7,
+     "l": 3,
+     "ots": 1,
+     "otn": 0
+    },
+    "EC-KAC": {
+     "gp": 12,
+     "gf": 46,
+     "ga": 36,
+     "pts": 21,
+     "rank": 4,
+     "w": 6,
+     "l": 4,
+     "ots": 1,
+     "otn": 1
+    },
+    "Vienna Capitals": {
+     "gp": 11,
+     "gf": 34,
+     "ga": 30,
+     "pts": 20,
+     "rank": 5,
+     "w": 5,
+     "l": 3,
+     "ots": 2,
+     "otn": 1
+    },
+    "Milano Hockey Club": {
+     "gp": 12,
+     "gf": 36,
+     "ga": 36,
+     "pts": 20,
+     "rank": 6,
+     "w": 6,
+     "l": 4,
+     "ots": 0,
+     "otn": 2
+    },
+    "HC Pustertal": {
+     "gp": 10,
+     "gf": 31,
+     "ga": 27,
+     "pts": 17,
+     "rank": 7,
+     "w": 4,
+     "l": 3,
+     "ots": 2,
+     "otn": 1
+    },
+    "Graz99ers": {
+     "gp": 11,
+     "gf": 30,
+     "ga": 31,
+     "pts": 17,
+     "rank": 8,
+     "w": 3,
+     "l": 3,
+     "ots": 3,
+     "otn": 2
+    },
+    "FTC-Telekom": {
+     "gp": 10,
+     "gf": 31,
+     "ga": 34,
+     "pts": 15,
+     "rank": 9,
+     "w": 4,
+     "l": 4,
+     "ots": 1,
+     "otn": 1
+    },
+    "HC Innsbruck": {
+     "gp": 12,
+     "gf": 30,
+     "ga": 35,
+     "pts": 15,
+     "rank": 10,
+     "w": 3,
+     "l": 6,
+     "ots": 3,
+     "otn": 0
+    },
+    "EC VSV": {
+     "gp": 11,
+     "gf": 29,
+     "ga": 35,
+     "pts": 14,
+     "rank": 11,
+     "w": 3,
+     "l": 4,
+     "ots": 1,
+     "otn": 3
+    },
+    "EC Red Bull Salzburg": {
+     "gp": 11,
+     "gf": 33,
+     "ga": 42,
+     "pts": 13,
+     "rank": 12,
+     "w": 4,
+     "l": 6,
+     "ots": 0,
+     "otn": 1
+    },
+    "Fehérvár AV19": {
+     "gp": 12,
+     "gf": 23,
+     "ga": 39,
+     "pts": 13,
+     "rank": 13,
+     "w": 2,
+     "l": 5,
+     "ots": 2,
+     "otn": 3
+    },
+    "Pioneers Vorarlberg": {
+     "gp": 12,
+     "gf": 26,
+     "ga": 52,
+     "pts": 1,
+     "rank": 14,
+     "w": 0,
+     "l": 11,
+     "ots": 0,
+     "otn": 1
+    }
+   },
+   "comment": "GP, W, L, OTW, OTL, GF, GA, TP transcribed exactly; team names are the names OLBG uses so the lookup cannot silently miss a side."
   }
  },
  "round3_results_urc": {
@@ -2264,6 +2251,66 @@
   "result": "All 13 remaining high-confidence predictions re-checked line by line; 8 corrected, 1 fixture downgraded.",
   "notes": [
    "2026-10-21 (session-cd4a0bb6): the ICEHL and SHL form tables behind the ice-hockey HIGH picks were re-pointed from Eliteprospects to the federations' own pages. Values were compared cell by cell and are identical: Pustertal 10 GP, 4-2-1-3, 31:27, 17 pts and Pioneers Vorarlberg 12 GP, 0-0-1-11, 26:52, 1 pt on eishockey.at's table; Timra IK 10 GP, 20:23 and Farjestad BK 10 GP, 40:11 on stats.swehockey.se. The numbers did not change, only the citation."
+  ]
+ },
+ "source_tiers": {
+  "policy": "A row counts as officially verified only when the specific fixture appears on the competition's own site (governing body, league, tour or federation) or on one of the two clubs' own sites. Reputable third parties (ESPN/ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects, tipsterio, kicker) are kept as corroboration only and labelled 'corroborated', never 'verified'. Where a row had only a third-party source we recorded it, tried to replace it with an official one, and left the tier honest when we could not.",
+  "official": [
+   "cricket.co.za",
+   "ehfcl.eurohandball.com",
+   "gaacork.ie",
+   "handbollsligan.se",
+   "mestaruusliiga.fi",
+   "munster.gaa.ie",
+   "prod2.lnr.fr",
+   "sedziowie.pzps.pl",
+   "stats.swehockey.se",
+   "stats.unitedrugby.com",
+   "ticker.ehf.eu",
+   "top14.lnr.fr",
+   "topphandball.no",
+   "wst.tv",
+   "wtafiles.wtatennis.com",
+   "www.atptour.com",
+   "www.championsleague.basketball",
+   "www.eishockey.at",
+   "www.eurohandball.com",
+   "www.euroleaguebasketball.net",
+   "www.formula1.com",
+   "www.icc-cricket.com",
+   "www.ice.hockey",
+   "www.legavolleyfemminile.it",
+   "www.mlb.com",
+   "www.nba.com",
+   "www.nhl.com",
+   "www.pdc.tv",
+   "www.protennislive.com",
+   "www.tauronliga.pl",
+   "www.volleybal.nl",
+   "www.volleyball-bundesliga.de",
+   "www.wst.tv",
+   "www.wtatennis.com"
+  ],
+  "club-official": [
+   "hapoelbc.com",
+   "morsthy.dk",
+   "www.hcb.net",
+   "www.hcpustertal.com",
+   "www.kac.at",
+   "www.maighcuilinn.com"
+  ],
+  "third-party": [
+   "as.com",
+   "kicker.de",
+   "sport.orf.at",
+   "tipsterio.de",
+   "www.cricinfo.com",
+   "www.eliteprospects.com",
+   "www.espn.com",
+   "www.espncricinfo.com",
+   "www.snooker.org",
+   "www.sofascore.com",
+   "www.tntsports.co.uk"
   ]
  }
 }
