@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the static GitHub Pages site into docs/.
+"""Build the OLBG lines track into olbg-board/ and mirror it to olbg/ at the repo root.
 
 Everything is generated from data/*.json, so the site can never disagree with the data.
 """
@@ -7,12 +7,14 @@ from __future__ import annotations
 
 import html
 import json
+import shutil
 from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DOCS = ROOT / "olbg-board"   # published at /olbg/ inside the shared artifact
+SNAPSHOT = ROOT / "olbg"        # identical bytes at the repo root for the legacy Pages publisher
 
 E = html.escape
 
@@ -513,6 +515,13 @@ python3 tools/check_site.py      # link + integrity checks (CI runs this)</code>
         (DOCS / "sports" / f"{slug}.html").write_text(page(s, body, "", 1, subtitle=f"Sport · {s}"))
 
     print(f"site built: {len(sports)+6} pages")
+
+    # The live site is served twice: by the Actions artifact (site/) and by the legacy
+    # Pages publisher, which serves the repository root. Both must carry the same bytes,
+    # so this track is mirrored to the root as well (documented in COORDINATION.md).
+    if SNAPSHOT.exists():
+        shutil.rmtree(SNAPSHOT)
+    shutil.copytree(DOCS, SNAPSHOT)
 
 
 RUN = {"harvest_completed_utc": ""}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """build_site.py - generates the static GitHub Pages site from data/*.json."""
-import json, os, glob, html, shutil
+import json, os, glob, html, shutil, sys
 from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -447,5 +447,23 @@ open(os.path.join(OUT, "method.html"), "w").write(method)
 for asset in ("style.css", "app.js"):
     shutil.copyfile(os.path.join(ROOT, "assets", asset), os.path.join(OUT, "assets", asset))
 open(os.path.join(OUT, ".nojekyll"), "w").write("")
+
+# --snapshot mirrors the built site into the repository root.
+# Reason: this repository's Pages site is configured for LEGACY branch publishing
+# (source: main, path: /) and the API that would switch it to Actions returns 403 for
+# every token we have. GitHub also runs our Actions artifact deployment. Whichever
+# publisher runs last wins, so both targets must contain the same bytes or the site
+# flaps. Root is committed; site/ is generated in CI and always the fresher of the two.
+if "--snapshot" in sys.argv:
+    keep = {"data", "scripts", "docs", "tests", "assets", ".git", ".github", "site", "__pycache__"}
+    for name in os.listdir(OUT):
+        if name in keep:
+            continue
+        src = os.path.join(OUT, name); dst = os.path.join(ROOT, name)
+        if os.path.isdir(src):
+            shutil.rmtree(dst, ignore_errors=True); shutil.copytree(src, dst)
+        else:
+            shutil.copyfile(src, dst)
+    print("root snapshot refreshed from site/")
 print("board pages:", len(glob.glob(os.path.join(OUT, "sports/*.html"))) + 5)
 print("verified", n_verified, "unverified", n_unverified, "priced", n_price, "hcap", n_hcap, "totals", n_total)

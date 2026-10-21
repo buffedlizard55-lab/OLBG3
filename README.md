@@ -30,6 +30,22 @@ python3 -m http.server 8000 --bind 0.0.0.0 --directory site
 
 `site/` is generated, not tracked. GitHub Actions rebuilds and deploys it on every push to `main` and hourly.
 
+### Why the built site is also committed at the repository root
+
+The repository's Pages site is configured for **legacy branch publishing** (`source: main`, `path: /`), and every
+token available here gets `403 Resource not accessible by integration` from `PUT /repos/{owner}/{repo}/pages`, so that
+setting cannot be changed from a session. GitHub therefore runs two publishers — the legacy Jekyll build of `main`
+root, and our Actions artifact (`site/`) — and whichever finishes last wins.
+
+To stop the site flapping between two different versions, both targets are made byte-identical: `--snapshot` mirrors
+the build into the repository root. **After any change to the site, regenerate and commit the snapshot:**
+
+```sh
+python3 scripts/build.py && python3 scripts/build_site.py --snapshot && python3 scripts/check_links.py
+```
+
+Row data lives in `data/`, so the root snapshot is a build output, not a second source of truth.
+
 ## Where to check us
 - Dashboard: `index.html` · Predictions: `predictions.html` · Verification log: `verification.html`
 - **Flagged for Review: `flagged.html`** — every irregularity and every row we could not verify
@@ -55,8 +71,10 @@ Not affiliated with OLBG. 18+.
 
 ## Third track: the OLBG lines audit layer (`arena/9590abcf-olbg3`)
 
-Published inside the same artifact at **/olbg/** and reachable from the shared navigation
-("OLBG lines (audit)"). It exists because the board track and this one answer different questions:
+Published at **/olbg/** and reachable from the shared navigation ("OLBG lines (audit)"). It ships in
+the Actions artifact (`site/olbg/`) *and* as a committed root snapshot (`olbg/`), because the legacy
+Pages publisher serves the repository root — the same two-target arrangement the board track uses, so
+whichever publisher runs last still serves these pages. It exists because the board track and this one answer different questions:
 the board prices fixtures it could verify against official competition pages, while this track
 transcribes **every in-scope row OLBG listed**, keeps the exact OLBG URL on the row, and then
 originates a line and a confidence label from that row — including for fixtures nobody could verify.
