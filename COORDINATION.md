@@ -527,3 +527,17 @@ literally true for those picks.
 Post-rebase suite: `scripts/check_board.py` → `rows=153 fixtures=130 outright_or_race=23 verified=114 priced=132
 predictions=14` **PASS**; `scripts/check.py` PASS (40 feed rows); `scripts/check_links.py`
 `pages=79 local_links_checked=1162 broken=0`; `python -m unittest discover -s tests` 10/10 OK.
+
+### Integration record (this pass)
+
+* Branch `arena/cd4a0bb6-olbg3` → PR **#32** (https://github.com/buffedlizard55-lab/OLBG3/pull/32).
+* PR CI run `39560836783` — `build` job green (unit tests, feed pipeline, board rebuild, `check_board.py`, `check.py`, `check_links.py`).
+* Rebased onto `main` at `b93ebdd` before merging (two sessions had landed in the meantime); conflicts resolved by keeping
+  this session's confirmations as the superset, merging the other session's documentary blocks, and regenerating every
+  HTML page from the merged data rather than hand-editing generated files.
+* Merge: **MERGED** 2026-10-21 07:18 UTC as `6df8396`.
+* Post-merge CI on `main`: run `39561084768` (Verify and publish dashboard) **success**, run `39561084545`
+  (`pages build and deployment`) **success**.
+* Live check after deploy: `https://buffedlizard55-lab.github.io/OLBG3/predictions.html` renders **14** predictions
+  including the new IHO-01 piece; `verification.html` renders the new official sources (WST match centre, EHF calendar,
+  ÖEHV game centre/table, Swehockey, Mestaruusliiga, TAURON Liga, PZPS, VBL, Lega Volley, Cork GAA, Munster GAA, MLB).
