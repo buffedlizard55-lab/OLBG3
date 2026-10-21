@@ -39,6 +39,16 @@ ALLOWED_HOSTS = {
     "www.atptour.com",
     "www.unitedrugby.com",
     "ehfcl.eurohandball.com",
+    # added by session-af0789e6 (official bodies / official data feeds reviewed 2026-10-21)
+    "api-web.nhle.com",
+    "statsapi.mlb.com",
+    "www.protennislive.com",
+    "api.wtatennis.com",
+    "www.wtatennis.com",
+    "www.euroleaguebasketball.net",
+    "prod2.lnr.fr",
+    "top14.lnr.fr",
+    "www.tauronliga.pl",
     "buffedlizard55-lab.github.io",
     "github.com",
 }

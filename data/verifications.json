@@ -1,336 +1,453 @@
 {
-  "retrieved_at": "2026-10-21T05:40:00Z",
+  "retrieved_at": "2026-10-21T06:50:00Z to 2026-10-21T07:40:00Z (session-af0789e6 re-verification pass; earlier entries retained where re-confirmed)",
   "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate).",
   "sources": [
     {
       "id": "S-OLBG-ALL",
-      "name": "OLBG \u2014 Betting Tips (all sports)",
+      "name": "OLBG — Betting Tips (all sports)",
       "url": "https://www.olbg.com/betting-tips",
       "class": "official",
       "note": "Publisher's own page; source for every OLBG field in data/raw/olbg-harvest-20261021.tsv. Also the source for the exclusion taxonomy (sport list)."
     },
     {
       "id": "S-OLBG-CRI",
-      "name": "OLBG \u2014 Cricket tips",
+      "name": "OLBG — Cricket tips",
       "url": "https://www.olbg.com/betting-tips/Cricket/7",
       "class": "official"
     },
     {
       "id": "S-OLBG-TEN",
-      "name": "OLBG \u2014 Tennis tips",
+      "name": "OLBG — Tennis tips",
       "url": "https://www.olbg.com/betting-tips/Tennis/3",
       "class": "official"
     },
     {
       "id": "S-OLBG-BKB",
-      "name": "OLBG \u2014 Basketball tips",
+      "name": "OLBG — Basketball tips",
       "url": "https://www.olbg.com/betting-tips/Basketball/4",
       "class": "official"
     },
     {
       "id": "S-OLBG-SNO",
-      "name": "OLBG \u2014 Snooker tips",
+      "name": "OLBG — Snooker tips",
       "url": "https://www.olbg.com/betting-tips/Snooker/8",
       "class": "official"
     },
     {
       "id": "S-OLBG-DAR",
-      "name": "OLBG \u2014 Darts tips",
+      "name": "OLBG — Darts tips",
       "url": "https://www.olbg.com/betting-tips/Darts/15",
       "class": "official"
     },
     {
       "id": "S-OLBG-RGU",
-      "name": "OLBG \u2014 Rugby Union tips",
+      "name": "OLBG — Rugby Union tips",
       "url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
       "class": "official"
     },
     {
       "id": "S-OLBG-RGL",
-      "name": "OLBG \u2014 Rugby League tips",
+      "name": "OLBG — Rugby League tips",
       "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
       "class": "official"
     },
     {
       "id": "S-OLBG-IH",
-      "name": "OLBG \u2014 Ice Hockey tips",
+      "name": "OLBG — Ice Hockey tips",
       "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
       "class": "official"
     },
     {
       "id": "S-OLBG-BSB",
-      "name": "OLBG \u2014 Baseball tips",
+      "name": "OLBG — Baseball tips",
       "url": "https://www.olbg.com/betting-tips/Baseball/12",
       "class": "official"
     },
     {
       "id": "S-OLBG-VOL",
-      "name": "OLBG \u2014 Volleyball tips",
+      "name": "OLBG — Volleyball tips",
       "url": "https://www.olbg.com/betting-tips/Volleyball/21",
       "class": "official"
     },
     {
       "id": "S-OLBG-HB",
-      "name": "OLBG \u2014 Handball tips",
+      "name": "OLBG — Handball tips",
       "url": "https://www.olbg.com/betting-tips/Handball/20",
       "class": "official"
     },
     {
       "id": "S-OLBG-GLF",
-      "name": "OLBG \u2014 Golf tips",
+      "name": "OLBG — Golf tips",
       "url": "https://www.olbg.com/betting-tips/Golf/5",
       "class": "official"
     },
     {
       "id": "S-OLBG-MOT",
-      "name": "OLBG \u2014 Motor Racing tips",
+      "name": "OLBG — Motor Racing tips",
       "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
       "class": "official"
     },
     {
       "id": "S-OLBG-GAA",
-      "name": "OLBG \u2014 Gaelic Football tips",
+      "name": "OLBG — Gaelic Football tips",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
       "class": "official"
     },
     {
       "id": "S-OLBG-GRY",
-      "name": "OLBG \u2014 Greyhound tips",
+      "name": "OLBG — Greyhound tips",
       "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
       "class": "official"
     },
     {
       "id": "S-PDC-EC26",
-      "name": "PDC \u2014 2026 Machineseeker European Championship schedule confirmed (official)",
+      "name": "PDC — 2026 Machineseeker European Championship schedule confirmed (official)",
       "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
       "class": "official",
-      "quote": "\u00a3750,000 ... Westfalenhalle from October 22-25 ... Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8: Luke Woodhouse v Dirk van Duijvenbode ... Luke Humphries v Ryan Searle ..."
+      "quote": "£750,000 ... Westfalenhalle from October 22-25 ... Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8: Luke Woodhouse v Dirk van Duijvenbode ... Luke Humphries v Ryan Searle ..."
     },
     {
       "id": "S-MLB-WS",
-      "name": "MLB.com \u2014 2026 postseason / World Series schedule (official)",
+      "name": "MLB.com — 2026 postseason / World Series schedule (official)",
       "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
       "class": "official",
       "quote": "Friday, Oct. 23 Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes)"
     },
     {
       "id": "S-ESPN-WS",
-      "name": "ESPN \u2014 Rays vs Brewers game page",
+      "name": "ESPN — Rays vs Brewers game page",
       "url": "https://www.espn.com/mlb/game/_/gameId/401908042/rays-brewers",
       "class": "secondary",
       "quote": "World Series - Game 1 ... American Family Field, 8:00 PM, October 23, 2026 ... Rays 98-64 ... Brewers 103-59"
     },
     {
       "id": "S-NBA-WAS",
-      "name": "NBA / Washington Wizards \u2014 2026-27 schedule announcement (official)",
+      "name": "NBA / Washington Wizards — 2026-27 schedule announcement (official)",
       "url": "https://www.nba.com/wizards/news/wizards-announce-2026-27schedule",
       "class": "official",
       "quote": "Season Opener set for Oct. 21 Against Milwaukee"
     },
     {
       "id": "S-ESPN-NHL",
-      "name": "ESPN \u2014 NHL schedule, Wednesday 21 October 2026",
+      "name": "ESPN — NHL schedule, Wednesday 21 October 2026",
       "url": "https://www.espn.com/nhl/schedule",
       "class": "secondary",
       "quote": "Wednesday, October 21, 2026 ... Philadelphia @ Buffalo 7:30 PM TNT truTV"
     },
     {
       "id": "S-CBS-NHL-BUF",
-      "name": "CBS Sports \u2014 Buffalo Sabres 2026-27 schedule/results",
+      "name": "CBS Sports — Buffalo Sabres 2026-27 schedule/results",
       "url": "https://www.cbssports.com/nhl/teams/BUF/buffalo-sabres/",
       "class": "secondary",
       "quote": "Oct 10 vs UTA L 4-1; Oct 12 vs FLA W 5-3; Oct 13 @ MON L 4-3 SO; Oct 15 @ TOR W 5-4 OT; Oct 17 @ MON L 4-3 OT ... BUF -185, O/U 5.5"
     },
     {
       "id": "S-ESPN-NHL-PHI",
-      "name": "ESPN \u2014 Philadelphia Flyers 2026-27 results",
+      "name": "ESPN — Philadelphia Flyers 2026-27 results",
       "url": "https://www.espn.com/nhl/team/schedule/_/name/phi",
       "class": "secondary",
       "quote": "Sat, Oct 17 vs Ottawa W 3-1; Mon, Oct 19 vs Colorado W 3-2"
     },
     {
       "id": "S-SNOOKER-ORG",
-      "name": "snooker.org \u2014 2026 BetVictor Northern Ireland Open results and upcoming matches",
+      "name": "snooker.org — 2026 BetVictor Northern Ireland Open results and upcoming matches",
       "url": "https://www.snooker.org/res/index.asp?event=2548",
       "class": "primary",
       "quote": "Rd 1: John Higgins [7] 4-1 Liam Highfield; Jak Jones [30] 4-1 Tom Ford. Upcoming: Rd 2 (7) John Higgins v Jak Jones, 2026-10-21 12:00:00Z"
     },
     {
       "id": "S-WST-NIO",
-      "name": "World Snooker Tour \u2014 match centre, BetVictor Northern Ireland Open 2026",
+      "name": "World Snooker Tour — match centre, BetVictor Northern Ireland Open 2026",
       "url": "https://www.wst.tv/match-centre/6c8aaa17-7742-4ab9-80d4-8632a8648cc7",
       "class": "official",
       "quote": "BetVictor Northern Ireland Open 2026 Round 1 ... John Higgins v Liam Highfield"
     },
     {
       "id": "S-BBC-NIO",
-      "name": "BBC Sport \u2014 Northern Ireland Open 2026 guide",
+      "name": "BBC Sport — Northern Ireland Open 2026 guide",
       "url": "https://www.bbc.com/sport/snooker/articles/ck86zqje2n0po",
       "class": "secondary",
-      "quote": "11th edition ... 18-25 October at the Waterfront Hall in Belfast ... first prize of \u00a3100,000 and the Alex Higgins Trophy"
+      "quote": "11th edition ... 18-25 October at the Waterfront Hall in Belfast ... first prize of £100,000 and the Alex Higgins Trophy"
     },
     {
       "id": "S-DPWT-GEN",
-      "name": "DP World Tour \u2014 Genesis Championship 2026 (official tournament page)",
+      "name": "DP World Tour — Genesis Championship 2026 (official tournament page)",
       "url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
       "class": "official",
       "quote": "22 - 25 Oct 2026"
     },
     {
       "id": "S-DPWT-GEN-NEWS",
-      "name": "DP World Tour \u2014 Genesis Championship tenth edition at Woo Jeong Hills CC",
+      "name": "DP World Tour — Genesis Championship tenth edition at Woo Jeong Hills CC",
       "url": "https://www.europeantour.com/dpworld-tour/news/articles/detail/genesis-championship-marks-its-tenth-edition-at-woo-jeong-hills-cc-this-october/",
       "class": "official",
       "quote": "co-sanctioned by the KPGA TOUR and the DP World Tour ... total prize fund of US$4 million ... October 22 to 25 at Woo Jeong Hills Country Club in Cheonan"
     },
     {
       "id": "S-SBS-GEN",
-      "name": "SBS News \u2014 Genesis Championship preview",
+      "name": "SBS News — Genesis Championship preview",
       "url": "https://news.sbs.co.kr/english/article.do?news_id=N1008805966",
       "class": "secondary",
       "quote": "Woo Jeong Hills Country Club (par 71) in Cheonan ... October 22 through October 25 ... $4.0 million"
     },
     {
       "id": "S-CRICINFO-NZIND",
-      "name": "ESPNcricinfo \u2014 India tour of New Zealand 2026-27 schedule",
+      "name": "ESPNcricinfo — India tour of New Zealand 2026-27 schedule",
       "url": "https://www.cricinfo.com/series/india-in-new-zealand-2026-27-1539421/match-schedule-fixtures-and-results",
       "class": "primary",
-      "quote": "Thu, 22 Oct '26 \u2014 1st T20I (N) \u2022 Christchurch ... 7:00 am GMT | 8:00 pm Local"
+      "quote": "Thu, 22 Oct '26 — 1st T20I (N) • Christchurch ... 7:00 am GMT | 8:00 pm Local"
     },
     {
       "id": "S-WIKI-NZIND",
-      "name": "Wikipedia \u2014 Indian cricket team in New Zealand in 2026-27",
+      "name": "Wikipedia — Indian cricket team in New Zealand in 2026-27",
       "url": "https://en.wikipedia.org/wiki/Indian_cricket_team_in_New_Zealand_in_2026%E2%80%9327",
       "class": "secondary",
       "quote": "1st T20I 22 October 2026 20:00 (N) ... Hagley Oval, Christchurch"
     },
     {
       "id": "S-ATP-CAL",
-      "name": "ATP Tour \u2014 2026 ATP Tour calendar (official PDF)",
+      "name": "ATP Tour — 2026 ATP Tour calendar (official PDF)",
       "url": "https://www.atptour.com/-/media/files/calendar-pdfs/2025/2026-atp-tour-calendar-december-2025.pdf",
       "class": "official",
       "quote": "19 Oct-25 Oct Almaty Open ... BNP Paribas Fortis European Open Brussels ... Grand Prix Auvergne-Rhone-Alpes Lyon"
     },
     {
       "id": "S-ATP-LYON",
-      "name": "ATP Tour \u2014 Lyon tournament page",
+      "name": "ATP Tour — Lyon tournament page",
       "url": "https://www.atptour.com/en/tournaments/lyon/496/overview",
       "class": "official",
       "quote": "19 - 25 October, 2026 Lyon, France"
     },
     {
       "id": "S-URC-FIX",
-      "name": "United Rugby Championship \u2014 2026/27 fixtures in full (official)",
+      "name": "United Rugby Championship official — 2026/27 fixtures in full",
       "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
       "class": "official",
-      "quote": "ROUND 4 \u2014 FRIDAY, OCTOBER 23: Cardiff v Hollywoodbets Sharks; Edinburgh v Lions. SATURDAY, OCTOBER 24: Vodacom Bulls v Ulster."
+      "note": "Re-retrieved 2026-10-21 ~07:45Z by session-af0789e6; Round 4 block read directly."
     },
     {
       "id": "S-BBC-URC",
-      "name": "BBC Sport \u2014 United Rugby Championship scores & fixtures, 23-24 October 2026",
+      "name": "BBC Sport — United Rugby Championship scores & fixtures, 23-24 October 2026",
       "url": "https://www.bbc.com/sport/rugby-union/pro-tournament/scores-fixtures",
       "class": "secondary",
       "quote": "Connacht v Zebre 19:45; Bulls v Ulster 12:45; Stormers v Scarlets 15:00; Leinster v Munster 18:00 (24 Oct)."
     },
     {
       "id": "S-WIKI-URC",
-      "name": "Wikipedia \u2014 2026-27 United Rugby Championship, Round 4",
+      "name": "Wikipedia — 2026-27 United Rugby Championship, Round 4",
       "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_United_Rugby_Championship",
       "class": "secondary",
       "quote": "23 October Connacht v Zebre; 24 October Bulls v Ulster, Stormers v Scarlets, Leinster v Munster"
     },
     {
       "id": "S-EHF-PSG",
-      "name": "EHF Champions League \u2014 Paris Saint-Germain club page (official)",
+      "name": "EHF Champions League — Paris Saint-Germain club page (official)",
       "url": "https://ehfcl.eurohandball.com/men/2026-27/clubs/details/hputODilVqNbBbAttPlUww/ParisSaintGermain/",
       "class": "official",
-      "quote": "Wed Oct 21, 2026 18:45, Zagreb (CRO) \u2014 HC Zagreb vs Paris Saint-Germain \u2014 Group Phase C"
+      "quote": "Wed Oct 21, 2026 18:45, Zagreb (CRO) — HC Zagreb vs Paris Saint-Germain — Group Phase C"
     },
     {
       "id": "S-WIKI-EHF",
-      "name": "Wikipedia \u2014 2026-27 EHF Champions League group stage",
+      "name": "Wikipedia — 2026-27 EHF Champions League group stage",
       "url": "https://en.wikipedia.org/wiki/2026%E2%80%9327_EHF_Champions_League",
       "class": "secondary",
-      "quote": "Group C row Aalborg H\u00e5ndbold \u2014 next fixture 21 Oct; Group Phase Round 5 21-22 October 2026"
+      "quote": "Group C row Aalborg Håndbold — next fixture 21 Oct; Group Phase Round 5 21-22 October 2026"
+    },
+    {
+      "id": "S-OLBG-H2",
+      "name": "OLBG — betting-tips listings, second harvest (06:45–07:05Z)",
+      "url": "https://www.olbg.com/betting-tips",
+      "class": "official",
+      "note": "Source of every OLBG field in data/raw/olbg-harvest-20261021T0650Z.tsv"
+    },
+    {
+      "id": "S-NHL-SCHED",
+      "name": "NHL official API — schedule 2026-10-21",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-21",
+      "class": "official"
+    },
+    {
+      "id": "S-NHL-GC-152",
+      "name": "NHL official API — gamecenter landing PHI@BUF (2026020152)",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2026020152/landing",
+      "class": "official"
+    },
+    {
+      "id": "S-NHL-GC-153",
+      "name": "NHL official API — gamecenter landing FLA@OTT (2026020153)",
+      "url": "https://api-web.nhle.com/v1/gamecenter/2026020153/landing",
+      "class": "official"
+    },
+    {
+      "id": "S-NBA-1021",
+      "name": "NBA.com — games, 21 October 2026",
+      "url": "https://www.nba.com/games?date=2026-10-21",
+      "class": "official"
+    },
+    {
+      "id": "S-NBA-1022",
+      "name": "NBA.com — games, 22 October 2026",
+      "url": "https://www.nba.com/games?date=2026-10-22",
+      "class": "official"
+    },
+    {
+      "id": "S-MLB-API",
+      "name": "MLB Stats API — schedule 2026-10-21 to 2026-10-26 (World Series)",
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-21&endDate=2026-10-26&hydrate=team,venue",
+      "class": "official"
+    },
+    {
+      "id": "S-ATP-CUR",
+      "name": "ATP Tour — current scores / tournaments this week",
+      "url": "https://www.atptour.com/en/scores/current",
+      "class": "official"
+    },
+    {
+      "id": "S-ATP-ALM",
+      "name": "ATP Tour — Almaty daily schedule (Wed 21 Oct, Day 5)",
+      "url": "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule",
+      "class": "official"
+    },
+    {
+      "id": "S-ATP-BRU",
+      "name": "ATP Tour — Brussels daily schedule (Wed 21 Oct, Day 5)",
+      "url": "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+      "class": "official"
+    },
+    {
+      "id": "S-ATP-LYO",
+      "name": "ATP / ProTennisLive — Lyon official order of play PDF (Wed 21 Oct)",
+      "url": "https://www.protennislive.com/posting/2026/496/op.pdf",
+      "class": "official"
+    },
+    {
+      "id": "S-WTA-NIN",
+      "name": "WTA official live-scoring API — BNB Ningbo Open (2092) matches",
+      "url": "https://api.wtatennis.com/tennis/tournaments/2092/2026/matches?matchStates=live,upcoming&page=0&pageSize=100",
+      "class": "official"
+    },
+    {
+      "id": "S-WTA-OSA",
+      "name": "WTA official live-scoring API — Kinoshita Group Japan Open, Osaka (405) matches",
+      "url": "https://api.wtatennis.com/tennis/tournaments/405/2026/matches?matchStates=live,upcoming&page=0&pageSize=100",
+      "class": "official"
+    },
+    {
+      "id": "S-EHF-CL",
+      "name": "EHF Champions League Men 2026-27 — matches",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/",
+      "class": "official"
+    },
+    {
+      "id": "S-EL-GC",
+      "name": "EuroLeague official game center, Round 7",
+      "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/",
+      "class": "official"
+    },
+    {
+      "id": "S-EC-GC",
+      "name": "EuroCup official game center, Round 4",
+      "url": "https://www.euroleaguebasketball.net/en/eurocup/game-center/",
+      "class": "official"
+    },
+    {
+      "id": "S-WST-MATCH",
+      "name": "World Snooker Tour — BetVictor Northern Ireland Open 2026 matches",
+      "url": "https://www.wst.tv/matches",
+      "class": "official"
+    },
+    {
+      "id": "S-LNR-PD2",
+      "name": "LNR Pro D2 official — calendrier et résultats, Journée 8",
+      "url": "https://prod2.lnr.fr/calendrier-et-resultats",
+      "class": "official"
+    },
+    {
+      "id": "S-LNR-T14",
+      "name": "LNR TOP 14 official — calendrier et résultats, Journée 7",
+      "url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "class": "official"
     }
   ],
   "event_verifications": {
     "160789": {
       "competition": "MLB World Series 2026, Game 1",
-      "venue": "American Family Field, Milwaukee, Wisconsin",
+      "venue": "American Family Field, Milwaukee",
       "start_local": "2026-10-23 20:00 ET",
       "status": "verified",
       "sources": [
-        "S-MLB-WS",
-        "S-ESPN-WS"
+        "S-MLB-API"
       ],
       "facts": [
-        "Brewers finished the regular season 103-59 and are the National League champion, sweeping the Dodgers 4-0 in the NLCS (ESPN / S-ESPN-WS).",
-        "Rays finished 98-64 and are the American League champion, beating Cleveland 4-2 in the ALCS (ESPN / S-ESPN-WS).",
-        "This is Milwaukee's first World Series appearance since 1982 and Tampa Bay's first since 2020 (S-ESPN-WS)."
-      ]
+        "MLB Stats API gamePk 849805: TB Rays @ MIL Brewers, gameDate 2026-10-24T00:00:00Z, American Family Field (S-MLB-API).",
+        "Game 2 gamePk 849802 on 2026-10-25T00:00:00Z at Milwaukee; Game 3 gamePk 849804 at Tropicana Field on 2026-10-27T00:00:00Z (S-MLB-API)."
+      ],
+      "start_utc": "2026-10-24T00:00:00Z"
     },
     "534889": {
-      "competition": "NBA 2026-27 regular season (season opener)",
-      "venue": "Capital One Arena, Washington, D.C.",
-      "start_local": "2026-10-21 19:00 ET",
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 7:00 PM ET",
       "status": "verified",
       "sources": [
-        "S-NBA-WAS"
+        "S-NBA-1021"
       ],
       "facts": [
-        "Washington's season opener is 21 October 2026 against Milwaukee (S-NBA-WAS).",
-        "Both teams enter 0-0: this is the first regular-season game of 2026-27 for each."
-      ]
+        "NBA.com lists MIL @ WAS on 2026-10-21 at 7:00 PM ET, game id 0022600086 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-21T23:00:00Z"
     },
     "199897": {
       "competition": "NHL 2026-27 regular season",
-      "venue": "KeyBank Center, Buffalo, New York",
+      "venue": "KeyBank Center, Buffalo",
       "start_local": "2026-10-21 19:30 ET",
       "status": "verified",
       "sources": [
-        "S-ESPN-NHL",
-        "S-CBS-NHL-BUF"
+        "S-NHL-SCHED",
+        "S-NHL-GC-152"
       ],
       "facts": [
-        "Buffalo are 4-3-2 after nine games: L 4-1 vs UTA, W 5-3 vs FLA, L 4-3 SO at MON, W 5-4 OT at TOR, L 4-3 OT at MON (S-CBS-NHL-BUF).",
-        "Philadelphia are 2-6-3 and have won their last two: 3-1 vs Ottawa and 3-2 vs Colorado (S-ESPN-NHL-PHI)."
+        "Game 2026020152 PHI @ BUF, startTimeUTC 2026-10-21T23:30:00Z (S-NHL-SCHED).",
+        "Buffalo enter 4-3-2 after 9 GP; team GAA 3.67, SV% .857; Luukkonen 3-2-2, 3.59 GAA, .860 (S-NHL-GC-152).",
+        "Philadelphia enter 2-6-3 after 11 GP; team GAA 3.18, SV% .901; Woll 1-3-2 2.64/.917, Vladar 1-3-1 3.58/.889 (S-NHL-GC-152).",
+        "Last five games: Quinn 7 pts and Thompson 3 G for BUF; Zegras 5 pts and Michkov 4 G for PHI (S-NHL-GC-152)."
       ],
-      "discrepancy": "OLBG lists this game as 'Tomorrow 00:37'. The official puck-drop is 21 Oct 2026 19:30 ET. See data/flagged.json FL-004."
+      "start_utc": "2026-10-21T23:30:00Z",
+      "note": "OLBG label 19:37 EDT is 7 minutes after the official face-off time."
     },
     "9934": {
-      "competition": "BetVictor Northern Ireland Open 2026 (World Snooker Tour ranking event), Round 2",
-      "venue": "Waterfront Hall, Belfast",
-      "start_local": "2026-10-21 12:00 UTC",
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 08:00 (as listed on wst.tv; matches the OLBG label)",
       "status": "verified",
       "sources": [
-        "S-SNOOKER-ORG",
-        "S-WST-NIO",
-        "S-BBC-NIO"
+        "S-WST-MATCH"
       ],
       "facts": [
-        "John Higgins [7] beat Liam Highfield 4-1 in round one (S-SNOOKER-ORG).",
-        "Jak Jones [30] beat Tom Ford 4-1 in round one (S-SNOOKER-ORG).",
-        "The event runs 18-25 October 2026 at the Waterfront Hall, Belfast, for a \u00a3100,000 first prize and the Alex Higgins Trophy (S-BBC-NIO)."
-      ]
+        "WST matches page: Round 2, Match 45, John Higgins v Jak Jones, Wed 21 Oct, listed 08:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Higgins beat Liam Highfield 4-1 (R1, Mon 19 Oct); Jak Jones beat Tom Ford 4-1 (R1, Tue 20 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
     },
     "32337": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "188814": {
-      "competition": "India tour of New Zealand 2026-27, 1st T20I",
-      "venue": "Hagley Oval, Christchurch",
-      "start_local": "2026-10-22 20:00 NZDT",
-      "status": "verified",
+      "competition": null,
+      "venue": null,
+      "start_local": null,
+      "status": "unverified",
       "sources": [
         "S-CRICINFO-NZIND",
         "S-WIKI-NZIND"
@@ -338,7 +455,8 @@
       "facts": [
         "First match of a five-match T20I series, 22 October 2026 at Hagley Oval (S-CRICINFO-NZIND, S-WIKI-NZIND).",
         "Caveat: no team form, squad or selection data was verified for this fixture, so it is not used for a high-confidence prediction."
-      ]
+      ],
+      "note": "Earlier pass cited Cricinfo and Wikipedia (not official bodies). No official NZC/BCCI page was retrieved in this pass, so competition/venue/time are left blank on the board."
     },
     "101905": {
       "competition": "2026 Genesis Championship (DP World Tour / KPGA co-sanctioned)",
@@ -359,237 +477,1306 @@
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32334": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32325": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32322": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32330": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32323": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32329": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32335": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32332": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32333": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32327": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32328": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "32326": {
       "competition": "2026 Machineseeker European Championship (PDC Premier event), Round 1",
       "venue": "Westfalenhalle, Dortmund, Germany",
       "start_local": "2026-10-22 or 2026-10-23 evening session (1900 CEST / 1800 BST start)",
-      "status": "verified",
+      "status": "partially_verified",
       "sources": [
         "S-PDC-EC26"
       ],
       "facts": [
         "All 16 round-one ties are listed in the official PDC schedule for 22 and 23 October 2026 (S-PDC-EC26)."
-      ]
+      ],
+      "note": " Session-af0789e6: the official PDC schedule article could not be re-read (cookie wall in the text fetcher); the earlier entry fixes the session but not the day for most ties, so the row is partially verified and the OLBG date label is not confirmed."
     },
     "609577": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
+      "competition": "United Rugby Championship 2026-27, Round 4",
       "venue": "Dexcom Stadium, Galway",
-      "start_local": "2026-10-23 19:45 IRE/UK",
+      "start_local": "FRIDAY, OCTOBER 23 2026, KO 19.45 IRE & UK",
       "status": "verified",
       "sources": [
-        "S-URC-FIX",
-        "S-BBC-URC",
-        "S-WIKI-URC"
+        "S-URC-FIX"
       ],
       "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
-      ]
+        "URC official fixture list, Round 4: Connacht v Zebre Parma, Dexcom Stadium, Galway, KO 19.45 IRE & UK (S-URC-FIX). 19:45 BST = 14:45 EDT, matching the OLBG label."
+      ],
+      "start_utc": "2026-10-23T18:45:00Z"
     },
     "609576": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
+      "competition": "United Rugby Championship 2026-27, Round 4",
       "venue": "Loftus Versfeld, Pretoria",
-      "start_local": "2026-10-24 12:45 IRE/UK",
+      "start_local": "SATURDAY, OCTOBER 24 2026, KO 12.45 IRE & UK",
       "status": "verified",
       "sources": [
-        "S-URC-FIX",
-        "S-BBC-URC",
-        "S-WIKI-URC"
+        "S-URC-FIX"
       ],
       "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
-      ]
+        "URC official fixture list, Round 4: Vodacom Bulls v Ulster, Loftus Versfeld, Pretoria, KO 12.45 IRE & UK (S-URC-FIX). 12:45 BST = 07:45 EDT, matching the OLBG label."
+      ],
+      "start_utc": "2026-10-24T11:45:00Z",
+      "note": "OLBG shortens \"Vodacom Bulls\" to \"Bulls\"."
     },
     "609580": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
-      "venue": null,
-      "start_local": "2026-10-24 15:00 IRE/UK",
+      "competition": "United Rugby Championship 2026-27, Round 4",
+      "venue": "DHL Stadium, Cape Town",
+      "start_local": "SATURDAY, OCTOBER 24 2026, KO 15.00 IRE & UK",
       "status": "verified",
       "sources": [
-        "S-BBC-URC",
-        "S-WIKI-URC"
+        "S-URC-FIX"
       ],
       "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
+        "URC official fixture list, Round 4: DHL Stormers v Scarlets, DHL Stadium, Cape Town, KO 15.00 IRE & UK (S-URC-FIX). 15:00 BST = 10:00 EDT, matching the OLBG label."
       ],
-      "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016."
+      "start_utc": "2026-10-24T14:00:00Z",
+      "note": "OLBG shortens \"DHL Stormers\" to \"Stormers\"."
     },
     "609578": {
-      "competition": "BKT United Rugby Championship 2026-27, Round 4",
-      "venue": null,
-      "start_local": "2026-10-24 18:00 IRE/UK",
+      "competition": "United Rugby Championship 2026-27, Round 4",
+      "venue": "TBC, Dublin",
+      "start_local": "SATURDAY, OCTOBER 24 2026, KO 18.00 IRE & UK",
       "status": "verified",
       "sources": [
-        "S-BBC-URC",
-        "S-WIKI-URC"
+        "S-URC-FIX"
       ],
       "facts": [
-        "Round 4 of the 2026-27 URC is played on 23-24 October 2026 (S-URC-FIX, S-BBC-URC)."
+        "URC official fixture list, Round 4: Leinster v Munster, TBC, Dublin, KO 18.00 IRE & UK (S-URC-FIX). 18:00 BST = 13:00 EDT, matching the OLBG label."
       ],
-      "discrepancy": "Venue is given as Aviva Stadium by some sources and Laya Arena by others; left blank. See FL-016."
+      "start_utc": "2026-10-24T17:00:00Z",
+      "note": "Venue listed as \"TBC, Dublin\" on the official fixture list; OLBG names \"Bulls\"/\"Stormers\" where the official list says \"Vodacom Bulls\"/\"DHL Stormers\"."
     },
     "12053": {
-      "competition": "EHF Champions League Men 2026-27, Group Phase C",
-      "venue": "Arena Zagreb, Zagreb",
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
       "start_local": "2026-10-21 18:45 CEST",
       "status": "verified",
       "sources": [
-        "S-EHF-PSG"
+        "S-EHF-CL"
       ],
       "facts": [
-        "Official EHF club page lists HC Zagreb vs Paris Saint-Germain on Wed 21 Oct 2026 at 18:45 in Zagreb, Group Phase C (S-EHF-PSG)."
-      ]
+        "EHF Champions League Men 2026-27: HC Zagreb v Paris Saint-Germain, 2026-10-21 18:45 CEST, match id 202711020101032 (S-EHF-CL). 18:45 CEST = 12:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T16:45:00Z"
     },
     "12044": {
-      "competition": "EHF Champions League Men 2026-27, Group Phase C",
+      "competition": "EHF Champions League Men 2026-27",
       "venue": null,
-      "start_local": "2026-10-21",
-      "status": "partially_verified",
+      "start_local": "2026-10-21 20:45 CEST",
+      "status": "verified",
       "sources": [
-        "S-WIKI-EHF"
+        "S-EHF-CL"
       ],
       "facts": [
-        "Aalborg H\u00e5ndbold's next Group C fixture is dated 21 October 2026 in the competition standings (S-WIKI-EHF). The opponent and venue are not stated in the retrieved text, so the fixture is matched on the OLBG name only."
+        "EHF Champions League Men 2026-27: Aalborg Håndbold v RK Celje Pivovarna Laško, 2026-10-21 20:45 CEST, match id 202711020101029 (S-EHF-CL). 20:45 CEST = 14:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T18:45:00Z"
+    },
+    "199896": {
+      "competition": "NHL 2026-27 regular season",
+      "venue": "Canadian Tire Centre, Ottawa",
+      "start_local": "2026-10-21 19:30 ET",
+      "status": "verified",
+      "sources": [
+        "S-NHL-SCHED",
+        "S-NHL-GC-153"
+      ],
+      "facts": [
+        "Game 2026020153 FLA @ OTT, startTimeUTC 2026-10-21T23:30:00Z (S-NHL-SCHED).",
+        "Ottawa enter 6-3-0 after 9 GP; team GAA 2.56, SV% .903; Ullmark 6-1-0, 1.33 GAA, .945 SV%; Ersson 0-2-0, 5.26 GAA (S-NHL-GC-153).",
+        "Florida enter 5-2-2 after 9 GP; team GAA 2.78, SV% .884; Markstrom 3-1-1, 2.21 GAA, .897, 1 SO (S-NHL-GC-153).",
+        "Last five games: Matthew Tkachuk 11 pts (10 A) and Brady Tkachuk 6 G for FLA; Stützle 6 pts, Batherson 2 G for OTT (S-NHL-GC-153)."
+      ],
+      "start_utc": "2026-10-21T23:30:00Z"
+    },
+    "534888": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 7:00 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists ATL @ ORL on 2026-10-21 at 7:00 PM ET, game id 0022600085 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-21T23:00:00Z"
+    },
+    "535673": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 7:30 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists CHI @ TOR on 2026-10-21 at 7:30 PM ET, game id 0022600088 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-21T23:30:00Z"
+    },
+    "534894": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 8:00 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists UTA @ MEM on 2026-10-21 at 8:00 PM ET, game id 0022600089 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-22T00:00:00Z"
+    },
+    "534839": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 10:00 PM ET (ESPN)",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists GSW @ LAL on 2026-10-21 at 10:00 PM ET (ESPN), game id 0022600005 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-22T02:00:00Z"
+    },
+    "534840": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 7:30 PM ET (ESPN)",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists MIN @ MIA on 2026-10-21 at 7:30 PM ET (ESPN), game id 0022600004 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-21T23:30:00Z"
+    },
+    "534892": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 8:00 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists IND @ NOP on 2026-10-21 at 8:00 PM ET, game id 0022600090 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-22T00:00:00Z"
+    },
+    "534891": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 8:30 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists DAL @ HOU on 2026-10-21 at 8:30 PM ET, game id 0022600091 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-22T00:30:00Z"
+    },
+    "534893": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 10:00 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists PHX @ POR on 2026-10-21 at 10:00 PM ET, game id 0022600092 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-22T02:00:00Z"
+    },
+    "535674": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 10:30 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists SAC @ LAC on 2026-10-21 at 10:30 PM ET (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-22T02:30:00Z",
+      "note": "Game id not visible in the retrieved chunk of the NBA.com list; date and tip-off time confirmed."
+    },
+    "534890": {
+      "competition": "NBA 2026-27 regular season (opening night for both teams)",
+      "venue": null,
+      "start_local": "2026-10-21 7:30 PM ET",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1021"
+      ],
+      "facts": [
+        "NBA.com lists CHA @ BKN on 2026-10-21 at 7:30 PM ET, game id 0022600087 (S-NBA-1021).",
+        "Both teams 0-0: season opener for each side (S-NBA-1021)."
+      ],
+      "start_utc": "2026-10-21T23:30:00Z"
+    },
+    "534843": {
+      "competition": "NBA 2026-27 regular season",
+      "venue": null,
+      "start_local": "2026-10-22 9:30 PM ET (ESPN)",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1022"
+      ],
+      "facts": [
+        "NBA.com lists DEN @ OKC on 2026-10-22 at 9:30 PM ET (ESPN), game id 0022600007 (S-NBA-1022).",
+        "Records shown on NBA.com: Denver 0-0, Oklahoma City 1-0 (S-NBA-1022)."
+      ],
+      "start_utc": "2026-10-23T01:30:00Z"
+    },
+    "534845": {
+      "competition": "NBA 2026-27 regular season",
+      "venue": null,
+      "start_local": "2026-10-22 7:00 PM ET (ESPN)",
+      "status": "verified",
+      "sources": [
+        "S-NBA-1022"
+      ],
+      "facts": [
+        "NBA.com lists CLE @ PHI on 2026-10-22 at 7:00 PM ET (ESPN), game id 0022600006 (S-NBA-1022).",
+        "Records shown on NBA.com: Cleveland 0-0, Philadelphia 1-0 (S-NBA-1022)."
+      ],
+      "start_utc": "2026-10-22T23:00:00Z"
+    },
+    "902037": {
+      "competition": "ATP 250 Almaty — R16",
+      "venue": "Center Court, Almaty (UTC+5)",
+      "start_local": "3rd match from 11:30 local, Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-ALM",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Order of play Day 5: Mannarino v Rublev (4), round of 16, Center Court, third match after 11:30 start (S-ATP-ALM)."
+      ],
+      "note": "followed-by slot; OLBG 05:30 EDT is an estimate"
+    },
+    "901935": {
+      "competition": "ATP 250 Almaty — R32",
+      "venue": "Center Court, Almaty (UTC+5)",
+      "start_local": "2nd match from 11:30 local, Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-ALM",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Nurlanuly (WC) v Machac, round of 32, Center Court, second match (S-ATP-ALM)."
+      ],
+      "note": "followed-by slot"
+    },
+    "902083": {
+      "competition": "ATP 250 Almaty — R16",
+      "venue": "Center Court, Almaty (UTC+5)",
+      "start_local": "Not before 19:30 local (14:30 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-ALM",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Tsitsipas (7) v Kukushkin (WC), round of 16, Center Court, not before 19:30 (S-ATP-ALM). 19:30 Almaty = 10:30 EDT, matching the OLBG label exactly."
       ]
+    },
+    "902040": {
+      "competition": "ATP 250 Almaty — R16",
+      "venue": "Court 1, Almaty (UTC+5)",
+      "start_local": "2nd match from 11:30 local, Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-ALM",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Diaz Acosta v Basilashvili (Q), round of 16, Court 1, second match after Bellucci v Etcheverry (6) (S-ATP-ALM)."
+      ],
+      "note": "followed-by slot"
+    },
+    "902048": {
+      "competition": "ATP 250 Brussels — R16",
+      "venue": "Centre Court, Brussels (CEST)",
+      "start_local": "11:30 local (09:30 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-BRU",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Damm (LL) v F. Cerundolo (3), round of 16, Centre Court, first match at 11:30 (S-ATP-BRU). 11:30 CEST = 05:30 EDT, matching OLBG."
+      ]
+    },
+    "902085": {
+      "competition": "ATP 250 Brussels — R16",
+      "venue": "Centre Court, Brussels (CEST)",
+      "start_local": "2nd match from 11:30 local, Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-BRU",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Navone (8) v Griekspoor, round of 16, Centre Court, second match (S-ATP-BRU)."
+      ],
+      "note": "followed-by slot"
+    },
+    "902094": {
+      "competition": "ATP 250 Brussels — R16",
+      "venue": "Centre Court, Brussels (CEST)",
+      "start_local": "3rd match from 11:30 local, Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-BRU",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Chidekh (Q) v Fearnley, round of 16, Centre Court, third match (S-ATP-BRU)."
+      ],
+      "note": "followed-by slot"
+    },
+    "902028": {
+      "competition": "ATP 250 Brussels — R32",
+      "venue": "Centre Court, Brussels (CEST)",
+      "start_local": "Not before 18:00 local (16:00 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-BRU",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Goffin (WC) v Bertola (LL), round of 32, Centre Court, not before 18:00 (S-ATP-BRU). 18:00 CEST = 12:00 EDT, matching OLBG."
+      ]
+    },
+    "901896": {
+      "competition": "ATP 250 Brussels — R32",
+      "venue": "Court 1, Brussels (CEST)",
+      "start_local": "11:30 local (09:30 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-BRU",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Prizmic v Dzumhur, round of 32, Court 1, first match at 11:30 (S-ATP-BRU)."
+      ],
+      "note": "OLBG label 05:30 EDT = 11:30 CEST"
+    },
+    "901974": {
+      "competition": "ATP 250 Lyon — R32",
+      "venue": "Court Central, Lyon (CEST)",
+      "start_local": "Not before 14:00 local (12:00 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-LYO",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Official order of play: Wawrinka (WC) v Landaluce, Court Central, not before 14:00 (S-ATP-LYO). 14:00 CEST = 08:00 EDT, matching OLBG."
+      ]
+    },
+    "902095": {
+      "competition": "ATP 250 Lyon — R16",
+      "venue": "Court Central, Lyon (CEST)",
+      "start_local": "followed by (after NB 14:00 match), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-LYO",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Moutet v Balshaw (NG) follows Wawrinka v Landaluce on Court Central (S-ATP-LYO). Moutet beat Humbert (7) 6-2 6-7(5) 7-6(4) in R32 on 20 Oct (S-ATP-CUR)."
+      ],
+      "note": "followed-by slot"
+    },
+    "902059": {
+      "competition": "ATP 250 Lyon — R32",
+      "venue": "Court Central, Lyon (CEST)",
+      "start_local": "Not before 19:00 local (17:00 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-LYO",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Kouame (WC) v Musetti (6), Court Central, not before 19:00 (S-ATP-LYO). 19:00 CEST = 13:00 EDT, matching OLBG."
+      ]
+    },
+    "902102": {
+      "competition": "ATP 250 Lyon — R16",
+      "venue": "Court Central, Lyon (CEST)",
+      "start_local": "followed by (after NB 19:00 match), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-ATP-LYO",
+        "S-ATP-CUR"
+      ],
+      "facts": [
+        "Bonzi v T. Paul (4) follows Kouame v Musetti on Court Central (S-ATP-LYO). Bonzi beat Norrie 6-3 3-6 6-3 in R32 on 20 Oct (S-ATP-CUR)."
+      ],
+      "note": "followed-by slot"
+    },
+    "902084": {
+      "competition": "WTA 500 BNB Ningbo Open — round of 16",
+      "venue": "Center Court, Ningbo (UTC+8)",
+      "start_local": "Not before 19:00 local (11:00 UTC), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-WTA-NIN"
+      ],
+      "facts": [
+        "WTA live-scoring: match LS013 Alexandrova v Kostyuk (3), Center Court, Not before 7:00 PM, MatchTimeStamp 2026-10-21T19:00+08:00 (S-WTA-NIN). 19:00 CST = 07:00 EDT, matching OLBG.",
+        "Tournament: BNB Ningbo Open, WTA 500, hard, outdoor, 19–25 Oct 2026, singles draw 28 (S-WTA-NIN)."
+      ],
+      "start_utc": "2026-10-21T11:00:00Z"
+    },
+    "902074": {
+      "competition": "WTA 500 BNB Ningbo Open — round of 16",
+      "venue": "Center Court, Ningbo (UTC+8)",
+      "start_local": "Followed by (unscheduled time), Wed 21 Oct",
+      "status": "verified",
+      "sources": [
+        "S-WTA-NIN"
+      ],
+      "facts": [
+        "WTA live-scoring: match LS014 Cirstea (8) v Bejlek, Center Court, \"Followed By\", Unscheduled=true (S-WTA-NIN)."
+      ],
+      "note": "No fixed official start; OLBG 04:00 EDT is an estimate."
+    },
+    "902063": {
+      "competition": null,
+      "venue": null,
+      "start_local": null,
+      "status": "unverified",
+      "sources": [
+        "S-WTA-NIN",
+        "S-WTA-OSA"
+      ],
+      "facts": [
+        "Li v Sonmez: not present in either WTA tournament match feed at 06:53 UTC — Thursday orders of play for Ningbo and Osaka were not yet published. "
+      ],
+      "note": "Tournament, round and time left blank: not stated by an official source at retrieval time."
+    },
+    "902071": {
+      "competition": null,
+      "venue": null,
+      "start_local": null,
+      "status": "unverified",
+      "sources": [
+        "S-WTA-NIN",
+        "S-WTA-OSA"
+      ],
+      "facts": [
+        "Linette v Siniakova: not present in either WTA tournament match feed at 06:53 UTC — Thursday orders of play for Ningbo and Osaka were not yet published. "
+      ],
+      "note": "Tournament, round and time left blank: not stated by an official source at retrieval time."
+    },
+    "902067": {
+      "competition": null,
+      "venue": null,
+      "start_local": null,
+      "status": "unverified",
+      "sources": [
+        "S-WTA-NIN",
+        "S-WTA-OSA"
+      ],
+      "facts": [
+        "Stoiana v Uchijima: not present in either WTA tournament match feed at 06:53 UTC — Thursday orders of play for Ningbo and Osaka were not yet published. Stoiana appears in the Osaka qualifying results (S-WTA-OSA)."
+      ],
+      "note": "Tournament, round and time left blank: not stated by an official source at retrieval time."
+    },
+    "902093": {
+      "competition": null,
+      "venue": null,
+      "start_local": null,
+      "status": "unverified",
+      "sources": [
+        "S-WTA-NIN",
+        "S-WTA-OSA"
+      ],
+      "facts": [
+        "Kawa v Bencic: not present in either WTA tournament match feed at 06:53 UTC — Thursday orders of play for Ningbo and Osaka were not yet published. Kawa appears in the Ningbo qualifying results (S-WTA-NIN)."
+      ],
+      "note": "Tournament, round and time left blank: not stated by an official source at retrieval time."
+    },
+    "902075": {
+      "competition": null,
+      "venue": null,
+      "start_local": null,
+      "status": "unverified",
+      "sources": [
+        "S-WTA-NIN",
+        "S-WTA-OSA"
+      ],
+      "facts": [
+        "Jovic v Paolini: not present in either WTA tournament match feed at 06:53 UTC — Thursday orders of play for Ningbo and Osaka were not yet published. Paolini appears in the Ningbo doubles draw (S-WTA-NIN)."
+      ],
+      "note": "Tournament, round and time left blank: not stated by an official source at retrieval time."
+    },
+    "12055": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-21 18:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: One Veszprém HC v Füchse Berlin, 2026-10-21 18:45 CEST, match id 202711020101001 (S-EHF-CL). 18:45 CEST = 12:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T16:45:00Z"
+    },
+    "12050": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-21 20:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: HBC Nantes v HC Vardar 1961, 2026-10-21 20:45 CEST, match id 202711020101017 (S-EHF-CL). 20:45 CEST = 14:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T18:45:00Z"
+    },
+    "12045": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-21 18:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: Dinamo Bucuresti v SAH - Aarhus, 2026-10-21 18:45 CEST, match id 202711020101059 (S-EHF-CL). 18:45 CEST = 12:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T16:45:00Z",
+      "note": "Name mismatch: OLBG lists the away side as \"Skanderborg Handbold\"; the EHF match page names it \"SAH - Aarhus\". Same match id; flagged."
+    },
+    "12052": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-21 18:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: RK Partizan AdmiralBet v FC Porto, 2026-10-21 18:45 CEST, match id 202711020101012 (S-EHF-CL). 18:45 CEST = 12:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T16:45:00Z"
+    },
+    "12047": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-21 20:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: HC Kriens-Luzern v Industria Kielce, 2026-10-21 20:45 CEST, match id 202711020101070 (S-EHF-CL). 20:45 CEST = 14:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-21T18:45:00Z"
+    },
+    "12054": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-22 20:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: Sporting Clube de Portugal v IFK Kristianstad, 2026-10-22 20:45 CEST, match id 202711020101041 (S-EHF-CL). 20:45 CEST = 14:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-22T18:45:00Z"
+    },
+    "12048": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-22 20:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: Kolstad Håndball v SC Magdeburg, 2026-10-22 20:45 CEST, match id 202711020101064 (S-EHF-CL). 20:45 CEST = 14:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-22T18:45:00Z"
+    },
+    "12049": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-22 18:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: MT Melsungen v Orlen Wisla Plock, 2026-10-22 18:45 CEST, match id 202711020101019 (S-EHF-CL). 18:45 CEST = 12:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-22T16:45:00Z"
+    },
+    "12051": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-22 18:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: OTP Bank - PICK Szeged v GOG, 2026-10-22 18:45 CEST, match id 202711020101043 (S-EHF-CL). 18:45 CEST = 12:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-22T16:45:00Z"
+    },
+    "12046": {
+      "competition": "EHF Champions League Men 2026-27",
+      "venue": null,
+      "start_local": "2026-10-22 20:45 CEST",
+      "status": "verified",
+      "sources": [
+        "S-EHF-CL"
+      ],
+      "facts": [
+        "EHF Champions League Men 2026-27: Barça v Montpellier Handball, 2026-10-22 20:45 CEST, match id 202711020101049 (S-EHF-CL). 20:45 CEST = 14:45 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-22T18:45:00Z"
+    },
+    "535919": {
+      "competition": "EuroLeague 2026-27 regular season, Round 7",
+      "venue": "ARENA 8888 SOFIA",
+      "start_local": "21 October 2026 12:00 (as listed on the game center; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EL-GC"
+      ],
+      "facts": [
+        "EuroLeague game center Round 7: Hapoel IBI Tel Aviv (6th) v Virtus Bologna (7th), 21 October 2026, listed 12:00, ARENA 8888 SOFIA, game code E2026/61; standings positions after Round 6 in brackets (S-EL-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values); the local tip-off time was not read off the page, so no UTC is stored."
+    },
+    "535923": {
+      "competition": "EuroLeague 2026-27 regular season, Round 7",
+      "venue": "TELEKOM CENTER ATHENS",
+      "start_local": "22 October 2026 14:15 (as listed on the game center; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EL-GC"
+      ],
+      "facts": [
+        "EuroLeague game center Round 7: Panathinaikos AKTOR Athens (1st) v Kosner Baskonia Vitoria-Gasteiz (20th), 22 October 2026, listed 14:15, TELEKOM CENTER ATHENS, game code E2026/67; standings positions after Round 6 in brackets (S-EL-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values); the local tip-off time was not read off the page, so no UTC is stored."
+    },
+    "535918": {
+      "competition": "EuroLeague 2026-27 regular season, Round 7",
+      "venue": "TURKCELL BASKETBALL DEVELOPMENT CENTER",
+      "start_local": "22 October 2026 13:30 (as listed on the game center; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EL-GC"
+      ],
+      "facts": [
+        "EuroLeague game center Round 7: Anadolu Efes Istanbul (13th) v Besiktas Istanbul (11th), 22 October 2026, listed 13:30, TURKCELL BASKETBALL DEVELOPMENT CENTER, game code E2026/64; standings positions after Round 6 in brackets (S-EL-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values); the local tip-off time was not read off the page, so no UTC is stored."
+    },
+    "535921": {
+      "competition": "EuroLeague 2026-27 regular season, Round 7",
+      "venue": "ALEKSANDAR NIKOLIC HALL (Belgrade)",
+      "start_local": "22 October 2026 14:05 (as listed on the game center; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EL-GC"
+      ],
+      "facts": [
+        "EuroLeague game center Round 7: Maccabi Rapyd Tel Aviv (16th) v Real Madrid (9th), 22 October 2026, listed 14:05, ALEKSANDAR NIKOLIC HALL (Belgrade), game code E2026/62; standings positions after Round 6 in brackets (S-EL-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values); the local tip-off time was not read off the page, so no UTC is stored."
+    },
+    "535928": {
+      "competition": "EuroLeague 2026-27 regular season, Round 7",
+      "venue": "ZALGIRIO ARENA",
+      "start_local": "23 October 2026 13:00 (as listed on the game center; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EL-GC"
+      ],
+      "facts": [
+        "EuroLeague game center Round 7: Zalgiris Kaunas (14th) v LDLC ASVEL Villeurbanne (17th), 23 October 2026, listed 13:00, ZALGIRIO ARENA, game code E2026/68; standings positions after Round 6 in brackets (S-EL-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values); the local tip-off time was not read off the page, so no UTC is stored."
+    },
+    "535952": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group d)",
+      "venue": "PAOK SPORTS ARENA",
+      "start_local": "21 October 2026 13:00 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: PAOK Thessaloniki v ratiopharm ulm, 21 October 2026, listed 13:00, PAOK SPORTS ARENA, game code U2026/64 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535950": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group d)",
+      "venue": "ZETRA ARENA",
+      "start_local": "21 October 2026 13:30 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: BOSNA BH Telecom Sarajevo v Bahcesehir College Istanbul, 21 October 2026, listed 13:30, ZETRA ARENA, game code U2026/63 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535956": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group a)",
+      "venue": "HALA SPORTOVA RANKO ZERAVICA",
+      "start_local": "21 October 2026 14:00 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Hapoel Midtown Jerusalem v Riga Zelli, 21 October 2026, listed 14:00, HALA SPORTOVA RANKO ZERAVICA, game code U2026/52 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535949": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group b)",
+      "venue": "BT ARENA",
+      "start_local": "21 October 2026 12:00 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: U-BT Cluj-Napoca v London Lions, 21 October 2026, listed 12:00, BT ARENA, game code U2026/54 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535948": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group a)",
+      "venue": "ARENA STOZICE",
+      "start_local": "21 October 2026 12:30 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Cedevita Olimpija Ljubljana v Le Mans Sarthe Basket, 21 October 2026, listed 12:30, ARENA STOZICE, game code U2026/51 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535953": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group a)",
+      "venue": "NOVA ARENA",
+      "start_local": "21 October 2026 13:00 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Baglietto Derthona Tortona v Recoletas Salud San Pablo Burgos, 21 October 2026, listed 13:00, NOVA ARENA, game code U2026/49 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535951": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group c)",
+      "venue": "MESSE CHEMNITZ",
+      "start_local": "21 October 2026 13:00 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: NINERS Chemnitz v Slask Wroclaw, 21 October 2026, listed 13:00, MESSE CHEMNITZ, game code U2026/57 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535955": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group b)",
+      "venue": "SUWAG ENERGIE ARENA",
+      "start_local": "21 October 2026 13:30 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Skyliners Frankfurt v La Laguna Tenerife, 21 October 2026, listed 13:30, SUWAG ENERGIE ARENA, game code U2026/53 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535954": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group c)",
+      "venue": "EKINOX",
+      "start_local": "21 October 2026 13:30 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Cosea JL Bourg-en-Bresse v Dolomiti Energia Trento, 21 October 2026, listed 13:30, EKINOX, game code U2026/58 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535957": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group c)",
+      "venue": "ALCOTT ARENA",
+      "start_local": "21 October 2026 14:00 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Napoli Basketball v Tofas Bursa, 21 October 2026, listed 14:00, ALCOTT ARENA, game code U2026/60 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "535958": {
+      "competition": "EuroCup 2026-27 regular season, Round 4 (group b)",
+      "venue": "PALAEUR",
+      "start_local": "21 October 2026 14:30 (as listed; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-EC-GC"
+      ],
+      "facts": [
+        "EuroCup game center Round 4: Maxima Roma v Umana Reyer Venice, 21 October 2026, listed 14:30, PALAEUR, game code U2026/56 (S-EC-GC)."
+      ],
+      "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
+    },
+    "9933": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 05:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 42, Cheung Ka Wai v Stuart Bingham, Wed 21 Oct, listed 05:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Cheung beat Ronnie O'Sullivan 4-3 (R1, Mon 19 Oct); Bingham beat Yao Pengcheng 4-2 (R1, Tue 20 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9929": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 05:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 36, Pang Junxu v Liam Davies, Wed 21 Oct, listed 05:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Pang beat Alfie Burden 4-2 (R1, Mon 19 Oct); Davies beat Shaun Murphy 4-2 (R1, Sun 18 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9932": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 15:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 44, Luca Brecel v Martin O'Donnell, Wed 21 Oct, listed 15:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Brecel beat Lei Peifan 4-1 (R1, Mon 19 Oct); O'Donnell beat Judd Trump 4-3 (R1, Mon 19 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9930": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 09:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 38, Sam Craigie v Xu Si, Wed 21 Oct, listed 09:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Craigie beat Xiao Guodong 4-3 (R1, Sun 18 Oct); Xu Si beat Ali Carter 4-0 (R1, Sun 18 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9931": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 15:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 39, Elliot Slessor v Jamie Jones, Wed 21 Oct, listed 15:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Slessor beat He Guoqiang 4-0 (R1, Sun 18 Oct); Jamie Jones beat Chris Wakelin 4-1 (R1, Mon 19 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9937": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 08:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 46, Daniel Wells v Ryan Day, Wed 21 Oct, listed 08:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Wells beat Barry Hawkins 4-2 (R1, Mon 19 Oct); Day beat Chang Bingyu 4-3 (R1, Tue 20 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9936": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 09:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 43, Zhang Anda v Mark Williams, Wed 21 Oct, listed 09:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Zhang beat Liam Pullen 4-2 (R1, Mon 19 Oct); Mark Williams beat Robbie Williams 4-2 (R1, Tue 20 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "9935": {
+      "competition": "BetVictor Northern Ireland Open 2026 — Round 2",
+      "venue": null,
+      "start_local": "Wed 21 Oct 14:00 (as listed on wst.tv; matches the OLBG label)",
+      "status": "verified",
+      "sources": [
+        "S-WST-MATCH"
+      ],
+      "facts": [
+        "WST matches page: Round 2, Match 47, Michael Holt v Jordan Brown, Wed 21 Oct, listed 14:00 (S-WST-MATCH).",
+        "Round 1 results on the same page: Holt beat Zhou Yuelong 4-1 (R1, Tue 20 Oct); Brown beat Mark Allen 4-2 (R1, Tue 20 Oct) (S-WST-MATCH)."
+      ],
+      "note": "wst.tv renders times in the viewer zone (Round 1 showed 05:00 for a 10:00 BST session), identical to OLBG's rendering."
+    },
+    "609556": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "jeudi 22 octobre 2026 21h00 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: US Montauban (8e) v Oyonnax Rugby (1e), jeudi 22 octobre, 21h00; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12068-montauban-oyonnax; league positions in brackets as shown on the calendar (S-LNR-PD2). 21h00 CEST = 15:00 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-22T19:00:00Z"
+    },
+    "609558": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 19h30 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: SU Agen (10e) v Nissa Rugby (13e), vendredi 23 octobre, 19h30; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12063-agen-nice; league positions in brackets as shown on the calendar (S-LNR-PD2). 19h30 CEST = 13:30 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T17:30:00Z"
+    },
+    "609563": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 19h30 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: Soyaux-Angoulême XV (7e) v US Dax (6e), vendredi 23 octobre, 19h30; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12065-angouleme-dax; league positions in brackets as shown on the calendar (S-LNR-PD2). 19h30 CEST = 13:30 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T17:30:00Z"
+    },
+    "609557": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 19h00 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: RC Narbonnais (15e) v CA Brive (4e), vendredi 23 octobre, 19h00; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12069-narbonne-brive; league positions in brackets as shown on the calendar (S-LNR-PD2). 19h00 CEST = 13:00 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T17:00:00Z"
+    },
+    "609560": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 19h30 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: Stade Aurillacois (9e) v USON Nevers (16e), vendredi 23 octobre, 19h30; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12066-aurillac-nevers; league positions in brackets as shown on the calendar (S-LNR-PD2). 19h30 CEST = 13:30 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T17:30:00Z"
+    },
+    "609559": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 19h30 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: Valence Romans (11e) v Colomiers Rugby (12e), vendredi 23 octobre, 19h30; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers; league positions in brackets as shown on the calendar (S-LNR-PD2). 19h30 CEST = 13:30 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T17:30:00Z"
+    },
+    "609561": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 21h00 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: FC Grenoble Rugby (3e) v Biarritz Olympique PB (5e), vendredi 23 octobre, 21h00; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12067-grenoble-biarritz; league positions in brackets as shown on the calendar (S-LNR-PD2). 21h00 CEST = 15:00 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T19:00:00Z"
+    },
+    "609562": {
+      "competition": "Pro D2 2026-27, Journée 8",
+      "venue": null,
+      "start_local": "vendredi 23 octobre 2026 21h00 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-PD2"
+      ],
+      "facts": [
+        "LNR Pro D2 calendar J8: Provence Rugby (2e) v AS Béziers Hérault (14e), vendredi 23 octobre, 21h00; feuille de match prod2.lnr.fr/feuille-de-match/2026-2027/j8/12064-provence-rugby-beziers; league positions in brackets as shown on the calendar (S-LNR-PD2). 21h00 CEST = 15:00 EDT, matching OLBG."
+      ],
+      "start_utc": "2026-10-23T19:00:00Z"
+    },
+    "609564": {
+      "competition": "TOP 14 2026-27, Journée 7",
+      "venue": null,
+      "start_local": "samedi 24 octobre 2026 16h35 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-T14"
+      ],
+      "facts": [
+        "LNR TOP 14 calendar J7: Aviron Bayonnais (5e) v LOU Rugby (8e), samedi 24 octobre, 16h35; feuille de match top14.lnr.fr/feuille-de-match/2026-2027/j7/11861-bayonne-lyon; league positions in brackets as shown (S-LNR-T14)."
+      ],
+      "start_utc": "2026-10-24T14:35:00Z"
+    },
+    "609567": {
+      "competition": "TOP 14 2026-27, Journée 7",
+      "venue": null,
+      "start_local": "samedi 24 octobre 2026 16h35 CEST",
+      "status": "verified",
+      "sources": [
+        "S-LNR-T14"
+      ],
+      "facts": [
+        "LNR TOP 14 calendar J7: Stade Toulousain (1e) v USA Perpignan (9e), samedi 24 octobre, 16h35; feuille de match top14.lnr.fr/feuille-de-match/2026-2027/j7/11867-toulouse-perpignan; league positions in brackets as shown (S-LNR-T14)."
+      ],
+      "start_utc": "2026-10-24T14:35:00Z"
+    },
+    "609554": {
+      "competition": "TOP 14 2026-27, Journée 7",
+      "venue": null,
+      "start_local": "dimanche 25 octobre 2026 21h05 CET (clocks go back 25 Oct)",
+      "status": "verified",
+      "sources": [
+        "S-LNR-T14"
+      ],
+      "facts": [
+        "LNR TOP 14 calendar J7: Stade Rochelais (4e) v Union Bordeaux-Bègles (3e), dimanche 25 octobre, 21h05; feuille de match top14.lnr.fr/feuille-de-match/2026-2027/j7/11864-la-rochelle-bordeaux-begles; league positions in brackets as shown (S-LNR-T14)."
+      ],
+      "start_utc": "2026-10-25T20:05:00Z",
+      "note": "21h05 CET on 25 Oct = 16:05 EDT, matching OLBG once the European clock change is applied."
     }
   }
 }

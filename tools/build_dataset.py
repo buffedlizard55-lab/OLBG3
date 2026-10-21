@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Parse the raw OLBG harvest into a structured dataset.
 
-Inputs : data/raw/olbg-harvest-20261021.tsv, data/meta.json, data/verifications.json
+Inputs : the harvest named by data/meta.json["harvest_file"] (v1: olbg-harvest-20261021.tsv,
+         v2: olbg-harvest-20261021T0650Z.tsv), data/meta.json, data/verifications.json
 Outputs: data/matches.json
 
 Rules enforced here:
@@ -91,22 +92,33 @@ def main() -> None:
     ver = json.loads((DATA / "verifications.json").read_text())
     run_day = date.fromisoformat(meta["run_started_utc"][:10])
 
+    harvest = DATA / meta.get("harvest_file", "raw/olbg-harvest-20261021.tsv")
+    fmt = meta.get("harvest_format", "v1")
+    fetched_at = meta.get("harvest_completed_utc", "2026-10-21T05:20:00Z")
+
     rows = []
     missing_url_parts = []
-    for line in (DATA / "raw" / "olbg-harvest-20261021.tsv").read_text().splitlines():
+    for line in harvest.read_text().splitlines():
         if not line.strip() or line.startswith("#"):
             continue
         parts = line.split("|")
         parts += [""] * (11 - len(parts))
-        (sport, prefix, slug, eid, date_label, time_label,
-         market, consensus, tips, pct, note) = parts[:11]
+        league_label = ""
+        if fmt == "v2":
+            # v2 columns: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
+            (sport, league_label, prefix, slug, eid, date_label, time_label,
+             market, consensus, tips, note) = parts[:11]
+            pct = ""
+        else:
+            (sport, prefix, slug, eid, date_label, time_label,
+             market, consensus, tips, pct, note) = parts[:11]
 
         sport_id = SPORT_IDS.get(sport)
         if sport_id is None:
             missing_url_parts.append(line)
             continue
         url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
-        event_name = slug.replace("_", " ").replace(" @ ", " @ ")
+        event_name = slug.replace("_", " ")
         # The slug is lossy for "@" events; prefer the human name from the page where known.
         display = event_name
         home, away = split_teams(display)
@@ -143,7 +155,11 @@ def main() -> None:
             "olbg_tips_total": total,
             "olbg_confidence_pct": int(pct) if pct.strip().isdigit() else None,
             "olbg_url": url,
-            "fetched_at": "2026-10-21T05:20:00Z",
+            "olbg_league_label": league_label or None,
+            "verification_status": ev.get("status") or "unverified",
+            "verification_note": ev.get("note") or None,
+            "official_start_utc": ev.get("start_utc") or None,
+            "fetched_at": fetched_at,
             "verification_ids": ev.get("sources", []),
             "ambiguous_exclusion": sport == "Gaelic Football",
             "row_notes": note or None,

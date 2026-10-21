@@ -22,7 +22,7 @@ PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/prediction
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 
 SPORT_ORDER = ["Tennis","Basketball","Ice Hockey","Cricket","Baseball","Volleyball","Darts",
-               "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football"]
+               "Snooker","Rugby Union","Rugby League","Handball","Golf","Motor Racing"]
 SPORT_META = {}
 for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
     b = json.load(open(path))
@@ -38,9 +38,8 @@ for _sport, _meta in SPORT_META.items():
 SPORT_META["Rugby League"] = {"slug": "rugby_league", "listing": "https://www.olbg.com/betting-tips/Rugby_League/10",
     "note": "At the time of capture the Rugby League listing showed ONLY outright tournament markets (State of Origin 2027, Super League 2027 Grand Final, NRL 2027 Grand Final) and no dated match fixtures, so it contributes no rows to the match tables. Recorded on the Flagged for Review page.", "id": 10}
 
-NOT_CAPTURED = ["Golf (tournament/outright markets, no two-sided fixture)",
-                 "Motor Racing (race markets, no two-sided fixture)",
-                 "Greyhound Racing (race markets, no two-sided fixture)",
+NOT_CAPTURED = ["Greyhound Racing (race markets, no two-sided fixture; listing not harvested)",
+                 "Gaelic Football (excluded as \u2018football\u2019 under the verbatim exclusion list \u2014 see Flagged FL-001; reversible)",
                  "Esports (no listing surfaced on the OLBG tips index at capture time)"]
 EXCLUDED = ["Soccer / Football","American Football","Boxing","UFC / MMA","Hurling","Horse Racing","Cycling","Specials (TV/Politics/Awards)"]
 
@@ -103,6 +102,8 @@ def ver_cell(r):
     if v["status"] == "verified":
         lab = e(v["official_label"]) or "official source"
         return f'<a class="ok" href="{e(v["official_url"])}" rel="noopener" title="{e(v["note"])}">&#10003; {lab}</a>'
+    if v["status"] == "partially_verified" and v.get("official_url"):
+        return f'<a class="unver" href="{e(v["official_url"])}" rel="noopener" title="{e(v["note"])}">&#8776; partial: {e(v["official_label"])}</a>'
     return '<span class="unver" title="No official source retrieved for this fixture">unverified</span>'
 
 def price_cell(r):
@@ -342,18 +343,14 @@ verpage = head("Verification") + f"""
 open(os.path.join(OUT, "verification.html"), "w").write(verpage)
 
 # ---------- flagged ----------
+with open(os.path.join(ROOT, "data", "flagged.json"), encoding="utf-8") as fh:
+    _FLAGGED = json.load(fh)
 irregularities = [
- ("Repo had no substantive content", "The repository at commit <code>96f089b</code> contained a single 7-byte <code>README.md</code> (<code># OLBG3</code>) and nothing else. There was no prior work, code, data or CI to review or trust, so nothing in it could be &ldquo;confirmed&rdquo;. Everything on this site was built in this session.", "&mdash;"),
- ("OLBG start times run 7&ndash;10 minutes late", "On every fixture where we could compare, OLBG&rsquo;s displayed start time is later than the official one: NHL 19:37 vs 19:30 EDT (both 21 Oct games); NBA 19:10 vs 19:00, 19:40 vs 19:30, 20:10 vs 20:00 ET. Treat OLBG minute-values as approximate.", "https://www.nhl.com/schedule/2026-10-21"),
- ("OLBG does not state a time zone", "Times are shown as bare values (&ldquo;Today 19:10&rdquo;). They line up with US Eastern for the North American fixtures but with local/UK time for the URC fixtures, so the displayed zone is inconsistent. We publish the string exactly as shown and label the column &ldquo;Start (as listed)&rdquo;.", "https://www.olbg.com/betting-tips/Rugby_Union/9"),
- ("Competition is blank for most sports", "Tennis, cricket, volleyball, darts, snooker, handball, Gaelic football and rugby union listings do not show a competition (the URL group is <code>All_&lt;Sport&gt;/All_Events</code>). We left the column blank rather than infer a league from the team names.", "https://www.olbg.com/betting-tips/Tennis/3"),
- ("Sport IDs are mandatory and some are stale", "<code>/betting-tips/Basketball</code> and <code>/betting-tips/Cricket</code> return 404 without the numeric ID. <code>/Ice_Hockey/11</code> redirects to 13, <code>/Baseball/5</code> to 12, <code>/Handball/14</code> to 20. Any link built with a guessed ID lands on the wrong sport or a 404.", "https://www.olbg.com/betting-tips/Handball/20"),
- ("Listings are paginated", "Baseball, ice hockey, snooker, Gaelic football and handball pages end in a &ldquo;Load More Tips&rdquo; control, so the captured rows are the first page and are <strong>not</strong> a complete list of that sport&rsquo;s fixtures. One handball row (FC Barcelona v Montpellier) was cut off mid-record and was therefore dropped rather than reconstructed.", "https://www.olbg.com/betting-tips/Handball/20"),
- ("Rugby League has no match fixtures", "At capture time the Rugby League page listed only outright markets (State of Origin 2027, Super League 2027 Grand Final, NRL 2027 Grand Final). No dated match could be placed on the board, so the sport is listed with zero rows.", "https://www.olbg.com/betting-tips/Rugby_League/10"),
- ("Gaelic football rows show no market", "OLBG&rsquo;s Gaelic football listing displays no market name for its selections (the market column is empty on their own page) even though the selections are clearly handicap-style. We left market and competition blank.", "https://www.olbg.com/betting-tips/Gaelic_Football/25"),
- ("Team names differ between OLBG and the official source", "OLBG says &ldquo;Bulls&rdquo;, &ldquo;Stormers&rdquo;, &ldquo;BUF Sabres&rdquo;; the official sources say &ldquo;Vodacom Bulls&rdquo;, &ldquo;DHL Stormers&rdquo;, &ldquo;Buffalo Sabres&rdquo;. We map these with an explicit, published alias table in <code>scripts/model.py</code> &mdash; name normalisation only, no value is altered.", "https://stats.unitedrugby.com/match-centre/table/2026-27"),
- ("Totals and handicaps are missing for most sports", "A total or a handicap needs a scoring baseline. We only had official scoring data for URC and NHL. For the other nine sports we published no total and no handicap rather than invent one. This is a deliberate gap, not an oversight.", "&mdash;"),
- ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% overround. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
+    (f"{it['id']} \u00b7 {it['title']} ({it['severity']})",
+     e(it["detail"]) + (("<br><span class='dim'>Affected: " + e(", ".join(map(str, it["affected_rows"][:12]))) +
+                          (" \u2026" if len(it["affected_rows"]) > 12 else "") + "</span>") if it.get("affected_rows") else ""),
+     (it["sources"][0] if isinstance(it["sources"][0], str) else it["sources"][0].get("url", "&mdash;")) if it.get("sources") else "&mdash;")
+    for it in _FLAGGED["items"]
 ]
 
 def _src(u):
@@ -420,14 +417,18 @@ cycling and specials. Everything left that sets two sides or two players against
 <pre class="code">listing : https://www.olbg.com/betting-tips/&lt;Sport_Slug&gt;/&lt;sport_id&gt;
 event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Competition&gt;/&lt;Home&gt;_v_&lt;Away&gt;/&lt;sport_id&gt;?event_id=&lt;id&gt;</pre>
 <ul class="tight">
-  <li>IDs found: Tennis 3, Basketball 4, Cricket 7, Snooker 8, Rugby Union 9, Rugby League 10, Baseball 12, Ice Hockey 13, Darts 15, Handball 20, Volleyball 21, Gaelic Football 25.</li>
+  <li>IDs found: Tennis 3, Basketball 4, Golf 5, Cricket 7, Snooker 8, Rugby Union 9, Rugby League 10, Baseball 12, Ice Hockey 13, Motor Racing 14, Darts 15, Handball 20, Volleyball 21, Gaelic Football 25 (excluded), Greyhounds 28 (not harvested).</li>
   <li>The slug without an ID is a 404; a wrong ID redirects to the right slug, so the slug is authoritative and the ID is cosmetic.</li>
   <li>The listing exposes, per event: both sides, date/time, competition (only for some sports), the market, the most-tipped selection, the tip count and the percentage of tips on that selection.</li>
 </ul>
 
 <h2>How our lines are made</h2>
 <ol class="steps">
-  <li><strong>Rugby union (URC fixtures).</strong> Expected points for each side = mean(its points-for per game, opponent&rsquo;s points-against per game), taken from the official URC table. Home side +{int(3)} points. Margin sd 13 points gives win/draw/loss probabilities; totals come from the same expected-points pair; the handicap line is the projected margin rounded to the nearest half point.</li>
+  <li><strong>Winner markets.</strong> OLBG shows how many of its tipsters back the most-tipped side (e.g. 6/7). We shrink that share with a Beta(2,2) prior ((won+2)/(total+4)) and apply a per-sport home-field logit shift. That is our match-winner probability.</li>
+  <li><strong>Non-winner markets (totals, handicaps, set betting).</strong> There is no winner split, so the line comes from the home-field edge alone, the side named in OLBG&rsquo;s selection is the side we price, and the row is flagged <code>olbg_row_is_non_winner_market</code>.</li>
+  <li><strong>Handicap and total.</strong> Handicap = &minus;(&sigma; &times; z) rounded to the half unit using the disclosed per-sport margin &sigma;; totals are per-sport baselines. Outrights and races get no two-sided line.</li>
+  <li><strong>HIGH picks.</strong> The side named in the written prediction is the pick, and its probability is floored at 65% (flag <code>high_confidence_floor_applied_from_official_form</code>). The floor is a choice, disclosed in <code>data/model.md</code>, not a measurement.</li>
+  <li class="dim"><strong>Superseded (earlier passes).</strong> Rugby union (URC fixtures). Expected points for each side = mean(its points-for per game, opponent&rsquo;s points-against per game), taken from the official URC table. Home side +{int(3)} points. Margin sd 13 points gives win/draw/loss probabilities; totals come from the same expected-points pair; the handicap line is the projected margin rounded to the nearest half point.</li>
   <li><strong>Ice hockey (NHL fixtures).</strong> Same idea with goals from the official NHL standings, home side +0.15 goals, and a logistic mapping of the goal difference to a 2-way win probability.</li>
   <li><strong>Everything else.</strong> The only input on the page is OLBG&rsquo;s consensus tip share, so our probability equals that share, capped at 98% (a 100% share cannot be priced). No total, no handicap &mdash; there is no scoring baseline to build one from.</li>
   <li><strong>Pricing.</strong> Decimal odds = (1 &minus; 5%) / probability, i.e. a 5% overround allocated in proportion to probability.</li>
@@ -436,9 +437,10 @@ event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Comp
 <ul class="tight">{assum}</ul>
 
 <h2>Confidence grading</h2>
-<p>Three factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
-model probability of the pick &ge;65% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
-A row built only on a public tip share therefore can never be graded above MEDIUM, and in practice lands on LOW.</p>
+<p><strong>HIGH</strong>: officially verified fixture <em>and</em> official current-form facts for both sides, with a written prediction that cites them.
+<strong>MEDIUM</strong>: winner market, at least five OLBG tips, and our probability at least 0.08 from even money. <strong>LOW</strong>: everything else,
+including every unverified fixture and every row priced from a non-winner market. The same rule set produces both this board and the <a href="olbg/index.html">/olbg audit section</a>
+(<code>tools/originate.py</code>; translated by <code>scripts/sync_board.py</code>).</p>
 <p>Current split: HIGH {conf_counter['HIGH']} &middot; MEDIUM {conf_counter['MEDIUM']} &middot; LOW {conf_counter['LOW']}.</p>
 
 <h2>What we will not do</h2>
