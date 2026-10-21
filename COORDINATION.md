@@ -35,13 +35,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-12-reverify-rugby-icehl-and-fill-high-preds` | Re-verify remaining unconfirmed `scripts/model.py`-track fixtures (Darts, Snooker, Rugby Union, Ice Hockey, Basketball, Handball, Cricket) against official sources; extend `scripts/model.py` to use Pro D2/Top14/ICEHL/SHL tables with proper source attribution; write the 9 newly-surfaced HIGH-confidence predictions; rebase onto the `task-09`/`task-10` gap-sports work and regenerate the combined site | `data/official.json`, `scripts/model.py`, `data/predictions.json`, `data/events.json` (regenerated board-track HTML rebuilt on top via the shared `scripts/build_site.py`) | done | `session-dadd85d4` (branch `arena/dadd85d4-olbg3`) | See session log below for sources, irregularities, and rebase/merge notes. |
 | `task-13-reverify-refresh-integrate` | Re-verify the published board line by line against live OLBG listings and official competition sources; fix every discrepancy found; refresh stale captures; re-render and publish the site | `data/events.json`, `data/official.json`, `data/predictions.json`, `data/raw/*`, `scripts/*`, generated root pages + `sports/*.html`, `COORDINATION.md`, `README.md` | done | `session-7244efad` | Claimed 2026-10-21; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) |
 | `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
-| `task-997a-13-source-tier-audit` | Audit every row currently labelled `verified` and classify its cited source as official / club-official / third-party corroboration; publish the tier per row and flag third-party-only rows | `scripts/model.py` (source tier field), `data/official.json` (tier metadata), generated `verification.html`, `flagged.html` | done | `session-997a5fc2` | Claimed 2026-10-21 07:2x UTC; no other session holds this scope |
-| `task-997a-14-verify-tail` | Verify the 43 rows still unverified: Tennis 14 (ATP/WTA official), Volleyball 15 (PlusLiga/Lega Volley/VBL/Mestaruusliiga official), Handball 8 (EHF official), Cricket CRK-05, Baseball BSB-01 | `data/official.json` | done | `session-997a5fc2` | Owner of this scope; values only from the competition's own site or the club's own site |
-| `task-997a-15-handicap-total` | Originate a handicap and a match total for every two-sided fixture that has a price (currently only 22 of 114 have either); per-sport scoring scales recorded as disclosed assumptions | `scripts/model.py`, `docs/method.md` | done | `session-997a5fc2` | Model output only, never a bookmaker quote |
-| `task-997a-16-predictions` | Write 30+ word sourced predictions for every HIGH pick newly surfaced by task-14/15 | `data/predictions.json` | done | `session-997a5fc2` | Each prediction cites its official source |
-| `task-997a-17-integrate` | Rebuild both tracks, run every checker, open PR to `main`, merge, confirm Pages deploy serves the updated pages | `index.html`, `sports/*.html`, `verification.html`, `flagged.html`, `method.html`, `COORDINATION.md` | done | `session-997a5fc2` | Final integration for this branch |
-
-| `task-14-docs-current-state-audit` | Independently audit current documentation/counts against generated artifacts and CI; reconcile README/coordination publication status without altering source data or another task's scope | `README.md`, `COORDINATION.md` | done | `session-41ad74d9` (branch `arena/41ad74d9-olbg3`) | Current as of PR #32: 153 rows / 114 verified (113 fixtures and MTR-01) / 39 unverified / 14 board predictions. Rebased to preserve the completed official-source audit; task numbering avoids collision with the other task-13 claims. |
+| `task-14-docs-current-state-audit` | Independently audit current documentation/counts against generated artifacts and CI; reconcile README/coordination publication status without altering source data or another task's scope | `README.md`, `COORDINATION.md` | done | `session-41ad74d9` (branch `arena/41ad74d9-olbg3`) | Current board from PR #32: 153 rows / 114 verified (113 fixtures and MTR-01) / 39 unverified / 14 board predictions. Docs audit PR [#29](https://github.com/buffedlizard55-lab/OLBG3/pull/29) merged as `7935cc5`; post-merge verification and Pages deployment succeeded. Rebased to preserve the completed official-source audit; task numbering avoids collision with the other task-13 claims. |
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
 
@@ -51,7 +45,8 @@ This document serves as the shared task board coordinating parallel sessions and
 
 - **2026-10-21 07:07 UTC** [`session-41ad74d9`]: Claimed `task-14-docs-current-state-audit`; scope limited to `README.md` and `COORDINATION.md`. Baseline then-current main was PR #24; task was renumbered on rebase because updated main had already assigned task-13 to a source re-audit.
 - **2026-10-21 07:14 UTC** [`session-41ad74d9`]: Completed task 14. Reconciled README board totals and distinguished board-track metrics from `/olbg/` audit-track metrics; corrected task-11 publication status using PR/Actions evidence. Full checks passed before rebase. A first out-of-order `check_links.py` run (board build before feed build) found 89 absent feed links in the temporary output; rerunning the complete workflow order resolved it (79 pages, 1,158 links, 0 broken).
-- **2026-10-21 07:15 UTC** [`session-41ad74d9`]: Rebased on `origin/main` after PR #28 added a newer official-source re-audit; renumbered this documentation task to task-14 to preserve the concurrently claimed task-13. The main branch advanced again through PR #32 while this PR was open, so the final README and task log now reflect PR #32's 153 rows / 114 verified / 39 unverified / 14 predictions. Re-ran the complete post-rebase build/check suite; results are recorded in this session's final verification below.
+- **2026-10-21 07:15 UTC** [`session-41ad74d9`]: Rebased on `origin/main` after PR #28 added a newer official-source re-audit; renumbered this documentation task to task-14 to preserve the concurrently claimed task-13. The main branch advanced again through PR #32 while this PR was open, so the final README and task log reflect PR #32's 153 rows / 114 verified / 39 unverified / 14 predictions. Re-ran the complete post-rebase build/check suite; results are recorded in this session's final verification below.
+- **2026-10-21 07:24 UTC** [`session-41ad74d9`]: PR [#29](https://github.com/buffedlizard55-lab/OLBG3/pull/29) merged as `7935cc55af60bcf597f581b59a2b17e2394b71a9`. PR checks succeeded (run 39561607128); post-merge dashboard verification succeeded (run [39561687755](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39561687755)) and Pages deployment + route smoke tests succeeded (run [39561687935](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39561687935)).
 - **2026-10-21 05:25 UTC** [`session-3f4d1682`]: Initialized COORDINATION.md, claimed `task-01-audit`. Pushing initial claim to origin.
 - **2026-10-21 05:35 UTC** [`session-3f4d1682`]: Completed audit. Claimed tasks 02-06. Extracted 76 fixtures across all 12 non-excluded sports from OLBG.
 - **2026-10-21 05:45 UTC** [`session-3f4d1682`]: Completed task-02 (Data Collection), task-03 (Line Origination), task-04 (High-Confidence Predictions), task-05 (Official Verification), and task-06 (Site Creation).
@@ -427,7 +422,7 @@ their task board and logs are kept in full and my row/log are appended.
 | `task-10-model` | Originate money line, handicap, total; pick + LOW/MEDIUM/HIGH per row | `tools/originate.py`, `data/lines.json`, `data/model.md` | done | `session-af0789e6` | 189 lines: 5 high / 31 medium / 153 low; side rule for non-winner markets, HIGH-pick override with disclosed 0.65 floor, `our_home_probability`, no totals on outrights |
 | `task-11-predictions` | Written predictions for every HIGH row (>=30 words, sourced, explicit selection) | `data/predictions-olbg.json` | done | `session-af0789e6` | 5 predictions (86-99 words) on the /olbg track; the board track's 14 predictions (`data/predictions.json`) untouched |
 | `task-12-site` | /olbg dashboard refresh, flag register, link + host checks | `tools/build_site.py`, `tools/check_site.py`, `olbg-board/`, `olbg/`, `data/flagged.json` | done | `session-af0789e6` | 21 pages; stale per-sport pages now removed on rebuild; `tools/check_site.py` PASS; `scripts/check_links.py` broken=0 |
-| `task-13-integrate` | Merge `main` into the session branch, re-verify combined data, PR, merge, Pages confirmation | `COORDINATION.md`, `.github/workflows/pages.yml` | in progress | `session-af0789e6` | PR link and deploy result recorded below |
+| `task-13-integrate` | Merge `main` into the session branch, re-verify combined data, PR, merge, Pages confirmation | `COORDINATION.md`, `.github/workflows/pages.yml` | done | `session-af0789e6` | PR #31 merged 07:16 UTC; main run 39560794780 green; live site confirmed (see integration record) |
 
 ### Sources used this pass (all retrieved through the page-fetch tool; the sandbox HTTP client cannot reach any of them - FL-014)
 - OLBG listings: every in-scope sport page plus sub-league pages (NBA, EuroLeague, EuroCup, BCL, KBL, NHL, ATP/WTA, EHF CL, Pro D2/Top 14/URC, etc.) - `data/raw/olbg-harvest-20261021T0650Z.tsv` header lists the pages.
@@ -451,6 +446,111 @@ FL-024..FL-039 in `data/flagged.json` (original ids FL-001..FL-017 of this pass 
 - **06:45 UTC**: Read board. Only `main` on origin; claimed tasks 08-12; claim pushed (15c260f).
 - **06:45-07:05 UTC**: Harvest; **07:05-07:40 UTC**: official-source sweep, verifications, lines, predictions, flags, /olbg rebuild.
 - **07:50 UTC**: `origin/main` found 23 commits ahead (PRs #19-#26). Merged as above; all checks green on the merged tree (dd6093c).
+- **08:05-08:15 UTC**: `main` moved twice more (PRs #27/#28, #30); merged each time (board-track files taken from `main`, COORDINATION kept both), full check sequence re-run green, pushed.
+
+### Integration record (task-13)
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/31 - branch `arena/af0789e6-olbg3` -> `main`, merge commit `b93ebdd`, merged 2026-10-21 07:16 UTC without approval (as instructed). Branch CI run 39560687350 was green before merging.
+- **CI on `main`:** run 39560794780 "Verify and publish dashboard" - every step success (update, unittest, build, build_gap_sports, build_site, check_board, OLBG lines track rebuild + check_site, snapshot, stale-track guard, check, check_links, artifact upload, deploy, both post-deploy smoke tests). Legacy publisher build of `6df8396` (PR #32, merged right after) also `built`.
+- **Live check:** https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html serves "189 of 189 rows" with the merged source lists (e.g. Mannarino v Rublev links the ATP results page from the re-audit *and* the ATP daily schedule from this pass). The first fetch after the merge still showed the previous 137-row build - Pages CDN cache (~5 min), cleared on its own.
+- Sessions `7244efad` (PRs #28/#30) and `cd4a0bb6` (PR #32) merged in parallel with this one; their changes are board-track only and are untouched here. The cross-scope request above (regenerate the board track from the 06:50Z harvest) remains open for whoever claims it next.
+
+---
+
+## Session log — `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`)
+
+**Claimed:** 2026-10-21 07:15 UTC, `task-13-verify-remaining`. At claim time `git branch -r` showed only
+`origin/main`; no other session branch was active, so the claim scope is non-overlapping.
+
+**Scope:** `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`,
+`COORDINATION.md`, and the generated root pages (`index.html`, `predictions.html`, `verification.html`,
+`audit.html`, `flagged.html`, `method.html`, `sports/*.html`) via `scripts/build_site.py --snapshot`.
+Not touched: `tools/*`, `olbg-board/`, `olbg/`, `data/matches.json`, `data/lines.json`,
+`data/predictions-olbg.json`, `data/flagged.json`, `data/verifications.json` (the OLBG lines-audit track).
+
+
+### Verification pass — all 43 remaining rows worked, 42 closed
+
+Every row that was unverified at claim time was taken to a competition organiser's own page, in this order:
+Tennis (ATP order-of-play PDFs for Brussels/Lyon/Almaty, WTA official main-draw PDFs for Ningbo/Osaka),
+Volleyball (TAURON Liga match centre, PZPS Polish Cup referee list, Volleyball Bundesliga men's and women's
+fixture tables, Nevobo/Volleybal.nl, Lega Volley Femminile round-4 programme, Mestaruusliiga match notice),
+Handball (EHF Champions League calendar for round 5, Handbollsligan, Topphandball, Mors-Thy), Gaelic football
+(Cork GAA fixtures, Munster GAA calendar, Maigh Cuilinn club notice) and Baseball (MLB schedule).
+
+**Result:** 113 of 114 fixture rows verified; **CRK-05** deliberately left unverified (no governing-body source
+readable, secondary sources disagree by hours). 14 predictions unchanged — every new row is consensus-priced, so
+the best possible confidence is MEDIUM (verified +2, model edge at most +2, no official form data), and no new
+HIGH pick appeared. `data/official.json` now holds 113 confirmations, up from 71.
+
+**Three data conflicts found and published rather than smoothed over**
+1. **VLB-01** — OLBG 10:00 ET; Mestaruusliiga says 18:00 EEST = 11:00 ET. Official time adopted, discrepancy in the row note.
+2. **GAF-04** — OLBG has the Waterford SFC final on 1 Nov 10:30; Waterford GAA and the Munster GAA calendar both say
+   Sun 25 Oct 14:30, Fraher Field. Official date adopted, discrepancy in the row note.
+3. **BKB-14** — an earlier pass recorded the venue as OAKA. The BCL's own game page (game 136250) puts AEK v Antwerp at
+   SUNEL Arena, Ano Liosia. Venue corrected.
+
+**Citation-quality debt cleared (14 of 15 rows)**
+* SNK-01…06: `snooker.org` → `wst.tv/matches/` (WST match centre).
+* HBL-05: `tntsports.co.uk` → `ehfcl.eurohandball.com` round calendar.
+* IHO-01: `tipsterio.de` → HC Pustertal's own fixture page (cross-checked against the Austrian federation's game centre).
+* IHO-04: `sport.orf.at` → `eishockey.at` game centre (ÖEHV), which states 21.10.2026, "Beginn laut Spielplan 18:30", Merkur Eisstadion.
+* IHO-03: `eliteprospects.com` → `stats.swehockey.se` (Swedish Ice Hockey Association) schedule.
+* **Still outstanding:** BKB-03 (KBL) remains cited to Sofascore — the KBL publishes no machine-readable fixture feed.
+  The row says so in its note and the debt is listed on `flagged.html`.
+
+**Documentation corrected:** README's stale "5 predictions / 11 verified / 126 unverified" replaced with the published
+figures (14 predictions, 113 of 114 fixture rows verified, 23 unverified rows of which 22 are outright/race markets
+that cannot be fixture-verified). Five new findings added to `flagged.html` (the three conflicts above, the citation
+upgrade, and why CRK-05 stays blank).
+
+**Check suite after the rebuild:** `scripts/model.py` (137 rows, 14 HIGH), `scripts/build.py` (feed pages),
+`scripts/build_site.py` + `--snapshot` (29 pages), `scripts/check_board.py`
+(`rows=137 fixtures=114 outright_or_race=23 verified=114 priced=131 predictions=14` → PASS),
+`scripts/check.py` (PASS, 40 feed rows), `scripts/check_links.py` (`pages=79 broken=0`),
+`python -m unittest discover -s tests` (10/10 pass).
+
+### Rebase onto `main` (§session-7244efad / §session-af0789e6 work) and what changed as a result
+
+`main` had moved to `b93ebdd` while this pass was running; the rebase conflicted on `COORDINATION.md`, `README.md`
+and the generated pages. Nothing from the other sessions was discarded:
+
+* `data/official.json` — kept **this session's** 113 confirmations, which are a strict superset of the 70 on `main`,
+  and re-applied this session's 11 citation upgrades; the other session's `downgraded` / `reverified` documentary
+  blocks were merged back in.
+* `data/events.json`, all root HTML pages — regenerated from the merged data (`scripts/model.py` →
+  `scripts/build.py` → `scripts/build_gap_sports.py` → `scripts/build_site.py` → `--snapshot`), never hand-merged.
+* `README.md` — this session's counts re-stated against the merged board, which the other session had grown to
+  **153 rows (130 fixtures + 23 outright)**.
+
+**IHO-01 is verified again, and the reason the other session downgraded it is now fixed.** That session was right
+on the pages it could read: `ice.hockey/saison/spielplan` renders client-side and the club homepage has no fixture
+widget. This pass found two official pages that do state the fixture — HC Pustertal's own match page for 21.10.2026
+(19:45, Intercable Arena) and the Austrian federation's game centre (`21.10.2026 19:45 geplant HC Falkensteiner
+Pustertal - Pioneers Vorarlberg`). The row is verified on those, and a **new** prediction was written for it from
+official numbers; the withdrawn body was not reused.
+
+**The ice-hockey form tables are no longer aggregator-sourced.** The other session's audit was also right that the
+ICEHL/SHL tables behind five HIGH picks came from Eliteprospects. They now cite the federations:
+`eishockey.at/game-center/ice/tabelle` (ÖEHV) and `stats.swehockey.se` (Svensk Ishockey). Values were compared cell
+by cell and are **identical** — Pustertal 10 GP / 4-2-1-3 / 31:27 / 17 pts, Pioneers 12 GP / 0-0-1-11 / 26:52 / 1 pt;
+Timrå 10 GP / 20:23, Färjestad 10 GP / 40:11. Numbers unchanged, citation upgraded, so "official form data" is now
+literally true for those picks.
+
+Post-rebase suite: `scripts/check_board.py` → `rows=153 fixtures=130 outright_or_race=23 verified=114 priced=132
+predictions=14` **PASS**; `scripts/check.py` PASS (40 feed rows); `scripts/check_links.py`
+`pages=79 local_links_checked=1162 broken=0`; `python -m unittest discover -s tests` 10/10 OK.
+## Session log — `session-41ad74d9` (current-state documentation audit)
+
+**Claimed scope:** `README.md`, `COORDINATION.md` only. Kept all data, generated site pages, and source scripts untouched.
+
+**Audit basis and changes:**
+- Cross-checked README summary figures against `data/events.json` (130 fixture rows), `data/gap_sports.json` (23 outright/race rows), `data/predictions.json` (14 board predictions), and the latest upstream audit / `scripts/check_board.py` output (114 verified, 39 unverified, 132 priced, 14 HIGH picks with predictions).
+- Updated the README after two overlapping upstream audit/coverage refreshes: 153 rows across 15 sports, 130 fixture rows plus 23 outright/race rows; 113 fixtures and 1 outright (MTR-01) verified; 14 predictions. Preserve disclosed conflicts and unverified rows as stated in the current source-audit note. Clarified that `tools/check_site.py` validates the separate `/olbg/` audit track; its row/flag/prediction totals must be reported separately from the main board.
+- Corrected `task-11-integrate` from `in progress` to `done`: gap-sports integration PR #19 and its follow-ups #20/#21 merged and deployed; later refreshes PR [#24](https://github.com/buffedlizard55-lab/OLBG3/pull/24), source re-audit PR [#28](https://github.com/buffedlizard55-lab/OLBG3/pull/28), and verification-completion PR [#32](https://github.com/buffedlizard55-lab/OLBG3/pull/32) are also merged. PR #32 post-merge runs are recorded in GitHub Actions.
+- Official fixture source references remain linked per row on `verification.html` / `flagged.html` and in `data/official.json`; this documentation-only task did not re-verify external sporting facts. Previous row-level audit/source records remain in `audit.html` and earlier session notes above.
+
+**Verification (rebased on PR #32):** `scripts/build.py` → `scripts/check.py` PASS (40 feed rows); `scripts/build_gap_sports.py` → `scripts/build_site.py` → `scripts/check_board.py` PASS (`rows=153 fixtures=130 outright_or_race=23 verified=114 priced=132 predictions=14`); `scripts/check_links.py` PASS (`pages=79 local_links_checked=1162 broken=0`); unit tests 10/10 PASS; `/olbg/` pipeline (`tools/build_dataset.py` → `tools/originate.py` → `tools/build_site.py` → `tools/check_site.py`) PASS (189 rows/lines, 5 predictions, 39 flags, 66 blank official fields). Main-branch PR #32 verification run [39561084768](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39561084768) and Pages deployment [39561084545](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39561084545) both succeeded. The command order keeps official-feed pages present before checking the combined site's internal links. No changes were produced by the data/site builders; final working changes are limited to the claimed documentation scope.
+
 ---
 
 ## Session log — `session-997a5fc2` (branch `arena/997a5fc2-olbg3`)
