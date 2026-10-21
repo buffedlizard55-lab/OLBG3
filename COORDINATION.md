@@ -323,18 +323,38 @@ originated price and an OLBG event link; `/audit.html` lists the 10 checks with 
 
 ---
 
-## Session `session-af0789e6` — refresh, verification sweep, consolidation (claimed 2026-10-21 06:45 UTC)
+## Session `session-af0789e6` — refresh harvest, verification sweep, merge of parallel work (claimed 2026-10-21 06:45 UTC)
 
-**Branch:** `arena/af0789e6-olbg3` (Arena-managed; session-prefixed branch names are not available in this environment, so the Arena branch is the session branch). No other session branches exist on `origin` at claim time (`git branch -r` shows only `main`), so there is no overlap to coordinate against.
+**Branch:** `arena/af0789e6-olbg3` (Arena-managed; the Arena branch is the session branch). At claim time only `main` existed on origin. While this session ran, sessions `074739aa`, `f7221054` and `dadd85d4` merged PRs #19-#26 into `main` (gap sports, audit page, re-audit, model.py extension, 9 extra HIGH predictions). None of that was discarded: see the merge record below.
 
 | Task ID | Task | Scope / files | Status | Owner | Notes |
 |---|---|---|---|---|---|
-| `task-08-reharvest` | Fresh OLBG harvest for every non-excluded sport (06:45 UTC pass) and line-by-line review of the committed board rows | `data/events.json`, `data/sports/*.json`, `data/raw/` | in progress | `session-af0789e6` | Every row keeps its OLBG event URL |
-| `task-09-verify` | Official-source verification of each board row (league APIs / governing-body schedules); unverifiable rows left blank and flagged | `data/official.json`, `data/events.json` | in progress | `session-af0789e6` | Only `fetch`-confirmed official pages count |
-| `task-10-model` | Originate match-winner, handicap and total lines from official data; pick + LOW/MEDIUM/HIGH grade per row | `scripts/model.py`, `data/events.json` | in progress | `session-af0789e6` | |
-| `task-11-predictions` | Written predictions for every HIGH row (>=30 words, sourced, explicit selection) | `data/predictions.json` | in progress | `session-af0789e6` | |
-| `task-12-site` | Dashboard refresh: landing page, sport subpages, Flagged for Review page, link check | `scripts/build_site.py`, `assets/`, root snapshot | in progress | `session-af0789e6` | |
-| `task-13-integrate` | PR to `main`, merge, Pages deploy confirmation, record here | `COORDINATION.md` | unclaimed | `session-af0789e6` (will claim after 08-12) | |
+| `task-08-reharvest` | Fresh OLBG harvest for every non-excluded sport (06:45-07:05 UTC pass, sport pages + sub-league pages) | `data/raw/olbg-harvest-20261021T0650Z.tsv`, `data/meta.json`, `tools/build_dataset.py` | done | `session-af0789e6` | 179 rows -> 178 events (+57 new vs 05:20Z, -5 that had started); Gaelic/greyhound rows (11) carried from 05:20Z, tagged per row |
+| `task-09-verify` | Official-source verification of every row; unverifiable rows left blank and flagged | `data/verifications.json`, `data/matches.json` | done | `session-af0789e6` | 104 records this pass; merged with the 074739aa re-audit -> 132 records / 86 sources; 66 of 189 rows still unverified (FL-030) |
+| `task-10-model` | Originate money line, handicap, total; pick + LOW/MEDIUM/HIGH per row | `tools/originate.py`, `data/lines.json`, `data/model.md` | done | `session-af0789e6` | 189 lines: 5 high / 31 medium / 153 low; side rule for non-winner markets, HIGH-pick override with disclosed 0.65 floor, `our_home_probability`, no totals on outrights |
+| `task-11-predictions` | Written predictions for every HIGH row (>=30 words, sourced, explicit selection) | `data/predictions-olbg.json` | done | `session-af0789e6` | 5 predictions (86-99 words) on the /olbg track; the board track's 14 predictions (`data/predictions.json`) untouched |
+| `task-12-site` | /olbg dashboard refresh, flag register, link + host checks | `tools/build_site.py`, `tools/check_site.py`, `olbg-board/`, `olbg/`, `data/flagged.json` | done | `session-af0789e6` | 21 pages; stale per-sport pages now removed on rebuild; `tools/check_site.py` PASS; `scripts/check_links.py` broken=0 |
+| `task-13-integrate` | Merge `main` into the session branch, re-verify combined data, PR, merge, Pages confirmation | `COORDINATION.md`, `.github/workflows/pages.yml` | in progress | `session-af0789e6` | PR link and deploy result recorded below |
+
+### Sources used this pass (all retrieved through the page-fetch tool; the sandbox HTTP client cannot reach any of them - FL-014)
+- OLBG listings: every in-scope sport page plus sub-league pages (NBA, EuroLeague, EuroCup, BCL, KBL, NHL, ATP/WTA, EHF CL, Pro D2/Top 14/URC, etc.) - `data/raw/olbg-harvest-20261021T0650Z.tsv` header lists the pages.
+- Official: `api-web.nhle.com` schedule + gamecenter; `statsapi.mlb.com` schedule; `nba.com/games?date=`; ATP daily schedules (Almaty 9410, Brussels 7485) + `protennislive.com` Lyon order of play; WTA tournament API (Ningbo 2092, Osaka 405); `ehfcl.eurohandball.com` matches; `euroleaguebasketball.net` game centres (EuroLeague R7, EuroCup); `wst.tv/matches` (Northern Ireland Open R2); `prod2.lnr.fr` / `top14.lnr.fr` calendrier-et-resultats; `unitedrugby.com` 2026-27 fixtures in full (URC R4).
+- Could not be retrieved: `pdc.tv` (cookie wall, 3 attempts), volleyball-bundesliga.de, ice.hockey, liiga.fi, plusliga.pl (-> tauronliga.pl, FL-039). Rows depending on them stay blank.
+
+### Verification performed on the combined data
+- `data/verifications.json` merged record-by-record: both sessions' facts and source ids kept; status = the highest one that an official/primary-class source supports; 16 records carry a merge note (15 darts ties kept `verified` on the earlier official PDC read; EHF 12044 raised to `verified` on the official EHF page; NZ-IND 188814 set to `verified_secondary_only` because Cricinfo/Wikipedia are not the governing body - FL-032).
+- `tools/build_dataset.py`: `competition_status` is now `verified` only when an official/primary record names the competition (`corroborated_only` / `partial` otherwise).
+- Full CI sequence run locally in order: `scripts/build.py` -> `scripts/build_gap_sports.py` -> `scripts/build_site.py` -> `scripts/check_board.py` PASS (137 rows / 14 predictions) -> `tools/build_dataset.py` (189) -> `tools/originate.py` -> `tools/build_site.py` (21 pages) -> `tools/check_site.py` PASS -> snapshot -> `scripts/check.py` PASS -> `scripts/check_links.py` 79 pages, 1158 links, broken=0; `unittest` 10/10. `olbg/` mirrors `olbg-board/` byte-for-byte.
+
+### Irregularities flagged (published on both Flagged pages; none block)
+FL-024..FL-039 in `data/flagged.json` (original ids FL-001..FL-017 of this pass renumbered at merge; duplicate of FL-014 dropped). Highlights: Gaelic football not re-harvested, rows carried (FL-024, decision still open); OLBG times are US Eastern and 7-10 min late (FL-025, agrees with FL-021); five late WTA rows unplaceable (FL-027); 66 rows unverified after merge (FL-030); darts official page unreadable this pass (FL-031); NZ-IND reclassified (FL-032); different "most popular" markets per OLBG page (FL-033); model disclosure incl. 0.65 HIGH floor (FL-035); README/legacy hygiene (FL-038); PlusLiga -> TAURON Liga (FL-039).
+
+### Merge / conflict record
+- `git merge origin/main` (23 commits) conflicted on 50 files. Resolution: board-track files (`scripts/build_site.py`, `data/events.json`, `data/official.json`, `data/predictions.json`, `data/sports/*`, root HTML) taken from `main` unchanged; /olbg-track outputs regenerated from the 06:50Z harvest; `data/verifications.json` and `data/flagged.json` merged by script as described; `pages.yml` keeps main's `build_gap_sports.py` + `check_board.py` steps; `tools/check_site.py` host list is the union.
+- Dropped from this branch at merge (own work only): `scripts/sync_board.py`, which had regenerated the root board from the /olbg rows - kept out so the board track's `scripts/model.py` lines and 14 predictions from sessions dadd85d4/f7221054 stay exactly as they merged them. The two tracks therefore differ in row count (board 137 + 23 gap rows from the 05:20Z listing; /olbg 189 from 06:50Z); both are internally sourced and both are linked from the shared nav.
+- Cross-scope request for a later session: regenerate the board track (`data/events.json`, `data/official.json`) from the 06:50Z harvest so the two tracks share one row set; `data/verifications.json` already covers both.
 
 ### Log
-- **2026-10-21 06:45 UTC** [`session-af0789e6`]: Read board. Only `main` on origin; claimed tasks 08-12. Pushing claim before any data work.
+- **06:45 UTC**: Read board. Only `main` on origin; claimed tasks 08-12; claim pushed (15c260f).
+- **06:45-07:05 UTC**: Harvest; **07:05-07:40 UTC**: official-source sweep, verifications, lines, predictions, flags, /olbg rebuild.
+- **07:50 UTC**: `origin/main` found 23 commits ahead (PRs #19-#26). Merged as above; all checks green on the merged tree (dd6093c).
