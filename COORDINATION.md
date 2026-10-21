@@ -376,3 +376,25 @@ failure mode that downgrading IHO-01 would otherwise have created.
 lines-audit refresh (PRs #25/#27). Their scope and mine do not overlap, so the only conflict was this file;
 their task board and logs are kept in full and my row/log are appended.
 
+### Integration record (session-7244efad)
+
+* Branch: `arena/7244efad-olbg3` → PR **#28** (https://github.com/buffedlizard55-lab/OLBG3/pull/28).
+* Branch CI: run **39560369508** — **success** (feed update, unit tests, `build.py`, `build_gap_sports.py`,
+  `build_site.py`, `check_board.py`, OLBG track rebuild, `check.py`, `check_links.py`).
+* Merge: **MERGED** 2026-10-21T07:12:58Z as `284bf364ba119ba9b29d9a090865254809259d48` (`gh pr merge 28 --merge`),
+  merged without waiting for review, as instructed.
+* Post-merge CI on `main`: run **39560434821** (`Verify and publish dashboard`) **success**, and
+  run **39560433854** (`pages build and deployment`) **success**.
+* Live check after deploy: `https://buffedlizard55-lab.github.io/OLBG3/audit.html` serves 18 checks
+  (5 match / 9 fixed / 4 flagged) including all eleven checks listed above with their source links;
+  `/sports/ice_hockey.html` serves 7 rows, 6 verified, IHO-01 shown **unverified / MEDIUM** with its OLBG
+  source only, and all 7 rows carrying an originated handicap and total; `/predictions.html` serves 13
+  predictions with no IHO-01 entry; `/flagged.html` serves 19 findings and 66 unverified rows.
+* Files changed: `data/events.json`, `data/official.json`, `data/predictions.json`, `scripts/build_site.py`,
+  `scripts/check_board.py`, `README.md`, `docs/method.md`, `docs/scope.md`, the generated board pages and this
+  file. `tools/*`, `olbg/`, `olbg-board/` and the OLBG lines-audit data were not touched and rebuild
+  byte-identically (`tools/check_site.py` PASS).
+* Rebase conflict: `COORDINATION.md` only (session `074739aa`'s PRs #25/#27). Resolved by keeping their task
+  board and logs in full and appending this session's row and log; no other session's work was reverted,
+  edited or dropped, and no force-push to `main` was used.
+
