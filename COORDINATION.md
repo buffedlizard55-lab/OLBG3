@@ -753,3 +753,21 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
 - Official fixture source references remain linked per row on `verification.html` / `flagged.html` and in `data/official.json`; this documentation-only task did not re-verify external sporting facts. Previous row-level audit/source records remain in `audit.html` and earlier session notes above.
 
 **Verification (rebased on PR #32):** `scripts/build.py` → `scripts/check.py` PASS (40 feed rows); `scripts/build_gap_sports.py` → `scripts/build_site.py` → `scripts/check_board.py` PASS (`rows=153 fixtures=130 outright_or_race=23 verified=114 priced=132 predictions=14`); `scripts/check_links.py` PASS (`pages=79 local_links_checked=1162 broken=0`); unit tests 10/10 PASS; `/olbg/` pipeline (`tools/build_dataset.py` → `tools/originate.py` → `tools/build_site.py` → `tools/check_site.py`) PASS (189 rows/lines, 5 predictions, 39 flags, 66 blank official fields). Main-branch PR #32 verification run [39561084768](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39561084768) and Pages deployment [39561084545](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39561084545) both succeeded. The command order keeps official-feed pages present before checking the combined site's internal links. No changes were produced by the data/site builders; final working changes are limited to the claimed documentation scope.
+
+---
+
+## Merge record — PR #33 (`session-997a5fc2`)
+
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/33 — merged 2026-10-21 to `main` as `42424fd`
+  (merge commit, no force-push; the branch was merged into twice to pick up #29 and #35 before it went green).
+- **Pipeline:** Actions run [39562043690](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39562043690)
+  — `build` success, `deploy` success. Pages build/deployment `39562043091` success.
+- **Live:** https://buffedlizard55-lab.github.io/OLBG3/ — verified after deploy: 137 rows, 105 verified,
+  9 corroborated, 23 unverified, 131 priced, 83 handicaps, 22 totals, 14 HIGH picks; `lines.html` serves
+  131 money lines / 83 handicaps / 22 totals.
+- **State merged:** `rows=137 fixtures=114 outright_or_race=23 verified=105 priced=131 predictions=14` (PASS),
+  `check.py` PASS, `check_links.py` `pages=81 local_links_checked=1234 broken=0`, 10/10 unit tests,
+  `tools/check_site.py` "All checks passed".
+- **Open debt carried forward:** 9 corroborated rows (cricinfo.com x4, espn.com x3, espncricinfo.com x1,
+  sofascore.com x1) still rest on third parties; WTA draws, the EHF Champions League calendar and the women's
+  volleyball leagues could not be read (JS-rendered/404), so those rows stay unverified rather than guessed.
