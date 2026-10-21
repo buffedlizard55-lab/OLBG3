@@ -771,3 +771,14 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
 - **Open debt carried forward:** 9 corroborated rows (cricinfo.com x4, espn.com x3, espncricinfo.com x1,
   sofascore.com x1) still rest on third parties; WTA draws, the EHF Champions League calendar and the women's
   volleyball leagues could not be read (JS-rendered/404), so those rows stay unverified rather than guessed.
+
+---
+
+## Session log — `session-70e57896` (branch `arena/70e57896-olbg3` — Final Source-Tier Closeout, Multi-Sport Official Standings Models & Human Prediction Upgrade)
+
+- **Claimed:** 2026-10-21 07:32 UTC on `arena/70e57896-olbg3`, rebased cleanly onto `origin/main` (`118e6a4`, preserving 100% of PRs #1–#36 from prior sessions `90bbe96f`, `6d5f01ec`, `9590abcf`, `f7221054`, `af0789e6`, `7244efad`, `074739aa`, `cd4a0bb6`, `41ad74d9`, `997a5fc2` after hitting a rebase conflict on `COORDINATION.md` and aborting cleanly rather than discarding any parallel session's work).
+- **Tasks Claimed (`in progress`):**
+  1. `task-18-tier-debt-closeout`: Upgrade third-party/unverified rows on `data/official.json` and `data/raw/gap_sports_capture_20261021.json` to true governing-body/tour websites (`icc-cricket.com`, `acb.af`, `nzc.nz`, `cricket.com.au`, `cricket.co.za`, `europeantour.com`, `pgatour.com`, `lpga.com`, `ladieseuropeantour.com`) and fix `www.` host normalisation in `scripts/build_gap_sports.py`; remove unused legacy root scripts (`build_data_and_site.py`, `build_full_database.py`, `generate_all.py`, root `build_site.py`, `css/`, `data/flagged_review.json`, `data/sports/duplicates/`).
+  2. `task-19-multisport-form-models`: Add verbatim 2026/27 official EuroLeague (`euroleaguebasketball.net`) and 2026 MLB (`mlb.com`) standings tables to `data/official.json` & `scripts/model.py` so Basketball (`BKB-02`, `BKB-11`) and Baseball (`BSB-01`) originate lines, spreads and totals directly from official scoring rates rather than public tip share alone.
+  3. `task-20-prediction-prose-audit`: Eliminate repetitive robotic `"Selection: ..."` prefixes across all board predictions (`data/predictions.json`, 15 picks spanning Rugby Union, Ice Hockey & EuroLeague Basketball) and enrich both `data/predictions.json` and `data/predictions-olbg.json` with verified 2026 match players, current form, recent match history, and explicit selections; record empirical IP-timezone proof on `flagged.html` & `audit.html`.
+  4. `task-21-final-integration-deploy`: Rebuild all three tracks, run all 6 test/verification suites (`unittest`, `check_board.py`, `check_site.py`, `check.py`, `check_links.py`, offline `update.py` guard), merge PR to `main`, verify live GitHub Pages deployment, and log final PR & deploy IDs here.
