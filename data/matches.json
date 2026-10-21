@@ -1,0 +1,13 @@
+{
+  "asOf": null,
+  "verificationStatus": "not_verified",
+  "matches": [],
+  "schema": {
+    "requiredPerRecord": [
+      "sport", "event", "participants", "startTimeUtc", "matchSourceUrl",
+      "markets", "originatedLines", "selection", "confidence", "analysisSourceUrls"
+    ],
+    "marketFields": ["marketName", "ourLineOrPrice", "selection", "rationale", "sourceUrls", "verifiedAtUtc"],
+    "confidenceValues": ["low", "medium", "high"]
+  }
+}
