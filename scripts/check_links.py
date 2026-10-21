@@ -4,7 +4,8 @@ import glob, os, re, sys
 from urllib.parse import unquote, urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-pages = glob.glob(os.path.join(ROOT, "*.html")) + glob.glob(os.path.join(ROOT, "sports", "*.html"))
+SITE = os.path.join(ROOT, "site")
+pages = glob.glob(os.path.join(SITE, "**", "*.html"), recursive=True)
 ATTR = re.compile(r'(?:href|src)="([^"]+)"')
 bad = []
 checked = 0

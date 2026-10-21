@@ -4,7 +4,16 @@ import json, os, glob, html, shutil
 from collections import Counter, defaultdict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
 GEN = "2026-10-21"
+os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
+
+# One navigation for the whole published site: this track's pages first, then the
+# official-feed track's pages (built by scripts/build.py, which runs before this script).
+NAV = [("index.html", "Dashboard"), ("predictions.html", "Predictions"),
+       ("verification.html", "Verification"), ("flagged.html", "Flagged for Review"),
+       ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
+       ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review")]
 ev = json.load(open(os.path.join(ROOT, "data/events.json")))
 EVENTS = ev["events"]
 ASSUMPTIONS = ev["assumptions"]
@@ -48,6 +57,7 @@ n_total = sum(1 for r in EVENTS if r["model"].get("total"))
 # ---------- shared chrome ----------
 def head(title, depth=0):
     p = "../" * depth
+    navlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV)
     return f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,11 +68,7 @@ def head(title, depth=0):
 <header class="topbar">
   <a class="brand" href="{p}index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="{p}index.html">Dashboard</a>
-    <a href="{p}predictions.html">Predictions</a>
-    <a href="{p}verification.html">Verification</a>
-    <a href="{p}flagged.html">Flagged for Review</a>
-    <a href="{p}method.html">Method &amp; Scope</a>
+    {navlinks}
   </nav>
 </header>
 <main>"""
@@ -135,7 +141,7 @@ def table(rows, tid="tbl"):
     return f'<div class="tablewrap"><table id="{tid}" class="board">{TABLE_HEAD}<tbody>{body}</tbody></table></div>'
 
 # ---------- sport pages ----------
-os.makedirs(os.path.join(ROOT, "sports"), exist_ok=True)
+os.makedirs(os.path.join(OUT, "sports"), exist_ok=True)
 for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
     rows = by_sport.get(sport, [])
     meta = SPORT_META[sport]
@@ -173,7 +179,7 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
 {(f'<h2>Handicap lines we originated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th></tr></thead><tbody>{hcap_rows}</tbody></table></div>') if mark else '<h2>Handicap lines</h2><p class="dim">Not originated for this sport: OLBG provides no win-share or scoring baseline here, so a handicap would be a guess. Blank rather than invented.</p>'}
 {(f'<h2>Totals we originated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody>{tot_rows}</tbody></table></div>') if tot else '<h2>Match totals</h2><p class="dim">Not originated for this sport: no official scoring baseline was captured, so any total would be invented. Recorded as flagged.</p>'}
 """ + foot(1)
-    open(os.path.join(ROOT, "sports", meta["slug"] + ".html"), "w").write(page)
+    open(os.path.join(OUT, "sports", meta["slug"] + ".html"), "w").write(page)
 
 # ---------- index ----------
 cov_rows = ""
@@ -188,6 +194,10 @@ for sport in SPORT_ORDER:
                  f"<td class='num'>{len([r for r in rows if r['model'].get('handicap')])}</td>"
                  f"<td class='num'>{len([r for r in rows if r['model'].get('total')])}</td></tr>")
 
+try:
+    n_feed = len(json.load(open(os.path.join(ROOT, "data/current.json")))["matches"])
+except Exception:
+    n_feed = 0
 hi_rows = [r for r in EVENTS if r["pick"]["confidence"] == "HIGH"]
 med_rows = [r for r in EVENTS if r["pick"]["confidence"] == "MEDIUM"]
 top = ""
@@ -237,6 +247,14 @@ index = head("Dashboard") + f"""
 </div>
 {table(EVENTS, 'tbl-all')}
 
+<h2>The other track: the official feed</h2>
+<div class="panel"><p>A second, independent pipeline in this repo pulls official NHL / MLB / NBA schedule feeds hourly
+(<code>api-web.nhle.com</code>, <code>statsapi.mlb.com</code>, <code>cdn.nba.com</code>) and publishes the raw fixtures with <em>no</em> picks,
+lines or prose &mdash; its validator fails the build if any betting field is filled. It is kept separate on purpose: facts with a
+digest, next to our model output with a label. Its current snapshot holds <strong>{n_feed}</strong> fixture records.</p>
+<p><a href="feed-overview.html">Feed overview</a> &middot; <a href="matches.html">Feed matches</a> &middot;
+<a href="coverage.html">Feed coverage</a> &middot; <a href="markets.html">Feed method</a> &middot; <a href="review.html">Feed review</a></p></div>
+
 <h2>How to read this board</h2>
 <div class="grid2">
   <div class="panel"><h3>What is verified</h3><p>Fixture, opponent, date and time are checked against the competition&rsquo;s own site
@@ -246,7 +264,7 @@ index = head("Dashboard") + f"""
   (<a href="method.html">method</a>). They are opinions priced off disclosed inputs, not facts, and not bookmaker prices.</p></div>
 </div>
 """ + foot(0)
-open(os.path.join(ROOT, "index.html"), "w").write(index)
+open(os.path.join(OUT, "index.html"), "w").write(index)
 
 # ---------- predictions ----------
 pblocks = ""
@@ -277,7 +295,7 @@ predpage = head("Predictions") + f"""
 </section>
 {pblocks}
 """ + foot(0)
-open(os.path.join(ROOT, "predictions.html"), "w").write(predpage)
+open(os.path.join(OUT, "predictions.html"), "w").write(predpage)
 
 # ---------- verification ----------
 vrows = ""
@@ -313,7 +331,7 @@ verpage = head("Verification") + f"""
   <li>If step 2 fails, the row keeps its OLBG data, the official column stays blank, and the row appears on Flagged for Review.</li>
 </ol>
 """ + foot(0)
-open(os.path.join(ROOT, "verification.html"), "w").write(verpage)
+open(os.path.join(OUT, "verification.html"), "w").write(verpage)
 
 # ---------- flagged ----------
 irregularities = [
@@ -367,7 +385,7 @@ to promote or drop it.</p>
 <thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>Competition</th><th>Start (as listed)</th><th>OLBG source</th><th>Status</th></tr></thead>
 <tbody>{unver_rows}</tbody></table></div>
 """ + foot(0)
-open(os.path.join(ROOT, "flagged.html"), "w").write(flagpage)
+open(os.path.join(OUT, "flagged.html"), "w").write(flagpage)
 
 # ---------- method ----------
 assum = "".join(f"<li>{e(a)}</li>" for a in ASSUMPTIONS)
@@ -422,9 +440,11 @@ A row built only on a public tip share therefore can never be graded above MEDIU
   <li>We do not present our own prices as facts or as bookmaker odds.</li>
 </ul>
 """ + foot(0)
-open(os.path.join(ROOT, "method.html"), "w").write(method)
+open(os.path.join(OUT, "method.html"), "w").write(method)
 
 # ---------- nojekyll ----------
-open(os.path.join(ROOT, ".nojekyll"), "w").write("")
-print("pages:", len(glob.glob(os.path.join(ROOT, "sports/*.html"))) + 5)
+for asset in ("style.css", "app.js"):
+    shutil.copyfile(os.path.join(ROOT, "assets", asset), os.path.join(OUT, "assets", asset))
+open(os.path.join(OUT, ".nojekyll"), "w").write("")
+print("board pages:", len(glob.glob(os.path.join(OUT, "sports/*.html"))) + 5)
 print("verified", n_verified, "unverified", n_unverified, "priced", n_price, "hcap", n_hcap, "totals", n_total)
