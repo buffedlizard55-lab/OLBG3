@@ -28,7 +28,7 @@ for golf, Formula 1, greyhound racing, rugby league and the Gaelic football cham
 <div class="panel" style="margin-top:14px"><h3>Previously disclosed gap, now closed</h3><ul class="tight"><li>Golf - now captured as 10 outright rows (data/raw/gap_sports_capture_20261021.json)</li><li>Motor Racing - now captured as 1 race and 2 outright rows</li><li>Greyhound Racing - now captured as 6 race rows</li></ul>
 <p class="dim" style="margin:8px 0 0">These four sports were missing from the previous build because their rows are race or tournament markets rather than
 two-sided fixtures. They are now captured from the same OLBG listings and priced with the one-selection model described below, so 23 rows
-(22 of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
+(23 of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
 <code>scripts/build_gap_sports.py</code>; output: <code>data/gap_sports.json</code>.</p></div>
 <div class="panel" style="margin-top:14px"><h3>Still not captured</h3><ul class="tight"><li>Esports (no listing surfaced on the OLBG tips index at capture time)</li></ul>
 <p class="dim" style="margin:8px 0 0">No esports listing surfaced on the OLBG tips index at capture time. That is disclosed rather than guessed at.</p></div>
@@ -73,12 +73,12 @@ model output, never as a market quote.</p>
 <p>Three factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
 model probability of the pick &ge;65% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
 A row built only on a public tip share therefore can never be graded above MEDIUM, and in practice lands on LOW.</p>
-<p>Current split: HIGH 14 &middot; MEDIUM 73 &middot; LOW 50.</p>
+<p>Current split: HIGH 15 &middot; MEDIUM 77 &middot; LOW 45.</p>
 
 <h2>What we will not do</h2>
 <ul class="tight">
   <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
-  <li>We do not write predictions for picks we cannot support with verified form. That is why only 14 of 137 rows carry a written prediction.</li>
+  <li>We do not write predictions for picks we cannot support with verified form. That is why only 15 of 137 rows carry a written prediction.</li>
   <li>We do not claim that a row is verified because a source exists for the competition. A row is verified only when the specific fixture appears on that source; see the <a href="audit.html">audit page</a>.</li>
   <li>We do not present our own prices as facts or as bookmaker odds.</li>
 </ul>

@@ -73,7 +73,13 @@ def main():
         data['coverage'].append(dict(sport=sport,league=league,source=url,status=status))
     for sport,url in PENDING.items():
         data['coverage'].append(dict(sport=sport,league='',source=url,status='Unverified — official connector not implemented; no completeness claim. Reference link not live-validated.'))
+    cur_path = ROOT/'data'/'current.json'
+    if not data['matches'] and cur_path.exists():
+        prev = json.loads(cur_path.read_text())
+        if prev.get('matches'):
+            data['matches'] = prev['matches']
+            data['coverage'] = prev.get('coverage', data['coverage'])
     data['matches']=sorted({r['id']:r for r in data['matches']}.values(),key=lambda r:r['start'])
-    (ROOT/'data'/'current.json').write_text(json.dumps(data,indent=2)+'\n')
+    cur_path.write_text(json.dumps(data,indent=2)+'\n')
 
 if __name__=='__main__': main()

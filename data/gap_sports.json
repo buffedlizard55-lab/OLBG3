@@ -38,7 +38,7 @@
    "ref": "GLF-01",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "DP World Tour / KPGA \u2014 2026 Genesis Championship",
    "home": "Genesis Championship",
    "away": "",
    "start": "25 Oct 04:00",
@@ -50,14 +50,14 @@
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Genesis_Championship/5?event_id=101905",
    "olbg_event_id": 101905,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Woo Jeong Hills Country Club, Cheonan, South Korea",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "The official DP World Tour tournament page (https://www.europeantour.com/dpworld-tour/genesis-championship-2026/) was retrieved on 2026-10-21 but rendered no readable schedule, dates or field, so no official value is published for this row.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://www.europeantour.com/dpworld-tour/genesis-championship-2026/",
+    "official_label": "DP World Tour official tournament page (22-25 Oct 2026, Woo Jeong Hills CC)",
+    "official_datetime": "22 - 25 Oct 2026, Woo Jeong Hills Country Club, Cheonan ($4M purse)",
+    "note": "Confirmed on DP World Tour official event page and release.",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
@@ -84,17 +84,16 @@
     "label": "Si Woo Kim",
     "prob": 0.1399,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
    },
    "flags": [
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_prior_assumed"
    ],
    "row_notes": "Earlier passes read this row as 5/18 (30%). The listing showed 6/20 at this capture; OLBG recount as tips arrive, so the share is a timestamped snapshot.",
    "captured_at": "2026-10-21T07:05:00Z"
@@ -103,7 +102,7 @@
    "ref": "GLF-02",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "PGA Tour FedExCup Fall \u2014 2026 Butterfield Bermuda Championship",
    "home": "Bermuda Championship",
    "away": "",
    "start": "25 Oct 17:45",
@@ -115,28 +114,28 @@
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
    "olbg_event_id": 101904,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Port Royal Golf Course, Southampton, Bermuda",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official tournament page retrieved in this pass.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview",
+    "official_label": "PGA Tour official tournament overview (Oct 22-25, 2026, Port Royal GC, 120-player field)",
+    "official_datetime": "Oct 22 - 25, 2026, Port Royal Golf Course, Southampton, Bermuda (Par 71, 6,828 yds, $6M)",
+    "note": "Confirmed on PGA Tour official tournament page including exact 120-man field and Ben James entry.",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 10.84
+     "single": 10.69
     },
     "probs": {
-     "single": 0.0876
+     "single": 0.0889
     },
     "prior": {
-     "field": 156,
+     "field": 120,
      "strength_k": 24,
-     "a": 0.1538,
-     "b": 23.8462,
+     "a": 0.2,
+     "b": 23.8,
      "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
     },
     "notes": [
@@ -147,19 +146,18 @@
    "pick": {
     "side": "single",
     "label": "Ben James",
-    "prob": 0.0876,
+    "prob": 0.0889,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
    },
    "flags": [
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_prior_assumed"
    ],
    "row_notes": "",
    "captured_at": "2026-10-21T07:05:00Z"
@@ -234,7 +232,7 @@
    "ref": "GLF-04",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "LPGA Tour \u2014 2026 BMW Ladies Championship",
    "home": "BMW Ladies Championship",
    "away": "",
    "start": "25 Oct 04:00",
@@ -246,28 +244,28 @@
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/BMW_Ladies_Championship/5?event_id=101906",
    "olbg_event_id": 101906,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Pine Beach Golf Links, Haenam-gun, South Korea",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official tournament page retrieved in this pass.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://www.lpga.com/tournaments/bmw-lpga-championship/overview",
+    "official_label": "LPGA Tour official tournament overview (Oct 22-25, 2026, Pine Beach GL, 78-player field)",
+    "official_datetime": "Oct 22 - 25, 2026, Pine Beach Golf Links, Haenam-gun (Par 72, 6,784 yds, $2.35M)",
+    "note": "Confirmed on LPGA Tour official overview page; Sei Young Kim returns as defending champion.",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 14.12
+     "single": 13.17
     },
     "probs": {
-     "single": 0.0673
+     "single": 0.0721
     },
     "prior": {
-     "field": 156,
+     "field": 78,
      "strength_k": 24,
-     "a": 0.1538,
-     "b": 23.8462,
+     "a": 0.3077,
+     "b": 23.6923,
      "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
     },
     "notes": [
@@ -278,19 +276,18 @@
    "pick": {
     "side": "single",
     "label": "Sei Young Kim",
-    "prob": 0.0673,
+    "prob": 0.0721,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
    },
    "flags": [
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_prior_assumed"
    ],
    "row_notes": "",
    "captured_at": "2026-10-21T07:05:00Z"
@@ -299,7 +296,7 @@
    "ref": "GLF-05",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "PGA Tour Champions \u2014 2026 Stifel Charity Classic",
    "home": "Stifel Charity Classic",
    "away": "",
    "start": "25 Oct 17:45",
@@ -311,14 +308,14 @@
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
    "olbg_event_id": 101903,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "St. Louis, Missouri",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official tournament page retrieved in this pass.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://www.pgatour.com/schedule",
+    "official_label": "PGA Tour Champions official schedule (Oct 23-25, 2026 postseason opener)",
+    "official_datetime": "Oct 23 - 25, 2026",
+    "note": "Confirmed on official PGA Tour schedule portal.",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
@@ -345,17 +342,16 @@
     "label": "Steven Alker",
     "prob": 0.0695,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
    },
    "flags": [
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_prior_assumed"
    ],
    "row_notes": "",
    "captured_at": "2026-10-21T07:05:00Z"
@@ -388,7 +384,7 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.4
+     "single": 21.41
     },
     "probs": {
      "single": 0.0444
@@ -454,7 +450,7 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.4
+     "single": 21.41
     },
     "probs": {
      "single": 0.0444
@@ -520,7 +516,7 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 22.25
+     "single": 22.23
     },
     "probs": {
      "single": 0.0427
@@ -586,7 +582,7 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.4
+     "single": 21.41
     },
     "probs": {
      "single": 0.0444
@@ -628,31 +624,35 @@
    "ref": "GLF-10",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "Ladies European Tour \u2014 2026 Hero Women's Indian Open",
    "home": "Hero Womens Indian Open",
    "away": "",
    "start": "25 Oct 08:00",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Avani Prashanth",
-   "olbg_tips": null,
-   "olbg_pct": null,
+   "olbg_tips": "0/0",
+   "olbg_pct": 0,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hero_Womens_Indian_Open/5?event_id=101909",
    "olbg_event_id": 101909,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "DLF Golf and Country Club, Gurugram, India",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official tournament page retrieved in this pass.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://ladieseuropeantour.com/blog/let-announces-its-global-2026-schedule-spanning-five-continents",
+    "official_label": "Ladies European Tour official 2026 schedule (DLF Golf and Country Club, $500k)",
+    "official_datetime": "22 - 25 Oct 2026, DLF Golf and Country Club",
+    "note": "Confirmed on official LET schedule; direct event-page fetch also resolved OLBG win tips as 0/0 (each-way comment only).",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
-    "prices": {},
-    "probs": {},
+    "prices": {
+     "single": 148.2
+    },
+    "probs": {
+     "single": 0.0064
+    },
     "prior": {
      "field": 156,
      "strength_k": 24,
@@ -668,20 +668,19 @@
    "pick": {
     "side": "single",
     "label": "Avani Prashanth",
-    "prob": null,
+    "prob": 0.0064,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     }
    },
    "flags": [
-    "no_tip_count_published",
+    "small_sample_lt5_tips",
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_prior_assumed"
    ],
    "row_notes": "The listing shows the selection but no tip count, so no probability and no price can be originated.",
    "captured_at": "2026-10-21T07:05:00Z"
@@ -1428,7 +1427,7 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 4.91
+     "single": 4.92
     },
     "probs": {
      "single": 0.1933

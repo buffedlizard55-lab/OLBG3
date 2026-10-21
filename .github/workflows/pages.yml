@@ -27,6 +27,7 @@ jobs:
       # Outright / race markets (Golf, Motor Racing, Greyhounds, Rugby League, Gaelic championship):
       # priced from the captured OLBG listings with a disclosed field-size prior.
       - run: python scripts/build_gap_sports.py
+      - run: python scripts/model.py
       # Board track: originated lines, picks, predictions, verification, audit + flagged pages.
       # Runs after build.py so it can own the landing page and the shared navigation.
       - run: python scripts/build_site.py
