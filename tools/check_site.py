@@ -124,7 +124,7 @@ ALLOWED_HOSTS = {
     "aalborghaandbold.dk",
     "tophaandbold.dk",
     "lnb.com.br",
-    "www.legavolley.it",
+    "www.legavolley.it", "www.sunshinetour.com", "shl.se", "www.sa20.co.za", "www.leinsterrugby.ie", "www.kbl.or.kr", "www.jgto.org", "sunshinetour.com", "sixnationsrugby.com", "sa20.co.za", "leinsterrugby.ie", "kbl.or.kr", "jgto.org", "en.volleyballworld.com",
     "cbv.com.br",
     "www.cdbidasoa.eus",
     "asobal.es",

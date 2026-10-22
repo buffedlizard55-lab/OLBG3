@@ -74,6 +74,7 @@ NO_HANDICAP_REASON = {
     "Cricket": ("OLBG does not state the format (T20 / ODI / Test) uniformly and a runs handicap differs by an order of "
                 "magnitude between formats, so any line would be invented"),
 }
+NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner"}
 MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
 
 # ---------- source tiers ----------
@@ -112,6 +113,8 @@ ALIASES = {
     "PHI Flyers": "Philadelphia Flyers",
     "FLA Panthers": "Florida Panthers",
     "OTT Senators": "Ottawa Senators",
+    "TOR Maple Leafs": "Toronto Maple Leafs",
+    "NY Rangers": "New York Rangers",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -248,8 +251,13 @@ def rugby_model(home_row, away_row):
     return probs, margin, exp_h + exp_a
 
 def nhl_model(home_row, away_row):
-    exp_h = (home_row["gf"] / home_row["gp"] + away_row["ga"] / away_row["gp"]) / 2 + HOME_ADV_NHL
-    exp_a = (away_row["gf"] / away_row["gp"] + home_row["ga"] / home_row["gp"]) / 2
+    k_nhl = 6.0 if min(home_row["gp"], away_row["gp"]) < 8 else 0.0
+    gf_h = (home_row["gf"] + 3.05 * k_nhl) / (home_row["gp"] + k_nhl)
+    ga_h = (home_row["ga"] + 3.05 * k_nhl) / (home_row["gp"] + k_nhl)
+    gf_a = (away_row["gf"] + 3.05 * k_nhl) / (away_row["gp"] + k_nhl)
+    ga_a = (away_row["ga"] + 3.05 * k_nhl) / (away_row["gp"] + k_nhl)
+    exp_h = (gf_h + ga_a) / 2 + HOME_ADV_NHL
+    exp_a = (gf_a + ga_h) / 2
     d = exp_h - exp_a
     p_home = 1.0 / (1.0 + math.exp(-1.0 * d))
     return {"home": p_home, "away": 1 - p_home}, d, exp_h + exp_a
@@ -334,6 +342,8 @@ snk_tbl = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("players", {})
 snk_src = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("source", "")
 vol_tbl = off["form_data"].get("SuperLega_2026_27_table", {}).get("teams", {})
 vol_src = off["form_data"].get("SuperLega_2026_27_table", {}).get("source", "")
+gaa_tbl = off["form_data"].get("Cork_PSFC_2026_table", {}).get("teams", {})
+gaa_src = off["form_data"].get("Cork_PSFC_2026_table", {}).get("source", "")
 
 # OLBG club names -> the exact club names printed by the official tables. Name normalisation only.
 HANDBALL_ALIASES = {
@@ -367,11 +377,19 @@ hockey_tables.update(nhl)
 hockey_tables.update(icehl)
 hockey_tables.update(shl)
 
+PICK_NAME_ALIASES = {
+    "New York Knicks": "NY Knicks",
+    "Nordsjaelland Haandbold": "Nordsjaelland Handbold",
+    "SalthillKnocknacarra +3.50": "Salthill-Knocknacarra +3.50",
+}
+
+
 def side_of_pick(e):
     """Map OLBG's most-tipped selection to home/away/draw/None without guessing."""
     pick = (e.get("olbg_pick") or "").strip()
     if not pick:
         return None, None
+    pick = PICK_NAME_ALIASES.get(pick, pick)
     low = pick.lower()
     if low == "tie" or low == "draw":
         return "draw", None
@@ -448,10 +466,23 @@ for e in events:
         model["notes"].append(f"Official MLB 162-game standings & scoring rates used ({mlb_src}).")
     elif e["sport"] == "Cricket" and e["home"] in icc_tbl and e["away"] in icc_tbl:
         hr, ar = icc_tbl[e["home"]], icc_tbl[e["away"]]
-        p_home = 1.0 / (1.0 + 10.0 ** (-(hr["rating"] - ar["rating"] + 4.0) / 85.0))
+        c_adv = 0.0 if ("UAE" in (e.get("competition") or "") or e.get("neutral")) else 4.0
+        c_scale = 100.0 if c_adv == 0.0 else 85.0
+        p_home = 1.0 / (1.0 + 10.0 ** (-(hr["rating"] - ar["rating"] + c_adv) / c_scale))
         probs = {"home": p_home, "away": 1.0 - p_home}
         basis = "official-standings"
         model["notes"].append(f"Official ICC 2026 white-ball team ratings used ({icc_src}).")
+    elif e["sport"] == "Gaelic Football" and official_name(e["home"]) in gaa_tbl and official_name(e["away"]) in gaa_tbl:
+        hr, ar = gaa_tbl[official_name(e["home"])], gaa_tbl[official_name(e["away"])]
+        g_adv = 0.0 if hr.get("neutral_home") else 1.5
+        exp_h = (hr["pf"] / hr["pl"] + ar["pa"] / ar["pl"]) / 2.0 + g_adv
+        exp_a = (ar["pf"] / ar["pl"] + hr["pa"] / hr["pl"]) / 2.0
+        margin = exp_h - exp_a
+        total = exp_h + exp_a
+        p_home = 1.0 - normal_cdf(-margin / 5.5)
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official 2026 Cork GAA Premier SFC championship scoring table used ({gaa_src}).")
     elif e["sport"] == "Darts" and e["home"] in pdc_tbl and e["away"] in pdc_tbl:
         hr, ar = pdc_tbl[e["home"]], pdc_tbl[e["away"]]
         margin = (ar["seed"] - hr["seed"]) * 0.085
@@ -514,9 +545,14 @@ for e in events:
         model["notes"].append(f"Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used ({vol_src}).")
 
     side, kind = side_of_pick(e)
+    _NON_WIN_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way",
+                        "Match Handicap", "Pointspread", "Puck Line", "Total Legs",
+                        "Game Totals", "Games Won", "1st Set Winner"}
     if probs is None:
-        # consensus-derived two-way price, draw not priced (no data to split it)
-        if side in ("home", "away") and e.get("pct"):
+        if e.get("market") in _NON_WIN_MARKETS or e.get("olbg_market") in _NON_WIN_MARKETS:
+            basis = "none"
+            model["notes"].append("OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability.")
+        elif kind is None and e.get("market") not in NON_WIN_CONSENSUS_MARKETS and side in ("home", "away") and e.get("pct"):
             p = e["pct"] / 100.0
             # a 0% or 100% tip share cannot be priced; cap it and say so
             if p >= 1.0:
@@ -564,7 +600,7 @@ for e in events:
             line = max(line, 0.5)
             unit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs",
                     "Tennis": "games", "Darts": "legs", "Handball": "goals",
-                    "Snooker": "frames", "Volleyball": "sets"}.get(e["sport"], "goals")
+                    "Snooker": "frames", "Volleyball": "sets", "Gaelic Football": "points"}.get(e["sport"], "goals")
             model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line,
                                  "dog_price": 1.91, "unit": unit, "basis": "official-form",
                                  "note": ("Line derived from the projected margin built on official league data; "
@@ -598,7 +634,7 @@ for e in events:
         tline = math.floor(total) + 0.5  # always a half-point line
         tunit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs",
                  "Tennis": "games", "Darts": "legs", "Handball": "goals",
-                 "Snooker": "frames", "Volleyball": "points"}.get(e["sport"], "goals")
+                 "Snooker": "frames", "Volleyball": "points", "Gaelic Football": "points"}.get(e["sport"], "goals")
         model["total"] = {"line": tline, "over": 1.91, "under": 1.91, "unit": tunit,
                           "basis": "official-form",
                           "note": ("Line = projected combined score from official league scoring rates, rounded to a "

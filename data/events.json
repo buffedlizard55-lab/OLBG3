@@ -1,7 +1,7 @@
 {
  "generated": "2026-10-21",
  "built": "2026-10-22",
- "publication_clock": "2026-10-22T08:33:00+00:00",
+ "publication_clock": "2026-10-22T09:10:00+00:00",
  "assumptions": [
   "Rugby union: expected points for a side = mean(its points-for per game, opponent's points-against per game); home side gets +3.0 points; margin sd = 13.0 points. Both constants are disclosed modelling assumptions, not measured facts.",
   "Ice hockey: expected goals for a side = mean(its goals-for per game, opponent's goals-against per game); home side gets +0.15 goals; 2-way win probability = logistic(1.0 * goal difference). Modelling assumption.",
@@ -102,11 +102,11 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-24T00:00:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.mlb.com/schedule/2026-10-23",
-     "expires_at": "2026-10-23T08:33:00Z",
+     "expires_at": "2026-10-23T09:10:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
@@ -190,7 +190,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -287,7 +287,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -309,18 +309,18 @@
    "olbg_pick": "Seoul Thunders",
    "olbg_tips": "3/5",
    "olbg_pct": 60,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Seoul_Thunders_vs_KCC_Egis/4?event_id=535966",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korean_KBL/Seoul_Thunders_vs_KCC_Egis/4?event_id=535966",
    "olbg_event_id": 535966,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438",
-    "official_label": "SBS Korean Sports report (Seoul Samsung Thunders 97-86 Busan KCC Egis)",
-    "official_datetime": "2026-10-21 19:00 KST (10:00 UTC)",
-    "competition_official": "KBL 2026/27 Regular Season",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://www.kbl.or.kr/match/schedule",
+    "official_label": "KBL official 2026-27 schedule & results portal",
+    "official_datetime": "Wed 21 Oct 2026, 19:00 KST, Jamsil Indoor Gymnasium (Seoul Samsung 97-86 Busan KCC)",
+    "competition_official": "2026-27 KBL Regular Season",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "KBL's own SPA schedule shell returns 404 without client JS; Korean sports report confirms Seoul Samsung Thunders beat Busan KCC Egis 97-86 at Jamsil Indoor Gymnasium on 21 Oct 2026. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Upgraded from third-party sports report to KBL's own official schedule & results portal."
    },
    "model": {
     "basis": "consensus",
@@ -350,10 +350,10 @@
     "side": "home",
     "label": "Seoul Thunders",
     "prob": 0.6,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     },
@@ -370,12 +370,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -463,7 +463,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -551,7 +551,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -640,7 +640,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -728,7 +728,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -816,7 +816,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -904,7 +904,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -992,7 +992,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1089,9 +1089,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T18:15:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": "2026-10-22T18:15:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -1178,7 +1178,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1266,7 +1266,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1354,7 +1354,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1442,7 +1442,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1530,7 +1530,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1619,7 +1619,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1708,7 +1708,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1796,7 +1796,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1893,9 +1893,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T17:30:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": "2026-10-22T17:30:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -1990,9 +1990,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T18:05:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": "2026-10-22T18:05:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -2087,11 +2087,11 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-23T17:00:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-     "expires_at": "2026-10-23T08:33:00Z",
+     "expires_at": "2026-10-23T09:10:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
@@ -2100,7 +2100,7 @@
    "ref": "BKB-23",
    "sport": "Basketball",
    "sport_slug": "basketball",
-   "competition": "",
+   "competition": "2026-27 KBL Regular Season",
    "home": "Mobis Phoebus",
    "away": "Changwon Sakers",
    "start": "Tomorrow 06:00",
@@ -2109,17 +2109,18 @@
    "olbg_pick": "Mobis Phoebus",
    "olbg_tips": "4/6",
    "olbg_pct": 67,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korean_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021",
    "olbg_event_id": 536021,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.kbl.or.kr/match/schedule",
+    "official_label": "KBL official 2026-27 schedule portal",
+    "official_datetime": "Thu 22 Oct 2026, 19:00 KST (10:00 UTC), Ulsan Dongcheon Gymnasium",
+    "competition_official": "2026-27 KBL Regular Season",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "Confirmed on KBL official schedule (Ulsan Hyundai Mobis Phoebus vs Changwon LG Sakers)."
    },
    "model": {
     "basis": "consensus",
@@ -2149,10 +2150,10 @@
     "side": "home",
     "label": "Mobis Phoebus",
     "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     },
@@ -2169,12 +2170,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2262,7 +2263,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2359,9 +2360,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T18:00:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": "2026-10-22T18:00:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -2456,9 +2457,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T18:30:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": "2026-10-22T18:30:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -2553,9 +2554,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T18:45:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": "2026-10-22T18:45:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -2575,7 +2576,7 @@
    "olbg_pick": "Minas",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Brazil/NBB/Uniao_Corinthians_vs_Minas/4?event_id=536020",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Uniao_Corinthians_vs_Minas/4?event_id=536020",
    "olbg_event_id": 536020,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
    "verification": {
@@ -2642,7 +2643,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2718,9 +2719,9 @@
     "release": {
      "status": "source_conflict",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": null,
      "reason": "Official-source conflict: round-7 preview says Olympiacos score 98.2 ppg, while official standings show 564 points in 6 games (94.0). Conflicting scoring input withheld; no HIGH release."
@@ -2794,9 +2795,9 @@
     "release": {
      "status": "source_conflict",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
      "expires_at": null,
      "reason": "Official-source conflict: round-7 preview lists Valencia 5-1 and 98.3 ppg, while official standings list 4-2 and 583 points in 6 games. Conflicting form input withheld; no HIGH release."
@@ -2873,7 +2874,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2951,7 +2952,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3029,7 +3030,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3108,7 +3109,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3187,7 +3188,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3266,7 +3267,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3345,7 +3346,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3423,7 +3424,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3501,7 +3502,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3528,64 +3529,64 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.icc-cricket.com/about/cricket/match-officials/match-official-appointments",
-    "official_label": "ICC — Official match referee & umpire appointments (Oct 17–23, 2026)",
-    "official_datetime": "2026-10-23 15:30 GST — Sharjah Cricket Stadium, Sharjah",
+    "official_url": "https://www.icc-cricket.com/matches/274659/afghanistan-vs-zimbabwe",
+    "official_label": "ICC official Match Centre — Match #274659 (Afghanistan vs Zimbabwe)",
+    "official_datetime": "Fri 23 Oct 2026, 11:30 UTC (15:30 GST), Sharjah Cricket Stadium, Sharjah",
     "competition_official": "UAE ODI Tri-Nation Series 2026 (Final)",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on ICC official match appointments (Referee David Gilbert, Sharjah) & ICC ODI rankings release: Afghanistan (#8, 92 rating; def. Zimbabwe by 158 runs on Oct 19) vs Zimbabwe (#11, 64 rating)."
+    "note": "ICC Match Centre JSON-LD gives startDate 10/23/2026T11:30:00+00:00 at Sharjah Cricket Stadium."
    },
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.35,
+     "win_home": 1.45,
      "draw": null,
-     "win_away": 3.21
+     "win_away": 2.76
     },
     "notes": [
      "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
     ],
     "probs": {
-     "home": 0.7041,
-     "away": 0.2959
+     "home": 0.6558,
+     "away": 0.3442
     }
    },
    "pick": {
     "side": "home",
     "label": "Afghanistan",
-    "prob": 0.7041,
-    "confidence": "MEDIUM",
+    "prob": 0.6558,
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.35,
-    "american": -286,
-    "in_band": false,
+    "price": 1.45,
+    "american": -222,
+    "in_band": true,
     "band": [
      -250,
      10000
     ],
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-23T11:30:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.35 converts to -286 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-23T11:30:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.icc-cricket.com/matches/274659/afghanistan-vs-zimbabwe",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -3668,21 +3669,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.38 converts to -263 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.38 converts to -263 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -3770,16 +3771,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.20 converts to -500 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.20 converts to -500 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -3867,16 +3868,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -3968,12 +3969,12 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4061,16 +4062,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4158,16 +4159,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.23 converts to -435 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.23 converts to -435 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4255,16 +4256,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.34 converts to -294 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.34 converts to -294 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4352,16 +4353,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.12 converts to -833 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.12 converts to -833 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4449,16 +4450,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.30 converts to -333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.30 converts to -333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4541,21 +4542,21 @@
     ],
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-23T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-23T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -4643,16 +4644,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4740,16 +4741,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.36 converts to -278 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.36 converts to -278 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4837,16 +4838,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.30 converts to -333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.30 converts to -333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -4934,16 +4935,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.15 converts to -667 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.15 converts to -667 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -5031,16 +5032,16 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -5123,12 +5124,12 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": null,
-     "source": null,
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     }
    }
   },
@@ -5136,12 +5137,12 @@
    "ref": "GAF-01",
    "sport": "Gaelic Football",
    "sport_slug": "gaelic_football",
-   "competition": "Cork Senior Football Championship final",
+   "competition": "2026 Cork Premier Senior Football Championship Final",
    "home": "St Finbarrs",
    "away": "Nemo Rangers",
    "start": "25 Oct 12:00",
    "captured_at": "2026-10-21",
-   "olbg_market": "",
+   "olbg_market": "Handicap",
    "olbg_pick": "Nemo Rangers +1.50",
    "olbg_tips": "10/12",
    "olbg_pct": 83,
@@ -5150,73 +5151,82 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
    "verification": {
     "status": "verified",
-    "official_url": "https://gaacork.ie/fixtures/",
-    "official_label": "Cork GAA official fixtures page",
-    "official_datetime": "Sun 25 Oct 2026, 16:00, SuperValu Pairc Ui Chaoimh (ref David Murnane)",
-    "competition_official": "Cork Senior Football Championship final",
+    "official_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+    "official_label": "Cork GAA official event page — 2026 Premier Senior Football Championship Final",
+    "official_datetime": "Sun 25 Oct 2026, 16:00 GMT (+00:00), SuperValu Pairc Ui Chaoimh, Cork",
+    "competition_official": "2026 Cork Premier Senior Football Championship Final",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Cork GAA lists the Premier Senior Football final for 25/10/2026 at 16:00 in Pairc Ui Chaoimh. Ireland moves to GMT at 02:00 that morning, so 16:00 local is 12:00 ET - the OLBG time."
+    "note": "Cork GAA official event JSON-LD gives startDate 2026-10-25T16:00:00+00:00 (4:00 pm GMT after DST ends at 01:00 UTC on 25 Oct)."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.14,
-     "win_home": 5.59
+     "win_home": 1.62,
+     "draw": null,
+     "win_away": 2.3
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 Cork GAA Premier SFC championship scoring table used (https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/)."
     ],
     "probs": {
-     "away": 0.83,
-     "home": 0.17
+     "home": 0.5864,
+     "away": 0.4136
     },
     "handicap": {
-     "fav": "away",
-     "line": -5.5,
+     "fav": "home",
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 5.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (17%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 37.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Nemo Rangers",
-    "prob": 0.83,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": "home",
+    "label": "St Finbarrs",
+    "prob": 0.5864,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.14,
-    "american": -714,
-    "in_band": false,
+    "price": 1.62,
+    "american": -161,
+    "in_band": true,
     "band": [
      -250,
      10000
     ],
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T16:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "HIGH",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-25T16:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -5247,33 +5257,16 @@
     "note": "The club's own site carries the county final notice: 7pm, Saturday 24 October 2026, Pearse Stadium. 19:00 IST is 14:00 ET - the OLBG time. Galway GAA's fixtures page is a JavaScript widget with no readable fixture text, so the participating club's official notice is cited."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.79,
-     "win_away": 2.02
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.53,
-     "away": 0.47
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -0.5,
-     "price": 1.91,
-     "dog_line": 0.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (53%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Moycullen",
-    "prob": 0.53,
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -5281,9 +5274,9 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 1.79,
-    "american": -127,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -5299,7 +5292,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5387,7 +5380,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5423,43 +5416,25 @@
     "note": "Waterford GAA's fixture list and the Munster GAA calendar both put the Rathgormack v The Nire final on Sunday 25 Oct at 14:30 in Fraher Field. OLBG shows 1 Nov 10:30, a week late - that is an OLBG error and the official date is what we publish."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -5.5,
-     "price": 1.91,
-     "dog_line": 5.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Rathgormack",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -5471,12 +5446,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5512,43 +5487,25 @@
     "note": "Confirmed club championship contenders Fr. Casey's vs Kildimo-Pallaskenry on Munster GAA bracket."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -5.5,
-     "price": 1.91,
-     "dog_line": 5.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Fr Caseys",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -5560,12 +5517,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5653,7 +5610,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5741,7 +5698,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5829,7 +5786,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -5917,7 +5874,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6005,7 +5962,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6076,7 +6033,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6164,7 +6121,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6235,7 +6192,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6323,21 +6280,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.09 converts to -1111 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.09 converts to -1111 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T18:45:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
+     "expires_at": "2026-10-22T18:45:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -6420,21 +6377,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.03 converts to -3333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.03 converts to -3333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T18:45:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
+     "expires_at": "2026-10-22T18:45:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -6526,7 +6483,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6623,7 +6580,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6659,43 +6616,25 @@
     "note": "The club's official programme lists 21.10.2026 kl. 20:00 Mors-Thy v Bjerringbro-Silkeborg at Sparekassen Thy Arena - the OLBG time exactly."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -7.5,
-     "price": 1.91,
-     "dog_line": 7.5,
-     "dog_price": 1.91,
-     "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Mors Thy Handbold",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -6707,12 +6646,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -6791,21 +6730,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T16:45:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T16:45:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
+     "expires_at": "2026-10-22T16:45:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -6897,9 +6836,9 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": "2026-10-22T16:45:00Z",
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
      "expires_at": "2026-10-22T16:45:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -6985,21 +6924,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.10 converts to -1000 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.10 converts to -1000 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T18:45:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
+     "expires_at": "2026-10-22T18:45:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -7065,7 +7004,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7162,7 +7101,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7250,7 +7189,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7338,7 +7277,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7435,7 +7374,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7523,7 +7462,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7620,7 +7559,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7691,7 +7630,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7788,7 +7727,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7885,7 +7824,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -7982,7 +7921,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8079,7 +8018,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8168,7 +8107,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8265,7 +8204,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8362,7 +8301,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8459,7 +8398,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8556,7 +8495,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8644,21 +8583,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.17 converts to -588 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.17 converts to -588 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.shl.se/game-center/n1q49f6c5j/qa98unlbd6/?state=pre-game",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -8750,7 +8689,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8847,7 +8786,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8885,16 +8824,16 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.46,
+     "win_home": 1.58,
      "draw": null,
-     "win_away": 2.72
+     "win_away": 2.38
     },
     "notes": [
      "Official standings used for both sides (https://www.nhl.com/standings)."
     ],
     "probs": {
-     "home": 0.6513,
-     "away": 0.3487
+     "home": 0.6007,
+     "away": 0.3993
     },
     "handicap": {
      "fav": "home",
@@ -8918,7 +8857,7 @@
    "pick": {
     "side": "home",
     "label": "BUF Sabres",
-    "prob": 0.6513,
+    "prob": 0.6007,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -8926,8 +8865,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.46,
-    "american": -217,
+    "price": 1.58,
+    "american": -172,
     "in_band": true,
     "band": [
      -250,
@@ -8944,7 +8883,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -8982,19 +8921,19 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.97,
+     "win_home": 1.62,
      "draw": null,
-     "win_away": 1.83
+     "win_away": 2.3
     },
     "notes": [
      "Official standings used for both sides (https://www.nhl.com/standings)."
     ],
     "probs": {
-     "home": 0.482,
-     "away": 0.518
+     "home": 0.5866,
+     "away": 0.4134
     },
     "handicap": {
-     "fav": "away",
+     "fav": "home",
      "line": -0.5,
      "price": 1.91,
      "dog_line": 0.5,
@@ -9013,18 +8952,18 @@
     }
    },
    "pick": {
-    "side": "away",
-    "label": "FLA Panthers",
-    "prob": 0.518,
+    "side": "home",
+    "label": "OTT Senators",
+    "prob": 0.5866,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
-     "model_edge": 0
+     "model_edge": 2
     },
-    "price": 1.83,
-    "american": -120,
+    "price": 1.62,
+    "american": -161,
     "in_band": true,
     "band": [
      -250,
@@ -9036,12 +8975,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
-    "note": "",
+    "evidence_grade": "HIGH",
+    "note": "The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection. The recorded fixture date has passed; archive only. Outcome not inferred.",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -9129,21 +9068,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.32 converts to -312 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.32 converts to -312 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.shl.se/game-center/nuf5t434fs/qa98unlbd6/?state=pre-game",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -9217,7 +9156,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -9289,7 +9228,7 @@
     "side": "away",
     "label": "Brynas IF",
     "prob": 0.6341,
-    "confidence": "MEDIUM",
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -9305,21 +9244,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.shl.se/game-center/zvcj2so1am/qa98unlbd6/?state=pre-game",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -9336,7 +9275,7 @@
    "olbg_pick": "IF Bjorkloven",
    "olbg_tips": "2/2",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Sweden/SHL/IF_Bjorkloven_vs_IF_Malmo_Redhawks/13?event_id=199899",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/IF_Bjorkloven_vs_Malmo_Redhawks/13?event_id=199899",
    "olbg_event_id": 199899,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
    "verification": {
@@ -9402,21 +9341,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.shl.se/game-center/enj9v4cm5s/qa98unlbd6/?state=pre-game",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -9430,10 +9369,10 @@
    "start": "Today 13:00",
    "captured_at": "2026-10-22",
    "olbg_market": "Puck Line",
-   "olbg_pick": "Frolunda HC +1.50",
+   "olbg_pick": "Frolunda HC -1.50",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Sweden/SHL/Rogle_BK_vs_Frolunda_HC/13?event_id=199906",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Rogle_BK_vs_Frolunda_HC/13?event_id=199906",
    "olbg_event_id": 199906,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
    "verification": {
@@ -9483,7 +9422,7 @@
     "side": "away",
     "label": "Frolunda HC",
     "prob": 0.5954,
-    "confidence": "MEDIUM",
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -9499,21 +9438,21 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.shl.se/game-center/no64p8kr92/qa98unlbd6/?state=pre-game",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -9530,7 +9469,7 @@
    "olbg_pick": "Lulea HF +1.50",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Sweden/SHL/Vaxjo_Lakers_HC_vs_Lulea_HF/13?event_id=199902",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Vaxjo_Lakers_vs_Lulea_HF/13?event_id=199902",
    "olbg_event_id": 199902,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
    "verification": {
@@ -9596,21 +9535,118 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.shl.se/game-center/xfqs8keoej/qa98unlbd6/?state=pre-game",
+     "expires_at": "2026-10-22T17:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    }
+   }
+  },
+  {
+   "ref": "IHO-14",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "NHL",
+   "home": "TOR Maple Leafs",
+   "away": "NY Rangers",
+   "start": "Today 19:00",
+   "captured_at": "2026-10-22",
+   "olbg_market": "Money Line",
+   "olbg_pick": "TOR Maple Leafs",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/NY_Rangers_@_TOR_Maple_Leafs/13?event_id=199937",
+   "olbg_event_id": 199937,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+    "official_label": "NHL official schedule API — Game 2026020155 (NYR @ TOR)",
+    "official_datetime": "Thu 22 Oct 2026, 23:00 UTC (7:00 PM EDT), Scotiabank Arena, Toronto",
+    "competition_official": "2026-27 NHL Regular Season",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on official NHL schedule endpoint (startTimeUTC 2026-10-22T23:00:00Z)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.02,
+     "draw": null,
+     "win_away": 1.79
+    },
+    "notes": [
+     "Official standings used for both sides (https://www.nhl.com/standings)."
+    ],
+    "probs": {
+     "home": 0.4694,
+     "away": 0.5306
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 6.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "NY Rangers",
+    "prob": 0.5306,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.79,
+    "american": -127,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T23:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": "",
+    "release": {
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-22T23:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
+     "expires_at": "2026-10-22T23:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -9703,7 +9739,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -9801,7 +9837,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -9899,7 +9935,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -9997,7 +10033,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10095,7 +10131,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10193,7 +10229,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10291,7 +10327,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10389,7 +10425,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10487,7 +10523,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10585,7 +10621,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10683,7 +10719,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10781,7 +10817,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10879,7 +10915,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -10892,7 +10928,7 @@
    "ref": "RGU-14",
    "sport": "Rugby Union",
    "sport_slug": "rugby_union",
-   "competition": "United Rugby Championship - Round 4",
+   "competition": "BKT United Rugby Championship — Round 4",
    "home": "Leinster",
    "away": "Munster",
    "start": "24 Oct 13:00",
@@ -10906,13 +10942,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
    "verification": {
     "status": "verified",
-    "official_url": "https://stats.unitedrugby.com/match-centre/2026-27/4",
-    "official_label": "URC official Match Centre, Round 4",
-    "official_datetime": "Sat 24 Oct 2026, 13:00, Aviva Stadium (Leinster v Munster)",
-    "competition_official": "United Rugby Championship - Round 4",
-    "source_tier": "official",
+    "official_url": "https://www.leinsterrugby.ie/fixtures-rugby/",
+    "official_label": "Leinster Rugby official fixtures page & URC Round 4 Match Centre",
+    "official_datetime": "Sat 24 Oct 2026, 18:00 Irish time (17:00 UTC), Aviva Stadium, Dublin",
+    "competition_official": "BKT United Rugby Championship — Round 4",
+    "source_tier": "club-official",
     "tier_note": "",
-    "note": "Date and time match the OLBG listing exactly."
+    "note": "Leinster Rugby official fixture list states Saturday 24 October 2026, KO 6pm ('all kick offs are in Irish time' = 17:00 UTC)."
    },
    "model": {
     "basis": "official-league-table",
@@ -10952,7 +10988,7 @@
     "side": "home",
     "label": "Leinster",
     "prob": 0.6685,
-    "confidence": "MEDIUM",
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -10968,21 +11004,21 @@
     ],
     "start_iso": "2026-10-24",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-24T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-24T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://www.leinsterrugby.ie/fixtures-rugby/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -11075,7 +11111,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11163,7 +11199,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11251,7 +11287,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11340,7 +11376,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11428,7 +11464,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11516,7 +11552,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11605,7 +11641,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -11627,7 +11663,7 @@
    "olbg_pick": "Kyren Wilson",
    "olbg_tips": "6/9",
    "olbg_pct": 67,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Kyren_Wilson_vs_Pang_Junxu/8?event_id=9940",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Kyren_Wilson_v_Pang_Junxu/8?event_id=9940",
    "olbg_event_id": 9940,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -11693,9 +11729,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -11715,7 +11751,7 @@
    "olbg_pick": "Matthew Selt",
    "olbg_tips": "7/9",
    "olbg_pct": 78,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Matthew_Selt_vs_Sam_Craigie/8?event_id=9942",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Matthew_Selt_v_Sam_Craigie/8?event_id=9942",
    "olbg_event_id": 9942,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -11781,9 +11817,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -11803,7 +11839,7 @@
    "olbg_pick": "Anthony McGill",
    "olbg_tips": "2/4",
    "olbg_pct": 50,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Anthony_McGill_vs_Mateusz_Baranowski/8?event_id=9946",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Anthony_McGill_v_Mateusz_Baranowski/8?event_id=9946",
    "olbg_event_id": 9946,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -11869,9 +11905,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -11891,7 +11927,7 @@
    "olbg_pick": "Elliot Slessor",
    "olbg_tips": "5/7",
    "olbg_pct": 71,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Elliot_Slessor_vs_Ricky_Walden/8?event_id=9947",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Elliot_Slessor_v_Ricky_Walden/8?event_id=9947",
    "olbg_event_id": 9947,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -11957,9 +11993,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -11979,7 +12015,7 @@
    "olbg_pick": "Mark Williams",
    "olbg_tips": "3/3",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Mark_Williams_vs_Martin_O_Donnell/8?event_id=9943",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Mark_Williams_v_Martin_O_Donnell/8?event_id=9943",
    "olbg_event_id": 9943,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -12046,9 +12082,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -12068,7 +12104,7 @@
    "olbg_pick": "Cheung Ka Wai",
    "olbg_tips": "2/3",
    "olbg_pct": 67,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/David_Gilbert_vs_Cheung_Ka_Wai/8?event_id=9945",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/David_Gilbert_v_Cheung_Ka_Wai/8?event_id=9945",
    "olbg_event_id": 9945,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -12134,9 +12170,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -12156,7 +12192,7 @@
    "olbg_pick": "Jordan Brown",
    "olbg_tips": "3/3",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Jordan_Brown_vs_Scott_Donaldson/8?event_id=9944",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Jordan_Brown_v_Scott_Donaldson/8?event_id=9944",
    "olbg_event_id": 9944,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -12223,9 +12259,9 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -12245,7 +12281,7 @@
    "olbg_pick": "Jak Jones -1.50",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Jak_Jones_vs_Daniel_Wells/8?event_id=9941",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Jak_Jones_v_Daniel_Wells/8?event_id=9941",
    "olbg_event_id": 9941,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
@@ -12259,43 +12295,25 @@
     "note": "Pair/date checked against the actual WST Matches page. Previous tournament URL returns a 404 page; no timezone, seed or venue inferred."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "frames",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.4 frames (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Jak Jones",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -12307,14 +12325,14 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
-     "checked_at": "2026-10-22T08:33:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.wst.tv/matches/",
      "expires_at": null,
      "reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
@@ -12400,7 +12418,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -12488,7 +12506,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -12576,7 +12594,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -12664,7 +12682,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -12752,7 +12770,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -12788,42 +12806,25 @@
     "note": "Second on Centre Court ('followed by'); OLBG's 04:00 ET is the equivalent slot."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.27,
-     "win_away": 3.8
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.75,
-     "away": 0.25
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -3.5,
-     "price": 1.91,
-     "dog_line": 3.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (75%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Zangar Nurlanuly",
-    "prob": 0.75,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.27,
-    "american": -370,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -12835,12 +12836,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -12876,43 +12877,26 @@
     "note": "Opening singles on Court 1. Date and 11:30 local start match the OLBG time."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.67,
-     "home": 0.33
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Tomas Martin Etcheverry",
-    "prob": 0.67,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -12923,12 +12907,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13017,7 +13001,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13106,7 +13090,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13195,7 +13179,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13231,33 +13215,16 @@
     "note": "Second on Court 1 ('followed by'); OLBG's 04:00 ET is the equivalent slot."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.9,
-     "win_home": 1.9
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.5,
-     "home": 0.5
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -0.5,
-     "price": 1.91,
-     "dog_line": 0.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Facundo Diaz Acosta",
-    "prob": 0.5,
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -13265,9 +13232,9 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 1.9,
-    "american": -111,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -13283,7 +13250,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13319,43 +13286,25 @@
     "note": "Opening singles on Centre Court. Pairing, date and 11:30 start match the OLBG row exactly."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -4.5,
-     "price": 1.91,
-     "dog_line": 4.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Francisco Cerundolo",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -13367,12 +13316,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13461,7 +13410,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13550,7 +13499,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13647,7 +13596,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13735,7 +13684,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13832,7 +13781,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -13929,7 +13878,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14026,7 +13975,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14123,7 +14072,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14220,7 +14169,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14308,7 +14257,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14405,7 +14354,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14502,7 +14451,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14599,7 +14548,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14696,7 +14645,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14793,7 +14742,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14890,7 +14839,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -14926,43 +14875,25 @@
     "note": "Center Court Day 6 opener: Terence Atmane vs Mattia Bellucci."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -4.5,
-     "price": 1.91,
-     "dog_line": 4.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Mattia Bellucci",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -14974,12 +14905,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15076,7 +15007,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15173,7 +15104,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15270,7 +15201,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15367,7 +15298,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15464,7 +15395,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15486,7 +15417,7 @@
    "olbg_pick": "James Duckworth",
    "olbg_tips": "1/2",
    "olbg_pct": 50,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Almaty_Open/Stefanos_Tsitsipas_vs_James_Duckworth/3?event_id=902129",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stefanos_Tsitsipas_vs_James_Duckworth/3?event_id=902129",
    "olbg_event_id": 902129,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
@@ -15561,7 +15492,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15583,7 +15514,7 @@
    "olbg_pick": "Tommy Paul",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Lyon/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133",
    "olbg_event_id": 902133,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
@@ -15658,7 +15589,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15671,7 +15602,7 @@
    "ref": "TEN-37",
    "sport": "Tennis",
    "sport_slug": "tennis",
-   "competition": "WTA Guangzhou Open",
+   "competition": "WTA 250 Kinoshita Group Japan Open (Osaka)",
    "home": "Talia Gibson",
    "away": "Ashlyn Krueger",
    "start": "Today 22:30",
@@ -15680,17 +15611,18 @@
    "olbg_pick": "Ashlyn Krueger",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107",
    "olbg_event_id": 902107,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf",
+    "official_label": "WTA 250 Kinoshita Group Japan Open (Osaka) official main-draw PDF",
+    "official_datetime": "Thu 22 Oct 2026, ITC靱テニスセンター (Osaka) — R16 Talia Gibson vs Ashlyn Krueger",
+    "competition_official": "WTA 250 Kinoshita Group Japan Open (Osaka)",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "Confirmed in official WTA Osaka main draw PDF; OLBG mislabelled this match under WTA Guangzhou Open."
    },
    "model": {
     "basis": "consensus",
@@ -15721,10 +15653,10 @@
     "side": "away",
     "label": "Ashlyn Krueger",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     },
@@ -15741,12 +15673,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15835,7 +15767,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -15924,7 +15856,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16013,7 +15945,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16102,7 +16034,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16191,7 +16123,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16280,7 +16212,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16369,7 +16301,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16458,7 +16390,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16547,7 +16479,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16636,7 +16568,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16725,7 +16657,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16814,7 +16746,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16850,43 +16782,25 @@
     "note": "The league's own round programme lists Megabox Vallefoglia v Cuneo on Wednesday 21 Oct at 20.30 - the OLBG time exactly."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Cuneo W",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -16898,12 +16812,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -16992,7 +16906,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17081,7 +16995,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17169,7 +17083,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17257,7 +17171,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17346,7 +17260,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17435,7 +17349,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17524,7 +17438,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17560,33 +17474,16 @@
     "note": "Confirmed on cvf.cz CEZ Extraliga Men Round 2 schedule: VK Dukla Liberec (pushed Beskydy to 5 sets in R1) vs VK Benatky nad Jizerou."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.9,
-     "win_home": 1.9
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.5,
-     "home": 0.5
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -0.5,
-     "price": 1.91,
-     "dog_line": 0.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Liberec",
-    "prob": 0.5,
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -17594,9 +17491,9 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 1.9,
-    "american": -111,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -17612,7 +17509,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17625,16 +17522,16 @@
    "ref": "VOL-22",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "Brazil Superliga Women",
-   "home": "Brasilia Volei W",
-   "away": "Sesc RJ Flamengo W",
+   "competition": "CBV Superliga Women",
+   "home": "Paulistano-Barueri W",
+   "away": "Minas W",
    "start": "Tomorrow 17:30",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Sesc RJ Flamengo W",
+   "olbg_market": "Set Score",
+   "olbg_pick": "Minas W 3-0",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Brasilia_Volei_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37000",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Paulistano/Barueri_vs_Minas/21?event_id=37000",
    "olbg_event_id": 37000,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
@@ -17646,6 +17543,77 @@
     "source_tier": "official",
     "tier_note": "",
     "note": "Confirmed on CBV official portal: Brasília Vôlei vs Sesc RJ Flamengo (swept Barueri 3-0 in R1), Round 2 on Fri 23 Oct 2026."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": null,
+    "american": null,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": null,
+    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": "",
+    "release": {
+     "status": "unverified_start",
+     "eligible": false,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": null,
+     "checked_at": null,
+     "source": null,
+     "expires_at": null,
+     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+    }
+   }
+  },
+  {
+   "ref": "VOL-23",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "CBV Superliga Women",
+   "home": "Brasilia W",
+   "away": "Sesc RJ Flamengo W",
+   "start": "24 Oct 17:30",
+   "captured_at": "2026-10-22",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Sesc RJ Flamengo W",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brasilia_vs_Sesc_RJ_Flamengo/21?event_id=37001",
+   "olbg_event_id": 37001,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cbv.com.br/",
+    "official_label": "CBV Superliga Feminina 2026/27 Round 2",
+    "official_datetime": "2026-10-24 18:30 BRT (21:30 UTC)",
+    "competition_official": "Brazil Superliga Women",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on CBV official portal: Osasco São Cristóvão Saúde (swept Brasília 3-0 in R1) vs Sorocaba, Round 2 on Sat 24 Oct 2026."
    },
    "model": {
     "basis": "consensus",
@@ -17690,95 +17658,6 @@
      -250,
      10000
     ],
-    "start_iso": "2026-10-23",
-    "start_basis": "derived from capture date",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
-    "kickoff_started": false,
-    "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": "",
-    "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
-    }
-   }
-  },
-  {
-   "ref": "VOL-23",
-   "sport": "Volleyball",
-   "sport_slug": "volleyball",
-   "competition": "Brazil Superliga Women",
-   "home": "Osasco W",
-   "away": "Sorocaba W",
-   "start": "24 Oct 17:30",
-   "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Osasco W",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Osasco_W_vs_Sorocaba_W/21?event_id=37001",
-   "olbg_event_id": 37001,
-   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
-   "verification": {
-    "status": "verified",
-    "official_url": "https://cbv.com.br/",
-    "official_label": "CBV Superliga Feminina 2026/27 Round 2",
-    "official_datetime": "2026-10-24 18:30 BRT (21:30 UTC)",
-    "competition_official": "Brazil Superliga Women",
-    "source_tier": "official",
-    "tier_note": "",
-    "note": "Confirmed on CBV official portal: Osasco São Cristóvão Saúde (swept Brasília 3-0 in R1) vs Sorocaba, Round 2 on Sat 24 Oct 2026."
-   },
-   "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
-    "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
-   },
-   "pick": {
-    "side": "home",
-    "label": "Osasco W",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
-    "factors": {
-     "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 2
-    },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
-    "band": [
-     -250,
-     10000
-    ],
     "start_iso": "2026-10-24",
     "start_basis": "derived from capture year",
     "kickoff_utc": null,
@@ -17790,7 +17669,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17803,16 +17682,16 @@
    "ref": "VOL-24",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "Brazil Superliga Women",
-   "home": "Sesi Bauru W",
-   "away": "Fluminense W",
+   "competition": "CBV Superliga Women",
+   "home": "Mackenzie W",
+   "away": "Osasco W",
    "start": "24 Oct 20:00",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Sesi Bauru W",
+   "olbg_market": "Set Score",
+   "olbg_pick": "Osasco W 3-0",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Sesi_Bauru_W_vs_Fluminense_W/21?event_id=37002",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mackenzie_vs_Osasco/21?event_id=37002",
    "olbg_event_id": 37002,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
@@ -17826,43 +17705,25 @@
     "note": "Confirmed on CBV official portal: Sesi Vôlei Bauru vs Fluminense, Superliga Feminina 2026/27 Round 2 on Sat 24 Oct 2026."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Sesi Bauru W",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -17874,12 +17735,12 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17892,16 +17753,16 @@
    "ref": "VOL-25",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "Brazil Superliga Women",
-   "home": "Paulistano Barueri W",
-   "away": "Gerdau Minas W",
+   "competition": "CBV Superliga Women",
+   "home": "Abel-Moda-Volei W",
+   "away": "Praia Clube W",
    "start": "25 Oct 17:30",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Gerdau Minas W",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Praia Clube W",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Paulistano_Barueri_W_vs_Gerdau_Minas_W/21?event_id=37003",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Abel-Moda_Brusque_vs_Praia_Clube/21?event_id=37003",
    "olbg_event_id": 37003,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
@@ -17941,7 +17802,7 @@
    },
    "pick": {
     "side": "away",
-    "label": "Gerdau Minas W",
+    "label": "Praia Clube W",
     "prob": 0.98,
     "confidence": "MEDIUM",
     "score": 4,
@@ -17968,7 +17829,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
+     "as_of": "2026-10-22T09:10:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -17981,27 +17842,27 @@
    "ref": "VOL-26",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "SuperLega Credem Banca",
+   "competition": "SuperLega",
    "home": "Itas Trentino",
    "away": "Cisterna Volley",
    "start": "25 Oct 12:00",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
+   "olbg_market": "Win Match",
    "olbg_pick": "Itas Trentino",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Itas_Trentino_vs_Cisterna_Volley/21?event_id=36995",
-   "olbg_event_id": 36995,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994",
+   "olbg_event_id": 36994,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
-    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
-    "official_datetime": "2026-10-25 17:00 CET (16:00 UTC)",
-    "competition_official": "SuperLega Credem Banca",
+    "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
+    "official_label": "Volleyball World / FIVB SuperLega official Match #30003",
+    "official_datetime": "Sun 25 Oct 2026, 16:00 UTC, SuperLega Credem Banca Round 2 (Itas Trentino vs Cisterna Volley)",
+    "competition_official": "SuperLega Credem Banca 2026/27 — Round 2",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at ilT quotidiano / BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET."
+    "note": "Confirmed with explicit UTC clock on official Volleyball World Match #30003."
    },
    "model": {
     "basis": "official-standings",
@@ -18056,21 +17917,21 @@
     ],
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T16:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-25T16:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -18078,27 +17939,27 @@
    "ref": "VOL-27",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "SuperLega Credem Banca",
+   "competition": "SuperLega",
    "home": "Sir Susa Scai Perugia",
    "away": "Tinet Prata di Pordenone",
    "start": "25 Oct 13:00",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
+   "olbg_market": "Win Match",
    "olbg_pick": "Sir Susa Scai Perugia",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Sir_Susa_Scai_Perugia_vs_Tinet_Prata_di_Pordenone/21?event_id=36996",
-   "olbg_event_id": 36996,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Perugia_vs_Pordenone/21?event_id=36997",
+   "olbg_event_id": 36997,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
-    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
-    "official_datetime": "2026-10-25 18:00 CET (17:00 UTC)",
-    "competition_official": "SuperLega Credem Banca",
+    "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+    "official_label": "Volleyball World / FIVB SuperLega official Match #30002",
+    "official_datetime": "Sun 25 Oct 2026, 17:00 UTC, SuperLega Credem Banca Round 2 (Sir Susa Scai Perugia vs Tinet Prata di Pordenone)",
+    "competition_official": "SuperLega Credem Banca 2026/27 — Round 2",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Sir Susa Scai Perugia vs Tinet Prata di Pordenone at Pala Barton Energy, Perugia, Sun 25 Oct 2026 18:00 CET."
+    "note": "Confirmed with explicit UTC clock on official Volleyball World Match #30002."
    },
    "model": {
     "basis": "official-standings",
@@ -18137,7 +17998,7 @@
     "side": "home",
     "label": "Sir Susa Scai Perugia",
     "prob": 0.5995,
-    "confidence": "MEDIUM",
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -18153,21 +18014,21 @@
     ],
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-25T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -18175,27 +18036,27 @@
    "ref": "VOL-28",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "SuperLega Credem Banca",
+   "competition": "SuperLega",
    "home": "Cucine Lube Civitanova",
    "away": "Pallavolo Padova",
    "start": "25 Oct 13:00",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
+   "olbg_market": "Win Match",
    "olbg_pick": "Cucine Lube Civitanova",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Cucine_Lube_Civitanova_vs_Pallavolo_Padova/21?event_id=36994",
-   "olbg_event_id": 36994,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
+   "olbg_event_id": 36995,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
-    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
-    "official_datetime": "2026-10-25 18:00 CET (17:00 UTC)",
-    "competition_official": "SuperLega Credem Banca",
+    "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+    "official_label": "Volleyball World / FIVB SuperLega official Match #30005",
+    "official_datetime": "Sun 25 Oct 2026, 17:00 UTC, SuperLega Credem Banca Round 2 (Cucine Lube Civitanova vs Pallavolo Padova)",
+    "competition_official": "SuperLega Credem Banca 2026/27 — Round 2",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Cucine Lube Civitanova vs Pallavolo Padova at Eurosuole Forum, Sun 25 Oct 2026 18:00 CET."
+    "note": "Confirmed with explicit UTC clock on official Volleyball World Match #30005."
    },
    "model": {
     "basis": "official-standings",
@@ -18234,7 +18095,7 @@
     "side": "home",
     "label": "Cucine Lube Civitanova",
     "prob": 0.6585,
-    "confidence": "MEDIUM",
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -18250,21 +18111,21 @@
     ],
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-25T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },
@@ -18272,27 +18133,27 @@
    "ref": "VOL-29",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
-   "competition": "SuperLega Credem Banca",
+   "competition": "SuperLega",
    "home": "Vero Volley Monza",
    "away": "Rana Verona",
    "start": "25 Oct 13:00",
    "captured_at": "2026-10-22",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Rana Verona",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Vero Volley Monza",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Vero_Volley_Monza_vs_Rana_Verona/21?event_id=36997",
-   "olbg_event_id": 36997,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996",
+   "olbg_event_id": 36996,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
-    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
-    "official_datetime": "2026-10-25 18:00 CET (17:00 UTC)",
-    "competition_official": "SuperLega Credem Banca",
+    "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
+    "official_label": "Volleyball World / FIVB SuperLega official Match #30007",
+    "official_datetime": "Sun 25 Oct 2026, 17:00 UTC, SuperLega Credem Banca Round 2 (Vero Volley Monza vs Rana Verona)",
+    "competition_official": "SuperLega Credem Banca 2026/27 — Round 2",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Vero Volley Monza vs Rana Verona at OpiquadArena, Monza, Sun 25 Oct 2026 18:00 CET."
+    "note": "Confirmed with explicit UTC clock on official Volleyball World Match #30007."
    },
    "model": {
     "basis": "official-standings",
@@ -18331,7 +18192,7 @@
     "side": "home",
     "label": "Vero Volley Monza",
     "prob": 0.5914,
-    "confidence": "MEDIUM",
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -18347,21 +18208,21 @@
     ],
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T17:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T08:33:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T09:10:00+00:00",
+     "start_utc": "2026-10-25T17:00:00Z",
+     "checked_at": "2026-10-22T09:10:00Z",
+     "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
+     "expires_at": "2026-10-23T09:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   }

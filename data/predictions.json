@@ -1,5 +1,5 @@
 {
-  "note": "6 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "17 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -104,8 +104,7 @@
           "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "ref": "IHO-06",
@@ -289,7 +288,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "ref": "IHO-05",
@@ -563,7 +562,7 @@
       ],
       "ref": "DRT-03",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
     {
       "selection": "Luke Humphries to win Match (Best of 11 legs)",
@@ -581,7 +580,7 @@
       ],
       "ref": "DRT-05",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
     {
       "selection": "Krzysztof Ratajski to win Match (Best of 11 legs)",
@@ -599,7 +598,7 @@
       ],
       "ref": "DRT-11",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
     {
       "selection": "Josh Rock to win Match (Best of 11 legs)",
@@ -617,7 +616,7 @@
       ],
       "ref": "DRT-15",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
     {
       "selection": "Pick Szeged to win in 60-minute match betting",
@@ -633,22 +632,17 @@
       "status": "high"
     },
     {
-      "selection": "Brynas IF to win (2-way Money Line)",
-      "headline": "Official SHL goal-differential gap (+5 vs -9) flips thin crowd lean to visiting Brynas IF",
-      "body": "A single early tip on OLBG backed hosts Orebro HK at Behrn Arena, yet official Swedish Ice Hockey Association standings through 10 games tell the opposite story. Fifth-placed Brynas IF carry a +5 goal differential (28 scored, 23 allowed) led by winger Jakob Silfverberg (8 points in 10 games), whereas ninth-placed Orebro sit at -9 (20 scored, 29 allowed) despite Patrik Karlkvist's 8 points and Saturday's tight 2-1 win at Rogle. Back Brynas IF on the Money Line at 1.50 (-200).",
+      "ref": "IHO-10",
+      "selection": "Brynas IF money line (1.50 / -200, overtime and shootout included)",
+      "headline": "Brynas IF's goal differential and special-teams edge back -200 money line at Behrn Arena",
+      "body": "Brynas IF to win on the 2-way money line at 1.50 (-200, overtime and shootout included) is our SHL selection for Thursday 22 October at 19:00 CEST (17:00 UTC on shl.se Game Center). Official SHL records show fifth-placed Brynas averaging 2.80 goals scored against 2.30 conceded per game — having won three of four meetings against Orebro last season behind forwards Kieffer Bellows and Jakob Silfverberg — whereas ninth-placed Orebro average 2.00 goals scored, allow 2.90 per game, and rank dead last in the SHL on the penalty kill at 61.3%.",
       "sources": [
         {
-          "label": "Swedish Ice Hockey Association — Official 2026-27 SHL Standings & Results",
-          "url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
-        },
-        {
-          "label": "Swedish Ice Hockey Association — Official 2026-27 SHL Scoring Leaders",
-          "url": "https://stats.swehockey.se/Players/Statistics/ScoringLeaders/20961"
+          "label": "SHL official Game Center — Orebro vs Brynas (22 Oct 2026)",
+          "url": "https://www.shl.se/game-center/zvcj2so1am/qa98unlbd6/?state=pre-game"
         }
       ],
-      "ref": "IHO-10",
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "selection": "Iva Jovic to win Match",
@@ -889,8 +883,7 @@
         }
       ],
       "ref": "GLF-02",
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "selection": "Max Verstappen to win Race (+241 / 3.41)",
@@ -911,8 +904,7 @@
         }
       ],
       "ref": "MTR-01",
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "ref": "HBL-23",
@@ -1070,8 +1062,7 @@
           "url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "ref": "SNK-07",
@@ -1176,8 +1167,7 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "ref": "VOL-28",
@@ -1194,8 +1184,7 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "high"
     },
     {
       "ref": "VOL-29",
@@ -1212,8 +1201,86 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
+      "status": "high"
+    },
+    {
+      "ref": "IHO-14",
+      "selection": "NY Rangers money line (1.79 / -127, overtime/shootout included)",
+      "headline": "New York Rangers' 2.18 goals-against defensive profile carries slight road edge in Toronto",
+      "body": "NY Rangers on the 2-way money line (1.79 / -127, 53.1% model probability — graded MEDIUM below our 55% HIGH threshold) opposes the lone 1/1 Maple Leafs tip at Scotiabank Arena (23:00 UTC, NHL Game 2026020155). Official NHL standings on 22 October place New York at 7-3-1 across 11 games (15 points, 33 goals for, 24 against), whereas Toronto sit 5-4-2 across 11 games (12 points, 38 goals for, 35 against).",
+      "sources": [
+        {
+          "label": "NHL official schedule API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "ref": "RGL-03",
+      "selection": "Penrith Panthers to win 2027 NRL Telstra Premiership Grand Final (4.92 / +392)",
+      "headline": "Minor-premiership dynasty Penrith Panthers headline 2027 NRL ante-post analysis",
+      "body": "Penrith Panthers outright (4.92 / +392, graded MEDIUM on the root board because OLBG carries only a 1/1 pre-season sample) leads our 2027 NRL Telstra Premiership ante-post analysis. Official NRL records confirm Penrith captured the 2026 Minor Premiership — their fourth in seven years after four straight titles from 2021 to 2024 — before beating the Sydney Roosters 19-12 in Finals Week 1 behind Nathan Cleary (218 season points) and co-captain Isaah Yeo.",
+      "sources": [
+        {
+          "label": "NRL Telstra Premiership official Finals Week 1 release",
+          "url": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "ref": "CRK-10",
+      "selection": "Afghanistan to win Match (1.45 / -222)",
+      "headline": "Afghanistan's Sharjah spin attack holds a clear ODI edge over Sikandar Raza's Zimbabwe",
+      "body": "Afghanistan to win at 1.45 (-222) is our selection for Friday's ODI at Sharjah Cricket Stadium (2026-10-23T11:30:00Z on ICC Match Centre #274659). Official ICC white-ball rankings place Afghanistan eighth on 92 rating points against 11th-ranked Zimbabwe on 64, and Rashid Khan's bowling unit bowled Sikandar Raza's Zimbabwe out for 136 after posting 294 in their 158-run victory on 19 October.",
+      "sources": [
+        {
+          "label": "ICC official Match Centre #274659",
+          "url": "https://www.icc-cricket.com/matches/274659/afghanistan-vs-zimbabwe"
+        },
+        {
+          "label": "ICC official ODI rankings release",
+          "url": "https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "GAF-01",
+      "selection": "St Finbarrs to win (60-minute match betting, 1.62 / -161; St Finbarrs -1.5 handicap angle)",
+      "headline": "St Finbarrs' superior Cork championship scoring differential backs -161 county final line",
+      "body": "St Finbarrs to win at 1.62 (-161) is our selection for Sunday's McCarthy Insurance Group Cork Premier Senior Football Championship Final at SuperValu Pairc Ui Chaoimh (2026-10-25T16:00:00Z). Across all five 2026 Cork championship matches on gaacork.ie, St Finbarrs have outscored opponents 116 points to 85 (+31), routing Carbery 4-23 to 1-11 in the quarter-final before edging Clonakilty 2-12 to 0-16 in the semi-final, outpacing Nemo Rangers' +19 differential (98 for, 79 against after beating Castlehaven 1-20 to 1-17 and Carrigaline 1-15 to 0-16).",
+      "sources": [
+        {
+          "label": "Cork GAA official Premier SFC Final event page",
+          "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
+        },
+        {
+          "label": "Cork GAA official championship results",
+          "url": "https://gaacork.ie/results/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "DRT-17",
+      "selection": "Luke Humphries to win Outright (+507 / 6.07)",
+      "headline": "Top-tier Dortmund draw and Premier pedigree back Luke Humphries outright at +507",
+      "body": "Luke Humphries to win the 2026 Machineseeker European Championship outright (+507 / 6.07) is our Darts tournament selection ahead of Thursday's 19:00 CEST opening bell at Dortmund's Westfalenhalle. Confirmed in the PDC's 32-player draw, world number two Humphries enters off full European Tour seeding pedigree and opens against Ryan Searle in the bottom half away from Luke Littler and Michael van Gerwen.",
+      "sources": [
+        {
+          "label": "PDC official European Championship schedule & 32-player draw",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+        }
+      ],
+      "status": "high"
     }
   ]
 }

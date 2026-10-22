@@ -32,6 +32,8 @@ def normalized_start(record):
     zone = record.get('timezone')
     if zone == 'ET':
         tz = ZoneInfo('America/New_York')  # explicit source label; DST is date-dependent
+    elif zone == 'Irish time':
+        tz = ZoneInfo('Europe/Dublin')  # explicit source label ('all kick offs are in Irish time'); DST-aware
     elif zone in FIXED_ZONES:
         tz = dt.timezone(dt.timedelta(hours=FIXED_ZONES[zone]))
     else:

@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">72 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">76 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -528,11 +528,39 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py" rel="noopener nofollow" target="_blank">Project model implementation</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py" rel="noopener nofollow" target="_blank">Project pricing implementation</a></li></ul>
 </article>
+<article class="card flag" id="FL-073">
+  <div class="flag-head"><span class="tag">FL-073</span> <span class="sev sev-info">info</span></div>
+  <h2>Repaired 43 soft-404 OLBG event URLs across Snooker, Greyhounds, Tennis, Basketball, Ice Hockey, Handball &amp; Volleyball</h2>
+  <p>Live OLBG verification proved 43 previously constructed URLs returned HTTP 200 soft-404 (&#x27;No tips found.&#x27;) due to guessed subpaths or _vs_ vs _v_ separators (including 12-hour &lt;hh:mm&gt;_&lt;Track&gt; Greyhound slugs). Repaired verbatim across both tracks.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener nofollow" target="_blank">OLBG Snooker listing</a></li><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG Greyhounds listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-074">
+  <div class="flag-head"><span class="tag">FL-074</span> <span class="sev sev-info">info</span></div>
+  <h2>Un-crossed SuperLega Round 2 OLBG event IDs (36994..36997) and verified explicit UTC clocks on Volleyball World</h2>
+  <p>Live OLBG /Volleyball/21 and official FIVB/Volleyball World Match #30002..#30007 confirm 36994=Trentino v Cisterna (16:00 UTC), 36995=Civitanova v Padova (17:00 UTC), 36996=Monza v Verona (17:00 UTC), and 36997=Perugia v Pordenone (17:00 UTC).</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World SuperLega Match #30002</a></li></ul>
+</article>
+<article class="card flag" id="FL-075">
+  <div class="flag-head"><span class="tag">FL-075</span> <span class="sev sev-info">info</span></div>
+  <h2>OLBG mislabels WTA 250 Osaka match Talia Gibson vs Ashlyn Krueger under &#x27;WTA Guangzhou Open&#x27;</h2>
+  <p>Official WTA 250 Kinoshita Group Japan Open main draw PDF (405/MDS.pdf) confirms Talia Gibson vs Ashlyn Krueger is in Osaka; raw OLBG league label retained with verified competition recorded.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf" rel="noopener nofollow" target="_blank">WTA 250 Osaka Main Draw PDF</a></li></ul>
+</article>
+<article class="card flag" id="FL-076">
+  <div class="flag-head"><span class="tag">FL-076</span> <span class="sev sev-info">info</span></div>
+  <h2>Separated OLBG +1.50 handicap consensus on GAF-01 / GFA-3530 from straight match-winner pricing using complete 10-game Cork GAA record</h2>
+  <p>OLBG&#x27;s 10/12 consensus on St Finbarrs v Nemo Rangers was on &#x27;Nemo Rangers +1.50&#x27; (handicap), which previously distorted straight win odds to -714/-333. Complete 5-game 2026 Cork PSFC records from gaacork.ie price St Finbarrs at 1.62 (-161, -1.5 handicap).</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener nofollow" target="_blank">Cork GAA Premier SFC Final</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T07:26:00Z; publication clock 2026-10-22T08:33:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-22T08:58:00Z; publication clock 2026-10-22T09:10:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
