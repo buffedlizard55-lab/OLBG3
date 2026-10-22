@@ -1,5 +1,5 @@
 {
- "note": "One prediction per HIGH-confidence row (15 picks across EuroLeague Basketball, Rugby Union and Ice Hockey). Every factual statement—team standings, recent scorelines, and named 2026 players—is verified directly against the attached official league, club or primary match-report URLs, and each piece is uniquely written without repetitive prefixes.",
+ "note": "Six high-confidence predictions, one for every HIGH row, all priced inside the requested -250 to +10000 US band. The other fourteen write-ups are kept as medium-confidence analysis because their selection prices outside that band or its kick-off has passed; each states why. Every factual statement is tied to an official league, club or primary page in the source list.",
  "predictions": [
   {
    "ref": "BKB-11",
@@ -15,7 +15,10 @@
      "label": "EuroLeague official Round 6 recap — Virtus Bologna 86-78 Baskonia",
      "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-6-el2627/"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.07 converts to -1429 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-04",
@@ -35,7 +38,10 @@
      "label": "BBC Sport — Glasgow Warriors 36-19 Connacht match report (Ioane & Jansen tries)",
      "url": "https://www.bbc.com/sport/rugby-union/articles/cwx285l666ejo"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.28 converts to -357 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-07",
@@ -55,7 +61,10 @@
      "label": "BBC Sport — Pretoria Bulls 57-15 Lions full score & scorers",
      "url": "https://www.bbc.com/sport/rugby-union/match/EVP5650667"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.08 converts to -1250 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-11",
@@ -75,27 +84,29 @@
      "label": "BBC Sport — Stormers 39-22 Sharks match summary (Dayimani & Feinberg-Mngomezulu)",
      "url": "https://www.bbc.co.uk/sport/rugby-union/match/EVP5650668"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.23 converts to -435 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-14",
-   "selection": "Leinster to win (3-way match betting)",
-   "headline": "Hugo Keenan's sharpness in Leinster's 29-5 rout of Cardiff sets the tone against Munster",
-   "body": "Leinster outright in three-way match betting is preferred over laying a tight derby spread against interprovincial rivals Munster on Saturday evening. Although an early South African tour left Leinster 10th on 8 points (1-0-2), their Round 3 home return produced a clinical 29-5 five-try victory over Cardiff sparked by Ireland full-back Hugo Keenan's solo chip-and-chase score and try-saving cover tackle. Having conceded just 58 points and eight tries across three rounds—fourth-fewest in the competition—Leinster look sturdier defensively than ninth-placed Munster (9 points, 1-1-1, 72 scored and 74 conceded), who drew 26-26 at Ulster last time out.",
+   "selection": "Leinster to win (3-way match betting, 1.42 / -238)",
+   "headline": "Leinster's 58 points conceded in three rounds underpins the interprovincial derby call",
+   "body": "Leinster to win in three-way match betting is the call for Saturday's United Rugby Championship derby against Munster. Leinster sit tenth on 8 points after three rounds but have conceded only 58 points, while Munster are ninth on 9 points with 72 scored and 74 conceded and drew 26-26 at Ulster last time out. Our model makes Leinster a 66.8% chance, priced at 1.42, inside the requested -250 to +10000 band.",
    "sources": [
     {
-     "label": "URC official Match Centre - Round 4 fixtures",
+     "label": "URC official Match Centre - Round 4 fixtures (Leinster v Munster, 24 Oct)",
      "url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
     },
     {
-     "label": "URC official league table 2026/27",
+     "label": "URC official league table 2026/27 (Leinster 10th, 8 pts, 58 conceded; Munster 9th, 9 pts)",
      "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
-    },
-    {
-     "label": "RugbyPass — Leinster 29-5 Cardiff player ratings & report (Keenan solo try)",
-     "url": "https://www.rugbypass.com/news/leinster-player-ratings-vs-cardiff-2026-27-urc/"
     }
-   ]
+   ],
+   "status": "high",
+   "row_confidence": "HIGH",
+   "downgrade_reason": ""
   },
   {
    "ref": "IHO-06",
@@ -115,7 +126,10 @@
      "label": "NHL.com official game recap — Sabres defeat Panthers 5-3 (Ostlund, Thompson)",
      "url": "https://www.nhl.com/news/florida-panthers-buffalo-sabres-game-recap-october-12-2026"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
   },
   {
    "ref": "RGU-01",
@@ -135,7 +149,10 @@
      "label": "L'Equipe — Oyonnax 51-25 Valence-Romans live scoresheet (Matkava, Ayarza)",
      "url": "https://www.lequipe.fr/Rugby/match-direct/pro-d2/2026-2027/oyonnax-valence-romans-live/42211"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.21 converts to -476 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-05",
@@ -155,7 +172,10 @@
      "label": "Rugbyrama — Colomiers 49-28 Narbonne Round 7 technical report",
      "url": "https://www.rugbyrama.fr/2026/10/17/pro-d2-deux-visages-sentiments-partages-colomiers-et-narbonne-devraient-voir-le-verre-a-moitie-plein-13607000.php"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.33 converts to -303 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-06",
@@ -175,7 +195,10 @@
      "label": "L'Equipe — Nevers 7-38 Agen live match sheet",
      "url": "https://www.lequipe.fr/Rugby/match-direct/pro-d2/2026-2027/nevers-agen-live/42209"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.35 converts to -286 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-10",
@@ -195,7 +218,10 @@
      "label": "Sports.fr — Round 7 recap (Enzo Labadie try in Nice 24-34 Provence)",
      "url": "https://www.sports.fr/rugby/pro-d2-oyonnax-et-provence-enchainent-1054654.html"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.11 converts to -909 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "RGU-13",
@@ -215,7 +241,10 @@
      "label": "Planet Rugby - Dupont brace against Montpellier",
      "url": "https://www.planetrugby.com/news/top-14-antoine-dupont-brace-helps-toulouse-to-summit-england-prospect-scores-in-toulons-first-victory"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.18 converts to -556 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "IHO-02",
@@ -235,7 +264,10 @@
      "label": "HCB official club site - next fixture",
      "url": "https://www.hcb.net/de/"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.27 converts to -370 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
   },
   {
    "ref": "IHO-03",
@@ -255,7 +287,10 @@
      "label": "Eliteprospects - confirmed transfer, Dahlen to SCL Tigers",
      "url": "https://www.eliteprospects.com/transfer/2025/11/07/jonathan-dahlen-in-a-confirmed-transaction-to-scl-tigers/613886"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.17 converts to -588 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
   },
   {
    "ref": "IHO-05",
@@ -275,7 +310,10 @@
      "label": "EC-KAC official fixture list",
      "url": "https://www.kac.at/spiele/"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.23 converts to -435 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
   },
   {
    "ref": "IHO-01",
@@ -295,7 +333,141 @@
      "label": "OEHV game centre - ICEHL fixtures, 21 Oct 2026",
      "url": "https://www.eishockey.at/game-center/ice?diviID=1280"
     }
-   ]
+   ],
+   "status": "analysis",
+   "row_confidence": "MEDIUM",
+   "downgrade_reason": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.18 converts to -556 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
+  },
+  {
+   "selection": "Milwaukee Brewers to win Game 1 (money line, 1.67 / -149)",
+   "headline": "Milwaukee's 103-win season and 3.81 runs allowed per game give them the Game 1 edge",
+   "body": "World Series Game 1 sends Tampa Bay to Milwaukee on Friday 23 October at 8:00 PM ET. MLB.com's official standings have the Brewers at 103-59 with 618 runs allowed, or 3.81 per game, against a Rays side that went 98-64 and conceded 650 (4.01 per game). Jacob Misiorowski (0-0) is listed as Milwaukee's starter while Tampa Bay's remains TBD, and OLBG's 3/6 split shows the public leaning to the Rays. Back Milwaukee on the money line at 1.67.",
+   "sources": [
+    {
+     "label": "MLB official schedule, 23 Oct 2026 - World Series Game 1, TB @ MIL, 8:00 PM ET",
+     "url": "https://www.mlb.com/schedule/2026-10-23"
+    },
+    {
+     "label": "MLB official postseason bracket and World Series schedule",
+     "url": "https://www.mlb.com/postseason"
+    },
+    {
+     "label": "MLB official 2026 standings - Brewers 103-59 (832 RS / 618 RA), Rays 98-64 (736 / 650)",
+     "url": "https://www.mlb.com/brewers/standings"
+    },
+    {
+     "label": "OLBG event page for TB Rays @ MIL Brewers (3/6 on the Rays)",
+     "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789"
+    }
+   ],
+   "ref": "BSB-01",
+   "status": "high",
+   "row_confidence": "HIGH",
+   "downgrade_reason": ""
+  },
+  {
+   "selection": "Agen to win (3-way match betting, 1.51 / -196)",
+   "headline": "Agen's back-to-back Pro D2 wins meet a Nice side with one victory in five",
+   "body": "Agen climbed to tenth on 15 points by winning their last two Pro D2 rounds, at home to Dax in Round 6 and away at Nevers in Round 7. They now host Nissa Rugby, who are 13th on 11 points after a 2-5 start in which they have scored 171 and conceded 213. Nice's only win in the last five rounds came against Nevers in Round 6, and they lost at home to Provence in Round 7. Agen to win at 1.51 is the selection.",
+   "sources": [
+    {
+     "label": "LNR official Pro D2 standings, 2026/27 after Round 7 (Agen 10th, 15 pts; Nissa 13th, 11 pts)",
+     "url": "https://prod2.lnr.fr/classement"
+    },
+    {
+     "label": "LNR official match sheet - Agen v Dax, Round 6",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j6/12047-agen-dax"
+    },
+    {
+     "label": "LNR official match sheet - Nevers v Agen, Round 7",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12060-nevers-agen"
+    },
+    {
+     "label": "LNR official match sheet - Nissa v Provence, Round 7",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12061-nice-provence-rugby"
+    }
+   ],
+   "ref": "RGU-02",
+   "status": "high",
+   "row_confidence": "HIGH",
+   "downgrade_reason": ""
+  },
+  {
+   "selection": "Soyaux-Angouleme to win (3-way match betting, 1.46 / -217)",
+   "headline": "Dax's 264 points conceded is Pro D2's second-worst and hands Soyaux-Angouleme the edge",
+   "body": "Soyaux-Angouleme sit seventh on 17 points with a +40 differential, having scored 220 and conceded 180, and they arrive off a Round 7 draw at Biarritz. Dax are sixth on 19 points but their +5 differential is built on 269 scored and 264 conceded; only Narbonne, with 296, have leaked more in Pro D2 this season, and Dax ship 37.7 points per game. They did beat Montauban at home in Round 7, yet the home side at 1.46 is the value call.",
+   "sources": [
+    {
+     "label": "LNR official Pro D2 standings, 2026/27 after Round 7 (Soyaux 7th, Dax 6th, points for/against)",
+     "url": "https://prod2.lnr.fr/classement"
+    },
+    {
+     "label": "LNR official match sheet - Biarritz v Soyaux-Angouleme, Round 7 (draw)",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12056-biarritz-angouleme"
+    },
+    {
+     "label": "LNR official match sheet - Dax v Montauban, Round 7",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12059-dax-montauban"
+    },
+    {
+     "label": "LNR official J8 fixture - Soyaux-Angouleme v Dax, 23 October",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12065-angouleme-dax"
+    }
+   ],
+   "ref": "RGU-03",
+   "status": "high",
+   "row_confidence": "HIGH",
+   "downgrade_reason": ""
+  },
+  {
+   "selection": "Valence Romans to win (3-way match betting, 1.72 / -139)",
+   "headline": "Valence Romans' positive differential and home advantage edge a tight bottom-half clash",
+   "body": "Valence Romans are eleventh on 13 points with a +2 differential from 192 scored and 190 conceded, despite a 2-5 record, and they return home after a Round 7 defeat at unbeaten Oyonnax. Colomiers sit one place and one point behind on 12, having beaten Narbonne at home in Round 7, but they have conceded 207 points and lost three of their last five. This is the longest price among our high-confidence rugby picks at 1.72, so stake accordingly.",
+   "sources": [
+    {
+     "label": "LNR official Pro D2 standings, 2026/27 after Round 7 (Valence Romans 11th, Colomiers 12th)",
+     "url": "https://prod2.lnr.fr/classement"
+    },
+    {
+     "label": "LNR official match sheet - Oyonnax v Valence Romans, Round 7",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12062-oyonnax-valence-romans"
+    },
+    {
+     "label": "LNR official match sheet - Colomiers v Narbonne, Round 7",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12058-colomiers-narbonne"
+    },
+    {
+     "label": "LNR official J8 fixture - Valence Romans v Colomiers, 23 October",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers"
+    }
+   ],
+   "ref": "RGU-08",
+   "status": "high",
+   "row_confidence": "HIGH",
+   "downgrade_reason": ""
+  },
+  {
+   "selection": "Grenoble to win (3-way match betting, 1.56 / -179)",
+   "headline": "Grenoble's 22-point start and +37 differential hold up against a Biarritz side with two defeats",
+   "body": "Grenoble sit third on 22 points after seven rounds with five wins, 213 points scored and 176 conceded, a +37 differential that ranks fifth in Pro D2. Biarritz are fifth on 20 points with the same 213 scored but 191 conceded, arriving after a Round 7 home draw with Soyaux-Angouleme, and they have already lost twice. Grenoble's defence has conceded 25.1 points per game against Biarritz's 27.3, and the home side at 1.56 is the call.",
+   "sources": [
+    {
+     "label": "LNR official Pro D2 standings, 2026/27 after Round 7 (Grenoble 3rd, Biarritz 5th)",
+     "url": "https://prod2.lnr.fr/classement"
+    },
+    {
+     "label": "LNR official J8 fixture - Grenoble v Biarritz, 23 October",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12067-grenoble-biarritz"
+    },
+    {
+     "label": "LNR official match sheet - Biarritz v Soyaux-Angouleme, Round 7 (draw)",
+     "url": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12056-biarritz-angouleme"
+    }
+   ],
+   "ref": "RGU-09",
+   "status": "high",
+   "row_confidence": "HIGH",
+   "downgrade_reason": ""
   }
  ]
 }

@@ -20,6 +20,9 @@ import re
 import sys
 from urllib.parse import urlparse
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from board_dates import in_band, american, BAND_LOW_DEC, BAND_HIGH_DEC
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = {"Tennis", "Basketball", "Ice Hockey", "Cricket", "Baseball", "Volleyball", "Darts",
            "Snooker", "Rugby Union", "Rugby League", "Handball", "Gaelic Football",
@@ -106,13 +109,28 @@ def check_rows(rows, preds):
             if abs(expected_price - r["model"]["prices"]["single"]) > 0.05:
                 errors.append(f"{ref}: outright price does not recompute ({expected_price} vs {r['model']['prices']['single']})")
 
-        if r["pick"]["confidence"] == "HIGH" and ref not in preds:
-            errors.append(f"{ref}: HIGH confidence but no written prediction")
-        # ...and the converse: a row that has been downgraded must not keep a published prediction,
-        # otherwise the site promises verified form for a pick it no longer rates.
-        if ref in preds and r["pick"]["confidence"] != "HIGH":
-            errors.append(f"{ref}: has a written prediction but is graded "
-                          f"{r['pick']['confidence']}, not HIGH")
+        pk = r.get("pick") or {}
+        price = pk.get("price")
+        if pk.get("confidence") == "HIGH":
+            if not price or not in_band(price):
+                errors.append(f"{ref}: HIGH confidence but its price {price!r} is outside the "
+                              f"-250..+10000 band (decimal {BAND_LOW_DEC}..{BAND_HIGH_DEC})")
+            if pk.get("kickoff_passed"):
+                errors.append(f"{ref}: HIGH confidence but its kick-off date has passed")
+            if ref not in preds:
+                errors.append(f"{ref}: HIGH confidence but no written prediction")
+            elif preds[ref].get("status") != "high":
+                errors.append(f"{ref}: HIGH confidence but its written piece is marked {preds[ref].get('status')!r}")
+        else:
+            # a written piece on a non-HIGH row is allowed only as labelled analysis
+            if ref in preds and preds[ref].get("status") != "analysis":
+                errors.append(f"{ref}: graded {pk.get('confidence')} but its written piece is marked "
+                              f"{preds[ref].get('status')!r}, not 'analysis'")
+
+        # the stored US odds must be the arithmetic conversion of the stored decimal price
+        if price and pk.get("american") != american(price):
+            errors.append(f"{ref}: US odds {pk.get('american')!r} do not convert from decimal {price!r} "
+                          f"(expected {american(price)!r})")
 
     return refs
 
@@ -127,6 +145,8 @@ def check_predictions(preds, refs):
             errors.append(f"{ref}: prediction has no explicit selection")
         if ref not in refs:
             warnings.append(f"{ref}: prediction exists for a row that is not on the board")
+        if p.get("status") not in ("high", "analysis"):
+            errors.append(f"{ref}: prediction status {p.get('status')!r} is not 'high' or 'analysis'")
         for s in p.get("sources", []):
             if urlparse(s.get("url", "")).scheme not in ("http", "https"):
                 errors.append(f"{ref}: prediction source without a URL")
@@ -156,8 +176,9 @@ def main():
     if errors:
         print(f"FAIL: {len(errors)} rule violation(s)")
         return 1
-    print("PASS: every row has an OLBG source, verification is all-or-nothing, prices recompute, "
-          "predictions meet the word floor and every HIGH pick has one.")
+    print("PASS: every row has an OLBG source, verification is all-or-nothing, prices recompute, every HIGH pick "
+          "is inside the -250..+10000 band with a live kick-off and a written prediction, and every non-HIGH piece "
+          "is labelled analysis.")
     return 0
 
 

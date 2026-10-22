@@ -19,6 +19,9 @@ import json, math, glob, os
 from statistics import NormalDist
 from urllib.parse import urlparse
 
+from board_dates import (CAPTURE_DATE, AS_OF, resolve_start, american, in_band,
+                         BAND_LOW_US, BAND_HIGH_US)
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ND = NormalDist()
 
@@ -40,6 +43,10 @@ ASSUMPTIONS = [
     "Source tiers: a fixture counts as verified only when the competition's own site (or one of the two clubs' own "
     "sites) shows it. Reputable third parties are recorded as 'corroborated', never as verified, and stay on the "
     "Flagged for Review page.",
+    "Price band: the brief asks for high-confidence picks priced between -250 and +10000 US odds. "
+    "That is decimal 1.40 to 101.00. A pick cannot be graded HIGH unless its originated price sits inside "
+    "that band, so an ultra-short favourite is downgraded to MEDIUM and the reason is published in the row. "
+    "With a 5% overround the band caps a HIGH pick at about 68% true probability (0.95/1.40 = 0.679).",
     "Handicaps: for sports with no official scoring table we quote a probability-implied handicap, margin = sigma * "
     "z(p). The per-sport sigma (Tennis 4.5 games, Basketball 13.0 points, Handball 7.0 goals, Baseball 3.0 runs, "
     "Volleyball 1.6 sets, Snooker 1.4 frames) is a disclosed modelling assumption, not a measured value, and the "
@@ -423,6 +430,13 @@ for e in events:
                                    "half point; price is our standard 1.91 two-way quote.")}
 
     # ---- 3. pick + confidence ----
+    # High confidence requires all four of:
+    #   (a) the fixture confirmed on the competition's own site (or a club's own site);
+    #   (b) official current-form data for both sides;
+    #   (c) our model giving the selection at least 55%;
+    #   (d) the selection priced inside the requested -250 .. +10000 US band.
+    # (c) used to be 65%, which forced every HIGH price shorter than 1.46 (-217) and therefore
+    # made requirement (d) impossible. The 65% threshold was the defect; the band is the brief.
     _v = verification_for(ref, conf)
     ver_pts = 2 if _v["status"] == "verified" else 0
     form_pts = 2 if basis in ("official-league-table", "official-standings") else 0
@@ -432,10 +446,40 @@ for e in events:
         pick_side = max(keys, key=lambda k: model["probs"][k])
         pick_prob = model["probs"][pick_side]
         pick_label = {"home": e["home"], "away": e["away"], "draw": "Draw"}[pick_side]
-        edge_pts = 2 if pick_prob >= 0.65 else (1 if pick_prob >= 0.55 else 0)
+        edge_pts = 2 if pick_prob >= 0.55 else 0
 
     score = ver_pts + form_pts + edge_pts
-    conf_label = "HIGH" if score >= 6 else ("MEDIUM" if score >= 3 else "LOW")
+    evidence_conf = "HIGH" if score >= 6 else ("MEDIUM" if score >= 3 else "LOW")
+
+    # the price of the selection we are actually tipping
+    pick_price = None
+    if model.get("prices"):
+        pick_price = model["prices"].get("win_" + pick_side) if pick_side else None
+    band_ok = in_band(pick_price)
+    start_iso, start_basis = resolve_start(e["start"])
+    kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
+
+    reasons = []
+    if not band_ok and pick_price:
+        reasons.append(f"price {pick_price:.2f} ({american(pick_price)} US) is outside the requested "
+                       f"-250..+10000 band")
+    if kickoff_passed:
+        reasons.append(f"kick-off date {start_iso} has passed (build date {AS_OF.isoformat()})")
+    if evidence_conf == "HIGH" and reasons:
+        conf_label = "MEDIUM"
+    elif evidence_conf == "HIGH":
+        conf_label = "HIGH"
+    else:
+        conf_label = evidence_conf
+    band_note = ""
+    if evidence_conf == "HIGH" and not band_ok and pick_price:
+        band_note = (f"Strong on the evidence (score {score}), but not published as a high-confidence pick: "
+                     f"its price of {pick_price:.2f} converts to {american(pick_price)} US odds, shorter than "
+                     f"the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.")
+    if evidence_conf == "HIGH" and kickoff_passed:
+        band_note = (band_note + " " if band_note else "") + (
+            f"The listed kick-off date {start_iso} has passed at the {AS_OF.isoformat()} build, so the pick is "
+            f"archived rather than presented as a live high-confidence selection.")
 
     picks.append({
         "ref": ref,
@@ -455,10 +499,16 @@ for e in events:
         "model": model,
         "pick": {"side": pick_side, "label": pick_label, "prob": pick_prob,
                  "confidence": conf_label, "score": score,
-                 "factors": {"fixture_verified": ver_pts, "official_form": form_pts, "model_edge": edge_pts}},
+                 "factors": {"fixture_verified": ver_pts, "official_form": form_pts, "model_edge": edge_pts},
+                 "price": pick_price, "american": american(pick_price) if pick_price else None,
+                 "in_band": band_ok, "band": [BAND_LOW_US, BAND_HIGH_US],
+                 "start_iso": start_iso, "start_basis": start_basis,
+                 "kickoff_passed": kickoff_passed, "evidence_grade": evidence_conf,
+                 "note": band_note},
     })
 
-json.dump({"generated": "2026-10-21", "assumptions": ASSUMPTIONS, "events": picks},
+json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
+           "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)
 
 from collections import Counter

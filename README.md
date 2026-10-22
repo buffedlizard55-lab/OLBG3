@@ -54,11 +54,12 @@ each with the ambiguity recorded on the Flagged for Review page.
      N and k are disclosed assumptions and are written into every row.
 3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
    both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
-4. **Predictions** — written only for HIGH picks, at least 30 words, non-repetitive prose naming real verified
-   2026 match players, current form, recent match history and an unmistakable betting selection, with every
-   factual claim attached to an official source. Currently **15** predictions: nine rugby union fixtures
-   (URC, Pro D2, Top 14), five ice hockey fixtures (three ICEHL, one SHL, one NHL), and one EuroLeague
-   basketball fixture (`BKB-11` Panathinaikos v Baskonia).
+4. **Predictions** — written for HIGH picks, at least 30 words, non-repetitive prose naming current form,
+   recent match history and an unmistakable betting selection, with every factual claim attached to an
+   official source. Currently **6 high-confidence predictions**, one per HIGH row: four Pro D2 fixtures
+   (Agen, Soyaux-Angouleme, Valence Romans, Grenoble), Leinster v Munster in the URC, and MLB World Series Game 1.
+   Another **14 medium-confidence analysis notes** are published separately and labelled as such; they were
+   written for picks that are now too short-priced to meet the band.
 5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
    competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
    A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
@@ -66,6 +67,13 @@ each with the ambiguity recorded on the Flagged for Review page.
    originated prices on **132/137** rows, 83 handicaps, and 25 totals. Five fixtures have no winner price: their
    captured OLBG leading selections are non-winner markets (one total and four ties), so the model refuses to
    turn those into match-winner probabilities. This board is not a complete market-by-market inventory.
+
+6. **Price band** — the brief asks for high-confidence picks on selections priced between **-250 and +10000**
+   US odds, i.e. decimal **1.40 to 101.00**. `scripts/board_dates.py` performs the conversion and
+   `check_board.py` refuses to publish a HIGH pick outside it. HIGH also requires a live kick-off: rows whose
+   21 Oct date has passed at the 22 Oct rebuild are tagged *archive* and cannot be graded HIGH. 70 of 137 rows
+   are in that archive state; the board is still the 21 Oct OLBG capture, and a fresh capture is logged as the
+   next open task in `COORDINATION.md`.
 
 ## Build and checks
 
@@ -97,7 +105,7 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 15 predictions, one per HIGH row | board |
+| `data/predictions.json` | 20 written pieces: 6 HIGH predictions + 14 labelled analysis notes | board |
 | `data/matches.json`, `data/lines.json` | 189 captured rows + 189 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json` | findings for the `/olbg/` audit track | documentation |
@@ -107,6 +115,11 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 * 18 of 137 rows are unverified and 4 more are corroborated only by a third-party listing. Both groups are
   published and labelled, not quietly dropped. The latest source capture is 2026-10-21 07:05 UTC; this is not a
   current live slate, and OLBG's relative date labels can now be stale.
+* The board is a **21 October 2026 capture**. At the 22 October rebuild, 70 rows had already kicked off; they
+  are retained, tagged *archive* and excluded from high-confidence grading rather than re-dated.
+* The -250 floor and a >70% win probability are mathematically incompatible with a 5% overround
+  (0.95/0.70 = 1.36, or -280). The band therefore caps a HIGH pick at ~68%; high confidence means 55%+ model
+  probability plus verified evidence, and the Method page says so explicitly.
 * Handicaps exist for 83 rows; totals for 25 (rugby union and ice hockey only, where the model has an official
   scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.
 * Five fixtures have no originated moneyline because OLBG's captured leading selection was a total or a tie;
