@@ -52,6 +52,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-23-live-harvest-20261022-and-verify` | Live 2026-10-22 OLBG.com harvest across all in-scope sports (strictly excluding soccer/football, boxing, UFC, MMA, American football, hurling, horse racing, cycling, specials) plus line-by-line governing-body verification | `data/raw/olbg-harvest-20261022.tsv`, `data/meta.json`, `data/verifications.json`, `data/matches.json`, `tools/build_dataset.py` | done | `session-4f267387` (branch `arena/4f267387-olbg3`) | Completed live 2026-10-22 harvest across all 15 allowed sports (`data/raw/olbg-harvest-20261022.tsv`), promoted 47 governing-body confirmations (`162/196` root verified; `112/145` `/olbg/` verified, `0` corroborated debt), flagged Waterford GAA 7-day OLBG date drift (`FL-041`) |
 | `task-24-originate-minus250-plus10000-predictions` | Multi-market line origination (Win/Moneyline, Handicap/Spread/Run-Line/Puck-Line, Match Totals, Outrights) focusing HIGH-confidence selections strictly on actionable `-250` to `+10000` odds (`1.40`–`101.00` decimal) backed by verified official form/standings/rankings & player stats, with unique >=30-word human predictions and rebuilt `/olbg/` dashboard | `tools/originate.py`, `tools/build_site.py`, `tools/check_site.py`, `data/lines.json`, `data/predictions-olbg.json`, `data/model.md`, `olbg-board/*`, `olbg/*` | done | `session-4f267387` (branch `arena/4f267387-olbg3`) | Completed multi-market origination across both tracks after `dc0474d5` (#39), `8b151ab0` (#41) and `f58890e3` (#40) reached `done` on `main`: `30` live in-band `HIGH` predictions across 10 sports on `/` (`-238`..`+738` US) + `26` live in-band `HIGH` predictions across 10 sports on `/olbg/` (`-227`..`+660` US); all checks & 20/20 tests PASS |
 | `task-28-final-integration-20261022` | Final integration: re-verify combined data line by line, confirm site builds with zero broken links, PR to main, merge, confirm Pages deploy | `COORDINATION.md`, all generated pages | done | `session-e8f8c0f5` (branch `arena/e8f8c0f5-olbg3`) | All checks PASS: unittest 20/20, check_board (196 rows/162 verified/191 priced, 30 in-band HIGH), check_site (21 pages/145 fixtures/26 HIGH), check_links 81 pages/1234 links/0 broken, check.py PASS. PR + merge + Pages recorded below. |
+| `task-30-verify-remaining-fixtures` | Verify the fixture rows published as *unverified* against the competition's own site (12 Handball domestic-league fixtures, 2 Basketball, 1 Cricket, 5 Golf tournaments), record an official source URL + label for each confirmation, and leave anything unconfirmed blank and flagged | `data/official.json`, `data/events.json`, `scripts/model.py`, `scripts/build_site.py`, `README.md`, `COORDINATION.md`, root HTML snapshot | done | `session-7815189c` (branch `arena/7815189c-olbg3`) | 10 of 12 handball rows confirmed (DanskHåndbold, Sønderjyske club site, Handbollsligan, ASOBAL calendar + PDF, LNH StarLigue); 172/196 verified, 22 unverified left blank + flagged; FL-044 (OLBG 23 Oct vs ASOBAL Jornada 07 24/10/2026) published; `check_board.py` PASS, 0 broken links, 20/20 tests |
 ---
 
 ## Log & Hand-off Records
@@ -1002,6 +1003,7 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   - Full CI chain re-run end-to-end (update.py → unittest → build.py → build_gap_sports.py → model.py → build_site.py → check_board → tools/* → snapshot → check → check_links) all green.
 - **Independent JSON audit:** 30 root HIGH + 26 /olbg/ HIGH, all prices inside -250..+10000 (1.44–7.60 decimal); 44 written pieces unique; min length >=30 words; 0 excluded-sport rows; 32 root rows remain blank+flagged (non-blocking).
 - **PR:** to be recorded after creation.
+
 ## Session `session-1bc4ae9a` — freshness safety and independent audit
 
 - Claimed 2026-10-22: `task-27-freshness-safety`, **in progress**.
@@ -1025,3 +1027,35 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **Live spot-verification:** OLBG Tennis live 02:50Z matches stored IDs 902110/902071/902072; MLB official schedule confirms BSB-01 verbatim (WS Game 1 TB@MIL 23 Oct 8pm ET, Jacob Misiorowski probable).
 - **Irregularities:** none new; FL-041..043 + 32 unverified remain on Flagged for Review (non-blocking). PR + merge + Pages verification recorded below on completion.
 - **PR/Merge/Pages (task-27):** PR https://github.com/buffedlizard55-lab/OLBG3/pull/45 merged to `main`; post-merge runs 39713303612 (Verify & publish) and 39713303567 (pages-build-deployment) both `success`; live predictions.html confirmed serving 30 HIGH picks.
+
+---
+
+---
+
+## Session log — `session-7815189c` (branch `arena/7815189c-olbg3` — fixture verification sweep, 2026-10-22)
+
+- **Claimed:** 2026-10-22 02:55 UTC, `task-30-verify-remaining-fixtures` (renumbered from task-28 to avoid the `task-28-final-integration-20261022` key claimed concurrently by `session-e8f8c0f5`). Branch name is Arena-locked (`arena/7815189c-olbg3`).
+  Scope: `data/official.json`, `data/events.json`, `data/gap_sports.json`, `scripts/model.py`,
+  `scripts/build_site.py`, generated root pages + `sports/*.html` snapshot, `README.md`, `COORDINATION.md`.
+  No `tools/`, `/olbg/` or `olbg-board/` files touched; `session-f198e83e` had already merged `task-27` (PR #45) before this claim.
+- **Task:** the board published 32 rows as *unverified*. Twelve were handball fixtures whose own league publishes a
+  fixture list, so each was re-checked line by line against the organiser's own page and upgraded only where the page
+  actually shows the fixture.
+- **Sources opened this pass (all official/club domains, linked in each row's verification block):**
+  - `https://www.danskhaandbold.dk/` — DanskHåndbold official match/TV schedule (KIF Kolding v Fredericia, *Torsdag 22. okt. kl. 20:00, Betoro Herreligaen*)
+  - `https://soenderjyskehh.dk/` — Sønderjyske Herrehåndbold club site (*22. Oct kl. 19:30* v Nordsjælland Håndbold)
+  - `https://handbollsligan.se/herr/spelschema/` — Handbollsligan official fixture list (*Tors 22 OKT 18:30 Skånela IF – HF Karlskrona*; *19:00 Önnereds HK – Ystads IF HF*)
+  - `https://asobal.es/liga/calendario/` — ASOBAL official calendar (*22/10/2026 20:00 GRA–CQN, Palau d'Esports de Granollers*)
+  - `https://asobal.es/documentos/noticias/8660-CalendarioOFICIALLigaNEXUSENERGIAASOBAL2627.pdf` — ASOBAL official 2026/27 calendar PDF (Jornada 07, 24/10/2026)
+  - `https://www.lnh.fr/daikin-starligue/calendrier` — LNH official Daikin StarLigue J08 (*ven. 23 oct. 20h00 Aix–Toulouse, 20h00 Limoges–Dunkerque, 20h30 Sélestat–Caen*)
+- **Verification performed (value compared, outcome):**
+  - 10 rows upgraded `unverified` → `verified`: HBL-19, HBL-20, HBL-21, HBL-22, HBL-23, HBL-26, HBL-27, HBL-29, HBL-30, HBL-31.
+  - Fixture + competition confirmed on each; start clock confirmed on eight of the ten (HBL-29/HBL-31 depend on the ASOBAL calendar PDF, which publishes the jornada date but no kick-off time).
+  - Every confirmed clock converts from OLBG's unlabelled value **only** when read as US Eastern (UTC−4): 13:30→19:30, 14:00→20:00, 14:30→20:30, 12:30→18:30 CEST. This is a second independent confirmation of the FL-002 time-zone finding.
+  - Left blank + flagged (not guessed): HBL-24 Estonia W v Kosovo W, HBL-28 Skive fH v Aalborg (Skive's own page shows *no matches* on the queried date), plus the pre-existing golf/racing/greyhound/rugby-league outrights and CRK-05/BKB-23/BKB-24.
+  - Board totals after the pass: **196 rows, 172 verified, 2 corroborated, 22 unverified, 191 priced, 157 handicaps, 68 totals, 30 live in-band HIGH picks** (`check_board.py` PASS; `check_links.py` 81 pages / 1,234 links / 0 broken; `unittest` 20/20).
+- **Irregularities found this pass (published on `flagged.html`, none blocking):**
+  - **FL-044** ASOBAL's official calendar dates IRUDEK Bidasoa Irun v BM. Caserío Ciudad Real in *Jornada 07, 24/10/2026*, while OLBG lists it on **23 Oct**. Pairing confirmed, date not.
+  - OLBG names the Cuenca club "Ciudad Encantada"; ASOBAL publishes **REBI Balonmano Cuenca** (CQN). Name quoted, not substituted.
+  - `data/official.json` source tiers extended with `asobal.es`, `lnh.fr`, `danskhaandbold.dk`, `tophaandbold.dk` (official) and `soenderjyskehh.dk` (club-official) so the tier check remains honest.
+- **Parallel-session note:** `session-f198e83e` finished `task-27` and merged PR #45 at 02:50 UTC. This task is additive (new confirmations only), did not modify any file `task-27` owned, and rebased onto that merge before pushing.
