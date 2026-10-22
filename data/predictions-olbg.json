@@ -73,7 +73,7 @@
       "match": "Anadolu Efes vs Besiktas",
       "selection": "Anadolu Efes Money Line",
       "confidence": "high",
-      "text": "Anadolu Efes to win is our money-line preference, but this Istanbul derby has a clear counterargument: Besiktas enter 3–3 and average 92.3 points, while Efes are 2–4. The official preview notes Efes’s road win in Kaunas and Cam Payne’s work with Mike James injured; Besiktas arrive after beating Bayern. Efes have conceded 510 points in six games against Besiktas’s 555. That defensive comparison supports the model lean, rather than any verified claim of betting value.",
+      "text": "Anadolu Efes to win is our money-line preference, but this Istanbul derby has a clear counterargument: Besiktas enter 3–3 and average 92.3 points, while Efes are 2–4. The official preview notes Efes’s road win in Kaunas and Cam Payne’s work with Mike James injured; Besiktas arrive after beating Bayern. Efes have conceded 510 points in six games against Besiktas’s 555 conceded, with Besiktas having scored 554. That defensive comparison supports the model lean, rather than any verified claim of betting value.",
       "sources": [
         {
           "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
@@ -319,7 +319,7 @@
       "match": "Afghanistan vs Zimbabwe One Day Match",
       "selection": "Afghanistan to Win Match",
       "confidence": "high",
-      "text": "Afghanistan to Win Match (1.48 / -208) is our ODI selection at Sharjah Cricket Stadium on Friday 23 October (11:30 UTC per ICC Match Centre #274659). Official ICC Men's ODI team rankings place Afghanistan eighth on 92 rating points against 11th-placed Zimbabwe on 64, and Afghanistan already defeated Sikandar Raza's Zimbabwe by 158 runs (294 against 136 all out) on 19 October in this series behind Rashid Khan's middle-overs spin.",
+      "text": "Afghanistan to Win Match (1.48 / -208) is our ODI selection at Sharjah Cricket Stadium on Friday 23 October (11:30 UTC per ICC Match Centre #274659). Afghanistan already beat Sikandar Raza's Zimbabwe by 158 runs in Abu Dhabi on 19 October in this same tri-series, a match in which Rashid Khan took 4/17 from eight overs according to the ICC rankings release that confirmed his lead at the top of the ODI bowling table.",
       "sources": [
         {
           "label": "ICC official Match Centre #274659",
@@ -338,7 +338,7 @@
       "match": "Orebro HK vs Brynas IF",
       "selection": "Brynas IF Money Line",
       "confidence": "high",
-      "text": "Here our SHL standings model directly overturns a thin 1/1 public tip on hosts Orebro HK at Behrn Arena. Official Swedish Ice Hockey Association tables through 10 games show fifth-placed Brynas IF carrying a +5 goal differential (28 scored, 23 allowed) anchored by veteran winger Jakob Silfverberg (8 points in 10 games), whereas ninth-placed Orebro sit at -9 (20 scored, 29 conceded) despite Patrik Karlkvist's 8 points and a 2-1 win at Rogle on October 17. Brynas IF on the Money Line at 1.50 (-200) is top-shelf value.",
+      "text": "Here our SHL standings model directly overturns a thin 1/1 public tip on hosts Orebro HK at Behrn Arena. Official Swedish Ice Hockey Association tables through 10 games show fifth-placed Brynas IF carrying a +5 goal differential (28 scored, 23 allowed) and a 72.73% penalty kill, with veteran winger Jakob Silfverberg on eight points from ten games, whereas ninth-placed Orebro sit at -9 (20 scored, 29 conceded) with the league's worst penalty kill at 61.29% despite Patrik Karlkvist's eight points and a 2-1 win at Rogle on October 17. Brynas IF on the Money Line at 1.50 (-200) is top-shelf value.",
       "sources": [
         {
           "label": "Swedish Ice Hockey Association — Official 2026-27 SHL Standings & Results",
@@ -456,7 +456,7 @@
       "match": "Leinster v Munster",
       "selection": "Leinster To Win",
       "confidence": "high",
-      "text": "Irish rugby's flagship interprovincial derby in Dublin pits United Rugby Championship heavyweights Leinster against arch-rivals Munster with Leinster's forward pack and bench depth setting the standard across the opening rounds of the 2026-27 URC table. Anchored by Ireland internationals Caelan Doris and Hugo Keenan, Leinster consistently strangle Munster at set-piece and breakdown phases in Dublin, while Munster's gritty defence led by Tadhg Beirne keeps the contest tight enough to price Leinster right at 1.44 (-227). Selection: Leinster To Win.",
+      "text": "Leinster To Win at 1.44 (-227) is our selection for Saturday's Aviva Stadium derby. The official URC table after Round 3 puts Leinster tenth on eight points with 75 scored and 58 conceded, following a 29-5 Round 3 win over Cardiff at the Laya Arena. Munster sit ninth on nine points with 72 scored and 74 conceded after a 26-26 draw at Ulster, so the model favours Leinster on points difference and recent scoring form rather than on any claim of dominance.",
       "sources": [
         {
           "label": "United Rugby Championship — Official Fixtures & Standings",
@@ -506,7 +506,8 @@
           "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "MTR-913",
@@ -525,7 +526,8 @@
           "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection."
     },
     {
       "match_id": "BKB-535922",
@@ -777,7 +779,7 @@
       "match": "Civitanova vs Padova",
       "selection": "Cucine Lube Civitanova Match Winner (1.44 / -227)",
       "confidence": "high",
-      "text": "Cucine Lube Civitanova to win at 1.44 (-227) is our SuperLega Round 2 selection for Sunday 25 October at 17:00 UTC (confirmed verbatim on FIVB/Volleyball World Match #30005). Civitanova opened the 2026/27 SuperLega campaign with a four-set victory (97:85 rally points) to take three points on the official Serie A table, giving them a clear home serving and side-out edge over visiting Pallavolo Padova.",
+      "text": "Cucine Lube Civitanova to win at 1.44 (-227) is our SuperLega Round 2 selection for Sunday 25 October at 17:00 UTC (confirmed verbatim on FIVB/Volleyball World Match #30005). Civitanova opened the 2026/27 SuperLega campaign by winning 3-0 at Rana Verona (25-20, 25-19, 28-26) and outscoring the hosts 78-65 on total rally points, taking three points on the official Serie A table and giving them a clear home serving and side-out edge over visiting Pallavolo Padova.",
       "sources": [
         {
           "label": "Volleyball World official Match #30005",
@@ -796,7 +798,7 @@
       "match": "NY Rangers @ TOR Maple Leafs",
       "selection": "NY Rangers Money Line (overtime/shootout included)",
       "confidence": "high",
-      "text": "NY Rangers Money Line (overtime and shootout included) is our NHL selection for Thursday 22 October at 23:00 UTC at Scotiabank Arena (NHL API Game #2026020155), fading the single 1/1 Maple Leafs tip on OLBG. Official NHL standings on 22 October show New York at 7-3-1 across 11 games (15 points, 33 goals scored, 24 allowed, +9 goal differential) visiting a 5-4-2 Toronto side that has surrendered 35 goals in 11 games (3-3-1 at home).",
+      "text": "NY Rangers Money Line (overtime and shootout included) is our NHL selection for Thursday 22 October at 23:00 UTC at Scotiabank Arena (NHL API Game #2026020155), fading the single 1/1 Maple Leafs tip on OLBG. The NHL game center for fixture 2026020155 lists New York at 7-3-1 across 11 games with a 2.18 team goals-against average, visiting a Toronto side that is 5-4-2 through 11 games and conceding at 3.09 goals per game.",
       "sources": [
         {
           "label": "NHL official schedule API (2026-10-22)",
@@ -815,14 +817,15 @@
       "match": "NRL 2027 Grand Final Winner",
       "selection": "Penrith Panthers To Win Outright",
       "confidence": "high",
-      "text": "Penrith Panthers outright is our 2027 NRL Telstra Premiership selection. Official NRL records confirm Penrith clinched the 2026 NRL Minor Premiership — their fourth in seven years after four straight titles from 2021 to 2024 — and defeated the Sydney Roosters 19-12 in Finals Week 1 behind halfback Nathan Cleary (218 season points) and co-captain Isaah Yeo.",
+      "text": "Penrith Panthers outright is our 2027 NRL Telstra Premiership selection at +618 (7.18). The NRL's own week-one finals release confirms Penrith finished the 2026 regular season as Minor Premiers — the club's fourth minor premiership in seven years — that the race was decided in the final match of the final round, and that Penrith opened the Finals Series against the Sydney Roosters at CommBank Stadium.",
       "sources": [
         {
           "label": "NRL Telstra Premiership official Finals Week 1 release",
           "url": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "The cited NRL release confirms Penrith are 2026 Minor Premiers but publishes no 2027 season start date. An ante-post outright cannot be given an official kick-off, so no exact start is certified and the row is published as analysis."
     },
     {
       "match_id": "HAN-12051",
@@ -904,5 +907,5 @@
       "status": "high"
     }
   ],
-  "note": "22 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "19 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

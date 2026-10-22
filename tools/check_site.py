@@ -42,6 +42,7 @@ ALLOWED_HOSTS = {
     "en.wikipedia.org",
     "www.atptour.com",
     "www.unitedrugby.com",
+    "stats.unitedrugby.com",
     "ehfcl.eurohandball.com",
     "buffedlizard55-lab.github.io",
     "github.com",
