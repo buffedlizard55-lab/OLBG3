@@ -95,7 +95,7 @@ release gate is the actual blocker. Regression test: `tests/test_evening_1cdf1d1
 | `python3 -m unittest discover -s tests` | see the run log in `COORDINATION.md` |
 | `python3 scripts/check_board.py` | `PASS` — 265 rows (217 fixtures + 48 outright/race), 237 verified, 245 priced, 73 pieces, brief-coverage accounting recomputes, no duplicate write-ups |
 | `python3 tools/check_site.py` | `PASS` — see the run log in `COORDINATION.md` |
-| Live in-band `HIGH` | root 17 (was 15), `/olbg/` 23 (unchanged) |
+| Live in-band `HIGH` | root **21** on the merged tree, of which **+2** is this pass (`BKB-29`, `BKB-30`; Basketball 1 → 3) and **+4** (`DRT-15`, `RGU-02`, `RGU-03`, `RGU-09`) were already eligible on the committed inputs but had not been surfaced by the previously committed build. `/olbg/` was 23 at the PR #114 merge and is 22 on `main` at `a63fc1f`, because PR #112 advanced the publication clock to `22:10Z` — not this pass's doing. See the correction in `COORDINATION.md`. |
 
 `scripts/update.py` and `scripts/discovery.py` were not run locally: this sandbox has no outbound
 route to `cdn.nba.com`, `api-web.nhle.com` or `olbg.com` over plain HTTPS (`curl` returns
