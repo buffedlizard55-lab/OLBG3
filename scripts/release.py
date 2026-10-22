@@ -35,6 +35,9 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     # Midday 2026-10-22 governing-body domains reviewed in session-a0a7003c:
     # WTA/ATP official Order of Play PDFs, BCCI official match centre, JGTO, and Ligue Nationale de Volley.
     'wtafiles.wtatennis.com', 'protennislive.com', 'www.bcci.tv', 'www.jgto.org', 'www.lnv.fr',
+    # Evening 2026-10-22: the league's own schedule page is the canonical source for NBA tip-off
+    # times, which it states explicitly as 'ET'. Reviewed session-cab97f19; structural only.
+    'www.nba.com',
 })
 
 

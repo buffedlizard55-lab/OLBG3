@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">98 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">104 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -710,11 +710,53 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.pdc.tv/WCFAQ" rel="noopener nofollow" target="_blank">PDC — Official 2026/27 World Darts Championship Schedule &amp; Ballot FAQ</a></li></ul>
 </article>
+<article class="card flag" id="FL-099">
+  <div class="flag-head"><span class="tag">FL-099</span> <span class="sev sev-high">high</span></div>
+  <h2>Publication clock was frozen at 12:40Z while the real clock was 21:00Z, so nine of the 24 published HIGH picks had already started</h2>
+  <p>Fixed by re-reading the official clocks that could be re-read this session and re-stamping them: the NHL 2026-10-22 slate (12 games, api-web.nhle.com, read 20:56Z) and the NBA 22/23 October slate (5 games, nba.com, read 21:20Z). The publication clock is now 21:20Z and every row whose certified start had passed is automatically demoted to MEDIUM/analysis by the release gate, with the reason shown on the row. Both tracks were rebuilt: root 13 live HIGH (was 19), /olbg/ 17 live HIGH (was 24). No start time, price or probability was changed to make a row look live.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener nofollow" target="_blank">NHL official schedule API, 2026-10-22</a></li><li><a href="https://www.nba.com/schedule?date=2026-10-22" rel="noopener nofollow" target="_blank">NBA.com official schedule, 22-23 October 2026</a></li></ul>
+</article>
+<article class="card flag" id="FL-100">
+  <div class="flag-head"><span class="tag">FL-100</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Snooker listing returned &#x27;No tips found.&#x27; at 21:07Z, so no upcoming snooker fixture can be published tonight</h2>
+  <p>This is a source-availability gap, not a data defect. The previously captured Northern Ireland Open rows remain in the dataset with their 2026-10-21/22 verification and are marked past-date by the release gate. Re-reading the endpoint later should restore coverage.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener nofollow" target="_blank">OLBG snooker listing (returned &#x27;No tips found.&#x27;)</a></li></ul>
+</article>
+<article class="card flag" id="FL-101">
+  <div class="flag-head"><span class="tag">FL-101</span> <span class="sev sev-medium">medium</span></div>
+  <h2>26 new evening fixtures captured, 1 officially certified; the rest publish unverified with blank fields</h2>
+  <p>No value was inferred to fill the gaps. Their prices are model priors from the OLBG tip share and they are explicitly excluded from HIGH confidence because an official fixture confirmation is a precondition for that grade.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-22" rel="noopener nofollow" target="_blank">NBA.com official schedule (the one row certified)</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG listings used for the capture</a></li></ul>
+</article>
+<article class="card flag" id="FL-102">
+  <div class="flag-head"><span class="tag">FL-102</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Fewer than five live HIGH picks in seven covered sports: the availability and certification reasons, per sport</h2>
+  <p>Tennis: 14 fixtures listed, but the official ATP/WTA order-of-play pages state local start times without a timezone label, so no fixture can be certified to an exact UTC start (the same limitation already recorded as FL-096/FL-097) and all tennis rows publish as verified analysis. Handball: 15 fixtures listed, mostly French Daikin StarLigue whose official calendar publishes bare local clocks; no zoned clock could be certified this pass. Snooker: no fixtures listed at all (FL-100). Rugby League: three captured rows, none with a currently listed upcoming fixture on the evening read. Golf and Motor Racing: the listed markets are outright/race fields, not two-sided matches, and are already priced as fields. Greyhounds: race cards could not be confirmed against an official operator page and stay unverified (FL-055/FL-095). Five HIGH picks per sport is therefore not reachable honestly at this hour; it is a source-availability constraint, not a modelling choice.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG tennis listing</a></li><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG handball listing</a></li><li><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener nofollow" target="_blank">OLBG snooker listing</a></li><li><a href="https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf" rel="noopener nofollow" target="_blank">WTA official draw/order of play (states local start times only)</a></li></ul>
+</article>
+<article class="card flag" id="FL-103">
+  <div class="flag-head"><span class="tag">FL-103</span> <span class="sev sev-low">low</span></div>
+  <h2>European Championship quarter-final pairings are listed but pdc.tv&#x27;s tournament page is cookie-walled, so per-match clocks stay uncertified</h2>
+  <p>Only Ryan Joyce v Jermaine Wattimena (32332) carries an exact official clock from the earlier audited capture and stays eligible. The seven other quarter-finals publish unverified with blank clocks and no HIGH grade. No time was inferred from the OLBG slot labels.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Darts/15" rel="noopener nofollow" target="_blank">OLBG darts listing</a></li><li><a href="https://www.pdc.tv/tournaments/machineseeker-european-championship" rel="noopener nofollow" target="_blank">PDC official tournament page (consent wall on direct read)</a></li></ul>
+</article>
+<article class="card flag" id="FL-104">
+  <div class="flag-head"><span class="tag">FL-104</span> <span class="sev sev-low">low</span></div>
+  <h2>NBA clock evidence was inert because www.nba.com was missing from the reviewed clock-source allowlist</h2>
+  <p>Fixed by adding www.nba.com to the reviewed allowlist with the reason recorded in the source. Only that domain was added. This is a structural provenance check, not factual verification, and it does not upgrade any other row&#x27;s verification label.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-22" rel="noopener nofollow" target="_blank">NBA.com official schedule</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T12:25:00Z; publication clock 2026-10-22T12:40:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-22T12:25:00Z; publication clock 2026-10-22T21:20:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
