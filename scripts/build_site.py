@@ -2,10 +2,11 @@
 """build_site.py - generates the static GitHub Pages site from data/*.json."""
 import json, os, glob, html, shutil, sys
 from collections import Counter, defaultdict
+from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
-GEN = "2026-10-21"
+GEN = "2026-10-22"
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
@@ -29,6 +30,18 @@ for _r in FIXTURES:
 EVENTS = FIXTURES + GAP_ROWS
 PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/predictions.json")))["predictions"]}
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
+SOURCE_HOSTS = OFF.get("source_tiers", {})
+
+def prediction_source_tier(url):
+    host = (urlparse(url or "").hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    for tier in ("official", "club-official", "third-party"):
+        for known in SOURCE_HOSTS.get(tier, []):
+            known = known.lower().removeprefix("www.")
+            if host == known or host.endswith("." + known):
+                return tier
+    return "unclassified"
 
 SPORT_ORDER = ["Tennis","Basketball","Ice Hockey","Cricket","Baseball","Volleyball","Darts",
                "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football",
@@ -372,7 +385,10 @@ for ref, p in PREDS.items():
     _downgraded = r["pick"]["confidence"] != "HIGH"
     pr = r["model"]["prices"]; side = r["pick"]["side"]
     price = pr.get("win_home") if side == "home" else pr.get("win_away")
-    facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
+    facts = "".join(
+        f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a> '
+        f'<span class="tag">{e(prediction_source_tier(s["url"]))}</span></li>'
+        for s in p["sources"])
     _block = f"""
 <article class="prediction" id="{e(ref)}">
   {('<p class="note">Kept after the source-tier audit: this fixture now rests on third-party corroboration only, so the row is graded ' + e(r['pick']['confidence']) + ' and this prediction is not counted among the high-confidence picks. The prose is unchanged.</p>') if _downgraded else ''}
@@ -383,7 +399,7 @@ for ref, p in PREDS.items():
   <p class="selection">Betting selection: <strong>{e(p['selection'])}</strong>
      <span class="pricebox">our price {money(price)} &middot; model {r['pick']['prob']*100:.0f}%</span></p>
   <p class="body">{e(p['body'])}</p>
-  <p class="srcs"><strong>Verified from:</strong></p><ul class="sourcelist">{facts}</ul>
+  <p class="srcs"><strong>Supporting sources (tier shown; non-official support is flagged):</strong></p><ul class="sourcelist">{facts}</ul>
 </article>"""
     if _downgraded:
         kept_blocks += _block
@@ -399,7 +415,7 @@ predpage = head("Predictions") + f"""
 <section class="pagehead">
   <h1>Written predictions &mdash; high-confidence picks only</h1>
   <p class="lede">{len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} picks clear the high-confidence bar (officially verified fixture
-  <em>and</em> official current-form data for both sides <em>and</em> a model probability of 65% or better). Every sentence that states a fact
+  <em>and</em> official current-form data for both sides <em>and</em> a model probability strictly above 70%). Every sentence that states a fact
   carries a source link. We deliberately wrote nothing for medium or low-confidence rows: there was no verified form data to base it on, and
   inventing it is worse than publishing less.</p>
   <p class="note">Every prediction below belongs to a row that is currently graded high confidence, and the grade is only available to a row whose fixture is on the competition&rsquo;s own site (or one of the two clubs&rsquo; own sites). A row that rests on a third-party listing is labelled <em>corroborated</em>, can never be graded high confidence, and cannot carry a prediction: <code>check_board.py</code> fails the build if one does.</p>
@@ -657,7 +673,7 @@ AUDIT_CHANGES = [
  ("scripts/build_site.py",
   "Board now renders 15 sports and 137 rows, adds a Market column so a single-selection row cannot be mistaken for a two-sided one, and publishes this audit page."),
  ("data/predictions.json",
-  "RGU-14 no longer states a venue that the sources disagree on. No factual claim was added. IHO-03&rsquo;s prediction was withdrawn while its only source was Eliteprospects and then restored when the Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se) confirmed Timra v Farjestad on 22 Oct &mdash; and corrected the venue to SCA Arena. IHO-01 was restored on the club&rsquo;s own fixture page. The board carries 14 predictions, one for every HIGH row and no others, and check_board.py enforces that."),
+  "At that earlier build, RGU-14 no longer stated a venue that the sources disagreed on. IHO-03&rsquo;s prediction was restored after the Swedish Ice Hockey Association&rsquo;s schedule confirmed Timra v Farjestad and the venue was corrected to SCA Arena; IHO-01 was restored on the club&rsquo;s fixture page. That historical build carried 14 predictions. The current 2026-10-22 audit below records the present 13-prediction count and the later >70% rule."),
  ("data/official.json",
   "Added 11 fixture confirmations (8 ATP, 1 MLB, 2 CSA), replaced 6 snooker sources with WST match centres, replaced 2 cricket sources with Cricket South Africa, added the official ice.hockey ICEHL table, and added a source-tier register (official / club-official / third-party) with the host list it applies to."),
  ("scripts/model.py",
@@ -667,7 +683,7 @@ AUDIT_CHANGES = [
  ("data/master_matches.json",
   "verification_status on the 71 'Verified' and 5 'Flagged' rows replaced with 'legacy draft - not source-checked', plus a superseded_by pointer. Not published by any builder."),
  ("README.md, docs/scope.md, COORDINATION.md",
-  "Replaced the 76-fixture / 48-prediction claims with the published 137 rows / 5 predictions and recorded this session's checks."),
+  "At that earlier build the documentation was reconciled to its then-published 137 rows / 5 predictions; this is a historical note, not the current count."),
 ]
 
 
@@ -683,6 +699,22 @@ AUDIT_CHANGES += [
  ("scripts/check_board.py",
   "New rule: a prediction may only exist for a HIGH-confidence row, so a downgraded row cannot keep a published prediction."),
 ]
+
+AUDIT_CHECKS += [
+ ("HIGH-confidence threshold and former below-threshold selections",
+  "Recomputed the 114 fixture rows with the 2026-10-22 rule. HIGH now requires a selected-side model probability strictly above 70%, plus fixture verification and official form. IHO-06 (65.13%) and RGU-14 (66.85%) were downgraded to MEDIUM and their predictions removed. The remaining 13 HIGH picks each exceed 70% under this model; these are not sportsbook probabilities.",
+  "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),
+ ("External market odds band requested in the brief",
+  "No bookmaker odds or market-implied probabilities are present in the captured data. The displayed prices are our own decimal model quotes with a 5% overround. Therefore the requested -250 to +10000 American market-odds filter cannot be checked and has not been claimed satisfied.",
+  "unverified", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/model.md"),
+ ("Freshness of OLBG fixture rows for 2026-10-22",
+  "The board data retrieved here is dated 2026-10-21; this environment did not perform a fresh OLBG listing retrieval on 2026-10-22. Relative OLBG date labels and mutable tip counts remain unverified as current. The finding is published rather than treating the old capture as live.",
+  "unverified", "https://www.olbg.com/betting-tips"),
+ ("Official-source support for player-specific HIGH-prediction statements",
+  "Checked the host tier of each prediction URL against the repository's official / club-official registry. Ten predictions contain at least one third-party or unclassified supporting link; these links are labeled by source tier and the claims depending on them are not represented as independently verified by the sport's governing body. No additional official-player evidence could be fetched in this review.",
+  "unverified", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
+]
+
 
 def _audit_det(det):
     # older entries carry live counts as placeholders; fill them at render time so a count
@@ -806,6 +838,18 @@ IRREGULARITY_EXTRA = [
   "row records '23 Oct 20:00' and a Money Line tip at 3/6 (50%). Tip counts were always known to move; a five-hour shift in the clock label "
   "and a change of featured market were not. The captured labels are published unchanged as a snapshot, and no start time is derived from them.",
   "https://www.olbg.com/betting-tips/Baseball/12"),
+ ("HIGH confidence now requires a modeled selection probability strictly above 70%",
+  "The prior rule awarded the top probability points at 65%, which admitted IHO-06 (65.13%) and RGU-14 (66.85%) as HIGH. Both are now MEDIUM, their predictions were removed from the HIGH-only list, and the grader/checker require >70%. This percentage is the project's modeled probability, not a market-implied probability.",
+  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),
+ ("The requested American odds range cannot be verified from this capture",
+  "The repository contains no bookmaker market quotes. Decimal prices are our own model output with a 5% overround, so they cannot prove that any pick falls between -250 and +10000 American market odds. No bookmaker price or market-implied probability is inferred; this remains open until a market source is captured and linked.",
+  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/model.md"),
+ ("The OLBG match board is a 2026-10-21 snapshot, not a live 2026-10-22 refresh",
+  "The fixtures and tip splits in the board were captured on 21 October (outright capture at 07:05 UTC); this review did not retrieve current OLBG listings for 22 October. Relative labels such as Today/Tomorrow and tip counts are therefore historical snapshots, not proof that a fixture remains upcoming or unchanged. The scheduled CI refreshes official NHL/MLB/NBA feeds, not these OLBG source rows.",
+  "https://www.olbg.com/betting-tips"),
+ ("Some HIGH-prediction claims are linked to non-official reporting",
+  "The source registry classifies media/aggregator links in 10 predictions as third-party or unclassified (including player-specific and recent-match details in RGU-01, RGU-04, RGU-05, RGU-06, RGU-07, RGU-10, RGU-11, RGU-13, IHO-03 and IHO-05). They are visibly tier-tagged on the Predictions page; the associated facts are not claimed verified from a governing body here. Official-source-only player facts remain a gap and are flagged rather than silently promoted.",
+  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
 ]
 irregularities = IRREGULARITY_EXTRA + irregularities
 
@@ -950,7 +994,7 @@ model output, never as a market quote.</p>
 
 <h2>Confidence grading</h2>
 <p>Three factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
-model probability of the pick &ge;65% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
+model probability of the pick &gt;70% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
 A row built only on a public tip share therefore can never be graded above MEDIUM, and in practice lands on LOW.</p>
 <p>Current split: HIGH {conf_counter['HIGH']} &middot; MEDIUM {conf_counter['MEDIUM']} &middot; LOW {conf_counter['LOW']}.</p>
 

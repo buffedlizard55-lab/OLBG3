@@ -102,13 +102,11 @@ greyhounds and Gaelic football get no total line.
   side we price is the side named in OLBG's own selection text (e.g. "Baskonia +4.5" →
   Baskonia); if neither side is named, the home side is priced. Nothing is inferred
   beyond that string match.
-* **HIGH-pick override (added 2026-10-21T07Z):** when a row has a written prediction in
-  `data/predictions-olbg.json`, the side named there (`our_pick`) is the pick, and its
-  probability is floored at **0.65** (price 1.47 at the 5% hold). The floor is applied
-  only where the prediction cites official current-form facts, and every row where it
-  changed the number carries the flag `high_confidence_floor_applied_from_official_form`
-  so the reader can see the 65% is a disclosed choice, not a measurement. Where the crowd
-  split alone already exceeded 0.65 the model number stands.
+* A written prediction may identify the selection, but it never changes, floors or inflates
+  the selected-side probability. HIGH is not assigned from prose or source quality alone.
+  The model probability must be **strictly above 0.70**, and the pick must also meet the
+  board's verification and official-form evidence rules. Any older 65% floor outputs are
+  superseded and must not be presented as current HIGH picks.
 * Both `our_match_probability` (probability of the side the branch computed, kept for
   reproducibility) and `our_home_probability` (always the home side) are written; the
   board reads the latter.
@@ -118,11 +116,11 @@ greyhounds and Gaelic football get no total line.
 
 | Label | Rule |
 |---|---|
-| **high** | The match has a verified long-form prediction in `data/predictions-olbg.json` (mirrored to `data/predictions.json`), which requires a verified fixture and verified form/results from an official source. |
-| **medium** | Winner market, at least 5 tips, and `|p_model − 0.5| ≥ 0.08`. |
+| **high** | Verified fixture, official form evidence, and selected-side model probability strictly above 0.70. A prediction is required, but cannot raise the probability. |
+| **medium** | Winner market, at least 5 tips, and `|p_model − 0.5| ≥ 0.08`, or verified and sufficiently supported under the board's documented score. |
 | **low** | Everything else: tiny samples, non-winner OLBG rows, outrights, rows with no tip data. |
 
-In this run (harvest 2026-10-21T06:50Z): 5 high, 31 medium, 142 low, out of 178 rows.
+After reapplying the threshold to the 2026-10-21 captured dataset, the separate OLBG audit track has 0 high, 31 medium, and 158 low rows (189 total). The five previous written predictions used a 65% floor and are withdrawn from that track; none is evidence of a >70% chance.
 
 ## What the model deliberately does not do
 

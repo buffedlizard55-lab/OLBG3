@@ -87,7 +87,7 @@ def price(p: float) -> float:
 def grade(fixture_verified: bool, prob: float) -> tuple[str, int, dict]:
     """Same 0-6 rubric the two-sided board uses (see method page)."""
     factors = {"fixture_verified": 2 if fixture_verified else 0, "official_form": 0, "model_edge": 0}
-    if prob >= 0.65:
+    if prob > 0.70:
         factors["model_edge"] = 2
     elif prob >= 0.55:
         factors["model_edge"] = 1

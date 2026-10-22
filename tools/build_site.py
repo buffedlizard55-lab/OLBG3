@@ -261,7 +261,7 @@ def main() -> None:
 <section class="hero small">
   <h1>Our lines and picks</h1>
   <p class="lede">Every fixture in scope, with the price we would put up, our handicap and total, and the confidence label.
-  Prob. is our model probability of our pick (65% floor disclosed on HIGH rows); prices are ours (5% theoretical hold).
+  Prob. is our model probability of our pick; predictions cannot raise or floor it, and HIGH requires strictly above 70%. Prices are ours (5% theoretical hold).
   <a href="methodology.html#model">How the numbers are made →</a></p>
   <div class="tools">
     <input id="q" type="search" placeholder="Filter by team, player, sport or competition…" aria-label="Filter rows">

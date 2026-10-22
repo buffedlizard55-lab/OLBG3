@@ -88,7 +88,7 @@ def main() -> None:
     high_ids = {p["match_id"] for p in preds.get("predictions", [])}
     # The written prediction names the side; the line must agree with it.
     high_pick = {p["match_id"]: p.get("our_pick") for p in preds.get("predictions", []) if p.get("our_pick")}
-    HIGH_FLOOR = 0.65  # disclosed: a HIGH pick backed by official form is priced at no less than 65%
+    HIGH_PROBABILITY_MIN = 0.70  # HIGH requires strictly greater than the requested 70% model probability
 
     out = []
     for m in matches:
@@ -157,16 +157,19 @@ def main() -> None:
             pick = consensus
             flags.append("pick_carried_from_olbg_consensus_without_our_probability")
 
-        # HIGH picks: the written prediction decides the side, and the price carries a disclosed floor
+        # A prediction can select the side, but it must never inflate the probability.
+        # If the named side differs from the model's current pick, invert the probability.
         if m["id"] in high_ids and m["home"] and m["away"]:
             named = high_pick.get(m["id"])
             if named in (m["home"], m["away"]):
+                if pick and named != pick and p_pick is not None:
+                    p_pick = 1 - p_pick
                 pick = named
                 other = m["away"] if pick == m["home"] else m["home"]
-            if p_pick is None or p_pick < HIGH_FLOOR:
-                p_pick = HIGH_FLOOR
-                flags.append("high_confidence_floor_applied_from_official_form")
-            p_model = p_pick if pick == m["home"] else 1 - p_pick
+                if p_pick is not None and p_pick <= HIGH_PROBABILITY_MIN:
+                    flags.append("prediction_below_strict_70pct_high_threshold")
+                if p_pick is not None:
+                    p_model = p_pick if pick == m["home"] else 1 - p_pick
 
         # normalise: p_home is always the HOME side's probability (p_model above may be the
         # consensus side's probability, depending on the branch that produced it)
@@ -187,8 +190,9 @@ def main() -> None:
         if tl is None:
             flags.append("no_defensible_total_baseline_blank")
 
-        # confidence
-        if m["id"] in high_ids:
+        # Confidence requires the same explicit >70% model-probability bar as the board.
+        # A long-form prediction is not itself evidence of a higher chance to win.
+        if m["id"] in high_ids and p_pick is not None and p_pick > HIGH_PROBABILITY_MIN:
             conf = "high"
         elif (m["market_family"] == "match_winner" and total and total >= 5
               and p_model is not None and abs(p_model - 0.5) >= 0.08):

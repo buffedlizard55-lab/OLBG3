@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">39 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">40 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -296,6 +296,13 @@
   <p>The men&#x27;s Polish league URL plusliga.pl/games.html now redirects to tauronliga.pl, i.e. the competition name OLBG&#x27;s rows imply (&quot;PlusLiga&quot;) may be stale. Not confirmed either way; volleyball rows stay unverified.</p>
   <p class="muted small">Affected rows: VOL-36961, VOL-36981, VOL-36945, VOL-36972, VOL-36963, VOL-36964, VOL-36965, VOL-36979, VOL-36971, VOL-36983, VOL-36984, VOL-36985, VOL-36980, VOL-36978, VOL-36973, VOL-36968, VOL-36986, VOL-36974, VOL-36977, VOL-36962</p>
   <ul class="srclist"><li><a href="https://www.tauronliga.pl/games.html" rel="noopener nofollow" target="_blank">TAURON Liga — mecze</a></li></ul>
+</article>
+<article class="card flag" id="FL-040">
+  <div class="flag-head"><span class="tag">FL-040</span> <span class="sev sev-high">high</span></div>
+  <h2>Five former HIGH predictions relied on an artificial 65% probability floor</h2>
+  <p>The prior OLBG audit-track model raised predictions to a 65% probability floor based on the prediction existing, rather than the underlying model. Recalculation shows selected-side model estimates of 61% (BKB-535923), 60% (RGU-609562), 60% (RGU-609567), 40% (TEN-902048) and 60% (ICH-199896). All five predictions have been removed from that track; none qualifies as &gt;70% HIGH. The main board has its own 13 qualifying model-based HIGH picks. Neither track includes bookmaker-market odds, so the requested American odds range remains unverified.</p>
+  <p class="muted small">Affected rows: BKB-535923, RGU-609562, RGU-609567, TEN-902048, ICH-199896</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py" rel="noopener nofollow" target="_blank">Model origination and prior floor behavior (repository review)</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG source listings (historical capture; check current event pages)</a></li></ul>
 </article>
 
 </main>

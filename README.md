@@ -10,7 +10,9 @@ HIGH picks, and a verification log linking checks to official sources. It is a d
 (`data/meta.json`, `data/raw/olbg-harvest-20261021T0650Z.tsv`). This work session is dated 2026-10-22; no new
 OLBG capture was made here. Relative start labels such as “Tomorrow” were captured verbatim and must not be
 interpreted as today's schedule. The official-feed updater does not refresh this OLBG capture. Treat match times,
-tip counts and featured-market selections as stale until a new source capture is verified.
+tip counts and featured-market selections as stale until a new source capture is verified. No bookmaker-market
+prices were captured; the displayed decimals are our model quotes, so the requested American-odds range (-250
+to +10000) and market-implied >70% chance cannot be verified or used as a filter.
 
 | Page | What it is |
 |---|---|
@@ -53,16 +55,16 @@ each with the ambiguity recorded on the Flagged for Review page.
      `Beta(a, b)` prior whose mean is `1/N` (N = the field size) and strength `k`, then `odds = 0.95 / p`.
      N and k are disclosed assumptions and are written into every row.
 3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
-   both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
-4. **Predictions** — written only for HIGH picks, at least 30 words, non-repetitive prose naming real verified
-   2026 match players, current form, recent match history and an unmistakable betting selection, with every
-   factual claim attached to an official source. Currently **15** predictions: nine rugby union fixtures
-   (URC, Pro D2, Top 14), five ice hockey fixtures (three ICEHL, one SHL, one NHL), and one EuroLeague
-   basketball fixture (`BKB-11` Panathinaikos v Baskonia).
+   both sides (+2), model probability strictly >70% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2. The
+   >70% rule is about our model, not sportsbook market odds.
+4. **Predictions** — written only for HIGH picks, at least 30 words, with a clear selection. Source tiers are
+   shown on the page; non-official supporting links are explicitly flagged rather than presented as official
+   verification. The current board has **13** HIGH predictions: eight rugby union, four ice hockey, one EuroLeague
+   basketball. Two former picks (65.13%, 66.85%) were downgraded to MEDIUM and removed from the HIGH list.
 5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
    competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
    A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
-   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified (109 official + 6 club-official) / 4 corroborated / 18 unverified**. There are
+   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified** (103 official + 6 club-official fixtures + 6 official outright/race events) / **4 corroborated / 18 unverified**. There are
    originated prices on **132/137** rows, 83 handicaps, and 25 totals. Five fixtures have no winner price: their
    captured OLBG leading selections are non-winner markets (one total and four ties), so the model refuses to
    turn those into match-winner probabilities. This board is not a complete market-by-market inventory.
@@ -97,7 +99,7 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 15 predictions, one per HIGH row | board |
+| `data/predictions.json` | 13 predictions, one per HIGH row | board |
 | `data/matches.json`, `data/lines.json` | 189 captured rows + 189 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json` | findings for the `/olbg/` audit track | documentation |
@@ -112,10 +114,10 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 * Five fixtures have no originated moneyline because OLBG's captured leading selection was a total or a tie;
   the code explicitly refuses to infer a win probability from those selections. The board does not enumerate
   every available OLBG market.
-* The HIGH grade uses the published fixture/form/probability score and a 65% model-probability threshold. It
-  does **not** select matches using bookmaker market prices, does not establish a >70% market-implied chance,
-  and does not apply the requested American-odds window (-250 to +10000). Do not treat the current HIGH picks as
-  satisfying those additional criteria.
+* The HIGH grade now requires a modeled selection probability strictly above 70%, plus verified fixture/form
+  evidence. It is not a market-implied probability, and no sportsbook prices were captured; the requested
+  American-odds window (-250 to +10000) cannot be checked. Do not treat the current model picks as satisfying
+  that market-price filter.
 * OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
 * OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
   start time is derived from them.
