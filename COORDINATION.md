@@ -79,6 +79,22 @@ in `scripts/release.py`; no other domain added; explicitly not a factual upgrade
 `stats.unitedrugby.com/match-centre/2026-27/4`, `pdc.tv` (consent wall — no content taken),
 `lnh.fr` (calendar shell only — no content taken).
 
+**Merge & Pages record (standing requirement).** PR [#102](https://github.com/buffedlizard55-lab/OLBG3/pull/102)
+opened from `arena/cab97f19-olbg3` and **merged to `main` as `26c04f498114a421fd1cc7940b0a0c301e2a8863`**
+at 2026-10-22T21:01:10Z without waiting for review. Branch CI `build` passed in 12s
+(run [39853631320](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853631320)); the PR's
+`deploy` job skipped as expected. Post-merge on `main`: `Verify and publish dashboard`
+([39853786255](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853786255)) and
+`pages build and deployment` ([39853785468](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853785468))
+both completed **success**. Live re-read of the published site with a cache-busting query confirmed the
+new data: `https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html` serves **324 of 324 rows**, and
+`/olbg/flagged.html` serves **104 items** including `FL-099`..`FL-104`.
+
+**Concurrency note.** `main` advanced from `13f31f4` to `da6c533` (sibling PRs #99/#100 by
+`session-931c2e71`, which hardened `scripts/check_links.py` and added `tests/test_check_links.py`) while
+this session was working. This branch was rebased onto `da6c533` before pushing; the combined tree was
+re-validated (81/81 tests, 106 pages, 1,940 links, 0 broken) and no sibling work was discarded.
+
 **Residual irregularities (published on the Flagged page, none block the merge):** `FL-099` fixed,
 `FL-100` open (snooker listing empty), `FL-101` open (25 of 26 new fixtures uncertifiable and published
 blank), `FL-102` open (five-per-sport shortfall with per-sport reasons), `FL-103` open (darts per-match
