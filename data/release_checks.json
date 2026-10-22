@@ -1,16 +1,16 @@
 {
   "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds.",
-  "session": "session-0570f99b + session-d3464fe4",
-  "checked_at": "2026-10-22T09:10:00Z",
+  "session": "session-b6cb43c5 (midday re-verification)",
+  "checked_at": "2026-10-22T12:10:00Z",
   "events": {
     "160789": {
       "date": "2026-10-23",
       "time": "20:00",
       "timezone": "ET",
       "kind": "exact",
-      "source": "https://www.mlb.com/schedule/2026-10-23",
-      "quote": "Friday Oct 23 \u2014 World Series \u2014 TB @ MIL \u2014 8:00 PM ET",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "source": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
+      "quote": "WORLD SERIES \u2014 Friday, Oct. 23 \u2014 Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes) \u2014 All times ET",
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "535918": {
       "date": "2026-10-22",
@@ -19,7 +19,7 @@
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
       "quote": "October 22, 2026 \u2014 Anadolu Efes Istanbul vs. Besiktas Istanbul (19:30 CEST)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "535920": {
       "date": "2026-10-22",
@@ -37,7 +37,7 @@
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
       "quote": "October 22, 2026 \u2014 Maccabi Rapyd Tel Aviv vs. Real Madrid (20:05 CEST)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "535923": {
       "date": "2026-10-22",
@@ -55,7 +55,7 @@
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
       "quote": "October 22, 2026 \u2014 Armani Olimpia Milan vs. FC Barcelona (20:30 CEST)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "535924": {
       "date": "2026-10-22",
@@ -73,7 +73,7 @@
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
       "quote": "October 23, 2026 \u2014 Zalgiris Kaunas vs. LDLC ASVEL Villeurbanne (19:00 CEST)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "535925": {
       "date": "2026-10-23",
@@ -104,7 +104,7 @@
       "kind": "exact",
       "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
       "quote": "OTP Bank - PICK Szeged (HUN) vs GOG (DEN) \u2014 Thursday 22 October, 18:45 CEST",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "9940": {
       "date": "2026-10-22",
@@ -245,18 +245,20 @@
       "time": "19:00",
       "timezone": "CEST",
       "kind": "exact",
-      "source": "https://www.shl.se/game-center/n1q49f6c5j/qa98unlbd6/?state=pre-game",
-      "quote": "MATCH F\u00d6R MATCH \u2014 Torsdag 22 oktober \u2014 19.00 Timr\u00e5 \u2013 F\u00e4rjestad (SCA Arena)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "quote": "2026-10-22 19:00 \u2014 Timr\u00e5 IK - F\u00e4rjestad BK \u2014 SCA Arena",
+      "checked_at": "2026-10-22T12:10:00Z",
+      "note": "Local time exactly as printed by the Swedish Ice Hockey Association; Sweden is on CEST (UTC+2) on 22 October 2026."
     },
     "199906": {
       "date": "2026-10-22",
       "time": "19:00",
       "timezone": "CEST",
       "kind": "exact",
-      "source": "https://www.shl.se/game-center/no64p8kr92/qa98unlbd6/?state=pre-game",
-      "quote": "MATCH F\u00d6R MATCH \u2014 Torsdag 22 oktober \u2014 19.00 R\u00f6gle \u2013 Fr\u00f6lunda (Catena Arena)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "quote": "2026-10-22 19:00 \u2014 R\u00f6gle BK - Fr\u00f6lunda HC \u2014 Catena Arena",
+      "checked_at": "2026-10-22T12:10:00Z",
+      "note": "Local time exactly as printed by the Swedish Ice Hockey Association; Sweden is on CEST (UTC+2) on 22 October 2026."
     },
     "199905": {
       "date": "2026-10-22",
@@ -272,9 +274,10 @@
       "time": "19:00",
       "timezone": "CEST",
       "kind": "exact",
-      "source": "https://www.shl.se/game-center/zvcj2so1am/qa98unlbd6/?state=pre-game",
-      "quote": "SHL Game Center \u2014 \u00d6rebro Hockey - Bryn\u00e4s IF \u2014 22 oktober 19.00 (Behrn Arena)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+      "quote": "2026-10-22 19:00 \u2014 \u00d6rebro HK - Bryn\u00e4s IF \u2014 Behrn Arena",
+      "checked_at": "2026-10-22T12:10:00Z",
+      "note": "Local time exactly as printed by the Swedish Ice Hockey Association; Sweden is on CEST (UTC+2) on 22 October 2026."
     },
     "199902": {
       "date": "2026-10-22",
@@ -290,9 +293,9 @@
       "time": "23:00",
       "timezone": "UTC",
       "kind": "exact",
-      "source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
-      "quote": "{\"id\":2026020155,\"gameDate\":\"2026-10-22\",\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"awayTeam\":{\"abbrev\":\"NYR\"},\"homeTeam\":{\"abbrev\":\"TOR\"}}",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "source": "https://api-web.nhle.com/v1/gamecenter/2026020155/landing",
+      "quote": "{\"id\":2026020155,\"gameDate\":\"2026-10-22\",\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"venue\":{\"default\":\"Scotiabank Arena\"},\"awayTeam\":{\"abbrev\":\"NYR\"},\"homeTeam\":{\"abbrev\":\"TOR\"}}",
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "101904": {
       "date": "2026-10-22",
@@ -310,7 +313,8 @@
       "kind": "exact",
       "source": "https://www.formula1.com/en/racing/2026/united-states",
       "quote": "{\"name\":\"Race - United States Grand Prix\",\"startDate\":\"2026-10-25T20:00:00.000Z\"}",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "checked_at": "2026-10-22T12:10:00Z",
+      "hold": "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection."
     },
     "609578": {
       "date": "2026-10-24",
@@ -324,11 +328,11 @@
     "3530": {
       "date": "2026-10-25",
       "time": "16:00",
-      "timezone": "UTC",
+      "timezone": "Irish time",
       "kind": "exact",
       "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-      "quote": "{\"name\":\"McCarthy Insurance Group Premier Senior Football Championship Final\",\"startDate\":\"2026-10-25T16:00:00+00:00\",\"location\":\"SuperValu Pairc Ui Chaoimh\"}",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "quote": "Match Details \u2014 McCarthy Insurance Group Premier Senior Football Championship Final \u2014 Sunday, October 25 \u2014 4.00pm \u2014 SuperValu P\u00e1irc U\u00ed Chaoimh",
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "12049": {
       "date": "2026-10-22",
@@ -385,13 +389,11 @@
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "2801600": {
-      "date": "2027-03-04",
-      "time": "09:00",
-      "timezone": "UTC",
-      "kind": "exact",
+      "kind": "unverified",
       "source": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-      "quote": "2027 NRL Telstra Premiership season outright market (pre-season ante-post; 2026 Minor Premiers Penrith Panthers)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "quote": "Congratulations to Penrith Panthers on a fourth minor premiership in seven years.",
+      "note": "The cited NRL release confirms Penrith are 2026 Minor Premiers but publishes no 2027 season start date. An ante-post outright cannot be given an official kick-off, so no exact start is certified and the row is published as analysis.",
+      "checked_at": "2026-10-22T12:10:00Z"
     },
     "32338": {
       "date": "2026-10-22",

@@ -28,6 +28,9 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     'www.formula1.com', 'www.icc-cricket.com', 'www.leinsterrugby.ie',
     'www.mlb.com', 'www.nrl.com', 'www.pdc.tv', 'www.pgatour.com',
     'www.shl.se', 'www.wst.tv',
+    # The Swedish Ice Hockey Association publishes the SHL schedule and its clock on its own
+    # stats portal (stats.swehockey.se), not on shl.se. Federation domain, reviewed 2026-10-22.
+    'stats.swehockey.se',
 })
 
 

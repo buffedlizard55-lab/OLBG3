@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">77 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">89 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -563,11 +563,95 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.pdc.tv/" rel="noopener nofollow" target="_blank">PDC official website (retrieval failed in this audit)</a></li><li><a href="https://www.mlb.com/schedule/2026-10-23" rel="noopener nofollow" target="_blank">MLB official schedule (not retrieved in this audit)</a></li></ul>
 </article>
+<article class="card flag" id="FL-078">
+  <div class="flag-head"><span class="tag">FL-078</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>Civitanova&#x27;s opening round was a 3-0 win, not a four-set win (VOL-36995)</h2>
+  <p>VOL-36995 read &#x27;Civitanova opened the 2026/27 SuperLega campaign with a four-set victory (97:85 rally points)&#x27;. Volleyball World match 29996 (Rana Verona v Cucine Lube Civitanova, 17 Oct 2026) shows Verona 0-3 Civitanova, sets 20-25, 19-25, 26-28, with team totals of 65 v 78. The prose now states the 3-0 scoreline and the 78-65 rally-point split. Price, probability and grade are unchanged.</p>
+  <p class="muted small">Affected rows: VOL-36995, VOL-28</p>
+  <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/29996/" rel="noopener nofollow" target="_blank">Volleyball World / FIVB official match centre 29996</a></li></ul>
+</article>
+<article class="card flag" id="FL-079">
+  <div class="flag-head"><span class="tag">FL-079</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>2027 NRL outright carried an invented kick-off and quotes that were not quotes (RGL-2801600)</h2>
+  <p>The release record for event 2801600 held kind=exact, date 2027-03-04, time 09:00 and a &#x27;quote&#x27; that was actually a description (&#x27;2027 NRL Telstra Premiership season outright market ...&#x27;). The NRL release does publish Penrith&#x27;s fourth minor premiership in seven years and the Finals Week 1 pairing against the Sydney Roosters, but no 2027 start date. The record is now kind=unverified with the real quote, so no exact start is certified; the row is published as analysis. The write-up also claimed a 19-12 Finals Week 1 win, four straight titles 2021-2024 and 218 Cleary points, none of which appear on the cited page, so those sentences were replaced with the release&#x27;s own wording.</p>
+  <p class="muted small">Affected rows: RGL-2801600, RGL-01, RGL-03</p>
+  <ul class="srclist"><li><a href="https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/" rel="noopener nofollow" target="_blank">NRL official release, Finals Series Week One</a></li></ul>
+</article>
+<article class="card flag" id="FL-080">
+  <div class="flag-head"><span class="tag">FL-080</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>Brynäs &#x27;special-teams edge&#x27; overstated and an unsourced head-to-head removed (IHO-10)</h2>
+  <p>IHO-10 claimed Brynäs had &#x27;won three of four meetings against Örebro last season behind Kieffer Bellows and Jakob Silfverberg&#x27;. No retrieved official page supports that head-to-head, so it was removed. The official SHL tables show Brynäs&#x27; powerplay at 11.76% against Örebro&#x27;s 20.00%, so the only verified special-teams edge is the penalty kill (Brynäs 72.73%, Örebro a league-worst 61.29%); the headline now says penalty-kill edge. Silfverberg&#x27;s eight points in 10 games is confirmed on the official scoring leaders page.</p>
+  <p class="muted small">Affected rows: IHO-10</p>
+  <ul class="srclist"><li><a href="https://stats.swehockey.se/Teams/Statistics/PowerplayAndPenaltyKilling/20961" rel="noopener nofollow" target="_blank">Swedish Ice Hockey Association - SHL PP/PK team statistics 2026-27</a></li><li><a href="https://stats.swehockey.se/Players/Statistics/ScoringLeaders/20961" rel="noopener nofollow" target="_blank">Swedish Ice Hockey Association - SHL scoring leaders 2026-27</a></li></ul>
+</article>
+<article class="card flag" id="FL-081">
+  <div class="flag-head"><span class="tag">FL-081</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>Toronto goal total and home split could not be confirmed (ICH-199937)</h2>
+  <p>The NHL game center for fixture 2026020155 lists Toronto at 5-4-2 over 11 games with a 3.09 team goals-against average, and New York at 7-3-1 with 2.18. It does not publish a 35-goal total or a home split, so the claim was replaced with the published records and rate stats rather than inferred.</p>
+  <p class="muted small">Affected rows: ICH-199937</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/gamecenter/2026020155/landing" rel="noopener nofollow" target="_blank">NHL official game center JSON, game 2026020155</a></li></ul>
+</article>
+<article class="card flag" id="FL-082">
+  <div class="flag-head"><span class="tag">FL-082</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>Leinster piece relied on unsourced assertions that the URC table contradicts (RGU-609578)</h2>
+  <p>The cited pages (unitedrugby.com fixtures, the OLBG event page) do not support claims about Leinster&#x27;s pack, Caelan Doris, Hugo Keenan or Tadhg Beirne, and the official URC table after Round 3 puts Leinster 10th on 8 points (1W-2L, 75/58) with Munster 9th on 9 (72/74). The piece was rewritten around those published figures and the Round 3 29-5 win over Cardiff. Selection, price and grade are unchanged.</p>
+  <p class="muted small">Affected rows: RGU-609578, RGU-14</p>
+  <ul class="srclist"><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">URC official league table 2026/27</a></li></ul>
+</article>
+<article class="card flag" id="FL-083">
+  <div class="flag-head"><span class="tag">FL-083</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>ICC team ratings and exact innings totals were not on any readable official page (CRK-10, CRI-188831)</h2>
+  <p>icc-cricket.com renders its team-rankings table client-side and returned no rows to this session, and the two ICC articles cited confirm only that Afghanistan beat Zimbabwe by 158 runs in Abu Dhabi on 19 October and that Rashid Khan took 4/17 from eight overs. The ratings and the innings totals were therefore removed rather than inferred. Rank positions were removed with them.</p>
+  <p class="muted small">Affected rows: CRK-10, CRI-188831</p>
+  <ul class="srclist"><li><a href="https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings" rel="noopener nofollow" target="_blank">ICC - Afghanistan spinner boosts lead at top of ODI bowler rankings</a></li><li><a href="https://www.icc-cricket.com/news/stocks-rising-for-in-form-afghanistan-batter-ahead-of-cwc27" rel="noopener nofollow" target="_blank">ICC - Stocks rising for in-form Afghanistan batter</a></li></ul>
+</article>
+<article class="card flag" id="FL-084">
+  <div class="flag-head"><span class="tag">FL-084</span> <span class="sev sev-info">info</span></div>
+  <h2>Bermuda Championship outright expired when the official first tee passed</h2>
+  <p>The recorded observation is the official Round 1 first tee of 06:35 ET on 22 October (10:35Z) on pgatour.com, and the tournament page now shows R1 in progress. With the publication clock refreshed to 12:10Z the release gate marks the row start_window_reached, so it is published as analysis on both tracks. The outright price and reasoning are retained for the record.</p>
+  <p class="muted small">Affected rows: GLF-02, GLF-101904</p>
+  <ul class="srclist"><li><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview" rel="noopener nofollow" target="_blank">PGA Tour - Butterfield Bermuda Championship overview</a></li></ul>
+</article>
+<article class="card flag" id="FL-085">
+  <div class="flag-head"><span class="tag">FL-085</span> <span class="sev sev-info">info</span></div>
+  <h2>README metrics were stale against the built board</h2>
+  <p>Every number in the README&#x27;s metrics bullets and file table was regenerated from the committed JSON on this build: 230 root rows (202 two-sided fixtures + 28 outright/race), 67 root pieces (live HIGH plus analysis), 275 /olbg/ lines, 47 /olbg/ pieces and the flag count on this page. Nothing in the data was changed to match the documentation. The live HIGH counts move with the publication clock, so they are quoted as of this build rather than as a fixed property of the board.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/README.md" rel="noopener nofollow" target="_blank">Repository README</a></li></ul>
+</article>
+<article class="card flag" id="FL-086">
+  <div class="flag-head"><span class="tag">FL-086</span> <span class="sev sev-info">info</span></div>
+  <h2>Official billing of the Cork final reverses OLBG&#x27;s home/away order</h2>
+  <p>The final is at the neutral SuperValu Páirc Uí Chaoimh on Sunday 25 October at 4.00pm, so the order has no effect on the match-winner selection or on the -1.5 handicap line. Left as OLBG published it and flagged for review.</p>
+  <p class="muted small">Affected rows: GAF-01, GFA-3530</p>
+  <ul class="srclist"><li><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener nofollow" target="_blank">Cork GAA - Premier Senior Football Championship Final</a></li></ul>
+</article>
+<article class="card flag" id="FL-087">
+  <div class="flag-head"><span class="tag">FL-087</span> <span class="sev sev-info">info</span></div>
+  <h2>PDC pages could not be re-read this pass (cookie wall)</h2>
+  <p>pdc.tv returned only its cookie-consent payload to every retrieval attempt, so the schedule, draw and opening-bell claims in DAR-32324, DAR-32332, DAR-32338 and DRT-17 could not be independently re-checked in this session. They remain inside the 24-hour source window on their earlier recorded observations and are listed here rather than presented as freshly verified.</p>
+  <p class="muted small">Affected rows: DAR-32324, DAR-32332, DAR-32338, DRT-17</p>
+  <ul class="srclist"><li><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" rel="noopener nofollow" target="_blank">PDC - Machineseeker European Championship schedule</a></li></ul>
+</article>
+<article class="card flag" id="FL-088">
+  <div class="flag-head"><span class="tag">FL-088</span> <span class="sev sev-info">info</span></div>
+  <h2>SHL start times are printed in Swedish local time without a zone label</h2>
+  <p>stats.swehockey.se lists the six 22 October fixtures at 19:00 with Swedish venue names and no zone. Sweden is on CEST (UTC+2) until 25 October 2026, which is what the 17:00Z normalisation uses. The assumption is recorded on every affected release record rather than left implicit.</p>
+  <p class="muted small">Affected rows: IHO-10, IHO-12, ICH-199900, ICH-199901, ICH-199906</p>
+  <ul class="srclist"><li><a href="https://stats.swehockey.se/ScheduleAndResults/Overview/20961" rel="noopener nofollow" target="_blank">Swedish Ice Hockey Association - SHL schedule &amp; results 2026-27</a></li></ul>
+</article>
+<article class="card flag" id="FL-089">
+  <div class="flag-head"><span class="tag">FL-089</span> <span class="sev sev-withheld">withheld</span></div>
+  <h2>Official Formula 1 page contradicts itself on the US GP start, so the start is withheld (MTR-01 / MTR-913)</h2>
+  <p>Both observations come from formula1.com itself. 16:00 CDT (UTC-5) is 21:00Z, so a 20:00Z start matches neither reading and would be an hour early if the printed clock is the local one. Rather than pick a side, the release record carries a source_conflict hold: the exact start is withheld, the row is published unpriced as analysis, and the prose and selection are retained unchanged so a later pass can release them once the clock is settled. Nothing about the race outcome is inferred.</p>
+  <p class="muted small">Affected rows: MTR-01, MTR-913</p>
+  <ul class="srclist"><li><a href="https://www.formula1.com/en/racing/2026/united-states" rel="noopener nofollow" target="_blank">Formula 1 - 2026 United States Grand Prix race page</a></li><li><a href="https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-united-states-grand-prix.3yCUtnzlXLwOvhVtmsdVRK" rel="noopener nofollow" target="_blank">Formula 1 - facts, stats and trivia ahead of the 2026 United States GP</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T08:58:00Z; publication clock 2026-10-22T09:10:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-22T08:58:00Z; publication clock 2026-10-22T12:10:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

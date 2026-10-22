@@ -140,8 +140,8 @@ LPGA BMW Ladies overview (Oct 22-25, Pine Beach, par 72, 6,784 yd, $2.35M, Sei Y
 
 ## Scope & Strict Exclusions
 
-- **Included (all 15 non-excluded OLBG sports — `196` combined board rows = `173` two-sided fixtures + `23` outright/race rows; `145` live `2026-10-22` `/olbg/` rows):**
-  Tennis (`34`), Handball (`31`), Basketball (`24`), Volleyball (`21`), Darts (`16`), Rugby Union (`15`), Cricket (`10`), Ice Hockey (`10`), Golf (`10`), Greyhounds (`6`), Snooker (`6`), Gaelic Football (`6`), Rugby League (`3`), Motor Racing (`3`), Baseball (`1`).
+- **Included (all 15 non-excluded OLBG sports — `230` combined board rows = `202` two-sided fixtures + `28` outright/race rows; `275` `/olbg/` rows spanning `2026-10-22` to `2026-11-01`):**
+  Tennis (`37`), Handball (`31`), Basketball (`30`), Volleyball (`29`), Darts (`17`), Rugby Union (`15`), Ice Hockey (`14`), Snooker (`14`), Cricket (`10`), Golf (`10`), Greyhounds (`10`), Gaelic Football (`6`), Motor Racing (`3`), Rugby League (`3`), Baseball (`1`).
 - **Strictly excluded (`0` rows published across both tracks):**
   `soccer`, `boxing`, `ufc`, `mma`, `football`, `american football`, `hurling`, `horse racing`, `cycling`, `specials`.
   *(Ambiguity note: Gaelic football, greyhound racing, and Formula 1 motor racing are distinct sports not named in the exclusion list; they are included and explicitly flagged on `flagged.html`.)*
@@ -150,13 +150,13 @@ LPGA BMW Ladies overview (Oct 22-25, Pine Beach, par 72, 6,784 yd, $2.35M, Sei Y
 
 1. **Multi-Market Origination (`scripts/model.py`, `scripts/build_gap_sports.py`, `tools/originate.py`):**
    - **Win Match / Money Line:** Computed from verbatim official competition standings, world rankings, and scoring tables in `data/official.json` (`MLB`, `EuroLeague`, `ATP Tour`, `WTA Tour`, `ICC Cricket`, `PDC Darts`, `SHL`, `NHL`, `ICEHL`, `URC`, `Pro D2`, `Top 14`, `EHF Champions League`, `DAIKIN HBL`) with 5% overround, or shrunk tip-share priors where official form tables are unavailable.
-   - **Handicap / Spread / Run Line / Puck Line (`157` root rows; all 2-way `/olbg/` sports):** Derived from projected score margin or sport-specific margin scale (`sigma * Phi^-1(p)`) in native units (`points`, `runs`, `goals`, `games`, `legs`, `sets`, `frames`).
-   - **Match Totals — Over / Under (`68` official-form root rows; all scoring `/olbg/` sports):** Derived from team offensive/defensive scoring rates and audited against OLBG event-page totals markets (`Over 6.5` runs MLB World Series Game 1, `Over 233.5` pts GSW@LAL, `Under 226.5` pts SAC@LAC, `Over 9.5` legs Noppert vs Bunting).
-   - **Outrights & Multi-Runner Fields (`23` rows):** Dirichlet-multinomial shrinkage toward `1 / N` field priors (`120` PGA Bermuda field, `22` F1 Austin grid, etc.).
+   - **Handicap / Spread / Run Line / Puck Line (every root fixture and every 2-way `/olbg/` sport):** Derived from projected score margin or sport-specific margin scale (`sigma * Phi^-1(p)`) in native units (`points`, `runs`, `goals`, `games`, `legs`, `sets`, `frames`).
+   - **Match Totals — Over / Under (every official-form scoring row on both tracks):** Derived from team offensive/defensive scoring rates and audited against OLBG event-page totals markets (`Over 6.5` runs MLB World Series Game 1, `Over 233.5` pts GSW@LAL, `Under 226.5` pts SAC@LAC, `Over 9.5` legs Noppert vs Bunting).
+   - **Outrights & Multi-Runner Fields (`28` rows):** Dirichlet-multinomial shrinkage toward `1 / N` field priors (`120` PGA Bermuda field, `22` F1 Austin grid, etc.).
 2. **Focusing `HIGH` Confidence on `-250` to `+10000` Odds (`1.40` to `101.00` Decimal):**
    - Heavy >70% moneyline chalk (`price < 1.40`, shorter than `-250`) retains its honest calibrated probability and short price and is explicitly capped at **`MEDIUM`** with its reason disclosed.
    - A selection earns **`HIGH`** only when: (a) confirmed on an official governing-body / club domain (`verified`), (b) backed by official competition form/rankings, (c) kick-off has not passed as of `2026-10-22`, AND (d) its originated price sits strictly inside **`-250` to `+10000` (`1.40 <= price <= 101.00`)**.
-   - **Result:** **33 live `HIGH` predictions across 10 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Golf`, `Handball`, `Ice Hockey`, `Motor Racing`, `Rugby Union`, `Tennis`, spanning `-238` to `+740` US odds) and **23 live `HIGH` predictions across 10 sports** on `/olbg/` (spanning `-227` to `+660` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
+   - **Result:** **15 live `HIGH` predictions across 9 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Gaelic Football`, `Handball`, `Ice Hockey`, `Rugby Union`, `Volleyball`, spanning `-238` to `+507` US odds) and **19 live `HIGH` predictions across 9 sports** on `/olbg/` (spanning `-238` to `+478` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
 
 ## Reproducible Build & Verification Commands
 
@@ -178,8 +178,16 @@ python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 
 ## Current repository audit (2026-10-22 12:04 UTC)
 
-Fresh independent sports-source verification is **blocked in this environment**: outbound access
-is restricted to GitHub and package registries. A direct PDC HTTPS request failed (curl exit 35).
+| File | Contents | Track |
+|---|---|---|
+| `data/raw/olbg-harvest-20261022.tsv` | Live `2026-10-22` OLBG harvest across all active sports + multi-market notes | `/olbg/` & root |
+| `data/events.json` + `data/gap_sports.json` | `202` two-sided fixtures + `28` outright/race rows = **`230` rows** (`217` verified, `1` corroborated, `12` unverified; `209` priced) | root board |
+| `data/predictions.json` | **`67` written pieces**: **`15` live `HIGH` predictions** + `52` `analysis` notes | root board |
+| `data/matches.json` + `data/lines.json` | **`275` fixtures & multi-market lines** across all 15 allowed sports | `/olbg/` track |
+| `data/predictions-olbg.json` | **`47` written pieces**: **`19` live `HIGH` predictions** across 9 sports (`-238` to `+478` US) + `28` `analysis` notes | `/olbg/` track |
+| `data/flagged.json` | **`89` flagged review items** with direct source links | both tracks |
+`session-adeebd4c`, 12:04 UTC: fresh independent sports-source verification is **blocked from the agent shell**: outbound access
+via `curl` is restricted to GitHub and package registries. A direct PDC HTTPS request failed (curl exit 35).
 No inherited quote or verification timestamp was renewed. **Passing tests does not verify match facts.**
 See [audit details](docs/audit-adeebd4c.md) and **FL-077** on [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html).
 Earlier audit sections below describe prior sessions, not work independently reproduced here.
