@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 228 root rows (201 fixtures + 27 outright/race) captured 21–22 Oct 2026, plus the chained 270-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 230 root rows (202 fixtures + 28 outright/race) captured 21–22 Oct 2026, plus the chained 275-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
 - **Honest provenance.** `HIGH` is an uncalibrated model grade, not a demonstrated win rate or betting edge. Fields that no retrieved source states stay blank and are listed on **Flagged for Review** together with every correction. Row-level release evidence (source quotes, checked-at, expiry) is on **Source health** (`source-health.html`).
@@ -19,7 +19,11 @@ What the published numbers do and do not mean:
 | `discovery.html` | Latest robots-aware public OLBG discovery snapshot (partial by design, unverified rows stay blank) |
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
-| `/olbg/` | The separate OLBG lines audit track (21 pages, 270 chained rows) with the same release gate applied to its picks |
+| `/olbg/` | The separate OLBG lines audit track (21 pages, 275 chained rows) with the same release gate applied to its picks |
+
+## Independent verification — `session-7da75ec9`, 2026-10-22T12:00Z (this branch, no data change)
+
+Full pipeline re-run on `main` `f55593f` (PR #82) with zero drift: `59/59` unit tests, `check_board.py` **PASS** (`230 rows / 202 fixtures + 28 outright / 217 verified / 210 priced / 67 pieces`, 17 live in-band HIGH across 11 sports, 0 broken links across 85 pages/1,529 links), `tools/check_site.py` **PASS** (`275 fixtures / 275 lines / 22 HIGH / 47 predictions / 76 flags`), `check.py` PASS, `scripts/update.py` + `discovery.py` PASS. **0 excluded-sport rows** in both tracks; every row carries an OLBG `event_id` source link; every `HIGH` sits strictly inside `-250..+10000` (`1.40–101.00` decimal) with a timezone-qualified official start in `data/release_checks.json` and a unique ≥30-word sourced write-up (59–91 words) naming teams, current form, recent results and an explicit selection (table). 12 unverified / 1 corroborated rows blank+flagged; pricing recomputes (`0.95/p`, ~5.26% recip. overround). No invented player claims; WST 404, EuroLeague Valencia/Olympiacos conflicts, Zalgiris/ASVEL 2-4, and SHL shootout corrections already live (FL-063–FL-076). `COORDINATION.md` `task-39` holds the per-row audit table with official URLs.
 
 ## Audit — `session-0570f99b`, 2026-10-22 (provenance, freshness & release gate)
 
