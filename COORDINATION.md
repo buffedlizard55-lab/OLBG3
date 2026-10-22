@@ -1024,3 +1024,4 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **Independent JSON audit:** 30 root HIGH (-238..+740 US, all inside -250..+10000, min 59 words, 44/44 bodies unique) + 26 /olbg/ HIGH (min 76 words, 26/26 unique); 0 excluded-sport rows; 0 rows missing OLBG URL; 32 unverified rows blank + flagged.
 - **Live spot-verification:** OLBG Tennis live 02:50Z matches stored IDs 902110/902071/902072; MLB official schedule confirms BSB-01 verbatim (WS Game 1 TB@MIL 23 Oct 8pm ET, Jacob Misiorowski probable).
 - **Irregularities:** none new; FL-041..043 + 32 unverified remain on Flagged for Review (non-blocking). PR + merge + Pages verification recorded below on completion.
+- **PR/Merge/Pages (task-27):** PR https://github.com/buffedlizard55-lab/OLBG3/pull/45 merged to `main`; post-merge runs 39713303612 (Verify & publish) and 39713303567 (pages-build-deployment) both `success`; live predictions.html confirmed serving 30 HIGH picks.
