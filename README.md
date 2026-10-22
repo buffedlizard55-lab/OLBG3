@@ -21,7 +21,7 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 
 ## Latest audit — `session-8c24595c` (2026-10-22)
 
-Re-verified live against official sources and fixed. Full register on `flagged.html` (46 items).
+Re-verified live against official sources and fixed. Full register on `flagged.html` (47 items).
 
 | Finding | What was wrong | Fix |
 |---|---|---|

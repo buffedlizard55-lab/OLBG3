@@ -1089,6 +1089,30 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/"
         }
       ]
+    },
+    {
+      "id": "FL-047",
+      "severity": "data quality",
+      "title": "F1 'Win Race' outright was mis-priced as a two-way coin flip (fixed 2026-10-22)",
+      "detail": "MTR-913 (USA Grand Prix, Max Verstappen) is a 22-driver outright, but its OLBG market label 'Win Race' was mapped to market_family=match_winner in tools/build_dataset.py. With no home/away side to resolve, tools/originate.py fell through to the non-win/tie fallback p_base=0.52 and published 1.83 / -120 (flag non_win_or_tie_consensus_mapped), contradicting both its written prediction (+235 / 3.35) and the parallel root-track outright model (MTR-01). Moving 'Win Race' into OUTRIGHT_MARKETS routes the row through its disclosed 22-car field prior (OUTRIGHT_FIELDS override p=0.284), giving 3.35 / +235 which now matches the prose exactly. The row stays HIGH (verified, inside -250..+10000, probability 0.284 < 0.70). 'Win Race' is used by no other row, so MTR-913 is the only record that changed; the high/medium/low counts are unchanged. Raised and fixed by session-f0f3be65.",
+      "affected_rows": [
+        "MTR-913"
+      ],
+      "sources": [
+        {
+          "label": "Formula 1 official: United States Grand Prix 2026 (Circuit of the Americas, race 25 Oct)",
+          "url": "https://www.formula1.com/en/racing/2026/united-states"
+        },
+        {
+          "label": "OLBG event page: USA Grand Prix Win Race (event_id 913)",
+          "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
+        },
+        {
+          "label": "Fix: tools/build_dataset.py market classification (session-f0f3be65)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/build_dataset.py"
+        }
+      ],
+      "raised_by": "session-f0f3be65 (independent odds-consistency audit)"
     }
   ]
 }

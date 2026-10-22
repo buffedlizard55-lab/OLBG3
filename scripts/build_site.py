@@ -737,6 +737,14 @@ AUDIT_CHECKS += [
   "'23 Oct 20:00', Money Line, TB Rays 3/6 (50%). The five-hour clock difference and the changed featured market are logged as an irregularity: "
   "the captured values are kept verbatim as a timestamped snapshot and no time is derived from them.",
   "irregularity", "https://www.olbg.com/betting-tips/Baseball/12"),
+ ("F1 'Win Race' outright mis-priced as a two-way coin flip &mdash; repaired (session-f0f3be65)",
+  "An independent line-by-line audit recomputed every price and found MTR-913 (USA Grand Prix, Max Verstappen) classified as a two-sided "
+  "match even though it is a 22-driver outright with no home/away side. The fallback set p=0.52 and published 1.83 / -120, contradicting its "
+  "own written prediction (+235 / 3.35) and the parallel root outright model. Moving the OLBG 'Win Race' label into the outright family routes "
+  "the row through its disclosed 22-car field prior (p=0.284), so it now originates 3.35 / +235 and matches the prose. Only MTR-913 used the "
+  "label; the high/medium/low counts are unchanged and the pick stays HIGH (verified, in the -250..+10000 band, under the 0.70 chalk cap). "
+  "Logged as FL-047; formula1.com confirms the Circuit of the Americas race on 25 Oct and Verstappen's Red Bull entry.",
+  "fixed", "https://www.formula1.com/en/racing/2026/united-states"),
 ]
 
 AUDIT_CHANGES = [
@@ -929,6 +937,15 @@ IRREGULARITY_EXTRA.append((
     "It does not refresh OLBG captures, verify same-day kick-offs, or independently validate previously stored source claims. "
     "Structural validation of URLs and arithmetic is not source-content verification. The separate /olbg/ track retains its own confidence logic.",
     "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/board_dates.py"))
+IRREGULARITY_EXTRA.append((
+    "An F1 race was priced like a two-way coin flip instead of a 22-driver outright (FL-047, fixed 2026-10-22)",
+    "MTR-913 (USA Grand Prix 'Win Race') was mapped to the match-winner family; with no home/away side it hit the 0.52 fallback and was "
+    "published at 1.83 / -120, contradicting its +235 / 3.35 prediction and the root outright model. Reclassifying the 'Win Race' label as an "
+    "outright restores the disclosed 22-car field prior (p=0.284) and a 3.35 / +235 line that matches the prose exactly. No probability input, "
+    "grade or other row changed. The same independent audit re-checked HIGH-prediction facts against official sources across ten sports "
+    "(Formula 1, PGA Tour, MLB, NBA, ATP, URC, PDC, EuroLeague, ICC cricket) and found every sampled score, seed, standing, date and injury "
+    "corroborated, with no factual hallucination.",
+    "https://www.formula1.com/en/racing/2026/united-states"))
 irregularities = IRREGULARITY_EXTRA + irregularities
 
 def _src(u):
