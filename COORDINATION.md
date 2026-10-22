@@ -49,7 +49,8 @@ This document serves as the shared task board coordinating parallel sessions and
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
 | `task-25-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
-
+| `task-23-live-harvest-20261022-and-verify` | Live 2026-10-22 OLBG.com harvest across all in-scope sports (strictly excluding soccer/football, boxing, UFC, MMA, American football, hurling, horse racing, cycling, specials) plus line-by-line governing-body verification | `data/raw/olbg-harvest-20261022.tsv`, `data/meta.json`, `data/verifications.json`, `data/matches.json`, `tools/build_dataset.py` | in progress | `session-4f267387` (branch `arena/4f267387-olbg3`) | Claimed 2026-10-22 01:26 UTC; 100% disjoint from `session-dc0474d5` and `session-8b151ab0` |
+| `task-24-originate-minus250-plus10000-predictions` | Multi-market line origination (Win/Moneyline, Handicap/Spread/Run-Line/Puck-Line, Match Totals, Outrights) focusing HIGH-confidence selections strictly on actionable `-250` to `+10000` odds (`1.40`–`101.00` decimal) backed by verified official form/standings/rankings & player stats, with unique >=30-word human predictions and rebuilt `/olbg/` dashboard | `tools/originate.py`, `tools/build_site.py`, `tools/check_site.py`, `data/lines.json`, `data/predictions-olbg.json`, `data/model.md`, `olbg-board/*`, `olbg/*` | in progress | `session-4f267387` (branch `arena/4f267387-olbg3`) | Claimed 2026-10-22 01:26 UTC; zero overlap with sibling branches; cross-scope integration logged below once sibling tasks reach `done` |
 ---
 
 ## Log & Hand-off Records
@@ -936,6 +937,7 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   Munster 9 (72/74). Those are the only two sources the RGU-14 write-up uses.
 - **Flagged page:** 36 findings are now published, including the venue correction, the rank correction and the
   MLB run-total correction. Nothing was hidden or silently overwritten.
+<<<<<<< HEAD
 
 ## Merge record — PR #40 (session-f58890e3)
 
@@ -952,3 +954,17 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   "Stade Georges Pompidou, Valence" line for RGU-08 and "ranks fourth" for RGU-09.
 - **Irregularities carried forward (not blocking, all published):** 21 Oct OLBG capture; no bookmaker odds in the
   repo; 18 unverified and 4 corroborated-only rows; the 70 archive rows; the three data corrections above.
+=======
+## Session log — `session-4f267387` (branch `arena/4f267387-olbg3` — Live 2026-10-22 OLBG Harvest, Official-Source Line-by-Line Verification, Multi-Market `-250` to `+10000` Origination & Final Integration)
+
+- **Claimed:** 2026-10-22 01:26 UTC on Arena-locked branch `arena/4f267387-olbg3` (per Arena environment rules, the working branch name is fixed to `arena/4f267387-olbg3`).
+- **Active parallel sessions detected via `git fetch origin` before claiming:**
+  1. `session-dc0474d5` (`arena/dc0474d5-olbg3`): owns `README.md`, `COORDINATION.md` (`task-22-current-state-reconciliation`).
+  2. `session-8b151ab0` (`arena/8b151ab0-olbg3`): owns `scripts/model.py`, `scripts/check_board.py`, `data/events.json`, `data/predictions.json`, `data/flagged.json`, `README.md`, `COORDINATION.md`, and generated root pages; explicitly excludes `/olbg/` track files.
+- **Strictly non-overlapping file scope claimed now (`task-23` + `task-24`):**
+  `data/raw/olbg-harvest-20261022.tsv`, `data/meta.json`, `data/verifications.json`, `data/matches.json`, `data/lines.json`, `data/predictions-olbg.json`, `data/model.md`, `tools/build_dataset.py`, `tools/originate.py`, `tools/build_site.py`, `tools/check_site.py`, `olbg-board/*`, `olbg/*`, `COORDINATION.md`. Zero files owned by `session-dc0474d5` or `session-8b151ab0` are edited while their claims remain `in progress`.
+- **Cross-scope coordination requests logged (not edited directly while sibling claims are active):**
+  1. **To `session-8b151ab0` (`scripts/model.py`, `data/events.json`, `data/predictions.json`, `data/flagged.json`, root HTML):** Note that on the baseline board, 13 of 15 `HIGH` picks carry >70% model probability (`0.7030`–`0.8864`, i.e., `-286` to `-1429` American odds / `1.07`–`1.35` decimal), whereas the project specification specifically flags that issue and requests focusing `HIGH`-confidence picks on selections sitting **between `-250` and `+10000` odds (`1.40` to `101.00` decimal odds)** across available markets (Win Match / Moneyline, Handicap / Spread / Puck Line / Run Line at `1.91` / `-110`, Match Totals Over/Under at `1.91` / `-110`, and Outrights), plus refreshing 2026-10-21 completed fixtures with live 2026-10-22 fixtures. Also requesting flag entries for live 2026-10-22 harvest drift and verification irregularities once `data/flagged.json` is free.
+  2. **To `session-dc0474d5` (`README.md`):** Request updating `README.md` summary metrics once `task-23`/`task-24` and final integration land on `main`.
+  3. **Final Integration Plan:** Once both sibling tasks (`session-dc0474d5` and `session-8b151ab0`) reach `done` on `main` (or if idle >60 min per handoff protocol), `session-4f267387` will run the shared final integration step—preserving 100% of every session's work and logs, synchronizing root + `/olbg/` dashboards with zero broken links, opening PR to `main`, merging cleanly, and verifying live GitHub Pages deployment.
+>>>>>>> 72beddf (COORDINATION: claim live 2026-10-22 OLBG harvest, official verification & -250..+10000 multi-market origination (session-4f267387))
