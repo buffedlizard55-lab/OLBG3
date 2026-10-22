@@ -1516,3 +1516,12 @@ Re-read each HIGH body against its cited official URLs; checked word count, expl
 - Release gate now rejects non-HTTPS/unknown or spoofed hosts, credentials, unsupported ports, blank/nontext quotes, and embedded clock offsets. Explicit allowlist matches the inherited release-evidence hosts only; it is not factual verification.
 - 64/64 unit tests pass (four new regressions). Full root and secondary build pipelines pass, check_board/check_site/check pass. 85 pages / 1,529 local links / zero broken targets. Regenerated tracked outputs unchanged; no fixture or prediction edits.
 - Sources and limitations recorded in `docs/audit-d4c3db6c.md`, linked from README. FL-077 already publicly tracks blocked fresh official verification; no duplicate flag added. Task structural work done; official-source re-verification remains needs review.
+
+### d4c3db6c publication record
+- PR https://github.com/buffedlizard55-lab/OLBG3/pull/86 **MERGED**, 2026-10-22T12:12:21Z, merge `292415d5258068da0ab7788b7fe83989e3b5be00`.
+- Premerge CI https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39776372995 **success**.
+- Legacy Pages build/report/deploy https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39776445763 **success**.
+- Main workflow https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39776447136 **success**, including both builds, 64 tests, validators, link scan, Pages deploy and both public-route HTTP smoke-test steps executed on the GitHub runner. Direct HTTP inspection from this sandbox remains unavailable.
+- Nonblocking CI annotations: Node20 action deprecation; ubuntu-latest migration; root snapshot differs after network-enabled update/discovery. The local offline deterministic rebuild had no generated differences; network-refresh output identity is NOT claimed. No source assertions upgraded on that basis.
+- Live dashboard https://buffedlizard55-lab.github.io/OLBG3/ ; review register https://buffedlizard55-lab.github.io/OLBG3/flagged.html . Structural hardening and publication **done**; fresh complete official factual verification **needs review** (existing FL-077).
+- This follow-up coordination-only commit records observed release outcomes; no site/data changes.
