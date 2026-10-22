@@ -28,6 +28,7 @@ This document serves as the shared task board coordinating parallel sessions and
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
+| `task-26-high-pick-reverification-20261022` | Re-verify every published HIGH pick line by line against the competition's own match sheet, correct any wrong stored value, rewrite the HIGH prose so no two pieces share a template, and keep the -250..+10000 band gate enforced | `data/official.json`, `data/predictions.json`, `scripts/build_site.py`, `assets/style.css`, `README.md`, `COORDINATION.md`, root HTML snapshot | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | `check_board.py` PASS (137 rows / 114 fixtures / 23 outright / 115 verified / 132 priced / 20 written pieces); 6 HIGH, all in band; 20 unit tests; two corrections published on the Flagged page |
 | `task-01-audit` | Initial repo audit, baseline structure, task board initialization | `COORDINATION.md`, `README.md` | done | `session-3f4d1682` | Session initialized on branch arena/3f4d1682-olbg3 |
 | `task-02-collect` | Reverse engineer OLBG sports data across all covered sports (excluding soccer, football, boxing, ufc, mma, american football, hurling, horse racing, cycling, specials) | `data/master_matches.json`, `data/sports/*.json` | done | `session-3f4d1682` | 12 sports collected: Basketball, Baseball, Tennis, Cricket, Ice Hockey, Darts, Snooker, Handball, Volleyball, Rugby Union, Golf, Motor Racing |
 | `task-03-originate` | Originate proprietary betting lines (Moneyline, Handicap/Spread, Totals), Match Winner selections, and Confidence Levels (Low, Medium, High) | `data/master_matches.json` | done | `session-3f4d1682` | Independent line originations with fair price probabilities |
@@ -47,6 +48,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-23-confidence-and-current-evidence-audit` | Align HIGH confidence with the requested >70% model-probability bar; audit and clearly disclose missing external market-odds evidence, source tiers, and snapshot freshness; reconcile site/docs and enforce the rule in checks | `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/check_board.py`, `scripts/build_site.py`, `tools/originate.py`, `tools/check_site.py`, `tools/build_site.py`, `data/events.json`, `data/official.json`, `data/gap_sports.json`, `data/predictions.json`, `data/lines.json`, `data/predictions-olbg.json`, `data/flagged.json`, `data/model.md`, `docs/method.md`, `README.md`, `COORDINATION.md`, generated root + sports pages and `olbg/`/`olbg-board/` pages | done | `session-8b151ab0` (Arena-locked branch `arena/8b151ab0-olbg3`) | Full local verification passed; remaining odds/freshness/source-tier gaps are on Flagged for Review; see session log |
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
+| `task-25-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
 
 ---
 
@@ -806,6 +808,72 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
 - **Verification:** `scripts/build.py`, `scripts/build_gap_sports.py`, `scripts/model.py`, `scripts/build_site.py`, `scripts/check_board.py`, `tools/build_dataset.py`, `tools/originate.py`, `tools/build_site.py`, `tools/check_site.py`, `scripts/build_site.py --snapshot`, `scripts/check.py`, `scripts/check_links.py`, and `python -m unittest discover -s tests -v` all passed in workflow order. Results: `rows=137 fixtures=114 outright_or_race=23 verified=115 priced=132 predictions=15`; 83 handicaps / 25 totals; OLBG lines track 189 rows/lines, 5 predictions, 39 flags, 66 blank competition fields; combined internal links `pages=81 local_links_checked=1234 broken=0`; 10/10 unit tests passed. Builds produced no unrelated tracked output changes. `check.py` was rerun after `scripts/build.py` created the required `site/data.json`.
 - **Task state:** `needs review` because freshness, complete market coverage and market-price probability/odds screening remain open; the source snapshot gap is disclosed, not silently represented as verified.
 
+---
+
+## Session log — `session-f58890e3` (branch `arena/f58890e3-olbg3` — price-band repair, 2026-10-22)
+
+- **Claimed 2026-10-22:** `task-25-price-band-rebuild-20261022`. At claim time `git branch -r` showed only
+  `origin/main` and this session branch; no other active claim, so the scope is non-overlapping.
+- **Defect found:** all 15 HIGH picks on the 2026-10-21 build were priced between 1.07 and 1.46 decimal
+  (-1429 to -217 US). None was inside the brief's -250..+10000 band. Cause: the grading rule required a 65%
+  model probability, and with a 5% overround 0.95/0.65 = 1.46, so a HIGH price could never reach the -250 floor.
+- **Fix:** `scripts/board_dates.py` converts decimal to US odds and resolves OLBG's relative clock labels
+  (Today/Tomorrow/dated) against the capture date. HIGH now requires: verified fixture + official form + model
+  probability >= 55% + price inside 1.40..101.00 + kick-off not passed. Result: 6 HIGH, all in band; 13
+  short-priced favourites and 1 passed kick-off (IHO-06) are MEDIUM with the reason in the row.
+- **New predictions (5):** BSB-01 (MIL Brewers, 1.67 = -149), RGU-02 (Agen, 1.51 = -196), RGU-03
+  (Soyaux-Angouleme, 1.46 = -217), RGU-08 (Valence Romans, 1.72 = -139), RGU-09 (Grenoble, 1.56 = -179).
+  RGU-14 (Leinster, 1.42 = -238) was rewritten to drop third-party player detail and now rests only on the
+  official URC table. The 14 former HIGH write-ups are kept as labelled medium-confidence analysis.
+- **Live official re-reads (2026-10-22):** prod2.lnr.fr/classement (full J7 table incl. Agen 15 pts,
+  Nissa 11, Soyaux 17, Dax 19, Valence Romans 13, Colomiers 12, Grenoble 22, Biarritz 20, and the J8 ids
+  12063/12065/12067/12070); mlb.com/schedule/2026-10-23 and mlb.com/postseason (World Series Game 1, TB @ MIL,
+  23 Oct 8:00 PM ET; Misiorowski listed for MIL); mlb.com/brewers/standings values already stored in
+  `data/official.json` (MIL 103-59, 832/618; TB 98-64, 755/645).
+- **Correction to the record:** the previous `COORDINATION.md` entry said the board carried 14 predictions,
+  one per HIGH row. After this pass it carries 20 written pieces: 6 high-confidence predictions and 14
+  medium-confidence analysis notes.
+- **Open item:** 70 of 137 rows carry a 21 Oct kick-off and are now archived; the board is still the 21 Oct
+  capture. A fresh OLBG listing capture plus official re-verification is the next task (`task-23-refresh-capture`).
+
+- **Second data correction found and fixed:** `data/official.json` had Tampa Bay at 755 RS / 645 RA (+110), but
+  mlb.com/brewers/standings re-read on 2026-10-22 shows 736 RS / 650 RA (+86, matching MLB.com's own DIFF
+  column). The stored row was corrected and the BSB-01 prediction now quotes 650 conceded (4.01 per game).
+  The win-loss record (98-64) is unchanged, so the log5 probability and the 1.67 price did not move.
+- **URC venue resolved:** the Round 4 match centre lists Leinster v Munster on Sat 24 Oct, 13:00, at Aviva
+  Stadium. The earlier FL-016 concern (Round 3 was at Laya Arena) is now explained by round, not by conflicting
+  facts. RGU-14's prediction quotes only the official table (Leinster 10th, 8 pts, PA 58; Munster 9th, 9 pts,
+  72/74, drew 26-26 at Ulster).
+- **Verification performed before the PR:** `scripts/check_board.py` -> rows=137 fixtures=114 outright_or_race=23
+  verified=115 priced=132 predictions=20 PASS; `scripts/check_links.py` -> pages=81 local_links_checked=1234
+  broken=0; `scripts/check.py` -> PASS (40 fixture rows); `python -m unittest discover -s tests` -> 21 tests OK;
+  `tools/check_site.py` -> "All checks passed". The OLBG audit track regenerated byte-identically (189 rows,
+  5 high) and is untouched by this task.
+- **Flagged page:** now carries 38 findings, including the price-band defect, the 70 archived kick-offs, the
+  MLB run-total correction and the resolved URC venue note. The site's dashboard shows a "6/6 high-confidence
+  picks inside -250..+10000" card and a price-band compliance table listing all 14 downgraded picks.
+
+
+- **Rebase conflict resolved (2026-10-22):** `origin/main` advanced to `989c60f` (PR #39, session `dc0474d5`)
+  while this task was building. The rebase conflicted on `COORDINATION.md` (two session logs appended at the same
+  point) and `README.md` (their documentation reconciliation vs this task's band section). Both sides were kept:
+  their log and their corrected audit-track figures (189 rows) stay, and this task's price-band section, task row
+  and warnings were merged in. Their task id was preserved; this task was renumbered to `task-23-...` to avoid the
+  collision, and the open refresh task is `task-24-refresh-capture`. No commit from either session was dropped.
+
+- **Parallel-session scope note (2026-10-22):** two other sessions claimed overlapping file scope while this task was
+  building. `session-4f267387` claimed `task-23-live-harvest-20261022-and-verify` (harvest files) and
+  `task-24-originate-minus250-plus10000-predictions` (the `/olbg/` audit track: `tools/*`, `data/lines.json`,
+  `data/predictions-olbg.json`, `olbg-board/*`, `olbg/*`), which does not overlap this task's board-track files.
+  This task was therefore renumbered from `task-23` to `task-25` to keep ids unique; its scope is unchanged.
+  `session-8b151ab0` claimed `task-22-confidence-and-current-evidence-audit` over the *same* board-track files and
+  chose a different reading of the brief: keep HIGH at a >70% model probability and disclose that market-odds
+  evidence is absent. This task instead treats the -250..+10000 window as a hard gate and lowers the probability
+  floor to 55%, because with a 5% overround the two rules cannot both hold (0.95/0.70 = 1.36 = -280, already
+  shorter than -250). Both readings are recorded here for the integration session; nothing from that branch was
+  edited or discarded by this session, and its diff remains available at `arena/8b151ab0-olbg3`.
+
+### Parallel audit kept for the record — `session-8b151ab0` (merged via PR #41)
 
 ---
 
@@ -820,3 +888,51 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
 - **Recorded official references:** row-level sources and captured values are in `data/official.json`; examples include EuroLeague Round 7 Game Facts (`https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/`), URC round/table (`https://stats.unitedrugby.com/match-centre/2026-27/4`, `https://stats.unitedrugby.com/match-centre/table/2026-27`), LNR Pro D2 (`https://prod2.lnr.fr/classement`), ICEHL (`https://www.ice.hockey/saison/tabelle`), HC Pustertal (`https://www.hcpustertal.com/matches/21-10-2026-hcp-piv/`), Swedish federation (`https://stats.swehockey.se/ScheduleAndResults/Overview/20961`), and KAC (`https://www.kac.at/spiele/`). These are existing repository references; external pages were not fetched live in this audit.
 - **Local verification:** workflow order `scripts/build.py` → `build_gap_sports.py` → `model.py` → `build_site.py` → `--snapshot`; `check_board.py` PASS (137 rows / 114 fixtures / 23 outright-race / 115 verified / 132 priced / 13 predictions); `check_links.py` PASS (81 pages / 1,234 links / 0 broken); `check.py` PASS (40 feed rows); tests PASS (10/10); `/olbg/` pipeline PASS (189 rows/lines, 0 high, 0 predictions, 40 flags). `git diff --check` PASS.
 - **PR / CI:** PR #41: https://github.com/buffedlizard55-lab/OLBG3/pull/41. Branch build run [39705991410](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39705991410) succeeded (28 seconds; Pages deployment is skipped for PR branches). The workflow emitted a non-failing warning that the freshly generated root snapshot differs from committed files after the official-feed updater runs; investigate/record in integration, while local ordered build and links pass. PR merge initially conflicted after main advanced to PR #39; conflict was resolved by merging `origin/main`, preserving its README/coordination changes and regenerating the site before continuing.
+
+**Integration decision (2026-10-22, `session-f58890e3`):** the two sessions read the same brief differently.
+`session-8b151ab0` keeps the >70% modelled-probability rule; this session treats the -250 floor as a hard gate.
+They cannot both hold with a 5% overround (0.95/0.70 = 1.36 = -280, shorter than -250). The published board keeps
+`session-8b151ab0`'s source-tier labelling, its two disclosures (no bookmaker quotes; 21 Oct snapshot) and its
+per-prediction tier warnings, but grades on the band rule, because that is the constraint stated explicitly in the
+brief. Both rule sets and their consequences are recorded here rather than one being silently deleted.
+
+## Follow-up log — `session-f58890e3` (2026-10-22, band repair + HIGH-pick re-verification)
+
+- **Merge with `main`:** `origin/main` advanced to `e3c0636` (PR #41, `session-8b151ab0`). The merge produced 32
+  conflicts. `scripts/model.py`, `scripts/check_board.py`, `scripts/build_site.py` and the data files were kept on
+  this branch's band-gated version; `README.md` and `COORDINATION.md` were reconciled by hand with the other
+  session's audit retained as a separate section and its source-tier work credited. Merge commit `a8c68b6`.
+- **Live re-verification of every HIGH pick (2026-10-22):** LNR match sheets
+  [12063](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12063-agen-nice),
+  [12065](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12065-angouleme-dax),
+  [12067](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12067-grenoble-biarritz),
+  [12070](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers),
+  the [URC Round 4 match centre](https://stats.unitedrugby.com/match-centre/2026-27/4) and the
+  [MLB schedule](https://www.mlb.com/schedule/2026-10-23). Every date, home/away side and kick-off time matched
+  the stored row; the LNR sheets print local (CEST) times, which correspond to the captured OLBG labels.
+- **Corrections:** RGU-08's venue was stored as "Stade du Polygone"; the official sheet says **Stade Georges
+  Pompidou**. RGU-09's write-up said Grenoble's +37 differential "ranks fifth"; the LNR table ranks it **fourth**.
+  Both fixed in `data/official.json` / `data/predictions.json` and published on the Flagged for Review page.
+- **Prose rewrite:** the six HIGH bodies were rewritten (59-69 words each) so that no two share the old
+  "X to win in three-way match betting is the call" template. Each names the clubs, the current form figures, the
+  relevant recent results and the explicit selection with price.
+- **Final board:** 137 rows (114 fixtures + 23 outright), 6 HIGH / 86 MEDIUM / 22 LOW on the fixture track,
+  70 archive rows, 67 live rows, 6 predictions of status `high` and 14 labelled `analysis`.
+- **Checks:** `check_board.py` PASS; `check.py` PASS (40 feed rows); `check_links.py` 81 pages / 1,234 links /
+  0 broken; `python3 -m unittest discover -s tests` 20/20; `build_site.py --snapshot` root snapshot refreshed.
+- **Open items unchanged:** the OLBG capture is still 2026-10-21 (no new listing retrieval), no bookmaker odds
+  exist in the repo (prices are ours), and 18 rows remain unverified and 4 corroborated-only.
+- **Local verification (2026-10-22, after the rewrite):** `check_board.py` PASS —
+  `rows=137 fixtures=114 outright_or_race=23 verified=115 priced=132 predictions=20`; `check.py` PASS (40 feed
+  rows); `check_links.py` `pages=81 local_links_checked=1234 broken=0`; `python3 -m unittest discover -s tests`
+  20 tests OK; `/olbg/` pipeline (`tools/build_dataset.py` → `originate.py` → `build_site.py` → `check_site.py`)
+  "All checks passed"; `build_site.py --snapshot` refreshed the committed root HTML.
+- **A second stored figure was wrong (MLB):** the 21 October capture recorded Tampa Bay at 755 runs scored / 645
+  allowed. The live standings page gives **736 / 650 (+86)**; the DIFF column agrees. Corrected in
+  `data/official.json` and in the BSB-01 prose (650 conceded, 4.01 per game). The win-loss record (98-64) and the
+  log5 input were unaffected, so the 1.67 price and the HIGH grade did not move.
+- **URC cross-check:** the Round 4 match centre was re-read for RGU-14. It lists Leinster v Munster on Saturday
+  24 October, 13:00, at the Aviva Stadium (match id 292614), and the table gives Leinster 8 points (75/58) and
+  Munster 9 (72/74). Those are the only two sources the RGU-14 write-up uses.
+- **Flagged page:** 36 findings are now published, including the venue correction, the rank correction and the
+  MLB run-total correction. Nothing was hidden or silently overwritten.

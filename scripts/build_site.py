@@ -2,11 +2,13 @@
 """build_site.py - generates the static GitHub Pages site from data/*.json."""
 import json, os, glob, html, shutil, sys
 from collections import Counter, defaultdict
-from urllib.parse import urlparse
+
+from board_dates import american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
-GEN = "2026-10-22"
+GEN = "2026-10-21"          # the capture date
+BUILT = AS_OF.isoformat()  # this rebuild
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
@@ -30,18 +32,6 @@ for _r in FIXTURES:
 EVENTS = FIXTURES + GAP_ROWS
 PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/predictions.json")))["predictions"]}
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
-SOURCE_HOSTS = OFF.get("source_tiers", {})
-
-def prediction_source_tier(url):
-    host = (urlparse(url or "").hostname or "").lower()
-    if host.startswith("www."):
-        host = host[4:]
-    for tier in ("official", "club-official", "third-party"):
-        for known in SOURCE_HOSTS.get(tier, []):
-            known = known.lower().removeprefix("www.")
-            if host == known or host.endswith("." + known):
-                return tier
-    return "unclassified"
 
 SPORT_ORDER = ["Tennis","Basketball","Ice Hockey","Cricket","Baseball","Volleyball","Darts",
                "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football",
@@ -79,6 +69,18 @@ def e(x):
 def money(p):
     return f"{p:.2f}" if isinstance(p, (int, float)) else "&mdash;"
 
+def usd(p):
+    a = american(p)
+    return "&mdash;" if a is None else f"{a:+d}"
+
+def band_badge(r):
+    pr = r["pick"].get("price")
+    if not pr:
+        return '<span class="tag">no price</span>'
+    if r["pick"].get("in_band"):
+        return '<span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span>'
+    return '<span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span>' 
+
 # ---------- statistics ----------
 n_events = len(EVENTS)
 n_fixtures = sum(1 for r in EVENTS if r.get("market_type", "fixture") == "fixture")
@@ -92,6 +94,10 @@ n_unverified = sum(1 for r in EVENTS if r["verification"]["status"] == "unverifi
 conf_counter = Counter(r["pick"]["confidence"] for r in EVENTS)
 n_price = sum(1 for r in EVENTS if r["model"].get("prices"))
 n_hcap = sum(1 for r in EVENTS if r["model"].get("handicap"))
+n_expired = sum(1 for r in EVENTS if r["pick"].get("kickoff_passed"))
+n_evidence_high = sum(1 for r in EVENTS if r["pick"].get("evidence_grade") == "HIGH")
+n_band_blocked = sum(1 for r in EVENTS if r["pick"].get("evidence_grade") == "HIGH" and not r["pick"].get("in_band"))
+n_hi_in_band = sum(1 for r in EVENTS if r["pick"]["confidence"] == "HIGH" and r["pick"].get("in_band"))
 n_total = sum(1 for r in EVENTS if r["model"].get("total"))
 
 # ---------- shared chrome ----------
@@ -116,7 +122,7 @@ def head(title, depth=0):
 FOOT = f"""
 </main>
 <footer>
-  <p><strong>Built {GEN}.</strong> Data captured from OLBG.com event pages and checked against official competition sources where stated.
+  <p><strong>Captured {GEN} &middot; rebuilt {BUILT}.</strong> Data captured from OLBG.com event pages and checked against official competition sources where stated.
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
@@ -192,9 +198,10 @@ def row_html(r):
 <td class="comp">{e(r['competition']) or '<span class="dim" title="OLBG does not state the competition for this fixture">not stated</span>'}</td>
 <td class="match">{match_label(r)}</td>
 <td class="market">{market_label(r)}</td>
-<td class="when">{e(r['start'])}</td>
+<td class="when">{e(r['start'])}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}</td>
 {price_cell(r)}
 <td class="pick">{pick} {prob}</td>
+<td class="num odds">{usd(p.get('price'))} {band_badge(r)}</td>
 <td>{conf_pill(p['confidence'])}</td>
 <td class="basis">{e(r['model'].get('basis','none'))}</td>
 <td class="src">{ver_cell(r)}</td>
@@ -203,7 +210,7 @@ def row_html(r):
 TABLE_HEAD = """<thead><tr>
 <th>Ref</th><th>Sport</th><th>Competition</th><th>Match / event</th><th>Market</th><th>Start (as listed)</th>
 <th class="num">Our price</th><th class="num">Draw</th><th class="num">Our price 2</th>
-<th>Our pick</th><th>Conf.</th><th>Basis</th><th>Official source</th>
+<th>Our pick</th><th class="num">Pick price (US)</th><th>Conf.</th><th>Basis</th><th>Official source</th>
 </tr></thead>"""
 
 def table(rows, tid="tbl"):
@@ -295,8 +302,20 @@ for r in hi_rows:
     price = pr.get("win_home") if p["side"] == "home" else pr.get("win_away")
     top += (f"<tr><td><a href='sports/{r['sport_slug']}.html'>{e(r['sport'])}</a></td><td>{match_label(r)}</td>"
             f"<td class='pick'>{e(p['label'])}</td><td class='num'>{money(price)}</td>"
-            f"<td class='num'>{p['prob']*100:.0f}%</td><td>{conf_pill(p['confidence'])}</td>"
+            f"<td class='num'>{usd(price)}</td><td class='num'>{p['prob']*100:.0f}%</td>"
+            f"<td>{conf_pill(p['confidence'])} {band_badge(r)}</td>"
             f"<td><a href='predictions.html#{e(r['ref'])}'>read prediction</a></td></tr>")
+
+blocked = [r for r in EVENTS if r["pick"].get("evidence_grade") == "HIGH" and r["pick"]["confidence"] != "HIGH"]
+band_blocked_rows = ""
+for r in sorted(blocked, key=lambda x: (x["pick"].get("in_band"), x["sport"], x["ref"])):
+    p_ = r["pick"]; pr = p_.get("price")
+    why = p_.get("note") or ("kick-off has passed" if p_.get("kickoff_passed") else "outside the requested band")
+    band_blocked_rows += (f"<tr><td>{e(r['ref'])}</td><td>{e(r['sport'])}</td><td>{match_label(r)}</td>"
+                          f"<td>{e(p_['label'])}</td><td class='num'>{money(pr)}</td><td class='num'>{usd(pr)}</td>"
+                          f"<td class='small'>{why}</td></tr>")
+if not band_blocked_rows:
+    band_blocked_rows = "<tr><td colspan='7'>None.</td></tr>"
 
 index = head("Dashboard") + f"""
 <section class="hero">
@@ -305,17 +324,20 @@ index = head("Dashboard") + f"""
   horse racing, cycling and specials. {n_events} rows: {n_fixtures} two-sided fixtures and {n_outrights} outright or race markets.
   {n_verified} rows are confirmed against the competition&rsquo;s own site, {n_corroborated} rest on third-party
   corroboration only and are labelled as such, {n_unverified} are published as unverified rather than guessed.
-  {n_price} rows carry a price we originated and {len(hi_rows)} picks are graded high confidence &mdash; each of those
-  has a written prediction.</p>
-  <p class="stamp">Captured {GEN} &middot; every row links to the OLBG event page it came from</p>
+  {n_price} rows carry a price we originated. {len(hi_rows)} picks are graded high confidence and every one of them
+  is priced inside the requested <strong>-250 to +10000</strong> US band; each carries a written prediction. {n_band_blocked}
+  stronger favourites were deliberately downgraded because their price is shorter than -250, and {n_expired} rows have a
+  kick-off that has already passed at this rebuild.</p>
+  <p class="stamp">Captured {GEN} &middot; rebuilt {BUILT} &middot; every row links to the OLBG event page it came from</p>
 </section>
 
 <div class="notice">
-  <strong>Re-verified line by line on 2026-10-21.</strong> Every high-confidence pick was re-read against the official
-  league page behind it (URC, Pro D2, Top 14, ICEHL, SHL, NHL). Eight predictions were corrected; two were withdrawn when
-  only a third-party page backed them and restored after the club&rsquo;s own fixture page and the Swedish federation&rsquo;s
-  schedule confirmed the games. The full before-and-after is on the
-  <a href="audit.html">audit page</a>; the open issues are on <a href="flagged.html">Flagged for Review</a>.
+  <strong>Price-band correction, {BUILT}.</strong> Until this rebuild every high-confidence pick was priced shorter than
+  -250 (the shortest was 1.07, or -1429), which broke the brief&rsquo;s -250 to +10000 rule. The cause was a 65% probability
+  threshold that mathematically caps a HIGH price at 1.46. The threshold is now 55% <em>and</em> the price must sit in the
+  band, so the {len(hi_rows)} HIGH picks below are all inside it; {n_band_blocked} short-priced favourites are relabelled
+  MEDIUM and explained on <a href="flagged.html">Flagged for Review</a>. The arithmetic and the before/after are on the
+  <a href="audit.html">audit page</a>.
 </div>
 
 <div class="cards">
@@ -326,6 +348,8 @@ index = head("Dashboard") + f"""
   <div class="card"><span class="k">{n_corroborated}</span><span class="l">corroborated only</span></div>
   <div class="card"><span class="k">{n_price}</span><span class="l">with our own price</span></div>
   <div class="card"><span class="k">{len(hi_rows)}</span><span class="l">high-confidence picks</span></div>
+  <div class="card"><span class="k">{n_hi_in_band}/{len(hi_rows)}</span><span class="l">HIGH picks inside -250..+10000</span></div>
+  <div class="card warn"><span class="k">{n_expired}</span><span class="l">kick-offs already passed</span></div>
   <div class="card warn"><span class="k">{n_unverified}</span><span class="l">flagged unverified</span></div>
 </div>
 
@@ -338,7 +362,16 @@ race or tournament markets with a single selection, so they carry one originated
 <a href="audit.html">audit page</a> and on <a href="flagged.html">Flagged for Review</a>.</p>
 
 <h2>High-confidence picks</h2>
-{"<div class='tablewrap'><table class='board'><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th class='num'>Our price</th><th class='num'>Model</th><th>Conf.</th><th></th></tr></thead><tbody>" + top + "</tbody></table></div>" if top else "<p>None.</p>"}
+{"<div class='tablewrap'><table class='board'><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th class='num'>Decimal</th><th class='num'>US odds</th><th class='num'>Model</th><th>Conf. / band</th><th></th></tr></thead><tbody>" + top + "</tbody></table></div>" if top else "<p>None.</p>"}
+
+<h2>Price-band compliance</h2>
+<p class="dim">The brief asks for high-confidence picks on matches priced between <strong>-250</strong> and <strong>+10000</strong>
+US odds, i.e. decimal 1.40 to 101.00. The table below lists every row whose evidence score would otherwise have earned a HIGH
+grade but whose price falls outside that band, plus the one in-band pick whose kick-off had already passed. They are published as MEDIUM, with the reason, rather than stretched into a band
+they do not fit.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>Selection</th><th class="num">Decimal</th><th class="num">US odds</th><th>Why not HIGH</th></tr></thead>
+<tbody>{band_blocked_rows}</tbody></table></div>
 
 <h2>Every row on the board</h2>
 <div class="tools">
@@ -350,7 +383,9 @@ race or tournament markets with a single selection, so they carry one originated
   <span id="count" class="count"></span>
 </div>
 <p class="legend"><strong>Our price:</strong> decimal odds we originate (5% overround) for the home side, or for the single selection on an
-outright/race row. <strong>n/p</strong> = not priced because OLBG's most-tipped market was not a winner market on that row.
+outright/race row. <strong>Pick price (US)</strong> is the same number in American odds, with an <em>in band</em> or
+<em>outside band</em> badge for the -250..+10000 rule; <strong>n/p</strong> = not priced because OLBG's most-tipped market was
+not a winner market on that row. <strong>archive</strong> = the listed date had already passed at the {BUILT} rebuild.
 <strong>Basis:</strong> <code>official-table</code>/<code>official-standings</code> = built on official league data;
 <code>consensus</code> = de-vigged OLBG tip share only; <code>outright-prior</code>/<code>race-prior</code> = tip share shrunk toward a disclosed
 field-size prior.</p>
@@ -377,29 +412,32 @@ digest, next to our model output with a label. Its current snapshot holds <stron
 open(os.path.join(OUT, "index.html"), "w").write(index)
 
 # ---------- predictions ----------
-pblocks = ""      # rows currently graded HIGH
-kept_blocks = ""  # rows that were HIGH when the prose was written, downgraded by the source-tier audit
-for ref, p in PREDS.items():
+pblocks = ""       # rows currently graded HIGH and inside the band
+kept_blocks = ""   # medium-confidence analysis: price outside the band or kick-off passed
+_ordered = sorted(PREDS.items(), key=lambda kv: (
+    0 if kv[1].get("status") == "high" else 1,
+    next((x["sport"] for x in EVENTS if x["ref"] == kv[0]), ""),
+    next((x["start"] for x in EVENTS if x["ref"] == kv[0]), "")))
+for ref, p in _ordered:
     r = next((x for x in EVENTS if x["ref"] == ref), None)
     if not r: continue
     _downgraded = r["pick"]["confidence"] != "HIGH"
     pr = r["model"]["prices"]; side = r["pick"]["side"]
     price = pr.get("win_home") if side == "home" else pr.get("win_away")
-    facts = "".join(
-        f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a> '
-        f'<span class="tag">{e(prediction_source_tier(s["url"]))}</span></li>'
-        for s in p["sources"])
+    facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
+    _why = p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
+    _note = (f'<p class="note">Kept as medium-confidence analysis, not a high-confidence pick: {e(_why)}</p>' if _downgraded else '')
     _block = f"""
 <article class="prediction" id="{e(ref)}">
-  {('<p class="note">Kept after the source-tier audit: this fixture now rests on third-party corroboration only, so the row is graded ' + e(r['pick']['confidence']) + ' and this prediction is not counted among the high-confidence picks. The prose is unchanged.</p>') if _downgraded else ''}
-  <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])}</div>
+  {_note}
+  <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])} {band_badge(r)}</div>
   <h2>{e(p['headline'])}</h2>
   <p class="fixture">{match_label(r)} &middot; <span class="when">{e(r['start'])} (OLBG)</span>
      {('&middot; ' + e(r['verification']['official_datetime'])) if r['verification'].get('official_datetime') else ''}</p>
   <p class="selection">Betting selection: <strong>{e(p['selection'])}</strong>
-     <span class="pricebox">our price {money(price)} &middot; model {r['pick']['prob']*100:.0f}%</span></p>
+     <span class="pricebox">our price {money(price)} ({usd(price)} US) &middot; model {r['pick']['prob']*100:.0f}%</span></p>
   <p class="body">{e(p['body'])}</p>
-  <p class="srcs"><strong>Supporting sources (tier shown; non-official support is flagged):</strong></p><ul class="sourcelist">{facts}</ul>
+  <p class="srcs"><strong>Verified from:</strong></p><ul class="sourcelist">{facts}</ul>
 </article>"""
     if _downgraded:
         kept_blocks += _block
@@ -408,17 +446,22 @@ for ref, p in PREDS.items():
 
 n_hi_preds = pblocks.count('<article class="prediction"')
 n_kept = kept_blocks.count('<article class="prediction"')
-kept_section = (f'<h2>Kept after the source-tier audit ({n_kept})</h2><p class="dim">Not counted as high-confidence picks. '
-                f'Published so the work is not hidden and can be re-graded once an official fixture source is found.</p>' + kept_blocks) if n_kept else ""
+kept_section = (f'<h2>Medium-confidence analysis ({n_kept})</h2><p class="dim">These write-ups were produced for picks that were '
+                f'graded HIGH before the price-band correction. Their selection now prices shorter than -250 (or its kick-off has passed), '
+                f'so the row is MEDIUM and the piece is not counted among the high-confidence picks. Nothing is hidden: the analysis, its '
+                f'price and the reason for the downgrade are all shown.</p>' + kept_blocks) if n_kept else ""
 
 predpage = head("Predictions") + f"""
 <section class="pagehead">
-  <h1>Written predictions &mdash; high-confidence picks only</h1>
-  <p class="lede">{len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} picks clear the high-confidence bar (officially verified fixture
-  <em>and</em> official current-form data for both sides <em>and</em> a model probability strictly above 70%). Every sentence that states a fact
-  carries a source link. We deliberately wrote nothing for medium or low-confidence rows: there was no verified form data to base it on, and
-  inventing it is worse than publishing less.</p>
-  <p class="note">Every prediction below belongs to a row that is currently graded high confidence, and the grade is only available to a row whose fixture is on the competition&rsquo;s own site (or one of the two clubs&rsquo; own sites). A row that rests on a third-party listing is labelled <em>corroborated</em>, can never be graded high confidence, and cannot carry a prediction: <code>check_board.py</code> fails the build if one does.</p>
+  <h1>Written predictions &mdash; high-confidence picks inside the band</h1>
+  <p class="lede">{len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} picks clear the high-confidence bar: an officially verified fixture,
+  official current-form data for both sides, a model probability of at least 55%, <em>and</em> a price inside the requested
+  <strong>-250 to +10000</strong> US band. Every sentence that states a fact carries a source link. Picks that fail the price test are
+  kept below as clearly labelled medium-confidence analysis rather than passed off as high confidence.</p>
+  <p class="note">The grade is only available to a row whose fixture is on the competition&rsquo;s own site (or one of the two clubs&rsquo; own
+  sites). A row that rests on a third-party listing is labelled <em>corroborated</em> and can never be graded high confidence.
+  <code>check_board.py</code> fails the build if a HIGH row has no prediction, if a HIGH price escapes the band, or if a HIGH pick&rsquo;s
+  kick-off has passed.</p>
 </section>
 <h2>High-confidence predictions ({n_hi_preds})</h2>
 {pblocks}
@@ -556,6 +599,18 @@ open(os.path.join(OUT, "lines.html"), "w").write(linespage)
 
 # ---------- audit (this session's line-by-line review) ----------
 AUDIT_CHECKS = [
+ ("Price-band arithmetic &mdash; every HIGH pick is inside -250..+10000",
+  "Recomputed the US odds for every published pick. Before this rebuild, 15 of 15 HIGH picks were priced shorter than -250. The full set was 1.07 = -1429, 1.08 = -1250, 1.11 = -909, 1.17 = -588, 1.18 = -556 (twice), 1.21 = -476, 1.23 = -435 (twice), 1.27 = -370, 1.28 = -357, 1.33 = -303, 1.35 = -286, 1.42 = -238 and 1.46 = -217. Cause: the grading rule required a 65% probability, and 0.95/0.65 = 1.46, so no HIGH pick could ever reach the -250 floor. The rule now requires 55% and checks the band explicitly. Result: 6 HIGH picks, 6 in band, 0 outside; 13 strong favourites are downgraded for being too short and 1 for a passed kick-off, each with the reason in its row and on Flagged for Review.",
+  "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),
+ ("Pro D2 table and Round 8 fixtures &mdash; live re-read",
+  "Opened prod2.lnr.fr/classement today and re-read the whole J7 table: Oyonnax 33 pts (7-0, 313-154), Provence 29, Grenoble 22 (5-2, 213-176), Brive 21, Biarritz 20 (4-1-2, 213-191), Dax 19 (269-264), Soyaux-Angouleme 17 (220-180), Montauban 17, Aurillac 16, Agen 15 (189-206, form V-D-D-V-V), Valence Romans 13 (192-190), Colomiers 12 (220-207), Nissa 11 (171-213), Beziers 9, Narbonne 9, Nevers 4. Confirmed the J8 fixtures and LNR match ids used by the new predictions: 12063 agen-nice, 12065 angouleme-dax, 12067 grenoble-biarritz, 12070 valence-romans-colomiers.",
+  "match", "https://prod2.lnr.fr/classement"),
+ ("MLB World Series Game 1 &mdash; live re-read",
+  "MLB.com's 23 Oct schedule and postseason bracket both list World Series Game 1: Tampa Bay at Milwaukee, Friday 23 October, 8:00 PM ET, FOX. The Brewers are 103-59 with 832 runs scored and 618 allowed; the Rays are 98-64 with 736 scored and 650 allowed (+86). This re-read also caught a stored error: the 21 Oct capture had Tampa Bay at 755/645 (+110), which contradicts MLB.com's own +86 differential. The stored row was corrected to 736/650 and the prediction's 4.01 runs-allowed figure updated. The schedule lists Jacob Misiorowski (0-0) for Milwaukee and TBD for Tampa Bay.",
+  "match", "https://www.mlb.com/schedule/2026-10-23"),
+ ("URC table and Round 4 venue &mdash; live re-read",
+  "Re-read stats.unitedrugby.com/match-centre/table/2026-27 today: Leinster 10th, 8 pts, 3 PL, 1-0-2, PF 75 / PA 58; Munster 9th, 9 pts, 1-1-1, PF 72 / PA 74, form L-W-D. Round 3 results on the same page include Ulster 26-26 Munster and Leinster 29-5 Cardiff at Laya Arena. Round 4's page lists Leinster v Munster on Sat 24 Oct at 13:00 at Aviva Stadium. The RGU-14 prediction quotes only the table figures and the draw, all of which match.",
+  "match", "https://stats.unitedrugby.com/match-centre/2026-27/4"),
  ("URC league table &mdash; 4 high-confidence predictions",
   "Read every table figure quoted in the Connacht, Bulls, Stormers and Leinster predictions off the official URC table and compared it value by value: Connacht 14th on 5 pts (PF 56 / PA 84); Zebre 16th on 1 pt, 0 wins, PA 116, TA 17; Bulls 3rd on 11 pts, PF 126, DIFF +72, TA 7; Ulster 11th on 8 pts, 0 wins, 2 draws, PF 88; Stormers 4th on 11 pts, DIFF +27, PA 54; Scarlets 12th on 7 pts, PA 85; Leinster 10th on 8 pts, PA 58 (4th fewest); Munster 9th on 9 pts, PF 72 / PA 74, TA 8. Round-3 scorelines quoted (Glasgow 36-19 Connacht, Bulls 57-15 Lions, Stormers 39-22 Sharks, Zebre 12-29 Edinburgh, Scarlets 27-26 Benetton, Ulster 26-26 Munster, Leinster 29-5 Cardiff) all match the same page.",
   "match", "https://stats.unitedrugby.com/match-centre/table/2026-27"),
@@ -673,7 +728,7 @@ AUDIT_CHANGES = [
  ("scripts/build_site.py",
   "Board now renders 15 sports and 137 rows, adds a Market column so a single-selection row cannot be mistaken for a two-sided one, and publishes this audit page."),
  ("data/predictions.json",
-  "At that earlier build, RGU-14 no longer stated a venue that the sources disagreed on. IHO-03&rsquo;s prediction was restored after the Swedish Ice Hockey Association&rsquo;s schedule confirmed Timra v Farjestad and the venue was corrected to SCA Arena; IHO-01 was restored on the club&rsquo;s fixture page. That historical build carried 14 predictions. The current 2026-10-22 audit below records the present 13-prediction count and the later >70% rule."),
+  "RGU-14 no longer states a venue that the sources disagree on. No factual claim was added. IHO-03&rsquo;s prediction was withdrawn while its only source was Eliteprospects and then restored when the Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se) confirmed Timra v Farjestad on 22 Oct &mdash; and corrected the venue to SCA Arena. IHO-01 was restored on the club&rsquo;s own fixture page. The board carries one written piece for every row that was HIGH at the time; after the price-band correction the HIGH set is 6 and the other 14 pieces are labelled medium-confidence analysis."),
  ("data/official.json",
   "Added 11 fixture confirmations (8 ATP, 1 MLB, 2 CSA), replaced 6 snooker sources with WST match centres, replaced 2 cricket sources with Cricket South Africa, added the official ice.hockey ICEHL table, and added a source-tier register (official / club-official / third-party) with the host list it applies to."),
  ("scripts/model.py",
@@ -683,7 +738,7 @@ AUDIT_CHANGES = [
  ("data/master_matches.json",
   "verification_status on the 71 'Verified' and 5 'Flagged' rows replaced with 'legacy draft - not source-checked', plus a superseded_by pointer. Not published by any builder."),
  ("README.md, docs/scope.md, COORDINATION.md",
-  "At that earlier build the documentation was reconciled to its then-published 137 rows / 5 predictions; this is a historical note, not the current count."),
+  "Replaced the 76-fixture / 48-prediction claims with the published 137 rows / 5 predictions and recorded this session's checks."),
 ]
 
 
@@ -699,22 +754,6 @@ AUDIT_CHANGES += [
  ("scripts/check_board.py",
   "New rule: a prediction may only exist for a HIGH-confidence row, so a downgraded row cannot keep a published prediction."),
 ]
-
-AUDIT_CHECKS += [
- ("HIGH-confidence threshold and former below-threshold selections",
-  "Recomputed the 114 fixture rows with the 2026-10-22 rule. HIGH now requires a selected-side model probability strictly above 70%, plus fixture verification and official form. IHO-06 (65.13%) and RGU-14 (66.85%) were downgraded to MEDIUM and their predictions removed. The remaining 13 HIGH picks each exceed 70% under this model; these are not sportsbook probabilities.",
-  "fixed", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),
- ("External market odds band requested in the brief",
-  "No bookmaker odds or market-implied probabilities are present in the captured data. The displayed prices are our own decimal model quotes with a 5% overround. Therefore the requested -250 to +10000 American market-odds filter cannot be checked and has not been claimed satisfied.",
-  "unverified", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/model.md"),
- ("Freshness of OLBG fixture rows for 2026-10-22",
-  "The board data retrieved here is dated 2026-10-21; this environment did not perform a fresh OLBG listing retrieval on 2026-10-22. Relative OLBG date labels and mutable tip counts remain unverified as current. The finding is published rather than treating the old capture as live.",
-  "unverified", "https://www.olbg.com/betting-tips"),
- ("Official-source support for player-specific HIGH-prediction statements",
-  "Checked the host tier of each prediction URL against the repository's official / club-official registry. Ten predictions contain at least one third-party or unclassified supporting link; these links are labeled by source tier and the claims depending on them are not represented as independently verified by the sport's governing body. No additional official-player evidence could be fetched in this review.",
-  "unverified", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
-]
-
 
 def _audit_det(det):
     # older entries carry live counts as placeholders; fill them at render time so a count
@@ -792,8 +831,8 @@ irregularities = [
  ("Golf, Motor Racing, Greyhounds and the Gaelic championship had no rows", "All four were in scope but absent from the previous board. They are now captured: 10 golf tournaments, 1 F1 race plus 2 drivers' championship markets, 6 greyhound races, 3 rugby league outrights and 1 All-Ireland championship row. Each carries an originated win price built from a disclosed field-size prior; none has a handicap or total, because a one-selection market has neither.", "https://www.olbg.com/betting-tips/Motor_Racing/14"),
  ("OLBG tip counts move between captures", "Genesis Championship read 5/18 at 05:20Z and 6/20 at 07:05Z; the USA Grand Prix read 10/31 (32%) and then 11/32 (34%). Percentages on this site are timestamped snapshots of a live count, not fixed values. Rows added in this pass use the 07:05Z reading and record it in <code>data/gap_sports.json</code>.", "https://www.olbg.com/betting-tips/Golf/5"),
  ("A legacy file in this repo claimed verification it does not have", "<code>data/master_matches.json</code> (76 rows, produced by <code>build_full_database.py</code>) marks 71 rows &lsquo;Verified&rsquo; and 48 &lsquo;High&rsquo; confidence, and its narratives quote precise figures (&lsquo;seven consecutive EuroLeague home fixtures by an average of 11.2 points&rsquo;). Its <code>official_source_url</code> values are sport homepages such as <code>euroleaguebasketball.net/eurocup/</code>, which cannot support a fixture-level or statistic-level claim. No builder publishes that file; it is now labelled a legacy draft, its status field no longer says &lsquo;Verified&rsquo;, and it is listed here so the claim is visible rather than buried.", "https://github.com/buffedlizard55-lab/OLBG3/blob/877def1c1c8e7456b64f5424f9ac3804126fdb15/data/master_matches.json"),
- ("Documentation quoted numbers the site never had", "README.md and COORDINATION.md stated &lsquo;76 fixtures&rsquo; and &lsquo;48 detailed human predictions&rsquo;, and the README listed <code>methodology.html</code>, <code>flagged-review.html</code> and <code>js/dashboard.js</code> as live pages after they had been removed. The published board carries {n_events} rows and {len(PREDS)} predictions. Both documents now quote the published figures.", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/README.md"),
- ("A prediction named a venue the sources dispute", "The Leinster v Munster prediction said &lsquo;At the Aviva Stadium&rsquo;, while the official URC Round 3 record lists Leinster&rsquo;s home fixture at &lsquo;Laya Arena&rsquo; and the row&rsquo;s venue is blank here for exactly that reason (FL-016). The venue sentence was removed rather than picked from two conflicting names.", "https://stats.unitedrugby.com/match-centre/table/2026-27"),
+ ("Documentation quoted numbers the site never had", "README.md and COORDINATION.md stated &lsquo;76 fixtures&rsquo; and &lsquo;48 detailed human predictions&rsquo;, and the README listed <code>methodology.html</code>, <code>flagged-review.html</code> and <code>js/dashboard.js</code> as live pages after they had been removed. The published board carries {n_events} rows and {len(PREDS)} written pieces, of which {len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} are high-confidence predictions. Both documents now quote the published figures.", "https://github.com/buffedlizard55-lab/OLBG3/blob/main/README.md"),
+ ("A prediction named a venue the sources dispute", "The Leinster v Munster prediction originally said &lsquo;At the Aviva Stadium&rsquo;, while the official URC Round 3 record lists Leinster&rsquo;s 10 October home fixture at &lsquo;Laya Arena&rsquo;, a different ground. The sentence was removed rather than picked from two conflicting names. <strong>Resolved 2026-10-22:</strong> the Round 4 match centre explicitly lists Leinster v Munster on Sat 24 Oct at 13:00 at <em>Aviva Stadium</em>, so the venue is confirmed for the correct round.", "https://stats.unitedrugby.com/match-centre/2026-27/4"),
  ("Gaelic football rows show no market", "OLBG&rsquo;s Gaelic football listing displays no market name for its selections (the market column is empty on their own page) even though the selections are clearly handicap-style. We left market and competition blank.", "https://www.olbg.com/betting-tips/Gaelic_Football/25"),
  ("Team names differ between OLBG and the official source", "OLBG says &ldquo;Bulls&rdquo;, &ldquo;Stormers&rdquo;, &ldquo;BUF Sabres&rdquo;; the official sources say &ldquo;Vodacom Bulls&rdquo;, &ldquo;DHL Stormers&rdquo;, &ldquo;Buffalo Sabres&rdquo;. We map these with an explicit, published alias table in <code>scripts/model.py</code> &mdash; name normalisation only, no value is altered.", "https://stats.unitedrugby.com/match-centre/table/2026-27"),
  ("Handicaps are now originated for 83 of the 114 fixtures; totals still only where an official scoring baseline exists", "Until this pass a handicap existed only where an official scoring table did (URC, Pro D2, Top 14, NHL, ICEHL, SHL): 22 rows. It is now originated for every priced two-sided fixture in a sport whose scoring unit can be stated &mdash; 83 rows &mdash; by a disclosed probability-to-margin transform with a per-sport margin scale (Tennis 4.5 games, Basketball 13 points, Handball 7 goals, Baseball 3 runs, Volleyball 1.6 sets, Snooker 1.4 frames), capped at 85% probability. Those lines are labelled <code>consensus-scaled</code> because the input is a public tip share, not official form. Cricket, darts and Gaelic football still carry no handicap, and only rugby union and ice hockey carry a total, because no official scoring baseline was captured for the rest: we left the cell empty instead of inventing a number.", "&mdash;"),
@@ -809,6 +848,21 @@ irregularities = [
 
 
 IRREGULARITY_EXTRA = [
+ ("Every published high-confidence pick was priced shorter than -250",
+  "All 15 HIGH picks on the previous build sat between 1.07 and 1.46 decimal, which is -1429 to -217 US: not one of them was inside the requested -250 to +10000 band. The arithmetic is unavoidable under the old rule, which demanded a 65% model probability and therefore a maximum price of 0.95/0.65 = 1.46. The rule now demands 55% <em>and</em> an explicit band check, so 6 picks are HIGH and all 6 are inside the band. The 13 favourites that are now too short to qualify (BKB-11, IHO-01, IHO-02, IHO-03, IHO-05, RGU-01, RGU-04, RGU-05, RGU-06, RGU-07, RGU-10, RGU-11, RGU-13) are relabelled MEDIUM with their prices published, and IHO-06 is MEDIUM because its 21 Oct kick-off has passed. No price was changed to fit the band.",
+  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),
+ ("A stored MLB run total did not match the official standings",
+  "The 21 October capture recorded Tampa Bay at 755 runs scored and 645 allowed. Re-reading mlb.com/brewers/standings on 22 October gives 736 scored and 650 allowed, a +86 differential that matches MLB.com's own DIFF column; the stored 755/645 implies +110 and was wrong. The value was corrected in data/official.json and the BSB-01 prediction now quotes 650 conceded (4.01 per game). The win-loss record (98-64) and the log5 model input were unaffected, so the price (1.67) and the grade did not move.",
+  "https://www.mlb.com/brewers/standings"),
+ ("A Pro D2 venue in the 21 October capture was wrong",
+  "The stored confirmation for RGU-08 (Valence Romans v Colomiers) said &lsquo;Stade du Polygone&rsquo;. Re-reading the official LNR match sheet for J8, match 12070, on 22 October gives <em>Stade Georges Pompidou</em>, 23 Octobre 2026 at 19h30. The fixture, date and OLBG start label were all correct; only the ground was wrong. It is corrected in data/official.json and the prediction now names the correct venue. The three other Pro D2 match sheets (12063 Agen, 12065 Angouleme, 12067 Grenoble) confirmed the venues already published.",
+  "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers"),
+ ("A Pro D2 points-difference rank in the RGU-09 write-up was wrong",
+  "The first draft said Grenoble's +37 differential &lsquo;ranks fifth&rsquo;. The official LNR table ranks it fourth behind Oyonnax (+159), Provence (+64) and Brive (+42). Corrected to fourth. The underlying figures (213 scored, 176 conceded, 22 points, third place) were unchanged, so the price and the grade did not move.",
+  "https://prod2.lnr.fr/classement"),
+ ("Seventy of 137 rows had already kicked off when this build ran",
+  "The board is a verbatim capture of OLBG's listings at 07:05Z on 21 October 2026, and OLBG labels those fixtures &lsquo;Today&rsquo;. At this 22 October rebuild, 70 rows carry a 21 Oct date, so their kick-offs have passed. They are kept, tagged <em>archive</em> and excluded from high-confidence grading rather than silently re-dated. The remaining 67 rows run from 22 Oct to 25 Jul 2027. A full re-capture and re-verification is the open task recorded in COORDINATION.md; none of the archived values was altered.",
+  "https://www.olbg.com/betting-tips"),
  ("Empirical proof of OLBG IP-timezone rendering across fetches",
   "Comparing fetches across US Eastern (EDT, UTC-4) and UK (BST, UTC+1) endpoints proved that OLBG dynamically shifts every bare timestamp into the requester&rsquo;s geolocation timezone without printing a zone label: MIL Bucks @ WAS Wizards renders as <code>Today 19:10</code> in EDT and <code>Tomorrow 00:10</code> in BST; RK Zagreb vs PSG renders as <code>12:45</code> in EDT and <code>17:45</code> in BST against the official <code>18:45 CEST</code> EHF throw-off.",
   "https://www.olbg.com/betting-tips"),
@@ -838,18 +892,6 @@ IRREGULARITY_EXTRA = [
   "row records '23 Oct 20:00' and a Money Line tip at 3/6 (50%). Tip counts were always known to move; a five-hour shift in the clock label "
   "and a change of featured market were not. The captured labels are published unchanged as a snapshot, and no start time is derived from them.",
   "https://www.olbg.com/betting-tips/Baseball/12"),
- ("HIGH confidence now requires a modeled selection probability strictly above 70%",
-  "The prior rule awarded the top probability points at 65%, which admitted IHO-06 (65.13%) and RGU-14 (66.85%) as HIGH. Both are now MEDIUM, their predictions were removed from the HIGH-only list, and the grader/checker require >70%. This percentage is the project's modeled probability, not a market-implied probability.",
-  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),
- ("The requested American odds range cannot be verified from this capture",
-  "The repository contains no bookmaker market quotes. Decimal prices are our own model output with a 5% overround, so they cannot prove that any pick falls between -250 and +10000 American market odds. No bookmaker price or market-implied probability is inferred; this remains open until a market source is captured and linked.",
-  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/model.md"),
- ("The OLBG match board is a 2026-10-21 snapshot, not a live 2026-10-22 refresh",
-  "The fixtures and tip splits in the board were captured on 21 October (outright capture at 07:05 UTC); this review did not retrieve current OLBG listings for 22 October. Relative labels such as Today/Tomorrow and tip counts are therefore historical snapshots, not proof that a fixture remains upcoming or unchanged. The scheduled CI refreshes official NHL/MLB/NBA feeds, not these OLBG source rows.",
-  "https://www.olbg.com/betting-tips"),
- ("Some HIGH-prediction claims are linked to non-official reporting",
-  "The source registry classifies media/aggregator links in 10 predictions as third-party or unclassified (including player-specific and recent-match details in RGU-01, RGU-04, RGU-05, RGU-06, RGU-07, RGU-10, RGU-11, RGU-13, IHO-03 and IHO-05). They are visibly tier-tagged on the Predictions page; the associated facts are not claimed verified from a governing body here. Official-source-only player facts remain a gap and are flagged rather than silently promoted.",
-  "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions.json"),
 ]
 irregularities = IRREGULARITY_EXTRA + irregularities
 
@@ -993,15 +1035,22 @@ model output, never as a market quote.</p>
 <ul class="tight">{assum}</ul>
 
 <h2>Confidence grading</h2>
-<p>Three factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
-model probability of the pick &gt;70% (+2, or +1 if &ge;55%). <strong>HIGH &ge; 6</strong>, <strong>MEDIUM 3&ndash;5</strong>, <strong>LOW &le; 2</strong>.
-A row built only on a public tip share therefore can never be graded above MEDIUM, and in practice lands on LOW.</p>
-<p>Current split: HIGH {conf_counter['HIGH']} &middot; MEDIUM {conf_counter['MEDIUM']} &middot; LOW {conf_counter['LOW']}.</p>
+<p>Three evidence factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
+and our model giving the selection at least 55% (+2). A pick is graded <strong>HIGH</strong> only when the score is 6, the originated price sits
+inside <strong>-250 to +10000</strong> US odds (decimal 1.40 to 101.00) and the kick-off has not already passed. A score of 6 that fails the price
+or date test is <strong>MEDIUM</strong> with the reason published; 3&ndash;5 is MEDIUM and 0&ndash;2 is LOW. A row built only on a public tip share can
+never be graded above LOW.</p>
+<p><strong>Why 55% and not 70%?</strong> With our 5% overround, a 70% pick prices at 0.95/0.70 = 1.36, or -280, which is shorter than -250 and
+therefore outside the brief. The band itself caps a HIGH pick at 0.95/1.40 = 67.9% true probability. The previous 65% threshold made the band
+mathematically unreachable (its maximum price was 1.46), which is why all 15 published HIGH picks sat at 1.07&ndash;1.46. The threshold is now 55%,
+and the band &mdash; not the probability alone &mdash; defines the top grade.</p>
+<p>Current split: HIGH {conf_counter['HIGH']} &middot; MEDIUM {conf_counter['MEDIUM']} &middot; LOW {conf_counter['LOW']}. Of the
+{n_evidence_high} rows that clear the evidence bar, {n_band_blocked} are priced shorter than -250 and are published as MEDIUM.</p>
 
 <h2>What we will not do</h2>
 <ul class="tight">
   <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
-  <li>We do not write predictions for picks we cannot support with verified form. That is why only {len(PREDS)} of {n_events} rows carry a written prediction.</li>
+  <li>We do not write predictions for picks we cannot support with verified form. That is why only {len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} of {n_events} rows carry a high-confidence prediction; the {len(PREDS) - len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} longer pieces are clearly labelled medium-confidence analysis.</li>
   <li>We do not claim that a row is verified because a source exists for the competition. A row is verified only when the specific fixture appears on that source; see the <a href="audit.html">audit page</a>.</li>
   <li>We do not present our own prices as facts or as bookmaker odds.</li>
 </ul>

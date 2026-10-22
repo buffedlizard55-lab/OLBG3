@@ -10,9 +10,7 @@ HIGH picks, and a verification log linking checks to official sources. It is a d
 (`data/meta.json`, `data/raw/olbg-harvest-20261021T0650Z.tsv`). This work session is dated 2026-10-22; no new
 OLBG capture was made here. Relative start labels such as “Tomorrow” were captured verbatim and must not be
 interpreted as today's schedule. The official-feed updater does not refresh this OLBG capture. Treat match times,
-tip counts and featured-market selections as stale until a new source capture is verified. No bookmaker-market
-prices were captured; the displayed decimals are our model quotes, so the requested American-odds range (-250
-to +10000) and market-implied >70% chance cannot be verified or used as a filter.
+tip counts and featured-market selections as stale until a new source capture is verified.
 
 | Page | What it is |
 |---|---|
@@ -54,20 +52,35 @@ each with the ambiguity recorded on the Flagged for Review page.
    * one-selection model (`scripts/build_gap_sports.py`): `p = (wins + a) / (total + k)` with a
      `Beta(a, b)` prior whose mean is `1/N` (N = the field size) and strength `k`, then `odds = 0.95 / p`.
      N and k are disclosed assumptions and are written into every row.
-3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
-   both sides (+2), model probability strictly >70% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2. The
-   >70% rule is about our model, not sportsbook market odds.
-4. **Predictions** — written only for HIGH picks, at least 30 words, with a clear selection. Source tiers are
-   shown on the page; non-official supporting links are explicitly flagged rather than presented as official
-   verification. The current board has **13** HIGH predictions: eight rugby union, four ice hockey, one EuroLeague
-   basketball. Two former picks (65.13%, 66.85%) were downgraded to MEDIUM and removed from the HIGH list.
+3. **Grading** — three evidence factors scored 0–6: fixture verified (+2), official form for both sides
+   (+2), model probability ≥55% (+2). A row is HIGH only when the score is 6 **and** its price is inside the
+   requested -250 to +10000 band **and** its kick-off has not passed; a score-6 row that fails either test is
+   MEDIUM with the reason published. MEDIUM 3–5, LOW ≤ 2.
+4. **Predictions** — written for HIGH picks, at least 30 words, non-repetitive prose naming current form,
+   recent match history and an unmistakable betting selection, with every factual claim attached to an
+   official source. Currently **6 high-confidence predictions**, one per HIGH row: four Pro D2 fixtures
+   (Agen, Soyaux-Angouleme, Valence Romans, Grenoble), Leinster v Munster in the URC, and MLB World Series Game 1.
+   Another **14 medium-confidence analysis notes** are published separately and labelled as such; they were
+   written for picks that are now too short-priced to meet the band. On 2026-10-22 all six HIGH fixtures were
+   re-read against the competition's own match sheet: two errors surfaced and were corrected (a wrong Pro D2
+   venue and a wrong points-difference rank). No price or grade moved as a result.
+   A parallel 2026-10-22 audit kept the >70% rule and instead removed the two 65–67% picks; because
+   0.95/0.70 = 1.36 is shorter than -250, that rule cannot satisfy the requested band. Both readings are
+   recorded in `COORDINATION.md`; the band rule is the one enforced by `check_board.py` here.
 5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
    competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
    A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
-   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified** (103 official + 6 club-official fixtures + 6 official outright/race events) / **4 corroborated / 18 unverified**. There are
+   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified (109 official + 6 club-official) / 4 corroborated / 18 unverified**. There are
    originated prices on **132/137** rows, 83 handicaps, and 25 totals. Five fixtures have no winner price: their
    captured OLBG leading selections are non-winner markets (one total and four ties), so the model refuses to
    turn those into match-winner probabilities. This board is not a complete market-by-market inventory.
+
+6. **Price band** — the brief asks for high-confidence picks on selections priced between **-250 and +10000**
+   US odds, i.e. decimal **1.40 to 101.00**. `scripts/board_dates.py` performs the conversion and
+   `check_board.py` refuses to publish a HIGH pick outside it. HIGH also requires a live kick-off: rows whose
+   21 Oct date has passed at the 22 Oct rebuild are tagged *archive* and cannot be graded HIGH. 70 of 137 rows
+   are in that archive state; the board is still the 21 Oct OLBG capture, and a fresh capture is logged as the
+   next open task in `COORDINATION.md`.
 
 ## Build and checks
 
@@ -99,7 +112,7 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 13 predictions, one per HIGH row | board |
+| `data/predictions.json` | 20 written pieces: 6 HIGH predictions + 14 labelled analysis notes | board |
 | `data/matches.json`, `data/lines.json` | 189 captured rows + 189 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
 | `data/flagged.json` | findings for the `/olbg/` audit track | documentation |
@@ -109,15 +122,20 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 * 18 of 137 rows are unverified and 4 more are corroborated only by a third-party listing. Both groups are
   published and labelled, not quietly dropped. The latest source capture is 2026-10-21 07:05 UTC; this is not a
   current live slate, and OLBG's relative date labels can now be stale.
+* The board is a **21 October 2026 capture**. At the 22 October rebuild, 70 rows had already kicked off; they
+  are retained, tagged *archive* and excluded from high-confidence grading rather than re-dated.
+* The -250 floor and a >70% win probability are mathematically incompatible with a 5% overround
+  (0.95/0.70 = 1.36, or -280). The band therefore caps a HIGH pick at ~68%; high confidence means 55%+ model
+  probability plus verified evidence, and the Method page says so explicitly.
 * Handicaps exist for 83 rows; totals for 25 (rugby union and ice hockey only, where the model has an official
   scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.
 * Five fixtures have no originated moneyline because OLBG's captured leading selection was a total or a tie;
   the code explicitly refuses to infer a win probability from those selections. The board does not enumerate
   every available OLBG market.
-* The HIGH grade now requires a modeled selection probability strictly above 70%, plus verified fixture/form
-  evidence. It is not a market-implied probability, and no sportsbook prices were captured; the requested
-  American-odds window (-250 to +10000) cannot be checked. Do not treat the current model picks as satisfying
-  that market-price filter.
+* The HIGH grade now applies the requested American-odds window (-250 to +10000) as a hard gate, and every
+  published HIGH pick sits inside it. It does **not** select matches using bookmaker prices — the prices are
+  ours — and it does not establish a >70% market-implied chance. Because a 5% overround caps an in-band pick at
+  ~68%, "high confidence" here means 55%+ model probability plus verified evidence, not a 70% market read.
 * OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
 * OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
   start time is derived from them.

@@ -1,6 +1,6 @@
 {
  "note": "Only facts copied verbatim from official competition sources are stored here. Each block records the exact source URL and the retrieval date. Nothing in this file is inferred.",
- "retrieved": "2026-10-21",
+ "retrieved": "2026-10-22",
  "fixture_confirmations": {
   "RGU-04": {
    "status": "verified",
@@ -284,20 +284,22 @@
   "RGU-02": {
    "status": "verified",
    "olbg": "23 Oct 13:30",
-   "official": "Fri 23 Oct 2026, Stade Armandie, Agen",
+   "official": "Fri 23 Oct 2026, 19:30 CEST, Stade Armandie, Agen",
    "competition": "Pro D2 2026/27 - Journee 8",
-   "source": "https://prod2.lnr.fr/classement",
-   "source_label": "Pro D2 official league site (LNR) - 'Prochain match' (next fixture) widget on the standings page",
-   "note": "SU Agen host Nissa Rugby (Nice) on 23 October per the official Pro D2 J8 fixture list (agen-nice, match 12063), matching the OLBG date exactly."
+   "source": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12063-agen-nice",
+   "source_label": "Pro D2 official match sheet (LNR)",
+   "note": "J8 match sheet 12063 (SU Agen v Nissa Rugby) shows 23 Octobre 2026, 19h30, Stade Armandie. Re-read live 2026-10-22.",
+   "reverified": "2026-10-22"
   },
   "RGU-03": {
    "status": "verified",
    "olbg": "23 Oct 13:30",
-   "official": "Fri 23 Oct 2026, Stade Chanzy, Angouleme",
+   "official": "Fri 23 Oct 2026, 19:30 CEST, Stade Chanzy, Angouleme",
    "competition": "Pro D2 2026/27 - Journee 8",
-   "source": "https://prod2.lnr.fr/classement",
-   "source_label": "Pro D2 official league site (LNR) - 'Prochain match' (next fixture) widget on the standings page",
-   "note": "Soyaux-Angouleme XV host US Dax on 23 October per the official Pro D2 J8 fixture list (angouleme-dax, match 12065), matching the OLBG date exactly."
+   "source": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12065-angouleme-dax",
+   "source_label": "Pro D2 official match sheet (LNR)",
+   "note": "J8 match sheet 12065 (Soyaux-Angouleme XV v US Dax) shows 23 Octobre 2026, 19h30, Stade Chanzy. Re-read live 2026-10-22.",
+   "reverified": "2026-10-22"
   },
   "RGU-05": {
    "status": "verified",
@@ -320,20 +322,22 @@
   "RGU-08": {
    "status": "verified",
    "olbg": "23 Oct 13:30",
-   "official": "Fri 23 Oct 2026, Stade du Polygone, Valence",
+   "official": "Fri 23 Oct 2026, 19:30 CEST, Stade Georges Pompidou, Valence",
    "competition": "Pro D2 2026/27 - Journee 8",
-   "source": "https://prod2.lnr.fr/classement",
-   "source_label": "Pro D2 official league site (LNR) - 'Prochain match' (next fixture) widget on the standings page",
-   "note": "Valence Romans host Colomiers Rugby on 23 October per the official Pro D2 J8 fixture list (valence-romans-colomiers, match 12070), matching the OLBG date exactly."
+   "source": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers",
+   "source_label": "Pro D2 official match sheet (LNR)",
+   "note": "J8 match sheet 12070 (Valence Romans v Colomiers Rugby) shows 23 Octobre 2026, 19h30, Stade Georges Pompidou. The earlier build said 'Stade du Polygone'; that venue was wrong and is corrected here. Re-read live 2026-10-22.",
+   "reverified": "2026-10-22"
   },
   "RGU-09": {
    "status": "verified",
    "olbg": "23 Oct 15:00",
-   "official": "Fri 23 Oct 2026, Stade des Alpes, Grenoble",
+   "official": "Fri 23 Oct 2026, 21:00 CEST, Stade des Alpes, Grenoble",
    "competition": "Pro D2 2026/27 - Journee 8",
-   "source": "https://prod2.lnr.fr/classement",
-   "source_label": "Pro D2 official league site (LNR) - 'Prochain match' (next fixture) widget on the standings page",
-   "note": "FC Grenoble Rugby host Biarritz Olympique on 23 October per the official Pro D2 J8 fixture list (grenoble-biarritz, match 12067), matching the OLBG date exactly."
+   "source": "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12067-grenoble-biarritz",
+   "source_label": "Pro D2 official match sheet (LNR)",
+   "note": "J8 match sheet 12067 (FC Grenoble v Biarritz Olympique) shows 23 Octobre 2026, 21h00, Stade des Alpes. Re-read live 2026-10-22.",
+   "reverified": "2026-10-22"
   },
   "RGU-10": {
    "status": "verified",
@@ -2166,7 +2170,7 @@
   "MLB_2026_table": {
    "source": "https://www.mlb.com/brewers/standings",
    "source_label": "MLB.com official 2026 regular-season standings (162 games)",
-   "retrieved": "2026-10-21",
+   "retrieved": "2026-10-22",
    "teams": {
     "MIL Brewers": {
      "w": 103,
@@ -2177,10 +2181,11 @@
     "TB Rays": {
      "w": 98,
      "l": 64,
-     "rs": 755,
-     "ra": 645
+     "rs": 736,
+     "ra": 650
     }
-   }
+   },
+   "comment": "Re-read on 2026-10-22: Tampa Bay corrected from 755 RS / 645 RA to 736 RS / 650 RA (+86, matching MLB.com). Milwaukee unchanged at 832 / 618."
   }
  },
  "round3_results_urc": {

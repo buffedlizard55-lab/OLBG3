@@ -27,6 +27,10 @@ import json
 import os
 from urllib.parse import urlparse
 
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from board_dates import resolve_start, american, in_band, AS_OF
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Source tiers, exactly as scripts/model.py applies them: only a competition's own site (or a club's own
@@ -127,6 +131,11 @@ def main() -> None:
             flags.append("official_source_not_retrieved")
 
         conf, score, factors = grade(e["verification"]["status"] == "verified", prob or 0.0)
+        start_iso, start_basis = resolve_start(e["start"])
+        kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
+        if kickoff_passed and conf == "HIGH":
+            conf = "MEDIUM"
+        band_ok = in_band(odds)
 
         rows.append({
             "ref": e["ref"],
@@ -164,6 +173,15 @@ def main() -> None:
                 "confidence": conf,
                 "score": score,
                 "factors": factors,
+                "price": odds,
+                "american": american(odds) if odds else None,
+                "in_band": band_ok,
+                "band": [-250, 10000],
+                "start_iso": start_iso,
+                "start_basis": start_basis,
+                "kickoff_passed": kickoff_passed,
+                "evidence_grade": conf,
+                "note": "",
             },
             "flags": flags,
             "row_notes": e["row_notes"],
