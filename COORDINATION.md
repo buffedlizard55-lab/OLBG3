@@ -4,109 +4,14 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ## Session Information
 
-### ACTIVE CLAIM — `session-cab97f19` (evening live re-validation, five-per-sport coverage pass & final integration, 2026-10-22T21:00Z)
+### ACTIVE — `session-784afe97` (evening live 15-sport re-harvest, official-source re-verification, HIGH-pick expansion toward 5-per-sport & final integration, 2026-10-22T20:55Z)
+- **Session ID:** `session-784afe97` — **Branch:** `arena/784afe97-olbg3` (Arena-locked branch name; per Arena rules this session cannot create `session-*` branches, so this branch is used and only claimed files are edited).
+- **Claimed:** `task-44-evening-live-harvest-highpick-expansion-and-integration-20261022` at 2026-10-22 20:55 UTC.
+- **Pre-claim check:** `git fetch origin --prune` → only `origin/main` (`13f31f4`, PR #98) exists remotely; `gh pr list --state open` → **no open PRs**; `git branch -r` → no sibling session branch. Every earlier session record on this board is `COMPLETED`/`CLOSED`. **No sibling scope is at risk**, so this session owns the whole repo for the duration of the task.
+- **File scope:** `COORDINATION.md`, `README.md`, `docs/**`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `.github/workflows/pages.yml`.
+- **Baseline:** `main` = `13f31f4` (root board 265 rows / 217 fixtures + 48 outright-race, 242 priced, 20 live in-band `HIGH`; `/olbg/` track 298 fixtures / 298 lines / 24 `high` / 53 pieces; 98 review-register items `FL-001`..`FL-098`). Last live OLBG harvest 2026-10-22T12:15–12:25Z — **now ~8.5 h stale**, so every fixture listed as live `HIGH` at that stamp has since started or is about to.
+- **Plan:** (1) live re-harvest of all 15 allowed OLBG sport + sub-league endpoints at the current clock; (2) line-by-line re-verification of every live `HIGH` write-up against the competition's own page — repair anything unsupported, blank + flag what cannot be confirmed; (3) expand the live in-band `HIGH` set toward the brief's target of 5 picks per covered sport (today's board is short in Baseball, Golf, Motor Racing, Rugby Union, Rugby League, Gaelic Football, Greyhounds, Cricket, Handball and Volleyball); (4) rebuild both tracks, run every checker, the unit suite and the link check; (5) PR to `main`, merge, confirm the GitHub Pages deploy, and record the result here.
 
-- **Session ID:** `session-cab97f19`
-- **Active Working Branch:** `arena/cab97f19-olbg3` (Arena-locked; the branch name is fixed for this session, so the `session-<id>/<task>` convention is satisfied by this branch and only the claimed files are edited).
-- **Claimed:** `task-43-evening-live-revalidation-five-per-sport-and-integration-20261022` at 2026-10-22 21:00 UTC.
-- **Pre-claim check (20:55Z):** `git fetch origin --prune` → only `origin/main` at `13f31f4` (PR #98 merged). `gh pr list --state open` → **no open pull requests**. No sibling `arena/*` branch is live on the remote, so no concurrent scope is at risk.
-- **File scope:** `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `docs/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**` — regenerated through the documented pipeline only.
-- **Baseline (this branch, 20:52Z, real UTC clock):** full CI-order pipeline runs green with zero data drift — `check_board.py` PASS (265 rows = 217 fixtures + 48 outright/race, 242 priced, 19 live in-band HIGH), `tools/check_site.py` PASS (298 fixtures/lines, 24 HIGH), `check.py` PASS (40 feed rows), `check_links.py` PASS (85 pages / 1,529 links / 0 broken).
-- **Plan:** (1) re-validate every published live `HIGH` pick and its write-up against the competition's own page at the real 21:00Z clock, expiring anything whose official start has passed; (2) take a fresh evening OLBG listing read across all 15 allowed sports and record what is genuinely *upcoming*; (3) report, per sport, how many fixtures are actually available and select the five highest-confidence upcoming matches where five exist, with explicit disclosure where a sport has fewer; (4) rebuild both tracks, run every checker/test/link scan, PR to `main`, merge, confirm GitHub Pages; (5) record sources, verification and irregularities here and on the Flagged page.
-- **Known environment constraint:** the agent shell's outbound HTTP allowlist covers GitHub and package registries only, so live sports pages are read through the platform page-fetch tool; every fetch is timestamped and quoted in this record. Nothing is inferred from memory.
-- **Status:** complete — results, sources and residual irregularities recorded below.
-
-#### Result — `session-cab97f19` (evening re-validation, 21:20Z publication clock)
-
-**1. Defect found and fixed — frozen publication clock (`FL-099`).** The committed build derives its
-publication clock from the newest `checked_at` in `data/release_checks.json`, which stood at `12:40Z`.
-Assessing every published `HIGH` pick against the real `2026-10-22T21:05Z` clock showed **9 of 24 had
-already started**: SHL `199900/199901/199906` at 17:00Z, EuroLeague `535921/535922/535918` at
-18:05/18:30/17:30Z, EHF `12051` at 16:45Z and darts `32324/32338` at 17:00Z. Rather than edit grades by
-hand, the official clocks that could genuinely be re-read were re-read and re-stamped:
-
-| Source re-read this session | Read at | What it certified |
-|---|---|---|
-| `api-web.nhle.com/v1/schedule/2026-10-22` | 20:56Z | all 12 NHL games, `startTimeUTC` + named venue (`gameState` FUT) |
-| `nba.com/schedule?date=2026-10-22` | 21:20Z | 5 NBA games with explicit `ET` tip-offs (22 and 23 Oct) |
-
-The clock advanced to `21:20Z`; the release gate then demoted every started row automatically, with the
-reason displayed on the row. Root track **19 → 13** live `HIGH`; `/olbg/` track **24 → 17**.
-
-**2. Fresh evening capture.** 88 rows read live 20:53Z–21:12Z (`data/raw/olbg-harvest-20261022T2100Z.tsv`,
-mirrored at `docs/harvest-20261022-2100z.tsv`) across Tennis, Basketball, Cricket, Darts, Rugby Union,
-Volleyball and Handball, plus the NHL re-read. It is chained as a **supplementary** capture
-(`meta.supplementary_harvests`, new `tools/build_dataset.py` branch): it can only *add* events the earlier
-captures did not hold and can never restate a row they already published — verified by
-`tests/test_evening_2100z.py::test_supplementary_does_not_restate_primary_rows`. 26 new fixtures were
-added; total `/olbg/` rows 298 → **324**.
-
-**3. Verification actually performed this session.** NBA `536041` (CHI Bulls @ MIL Bucks) certified on the
-NBA.com schedule (4:00 PM ET, Fiserv Forum) and added as a release check. URC Round 4 read at
-`stats.unitedrugby.com/match-centre/2026-27/4` (Cardiff v Sharks, Connacht v Zebre, Edinburgh v Lions —
-14:45 local). `pdc.tv` served a consent wall, so the eight new European Championship quarter-finals could
-not be given per-match official clocks (`FL-103`). Snooker returned "No tips found." (`FL-100`). Unlike
-the earlier pass, no row's verification label was renewed without a fresh read.
-
-**4. Five-per-sport audit (`FL-102`, `docs/coverage-20261022-evening.md`).** 17 live `HIGH` across nine
-sports: Ice Hockey 5, Basketball 3, Volleyball 3, Darts 2, Baseball 1, Cricket 1, Rugby Union 1, Gaelic
-Football 1. Seven sports carry none; the per-sport reason is source availability (unzoned official
-clocks in tennis/handball, no listing in snooker, no upcoming rugby-league fixture, outright-only golf
-and motor racing, unverifiable greyhound cards), not a modelling choice.
-
-**5. New written predictions (unique, ≥30 words, explicit selection, verified facts).**
-`BKB-534842` Boston Celtics ML `-154` (p=0.575) and `BKB-534841` San Antonio Spurs ML `-139` (p=0.552),
-both citing the NBA.com schedule and the NBA.com standings after the opening round (BOS 0-1, NYK 0-1;
-HOU 1-0, SAS 0-1). Neither claims a score, a player line or a head-to-head that no source states.
-
-**6. Allowlist repair (`FL-104`).** `www.nba.com` was missing from `OFFICIAL_CLOCK_HOSTS`, so the NBA
-release evidence was inert and all five NBA rows read `unverified_start`. Added with the reason recorded
-in `scripts/release.py`; no other domain added; explicitly not a factual upgrade.
-
-**Validation (final, before PR):**
-
-| Check | Result |
-|---|---|
-| `python3 -m unittest discover -s tests` | **75/75 OK** (6 new regressions in `tests/test_evening_2100z.py`; one clock-dependent assertion in `test_audit_d3464fe4.py` rewritten to follow the release gate) |
-| `scripts/check_board.py` | PASS — 265 rows / 217 fixtures / 48 outright / 237 verified / 242 priced / 73 pieces / 13 live in-band `HIGH` |
-| `tools/check_site.py` | PASS — 324 fixtures / 324 lines / **17 live `high`** / 55 pieces / 104 register items |
-| `scripts/check.py` | PASS — 40 feed rows |
-| `scripts/check_links.py` | PASS — 85 pages, 1,529 local links, 0 broken |
-| excluded sports | 0 rows published |
-
-**Sources used (all read this session):** `olbg.com` listings ×8, `api-web.nhle.com/v1/schedule/2026-10-22`,
-`nba.com/schedule?date=2026-10-22`, `nba.com/standings?date=2026-10-22`,
-`stats.unitedrugby.com/match-centre/2026-27/4`, `pdc.tv` (consent wall — no content taken),
-`lnh.fr` (calendar shell only — no content taken).
-
-**Merge & Pages record (standing requirement).** PR [#102](https://github.com/buffedlizard55-lab/OLBG3/pull/102)
-opened from `arena/cab97f19-olbg3` and **merged to `main` as `26c04f498114a421fd1cc7940b0a0c301e2a8863`**
-at 2026-10-22T21:01:10Z without waiting for review. Branch CI `build` passed in 12s
-(run [39853631320](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853631320)); the PR's
-`deploy` job skipped as expected. Post-merge on `main`: `Verify and publish dashboard`
-([39853786255](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853786255)) and
-`pages build and deployment` ([39853785468](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853785468))
-both completed **success**. Live re-read of the published site with a cache-busting query confirmed the
-new data: `https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html` serves **324 of 324 rows**, and
-`/olbg/flagged.html` serves **104 items** including `FL-099`..`FL-104`.
-
-**Concurrency note.** `main` advanced from `13f31f4` to `da6c533` (sibling PRs #99/#100 by
-`session-931c2e71`, which hardened `scripts/check_links.py` and added `tests/test_check_links.py`) while
-this session was working. This branch was rebased onto `da6c533` before pushing; the combined tree was
-re-validated (81/81 tests, 106 pages, 1,940 links, 0 broken) and no sibling work was discarded.
-
-**Residual irregularities (published on the Flagged page, none block the merge):** `FL-099` fixed,
-`FL-100` open (snooker listing empty), `FL-101` open (25 of 26 new fixtures uncertifiable and published
-blank), `FL-102` open (five-per-sport shortfall with per-sport reasons), `FL-103` open (darts per-match
-clocks behind a consent wall), `FL-104` fixed (nba.com allowlist).
-
-### ACTIVE CLAIM — `session-c038b7f4` (evening brief-coverage accounting, cross-track reconciliation, legacy-page coherence & final integration, 2026-10-22T20:55Z)
-
-- **Session ID:** `session-c038b7f4` — **Branch:** `arena/c038b7f4-olbg3` (Arena-locked; the branch name is fixed for this session, so it edits only the files listed below).
-- **Pre-claim check (2026-10-22T20:52Z):** `git fetch origin --prune` shows only `origin/main`; `gh pr list --state open` returns **no open PR**; `main` is at `13f31f4` (PR #98). No sibling claim is active, so no other scope is at risk.
-- **Sandbox network boundary (material to every claim below):** this session's outbound allowlist is `github.com`, `codeload.github.com`, `api.github.com`, `registry.npmjs.org`, `pypi.org`, `files.pythonhosted.org` only. `www.olbg.com`, `api-web.nhle.com`, `www.mlb.com` and every other official source host return **HTTP 000 / blocked** from this sandbox (verified by direct request at 20:52Z). Therefore this session performs **no new OLBG harvest and no new official-source re-verification**, and renews no `checked_at`, no quote and no verification label. Anything that would need a live source read is left exactly as committed and reported as a limitation, never inferred.
-- **File scope:** `COORDINATION.md`, `README.md`, `scripts/brief_coverage.py` (new), `scripts/build_site.py`, `scripts/build.py`, `scripts/check_board.py`, `tests/test_brief_coverage.py` (new), `data/brief_coverage.json` (new), generated root `*.html`, `sports/**` and `site/**` via the documented pipeline only. No `data/raw/**` capture, no fixture/price/prose edit, no `/olbg/` track file.
-- **Plan:** (1) run the documented pipeline from a clean tree and record the exact baseline; (2) audit line by line what the brief asks for and what the board actually publishes — per-sport coverage against the "5 highest-confidence picks per sport, daily" target, the `-250..+10000` band, the ≥30-word rule, exclusions, and source links — and publish that accounting as data plus a page instead of leaving it implicit; (3) publish the cross-track disagreements (same OLBG fixture, different selection on the root board vs the `/olbg/` audit track) as a review list with both source links; (4) make the legacy official-feed pages state their own capture time and link back to the board, because they still printed repo-wide "no validated model / all picks withheld" text next to a board that publishes picks; (5) add a build-time check and unit tests so the accounting cannot silently drift; (6) run every checker, the unit tests and the broken-link scan, PR to `main`, merge without waiting, confirm the Pages deploy and record it at the bottom of this file.
 
 ### COMPLETED — `session-22fd95c8` (darts 21:19Z consensus correction & written-piece price rule; reconciled onto `main` after two sibling merges, 2026-10-22T23:00Z)
 
