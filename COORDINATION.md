@@ -242,8 +242,6 @@ Baseline on this branch was `f55593f`; the branch was rebased onto `main` `29241
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
-| `task-43-evening-live-revalidation-five-per-sport-and-integration-20261022` | Evening live re-validation at the real 21:00Z clock: repair the frozen publication clock, capture the 21:00Z OLBG listings across all 15 allowed sports, certify what official sources support, publish the per-sport five-pick availability audit, rebuild both tracks, PR, merge and confirm Pages | `COORDINATION.md`, `README.md`, `data/**`, `scripts/release.py`, `tools/build_dataset.py`, `tests/**`, `docs/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**` | done | `session-cab97f19` (branch `arena/cab97f19-olbg3`) | FL-099 frozen clock fixed (9 of 24 HIGH had started; root 19→13, `/olbg/` 24→17 live HIGH), FL-100..FL-104 raised, 26 new fixtures captured, `/olbg/` 298→324 rows, 75/75 tests, all checkers PASS, 0 broken links |
-| `task-44-brief-coverage-accounting-cross-track-reconciliation-and-final-integration-20261022` | Publish per-sport accounting against the brief's 5-picks-per-sport daily target (with the honest reason each sport falls short), publish cross-track selection disagreements as a review list, make the legacy feed pages self-describing, add build-time checks + unit tests, then run the full suite, PR, merge and confirm Pages | `COORDINATION.md`, `README.md`, `scripts/brief_coverage.py` (new), `scripts/build_site.py`, `scripts/build.py`, `scripts/check_board.py`, `tests/test_brief_coverage.py` (new), `data/brief_coverage.json` (new), generated root `*.html` / `sports/**` / `site/**` | done (integration PR pending merge record) | `session-c038b7f4` (branch `arena/c038b7f4-olbg3`) | Claimed `2026-10-22T20:55Z` atop `main` `13f31f4`; no open PR and no sibling branch at claim time. Rebased onto the 21:20Z evening capture (PR #102) and re-derived all counts from it; no source timestamp renewed |
 | `task-39-midday-live-refresh-highpick-expansion-and-final-integration-20261022` | Parallel midday live 15-sport re-harvest (12:15Z–12:36Z), dual-track integration, official-source HIGH re-verification (NHL API, pdc.tv), Humphries-withdrawal handling, stale PR #76/#77 closure, PR + merge + Pages confirmation | whole-repo (regenerated via documented pipeline only) | closed as superseded | `session-bb34505f` (branch `arena/bb34505f-olbg3`) | PRs #76/#77 closed with handoff comments; integration PR [#96](https://github.com/buffedlizard55-lab/OLBG3/pull/96) closed UNMERGED after pre-merge cross-check found `main` @ `a9c01ec` already carried the equivalent sibling work (PRs #83–#95) and caught a mis-keyed NHL verification map in this branch; reusable evidence (corrected NHL eid↔game-id table, pdc.tv verbatim clocks) recorded in the session section above; record PR [#97](https://github.com/buffedlizard55-lab/OLBG3/pull/97) merged as `e8f4a59`, Pages deploy runs 39785718244 + 39785718233 success, live site confirmed 13:40Z |
 | `task-40-midday-live-harvest-official-audit-a0a7003c` | Non-overlapping Phase 1 live 15-sport `12:15Z` OLBG.com harvest (excluding soccer, boxing, ufc, mma, football, american football, hurling, horse racing, cycling, specials), line-by-line official governing-body verification of matches, clocks, form & `HIGH` prose, and regression tests; followed by rebased Phase 2 (`task-41`) final integration, PR, merge & live GitHub Pages confirmation | Phase 1: `COORDINATION.md`, `docs/audit-a0a7003c.md`, `docs/harvest-20261022-1215z.tsv`, `docs/verifications-a0a7003c.json`, `tests/test_audit_a0a7003c.py` (Phase 2 integration after rebase on `origin/main`) | in progress | `session-a0a7003c` (branch `arena/a0a7003c-olbg3`) | Claimed `2026-10-22T12:08Z` atop `main` `f55593f`; non-overlapping Phase 1 scope explicitly respects concurrent `12:04Z–12:05Z` sibling branches (`adeebd4c`, `7da75ec9`, `b6cb43c5`, `3921f0d3`, `15487122`) |
 | `task-36-linebyline-reverification-inband-high-expansion-and-final-integration-20261022` | Sole-active-session final pass: baseline the documented pipeline, re-read every `HIGH` write-up against its cited official page, repair unsupported claims (blank + flag where unconfirmable), confirm every `HIGH` sits strictly inside `-250..+10000`, confirm excluded sports publish 0 rows, rebuild both tracks, run the full check suite, PR to `main`, merge, confirm Pages | `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `docs/**`, `olbg/**`, `olbg-board/**` | done | `session-08885c97` (branch `arena/08885c97-olbg3`) | 3 defects repaired (FL-063 dead WST source URL on 21 links, FL-064 SHL overtime/shootout wording, FL-065 joint-best home record); no price/probability/grade changed. Checks: unittest 29/29, `check_board.py` PASS (228 rows / 210 verified / 224 priced / 62 pieces), `tools/check_site.py` PASS (21 pages / 270 lines / 35 HIGH / 65 flags), `check.py` PASS, `check_links.py` 81 pages / 1,280 links / 0 broken. Source-by-source record: `docs/source-health-20261022.md` |
@@ -1740,3 +1738,55 @@ broken) all pass; two consecutive rebuilds are byte-identical.
 - Main workflow **https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853105281 success**: build passed, deploy passed, both root and `/olbg/` route smoke tests passed on GitHub's runner. Legacy Pages workflow **https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39853104753 success**. Site: https://buffedlizard55-lab.github.io/OLBG3/ ; review: https://buffedlizard55-lab.github.io/OLBG3/flagged.html . Direct sandbox live HTTP validation is not claimed.
 - Nonblocking workflow warnings: runner's official-feed refresh differs from committed root snapshot (local offline rebuild was unchanged); existing dual publisher design can expose different official-feed snapshots. Node 20 action deprecation and Ubuntu runner migration notices also emitted. Request to sibling workflow/UI integration owners: retain explicit capture provenance and reconcile dual publishing in your scope; no unrelated workflow edits made here.
 - Final task status: **done** for scoped tooling/structural audit; **needs review** for fresh exhaustive sporting verification and unmet five-per-sport quota, already disclosed in the report and existing public review page. No blocked-source facts manufactured; no shared dataset overwritten. This coordination-only follow-up records the observed release evidence.
+
+### Result — `session-c038b7f4` (`task-43`: brief-coverage accounting, cross-track reconciliation, feed-track coherence, final integration; 2026-10-22T20:52–21:20Z)
+
+**What was asked vs what is published.** The brief wants the five highest-confidence picks for every covered sport every day, inside
+`-250..+10000`, each with a unique >= 30-word sourced write-up. That number was never printed anywhere; it is now computed from the rows
+themselves and published, so the gap cannot hide.
+
+- **`scripts/brief_coverage.py` (new) writes `data/brief_coverage.json`** — no network, no inference: it reads `data/events.json`,
+  `data/gap_sports.json`, `data/lines.json`, `data/matches.json`, `data/meta.json`, `data/predictions.json`,
+  `data/predictions-olbg.json` and `data/verifications.json`.
+  - target **5 picks x 15 sports = 75/day**, published today **24 distinct live HIGH** (root 20, `/olbg/` 24, de-duplicated on OLBG event
+    id), so **1 sport meets the target (Ice Hockey, 8)** and the shortfall is **51**.
+  - per-sport blockers, counted from row fields: no official current-form input for both sides (Tennis 21/40, Snooker 14/14, Volleyball
+    25/30, Handball 16/31 …); HIGH-grade evidence outside the band (Ice Hockey 9, Darts 9, Rugby Union 8, Tennis 6, Handball 8);
+    official-start / source gate (Tennis 40/40, Snooker 14/14, Greyhounds 22/22); unpriced; unverified-or-corroborated (Greyhounds 22/22).
+    Counts overlap on purpose and the page says so.
+  - prose evidence per track, from each piece's own `sources`: root 73 pieces (20 HIGH, 59–143 words, 0 under 30, 0 duplicate bodies), 70
+    citing a host recorded in this repo as official, 3 citing only hosts outside that set; `/olbg/` 53 pieces (24 HIGH, 46–105 words).
+- **`brief.html`** renders the accounting, the per-sport reason blocks, the 24 live picks with their refs and the prose-evidence table (with
+  every host outside the recorded official set listed and explicitly **not** called verified).
+- **`reconcile.html`** lists the **28 of 217** fixtures priced on both tracks where the models name different selections (167 agree, 22 have a
+  selection withheld by one track), each with both selections, prices, model probabilities, confidence labels and the OLBG event link.
+- **`data/flagged.json` FL-099 / FL-100 / FL-101** — cross-track disagreement (low), five-per-sport shortfall (medium), and the 14 hosts
+  outside the recorded official set (low). All three are `needs review`, all three are published on both Flagged pages, none blocks.
+- **Feed-track coherence fix (no data changed):** the legacy feed pages printed "No validated model … all picks remain withheld" and
+  "Validated predictions 0" next to a board publishing 20 HIGH picks. They now say which track they are, print their own capture time, warn
+  that rows are not filtered against the current clock, add a Dashboard/brief link to their own nav, and scope every claim to the feed track.
+- **New build guards:** `scripts/check_board.py` rule 7 (brief coverage must recompute exactly, must list all 15 sports, no excluded sport, a
+  shortfall must recompute, cross-track "disagreements" must not be identical selections) and rule 8 (no two root write-ups may be word for
+  word identical). `tests/test_brief_coverage.py` adds 12 tests. `.github/workflows/pages.yml` runs `brief_coverage.py` between `model.py` and
+  `build_site.py`.
+
+**Verification actually performed this pass.** Full pipeline from a clean tree in the documented order:
+`build.py` → `build_gap_sports.py` → `model.py` → `brief_coverage.py` → `build_site.py` → `check_board.py` → `tools/build_dataset.py` →
+`tools/originate.py` → `tools/build_site.py` → `tools/check_site.py` → `--snapshot` → `check.py` → `check_links.py` → `unittest`.
+Results: `check_board.py` **PASS** (265 rows = 217 fixtures + 48 outright/race; 237 verified; 242 priced; 73 pieces; 20 live in-band HIGH);
+`tools/check_site.py` **PASS** (298 lines; 24 high; 53 pieces; 101 register items); `check.py` **PASS** (40 feed rows); `check_links.py`
+**PASS** (89 pages, 2,015 local links, 0 broken); `81/81` unit tests **OK**; consecutive rebuilds byte-identical (clean `git status` after a
+second run). Internal cross-checks also run this pass and recorded for review: every OLBG event URL slug still matches its row's home/away
+names (0 mismatches), no duplicate OLBG event ids across the 265 root rows, every `verified` row's `official_url` host is a governing-body,
+league or club domain, every HIGH write-up names its selection, and the 0.95/p price and band arithmetic is enforced by the checker.
+
+**Boundary — what was *not* verified.** This sandbox's outbound allowlist is GitHub + package registries only; `www.olbg.com`,
+`api-web.nhle.com` and `www.mlb.com` all return HTTP 000. Therefore this session **fetched no OLBG page and no official source**, renewed no
+`checked_at`, quote or verification label, wrote no new fixture, price, grade or prediction, and claims no new verification. That limit is the
+existing **FL-077**, and the 14 hosts outside the recorded official set are **FL-101** rather than being silently trusted. It is also why the
+five-per-sport gap is published (**FL-100**) instead of being closed by relabelling rows.
+
+**Files touched:** `COORDINATION.md`, `README.md`, `.github/workflows/pages.yml`, `scripts/brief_coverage.py` (new), `scripts/build.py`,
+`scripts/build_site.py`, `scripts/check_board.py`, `tests/test_brief_coverage.py` (new), `data/brief_coverage.json` (new),
+`data/flagged.json`, and the generated root/`sports/**`/`site/**` output. No `data/raw/**` capture and no `/olbg/` track data file was
+edited; the `/olbg/` pages changed only because the shared register grew.

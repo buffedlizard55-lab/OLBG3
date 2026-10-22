@@ -407,7 +407,7 @@ unverified fixture. Rows can fail more than one test, so the counts overlap and 
 <th class="num">US</th><th>Tracks publishing it</th></tr></thead>
 <tbody>{live_pick_rows}</tbody></table></div>
 
-<h2>How the write-ups are evidenced</h2>
+<h2 id="evidence">How the write-ups are evidenced</h2>
 <p class="legend">Counted from each piece&rsquo;s own <code>sources</code> list. <em>Recorded official host</em> means a host this repository
 already records as a governing body, league or club source. A host outside that set is listed individually below &mdash; being cited is
 not the same as being verified, and some of them are league sites used as official elsewhere on the board.</p>
