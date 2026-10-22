@@ -1013,6 +1013,7 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   - `scripts/check_links.py` → pages=81, local_links_checked=1234, broken=0.
   - Full CI chain re-run end-to-end (update.py → unittest → build.py → build_gap_sports.py → model.py → build_site.py → check_board → tools/* → snapshot → check → check_links) all green.
 - **Independent JSON audit:** 30 root HIGH + 26 /olbg/ HIGH, all prices inside -250..+10000 (1.44–7.60 decimal); 44 written pieces unique; min length >=30 words; 0 excluded-sport rows; 32 root rows remain blank+flagged (non-blocking).
+
 - **PR:** to be recorded after creation.
 
 ## Session `session-1bc4ae9a` — freshness safety and independent audit
@@ -1070,3 +1071,15 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   - OLBG names the Cuenca club "Ciudad Encantada"; ASOBAL publishes **REBI Balonmano Cuenca** (CQN). Name quoted, not substituted.
   - `data/official.json` source tiers extended with `asobal.es`, `lnh.fr`, `danskhaandbold.dk`, `tophaandbold.dk` (official) and `soenderjyskehh.dk` (club-official) so the tier check remains honest.
 - **Parallel-session note:** `session-f198e83e` finished `task-27` and merged PR #45 at 02:50 UTC. This task is additive (new confirmations only), did not modify any file `task-27` owned, and rebased onto that merge before pushing.
+### task-27-freshness-safety integration result — session-1bc4ae9a
+- **Code and regression tests: done.** PR https://github.com/buffedlizard55-lab/OLBG3/pull/48 merged at 2026-10-22T02:50:58Z, merge commit `5ed523f4b084001a8ee62bbd15539a4896546f35`.
+- Branch CI https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39713569609 passed (build 13s). Local 25 tests and both deterministic pipelines passed; zero broken internal links.
+- Post-merge runs 39713621626 / 39713622166 were **cancelled**, not failed, while concurrent #49 advanced main. #49 preserves this code. Deployment confirmation will use the newest main run; cancellation must not be represented as successful deployment.
+- Remaining items are **needs review**, not verified: full current all-sports coverage, all historical official-source assertions, same-day timezone/start status, calibrated confidence, bookmaker-vs-model price comparison, separate /olbg/ expiry behavior. Published in root Flagged for Review and footer; no new odds or source values were invented.
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/47 — merged to `main` 2026-10-22T02:48:42Z (merge commit). Branch CI run 39713416476 build success; deploy job success.
+- **Pages deploy:** run 39713416476 deploy completed success. Live site: https://buffedlizard55-lab.github.io/OLBG3/ (196 rows / 15 sports / 30 in-band HIGH / 26 /olbg/ HIGH).
+
+
+### task-29 merge record — `session-f75234a1`
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/49 — **MERGED** 2026-10-22T02:53:13Z, merge commit `e76848b`. Two append-only COORDINATION conflicts during rebase were resolved by keeping both sessions' logs verbatim (task renumbered to task-29; sibling `session-e8f8c0f5` holds task-28).
+- **Pages:** `gh api .../pages` status = `built`; `pages build and deployment` + `Verify and publish dashboard` runs completed/success. Live: https://buffedlizard55-lab.github.io/OLBG3/
