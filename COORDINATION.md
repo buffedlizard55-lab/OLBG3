@@ -1873,3 +1873,29 @@ no outbound route to `cdn.nba.com`, `api-web.nhle.com` or `olbg.com` over plain 
   changed lines are only the `downgrade_reason` strings, and the piece set is identical (94 before, 94 after, 0 added,
   0 removed, 0 texts changed).
 - **Repair:** the three regenerated files are committed in the follow-up PR below; nothing from PR #111 was reverted.
+
+#### `session-1cdf1d14` publication record (final)
+
+- **PR [#113](https://github.com/buffedlizard55-lab/OLBG3/pull/113) MERGED** to `main` as `4d60974`
+  (`2026-10-22T21:26Z`) — `FL-127`, `FL-128`, `FL-069` resolved.
+- **PR [#114](https://github.com/buffedlizard55-lab/OLBG3/pull/114) MERGED** to `main` as `8609ab9`
+  (`2026-10-22T21:30Z`) — the regenerated `/olbg/` prediction files that the #113 merge left stale.
+- **GitHub Actions on the final merge commit `8609ab9`:**
+  - `Verify and publish dashboard` run [`39857862638`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39857862638)
+    — `build` **success**, `deploy` **success** (the deploy job's own smoke tests over `/olbg/` and the root routes
+    are part of that job, so both route sets were fetched and asserted non-empty by the workflow itself).
+  - `pages build and deployment` run [`39857862074`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39857862074)
+    — `build` / `deploy` / `report-build-status` all **success**.
+  - GitHub Pages API: latest build `status: "built"`, `commit 8609ab9ce530e0c2a22bdc929dcbb5a4625d2b77`,
+    `created_at 2026-10-22T21:30:47Z`, `updated_at 2026-10-22T21:31:51Z`.
+- **Live confirmation:** <https://buffedlizard55-lab.github.io/OLBG3/data.json> was fetched after the deploy and
+  returns `generated / attempted_at = 2026-10-22T21:30:56Z`, the 22 October NHL slate with `status "FUT"`,
+  `freshness "fresh"` and per-payload `evidence_sha256` values — i.e. the deployed artifact is the merge commit's
+  build, not a cached earlier one.
+- **Intermediate failure, disclosed:** the post-merge run for `4d60974`
+  ([`39857270400`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39857270400)) failed at the *"Fail if the
+  committed OLBG track is stale"* step and skipped `deploy`, because PR #111 landed between this branch's last rebase
+  and the merge. It was fixed by PR #114 rather than by weakening the check; the check caught a real staleness and did
+  its job.
+- **Task state:** `task-44-evening-official-reverification-euroleague-conflict-and-integration-20261022` **done**.
+  No open work remains on this branch.
