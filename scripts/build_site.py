@@ -7,7 +7,7 @@ from board_dates import american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
-GEN = "2026-10-21"          # the capture date
+GEN = "2026-10-22"          # latest live OLBG harvest date (S-20261022-A)
 BUILT = AS_OF.isoformat()  # this rebuild
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
@@ -848,6 +848,9 @@ irregularities = [
 
 
 IRREGULARITY_EXTRA = [
+ ("Live 2026-10-22 OLBG harvest, governing-body verification sweep &amp; 10-sport in-band expansion",
+  "Re-harvested all 15 in-scope OLBG sport listings and multi-market event pages live on 2026-10-22 01:26–01:32 UTC (<code>data/raw/olbg-harvest-20261022.tsv</code>). Added 59 new live fixtures to the board (bringing total coverage to 196 rows: 173 two-sided fixtures + 23 outright/race markets; 162 verified on official/club domains, only 2 third-party corroborated, 32 unverified), promoted international cricket (<code>icc-cricket.com</code>, <code>ecb.co.uk</code>, <code>cricketireland.ie</code>), ATP/WTA Tour draws, full 14-club SHL standings (<code>stats.swehockey.se</code>), PDC European Championship Dortmund order of play (<code>pdc.tv</code>), EHF Champions League &amp; DAIKIN HBL tables, Czech CVF Extraliga, PlusLiga/TAURON Liga and Munster/Cork GAA county finals, and expanded live in-band (<code>-250..+10000</code>) HIGH predictions to 30 picks across 10 sports on <code>/</code> (and 26 across 10 sports on <code>/olbg/</code>).",
+  "https://www.olbg.com/betting-tips"),
  ("Every published high-confidence pick was priced shorter than -250",
   "All 15 HIGH picks on the previous build sat between 1.07 and 1.46 decimal, which is -1429 to -217 US: not one of them was inside the requested -250 to +10000 band. The arithmetic is unavoidable under the old rule, which demanded a 65% model probability and therefore a maximum price of 0.95/0.65 = 1.46. The rule now demands 55% <em>and</em> an explicit band check, so 6 picks are HIGH and all 6 are inside the band. The 13 favourites that are now too short to qualify (BKB-11, IHO-01, IHO-02, IHO-03, IHO-05, RGU-01, RGU-04, RGU-05, RGU-06, RGU-07, RGU-10, RGU-11, RGU-13) are relabelled MEDIUM with their prices published, and IHO-06 is MEDIUM because its 21 Oct kick-off has passed. No price was changed to fit the band.",
   "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"),

@@ -83,12 +83,12 @@
     "side": "single",
     "label": "Si Woo Kim",
     "prob": 0.1399,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 0
+     "model_edge": 2
     },
     "price": 6.79,
     "american": 579,
@@ -100,7 +100,7 @@
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": ""
    },
    "flags": [
@@ -120,9 +120,9 @@
    "start": "25 Oct 17:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Ben James",
-   "olbg_tips": "3/12",
-   "olbg_pct": 25,
+   "olbg_pick": "Seamus Power",
+   "olbg_tips": "5/22",
+   "olbg_pct": 23,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
    "olbg_event_id": 101904,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -138,10 +138,10 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 10.69
+     "single": 8.4
     },
     "probs": {
-     "single": 0.0889
+     "single": 0.113
     },
     "prior": {
      "field": 120,
@@ -157,17 +157,17 @@
    },
    "pick": {
     "side": "single",
-    "label": "Ben James",
-    "prob": 0.0889,
-    "confidence": "LOW",
-    "score": 2,
+    "label": "Seamus Power",
+    "prob": 0.113,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": 10.69,
-    "american": 969,
+    "price": 8.4,
+    "american": 740,
     "in_band": true,
     "band": [
      -250,
@@ -176,14 +176,14 @@
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    },
    "flags": [
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "",
+   "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: past Bermuda champion Seamus Power leads at 5/22 win tips (23%) across the confirmed 120-player Port Royal field (Ben James leads 1st Round Leader at 5/11).",
    "captured_at": "2026-10-21T07:05:00Z"
   },
   {
@@ -816,8 +816,8 @@
    "market_type": "race",
    "olbg_market": "Win Race",
    "olbg_pick": "Max Verstappen",
-   "olbg_tips": "11/32",
-   "olbg_pct": 34,
+   "olbg_tips": "12/33",
+   "olbg_pct": 36,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913",
    "olbg_event_id": 913,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -833,10 +833,10 @@
    "model": {
     "basis": "race-prior",
     "prices": {
-     "single": 3.62
+     "single": 3.41
     },
     "probs": {
-     "single": 0.2624
+     "single": 0.2788
     },
     "prior": {
      "field": 22,
@@ -853,16 +853,16 @@
    "pick": {
     "side": "single",
     "label": "Max Verstappen",
-    "prob": 0.2624,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.2788,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": 3.62,
-    "american": 262,
+    "price": 3.41,
+    "american": 241,
     "in_band": true,
     "band": [
      -250,
@@ -871,13 +871,13 @@
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    },
    "flags": [
     "field_size_prior_assumed"
    ],
-   "row_notes": "Earlier passes read 10/31 (32%). The listing showed 11/32 at this capture; the share is a timestamped snapshot.",
+   "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: Max Verstappen leads USGP Win Race at 12/33 win tips (36%, 3 tracked experts) and Fastest Qualifier at 5/7.",
    "captured_at": "2026-10-21T07:05:00Z"
   },
   {
@@ -930,11 +930,11 @@
     "label": "Max Verstappen",
     "prob": 0.2121,
     "confidence": "LOW",
-    "score": 0,
+    "score": 1,
     "factors": {
      "fixture_verified": 0,
      "official_form": 0,
-     "model_edge": 0
+     "model_edge": 1
     },
     "price": 4.48,
     "american": 348,

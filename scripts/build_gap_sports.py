@@ -88,12 +88,17 @@ def price(p: float) -> float:
     return round((1 - OVERROUND) / p, 2)
 
 
-def grade(fixture_verified: bool, prob: float) -> tuple[str, int, dict]:
-    """Same 0-6 rubric the two-sided board uses (see method page)."""
-    factors = {"fixture_verified": 2 if fixture_verified else 0, "official_form": 0, "model_edge": 0}
-    if prob > 0.70:
+def grade(fixture_verified: bool, official_form: bool, prob: float, field: int, total_tips: int) -> tuple[str, int, dict]:
+    """Same 0-6 rubric the two-sided board uses (see method page), adapted to field priors."""
+    factors = {
+        "fixture_verified": 2 if fixture_verified else 0,
+        "official_form": 2 if official_form else 0,
+        "model_edge": 0,
+    }
+    prior_p = 1.0 / max(field, 2)
+    if prob > 0.70 or (total_tips >= 20 and prob >= 5.0 * prior_p):
         factors["model_edge"] = 2
-    elif prob >= 0.55:
+    elif prob >= 0.55 or (total_tips >= 10 and prob >= 3.0 * prior_p):
         factors["model_edge"] = 1
     score = sum(factors.values())
     label = "HIGH" if score >= 6 else ("MEDIUM" if score >= 3 else "LOW")
@@ -130,12 +135,20 @@ def main() -> None:
         if e["verification"]["status"] != "verified":
             flags.append("official_source_not_retrieved")
 
-        conf, score, factors = grade(e["verification"]["status"] == "verified", prob or 0.0)
+        gv = graded_verification(e["verification"])
+        is_ver = gv["status"] == "verified"
+        conf, score, factors = grade(
+            is_ver,
+            bool(e.get("official_form_verified")),
+            prob or 0.0,
+            field,
+            total or 0,
+        )
         start_iso, start_basis = resolve_start(e["start"])
         kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
-        if kickoff_passed and conf == "HIGH":
-            conf = "MEDIUM"
         band_ok = in_band(odds)
+        if conf == "HIGH" and (kickoff_passed or not band_ok):
+            conf = "MEDIUM"
 
         rows.append({
             "ref": e["ref"],

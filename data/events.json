@@ -1153,6 +1153,776 @@
    }
   },
   {
+   "ref": "BKB-15",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBA Regular Season 2026-27",
+   "home": "LA Lakers",
+   "away": "GS Warriors",
+   "start": "Today 22:10",
+   "olbg_market": "Money Line",
+   "olbg_pick": "LA Lakers",
+   "olbg_tips": "11/17",
+   "olbg_pct": 65,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/GS_Warriors_@_LA_Lakers/4?event_id=534839",
+   "olbg_event_id": 534839,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.nba.com/gamenotes/warriors.pdf",
+    "official_label": "NBA Official Game Notes — Golden State Warriors at Los Angeles Lakers (Oct 21, 2026)",
+    "official_datetime": "2026-10-21 19:00 PDT — Crypto.com Arena, Los Angeles",
+    "competition_official": "NBA Regular Season 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on official Warriors and Lakers NBA Game Notes PDFs: Wed Oct 21 7:00 PM PT (Thu Oct 22 02:00 UTC)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.46,
+     "win_away": 2.71
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.65,
+     "away": 0.35
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -5.5,
+     "price": 1.91,
+     "dog_line": 5.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (65%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "LA Lakers",
+    "prob": 0.65,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.46,
+    "american": -217,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-21",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": true,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-16",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBA Regular Season 2026-27",
+   "home": "LA Clippers",
+   "away": "SAC Kings",
+   "start": "Today 22:40",
+   "olbg_market": "Money Line",
+   "olbg_pick": "LA Clippers",
+   "olbg_tips": "10/11",
+   "olbg_pct": 91,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/SAC_Kings_@_LA_Clippers/4?event_id=535674",
+   "olbg_event_id": 535674,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.nba.com/team/1610612746/clippers",
+    "official_label": "NBA.com — LA Clippers official schedule & game tracker",
+    "official_datetime": "2026-10-21 19:30 PDT — Intuit Dome, Inglewood",
+    "competition_official": "NBA Regular Season 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on NBA.com Clippers team schedule: Wed Oct 21 10:30 PM ET (Thu Oct 22 02:30 UTC)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.04,
+     "win_away": 10.56
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.91,
+     "away": 0.09
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -13.5,
+     "price": 1.91,
+     "dog_line": 13.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (91%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "LA Clippers",
+    "prob": 0.91,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.04,
+    "american": -2500,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-21",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": true,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-17",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBA Regular Season 2026-27",
+   "home": "SA Spurs",
+   "away": "HOU Rockets",
+   "start": "23 Oct 21:40",
+   "olbg_market": "Money Line",
+   "olbg_pick": "SA Spurs",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/HOU_Rockets_@_SA_Spurs/4?event_id=534841",
+   "olbg_event_id": 534841,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.nba.com/games?date=2026-10-22",
+    "official_label": "NBA.com — Official NBA games schedule (Oct 21–24, 2026)",
+    "official_datetime": "2026-10-23 21:30 EDT — Frost Bank Center, San Antonio",
+    "competition_official": "NBA Regular Season 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on NBA.com 12-game Friday Oct 23 slate: Houston Rockets at San Antonio Spurs."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -13.5,
+     "price": 1.91,
+     "dog_line": 13.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "SA Spurs",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-18",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBA Regular Season 2026-27",
+   "home": "PHI 76ers",
+   "away": "CLE Cavaliers",
+   "start": "Tomorrow 19:10",
+   "olbg_market": "Money Line",
+   "olbg_pick": "PHI 76ers",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/CLE_Cavaliers_@_PHI_76ers/4?event_id=534845",
+   "olbg_event_id": 534845,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.nba.com/games?date=2026-10-22",
+    "official_label": "NBA.com — Official NBA games schedule (Oct 21–24, 2026)",
+    "official_datetime": "2026-10-22 19:00 EDT — Xfinity Mobile Arena, Philadelphia",
+    "competition_official": "NBA Regular Season 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on NBA.com Thursday Oct 22 slate: Cleveland Cavaliers at Philadelphia 76ers."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -13.5,
+     "price": 1.91,
+     "dog_line": 13.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "PHI 76ers",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-19",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBA Regular Season 2026-27",
+   "home": "BOS Celtics",
+   "away": "NY Knicks",
+   "start": "23 Oct 19:10",
+   "olbg_market": "Pointspread",
+   "olbg_pick": "BOS Celtics -2.50",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/NY_Knicks_@_BOS_Celtics/4?event_id=534842",
+   "olbg_event_id": 534842,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.nba.com/games?date=2026-10-22",
+    "official_label": "NBA.com — Official NBA games schedule (Oct 21–24, 2026)",
+    "official_datetime": "2026-10-23 19:00 EDT — TD Garden, Boston",
+    "competition_official": "NBA Regular Season 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on NBA.com 12-game Friday Oct 23 slate: New York Knicks at Boston Celtics."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -13.5,
+     "price": 1.91,
+     "dog_line": 13.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "BOS Celtics",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-20",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 7)",
+   "home": "Anadolu Efes",
+   "away": "Besiktas",
+   "start": "Tomorrow 13:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Anadolu Efes",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Anadolu_Efes_vs_Besiktas/4?event_id=535918",
+   "olbg_event_id": 535918,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://ftpserver.euroleague.net/media/2026-27_EL_RS_CALENDAR_PRINTABLE.pdf",
+    "official_label": "EuroLeague Basketball — Official 2026-27 regular season printable calendar PDF",
+    "official_datetime": "2026-10-22 20:30 TRT — Basketball Development Center, Istanbul",
+    "competition_official": "EuroLeague Regular Season 2026-27 (Round 7)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on official 2026-27 EuroLeague printable calendar PDF: Thu 22 Oct 2026 17:30 GMT, Anadolu Efes Istanbul vs Besiktas Istanbul."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.55,
+     "draw": null,
+     "win_away": 2.45
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+    ],
+    "probs": {
+     "home": 0.612,
+     "away": 0.388
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 176.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Anadolu Efes",
+    "prob": 0.612,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.55,
+    "american": -182,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-21",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 7)",
+   "home": "Maccabi Tel Aviv",
+   "away": "Real Madrid",
+   "start": "Tomorrow 14:05",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Maccabi Tel Aviv",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Maccabi_Tel_Aviv_vs_Real_Madrid/4?event_id=535921",
+   "olbg_event_id": 535921,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://ftpserver.euroleague.net/media/2026-27_EL_RS_CALENDAR_PRINTABLE.pdf",
+    "official_label": "EuroLeague Basketball — Official 2026-27 regular season printable calendar PDF",
+    "official_datetime": "2026-10-22 20:05 CEST — Aleksandar Nikolic Hall, Belgrade",
+    "competition_official": "EuroLeague Regular Season 2026-27 (Round 7)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague printable calendar PDF & Real Madrid official site: Thu 22 Oct 2026 18:05 GMT."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.47,
+     "draw": null,
+     "win_away": 1.54
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+    ],
+    "probs": {
+     "home": 0.384,
+     "away": 0.616
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 172.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Real Madrid",
+    "prob": 0.616,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.54,
+    "american": -185,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-22",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague Regular Season 2026-27 (Round 7)",
+   "home": "Zalgiris",
+   "away": "Asvel Lyon Villeurbanne",
+   "start": "23 Oct 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Zalgiris",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Zalgiris_vs_Asvel_Lyon_Villeurbanne/4?event_id=535928",
+   "olbg_event_id": 535928,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://ftpserver.euroleague.net/media/2026-27_EL_RS_CALENDAR_PRINTABLE.pdf",
+    "official_label": "EuroLeague Basketball — Official 2026-27 regular season printable calendar PDF",
+    "official_datetime": "2026-10-23 20:00 EEST — Zalgirio Arena, Kaunas",
+    "competition_official": "EuroLeague Regular Season 2026-27 (Round 7)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague 2026-27 calendar: Zalgiris Kaunas (3-3) vs LDLC ASVEL Villeurbanne (1-5)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.35,
+     "draw": null,
+     "win_away": 3.23
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+    ],
+    "probs": {
+     "home": 0.7058,
+     "away": 0.2942
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -7.5,
+     "price": 1.91,
+     "dog_line": 7.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 166.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Zalgiris",
+    "prob": 0.7058,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.35,
+    "american": -286,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.35 converts to -286 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "BKB-23",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "",
+   "home": "Mobis Phoebus",
+   "away": "Changwon Sakers",
+   "start": "Tomorrow 06:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Changwon Sakers",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021",
+   "olbg_event_id": 536021,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -13.5,
+     "price": 1.91,
+     "dog_line": 13.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Changwon Sakers",
+    "prob": 0.98,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-24",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "",
+   "home": "Fortaleza BC",
+   "away": "Pinheiros",
+   "start": "Tomorrow 18:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Fortaleza BC",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Fortaleza_BC_vs_Pinheiros/4?event_id=536019",
+   "olbg_event_id": 536019,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -13.5,
+     "price": 1.91,
+     "dog_line": 13.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Fortaleza BC",
+    "prob": 0.98,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
    "ref": "CRK-01",
    "sport": "Cricket",
    "sport_slug": "cricket",
@@ -1371,33 +2141,34 @@
     "note": "Upgraded from cricinfo.com to New Zealand Cricket official schedule (20:00 NZDT = 03:00 EDT on OLBG)."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.34,
-     "win_home": 3.28
+     "win_home": 2.42,
+     "draw": null,
+     "win_away": 1.57
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
     ],
     "probs": {
-     "away": 0.71,
-     "home": 0.29
+     "home": 0.3933,
+     "away": 0.6067
     }
    },
    "pick": {
     "side": "away",
     "label": "India",
-    "prob": 0.71,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "prob": 0.6067,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.34,
-    "american": -294,
-    "in_band": false,
+    "price": 1.57,
+    "american": -175,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -1405,7 +2176,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -1489,44 +2260,44 @@
    "olbg_event_id": 188828,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.cricinfo.com",
-    "official_label": "ESPNcricinfo official fixture/schedule page (the sport's standard authoritative scheduling reference, run by ESPN in partnership with the game's governing bodies)",
-    "official_datetime": "Thu 22 Oct 2026, approx. 04:00 EDT (08:15 GMT), Namibia Cricket Ground, Windhoek",
-    "competition_official": "Namibia v Ireland 2026/27 - 1st ODI",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://cricketireland.ie/tour-of-namibia-2026/",
+    "official_label": "Cricket Ireland — Ireland Men tour of Namibia (22 Oct – 1 Nov 2026) squad & schedule",
+    "official_datetime": "2026-10-22 10:00 CAT — Namibia Cricket Ground, Windhoek",
+    "competition_official": "Ireland Tour of Namibia 2026 (1st ODI)",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "Namibia v Ireland, 1st ODI, confirmed 22 Oct 2026 at Windhoek with an official 08:15 GMT start; 08:15 GMT = 04:15 EDT, closely matching the OLBG listing (04:00 EDT, 15-minute difference flagged). | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Promoted to governing-body official tier via Cricket Ireland & ICC: Namibia vs Ireland (Paul Stirling captain), 1st of 5 ODIs in Windhoek."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
+     "win_home": 2.54,
+     "draw": null,
+     "win_away": 1.52
     },
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
     ],
     "probs": {
-     "away": 0.98,
-     "home": 0.02
+     "home": 0.3741,
+     "away": 0.6259
     }
    },
    "pick": {
     "side": "away",
     "label": "Ireland",
-    "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.6259,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
+    "price": 1.52,
+    "american": -192,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -1534,7 +2305,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -1554,42 +2325,43 @@
    "olbg_event_id": 188829,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.cricinfo.com",
-    "official_label": "ESPNcricinfo official fixture/schedule page (the sport's standard authoritative scheduling reference, run by ESPN in partnership with the game's governing bodies)",
-    "official_datetime": "Thu 22 Oct 2026, 04:00 EDT (08:00 GMT), Rawalpindi Cricket Stadium",
-    "competition_official": "ODI Tri-Series in Pakistan 2026/27 - 3rd Match",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://www.icc-cricket.com/about/cricket/match-officials/match-official-appointments",
+    "official_label": "ICC — Official match referee & umpire appointments (Oct 17–23, 2026)",
+    "official_datetime": "2026-10-22 13:00 PKT — Rawalpindi Cricket Stadium, Rawalpindi",
+    "competition_official": "Pakistan ODI Tri-Series 2026-27 (3rd Match)",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "England v Sri Lanka, 3rd Match of the Pakistan tri-series, confirmed 22 Oct 2026 at Rawalpindi with an official 08:00 GMT start; 08:00 GMT = 04:00 EDT, matching the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Promoted to governing-body official tier via ICC match appointments (Referee Jeff Crowe) & ECB schedule: Sri Lanka vs England, Thu 22 Oct 2026."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.9,
-     "win_away": 1.9
+     "win_home": 1.64,
+     "draw": null,
+     "win_away": 2.26
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
     ],
     "probs": {
-     "home": 0.5,
-     "away": 0.5
+     "home": 0.5806,
+     "away": 0.4194
     }
    },
    "pick": {
     "side": "home",
     "label": "England",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 0,
+    "prob": 0.5806,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
-     "model_edge": 0
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": 1.9,
-    "american": -111,
+    "price": 1.64,
+    "american": -156,
     "in_band": true,
     "band": [
      -250,
@@ -1598,7 +2370,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -1731,6 +2503,71 @@
    }
   },
   {
+   "ref": "CRK-10",
+   "sport": "Cricket",
+   "sport_slug": "cricket",
+   "competition": "UAE ODI Tri-Nation Series 2026 (Final)",
+   "home": "Afghanistan",
+   "away": "Zimbabwe",
+   "start": "23 Oct 07:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Afghanistan",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Afghanistan_vs_Zimbabwe_One_Day_Match/7?event_id=188831",
+   "olbg_event_id": 188831,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.icc-cricket.com/about/cricket/match-officials/match-official-appointments",
+    "official_label": "ICC — Official match referee & umpire appointments (Oct 17–23, 2026)",
+    "official_datetime": "2026-10-23 15:30 GST — Sharjah Cricket Stadium, Sharjah",
+    "competition_official": "UAE ODI Tri-Nation Series 2026 (Final)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on ICC official match appointments (Referee David Gilbert, Sharjah) & ICC ODI rankings release: Afghanistan (#8, 92 rating; def. Zimbabwe by 158 runs on Oct 19) vs Zimbabwe (#11, 64 rating)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.35,
+     "draw": null,
+     "win_away": 3.21
+    },
+    "notes": [
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
+    ],
+    "probs": {
+     "home": 0.7041,
+     "away": 0.2959
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Afghanistan",
+    "prob": 0.7041,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.35,
+    "american": -286,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.35 converts to -286 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
    "ref": "DRT-01",
    "sport": "Darts",
    "sport_slug": "darts",
@@ -1756,32 +2593,51 @@
     "note": "Official PDC schedule confirms Day 1 (Thu 22 Oct) Round One, match 1 of 8: Luke Woodhouse v Dirk van Duijvenbode. Reported start 19:15 CEST = 13:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.08,
-     "win_home": 7.92
+     "win_home": 1.38,
+     "draw": null,
+     "win_away": 3.05
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "away": 0.88,
-     "home": 0.12
+     "home": 0.6881,
+     "away": 0.3119
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Dirk van Duijvenbode",
-    "prob": 0.88,
+    "side": "home",
+    "label": "Luke Woodhouse",
+    "prob": 0.6881,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.08,
-    "american": -1250,
+    "price": 1.38,
+    "american": -263,
     "in_band": false,
     "band": [
      -250,
@@ -1790,8 +2646,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.38 converts to -263 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -1820,32 +2676,51 @@
     "note": "Niels Zonneveld v Cameron Menzies, reported start 20:15 CEST = 14:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.1,
-     "win_away": 6.79
+     "win_home": 1.2,
+     "draw": null,
+     "win_away": 4.59
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.86,
-     "away": 0.14
+     "home": 0.7931,
+     "away": 0.2069
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Niels Zonneveld",
-    "prob": 0.86,
+    "prob": 0.7931,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.1,
-    "american": -1000,
+    "price": 1.2,
+    "american": -500,
     "in_band": false,
     "band": [
      -250,
@@ -1854,8 +2729,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.20 converts to -500 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -1884,33 +2759,52 @@
     "note": "Gerwyn Price v Rob Cross, reported start 20:45 CEST = 14:45 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.34,
-     "win_away": 3.28
+     "win_home": 1.61,
+     "draw": null,
+     "win_away": 2.32
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.71,
-     "away": 0.29
+     "home": 0.5905,
+     "away": 0.4095
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Gerwyn Price",
-    "prob": 0.71,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "prob": 0.5905,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.34,
-    "american": -294,
-    "in_band": false,
+    "price": 1.61,
+    "american": -164,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -1918,7 +2812,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -1948,32 +2842,51 @@
     "note": "James Wade v Damon Heta, reported start 21:15 CEST = 15:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.51,
-     "win_away": 2.57
+     "win_home": 1.85,
+     "draw": null,
+     "win_away": 1.95
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.63,
-     "away": 0.37
+     "home": 0.513,
+     "away": 0.487
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "James Wade",
-    "prob": 0.63,
+    "prob": 0.513,
     "confidence": "MEDIUM",
     "score": 4,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 2
+     "official_form": 2,
+     "model_edge": 0
     },
-    "price": 1.51,
-    "american": -196,
+    "price": 1.85,
+    "american": -118,
     "in_band": true,
     "band": [
      -250,
@@ -2012,33 +2925,52 @@
     "note": "Luke Humphries v Ryan Searle, reported start 21:45 CEST = 15:45 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.34,
-     "win_away": 3.28
+     "win_home": 1.54,
+     "draw": null,
+     "win_away": 2.47
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.71,
-     "away": 0.29
+     "home": 0.6157,
+     "away": 0.3843
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Luke Humphries",
-    "prob": 0.71,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "prob": 0.6157,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.34,
-    "american": -294,
-    "in_band": false,
+    "price": 1.54,
+    "american": -185,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -2046,7 +2978,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -2076,25 +3008,51 @@
     "note": "Danny Noppert v Stephen Bunting, reported start 19:45 CEST = 13:45 EDT, matching the OLBG listing exactly (market is Total Legs, same fixture)."
    },
    "model": {
-    "basis": "none",
-    "prices": {},
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.23,
+     "draw": null,
+     "win_away": 4.2
+    },
     "notes": [
-     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
-    ]
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
+    ],
+    "probs": {
+     "home": 0.774,
+     "away": 0.226
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
    },
    "pick": {
-    "side": null,
-    "label": null,
-    "prob": null,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "home",
+    "label": "Danny Noppert",
+    "prob": 0.774,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": null,
-    "american": null,
+    "price": 1.23,
+    "american": -435,
     "in_band": false,
     "band": [
      -250,
@@ -2103,8 +3061,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.23 converts to -435 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -2133,33 +3091,52 @@
     "note": "Gian van Veen v Andrew Gilding, reported start 22:15 CEST = 16:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.42,
-     "win_away": 2.88
+     "win_home": 1.34,
+     "draw": null,
+     "win_away": 3.29
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.67,
-     "away": 0.33
+     "home": 0.7108,
+     "away": 0.2892
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Gian van Veen",
-    "prob": 0.67,
+    "prob": 0.7108,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.34,
+    "american": -294,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -2167,8 +3144,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.34 converts to -294 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -2197,33 +3174,52 @@
     "note": "Ross Smith v Karel Sedlacek, reported start 22:45 CEST = 16:45 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.9,
-     "win_away": 1.9
+     "win_home": 1.12,
+     "draw": null,
+     "win_away": 6.11
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.5,
-     "away": 0.5
+     "home": 0.8446,
+     "away": 0.1554
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Ross Smith",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.8446,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": 1.9,
-    "american": -111,
-    "in_band": true,
+    "price": 1.12,
+    "american": -833,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -2231,8 +3227,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.12 converts to -833 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -2261,33 +3257,52 @@
     "note": "Jonny Clayton v Niko Springer, reported start 20:45 CEST = 14:45 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.42,
-     "win_away": 2.88
+     "win_home": 1.3,
+     "draw": null,
+     "win_away": 3.55
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.67,
-     "away": 0.33
+     "home": 0.7328,
+     "away": 0.2672
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Jonny Clayton",
-    "prob": 0.67,
+    "prob": 0.7328,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.3,
+    "american": -333,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -2295,8 +3310,8 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.30 converts to -333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -2325,32 +3340,51 @@
     "note": "Day 2 (Fri 23 Oct) Round One, match 1 of 8: Ryan Joyce v Jermaine Wattimena, reported start 19:15 CEST = 13:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.42,
-     "win_away": 2.88
+     "win_home": 1.76,
+     "draw": null,
+     "win_away": 2.06
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.67,
-     "away": 0.33
+     "home": 0.5391,
+     "away": 0.4609
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Ryan Joyce",
-    "prob": 0.67,
+    "prob": 0.5391,
     "confidence": "MEDIUM",
     "score": 4,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 2
+     "official_form": 2,
+     "model_edge": 0
     },
-    "price": 1.42,
-    "american": -238,
+    "price": 1.76,
+    "american": -132,
     "in_band": true,
     "band": [
      -250,
@@ -2389,32 +3423,51 @@
     "note": "Krzysztof Ratajski v Dave Chisnall is official PDC Day-2 match 2 of 8. The official source gives the match order, not a clock time for this specific game; its slot is inferred from the confirmed 30-minute grid anchored by match 1 (Joyce v Wattimena, 19:15 CEST, confirmed) and match 4 (Clayton v Springer, 20:45 CEST, confirmed) -> 19:45 CEST = 13:45 EDT, matching the OLBG listing. Flagged as grid-inferred, not a directly-quoted time."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.9,
-     "win_away": 1.9
+     "win_home": 1.48,
+     "draw": null,
+     "win_away": 2.64
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "home": 0.5,
-     "away": 0.5
+     "home": 0.6404,
+     "away": 0.3596
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Krzysztof Ratajski",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.6404,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": 1.9,
-    "american": -111,
+    "price": 1.48,
+    "american": -208,
     "in_band": true,
     "band": [
      -250,
@@ -2423,7 +3476,7 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -2453,33 +3506,52 @@
     "note": "Nathan Aspinall v Cristo Reyes is official PDC Day-2 match 3 of 8. Slot inferred from the same confirmed 30-minute grid (see DRT-11 note) -> 20:15 CEST = 14:15 EDT, matching the OLBG listing. Flagged as grid-inferred."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
+     "win_home": 1.36,
+     "draw": null,
+     "win_away": 3.16
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "away": 0.67,
-     "home": 0.33
+     "home": 0.6995,
+     "away": 0.3005
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Cristo Reyes",
-    "prob": 0.67,
+    "side": "home",
+    "label": "Nathan Aspinall",
+    "prob": 0.6995,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.36,
+    "american": -278,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -2487,8 +3559,8 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.36 converts to -278 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -2517,33 +3589,51 @@
     "note": "Luke Littler v William O'Connor is official PDC Day-2 match 5 of 8 (confirmed pairing per pdc.tv draw and skysports.com). Slot inferred from the confirmed 30-minute grid -> 21:15 CEST = 15:15 EDT, matching the OLBG listing (Handicap market, same fixture). Flagged as grid-inferred."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
+     "win_home": 1.3,
+     "draw": null,
+     "win_away": 3.55
     },
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
     ],
     "probs": {
-     "away": 0.98,
-     "home": 0.02
+     "home": 0.7328,
+     "away": 0.2672
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "William OConnor",
-    "prob": 0.98,
+    "side": "home",
+    "label": "Luke Littler",
+    "prob": 0.7328,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": 1.3,
+    "american": -333,
     "in_band": false,
     "band": [
      -250,
@@ -2552,8 +3642,8 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.30 converts to -333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -2582,6 +3672,172 @@
     "note": "Wessel Nijman v Martin Schindler is official PDC Day-2 match 6 of 8. Slot inferred from the confirmed 30-minute grid -> 21:45 CEST = 15:45 EDT, matching the OLBG listing. Flagged as grid-inferred."
    },
    "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.15,
+     "draw": null,
+     "win_away": 5.54
+    },
+    "notes": [
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
+    ],
+    "probs": {
+     "home": 0.8285,
+     "away": 0.1715
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Wessel Nijman",
+    "prob": 0.8285,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.15,
+    "american": -667,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.15 converts to -667 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "DRT-15",
+   "sport": "Darts",
+   "sport_slug": "darts",
+   "competition": "2026 PDC Machineseeker European Championship (Round 1, Best of 11)",
+   "home": "Josh Rock",
+   "away": "Chris Dobey",
+   "start": "23 Oct 16:45",
+   "olbg_market": "Win Match 2-way",
+   "olbg_pick": "Josh Rock",
+   "olbg_tips": "3/5",
+   "olbg_pct": 60,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Josh_Rock_vs_Chris_Dobey/15?event_id=32336",
+   "olbg_event_id": 32336,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+    "official_label": "PDC — 2026 Machineseeker European Championship confirmed schedule of play (Dortmund, Oct 22–25)",
+    "official_datetime": "2026-10-23 22:45 CEST — Westfalenhalle, Dortmund",
+    "competition_official": "2026 PDC Machineseeker European Championship (Round 1, Best of 11)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "(10) Josh Rock vs (23) Chris Dobey."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.43,
+     "draw": null,
+     "win_away": 2.83
+    },
+    "notes": [
+     "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
+    ],
+    "probs": {
+     "home": 0.6646,
+     "away": 0.3354
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 9.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "legs",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Josh Rock",
+    "prob": 0.6646,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.43,
+    "american": -233,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "DRT-16",
+   "sport": "Darts",
+   "sport_slug": "darts",
+   "competition": "2026 PDC Machineseeker European Championship (Round 1, Best of 11)",
+   "home": "Kevin Doets",
+   "away": "Michael van Gerwen",
+   "start": "23 Oct 16:15",
+   "olbg_market": "Win Match 2-way",
+   "olbg_pick": "Michael van Gerwen",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Kevin_Doets_vs_Michael_van_Gerwen/15?event_id=32331",
+   "olbg_event_id": 32331,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+    "official_label": "PDC — 2026 Machineseeker European Championship confirmed schedule of play (Dortmund, Oct 22–25)",
+    "official_datetime": "2026-10-23 22:15 CEST — Westfalenhalle, Dortmund",
+    "competition_official": "2026 PDC Machineseeker European Championship (Round 1, Best of 11)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "(14) Kevin Doets vs four-time champion Michael van Gerwen."
+   },
+   "model": {
     "basis": "consensus",
     "prices": {
      "win_away": 1.42,
@@ -2593,11 +3849,21 @@
     "probs": {
      "away": 0.67,
      "home": 0.33
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "legs",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 2.6 legs (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
     "side": "away",
-    "label": "Martin Schindler",
+    "label": "Michael van Gerwen",
     "prob": 0.67,
     "confidence": "MEDIUM",
     "score": 4,
@@ -2657,6 +3923,16 @@
     "probs": {
      "away": 0.83,
      "home": 0.17
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -5.5,
+     "price": 1.91,
+     "dog_line": 5.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (17%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
@@ -2721,6 +3997,16 @@
     "probs": {
      "home": 0.53,
      "away": 0.47
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (53%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
@@ -2785,6 +4071,16 @@
     "probs": {
      "home": 0.75,
      "away": 0.25
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (75%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
@@ -2850,11 +4146,96 @@
     "probs": {
      "home": 0.98,
      "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -5.5,
+     "price": 1.91,
+     "dog_line": 5.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
     }
    },
    "pick": {
     "side": "home",
     "label": "Rathgormack",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-11-01",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "GFA-05",
+   "sport": "Gaelic Football",
+   "sport_slug": "gaelic_football",
+   "competition": "2026 Limerick Senior Football Championship",
+   "home": "Fr Caseys",
+   "away": "Kildimo Pallaskenry",
+   "start": "01 Nov 10:30",
+   "olbg_market": "Handicap",
+   "olbg_pick": "Fr Caseys -3.50",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Fr_Caseys_v_Kildimo_Pallaskenry/25?event_id=3537",
+   "olbg_event_id": 3537,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://munster.gaa.ie/fixtures/events-calendar/",
+    "official_label": "Munster GAA — Official Events Calendar (Cork & Waterford SFC Finals, Oct 25, 2026)",
+    "official_datetime": "2026-11-01 — Limerick",
+    "competition_official": "2026 Limerick Senior Football Championship",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed club championship contenders Fr. Casey's vs Kildimo-Pallaskenry on Munster GAA bracket."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -5.5,
+     "price": 1.91,
+     "dog_line": 5.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Fr Caseys",
     "prob": 0.98,
     "confidence": "MEDIUM",
     "score": 4,
@@ -3461,25 +4842,51 @@
     "note": "The EHF calendar lists Kolstad v SC Magdeburg on 22 Oct at 20:45 - the OLBG date and time exactly."
    },
    "model": {
-    "basis": "none",
-    "prices": {},
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 7.24,
+     "draw": null,
+     "win_away": 1.09
+    },
     "notes": [
-     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
-    ]
+     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+    ],
+    "probs": {
+     "home": 0.1312,
+     "away": 0.8688
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -6.5,
+     "price": 1.91,
+     "dog_line": 6.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 64.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
    },
    "pick": {
-    "side": null,
-    "label": null,
-    "prob": null,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "away",
+    "label": "SC Magdeburg",
+    "prob": 0.8688,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": null,
-    "american": null,
+    "price": 1.09,
+    "american": -1111,
     "in_band": false,
     "band": [
      -250,
@@ -3488,8 +4895,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.09 converts to -1111 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -3518,25 +4925,51 @@
     "note": "The EHF calendar lists Sporting Clube de Portugal v IFK Kristianstad on 22 Oct at 20:45 - the OLBG date and time exactly."
    },
    "model": {
-    "basis": "none",
-    "prices": {},
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.03,
+     "draw": null,
+     "win_away": 12.23
+    },
     "notes": [
-     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
-    ]
+     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+    ],
+    "probs": {
+     "home": 0.9223,
+     "away": 0.0777
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -8.5,
+     "price": 1.91,
+     "dog_line": 8.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 70.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
    },
    "pick": {
-    "side": null,
-    "label": null,
-    "prob": null,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "home",
+    "label": "Sporting CP",
+    "prob": 0.9223,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": null,
-    "american": null,
+    "price": 1.03,
+    "american": -3333,
     "in_band": false,
     "band": [
      -250,
@@ -3545,8 +4978,8 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.03 converts to -3333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -3872,17 +5305,322 @@
     "note": "The EHF calendar lists OTP Bank - PICK Szeged v GOG on 22 Oct at 18:45 - the OLBG date and time exactly."
    },
    "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.54,
+     "draw": null,
+     "win_away": 2.48
+    },
+    "notes": [
+     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+    ],
+    "probs": {
+     "home": 0.6163,
+     "away": 0.3837
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 66.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Pick Szeged",
+    "prob": 0.6163,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.54,
+    "american": -185,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-16",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "EHF Champions League Men 2026/27 (Group E, Round 5)",
+   "home": "FC Barcelona",
+   "away": "Montpellier",
+   "start": "Tomorrow 14:45",
+   "olbg_market": "Money Line",
+   "olbg_pick": "FC Barcelona",
+   "olbg_tips": "5/10",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Barcelona_vs_Montpellier/20?event_id=12046",
+   "olbg_event_id": 12046,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League Men official calendar",
+    "official_datetime": "2026-10-22 20:45 CEST — Palau Blaugrana, Barcelona",
+    "competition_official": "EHF Champions League Men 2026/27 (Group E, Round 5)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Defending champions Barca (4-0-0, 137:104, 8 pts, 20 straight EHFCL wins) vs Montpellier Handball (1-0-3, 116:125, 2 pts)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.1,
+     "draw": null,
+     "win_away": 7.1
+    },
+    "notes": [
+     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+    ],
+    "probs": {
+     "home": 0.8661,
+     "away": 0.1339
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -6.5,
+     "price": 1.91,
+     "dog_line": 6.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 61.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "FC Barcelona",
+    "prob": 0.8661,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.1,
+    "american": -1000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.10 converts to -1000 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "HBL-17",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "Women's EHF EURO Qualifiers 2026",
+   "home": "Bulgaria W",
+   "away": "Italy W",
+   "start": "Tomorrow 12:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Italy (W)",
+   "olbg_tips": "4/4",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bulgaria_W_vs_Italy_W/20?event_id=12109",
+   "olbg_event_id": 12109,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://ehfcl.eurohandball.com/men/2026-27/calendar/?startDate=2026-10-21",
+    "official_label": "EHF Champions League Men official calendar",
+    "official_datetime": "2026-10-22 18:00 CEST — Kranevo, Bulgaria",
+    "competition_official": "Women's EHF EURO Qualifiers 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on eurohandball.com match strip: Bulgaria vs Italy, Thu Oct 22 18:00 CEST, Kranevo."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": null,
+    "american": null,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-18",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "DAIKIN Handball-Bundesliga 2026/27 (Matchday 10)",
+   "home": "TVB Stuttgart",
+   "away": "SG BBM Bietigheim",
+   "start": "Tomorrow 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "TVB Stuttgart",
+   "olbg_tips": "4/7",
+   "olbg_pct": 57,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/TVB_Stuttgart_vs_SG_BBM_Bietigheim/20?event_id=12094",
+   "olbg_event_id": 12094,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.daikin-hbl.de/de/import/teams/tvb-stuttgart/",
+    "official_label": "DAIKIN Handball-Bundesliga — Official 2026/27 schedule (Matchday 10, Oct 22–23)",
+    "official_datetime": "2026-10-22 19:00 CEST — Porsche-Arena, Stuttgart",
+    "competition_official": "DAIKIN Handball-Bundesliga 2026/27 (Matchday 10)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Swabian derby: #9 TVB Stuttgart (4-1-4, 272:270, 9 pts) vs #16 SG BBM Bietigheim (2-0-7, 260:292, 4 pts)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.34,
+     "draw": null,
+     "win_away": 3.26
+    },
+    "notes": [
+     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+    ],
+    "probs": {
+     "home": 0.7082,
+     "away": 0.2918
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 62.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "TVB Stuttgart",
+    "prob": 0.7082,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.34,
+    "american": -294,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.34 converts to -294 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "HBL-19",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "SonderjyskE",
+   "away": "Nordsjaelland Handbold",
+   "start": "Tomorrow 13:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "SonderjyskE",
+   "olbg_tips": "3/6",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SonderjyskE_vs_Nordsjaelland_Handbold/20?event_id=12073",
+   "olbg_event_id": 12073,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
     "basis": "consensus",
     "prices": {
-     "win_away": 1.9,
-     "win_home": 1.9
+     "win_home": 1.9,
+     "win_away": 1.9
     },
     "notes": [
      "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "away": 0.5,
-     "home": 0.5
+     "home": 0.5,
+     "away": 0.5
     },
     "handicap": {
      "fav": "away",
@@ -3897,12 +5635,12 @@
    },
    "pick": {
     "side": "home",
-    "label": "Pick Szeged",
+    "label": "SonderjyskE",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 2,
+    "score": 0,
     "factors": {
-     "fixture_verified": 2,
+     "fixture_verified": 0,
      "official_form": 0,
      "model_edge": 0
     },
@@ -3915,6 +5653,860 @@
     ],
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-20",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "KIF Kolding",
+   "away": "Fredericia HK",
+   "start": "Tomorrow 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Fredericia HK",
+   "olbg_tips": "3/5",
+   "olbg_pct": 60,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/KIF_Kolding_vs_Fredericia_HK/20?event_id=12074",
+   "olbg_event_id": 12074,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.58,
+     "win_home": 2.37
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.6,
+     "home": 0.4
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (40%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Fredericia HK",
+    "prob": 0.6,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.58,
+    "american": -172,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-21",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Onnereds HK",
+   "away": "Ystads IF HF",
+   "start": "Tomorrow 13:00",
+   "olbg_market": "Match Handicap",
+   "olbg_pick": "Ystads IF HF -2.50",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Onnereds_HK_vs_Ystads_IF_HF/20?event_id=12116",
+   "olbg_event_id": 12116,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -7.5,
+     "price": 1.91,
+     "dog_line": 7.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Ystads IF HF",
+    "prob": 0.98,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-22",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "BM Granollers",
+   "away": "Ciudad Encantada",
+   "start": "Tomorrow 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "BM Granollers",
+   "olbg_tips": "2/4",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/BM_Granollers_vs_Ciudad_Encantada/20?event_id=12100",
+   "olbg_event_id": 12100,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.9,
+     "win_away": 1.9
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.5,
+     "away": 0.5
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "BM Granollers",
+    "prob": 0.5,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": 1.9,
+    "american": -111,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-23",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Pays dAix UC",
+   "away": "Toulouse",
+   "start": "23 Oct 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Toulouse",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Pays_dAix_UC_vs_Toulouse/20?event_id=12083",
+   "olbg_event_id": 12083,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.42,
+     "win_home": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.67,
+     "home": 0.33
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Toulouse",
+    "prob": 0.67,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-24",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Estonia W",
+   "away": "Kosovo W",
+   "start": "23 Oct 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Kosovo (W)",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Estonia_W_vs_Kosovo_W/20?event_id=12110",
+   "olbg_event_id": 12110,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": null,
+    "american": null,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-25",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "DAIKIN Handball-Bundesliga 2026/27 (Matchday 10)",
+   "home": "Frisch Auf Goppingen",
+   "away": "ThSV Eisenach",
+   "start": "23 Oct 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "ThSV Eisenach",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Frisch_Auf_Goppingen_vs_ThSV_Eisenach/20?event_id=12088",
+   "olbg_event_id": 12088,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.daikin-hbl.de/de/import/teams/tvb-stuttgart/",
+    "official_label": "DAIKIN Handball-Bundesliga — Official 2026/27 schedule (Matchday 10, Oct 22–23)",
+    "official_datetime": "2026-10-23 19:00 CEST — EWS Arena, Göppingen",
+    "competition_official": "DAIKIN Handball-Bundesliga 2026/27 (Matchday 10)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on daikin-hbl.de schedule: #13 Frisch Auf! Göppingen (248:277, 6 pts) vs #12 ThSV Eisenach (255:271, 6 pts)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.74,
+     "draw": null,
+     "win_away": 2.09
+    },
+    "notes": [
+     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+    ],
+    "probs": {
+     "home": 0.545,
+     "away": 0.455
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 59.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Frisch Auf Goppingen",
+    "prob": 0.545,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.74,
+    "american": -135,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-26",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Limoges 87",
+   "away": "Dunkerque",
+   "start": "23 Oct 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Dunkerque",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Limoges_87_vs_Dunkerque/20?event_id=12080",
+   "olbg_event_id": 12080,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.42,
+     "win_home": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.67,
+     "home": 0.33
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Dunkerque",
+    "prob": 0.67,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-27",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Selestat Alsace",
+   "away": "Caen",
+   "start": "23 Oct 14:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Caen",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Selestat_Alsace_vs_Caen/20?event_id=12085",
+   "olbg_event_id": 12085,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.42,
+     "win_home": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.67,
+     "home": 0.33
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Caen",
+    "prob": 0.67,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-28",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Skive FH",
+   "away": "Aalborg Handbold",
+   "start": "24 Oct 09:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Aalborg Handbold",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skive_FH_vs_Aalborg_Handbold/20?event_id=12076",
+   "olbg_event_id": 12076,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.42,
+     "win_home": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.67,
+     "home": 0.33
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Aalborg Handbold",
+    "prob": 0.67,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-24",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-29",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Villa De Aranda",
+   "away": "Puerto Sagunto",
+   "start": "24 Oct 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Puerto Sagunto",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Villa_De_Aranda_vs_Puerto_Sagunto/20?event_id=12107",
+   "olbg_event_id": 12107,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -7.5,
+     "price": 1.91,
+     "dog_line": 7.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Puerto Sagunto",
+    "prob": 0.98,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-24",
+    "start_basis": "derived from capture year",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-30",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Skanela IF",
+   "away": "HIF Karlskrona",
+   "start": "Tomorrow 12:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Tie",
+   "olbg_tips": "1/3",
+   "olbg_pct": 33,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Skanela_IF_vs_HIF_Karlskrona/20?event_id=12117",
+   "olbg_event_id": 12117,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "none",
+    "prices": {},
+    "notes": [
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
+   },
+   "pick": {
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": null,
+    "american": null,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "HBL-31",
+   "sport": "Handball",
+   "sport_slug": "handball",
+   "competition": "",
+   "home": "Bidasoa Irun",
+   "away": "Caserio Ciudad Real",
+   "start": "23 Oct 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Bidasoa Irun",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Bidasoa_Irun_vs_Caserio_Ciudad_Real/20?event_id=12101",
+   "olbg_event_id": 12101,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.9,
+     "win_away": 1.9
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.5,
+     "away": 0.5
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Bidasoa Irun",
+    "prob": 0.5,
+    "confidence": "LOW",
+    "score": 0,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": 1.9,
+    "american": -111,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture year",
     "kickoff_passed": false,
     "evidence_grade": "LOW",
     "note": ""
@@ -4498,6 +7090,237 @@
     "start_basis": "derived from capture date",
     "kickoff_passed": true,
     "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "IHO-08",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "Swedish Hockey League (SHL) 2026-27",
+   "home": "Skelleftea AIK",
+   "away": "Djurgardens IF",
+   "start": "Tomorrow 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Skelleftea AIK",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Skelleftea_AIK_vs_Djurgardens_IF/13?event_id=199905",
+   "olbg_event_id": 199905,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+    "official_label": "Swedish Ice Hockey Association — Official 2026-27 SHL standings, results & schedule",
+    "official_datetime": "2026-10-22 19:00 CEST — Skelleftea Kraft Arena, Skelleftea",
+    "competition_official": "Swedish Hockey League (SHL) 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "#3 Skelleftea AIK (10 GP, 32:25, 19 pts) vs #12 Djurgardens IF (11 GP, 23:33, 12 pts)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.32,
+     "draw": null,
+     "win_away": 3.42
+    },
+    "notes": [
+     "Official standings used for both sides (https://stats.swehockey.se/ScheduleAndResults/Overview/20961)."
+    ],
+    "probs": {
+     "home": 0.722,
+     "away": 0.278
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Skelleftea AIK",
+    "prob": 0.722,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.32,
+    "american": -312,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.32 converts to -312 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "IHO-09",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "Finnish Liiga 2026-27 (Regular Season)",
+   "home": "Jyp",
+   "away": "HPK",
+   "start": "Tomorrow 11:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Jyp",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Finland_SM_Liiga/Jyp_vs_HPK/13?event_id=199912",
+   "olbg_event_id": 199912,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.liiga.fi/en/schedule?kausi=2026-2027&sarja=runkosarja&joukkue=hpk",
+    "official_label": "Finnish Liiga — Official 2026-27 regular season schedule & standings",
+    "official_datetime": "2026-10-22 18:30 EEST — Laajavuori / LähiTapiola Areena, Jyväskylä",
+    "competition_official": "Finnish Liiga 2026-27 (Regular Season)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on Liiga.fi Game Week 8 schedule: #8 JYP (12 GP, 24 pts) vs #9 HPK (14 GP, 21 pts)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Jyp",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "IHO-10",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "Swedish Hockey League (SHL) 2026-27",
+   "home": "Orebro HK",
+   "away": "Brynas IF",
+   "start": "Tomorrow 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Orebro HK",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Orebro_HK_vs_Brynas_IF/13?event_id=199900",
+   "olbg_event_id": 199900,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+    "official_label": "Swedish Ice Hockey Association — Official 2026-27 SHL standings, results & schedule",
+    "official_datetime": "2026-10-22 19:00 CEST — Behrn Arena, Orebro",
+    "competition_official": "Swedish Hockey League (SHL) 2026-27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "#9 Orebro HK (10 GP, 20:29, 14 pts) vs #5 Brynas IF (10 GP, 28:23, 14 pts)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.6,
+     "draw": null,
+     "win_away": 1.5
+    },
+    "notes": [
+     "Official standings used for both sides (https://stats.swehockey.se/ScheduleAndResults/Overview/20961)."
+    ],
+    "probs": {
+     "home": 0.3659,
+     "away": 0.6341
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Brynas IF",
+    "prob": 0.6341,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.5,
+    "american": -200,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -7250,6 +10073,1640 @@
    }
   },
   {
+   "ref": "TEN-15",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+   "home": "Ann Li",
+   "away": "Zeynep Sonmez",
+   "start": "Today 22:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Ann Li",
+   "olbg_tips": "8/10",
+   "olbg_pct": 80,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Zeynep_Sonmez/3?event_id=902063",
+   "olbg_event_id": 902063,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wtatennis.com/tournaments/405/osaka/2026/player-list",
+    "official_label": "WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list",
+    "official_datetime": "2026-10-22 11:30 JST — ITC靱 (Utsubo) Tennis Center, Osaka",
+    "competition_official": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Top seed Ann Li (#25, def. Emerson Jones 5-7, 6-0, 6-3) vs Zeynep Sonmez (#63, def. Maya Joint 3-6, 6-4, 6-3)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.63,
+     "draw": null,
+     "win_away": 2.29
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.5843,
+     "away": 0.4157
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Ann Li",
+    "prob": 0.5843,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.63,
+    "american": -159,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-21",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": true,
+    "evidence_grade": "HIGH",
+    "note": "The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
+   }
+  },
+  {
+   "ref": "TEN-16",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+   "home": "Mary Stoiana",
+   "away": "Moyuka Uchijima",
+   "start": "Tomorrow 00:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Mary Stoiana",
+   "olbg_tips": "6/9",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mary_Stoiana_vs_Moyuka_Uchijima/3?event_id=902067",
+   "olbg_event_id": 902067,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wtatennis.com/tournaments/405/osaka/2026/player-list",
+    "official_label": "WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list",
+    "official_datetime": "2026-10-22 13:00 JST — Utsubo Tennis Center, Osaka",
+    "competition_official": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Qualifier Mary Stoiana vs Moyuka Uchijima."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.42,
+     "win_away": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.67,
+     "away": 0.33
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Mary Stoiana",
+    "prob": 0.67,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-17",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 500 BNB Ningbo Open (Round of 16)",
+   "home": "Katarzyna Kawa",
+   "away": "Belinda Bencic",
+   "start": "Tomorrow 02:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Belinda Bencic",
+   "olbg_tips": "6/7",
+   "olbg_pct": 86,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katarzyna_Kawa_vs_Belinda_Bencic/3?event_id=902093",
+   "olbg_event_id": 902093,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA Tour — 2026 BNB Ningbo Open official main-draw PDF",
+    "official_datetime": "2026-10-22 — Yinzhou International Tennis Center, Ningbo",
+    "competition_official": "WTA 500 BNB Ningbo Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Qualifier Katarzyna Kawa vs #5 seed Belinda Bencic (def. Jelena Ostapenko 6-3, 1-1 ret.)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 3.09,
+     "draw": null,
+     "win_away": 1.37
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.3078,
+     "away": 0.6922
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Belinda Bencic",
+    "prob": 0.6922,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.37,
+    "american": -270,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.37 converts to -270 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "TEN-18",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 500 BNB Ningbo Open (Round of 16)",
+   "home": "Elena Rybakina",
+   "away": "Polina Kudermetova",
+   "start": "Tomorrow 07:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Elena Rybakina",
+   "olbg_tips": "6/8",
+   "olbg_pct": 75,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Polina_Kudermetova/3?event_id=902073",
+   "olbg_event_id": 902073,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA Tour — 2026 BNB Ningbo Open official main-draw PDF",
+    "official_datetime": "2026-10-22 — Yinzhou International Tennis Center, Ningbo",
+    "competition_official": "WTA 500 BNB Ningbo Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Top seed World No. 1 Elena Rybakina vs qualifier Polina Kudermetova (def. Cristina Bucsa 7-6(5), 6-2)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.19,
+     "draw": null,
+     "win_away": 4.78
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.8011,
+     "away": 0.1989
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -3.5,
+     "price": 1.91,
+     "dog_line": 3.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Elena Rybakina",
+    "prob": 0.8011,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.19,
+    "american": -526,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.19 converts to -526 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "TEN-19",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Almaty Open (Round of 16)",
+   "home": "Daniil Medvedev",
+   "away": "Sho Shimabukuro",
+   "start": "Tomorrow 05:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Daniil Medvedev",
+   "olbg_tips": "5/6",
+   "olbg_pct": 83,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Sho_Shimabukuro/3?event_id=902069",
+   "olbg_event_id": 902069,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule",
+    "official_label": "ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 Followed By — Almaty Arena, Almaty",
+    "competition_official": "ATP 250 Almaty Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Center Court: (1) Daniil Medvedev vs Sho Shimabukuro."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.28,
+     "draw": null,
+     "win_away": 3.71
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.7439,
+     "away": 0.2561
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Daniil Medvedev",
+    "prob": 0.7439,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.28,
+    "american": -357,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.28 converts to -357 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "TEN-20",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 500 BNB Ningbo Open (Round of 16)",
+   "home": "Iva Jovic",
+   "away": "Jasmine Paolini",
+   "start": "Tomorrow 01:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Iva Jovic",
+   "olbg_tips": "4/7",
+   "olbg_pct": 57,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Iva_Jovic_vs_Jasmine_Paolini/3?event_id=902075",
+   "olbg_event_id": 902075,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA Tour — 2026 BNB Ningbo Open official main-draw PDF",
+    "official_datetime": "2026-10-22 — Yinzhou International Tennis Center, Ningbo",
+    "competition_official": "WTA 500 BNB Ningbo Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "#4 seed Iva Jovic vs Jasmine Paolini (def. Anhelina Kalinina 6-2, 7-5)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.6,
+     "draw": null,
+     "win_away": 2.35
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.5953,
+     "away": 0.4047
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Iva Jovic",
+    "prob": 0.5953,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.6,
+    "american": -167,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-21",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+   "home": "Magda Linette",
+   "away": "Katerina Siniakova",
+   "start": "Tomorrow 01:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Katerina Siniakova",
+   "olbg_tips": "4/6",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Magda_Linette_vs_Katerina_Siniakova/3?event_id=902071",
+   "olbg_event_id": 902071,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wtatennis.com/tournaments/405/osaka/2026/player-list",
+    "official_label": "WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list",
+    "official_datetime": "2026-10-22 14:30 JST — Utsubo Tennis Center, Osaka",
+    "competition_official": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Magda Linette (def. Claire Liu 6-4, 6-3) vs Katerina Siniakova (def. #2 seed Peyton Stearns 6-4, 0-6, 4-0 ret.)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.19,
+     "draw": null,
+     "win_away": 1.68
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.4332,
+     "away": 0.5668
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Katerina Siniakova",
+    "prob": 0.5668,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.68,
+    "american": -147,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-22",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+   "home": "Antonia Ruzic",
+   "away": "Kayla Day",
+   "start": "Today 22:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Antonia Ruzic",
+   "olbg_tips": "3/6",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Antonia_Ruzic_vs_Kayla_Day/3?event_id=902066",
+   "olbg_event_id": 902066,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wtatennis.com/tournaments/405/osaka/2026/player-list",
+    "official_label": "WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list",
+    "official_datetime": "2026-10-22 11:30 JST — Utsubo Tennis Center, Osaka",
+    "competition_official": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Antonia Ruzic (def. Paula Badosa 3-6, 6-4, 6-3) vs Kayla Day (def. Sofia Kenin 6-3, 6-2)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.9,
+     "win_away": 1.9
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.5,
+     "away": 0.5
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Antonia Ruzic",
+    "prob": 0.5,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": 1.9,
+    "american": -111,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-21",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": true,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-23",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Almaty Open (Round of 16)",
+   "home": "Tomas Machac",
+   "away": "Karen Khachanov",
+   "start": "Tomorrow 04:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Karen Khachanov",
+   "olbg_tips": "3/5",
+   "olbg_pct": 60,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Tomas_Machac_vs_Karen_Khachanov/3?event_id=902110",
+   "olbg_event_id": 902110,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule",
+    "official_label": "ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 NB 13:00 — Almaty Arena, Almaty",
+    "competition_official": "ATP 250 Almaty Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Center Court: Tomas Machac vs (5) Karen Khachanov."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.36,
+     "draw": null,
+     "win_away": 1.59
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.4023,
+     "away": 0.5977
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Karen Khachanov",
+    "prob": 0.5977,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.59,
+    "american": -169,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-24",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA 500 BNB Ningbo Open (Round of 16)",
+   "home": "Alexandra Eala",
+   "away": "Diana Shnaider",
+   "start": "Tomorrow 04:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Diana Shnaider",
+   "olbg_tips": "3/4",
+   "olbg_pct": 75,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Diana_Shnaider/3?event_id=902072",
+   "olbg_event_id": 902072,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+    "official_label": "WTA Tour — 2026 BNB Ningbo Open official main-draw PDF",
+    "official_datetime": "2026-10-22 — Yinzhou International Tennis Center, Ningbo",
+    "competition_official": "WTA 500 BNB Ningbo Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Alexandra Eala (def. Diane Parry 6-3, 6-1) vs #6 seed Diana Shnaider."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.35,
+     "draw": null,
+     "win_away": 1.6
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.4047,
+     "away": 0.5953
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Diana Shnaider",
+    "prob": 0.5953,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.6,
+    "american": -167,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-25",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)",
+   "home": "Raphael Collignon",
+   "away": "Jiri Lehecka",
+   "start": "Tomorrow 07:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Jiri Lehecka",
+   "olbg_tips": "3/5",
+   "olbg_pct": 60,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Raphael_Collignon_vs_Jiri_Lehecka/3?event_id=902104",
+   "olbg_event_id": 902104,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+    "official_label": "ATP Tour — European Open Brussels Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 13:30 — Brussels Expo, Brussels",
+    "competition_official": "ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Centre Court opener: Raphael Collignon vs (2) Jiri Lehecka."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 3.33,
+     "draw": null,
+     "win_away": 1.33
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.2851,
+     "away": 0.7149
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Jiri Lehecka",
+    "prob": 0.7149,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.33,
+    "american": -303,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.33 converts to -303 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "TEN-26",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+   "home": "Pierre Hugues Herbert",
+   "away": "Taylor Fritz",
+   "start": "Tomorrow 09:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Taylor Fritz",
+   "olbg_tips": "3/5",
+   "olbg_pct": 60,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Pierre_Hugues_Herbert_vs_Taylor_Fritz/3?event_id=902087",
+   "olbg_event_id": 902087,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule",
+    "official_label": "ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 Followed By — LDLC Arena / Lyon",
+    "competition_official": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Court Central: (Q) Pierre-Hugues Herbert vs (2) Taylor Fritz."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 5.25,
+     "draw": null,
+     "win_away": 1.16
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.181,
+     "away": 0.819
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -4.5,
+     "price": 1.91,
+     "dog_line": 4.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Taylor Fritz",
+    "prob": 0.819,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.16,
+    "american": -625,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.16 converts to -625 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "TEN-27",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+   "home": "Valentin Vacherot",
+   "away": "Luca Van Assche",
+   "start": "Tomorrow 08:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Valentin Vacherot",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Valentin_Vacherot_vs_Luca_Van_Assche/3?event_id=902103",
+   "olbg_event_id": 902103,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule",
+    "official_label": "ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 NB 14:00 — LDLC Arena / Lyon",
+    "competition_official": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Court Central: (3) Valentin Vacherot vs Luca Van Assche."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.73,
+     "draw": null,
+     "win_away": 2.11
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.5501,
+     "away": 0.4499
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Valentin Vacherot",
+    "prob": 0.5501,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.73,
+    "american": -137,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-28",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+   "home": "Borna Gojo",
+   "away": "Daniel Altmaier",
+   "start": "Tomorrow 08:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Borna Gojo",
+   "olbg_tips": "2/4",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Borna_Gojo_vs_Daniel_Altmaier/3?event_id=902100",
+   "olbg_event_id": 902100,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/lyon/496/results",
+    "official_label": "ATP Tour — Lyon 2026 official results",
+    "official_datetime": "2026-10-22 — Lyon, France",
+    "competition_official": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "ATP Lyon R16: qualifier Borna Gojo (def. #8 seed Arthur Fery 6-3, 7-6(2)) vs Daniel Altmaier (def. Titouan Droguet 5-7, 7-6(4), 7-6(3))."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.43,
+     "draw": null,
+     "win_away": 1.56
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.3905,
+     "away": 0.6095
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Daniel Altmaier",
+    "prob": 0.6095,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.56,
+    "american": -179,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-29",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Almaty Open (Round of 16)",
+   "home": "Terence Atmane",
+   "away": "Mattia Bellucci",
+   "start": "Tomorrow 02:30",
+   "olbg_market": "1st Set Winner",
+   "olbg_pick": "Mattia Bellucci",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Terence_Atmane_vs_Mattia_Bellucci/3?event_id=902109",
+   "olbg_event_id": 902109,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule",
+    "official_label": "ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 11:30 — Almaty Arena, Almaty",
+    "competition_official": "ATP 250 Almaty Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Center Court Day 6 opener: Terence Atmane vs Mattia Bellucci."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -4.5,
+     "price": 1.91,
+     "dog_line": 4.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line. Tennis has no home side: the line is stated against the first-listed player."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Mattia Bellucci",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-30",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)",
+   "home": "David Goffin",
+   "away": "Alex Michelsen",
+   "start": "Tomorrow 09:00",
+   "olbg_market": "Set Betting",
+   "olbg_pick": "David Goffin to win 2 - 1",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Alex_Michelsen/3?event_id=902131",
+   "olbg_event_id": 902131,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+    "official_label": "ATP Tour — European Open Brussels Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 Followed By — Brussels Expo, Brussels",
+    "competition_official": "ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Centre Court: (WC) David Goffin vs (5) Alex Michelsen."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.26,
+     "draw": null,
+     "win_away": 1.64
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.4201,
+     "away": 0.5799
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Alex Michelsen",
+    "prob": 0.5799,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.64,
+    "american": -156,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-31",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Almaty Open (Round of 16)",
+   "home": "Alexander Bublik",
+   "away": "Fabian Marozsan",
+   "start": "Tomorrow 10:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Alexander Bublik",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Bublik_vs_Fabian_Marozsan/3?event_id=902082",
+   "olbg_event_id": 902082,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule",
+    "official_label": "ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 NB 19:30 — Almaty Arena, Almaty",
+    "competition_official": "ATP 250 Almaty Open (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Center Court evening session: (3) Alexander Bublik vs Fabian Marozsan."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.52,
+     "draw": null,
+     "win_away": 2.54
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.6255,
+     "away": 0.3745
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Alexander Bublik",
+    "prob": 0.6255,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.52,
+    "american": -192,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-32",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)",
+   "home": "Damir Dzumhur",
+   "away": "Zizou Bergs",
+   "start": "Tomorrow 11:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Damir Dzumhur",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Damir_Dzumhur_vs_Zizou_Bergs/3?event_id=902120",
+   "olbg_event_id": 902120,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+    "official_label": "ATP Tour — European Open Brussels Day 6 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 NB 17:00 — Brussels Expo, Brussels",
+    "competition_official": "ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Centre Court: Damir Dzumhur vs (6) Zizou Bergs."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.29,
+     "draw": null,
+     "win_away": 1.62
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.4141,
+     "away": 0.5859
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Zizou Bergs",
+    "prob": 0.5859,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.62,
+    "american": -161,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-33",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+   "home": "Flavio Cobolli",
+   "away": "Stan Wawrinka",
+   "start": "Tomorrow 13:00",
+   "olbg_market": "Set Betting",
+   "olbg_pick": "Stan Wawrinka to win 2 - 1",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Flavio_Cobolli_vs_Stan_Wawrinka/3?event_id=902126",
+   "olbg_event_id": 902126,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule",
+    "official_label": "ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 NB 19:00 — LDLC Arena / Lyon",
+    "competition_official": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Court Central evening: (1) Flavio Cobolli vs (WC) Stan Wawrinka."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.49,
+     "draw": null,
+     "win_away": 2.62
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.6378,
+     "away": 0.3622
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Flavio Cobolli",
+    "prob": 0.6378,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.49,
+    "american": -204,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-34",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+   "home": "Kyrian Jacquet",
+   "away": "Brandon Nakashima",
+   "start": "Tomorrow 14:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Brandon Nakashima",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Kyrian_Jacquet_vs_Brandon_Nakashima/3?event_id=902105",
+   "olbg_event_id": 902105,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule",
+    "official_label": "ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)",
+    "official_datetime": "2026-10-22 Followed By — LDLC Arena / Lyon",
+    "competition_official": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Court Central night: (Q) Kyrian Jacquet vs (5) Brandon Nakashima."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.76,
+     "draw": null,
+     "win_away": 1.45
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.3446,
+     "away": 0.6554
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Brandon Nakashima",
+    "prob": 0.6554,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.45,
+    "american": -222,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
    "ref": "VLB-01",
    "sport": "Volleyball",
    "sport_slug": "volleyball",
@@ -8371,6 +12828,453 @@
     "start_basis": "derived from capture date",
     "kickoff_passed": true,
     "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-16",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Polish TAURON Liga Women 2026/27",
+   "home": "Radomka Radom W",
+   "away": "Mielec W",
+   "start": "Tomorrow 11:30",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Radomka Radom W",
+   "olbg_tips": "4/5",
+   "olbg_pct": 80,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Radomka_Radom_W_vs_Mielec_W/21?event_id=36988",
+   "olbg_event_id": 36988,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.tauronliga.pl/teams/tour/53/id/62.html",
+    "official_label": "TAURON Liga — Official Polish Women's Volleyball League",
+    "official_datetime": "2026-10-22 — Radom",
+    "competition_official": "Polish TAURON Liga Women 2026/27",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "MOYA Radomka Radom vs ITA TOOLS Stal Mielec."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.19,
+     "win_away": 4.75
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.8,
+     "away": 0.2
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (80%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Radomka Radom W",
+    "prob": 0.8,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.19,
+    "american": -526,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-17",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+   "home": "Ceske Budejovice",
+   "away": "Beskydy",
+   "start": "Tomorrow 12:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Ceske Budejovice",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ceske_Budejovice_vs_Beskydy/21?event_id=36990",
+   "olbg_event_id": 36990,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cvf.cz/extraliga-muzi",
+    "official_label": "Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings & Round 2 schedule",
+    "official_datetime": "2026-10-22 18:00 CEST — Sportovní hala, České Budějovice",
+    "competition_official": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "#2 VK Jihostroj České Budějovice (3:0 R1) vs #5 Black Volley Beskydy (3:2 R1)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.42,
+     "win_away": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.67,
+     "away": 0.33
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Ceske Budejovice",
+    "prob": 0.67,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-18",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+   "home": "Ostrava",
+   "away": "Kladno",
+   "start": "Tomorrow 12:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Ostrava",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ostrava_vs_Kladno/21?event_id=36992",
+   "olbg_event_id": 36992,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cvf.cz/extraliga-muzi",
+    "official_label": "Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings & Round 2 schedule",
+    "official_datetime": "2026-10-22 18:00 CEST — Ostrava",
+    "competition_official": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on cvf.cz: VK Ostrava (lost 2:3 R1) vs #1 Kladno volejbal cz (won 3:0 R1, 75:56)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Ostrava",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-19",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+   "home": "Brno",
+   "away": "Odolena Voda",
+   "start": "Tomorrow 12:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Brno",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brno_vs_Odolena_Voda/21?event_id=36989",
+   "olbg_event_id": 36989,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cvf.cz/extraliga-muzi",
+    "official_label": "Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings & Round 2 schedule",
+    "official_datetime": "2026-10-22 18:00 CEST — Hala Kounicova, Brno",
+    "competition_official": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on cvf.cz: Volejbal Brno vs AERO Odolena Voda."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Brno",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-20",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+   "home": "Usti Nad Labem",
+   "away": "Zlin",
+   "start": "Tomorrow 12:00",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Zlin",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Usti_Nad_Labem_vs_Zlin/21?event_id=36993",
+   "olbg_event_id": 36993,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cvf.cz/extraliga-muzi",
+    "official_label": "Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings & Round 2 schedule",
+    "official_datetime": "2026-10-22 18:00 CEST — Czechia",
+    "competition_official": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on cvf.cz CEZ Extraliga Men Round 2 schedule: SK Volejbal Usti nad Labem vs Fatra Eko Zlin (def. VK Ostrava 3:2 in R1)."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Zlin",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-21",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+   "home": "Liberec",
+   "away": "Benatky nad Jizerou",
+   "start": "Tomorrow 12:00",
+   "olbg_market": "Set Score",
+   "olbg_pick": "Benatky nad Jizerou to win 3-0",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Liberec_vs_Benatky_nad_Jizerou/21?event_id=36991",
+   "olbg_event_id": 36991,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cvf.cz/extraliga-muzi",
+    "official_label": "Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings & Round 2 schedule",
+    "official_datetime": "2026-10-22 18:00 CEST — Czechia",
+    "competition_official": "Czech CEZ Extraliga Men 2026/27 (Round 2)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on cvf.cz CEZ Extraliga Men Round 2 schedule: VK Dukla Liberec (pushed Beskydy to 5 sets in R1) vs VK Benatky nad Jizerou."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.9,
+     "win_home": 1.9
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.5,
+     "home": 0.5
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Liberec",
+    "prob": 0.5,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 0
+    },
+    "price": 1.9,
+    "american": -111,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
     "note": ""
    }
   }

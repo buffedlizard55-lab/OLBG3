@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T07:55:00Z",
+  "generated_at": "2026-10-22T01:48:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available.",
   "items": [
     {
@@ -948,6 +948,74 @@
         {
           "label": "OLBG source listings (historical capture; check current event pages)",
           "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-041",
+      "severity": "high",
+      "title": "Waterford GAA Senior Football Final misdated by 7 days on OLBG (01 Nov vs official Sun 25 Oct)",
+      "detail": "Live 2026-10-22 harvest of /betting-tips/Gaelic_Football/25 lists 'Rathgormack v The Nire' (event_id=3536) as '01 Nov 10:30'. Line-by-line cross-checking against the official Munster GAA Events Calendar proves the 2026 Waterford Senior Football Championship Final is scheduled a full week earlier on Sunday 25 October 2026 at 14:30 IST at Cappoquin Logistics Fraher Field, Dungarvan.",
+      "affected_rows": [
+        "GFA-3536"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Rathgormack v The Nire listing ('01 Nov 10:30')",
+          "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Rathgormack_v_The_Nire/25?event_id=3536"
+        },
+        {
+          "label": "Munster GAA — Official Events Calendar (Sun 25 Oct 2026 @ 2:30pm, Fraher Field)",
+          "url": "https://munster.gaa.ie/fixtures/events-calendar/"
+        }
+      ]
+    },
+    {
+      "id": "FL-042",
+      "severity": "medium",
+      "title": "Overnight 'No tips found.' state on Snooker (/Snooker/8), NHL (/Ice_Hockey/NHL/13) and Greyhounds (/Greyhounds/28)",
+      "detail": "At 2026-10-22 01:28 UTC (between Wednesday night Round 2 completion and Thursday Round 3 posting at the Belfast Northern Ireland Open, and prior to morning UK GBGB racecards), OLBG's server-rendered Snooker, NHL and Greyhounds pages returned 'No tips found.'. Audited 2026-10-21 rows are retained with explicit carry/archive labels and excluded from live HIGH confidence.",
+      "affected_rows": [
+        "SNO-9934",
+        "GRY-689390",
+        "IHO-06",
+        "IHO-07"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Snooker tips page",
+          "url": "https://www.olbg.com/betting-tips/Snooker/8"
+        },
+        {
+          "label": "OLBG — Greyhound racing tips page",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-043",
+      "severity": "medium",
+      "title": "Top-level OLBG sport card hides stronger multi-market consensus inside individual event pages",
+      "detail": "On 2026-10-22, OLBG's Basketball listing card shows 'Panathinaikos vs Baskonia' split 2/4 (50%) on Money Line while the underlying event page (?event_id=535923) carries 2/3 (67%) on Pointspread Panathinaikos -15.50 and Game Totals 171.50; similarly 'TB Rays @ MIL Brewers' (?event_id=160789) carries 7/8 on Run Line -1.50 and 8/8 (100%) on Over 6.50 runs, and 'Danny Noppert vs Stephen Bunting' (?event_id=32330) carries 5/5 (100%) on Over 9.50 legs.",
+      "affected_rows": [
+        "BKB-535923",
+        "BSB-160789",
+        "DAR-32330",
+        "BKB-534839",
+        "BKB-535674"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Panathinaikos vs Baskonia Event Page",
+          "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Baskonia/4?event_id=535923"
+        },
+        {
+          "label": "OLBG — TB Rays @ MIL Brewers Event Page",
+          "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789"
+        },
+        {
+          "label": "OLBG — Danny Noppert vs Stephen Bunting Event Page",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Danny_Noppert_vs_Stephen_Bunting/15?event_id=32330"
         }
       ]
     }
