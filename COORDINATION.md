@@ -1046,3 +1046,7 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/47 — merged to `main` 2026-10-22T02:48:42Z (merge commit). Branch CI run 39713416476 build success; deploy job success.
 - **Pages deploy:** run 39713416476 deploy completed success. Live site: https://buffedlizard55-lab.github.io/OLBG3/ (196 rows / 15 sports / 30 in-band HIGH / 26 /olbg/ HIGH).
 
+
+### task-29 merge record — `session-f75234a1`
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/49 — **MERGED** 2026-10-22T02:53:13Z, merge commit `e76848b`. Two append-only COORDINATION conflicts during rebase were resolved by keeping both sessions' logs verbatim (task renumbered to task-29; sibling `session-e8f8c0f5` holds task-28).
+- **Pages:** `gh api .../pages` status = `built`; `pages build and deployment` + `Verify and publish dashboard` runs completed/success. Live: https://buffedlizard55-lab.github.io/OLBG3/
