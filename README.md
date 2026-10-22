@@ -7,6 +7,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 What the published numbers do and do not mean:
 
 - **Captured board, not a complete live feed.** 230 root rows (202 fixtures + 28 outright/race) captured 21–22 Oct 2026, plus the chained 275-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+  These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
 - **Honest provenance.** `HIGH` is an uncalibrated model grade, not a demonstrated win rate or betting edge. Fields that no retrieved source states stay blank and are listed on **Flagged for Review** together with every correction. Row-level release evidence (source quotes, checked-at, expiry) is on **Source health** (`source-health.html`).
@@ -175,16 +176,26 @@ python3 scripts/check_links.py        # 0 broken local links across combined sit
 python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 ```
 
-## Summary Data Metrics (`2026-10-22`)
+## Current repository audit (2026-10-22 12:04 UTC)
 
-| File | Contents | Track |
-|---|---|---|
-| `data/raw/olbg-harvest-20261022.tsv` | Live `2026-10-22` OLBG harvest across all active sports + multi-market notes | `/olbg/` & root |
-| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`172` verified, `192` priced) | root board |
-| `data/predictions.json` | **`47` written pieces**: **`33` live `HIGH` predictions** + `14` `analysis` notes | root board |
-| `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
-| `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
-| `data/flagged.json` | **`53` flagged review items** with direct source links | both tracks |
+Fresh independent sports-source verification is **blocked in this environment**: outbound access
+is restricted to GitHub and package registries. A direct PDC HTTPS request failed (curl exit 35).
+No inherited quote or verification timestamp was renewed. **Passing tests does not verify match facts.**
+See [audit details](docs/audit-adeebd4c.md) and **FL-077** on [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html).
+Earlier audit sections below describe prior sessions, not work independently reproduced here.
+
+| Tracked dataset | Repository count | Verification boundary |
+|---|---:|---|
+| Root fixtures (`data/events.json`) | 202 | Stored assertions only; not freshly retrieved |
+| Root outright/race rows (`data/gap_sports.json`) | 28 | Model prices, not verified bookmaker offers |
+| Root written pieces (`data/predictions.json`) | 67 | Includes analysis; not 67 released HIGH picks |
+| `/olbg/` fixtures and lines | 275 each | Separate track, not additive unique fixture coverage |
+| `/olbg/` written pieces | 47 | Includes analysis; current release eligibility depends on time |
+| Flag register | 77 | Includes resolved historical items and open review items |
+
+Current validation: 60 unit tests; both track validators; full build and local link scan.
+These checks establish schema, price-band and release-policy consistency, not factual accuracy,
+calibrated confidence, exhaustive market coverage, or a profitable betting edge.
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)
 

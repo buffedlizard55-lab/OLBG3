@@ -4,13 +4,19 @@ import os
 import sys
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import patch, mock_open
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import board_dates as bd
 
 
 class Freshness(unittest.TestCase):
+    def test_snapshot_source_file_is_closed(self):
+        source = mock_open(read_data='{"checked_at":"2026-10-22T09:10:00Z","events":{}}')
+        with patch.dict(os.environ, {}, clear=True), patch('builtins.open', source):
+            self.assertEqual(bd.snapshot_utc().isoformat(), '2026-10-22T09:10:00+00:00')
+        source().__exit__.assert_called_once()
+
     def test_default_clock_is_utc_today(self):
         with patch.dict(os.environ, {}, clear=True):
             self.assertEqual(bd.build_date(), dt.datetime.now(dt.timezone.utc).date())

@@ -43,8 +43,9 @@ def snapshot_utc():
         return dt.datetime.strptime(override, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
     try:
         import json
-        doc = json.loads(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                                           "data/release_checks.json"), encoding="utf-8").read())
+        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                               "data/release_checks.json"), encoding="utf-8") as source:
+            doc = json.load(source)
         stamps = [c.get("checked_at") for c in doc.get("events", {}).values() if c.get("checked_at")]
         stamps.append(doc.get("checked_at"))
         newest = max(s for s in stamps if s)

@@ -1481,3 +1481,18 @@ Re-read each HIGH body against its cited official URLs; checked word count, expl
 
 
 
+
+## Session adeebd4c — 2026-10-22T12:04Z
+- Task: independent current-state audit, truthful verification boundaries, and integration publication.
+- Status: in progress. Owner: `arena/adeebd4c-olbg3` (fixed Arena branch).
+- Scope: `COORDINATION.md`, `docs/audit-adeebd4c.md`, `README.md`; additional pipeline corrections only after recording scope here. No sibling source-data files claimed.
+- Pre-claim: only origin/main exists remotely; open PRs #76/#77 are historical overlapping work already incorporated per task-38 log, not taken over here. Existing whole-repo claims are over 60 minutes old and task-38 is recorded DONE. No evidence claims are upgraded without a fresh official retrieval.
+- Scope expansion (12:07Z): `scripts/board_dates.py`, `tests/test_freshness.py` for the observed unclosed-file warning; `data/flagged.json`, generated root/`sports`/`olbg`/`olbg-board` pages via existing builders to publish FL-077 (fresh independent verification blocked by network policy). No fixture assertions or source timestamps will change. Prior session tasks are recorded done; sole current remote session branch is this one.
+
+### adeebd4c audit results
+- 60/60 unit tests pass; fixed observed ResourceWarning using a context-managed source file, regression-tested closure without changing clock semantics.
+- Full deterministic pipeline rebuilt successfully: root 230 rows / 202 fixtures / 28 outright-race records, 210 priced / 67 written pieces; separate track 275 rows / 47 pieces. Inherited verification labels were NOT independently upgraded.
+- `check_board.py`, `tools/check_site.py`, `check.py` pass; combined `check_links.py`: 85 pages, 1,529 local links, 0 broken.
+- Official-source access blocked by sandbox allowlist; direct https://www.pdc.tv/ retrieval failed (curl 35). No new fixture facts or predictions generated. Fresh complete official re-verification remains needs review (FL-077), published on both flag pages with official manual-review links. Sources and precise limits: `docs/audit-adeebd4c.md`.
+- GitHub Pages API confirms legacy main/root source and current pre-change build status built for f55593f. Live HTTP smoke testing cannot be asserted from this environment.
+- Integration concurrency: PR #83 from session-7da75ec9 advanced main during PR #84 checks. First merge attempt correctly failed. Rebased onto bf51918; README's single overlapping count sentence resolved by preserving #83's corrected counts and hourly-feed description plus this audit's explicit verification boundary. Both session logs and the sibling independent audit section retained; no source-data conflict or loss.
