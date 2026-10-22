@@ -1,5 +1,5 @@
 {
-  "note": "15 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "14 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -561,24 +561,6 @@
         }
       ],
       "ref": "DRT-03",
-      "status": "analysis",
-      "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
-    },
-    {
-      "selection": "Luke Humphries to win Match (Best of 11 legs)",
-      "headline": "World No. 2 Luke Humphries' 100.01 Euro Tour average outguns Ryan Searle in Dortmund",
-      "body": "Last year's Dortmund runner-up Luke Humphries returns to the Westfalenhalle carrying a 16-4 match record and a 100.01 average across his 2026 European Tour appearances. Only selective scheduling dropped Humphries to 12th seed — creating rare playable value at 1.54 (-185) inside our -250 threshold against 21st seed Ryan Searle, who arrives below .500 on the 2026 European circuit. Back Luke Humphries to Win Match.",
-      "sources": [
-        {
-          "label": "PDC — 2026 Machineseeker European Championship Field & Draw Confirmed",
-          "url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
-        },
-        {
-          "label": "PDC — 2026 Machineseeker European Championship Schedule",
-          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
-        }
-      ],
-      "ref": "DRT-05",
       "status": "analysis",
       "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -1273,16 +1255,25 @@
     },
     {
       "ref": "DRT-17",
-      "selection": "Luke Humphries to win Outright (+507 / 6.07)",
-      "headline": "Top-tier Dortmund draw and Premier pedigree back Luke Humphries outright at +507",
-      "body": "Luke Humphries to win the 2026 Machineseeker European Championship outright (+507 / 6.07) is our Darts tournament selection ahead of Thursday's 19:00 CEST opening bell at Dortmund's Westfalenhalle. Confirmed in the PDC's 32-player draw, world number two Humphries enters off full European Tour seeding pedigree and opens against Ryan Searle in the bottom half away from Luke Littler and Michael van Gerwen.",
+      "selection": "Gerwyn Price to win Outright (+619 / 7.19)",
+      "headline": "Humphries out: OLBG's remaining European Championship tips point to Gerwyn Price at +619",
+      "body": "Luke Humphries withdrew from the 2026 Machineseeker European Championship on 22 October with gastroenteritis, so our earlier +507 outright on him is void rather than re-pointed at his replacement. Re-reading OLBG after the withdrawal leaves 12 win tips on the tournament, with Gerwyn Price the most popular at 3/12 (25%). Applying the same disclosed 32-player field prior (k = 14) gives Price a 13.2% chance, and our price is 7.19 (+619), inside the -250 to +10000 window. That is the tournament selection for Thursday's 19:00 CEST opening session at Dortmund's Westfalenhalle, graded MEDIUM rather than HIGH because only 12 tips remain in the sample.",
       "sources": [
         {
-          "label": "PDC official European Championship schedule & 32-player draw",
+          "label": "PDC — Humphries withdraws from 2026 Machineseeker European Championship",
+          "url": "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship"
+        },
+        {
+          "label": "OLBG European Championship tips (12 win tips, Price 3/12)",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338"
+        },
+        {
+          "label": "PDC — 2026 Machineseeker European Championship schedule (Westfalenhalle, 22-25 Oct)",
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
   ]
 }

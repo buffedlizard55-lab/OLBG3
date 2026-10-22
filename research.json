@@ -4013,104 +4013,6 @@
       "market_type": "fixture"
     },
     {
-      "ref": "DRT-05",
-      "sport": "Darts",
-      "sport_slug": "darts",
-      "competition": "PDC European Championship 2026 - Round 1",
-      "home": "Luke Humphries",
-      "away": "Ryan Searle",
-      "start": "Tomorrow 15:45",
-      "captured_at": "2026-10-21",
-      "olbg_market": "Win Match 2-way",
-      "olbg_pick": "Luke Humphries",
-      "olbg_tips": "5/7",
-      "olbg_pct": 71,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Humphries_vs_Ryan_Searle/15?event_id=32337",
-      "olbg_event_id": 32337,
-      "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
-      "verification": {
-        "status": "verified",
-        "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-        "official_label": "PDC official schedule-of-play announcement (pdc.tv), cross-checked for exact per-match clock times against the officially-reported running order on sports.yahoo.com/darts1.de",
-        "official_datetime": "Thu 22 Oct 2026, 21:45 CEST, Westfalenhallen Dortmund",
-        "competition_official": "PDC European Championship 2026 - Round 1",
-        "source_tier": "official",
-        "tier_note": "",
-        "note": "Luke Humphries v Ryan Searle, reported start 21:45 CEST = 15:45 EDT, matching the OLBG listing exactly."
-      },
-      "model": {
-        "basis": "official-standings",
-        "prices": {
-          "win_home": 1.54,
-          "draw": null,
-          "win_away": 2.47
-        },
-        "notes": [
-          "Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used (https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed)."
-        ],
-        "probs": {
-          "home": 0.6157,
-          "away": 0.3843
-        },
-        "handicap": {
-          "fav": "home",
-          "line": -0.5,
-          "price": 1.91,
-          "dog_line": 0.5,
-          "dog_price": 1.91,
-          "unit": "legs",
-          "basis": "official-form",
-          "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
-        },
-        "total": {
-          "line": 9.5,
-          "over": 1.91,
-          "under": 1.91,
-          "unit": "legs",
-          "basis": "official-form",
-          "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
-        }
-      },
-      "pick": {
-        "side": "home",
-        "label": "Luke Humphries",
-        "prob": 0.6157,
-        "confidence": "MEDIUM",
-        "score": 6,
-        "factors": {
-          "fixture_verified": 2,
-          "official_form": 2,
-          "model_edge": 2
-        },
-        "price": 1.54,
-        "american": -185,
-        "in_band": true,
-        "band": [
-          -250,
-          10000
-        ],
-        "start_iso": "2026-10-22",
-        "start_basis": "derived from capture date",
-        "kickoff_utc": null,
-        "clock_basis": "Official UTC start unverified; OLBG clock not converted",
-        "kickoff_started": false,
-        "kickoff_passed": false,
-        "evidence_grade": "HIGH",
-        "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank.",
-        "release": {
-          "status": "unverified_start",
-          "eligible": false,
-          "as_of": "2026-10-22T12:10:00+00:00",
-          "start_utc": null,
-          "checked_at": "2026-10-22T09:10:00Z",
-          "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-          "expires_at": null,
-          "reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
-        }
-      },
-      "market_type": "fixture"
-    },
-    {
       "ref": "DRT-06",
       "sport": "Darts",
       "sport_slug": "darts",
@@ -20861,9 +20763,9 @@
       "start": "Today 15:00",
       "market_type": "outright",
       "olbg_market": "Win Tournament",
-      "olbg_pick": "Luke Humphries",
-      "olbg_tips": "16/91",
-      "olbg_pct": 18,
+      "olbg_pick": "Gerwyn Price",
+      "olbg_tips": "3/12",
+      "olbg_pct": 25,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
       "olbg_event_id": 32338,
       "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
@@ -20880,10 +20782,10 @@
       "model": {
         "basis": "outright-prior",
         "prices": {
-          "single": 6.07
+          "single": 7.19
         },
         "probs": {
-          "single": 0.1565
+          "single": 0.1322
         },
         "prior": {
           "field": 32,
@@ -20899,17 +20801,17 @@
       },
       "pick": {
         "side": "single",
-        "label": "Luke Humphries",
-        "prob": 0.1565,
-        "confidence": "HIGH",
-        "score": 6,
+        "label": "Gerwyn Price",
+        "prob": 0.1322,
+        "confidence": "MEDIUM",
+        "score": 5,
         "factors": {
           "fixture_verified": 2,
           "official_form": 2,
-          "model_edge": 2
+          "model_edge": 1
         },
-        "price": 6.07,
-        "american": 507,
+        "price": 7.19,
+        "american": 619,
         "in_band": true,
         "band": [
           -250,
@@ -20921,7 +20823,7 @@
         "kickoff_started": false,
         "start_basis": "derived from capture date",
         "kickoff_passed": false,
-        "evidence_grade": "HIGH",
+        "evidence_grade": "MEDIUM",
         "note": "",
         "release": {
           "status": "upcoming",
@@ -20938,7 +20840,7 @@
         "outright_no_opposing_side",
         "field_size_prior_assumed"
       ],
-      "row_notes": "Captured live on OLBG /Darts/15 (16/91 tips on world #2 Luke Humphries).",
+      "row_notes": "Re-read 2026-10-22T12:45Z after Luke Humphries withdrew (gastroenteritis, PDC 22 Oct). OLBG's European Championship page now carries 12 win tips: Gerwyn Price 3/12 (25%, most popular), Luke Littler 2, Gian van Veen 2, Josh Rock 2, Wessel Nijman 1, Dirk van Duijvenbode 1, Rob Cross 1. Humphries is no longer listed and Kim Huybrechts appears at 0/12. The 08:30Z harvest still carried the pre-withdrawal 16/91 Humphries row.",
       "captured_at": "2026-10-21T07:05:00Z"
     }
   ]

@@ -3,14 +3,15 @@
 Verifies both Phase 1 standalone audit artifacts AND (once Phase 2 integration has run)
 all cross-board invariants across root `/` and `/olbg/`:
   - 15 covered OLBG sports and strictly 0 excluded sports across every dataset & page
-  - 202/202 (100%) two-sided root fixtures verified on primary official/club-official hosts
-  - 28/28 (100%) gap-sport rows priced (including DRT-17 Luke Humphries 6.07 / +507 HIGH)
-  - Exact 11-sport live non-chalk HIGH alignment across `/` (16 HIGH) and `/olbg/` (17 HIGH)
+  - 201/201 (100%) two-sided root fixtures verified on primary official/club-official hosts
+  - 28/28 (100%) gap-sport rows priced (DRT-17 re-derived to Gerwyn Price 7.19 / +619 MEDIUM after
+    Luke Humphries withdrew on 22 October 2026)
+  - Live non-chalk HIGH picks across 9 sports on `/` (14 HIGH) and 11 on `/olbg/` (22 HIGH)
   - Every HIGH pick strictly inside -250..+10000 (1.40..101.00), <70% probability, live kick-off,
     and unique >=30-word human prediction citing verified teams/players & match history
   - Un-crossed Italian SuperLega IDs (36994..36997), CBV home/away order on VOL-37000,
     WTA Osaka tournament correction on TEN-37 / TEN-902107, non-winner consensus exclusion,
-    and zero soft-404 OLBG URLs across all 230 `/` rows and 275 `/olbg/` rows.
+    and zero soft-404 OLBG URLs across all 229 `/` rows and 274 `/olbg/` rows.
 """
 from __future__ import annotations
 
@@ -53,12 +54,11 @@ EXPECTED_15_SPORTS = {
     "Greyhounds",
 }
 
-EXPECTED_11_ROOT_HIGH_SPORTS = {
+EXPECTED_ROOT_HIGH_SPORTS = {
     "Baseball",
     "Basketball",
     "Cricket",
     "Ice Hockey",
-    "Darts",
     "Handball",
     "Volleyball",
     "Rugby Union",
@@ -67,7 +67,7 @@ EXPECTED_11_ROOT_HIGH_SPORTS = {
     "Gaelic Football",
 }
 
-EXPECTED_12_OLBG_HIGH_SPORTS = EXPECTED_11_ROOT_HIGH_SPORTS | {"Rugby League"}
+EXPECTED_OLBG_HIGH_SPORTS = EXPECTED_ROOT_HIGH_SPORTS | {"Rugby League", "Darts"}
 
 NON_WINNER_MARKETS = {
     "Set Score",
@@ -151,7 +151,7 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
             self.skipTest("Phase 2 data integration not yet applied to working tree")
 
         # 1. 100% of root two-sided fixtures verified on primary official/club-official hosts
-        self.assertEqual(len(self.events), 202)
+        self.assertEqual(len(self.events), 201)
         for ev in self.events:
             self.assertEqual(ev["verification"]["status"], "verified", ev["ref"])
             self.assertIn(ev["verification"]["source_tier"], {"official", "club-official"}, ev["ref"])
@@ -167,8 +167,9 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
             else:
                 self.assertIsNotNone(r["pick"]["price"], ref)
             self.assertNotIn("689613", r["olbg_event_url"])
-        self.assertEqual(by_gap["DRT-17"]["pick"]["confidence"], "HIGH")
-        self.assertEqual(by_gap["DRT-17"]["pick"]["label"], "Luke Humphries")
+        self.assertEqual(by_gap["DRT-17"]["pick"]["confidence"], "MEDIUM")
+        self.assertEqual(by_gap["DRT-17"]["pick"]["label"], "Gerwyn Price")
+        self.assertEqual(by_gap["DRT-17"]["olbg_tips"], "3/12")
         self.assertGreaterEqual(by_gap["DRT-17"]["pick"]["price"], 1.40)
         self.assertLessEqual(by_gap["DRT-17"]["pick"]["price"], 101.00)
 
@@ -179,8 +180,8 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
         # when its official kick-off passes (Golf expired at the Bermuda Championship first tee)
         # or when an ante-post clock cannot be certified (Rugby League 2027). Requiring equality
         # would pin the assertion to one publication clock and fail every later rebuild.
-        self.assertLessEqual({r["sport"] for r in root_high}, EXPECTED_11_ROOT_HIGH_SPORTS)
-        self.assertLessEqual({r["sport"] for r in olbg_high}, EXPECTED_12_OLBG_HIGH_SPORTS)
+        self.assertLessEqual({r["sport"] for r in root_high}, EXPECTED_ROOT_HIGH_SPORTS)
+        self.assertLessEqual({r["sport"] for r in olbg_high}, EXPECTED_OLBG_HIGH_SPORTS)
         self.assertTrue(root_high and olbg_high, "both tracks must release at least one HIGH pick")
 
         for r in root_high:
