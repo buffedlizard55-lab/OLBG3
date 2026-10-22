@@ -15,6 +15,7 @@ Design rules
 
 Run: python3 scripts/model.py   ->  data/events.json, data/picks.json
 """
+import datetime as dt
 import json, math, glob, os
 from statistics import NormalDist
 from urllib.parse import urlparse
@@ -269,6 +270,24 @@ for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
         e["olbg_listing_url"] = sport_blob["listing_url"]
         events.append(e)
 
+# Apply the newest dated OLBG overlay without rewriting the older source captures. Each overlay
+# row carries its own capture date, so a new "Today" label cannot accidentally be resolved against
+# the previous day's global CAPTURE_DATE. Official names, verification and model inputs are not
+# overlaid; only the OLBG source fields explicitly listed in values are refreshed.
+_overlay_files = sorted(glob.glob(os.path.join(ROOT, "data/raw/olbg-root-overlay-*.json")))
+if _overlay_files:
+    _overlay_path = _overlay_files[-1]
+    _overlay_doc = json.load(open(_overlay_path))
+    _overlay_by_ref = {x["ref"]: x for x in _overlay_doc["events"]}
+    for e in events:
+        _o = _overlay_by_ref.get(e["ref"])
+        if not _o:
+            continue
+        if str(e.get("event_id")) != str(_o["event_id"]):
+            raise RuntimeError(f"overlay event id mismatch on {e['ref']}")
+        e.update(_o["values"])
+        e["olbg_source_capture"] = _o["source"]
+
 off = json.load(open(os.path.join(ROOT, "data/official.json")))
 conf = off["fixture_confirmations"]
 urc = off["form_data"]["URC_2026_27_table"]["teams"]
@@ -365,11 +384,21 @@ hockey_tables.update(nhl)
 hockey_tables.update(icehl)
 hockey_tables.update(shl)
 
+# Exact selection-label normalisations backed by the row's official fixture source. These are not
+# fuzzy matches: each full raw label is mapped explicitly to the already verified row-side spelling.
+PICK_NAME_ALIASES = {
+    "New York Knicks": "NY Knicks",  # NBA.com: New York Knicks at Boston Celtics
+    "Nordsjaelland Haandbold": "Nordsjaelland Handbold",  # Sønderjyske: Nordsjælland Håndbold
+    "SalthillKnocknacarra +3.50": "Salthill-Knocknacarra +3.50",  # Galway county-final notice
+}
+
+
 def side_of_pick(e):
     """Map OLBG's most-tipped selection to home/away/draw/None without guessing."""
     pick = (e.get("olbg_pick") or "").strip()
     if not pick:
         return None, None
+    pick = PICK_NAME_ALIASES.get(pick, pick)
     low = pick.lower()
     if low == "tie" or low == "draw":
         return "draw", None
@@ -635,9 +664,18 @@ for e in events:
     )
     snap_utc = snapshot_utc()
     start_iso, start_basis = resolve_start(e["start"], capture=ev_capture)
-    kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
     kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"], capture=ev_capture)
     clock_started = started(e["start"], now_utc=snap_utc, capture=ev_capture)
+    # A verified official timestamp is preferable to a derived OLBG clock. Keep the raw OLBG label
+    # in `start` for audit, but use the official instant for freshness when one is explicitly stored.
+    if e.get("official_kickoff_utc"):
+        kickoff_utc = e["official_kickoff_utc"]
+        start_iso = kickoff_utc[:10]
+        start_basis = "official fixture timestamp"
+        clock_basis = e.get("official_clock_basis", "official source timestamp (UTC)")
+        official_dt = dt.datetime.fromisoformat(kickoff_utc.replace("Z", "+00:00"))
+        clock_started = official_dt <= snap_utc
+    kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
 
     reasons = []
     if not band_ok and pick_price:
@@ -646,7 +684,7 @@ for e in events:
     if kickoff_passed:
         reasons.append(f"kick-off date {start_iso} has passed (build date {AS_OF.isoformat()})")
     elif clock_started:
-        reasons.append(f"derived kick-off {kickoff_utc} had already started prior to snapshot {snap_utc.strftime('%Y-%m-%dT%H:%MZ')}")
+        reasons.append(f"kick-off {kickoff_utc} had already started prior to snapshot {snap_utc.strftime('%Y-%m-%dT%H:%MZ')}")
     if evidence_conf == "HIGH" and reasons:
         conf_label = "MEDIUM"
     elif evidence_conf == "HIGH":
@@ -685,6 +723,7 @@ for e in events:
         "olbg_event_url": e["event_url"],
         "olbg_event_id": e.get("event_id"),
         "olbg_listing_url": e["olbg_listing_url"],
+        "olbg_source_capture": e.get("olbg_source_capture", ""),
         "verification": verification_for(ref, conf),
         "model": model,
         "pick": {"side": pick_side, "label": pick_label, "prob": pick_prob,
@@ -700,6 +739,8 @@ for e in events:
     })
 
 json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
+           "snapshot_utc": snapshot_utc().isoformat().replace("+00:00", "Z"),
+           "olbg_overlay": (os.path.relpath(_overlay_files[-1], ROOT) if _overlay_files else ""),
            "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)
 

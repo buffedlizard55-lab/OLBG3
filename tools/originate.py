@@ -26,9 +26,42 @@ PROB_MAX_HIGH = 0.70     # Strictly exclude >70% heavy chalk from HIGH confidenc
 # honours OLBG_AS_OF so an archived build can be reproduced. Never hard-code the date here, or the
 # clock freezes and yesterday's fixtures keep grading HIGH forever.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from board_dates import build_date  # noqa: E402
+from board_dates import build_date, snapshot_utc, resolve_kickoff_utc  # noqa: E402
 
 BUILD_DATE = build_date()
+
+
+def event_start(m: dict) -> str:
+    """Best verified display date; the raw OLBG label remains on the match record."""
+    official = (m.get("official_start_utc") or "")[:10]
+    return official or m["date_iso"] or m["olbg_date_label"]
+
+
+def event_clock(m: dict) -> dict:
+    """Official start when available; otherwise the disclosed OLBG-as-US-Eastern derivation.
+
+    `date_iso` was resolved from the row's own harvest locale date by build_dataset.py. Reversing
+    Today/Tomorrow to that capture date reproduces the same clock without inventing an official time.
+    """
+    raw_label = (m.get("olbg_date_label", "") + " " + m.get("olbg_time_label", "")).strip()
+    derived, derived_basis = None, ""
+    if m.get("date_iso"):
+        capture = dt.date.fromisoformat(m["date_iso"])
+        if m.get("olbg_date_label", "").lower() == "tomorrow":
+            capture -= dt.timedelta(days=1)
+        derived, derived_basis = resolve_kickoff_utc(raw_label, capture=capture)
+    official = m.get("official_start_utc")
+    kickoff = official or derived
+    started = bool(kickoff) and dt.datetime.fromisoformat(kickoff.replace("Z", "+00:00")) <= snapshot_utc()
+    start_date = (official or "")[:10] or m.get("date_iso")
+    passed = bool(start_date) and start_date < BUILD_DATE.isoformat()
+    return {
+        "kickoff_utc": kickoff,
+        "kickoff_basis": ("official source timestamp (UTC)" if official else
+                          ("derived: " + derived_basis if derived_basis else "")),
+        "started": started,
+        "passed": passed,
+    }
 
 HOME_LOGIT = {
     "Basketball": 0.14,
@@ -104,11 +137,11 @@ OFFICIAL_STRENGTH = {
     "TEN-902105": ("Brandon Nakashima", 0.645, 22.5, "Under", "ATP Lyon R16: #5 seed Brandon Nakashima vs qualifier Kyrian Jacquet"),
     "TEN-902109": ("Terence Atmane", 0.525, 23.5, "Over", "ATP Almaty R16: Atmane (beat Hijikata 7-6, 6-2) vs Bellucci coin-flip"),
     "TEN-902063": ("Ann Li", 0.613, 21.5, "Over", "WTA Osaka R16: #1 seed world #25 Ann Li (10 aces in R1 win over Jones) vs #63 Zeynep Sonmez + OLBG 8/10"),
-    "TEN-902071": ("Katerina Siniakova", 0.601, 21.5, "Over", "WTA Osaka R16: Siniakova (beat #2 seed Stearns R1 & beat Linette at China Open) vs #77 Linette + OLBG 4/6"),
+    "TEN-902071": ("Katerina Siniakova", 0.601, 21.5, "Over", "WTA Osaka R16: Siniakova led #2 seed Stearns 6-4, 0-6, 4-0 before retirement; Linette beat Claire Liu 6-4, 6-3 + OLBG 4/6"),
     "TEN-902072": ("Diana Shnaider", 0.586, 22.5, "Over", "WTA Ningbo R16: #6 seed world #13 Diana Shnaider vs Alexandra Eala + OLBG 3/4"),
     "TEN-902093": ("Belinda Bencic", 0.720, 20.5, "Under", "WTA Ningbo R16: #5 seed world #14 Bencic vs qualifier Kawa (>70% chalk -> medium)"),
     "TEN-902073": ("Elena Rybakina", 0.805, 19.5, "Under", "WTA Ningbo R16: #1 seed world #1 Rybakina (9,196 pts) vs #105 qualifier Kudermetova (>70% chalk -> medium)"),
-    "TEN-902075": ("Iva Jovic", 0.565, 22.5, "Over", "WTA Ningbo R16: #4 seed world #12 Iva Jovic vs Jasmine Paolini"),
+    "TEN-902075": ("Iva Jovic", 0.565, 22.5, "Over", "WTA Ningbo R16: #4 seed Iva Jovic vs Jasmine Paolini (def. Anhelina Kalinina 6-2, 7-5)"),
     "TEN-902067": ("Mary Stoiana", 0.578, 22.5, "Over", "WTA Osaka R16: Stoiana (beat #7 seed Oliynykova 6-2, 6-3) vs Moyuka Uchijima + OLBG 6/9"),
     "TEN-902066": ("Antonia Ruzic", 0.505, 22.5, "Over", "WTA Osaka R16: Ruzic (beat Badosa) vs Day (beat Kenin) + OLBG 3/6 split"),
     # Cricket — ICC / National Board verified white-ball internationals
@@ -172,9 +205,11 @@ OFFICIAL_STRENGTH = {
     "VOL-36997": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2: Vero Volley Monza (91:94 at Prata) home vs Rana Verona (0-3, 65:78)"),
 }
 
-# Verified outright field-size priors (Dirichlet shrinkage toward 1/F)
+# Outright field priors (Dirichlet shrinkage toward 1/F). These values are model inputs unless
+# the event id also appears in OFFICIAL_FIELD_SIZES below with its own official field source.
 OUTRIGHT_FIELDS = {
-    "GLF-101904": (120, 20, "Seamus Power", 0.125, "PGA Tour Butterfield Bermuda Championship official 120-man Port Royal field + OLBG 5/22 tips"),
+    "GLF-101904": (120, 20, "Seamus Power", None, "Port Royal 120-player model input (the PGA overview/profile do not state field size) + verified 2026 Power form + OLBG 6/24 tips"),
+    "GLF-101908": (96, 24, None, None, "JGTO official Fortinet Players Cup field: Confirmed 96 / Planned 96; Ryosuke Kinoshita entered"),
     "GLF-101911": (72, 16, None, None, "Senior tour 72-player field prior"),
     "GLF-101912": (120, 20, None, None, "Sunshine Tour 120-player field prior"),
     "GLF-101903": (78, 16, None, None, "PGA Tour Champions 78-player field prior"),
@@ -195,6 +230,12 @@ OUTRIGHT_FIELDS = {
     "RGL-2801600": (17, 10, None, None, "NRL 17-club Grand Final prior"),
     "GFA-3327": (32, 12, None, None, "GAA All-Ireland SFC 32-county prior"),
 }
+
+# Independent field-size evidence, not inferred from tournament/fixture verification.
+OFFICIAL_FIELD_SIZES = {
+    "GLF-101908": (96, "https://www.jgto.org/en/tournament/3048/player"),
+}
+COMPETITION_FORMAT_FIELDS = {"RGL-2695857"}
 
 
 def decimal_to_american(price: float | None) -> str | None:
@@ -262,6 +303,10 @@ def main() -> None:
         p_raw = round(won / tot, 4) if (won is not None and tot) else None
         carried = bool(m.get("row_notes") and "carried from" in m["row_notes"])
         flags: list[str] = []
+        clock = event_clock(m)
+        ko_started, ko_passed = clock["started"], clock["passed"]
+        freshness_flags = (["kick_off_passed_archived"] if ko_passed else
+                           ["kick_off_started_archived"] if ko_started else [])
 
         # Outright / multi-runner markets (including Greyhound races)
         if m["market_family"] == "outright" or sport == "Greyhounds":
@@ -271,6 +316,17 @@ def main() -> None:
             override_sel = field_info[2] if field_info else None
             override_p = field_info[3] if field_info else None
             basis = field_info[4] if field_info else f"Dirichlet shrinkage toward 1/{field_n} field prior"
+            official_field = OFFICIAL_FIELD_SIZES.get(mid)
+            if official_field and official_field[0] != field_n:
+                raise RuntimeError(f"{mid}: official field size {official_field[0]} != model field {field_n}")
+            field_size_status = ("official" if official_field else
+                                 "competition_format" if mid in COMPETITION_FORMAT_FIELDS else "model_input")
+            field_size_source = official_field[1] if official_field else ""
+            field_inputs = {
+                "field_size": field_n,
+                "field_size_status": field_size_status,
+                "field_size_source": field_size_source,
+            }
 
             if won is None or not tot:
                 out.append({
@@ -280,7 +336,7 @@ def main() -> None:
                     "home": home,
                     "away": away,
                     "competition": m["competition"],
-                    "start": m["date_iso"] or m["olbg_date_label"],
+                    "start": event_start(m),
                     "olbg_url": m["olbg_url"],
                     "inputs": {
                         "olbg_market": m["olbg_market"],
@@ -289,6 +345,7 @@ def main() -> None:
                         "p_raw": None,
                         "p_shrunk": None,
                         "basis": basis,
+                        **field_inputs,
                     },
                     "our_match_probability": None,
                     "our_home_probability": None,
@@ -305,8 +362,11 @@ def main() -> None:
                     "our_total_side": None,
                     "our_total_unit": None,
                     "our_total_basis": "not applicable to unpriced outright market",
+                    "kickoff_utc": clock["kickoff_utc"],
+                    "kickoff_basis": clock["kickoff_basis"],
+                    "kickoff_started": ko_started or ko_passed,
                     "confidence": "low",
-                    "flags": ["zero_tips_unpriced", "outright_market"],
+                    "flags": ["zero_tips_unpriced", "outright_market"] + freshness_flags,
                 })
                 continue
 
@@ -319,7 +379,7 @@ def main() -> None:
 
             in_window = (PRICE_MIN_HIGH <= price_pick <= PRICE_MAX_HIGH) and (p_pick < PROB_MAX_HIGH)
             if (mid in high_verified_ids and m["competition_status"] == "verified"
-                    and not carried and in_window):
+                    and not carried and in_window and not ko_passed and not ko_started):
                 conf = "high"
             elif m["competition_status"] == "verified" and tot >= 6 and p_pick >= 0.15 and not carried:
                 conf = "medium"
@@ -333,7 +393,7 @@ def main() -> None:
                 "home": home,
                 "away": away,
                 "competition": m["competition"],
-                "start": m["date_iso"] or m["olbg_date_label"],
+                "start": event_start(m),
                 "olbg_url": m["olbg_url"],
                 "inputs": {
                     "olbg_market": m["olbg_market"],
@@ -342,6 +402,7 @@ def main() -> None:
                     "p_raw": p_raw,
                     "p_shrunk": round(p_pick, 4),
                     "basis": basis,
+                    **field_inputs,
                 },
                 "our_match_probability": round(p_pick, 4),
                 "our_home_probability": None,
@@ -358,8 +419,12 @@ def main() -> None:
                 "our_total_side": None,
                 "our_total_unit": None,
                 "our_total_basis": "single-selection outright / multi-runner field",
+                "kickoff_utc": clock["kickoff_utc"],
+                "kickoff_basis": clock["kickoff_basis"],
+                "kickoff_started": ko_started or ko_passed,
                 "confidence": conf,
-                "flags": ["outright_field_prior"] + (["carried_from_prior_pass"] if carried else []),
+                "flags": (["outright_field_official" if field_size_status == "official" else "outright_field_prior"]
+                          + freshness_flags + (["carried_from_prior_pass"] if carried else [])),
             })
             continue
 
@@ -438,13 +503,11 @@ def main() -> None:
             flags.append("heavy_chalk_above_70pct_excluded_from_high")
 
         in_window = (PRICE_MIN_HIGH <= price_pick <= PRICE_MAX_HIGH) and (p_pick < PROB_MAX_HIGH)
-        ko_passed = bool(m.get("date_iso")) and m["date_iso"] < BUILD_DATE.isoformat()
-        if ko_passed:
-            # A fixture whose kick-off date has already passed cannot be a live high-confidence
-            # selection: publishing it as one would mean tipping a match that has been played.
-            flags.append("kick_off_passed_archived")
+        if ko_passed or ko_started:
+            # Neither an official nor a transparently derived start may leave a started pick HIGH.
+            flags.extend(freshness_flags)
         if (mid in high_verified_ids and m["competition_status"] == "verified"
-                and not carried and in_window and not ko_passed):
+                and not carried and in_window and not ko_passed and not ko_started):
             conf = "high"
         elif carried:
             conf = "medium" if (m["competition_status"] == "verified" and (tot or 0) >= 5) else "low"
@@ -461,7 +524,7 @@ def main() -> None:
             "home": home,
             "away": away,
             "competition": m["competition"],
-            "start": m["date_iso"] or m["olbg_date_label"],
+            "start": event_start(m),
             "olbg_url": m["olbg_url"],
             "inputs": {
                 "olbg_market": m["olbg_market"],
@@ -486,6 +549,9 @@ def main() -> None:
             "our_total_side": t_side,
             "our_total_unit": t_unit,
             "our_total_basis": t_basis,
+            "kickoff_utc": clock["kickoff_utc"],
+            "kickoff_basis": clock["kickoff_basis"],
+            "kickoff_started": ko_started or ko_passed,
             "confidence": conf,
             "flags": flags,
         })

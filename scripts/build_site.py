@@ -164,8 +164,15 @@ def ver_cell(r):
     v = r["verification"]
     if v["status"] == "verified":
         lab = e(v["official_label"]) or "official source"
-        tier = v.get("source_tier", "official")
-        return f'<a class="ok" href="{e(v["official_url"])}" rel="noopener" title="{e(v["note"])}">&#10003; {lab}</a>'
+        main = f'<a class="ok" href="{e(v["official_url"])}" rel="noopener" title="{e(v["note"])}">&#10003; {lab}</a>'
+        extras = []
+        for prefix, fallback in (("official_form", "official current-form source"),
+                                 ("official_field", "official field-size source")):
+            url = v.get(prefix + "_url", "")
+            if url:
+                label = v.get(prefix + "_label", fallback)
+                extras.append(f'<a class="ok small" href="{e(url)}" rel="noopener">{e(label)}</a>')
+        return main + (("<br>" + "<br>".join(extras)) if extras else "")
     if v["status"] == "corroborated":
         lab = e(v["official_label"]) or "third-party source"
         return (f'<a class="med" href="{e(v["official_url"])}" rel="noopener" '
@@ -451,28 +458,31 @@ for ref, p in _ordered:
     if not r: continue
     _downgraded = r["pick"]["confidence"] != "HIGH"
     pr = r["model"]["prices"]; side = r["pick"]["side"]
-    price = pr.get("win_home") if side == "home" else pr.get("win_away")
+    price = pr.get("single") if side == "single" else (pr.get("win_home") if side == "home" else pr.get("win_away"))
     facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
-    _why = p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
+    if r["pick"].get("kickoff_started"):
+        _why = p.get("archived_reason") or f"kick-off {r['pick'].get('kickoff_utc')} had started before the published snapshot"
+    else:
+        _why = p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
     _note = (f'<p class="note">Kept as medium-confidence analysis, not a high-confidence pick: {e(_why)}</p>' if _downgraded else '')
     _kick = r["pick"].get("kickoff_utc")
     if _kick:
-        _clock = (f'<p class="note">Derived kick-off {e(_kick)} (OLBG clock read as US Eastern, UTC-4) &middot; '
+        _clock = (f'<p class="note">Kick-off {e(_kick)} ({e(r["pick"].get("clock_basis", "derived clock"))}) &middot; '
                   + ('<strong>this kick-off had already passed when this page was built</strong>, so the selection may be '
-                     'settled or in play. The grade is an evidence grade and is not rewritten by the clock.</p>'
+                     'settled or in play and is retained only as archived analysis.</p>'
                      if r["pick"].get("kickoff_started") else
                      'the fixture had not started when this page was built.</p>'))
     else:
         _clock = ''
+    _note_line = f"  {_note}\n" if _note else ""
+    _clock_line = f"  {_clock}\n" if _clock else ""
     _block = f"""
 <article class="prediction" id="{e(ref)}">
-  {_note}
-  <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])} {band_badge(r)}</div>
+{_note_line}  <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])} {band_badge(r)}</div>
   <h2>{e(p['headline'])}</h2>
   <p class="fixture">{match_label(r)} &middot; <span class="when">{e(r['start'])} (OLBG)</span>
      {('&middot; ' + e(r['verification']['official_datetime'])) if r['verification'].get('official_datetime') else ''}</p>
-  {_clock}
-  <p class="selection">Betting selection: <strong>{e(p['selection'])}</strong>
+{_clock_line}  <p class="selection">Betting selection: <strong>{e(p['selection'])}</strong>
      <span class="pricebox">our price {money(price)} ({usd(price)} US) &middot; model {r['pick']['prob']*100:.0f}%</span></p>
   <p class="body">{e(p['body'])}</p>
   <p class="srcs"><strong>Verified from:</strong></p><ul class="sourcelist">{facts}</ul>
@@ -484,10 +494,9 @@ for ref, p in _ordered:
 
 n_hi_preds = pblocks.count('<article class="prediction"')
 n_kept = kept_blocks.count('<article class="prediction"')
-kept_section = (f'<h2>Medium-confidence analysis ({n_kept})</h2><p class="dim">These write-ups were produced for picks that were '
-                f'graded HIGH before the price-band correction. Their selection now prices shorter than -250 (or its kick-off has passed), '
-                f'so the row is MEDIUM and the piece is not counted among the high-confidence picks. Nothing is hidden: the analysis, its '
-                f'price and the reason for the downgrade are all shown.</p>' + kept_blocks) if n_kept else ""
+kept_section = (f'<h2>Medium-confidence analysis ({n_kept})</h2><p class="dim">These write-ups no longer qualify as live HIGH picks: '
+                f'the selection may price outside the requested band, lack a required evidence factor, or have started before the snapshot. '
+                f'Each row remains visible with its current grade, price and reason for withdrawal or downgrade.</p>' + kept_blocks) if n_kept else ""
 
 predpage = head("Predictions") + f"""
 <section class="pagehead">

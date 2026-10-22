@@ -97,6 +97,7 @@ ALLOWED_HOSTS = {
     "munster.gaa.ie",
     "gaacork.ie",
     "www.maighcuilinn.com",
+    "soenderjyskehh.dk",
     "www.gbgb.org.uk",
     "www.nrl.com",
     "www.superleague.co.uk",
@@ -127,6 +128,12 @@ ALLOWED_HOSTS = {
     "golf.com.au",
     "www.cricket.co.za",
     "biz.chosun.com",
+    # Official sources re-verified for the 2026-10-22T08:29Z integration.
+    "www.jgto.org",
+    "sunshinetour.com",
+    "www.kbl.or.kr",
+    "phoebus.kbl.or.kr",
+    "thunders.kbl.or.kr",
 }
 
 errors: list[str] = []
@@ -223,6 +230,8 @@ def main() -> int:
         if not p["sources"]:
             errors.append(f"prediction {p['match_id']} has no sources")
         row = lines[p["match_id"]]
+        if row.get("our_pick") and row["our_pick"].lower() not in p["selection"].lower():
+            errors.append(f"prediction {p['match_id']} selection does not match row pick {row['our_pick']!r}")
         status = p.get("status", "high")
         if status not in ("high", "analysis"):
             errors.append(f"prediction {p['match_id']} status {status!r} is not 'high' or 'analysis'")
@@ -233,7 +242,22 @@ def main() -> int:
             errors.append(f"prediction {p['match_id']} is labelled analysis but its row is HIGH")
 
     for mid, l in lines.items():
+        inputs = l.get("inputs", {})
+        if "field_size_status" in inputs:
+            field_status = inputs["field_size_status"]
+            if field_status not in ("official", "model_input", "competition_format"):
+                errors.append(f"{mid}: invalid field_size_status {field_status!r}")
+            if field_status == "official" and not str(inputs.get("field_size_source", "")).startswith("https://"):
+                errors.append(f"{mid}: official field size lacks an independent https source")
+            if field_status == "model_input":
+                if inputs.get("field_size_source"):
+                    errors.append(f"{mid}: model-input field size claims an official field source")
+                basis = inputs.get("basis", "").lower()
+                if not any(word in basis for word in ("prior", "model input", "assum", "dirichlet")):
+                    errors.append(f"{mid}: model-input field size is not disclosed in its basis")
         if l["confidence"] == "high":
+            if l.get("kickoff_started"):
+                errors.append(f"high pick {mid} has already started")
             price = l.get("our_price_pick")
             prob = l.get("our_pick_probability")
             if price is None or not (1.40 <= price <= 101.00):

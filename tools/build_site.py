@@ -40,6 +40,11 @@ def load(name, default):
     return json.loads(p.read_text()) if p.exists() else default
 
 
+def match_date(m: dict) -> str:
+    """Prefer an official start date without discarding the raw OLBG label shown beside it."""
+    return (m.get("official_start_utc") or "")[:10] or m["date_iso"] or m["olbg_date_label"]
+
+
 def conf_badge(c: str) -> str:
     return f'<span class="badge badge-{E(c)}">{E(c)}</span>'
 
@@ -326,7 +331,7 @@ def main() -> None:
 <section class="hero small">
   <h1>High-confidence predictions</h1>
   <p class="lede">{len(live_preds)} live fixtures qualified. A prediction is written only when form, recent results and the fixture itself
-  could be confirmed from an official or primary source, and only while the fixture's kick-off date is still ahead.
+  could be confirmed from an official or primary source, and only while the fixture's official or derived start is still ahead.
   Everything else is capped at low or medium, because we will not write a "current form" sentence we cannot source
   and we will not present a played fixture as a live tip.</p>
 </section>
@@ -343,7 +348,7 @@ def main() -> None:
         comp = E(m["competition"]) if m["competition"] else '<span class="unver" title="OLBG does not state the competition on this listing">not stated</span>'
         match_rows.append(f"""<tr>
 <td>{E(m['sport'])}</td>
-<td>{E(m['date_iso'] or m['olbg_date_label'])}<br><span class="muted small">OLBG: {E(m['olbg_date_label'])} {E(m['olbg_time_label'])}</span></td>
+<td>{E(match_date(m))}<br><span class="muted small">OLBG: {E(m['olbg_date_label'])} {E(m['olbg_time_label'])}</span></td>
 <td><strong>{E(m['event_name'])}</strong></td>
 <td>{comp}</td>
 <td>{E(m['olbg_market'] or '—')}</td>
@@ -510,7 +515,7 @@ python3 tools/check_site.py      # link + integrity checks (CI runs this)</code>
         for m in rows:
             l = lines[m["id"]]
             body_rows.append(f"""<tr>
-<td>{E(m['date_iso'] or m['olbg_date_label'])}<br><span class="muted small">OLBG: {E(m['olbg_date_label'])} {E(m['olbg_time_label'])}</span></td>
+<td>{E(match_date(m))}<br><span class="muted small">OLBG: {E(m['olbg_date_label'])} {E(m['olbg_time_label'])}</span></td>
 <td><strong>{E(m['event_name'])}</strong><br><span class="muted small">{E(m['competition'] or 'competition not stated')}</span></td>
 <td class="pick">{E(l['our_pick'] or '—')}</td>
 <td class="num">{'' if l['our_price_pick'] is None else l['our_price_pick']}</td>

@@ -1,8 +1,8 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261022-B",
-  "run_started_utc": "2026-10-22T07:21:00Z",
-  "harvest_completed_utc": "2026-10-22T07:26:00Z",
+  "run_id": "S-20261022-C",
+  "run_started_utc": "2026-10-22T08:20:00Z",
+  "harvest_completed_utc": "2026-10-22T08:29:05Z",
   "olbg_locale_date": "2026-10-22",
   "excluded_sports_verbatim": [
     "soccer",
@@ -59,20 +59,20 @@
       "resolution": "included"
     },
     {
-      "item": "Snooker & Greyhounds overnight empty listing ('No tips found.')",
-      "issue": "At 2026-10-22T01:28Z, /betting-tips/Snooker/8 (between Round 2 and Round 3 of the Belfast Northern Ireland Open) and /betting-tips/Greyhounds/28 (before UK morning cards post) returned 'No tips found.' server-side. Their audited 2026-10-21 rows are carried forward via previous_harvests with explicit per-row carry notes and excluded from active HIGH confidence.",
-      "resolution": "carried from 2026-10-21 pass with explicit disclosure"
+      "item": "Carried rows and incomplete listing coverage",
+      "issue": "The 08:29Z merge is a targeted refresh, not a fresh full-listing crawl. Previous immutable harvests still supply explicitly tagged carried rows; Load-More pages were not obtained. Absence from the capture is not evidence that no other fixture exists.",
+      "resolution": "carried provenance and coverage limitation disclosed; no hidden-pagination completeness claimed"
     }
   ],
   "harvest_method": {
     "tool": "agent page-retrieval across all 15 allowed OLBG sport pages plus multi-market individual event pages",
     "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus multi-market event pages",
-    "granularity": "All server-rendered events on each allowed sport page as of 2026-10-22T01:26-01:32Z (130 live events across 13 active sports + 11 explicitly tagged carried rows across Snooker & Greyhounds = 141 fixtures across all 15 allowed sports).",
+    "granularity": "150 primary rows in the dated 08:29Z merge: 07:25Z listing values plus three freshly re-read event pages. Previous immutable harvests still supply explicitly tagged carried rows. No Load-More pagination or fresh all-sport crawl is claimed.",
     "values_inferred": "none - blank when not stated by an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261022T0725Z.tsv",
+  "harvest_file": "raw/olbg-harvest-20261022T0829Z.tsv",
   "harvest_format": "v2",
-  "harvest_timezone_note": "At 2026-10-22T07:25Z (03:25 EDT), OLBG renders relative dates in US Eastern Daylight Time (UTC-4), so 'Today' = 2026-10-22 and 'Tomorrow' = 2026-10-23 across all 15 allowed sports. Prior harvests retain their exact capture olbg_locale_date per source file.",
+  "harvest_timezone_note": "Merged capture dated 2026-10-22. Event ids 101904, 101903 and 536021 were re-read at 08:29Z; all other primary rows are verbatim from the 07:25Z capture. Relative labels resolve against each source row's 2026-10-22 locale date. This is not a fresh full-listing crawl.",
   "previous_harvest": {
     "file": "raw/olbg-harvest-20261022.tsv",
     "format": "v2",
@@ -96,5 +96,5 @@
       "note": "Retained byte-for-byte unchanged for audit; supplies completed 21 Oct UK Greyhound race rows."
     }
   ],
-  "session": "session-5cef1e25"
+  "session": "session-1cecbd59"
 }

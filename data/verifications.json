@@ -1,6 +1,6 @@
 {
-  "retrieved_at": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
-  "retrieved_at_previous": "2026-10-21T06:50:00Z to 2026-10-21T07:40:00Z (session-af0789e6 re-verification pass; earlier entries retained where re-confirmed)",
+  "retrieved_at": "2026-10-22T08:20:00Z to 2026-10-22T08:29:05Z (session-1cecbd59 targeted OLBG/event and official-source evidence refresh; earlier records preserved)",
+  "retrieved_at_previous": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
   "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate). Where two sessions verified the same event, both sets of facts and sources are kept and the status is the highest one an official/primary-class source supports (merge note on the record).",
   "sources": [
     {
@@ -994,6 +994,72 @@
       "name": "SBS Korean Sports — Samsung Thunders 97-86 Busan KCC Egis report",
       "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438",
       "class": "secondary"
+    },
+    {
+      "id": "S-PGA-TOUR-BERMUDA",
+      "name": "PGA Tour official Butterfield Bermuda Championship 2026 overview",
+      "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview",
+      "class": "official"
+    },
+    {
+      "id": "S-PGA-BERMUDA-FIELD",
+      "name": "PGA Tour official Bermuda entrant table (retrieved; exact field count not established)",
+      "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/field",
+      "class": "official"
+    },
+    {
+      "id": "S-PGA-POWER",
+      "name": "PGA Tour official Seamus Power profile — 2026 form and statistics",
+      "url": "https://www.pgatour.com/player/28252/seamus-power",
+      "class": "official"
+    },
+    {
+      "id": "S-JGTO-3048",
+      "name": "JGTO official Fortinet Players Cup 2026 tournament summary",
+      "url": "https://www.jgto.org/en/tournament/3048",
+      "class": "official"
+    },
+    {
+      "id": "S-JGTO-3048-FIELD",
+      "name": "JGTO official Fortinet Players Cup field — Confirmed 96 / Planned 96",
+      "url": "https://www.jgto.org/en/tournament/3048/player",
+      "class": "official"
+    },
+    {
+      "id": "S-SUNSHINE-SAPC",
+      "name": "Sunshine Tour official Stella Artois Players Championship 2026 page",
+      "url": "https://sunshinetour.com/tournament?id=226S&code=SAPC",
+      "class": "official"
+    },
+    {
+      "id": "S-KBL-SCHEDULE",
+      "name": "KBL official 2026-27 schedule and results",
+      "url": "https://www.kbl.or.kr/match/schedule",
+      "class": "official"
+    },
+    {
+      "id": "S-KBL-PHOEBUS",
+      "name": "Ulsan Hyundai Mobis Phoebus club-official site",
+      "url": "https://phoebus.kbl.or.kr/",
+      "class": "official"
+    },
+    {
+      "id": "S-KBL-THUNDERS",
+      "name": "Seoul Samsung Thunders club-official site",
+      "url": "https://thunders.kbl.or.kr/",
+      "class": "official"
+    },
+    {
+      "id": "S-WTA-OSAKA-MDS",
+      "name": "WTA official 2026 Osaka main-draw PDF",
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf",
+      "class": "official"
+    },
+    {
+      "id": "S-WTA-GUANGZHOU-2026",
+      "name": "WTA official Guangzhou Open 2026 tournament page (26 October-1 November)",
+      "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026",
+      "class": "official"
     }
   ],
   "event_verifications": {
@@ -1668,16 +1734,22 @@
     },
     "101904": {
       "competition": "PGA Tour: Butterfield Bermuda Championship 2026",
-      "venue": "Port Royal Golf Club, Southampton Parish, Bermuda",
+      "venue": "Port Royal Golf Course, Southampton, Bermuda",
       "start_local": "2026-10-22 to 2026-10-25",
       "status": "verified",
       "sources": [
+        "S-PGA-TOUR-BERMUDA",
+        "S-PGA-POWER",
+        "S-PGA-BERMUDA-FIELD",
         "S-PGA-BERMUDA",
         "S-BBC-GOLF"
       ],
       "facts": [
-        "Official event site: 'The Butterfield Bermuda Championship is a PGA TOUR event that will be staged at Port Royal Golf Club and played October 22-25, 2026' (S-PGA-BERMUDA). BBC golf calendar agrees (S-BBC-GOLF)."
-      ]
+        "PGA Tour confirms 22-25 October 2026 at Port Royal Golf Course and Power's 2022 championship history.",
+        "Power's official profile lists 3 top-10s, 7 top-25s, 14/21 cuts made, 67th SG: Total and 11th SG: Putting in 2026.",
+        "The official entrant table was retrieved, but no exact count was established. The model's 120-player value is not an official field-size claim."
+      ],
+      "note": "Fixture, current form and field-size provenance are separate. OLBG Win Tournament support re-read as Seamus Power 6/24 at 08:29Z."
     },
     "101905": {
       "status": "verified",
@@ -2402,16 +2474,21 @@
       "note": "Game-center times rendered in the same viewer zone as OLBG (identical values)."
     },
     "535966": {
-      "competition": "KBL 2026-27 (Korean Basketball League)",
-      "venue": null,
-      "start_local": "2026-10-21",
-      "status": "verified_secondary_only",
+      "competition": "KBL 2026-27 Regular Season",
+      "venue": "Jamsil Student Gymnasium, Seoul, South Korea",
+      "start_local": "2026-10-21 19:00 KST",
+      "start_utc": "2026-10-21T10:00:00Z",
+      "status": "verified",
       "sources": [
-        "S-SG-KBL"
+        "S-KBL-SCHEDULE",
+        "S-KBL-THUNDERS",
+        "S-SBS-KBL"
       ],
       "facts": [
-        "Listed on a live-basketball schedule as Seoul Thunders v KCC Egis, 21 Oct (KBL). Official KBL schedule page not retrieved in this pass."
-      ]
+        "KBL official schedule records Samsung 97-86 KCC on 21 October at 19:00 KST.",
+        "Samsung club-official page names Seoul Samsung Thunders v Busan KCC Egis and carries the same 21 October fixture."
+      ],
+      "note": "Official KBL/club evidence supersedes the earlier secondary-only verification recorded in FL-061."
     },
     "609554": {
       "competition": "Top 14 2026-27, Journee 7 (LNR)",
@@ -3912,14 +3989,20 @@
       ]
     },
     "902107": {
-      "competition": null,
+      "competition": "WTA 250 Kinoshita Group Japan Open (Osaka)",
       "venue": null,
       "start_local": null,
-      "status": "unverified",
-      "sources": [],
+      "status": "verified",
+      "sources": [
+        "S-WTA-OSAKA-MDS",
+        "S-WTA-OSAKA",
+        "S-WTA-GUANGZHOU-2026"
+      ],
       "facts": [
-        "WTA Guangzhou 250 draw table requires client-side rendering on wtatennis.com; left unverified with blank unconfirmed fields per FL-054."
-      ]
+        "WTA official 2026/405/MDS.pdf main draw contains Talia Gibson and Ashlyn Krueger and identifies the Kinoshita Group Japan Open in Osaka.",
+        "The separate official Guangzhou tournament runs 26 October-1 November 2026, incompatible with this current-fixture label."
+      ],
+      "note": "OLBG WTA_Guangzhou_Open slug/league label is an irregularity retained verbatim for audit; published competition identity is corrected to Osaka. Exact venue and official match time remain blank."
     },
     "37000": {
       "competition": "Brazil Superliga Feminina 2026/27 — Round 2",
@@ -4128,8 +4211,55 @@
       "facts": [
         "Skive fH (14th, 10 GP, 328:366, 2 pts) vs Aalborg Håndbold (10 GP, 323:306, 15 pts)."
       ]
+    },
+    "101908": {
+      "competition": "JGTO Fortinet Players Cup 2026",
+      "venue": "Narita Hills Country Club, Chiba, Japan",
+      "start_local": "2026-10-22 to 2026-10-25 JST; Round 1 scoring live",
+      "status": "verified",
+      "sources": [
+        "S-JGTO-3048",
+        "S-JGTO-3048-FIELD"
+      ],
+      "facts": [
+        "JGTO confirms 22-25 October 2026 at Narita Hills Country Club, Chiba, with Field 96.",
+        "Official field page states Players / Confirmed:96 Planned:96 and includes Ryosuke KINOSHITA.",
+        "Official Round 1 scoring is underway; carried OLBG 1/2 support is not current-form evidence."
+      ]
+    },
+    "101912": {
+      "competition": "Sunshine Tour Stella Artois Players Championship 2026",
+      "venue": "Glendower Golf Club, Johannesburg, South Africa",
+      "start_local": "2026-10-22 to 2026-10-25; four rounds; Round 1 scoring live",
+      "status": "verified",
+      "sources": [
+        "S-SUNSHINE-SAPC"
+      ],
+      "facts": [
+        "Sunshine Tour confirms 22-25 October 2026, Glendower Golf Club, four rounds, par 72 / 7,542 yards and defending champion JC Ritchie.",
+        "Tournament-entry and live Round 1 scoring links are exposed. No exact field count was established."
+      ]
+    },
+    "536021": {
+      "competition": "KBL 2026-27 Regular Season",
+      "venue": "Ulsan Dongcheon Gymnasium, Ulsan, South Korea",
+      "start_local": "2026-10-22 19:00 KST",
+      "start_utc": "2026-10-22T10:00:00Z",
+      "status": "verified",
+      "sources": [
+        "S-KBL-SCHEDULE",
+        "S-KBL-PHOEBUS"
+      ],
+      "facts": [
+        "KBL official schedule lists Hyundai Mobis v LG on 22 October at 19:00 KST at Ulsan Dongcheon Gymnasium.",
+        "Club-official evidence confirms the Mobis Phoebus and Changwon LG Sakers identities.",
+        "OLBG moneyline is tied 4/8 each; Changwon -1.50 has 3/5 spread support and Under 169.50 has 1/1 totals support."
+      ],
+      "note": "Raw OLBG Tomorrow 06:00 resolves to 23 October in the 22 October capture and conflicts with the official KBL start. The raw label is preserved; the official 22 October 10:00 UTC instant drives display and expiry."
     }
   },
   "retrieved_at_previous_2": "2026-10-21T05:40:00Z",
-  "retrieved_at_previous_3": "2026-10-22T01:26:00Z to 2026-10-22T01:36:00Z (session-4f267387 live 2026-10-22 harvest & governing-body verification pass; all earlier verified records preserved)"
+  "retrieved_at_previous_3": "2026-10-22T01:26:00Z to 2026-10-22T01:36:00Z (session-4f267387 live 2026-10-22 harvest & governing-body verification pass; all earlier verified records preserved)",
+  "retrieved_at_20261022T0829Z": "2026-10-22T08:29:05Z",
+  "retrieved_at_previous_20261021": "2026-10-21T06:50:00Z to 2026-10-21T07:40:00Z (session-af0789e6 re-verification pass; earlier entries retained where re-confirmed)"
 }

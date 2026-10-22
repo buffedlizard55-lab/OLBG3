@@ -31,6 +31,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -66,6 +69,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -101,6 +107,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -136,6 +145,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -171,6 +183,9 @@
     "our_total_side": "Under",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -206,6 +221,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -241,6 +259,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T19:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -276,6 +297,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T19:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -294,7 +318,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -311,6 +338,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-22T10:14Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -331,7 +361,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -348,6 +381,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-22T10:36Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -368,7 +404,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -385,6 +424,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-22T11:03Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -405,7 +447,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -422,6 +467,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-22T11:14Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -433,7 +481,7 @@
     "event_name": "Talia Gibson vs Ashlyn Krueger",
     "home": "Talia Gibson",
     "away": "Ashlyn Krueger",
-    "competition": null,
+    "competition": "WTA 250 Kinoshita Group Japan Open (Osaka)",
     "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107",
     "inputs": {
@@ -459,6 +507,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-23T02:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -494,6 +545,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T06:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -529,6 +583,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T09:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -566,6 +623,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -601,6 +661,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -636,6 +699,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -671,6 +737,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-22T22:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -706,6 +775,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T18:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -741,6 +813,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T18:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -776,6 +851,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -811,6 +889,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -846,6 +927,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -881,6 +965,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -918,6 +1005,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-23T21:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -953,6 +1043,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-24T21:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -988,6 +1081,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-25T00:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -1023,6 +1119,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-25T21:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -1058,6 +1157,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-25T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1093,6 +1195,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1128,6 +1233,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1163,6 +1271,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1198,6 +1309,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T14:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1233,6 +1347,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:05:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1268,6 +1385,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -1305,6 +1425,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-22T22:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -1314,32 +1437,35 @@
     "event_name": "Mobis Phoebus vs Changwon Sakers",
     "home": "Mobis Phoebus",
     "away": "Changwon Sakers",
-    "competition": null,
-    "start": "2026-10-23",
+    "competition": "KBL 2026-27 Regular Season",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Other/Korea_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021",
     "inputs": {
       "olbg_market": "Money Line",
-      "olbg_consensus_selection": "Mobis Phoebus",
-      "olbg_tips": "4/6",
-      "p_raw": 0.6667,
-      "p_shrunk": 0.6,
+      "olbg_consensus_selection": "Changwon Sakers",
+      "olbg_tips": "4/8",
+      "p_raw": 0.5,
+      "p_shrunk": 0.5,
       "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
     },
-    "our_match_probability": 0.6331,
-    "our_home_probability": 0.6331,
+    "our_match_probability": 0.5349,
+    "our_home_probability": 0.5349,
     "our_pick": "Mobis Phoebus",
-    "our_pick_probability": 0.6331,
-    "our_fair_odds": 1.58,
-    "our_price_pick": 1.5,
-    "our_us_odds_pick": "-200",
-    "our_price_other": 2.59,
-    "our_handicap_line": -3.5,
+    "our_pick_probability": 0.5349,
+    "our_fair_odds": 1.87,
+    "our_price_pick": 1.78,
+    "our_us_odds_pick": "-128",
+    "our_price_other": 2.04,
+    "our_handicap_line": -1.5,
     "our_handicap_side": "Mobis Phoebus",
     "our_handicap_unit": "pts",
     "our_total_line": 163.5,
-    "our_total_side": "Under",
+    "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-22T10:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -1375,6 +1501,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T23:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1410,6 +1539,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-22T16:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -1445,6 +1577,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-22T16:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped"
@@ -1482,6 +1617,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-23T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -1517,6 +1655,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1552,6 +1693,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T11:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -1589,6 +1733,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T09:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -1626,8 +1773,13 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
-    "confidence": "high",
-    "flags": []
+    "kickoff_utc": "2026-10-22T08:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
+    "confidence": "medium",
+    "flags": [
+      "kick_off_started_archived"
+    ]
   },
   {
     "match_id": "TEN-902072",
@@ -1661,8 +1813,13 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
-    "confidence": "high",
-    "flags": []
+    "kickoff_utc": "2026-10-22T08:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
+    "confidence": "medium",
+    "flags": [
+      "kick_off_started_archived"
+    ]
   },
   {
     "match_id": "TEN-902104",
@@ -1696,6 +1853,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T11:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -1733,6 +1893,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T13:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -1770,6 +1933,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T12:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1805,6 +1971,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1840,6 +2009,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T13:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1875,6 +2047,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T15:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -1910,6 +2085,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1945,6 +2123,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -1955,7 +2136,7 @@
     "home": "OKC Thunder",
     "away": "DEN Nuggets",
     "competition": "NBA Regular Season 2026-27",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DEN_Nuggets_@_OKC_Thunder/4?event_id=534843",
     "inputs": {
       "olbg_market": "Money Line",
@@ -1980,6 +2161,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T01:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -1992,7 +2176,7 @@
     "home": "SA Spurs",
     "away": "HOU Rockets",
     "competition": "NBA Regular Season 2026-27",
-    "start": "2026-10-23",
+    "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/HOU_Rockets_@_SA_Spurs/4?event_id=534841",
     "inputs": {
       "olbg_market": "Money Line",
@@ -2017,6 +2201,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-24T01:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2052,6 +2239,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T23:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2087,6 +2277,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2122,6 +2315,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2132,7 +2328,7 @@
     "home": "MIL Brewers",
     "away": "TB Rays",
     "competition": "2026 MLB World Series (Game 1)",
-    "start": "2026-10-23",
+    "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789",
     "inputs": {
       "olbg_market": "Money Line",
@@ -2157,6 +2353,9 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-24T00:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2192,8 +2391,13 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
-    "confidence": "high",
-    "flags": []
+    "kickoff_utc": "2026-10-22T08:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
+    "confidence": "medium",
+    "flags": [
+      "kick_off_started_archived"
+    ]
   },
   {
     "match_id": "CRI-188828",
@@ -2227,8 +2431,13 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
-    "confidence": "high",
-    "flags": []
+    "kickoff_utc": "2026-10-22T08:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
+    "confidence": "medium",
+    "flags": [
+      "kick_off_started_archived"
+    ]
   },
   {
     "match_id": "CRI-188826",
@@ -2262,9 +2471,13 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T08:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
-      "heavy_chalk_above_70pct_excluded_from_high"
+      "heavy_chalk_above_70pct_excluded_from_high",
+      "kick_off_started_archived"
     ]
   },
   {
@@ -2299,6 +2512,9 @@
     "our_total_side": "Under",
     "our_total_unit": "runs",
     "our_total_basis": "international white-ball match aggregate runs baseline",
+    "kickoff_utc": "2026-10-22T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -2336,6 +2552,9 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "international white-ball match aggregate runs baseline",
+    "kickoff_utc": "2026-10-22T11:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2371,6 +2590,9 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T11:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2389,7 +2611,10 @@
       "olbg_tips": "6/12",
       "p_raw": 0.5,
       "p_shrunk": 0.3052,
-      "basis": "ICC Men's Cricket World Cup 2027 14-team tournament prior"
+      "basis": "ICC Men's Cricket World Cup 2027 14-team tournament prior",
+      "field_size": 14,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.3052,
     "our_home_probability": null,
@@ -2406,6 +2631,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-11-21T08:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "outright_field_prior"
@@ -2426,7 +2654,10 @@
       "olbg_tips": "2/3",
       "p_raw": 0.6667,
       "p_shrunk": 0.2727,
-      "basis": "WBBL 8-team tournament prior"
+      "basis": "WBBL 8-team tournament prior",
+      "field_size": 8,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2727,
     "our_home_probability": null,
@@ -2443,6 +2674,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-12-05T07:10Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -2463,7 +2697,10 @@
       "olbg_tips": "1/2",
       "p_raw": 0.5,
       "p_shrunk": 0.2,
-      "basis": "BBL 8-team tournament prior"
+      "basis": "BBL 8-team tournament prior",
+      "field_size": 8,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2,
     "our_home_probability": null,
@@ -2480,6 +2717,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-12-12T07:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -2500,7 +2740,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "SA20 6-team tournament prior"
+      "basis": "SA20 6-team tournament prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -2517,6 +2760,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-01-24T15:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -2537,7 +2783,10 @@
       "olbg_tips": null,
       "p_raw": null,
       "p_shrunk": null,
-      "basis": "Vitality Blast 18-county prior (unpriced: 0/0 OLBG tips)"
+      "basis": "Vitality Blast 18-county prior (unpriced: 0/0 OLBG tips)",
+      "field_size": 18,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": null,
     "our_home_probability": null,
@@ -2554,6 +2803,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "not applicable to unpriced outright market",
+    "kickoff_utc": "2027-07-18T15:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "zero_tips_unpriced",
@@ -2592,6 +2844,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2627,6 +2882,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2662,6 +2920,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2697,6 +2958,9 @@
     "our_total_side": "Under",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T19:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2732,6 +2996,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2767,6 +3034,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T19:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2802,6 +3072,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T20:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -2837,6 +3110,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T20:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2872,6 +3148,9 @@
     "our_total_side": "Under",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -2909,6 +3188,9 @@
     "our_total_side": "Under",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T17:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -2944,6 +3226,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T17:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -2979,6 +3264,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T19:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3014,6 +3302,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T18:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3049,6 +3340,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T20:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3084,6 +3378,9 @@
     "our_total_side": "Under",
     "our_total_unit": "legs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T19:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -3121,6 +3418,9 @@
     "our_total_side": "Over",
     "our_total_unit": "legs",
     "our_total_basis": "PDC European Championship Round 1 best-of-11 legs baseline",
+    "kickoff_utc": "2026-10-23T20:15:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3139,7 +3439,10 @@
       "olbg_tips": "23/36",
       "p_raw": 0.6389,
       "p_shrunk": 0.4135,
-      "basis": "PDC World Darts Championship field prior"
+      "basis": "PDC World Darts Championship field prior",
+      "field_size": 128,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.4135,
     "our_home_probability": null,
@@ -3156,6 +3459,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-01-03T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -3176,7 +3482,10 @@
       "olbg_tips": "4/13",
       "p_raw": 0.3077,
       "p_shrunk": 0.1644,
-      "basis": "PDC Machineseeker European Championship 32-player Dortmund field prior"
+      "basis": "PDC Machineseeker European Championship 32-player Dortmund field prior",
+      "field_size": 32,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.1644,
     "our_home_probability": null,
@@ -3193,6 +3502,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T18:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "outright_field_prior"
@@ -3205,7 +3517,7 @@
     "home": "Aurillac",
     "away": "Nevers",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Aurillac_v_Nevers/9?event_id=609560",
     "inputs": {
       "olbg_market": "To Win",
@@ -3230,6 +3542,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T17:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -3240,7 +3555,7 @@
     "home": "Connacht",
     "away": "Zebre Parma",
     "competition": "BKT United Rugby Championship 2026-27, Round 4",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Connacht_v_Zebre_Parma/9?event_id=609577",
     "inputs": {
       "olbg_market": "To Win",
@@ -3265,6 +3580,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-23T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -3277,7 +3595,7 @@
     "home": "Narbonne",
     "away": "Brive",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Narbonne_v_Brive/9?event_id=609557",
     "inputs": {
       "olbg_market": "To Win",
@@ -3302,6 +3620,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3312,7 +3633,7 @@
     "home": "Agen",
     "away": "Nissa",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Agen_v_Nissa/9?event_id=609558",
     "inputs": {
       "olbg_market": "To Win",
@@ -3337,6 +3658,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T17:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3347,7 +3671,7 @@
     "home": "Soyaux Angouleme",
     "away": "Dax",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Soyaux_Angouleme_v_Dax/9?event_id=609563",
     "inputs": {
       "olbg_market": "To Win",
@@ -3372,6 +3696,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T17:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3407,6 +3734,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-24T11:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -3444,6 +3774,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-24T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -3454,7 +3787,7 @@
     "home": "Valence Romans",
     "away": "Colomiers",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Valence_Romans_v_Colomiers/9?event_id=609559",
     "inputs": {
       "olbg_market": "To Win",
@@ -3479,6 +3812,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T17:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3489,7 +3825,7 @@
     "home": "Grenoble",
     "away": "Biarritz",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Grenoble_v_Biarritz/9?event_id=609561",
     "inputs": {
       "olbg_market": "To Win",
@@ -3514,6 +3850,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T19:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3524,7 +3863,7 @@
     "home": "Provence",
     "away": "Beziers",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-22",
+    "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Provence_v_Beziers/9?event_id=609562",
     "inputs": {
       "olbg_market": "To Win",
@@ -3549,6 +3888,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-23T19:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3584,6 +3926,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-24T14:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3619,6 +3964,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-24T14:35:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -3656,6 +4004,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-24T14:35:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3691,6 +4042,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "URC 48.9 / Top 14 49.7 / Pro D2 empirical scoring baseline",
+    "kickoff_utc": "2026-10-25T20:05:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -3709,7 +4063,10 @@
       "olbg_tips": "3/9",
       "p_raw": 0.3333,
       "p_shrunk": 0.2667,
-      "basis": "Six Nations 6-team championship prior"
+      "basis": "Six Nations 6-team championship prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2667,
     "our_home_probability": null,
@@ -3726,6 +4083,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-03-15T00:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -3746,7 +4106,10 @@
       "olbg_tips": "9/12",
       "p_raw": 0.75,
       "p_shrunk": 0.6875,
-      "basis": "State of Origin 2-state series prior"
+      "basis": "State of Origin 2-state series prior",
+      "field_size": 2,
+      "field_size_status": "competition_format",
+      "field_size_source": ""
     },
     "our_match_probability": 0.6875,
     "our_home_probability": null,
@@ -3763,6 +4126,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-05-27T10:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -3783,7 +4149,10 @@
       "olbg_tips": "1/3",
       "p_raw": 0.3333,
       "p_shrunk": 0.1515,
-      "basis": "Super League 12-club Grand Final prior"
+      "basis": "Super League 12-club Grand Final prior",
+      "field_size": 12,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.1515,
     "our_home_probability": null,
@@ -3800,6 +4169,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-10-02T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -3820,7 +4192,10 @@
       "olbg_tips": "1/2",
       "p_raw": 0.5,
       "p_shrunk": 0.1324,
-      "basis": "NRL 17-club Grand Final prior"
+      "basis": "NRL 17-club Grand Final prior",
+      "field_size": 17,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.1324,
     "our_home_probability": null,
@@ -3837,6 +4212,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-10-03T08:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -3874,6 +4252,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -3911,6 +4292,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -3946,6 +4330,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T15:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -3981,6 +4368,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -4018,6 +4408,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -4055,6 +4448,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -4092,6 +4488,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -4127,6 +4526,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -4162,6 +4564,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T16:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": []
   },
@@ -4197,6 +4602,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4232,6 +4640,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4267,6 +4678,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-23T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4302,6 +4716,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-23T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped"
@@ -4339,6 +4756,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-23T17:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4374,6 +4794,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-23T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4409,6 +4832,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-23T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4444,6 +4870,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-24T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": []
   },
@@ -4479,6 +4908,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-24T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4514,6 +4946,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-22T16:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped"
@@ -4551,6 +4986,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-22T15:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -4588,6 +5026,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-22T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4623,6 +5064,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-22T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -4660,6 +5104,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-22T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -4697,6 +5144,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-23T15:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4732,6 +5182,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-24T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4767,6 +5220,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4802,6 +5258,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-22T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4837,6 +5296,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-22T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": []
   },
@@ -4852,18 +5314,21 @@
     "inputs": {
       "olbg_market": "Win Tournament",
       "olbg_consensus_selection": "Seamus Power",
-      "olbg_tips": "5/22",
-      "p_raw": 0.2273,
-      "p_shrunk": 0.125,
-      "basis": "PGA Tour Butterfield Bermuda Championship official 120-man Port Royal field + OLBG 5/22 tips"
+      "olbg_tips": "6/24",
+      "p_raw": 0.25,
+      "p_shrunk": 0.1402,
+      "basis": "Port Royal 120-player model input (the PGA overview/profile do not state field size) + verified 2026 Power form + OLBG 6/24 tips",
+      "field_size": 120,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
-    "our_match_probability": 0.125,
+    "our_match_probability": 0.1402,
     "our_home_probability": null,
     "our_pick": "Seamus Power",
-    "our_pick_probability": 0.125,
-    "our_fair_odds": 8.0,
-    "our_price_pick": 7.6,
-    "our_us_odds_pick": "+660",
+    "our_pick_probability": 0.1402,
+    "our_fair_odds": 7.13,
+    "our_price_pick": 6.78,
+    "our_us_odds_pick": "+578",
     "our_price_other": null,
     "our_handicap_line": null,
     "our_handicap_side": null,
@@ -4872,6 +5337,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-22T18:10Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": [
       "outright_field_prior"
@@ -4892,7 +5360,10 @@
       "olbg_tips": "2/6",
       "p_raw": 0.3333,
       "p_shrunk": 0.101,
-      "basis": "Senior tour 72-player field prior"
+      "basis": "Senior tour 72-player field prior",
+      "field_size": 72,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.101,
     "our_home_probability": null,
@@ -4909,6 +5380,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-24T15:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -4920,7 +5394,7 @@
     "event_name": "Stella Artois Players Championship",
     "home": null,
     "away": null,
-    "competition": null,
+    "competition": "Sunshine Tour Stella Artois Players Championship 2026",
     "start": "2026-10-25",
     "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stella_Artois_Players_Championship/5?event_id=101912",
     "inputs": {
@@ -4929,7 +5403,10 @@
       "olbg_tips": "2/8",
       "p_raw": 0.25,
       "p_shrunk": 0.0774,
-      "basis": "Sunshine Tour 120-player field prior"
+      "basis": "Sunshine Tour 120-player field prior",
+      "field_size": 120,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.0774,
     "our_home_probability": null,
@@ -4946,6 +5423,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T14:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -4962,19 +5442,22 @@
     "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
     "inputs": {
       "olbg_market": "Win Tournament",
-      "olbg_consensus_selection": "Steven Alker",
-      "olbg_tips": "2/11",
-      "p_raw": 0.1818,
-      "p_shrunk": 0.0817,
-      "basis": "PGA Tour Champions 78-player field prior"
+      "olbg_consensus_selection": "Stewart Cink",
+      "olbg_tips": "3/12",
+      "p_raw": 0.25,
+      "p_shrunk": 0.1145,
+      "basis": "PGA Tour Champions 78-player field prior",
+      "field_size": 78,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
-    "our_match_probability": 0.0817,
+    "our_match_probability": 0.1145,
     "our_home_probability": null,
-    "our_pick": "Steven Alker",
-    "our_pick_probability": 0.0817,
-    "our_fair_odds": 12.24,
-    "our_price_pick": 11.63,
-    "our_us_odds_pick": "+1063",
+    "our_pick": "Stewart Cink",
+    "our_pick_probability": 0.1145,
+    "our_fair_odds": 8.73,
+    "our_price_pick": 8.3,
+    "our_us_odds_pick": "+730",
     "our_price_other": null,
     "our_handicap_line": null,
     "our_handicap_side": null,
@@ -4983,6 +5466,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T21:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior"
@@ -5003,7 +5489,10 @@
       "olbg_tips": "12/33",
       "p_raw": 0.3636,
       "p_shrunk": 0.284,
-      "basis": "FIA Formula 1 22-car Austin COTA grid prior + 12/33 OLBG win tips (3 experts)"
+      "basis": "FIA Formula 1 22-car Austin COTA grid prior + 12/33 OLBG win tips (3 experts)",
+      "field_size": 22,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.284,
     "our_home_probability": null,
@@ -5020,6 +5509,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T20:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "high",
     "flags": [
       "outright_field_prior"
@@ -5040,7 +5532,10 @@
       "olbg_tips": "5/7",
       "p_raw": 0.7143,
       "p_shrunk": 0.2919,
-      "basis": "FIA Formula 1 22-car Austin Qualifying grid prior + 5/7 OLBG tips"
+      "basis": "FIA Formula 1 22-car Austin Qualifying grid prior + 5/7 OLBG tips",
+      "field_size": 22,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2919,
     "our_home_probability": null,
@@ -5057,6 +5552,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-24T22:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "outright_field_prior"
@@ -5077,7 +5575,10 @@
       "olbg_tips": "9/33",
       "p_raw": 0.2727,
       "p_shrunk": 0.2121,
-      "basis": "FIA Formula 1 2026 Drivers Championship prior + 9/33 OLBG tips"
+      "basis": "FIA Formula 1 2026 Drivers Championship prior + 9/33 OLBG tips",
+      "field_size": 22,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2121,
     "our_home_probability": null,
@@ -5094,6 +5595,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-12-06T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "outright_field_prior"
@@ -5114,7 +5618,10 @@
       "olbg_tips": "4/7",
       "p_raw": 0.5714,
       "p_shrunk": 0.2633,
-      "basis": "FIA Formula 1 Drivers Championship w/o leader market prior"
+      "basis": "FIA Formula 1 Drivers Championship w/o leader market prior",
+      "field_size": 21,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2633,
     "our_home_probability": null,
@@ -5131,6 +5638,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-12-06T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "outright_field_prior"
@@ -5168,6 +5678,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "no total market originated",
+    "kickoff_utc": "2026-10-25T16:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -5205,6 +5718,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "no total market originated",
+    "kickoff_utc": "2026-10-24T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped"
@@ -5242,6 +5758,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "no total market originated",
+    "kickoff_utc": "2026-11-01T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -5254,7 +5773,7 @@
     "home": "Rathgormack",
     "away": "The Nire",
     "competition": "2026 Waterford Senior Football Championship Final",
-    "start": "2026-11-01",
+    "start": "2026-10-25",
     "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Rathgormack_v_The_Nire/25?event_id=3536",
     "inputs": {
       "olbg_market": "Handicap",
@@ -5279,6 +5798,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "no total market originated",
+    "kickoff_utc": "2026-10-25T14:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -5316,6 +5838,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "no total market originated",
+    "kickoff_utc": "2026-11-01T14:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high"
@@ -5336,7 +5861,10 @@
       "olbg_tips": "5/7",
       "p_raw": 0.7143,
       "p_shrunk": 0.2829,
-      "basis": "GAA All-Ireland SFC 32-county prior"
+      "basis": "GAA All-Ireland SFC 32-county prior",
+      "field_size": 32,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2829,
     "our_home_probability": null,
@@ -5353,6 +5881,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2027-07-25T14:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
       "outright_field_prior"
@@ -5365,7 +5896,7 @@
     "home": "Ann Li",
     "away": "Zeynep Sonmez",
     "competition": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Zeynep_Sonmez/3?event_id=902063",
     "inputs": {
       "olbg_market": "Win Match",
@@ -5390,9 +5921,12 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T02:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5428,8 +5962,12 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T04:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5465,9 +6003,13 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T06:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5486,7 +6028,7 @@
       "olbg_tips": "4/7",
       "p_raw": 0.5714,
       "p_shrunk": 0.5455,
-      "basis": "WTA Ningbo R16: #4 seed world #12 Iva Jovic vs Jasmine Paolini"
+      "basis": "WTA Ningbo R16: #4 seed Iva Jovic vs Jasmine Paolini (def. Anhelina Kalinina 6-2, 7-5)"
     },
     "our_match_probability": 0.565,
     "our_home_probability": 0.565,
@@ -5503,8 +6045,12 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T05:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5523,7 +6069,7 @@
       "olbg_tips": "4/6",
       "p_raw": 0.6667,
       "p_shrunk": 0.6,
-      "basis": "WTA Osaka R16: Siniakova (beat #2 seed Stearns R1 & beat Linette at China Open) vs #77 Linette + OLBG 4/6"
+      "basis": "WTA Osaka R16: Siniakova led #2 seed Stearns 6-4, 0-6, 4-0 before retirement; Linette beat Claire Liu 6-4, 6-3 + OLBG 4/6"
     },
     "our_match_probability": 0.601,
     "our_home_probability": 0.399,
@@ -5540,8 +6086,12 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T05:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5552,7 +6102,7 @@
     "home": "Antonia Ruzic",
     "away": "Kayla Day",
     "competition": "WTA 250 Kinoshita Group Japan Open (Round of 16)",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Antonia_Ruzic_vs_Kayla_Day/3?event_id=902066",
     "inputs": {
       "olbg_market": "Win Match",
@@ -5577,9 +6127,12 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T02:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5615,8 +6168,12 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T06:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5627,7 +6184,7 @@
     "home": "LA Lakers",
     "away": "GS Warriors",
     "competition": "NBA Regular Season 2026-27",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/GS_Warriors_@_LA_Lakers/4?event_id=534839",
     "inputs": {
       "olbg_market": "Money Line",
@@ -5652,9 +6209,12 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T02:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5665,7 +6225,7 @@
     "home": "LA Clippers",
     "away": "SAC Kings",
     "competition": "NBA Regular Season 2026-27",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/SAC_Kings_@_LA_Clippers/4?event_id=535674",
     "inputs": {
       "olbg_market": "Money Line",
@@ -5690,9 +6250,12 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T02:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5703,7 +6266,7 @@
     "home": "POR Trail Blazers",
     "away": "PHX Suns",
     "competition": "NBA Regular Season 2026-27",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/PHX_Suns_@_POR_Trail_Blazers/4?event_id=534893",
     "inputs": {
       "olbg_market": "Money Line",
@@ -5728,9 +6291,12 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T02:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5766,8 +6332,12 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T07:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5778,7 +6348,7 @@
     "home": "Montauban",
     "away": "Oyonnax",
     "competition": "Pro D2 2026-27, Journee 8 (LNR)",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Montauban_v_Oyonnax/9?event_id=609556",
     "inputs": {
       "olbg_market": "To Win",
@@ -5803,9 +6373,11 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "official team scoring rate & verified OLBG event-page total market",
+    "kickoff_utc": "2026-10-22T19:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": false,
     "confidence": "medium",
     "flags": [
-      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -5841,6 +6413,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T09:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -5880,6 +6455,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T08:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -5918,6 +6496,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T08:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -5956,6 +6537,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T09:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -5994,6 +6578,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T11:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6032,6 +6619,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6070,6 +6660,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6108,6 +6701,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T08:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6146,6 +6742,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T09:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6184,6 +6783,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T11:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6222,6 +6824,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T12:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6260,6 +6865,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T13:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6298,6 +6906,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T14:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6336,6 +6947,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6374,6 +6988,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6412,6 +7029,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T23:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -6451,6 +7071,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T23:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -6489,6 +7112,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T23:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6502,7 +7128,7 @@
     "home": "MEM Grizzlies",
     "away": "UTA Jazz",
     "competition": "NBA 2026-27 regular season (opening night for both teams)",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/UTA_Jazz_@_MEM_Grizzlies/4?event_id=534894",
     "inputs": {
       "olbg_market": "Money Line",
@@ -6527,9 +7153,12 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-22T00:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -6565,6 +7194,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T23:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6578,7 +7210,7 @@
     "home": "NO Pelicans",
     "away": "IND Pacers",
     "competition": "NBA 2026-27 regular season",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/IND_Pacers_@_NO_Pelicans/4?event_id=534892",
     "inputs": {
       "olbg_market": "Money Line",
@@ -6603,9 +7235,12 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-22T00:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -6616,7 +7251,7 @@
     "home": "HOU Rockets",
     "away": "DAL Mavericks",
     "competition": "NBA 2026-27 regular season (opening night for both teams)",
-    "start": "2026-10-21",
+    "start": "2026-10-22",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DAL_Mavericks_@_HOU_Rockets/4?event_id=534891",
     "inputs": {
       "olbg_market": "Money Line",
@@ -6641,9 +7276,12 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-22T00:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
-      "kick_off_passed_archived",
+      "kick_off_started_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -6679,6 +7317,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T23:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6717,6 +7358,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -6755,6 +7399,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -6794,6 +7441,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T17:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6832,6 +7482,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6870,6 +7523,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6908,6 +7564,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T16:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6946,6 +7605,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -6984,6 +7646,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7022,6 +7687,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T17:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7060,6 +7728,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T17:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7098,6 +7769,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7136,6 +7810,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7174,6 +7851,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7212,6 +7892,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T16:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7250,6 +7933,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7288,6 +7974,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7300,7 +7989,7 @@
     "event_name": "Seoul Thunders vs KCC Egis",
     "home": "Seoul Thunders",
     "away": "KCC Egis",
-    "competition": "KBL 2026-27 (Korean Basketball League)",
+    "competition": "KBL 2026-27 Regular Season",
     "start": "2026-10-21",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Seoul_Thunders_vs_KCC_Egis/4?event_id=535966",
     "inputs": {
@@ -7326,7 +8015,10 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
-    "confidence": "low",
+    "kickoff_utc": "2026-10-21T10:00:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
+    "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
       "carried_from_prior_pass"
@@ -7364,6 +8056,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T15:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7402,6 +8097,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T17:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -7441,6 +8139,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T17:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -7480,6 +8181,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T15:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7518,6 +8222,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T16:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7556,6 +8263,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T17:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7594,6 +8304,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T17:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -7632,6 +8345,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T23:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped",
@@ -7671,6 +8387,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
+    "kickoff_utc": "2026-10-21T23:30:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped",
@@ -7710,6 +8429,9 @@
     "our_total_side": "Under",
     "our_total_unit": "runs",
     "our_total_basis": "international white-ball match aggregate runs baseline",
+    "kickoff_utc": "2026-10-21T11:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -7749,6 +8471,9 @@
     "our_total_side": "Under",
     "our_total_unit": "runs",
     "our_total_basis": "international white-ball match aggregate runs baseline",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -7788,6 +8513,9 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "international white-ball match aggregate runs baseline",
+    "kickoff_utc": "2026-10-21T11:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -7826,6 +8554,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T09:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -7864,6 +8595,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T09:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -7902,6 +8636,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -7940,6 +8677,9 @@
     "our_total_side": "Under",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T19:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -7979,6 +8719,9 @@
     "our_total_side": "Under",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8017,6 +8760,9 @@
     "our_total_side": "Under",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T19:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8055,6 +8801,9 @@
     "our_total_side": "Under",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8093,6 +8842,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8131,6 +8883,9 @@
     "our_total_side": "Over",
     "our_total_unit": "frames",
     "our_total_basis": "WST Home Nations best-of-7 frames baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8169,6 +8924,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T16:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8207,6 +8965,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T16:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8245,6 +9006,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8283,6 +9047,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T16:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8321,6 +9088,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T16:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8359,6 +9129,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "non_win_or_tie_consensus_mapped",
@@ -8398,6 +9171,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T16:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -8436,6 +9212,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8474,6 +9253,9 @@
     "our_total_side": "Under",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8512,6 +9294,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped",
@@ -8551,6 +9336,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T18:45:00Z",
+    "kickoff_basis": "official source timestamp (UTC)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "non_win_or_tie_consensus_mapped",
@@ -8590,6 +9378,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T15:15Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "non_win_or_tie_consensus_mapped",
@@ -8629,6 +9420,9 @@
     "our_total_side": "Over",
     "our_total_unit": "goals",
     "our_total_basis": "EHF Champions League 60.82 goals/game & HBL 60.0 baseline",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8667,6 +9461,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T15:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -8706,6 +9503,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T14:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8744,6 +9544,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8782,6 +9585,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T13:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -8821,6 +9627,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8859,6 +9668,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T16:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8897,6 +9709,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8935,6 +9750,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T17:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -8973,6 +9791,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T17:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9011,6 +9832,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9049,6 +9873,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9087,6 +9914,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9125,6 +9955,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9163,6 +9996,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9201,6 +10037,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9239,6 +10078,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9277,6 +10119,9 @@
     "our_total_side": "Under",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9298,7 +10143,10 @@
       "olbg_tips": "6/20",
       "p_raw": 0.3,
       "p_shrunk": 0.2208,
-      "basis": "Dirichlet shrinkage toward 1/16 field prior"
+      "basis": "Dirichlet shrinkage toward 1/16 field prior",
+      "field_size": 16,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2208,
     "our_home_probability": null,
@@ -9315,6 +10163,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T08:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
@@ -9336,7 +10187,10 @@
       "olbg_tips": "2/2",
       "p_raw": 1.0,
       "p_shrunk": 0.2188,
-      "basis": "Dirichlet shrinkage toward 1/16 field prior"
+      "basis": "Dirichlet shrinkage toward 1/16 field prior",
+      "field_size": 16,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2188,
     "our_home_probability": null,
@@ -9353,6 +10207,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T06:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
@@ -9374,7 +10231,10 @@
       "olbg_tips": "2/8",
       "p_raw": 0.25,
       "p_shrunk": 0.1458,
-      "basis": "Dirichlet shrinkage toward 1/16 field prior"
+      "basis": "Dirichlet shrinkage toward 1/16 field prior",
+      "field_size": 16,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.1458,
     "our_home_probability": null,
@@ -9391,6 +10251,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T08:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
@@ -9403,7 +10266,7 @@
     "event_name": "Fortinet Players Cup",
     "home": null,
     "away": null,
-    "competition": null,
+    "competition": "JGTO Fortinet Players Cup 2026",
     "start": "2026-10-25",
     "olbg_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Fortinet_Players_Cup/5?event_id=101908",
     "inputs": {
@@ -9411,16 +10274,19 @@
       "olbg_consensus_selection": "Ryosuke Kinoshita",
       "olbg_tips": "1/2",
       "p_raw": 0.5,
-      "p_shrunk": 0.1354,
-      "basis": "Dirichlet shrinkage toward 1/16 field prior"
+      "p_shrunk": 0.0481,
+      "basis": "JGTO official Fortinet Players Cup field: Confirmed 96 / Planned 96; Ryosuke Kinoshita entered",
+      "field_size": 96,
+      "field_size_status": "official",
+      "field_size_source": "https://www.jgto.org/en/tournament/3048/player"
     },
-    "our_match_probability": 0.1354,
+    "our_match_probability": 0.0481,
     "our_home_probability": null,
     "our_pick": "Ryosuke Kinoshita",
-    "our_pick_probability": 0.1354,
-    "our_fair_odds": 7.39,
-    "our_price_pick": 7.02,
-    "our_us_odds_pick": "+602",
+    "our_pick_probability": 0.0481,
+    "our_fair_odds": 20.79,
+    "our_price_pick": 19.75,
+    "our_us_odds_pick": "+1875",
     "our_price_other": null,
     "our_handicap_line": null,
     "our_handicap_side": null,
@@ -9429,9 +10295,12 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T06:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
-      "outright_field_prior",
+      "outright_field_official",
       "carried_from_prior_pass"
     ]
   },
@@ -9450,7 +10319,10 @@
       "olbg_tips": "1/3",
       "p_raw": 0.3333,
       "p_shrunk": 0.125,
-      "basis": "Dirichlet shrinkage toward 1/16 field prior"
+      "basis": "Dirichlet shrinkage toward 1/16 field prior",
+      "field_size": 16,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.125,
     "our_home_probability": null,
@@ -9467,6 +10339,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-25T07:45Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
@@ -9488,7 +10363,10 @@
       "olbg_tips": null,
       "p_raw": null,
       "p_shrunk": null,
-      "basis": "Dirichlet shrinkage toward 1/16 field prior"
+      "basis": "Dirichlet shrinkage toward 1/16 field prior",
+      "field_size": 16,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": null,
     "our_home_probability": null,
@@ -9505,6 +10383,9 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "not applicable to unpriced outright market",
+    "kickoff_utc": "2026-10-25T12:00Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
     "confidence": "low",
     "flags": [
       "zero_tips_unpriced",
@@ -9543,6 +10424,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T06:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "heavy_chalk_above_70pct_excluded_from_high",
@@ -9582,6 +10466,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T05:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -9620,6 +10507,9 @@
     "our_total_side": "Under",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T06:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "medium",
     "flags": [
       "kick_off_passed_archived",
@@ -9658,6 +10548,9 @@
     "our_total_side": "Over",
     "our_total_unit": "games",
     "our_total_basis": "ATP/WTA 3-set hard-court total games baseline",
+    "kickoff_utc": "2026-10-21T06:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9696,6 +10589,9 @@
     "our_total_side": "Over",
     "our_total_unit": "pts",
     "our_total_basis": "European top-flight match total points baseline",
+    "kickoff_utc": "2026-10-21T18:30Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "kick_off_passed_archived",
@@ -9717,7 +10613,10 @@
       "olbg_tips": "2/2",
       "p_raw": 1.0,
       "p_shrunk": 0.375,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.375,
     "our_home_probability": null,
@@ -9734,9 +10633,13 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-21T10:14Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
+      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -9755,7 +10658,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -9772,9 +10678,13 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-21T09:32Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
+      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -9793,7 +10703,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -9810,9 +10723,13 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-21T09:48Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
+      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -9831,7 +10748,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -9848,9 +10768,13 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-21T10:03Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
+      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -9869,7 +10793,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -9886,9 +10813,13 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-21T10:04Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
+      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   },
@@ -9907,7 +10838,10 @@
       "olbg_tips": "1/1",
       "p_raw": 1.0,
       "p_shrunk": 0.2857,
-      "basis": "Dirichlet shrinkage toward 1/6 field prior"
+      "basis": "Dirichlet shrinkage toward 1/6 field prior",
+      "field_size": 6,
+      "field_size_status": "model_input",
+      "field_size_source": ""
     },
     "our_match_probability": 0.2857,
     "our_home_probability": null,
@@ -9924,9 +10858,13 @@
     "our_total_side": null,
     "our_total_unit": null,
     "our_total_basis": "single-selection outright / multi-runner field",
+    "kickoff_utc": "2026-10-21T10:09Z",
+    "kickoff_basis": "derived: OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": true,
     "confidence": "low",
     "flags": [
       "outright_field_prior",
+      "kick_off_passed_archived",
       "carried_from_prior_pass"
     ]
   }

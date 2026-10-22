@@ -34,9 +34,9 @@ jobs:
       # Board invariants: every row needs an OLBG source link, verification must be all-or-nothing,
       # prices must recompute, and every HIGH-confidence pick must carry a 30+ word sourced prediction.
       - run: python scripts/check_board.py
-      # OLBG lines track (/olbg): the 06:50Z harvest (189 rows incl. rows carried for sports not
-      # re-listed) with per-row source URLs, our own shrink+home-edge model, sourced HIGH predictions
-      # and the shared flag register (data/flagged.json).
+      # OLBG lines track (/olbg): chained dated harvests with per-row source URLs, our own
+      # shrink+home-edge model, sourced HIGH predictions and the shared flag register.
+      # Row counts and snapshot provenance come from the generated data, not hard-coded comments.
       - name: Rebuild the OLBG lines track
         run: |
           python3 tools/build_dataset.py

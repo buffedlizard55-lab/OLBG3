@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T09:05:00Z",
+  "generated_at": "2026-10-22T08:55:36Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available.",
   "items": [
     {
@@ -1246,7 +1246,7 @@
       "id": "FL-052",
       "severity": "data quality",
       "title": "Five /olbg/ write-ups repeated defects that had already been corrected on the root board",
-      "detail": "A line-by-line read of the live /olbg/ HIGH write-ups against the competitions' own pages found that five of them still carried claims the root board had already been forced to drop, because the two tracks keep separate prediction files. (1) TEN-902110 dated Karen Khachanov's 6-2, 6-4 win over Rei Sakamoto to 'Tuesday's opening round'. The ATP Tour's own Almaty results page places that round-of-32 match on Wednesday 21 October 2026 (its page headers run Tue 20 / Wed 21 / Thu 22 October), so the weekday is corrected to Wednesday. (2) TEN-902071 said Katerina Siniakova booked her last-16 place 'on Tuesday' and (3) TEN-902063 said Ann Li played 'in Osaka on Tuesday'. The WTA's scores and draw pages render results client-side and could not be read in this pass, so those weekdays are no longer asserted at all rather than left standing unchecked. The same applies to TEN-902072, which also repeated the acrylic surface brand the root board removed in FL-049: the WTA publishes Ningbo as a hard-court event without naming a brand, so 'Plexipave' is gone and the piece now says hard courts. (4) GLF-101904 still claimed Seamus Power led the Bermuda tips 'far ahead of any rival ... alongside rising contender Ben James' and that the field was 'confirmed' at 120 players; FL-045 and FL-049 already established that pgatour.com publishes neither a field size nor James's win-market tip count, so the comparison is removed, the field is labelled a disclosed model input, and only the verifiable 5/22 (23%) OLBG share is kept. No price, probability or confidence grade changed in any of the five rows.",
+      "detail": "A line-by-line read of the live /olbg/ HIGH write-ups against the competitions' own pages found that five of them still carried claims the root board had already been forced to drop, because the two tracks keep separate prediction files. (1) TEN-902110 dated Karen Khachanov's 6-2, 6-4 win over Rei Sakamoto to 'Tuesday's opening round'. The ATP Tour's own Almaty results page places that round-of-32 match on Wednesday 21 October 2026 (its page headers run Tue 20 / Wed 21 / Thu 22 October), so the weekday is corrected to Wednesday. (2) TEN-902071 said Katerina Siniakova booked her last-16 place 'on Tuesday' and (3) TEN-902063 said Ann Li played 'in Osaka on Tuesday'. The WTA's scores and draw pages render results client-side and could not be read in this pass, so those weekdays are no longer asserted at all rather than left standing unchecked. The same applies to TEN-902072, which also repeated the acrylic surface brand the root board removed in FL-049: the WTA publishes Ningbo as a hard-court event without naming a brand, so 'Plexipave' is gone and the piece now says hard courts. (4) GLF-101904 still claimed Seamus Power led the Bermuda tips 'far ahead of any rival ... alongside rising contender Ben James' and that the field was 'confirmed' at 120 players; FL-045 and FL-049 already established that pgatour.com publishes neither a field size nor James's win-market tip count, so the comparison is removed, the field is labelled a disclosed model input, and only the verifiable 5/22 (23%) OLBG share is kept. No price, probability or confidence grade changed in any of the five rows. The 08:29Z refresh subsequently updated Bermuda support to 6/24 and regenerated both prices; see FL-069.",
       "affected_rows": [
         "TEN-902110",
         "TEN-902071",
@@ -1272,7 +1272,7 @@
           "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"
         },
         {
-          "label": "OLBG - Bermuda Championship event page (Power 5/22 tournament-winner tips)",
+          "label": "OLBG - Bermuda Championship event page (5/22 in the earlier pass; 6/24 at 08:29Z)",
           "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
         }
       ]
@@ -1300,14 +1300,18 @@
     },
     {
       "id": "FL-054",
-      "severity": "medium",
-      "title": "WTA Guangzhou Open QF (Talia Gibson v Ashlyn Krueger) left unverified — wtatennis.com draw requires client-side JS",
-      "detail": "wtatennis.com serves an empty client-rendered shell for current WTA 250 Guangzhou draw tables under static HTTP fetch. Per strict zero-inference policy, TEN-37 / TEN-902107 is retained verbatim from the 2026-10-22T07:25Z OLBG capture with unconfirmed official fields left blank and confidence capped below HIGH.",
+      "severity": "documentation",
+      "title": "Resolved: Gibson–Krueger is an official Osaka draw fixture, not Guangzhou",
+      "detail": "The earlier client-rendered-shell limitation was superseded at 08:29Z by the WTA's official 2026/405/MDS.pdf draw. It contains both players and verifies the Kinoshita Group Japan Open in Osaka. OLBG's Guangzhou slug remains preserved as a raw irregularity; official competition is corrected and exact venue/time remain blank. See FL-067.",
       "affected_rows": [
         "TEN-902107",
         "TEN-37"
       ],
       "sources": [
+        {
+          "label": "WTA official 2026 Osaka main-draw PDF",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf"
+        },
         {
           "label": "OLBG — Talia Gibson vs Ashlyn Krueger event page",
           "url": "https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107"
@@ -1417,14 +1421,22 @@
     },
     {
       "id": "FL-061",
-      "severity": "low",
-      "title": "Korean KBL (Seoul Samsung Thunders v Busan KCC Egis): kbl.or.kr SPA returns 404; corroborated via Korean press report (Samsung 97-86 KCC)",
-      "detail": "Marked corroborated (third-party tier) rather than governing-body primary because kbl.or.kr requires client-side JS routing.",
+      "severity": "documentation",
+      "title": "Resolved: official KBL and club pages replace secondary-only Samsung–KCC corroboration",
+      "detail": "The earlier pass could not retrieve KBL's schedule and used a Korean press report only. The official KBL schedule now confirms Samsung 97-86 KCC on 21 October at 19:00 KST, and the Samsung club-official page confirms the full team identities. BKB-03 and BKB-535966 are officially verified; the SBS link remains only as supplementary history.",
       "affected_rows": [
         "BKB-536017",
         "BKB-03"
       ],
       "sources": [
+        {
+          "label": "KBL official schedule and results",
+          "url": "https://www.kbl.or.kr/match/schedule"
+        },
+        {
+          "label": "Seoul Samsung Thunders club-official site",
+          "url": "https://thunders.kbl.or.kr/"
+        },
         {
           "label": "SBS Korean Sports match report — Samsung 97-86 KCC",
           "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438"
@@ -1563,6 +1575,197 @@
         {
           "label": "MLB.com official 2026 standings (Brewers 103-59, 55-26 home, 832/618, +214; Rays 98-64, 55-26 home, 43-38 away, 736/650; next game Oct 23 vs TB)",
           "url": "https://www.mlb.com/standings/2026"
+        }
+      ]
+    },
+    {
+      "id": "FL-066",
+      "severity": "data quality",
+      "title": "Fixture verification no longer implies official field-size verification",
+      "detail": "The outright builder previously converted any verified fixture with a field override into prose claiming an official field count. That overclaimed Bermuda 120, BMW Ladies 78 and the without-Antonelli 21-runner market. Every override now requires an explicit independent field flag. Only JGTO Fortinet Players Cup is promoted to official field size: its own page states Confirmed 96 / Planned 96 and includes Ryosuke Kinoshita. Bermuda 120, BMW 78, without-Antonelli 21 and the other unenumerated fields remain disclosed model inputs. Checks reject an official field without its own official URL.",
+      "affected_rows": [
+        "GLF-02",
+        "GLF-04",
+        "MTR-03",
+        "GLF-07",
+        "GLF-101904",
+        "GLF-101908",
+        "GLF-101912",
+        "MTR-912"
+      ],
+      "sources": [
+        {
+          "label": "JGTO official Fortinet Players Cup field — Confirmed 96 / Planned 96",
+          "url": "https://www.jgto.org/en/tournament/3048/player"
+        },
+        {
+          "label": "PGA Tour Bermuda overview — tournament evidence, not a field count",
+          "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"
+        }
+      ]
+    },
+    {
+      "id": "FL-067",
+      "severity": "medium",
+      "title": "OLBG event 902107 carries a Guangzhou label for an officially verified Osaka fixture",
+      "detail": "WTA's official Osaka main-draw PDF contains Talia Gibson and Ashlyn Krueger. Guangzhou's separate official tournament page runs 26 October-1 November, so it cannot be the current competition identity. TEN-37 and TEN-902107 now publish WTA 250 Kinoshita Group Japan Open (Osaka), while the raw OLBG league label and URL slug stay unchanged for manual review. Exact official match time and venue were not inferred.",
+      "affected_rows": [
+        "TEN-37",
+        "TEN-902107"
+      ],
+      "sources": [
+        {
+          "label": "WTA official 2026 Osaka main-draw PDF",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf"
+        },
+        {
+          "label": "WTA official Guangzhou Open 2026 page",
+          "url": "https://www.wtatennis.com/tournaments/1023/guangzhou/2026"
+        },
+        {
+          "label": "OLBG event 902107 with Guangzhou slug",
+          "url": "https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107"
+        }
+      ]
+    },
+    {
+      "id": "FL-068",
+      "severity": "medium",
+      "title": "Mobis–Changwon OLBG date label conflicts with the official KBL start",
+      "detail": "In the 22 October capture, OLBG Tomorrow 06:00 resolves to 23 October. KBL's official schedule lists Hyundai Mobis v Changwon LG on 22 October at 19:00 KST (10:00 UTC) at Ulsan Dongcheon Gymnasium. The raw label remains visible, while the official timestamp drives display and expiry. Moneyline support is tied 4/8 each; Changwon -1.50 is 3/5 and Under 169.50 is 1/1, with no inference from those tiny samples.",
+      "affected_rows": [
+        "BKB-23",
+        "BKB-536021"
+      ],
+      "sources": [
+        {
+          "label": "KBL official schedule",
+          "url": "https://www.kbl.or.kr/match/schedule"
+        },
+        {
+          "label": "Mobis Phoebus club-official site",
+          "url": "https://phoebus.kbl.or.kr/"
+        },
+        {
+          "label": "OLBG Mobis–Changwon event markets",
+          "url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021"
+        }
+      ]
+    },
+    {
+      "id": "FL-069",
+      "severity": "documentation",
+      "title": "Bermuda prediction refreshed with current-form evidence and 6/24 support",
+      "detail": "The old 5/22 support and claims based mainly on Power's 2022 win were replaced. His official PGA Tour profile now supplies three 2026 top-10s, seven top-25s, 14/21 cuts made and 11th in SG: Putting. OLBG's event table was re-read as Power 6/24 (25%). Root and /olbg/ prices were independently regenerated to 7.35 (+635) and 6.78 (+578). The 120-player value stays a model input even though an official entrant table exists, because no exact count was established.",
+      "affected_rows": [
+        "GLF-02",
+        "GLF-101904"
+      ],
+      "sources": [
+        {
+          "label": "PGA Tour official Seamus Power profile",
+          "url": "https://www.pgatour.com/player/28252/seamus-power"
+        },
+        {
+          "label": "PGA Tour official Bermuda entrant table",
+          "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/field"
+        },
+        {
+          "label": "OLBG Bermuda Win Tournament table",
+          "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
+        }
+      ]
+    },
+    {
+      "id": "FL-070",
+      "severity": "low",
+      "title": "Fortinet and Stella Artois are officially in Round 1 while their OLBG tip snapshots are carried",
+      "detail": "JGTO and Sunshine Tour both show live Round 1 scoring on 22 October. Their former OLBG event URLs now redirect to the all-events page with no tips found, so the stored tip counts are not represented as a fresh current crawl. Fixture and field/entrant facts were upgraded where official, but current-form verification was not inferred and both rows remain LOW. This is distinct from Bermuda, whose Win Tournament event page and current-form profile were retrieved directly.",
+      "affected_rows": [
+        "GLF-07",
+        "GLF-09",
+        "GLF-101908",
+        "GLF-101912"
+      ],
+      "sources": [
+        {
+          "label": "JGTO Fortinet Players Cup official Round 1 page",
+          "url": "https://www.jgto.org/en/tournament/3048"
+        },
+        {
+          "label": "Sunshine Tour official Stella Artois page and live scoring",
+          "url": "https://sunshinetour.com/tournament?id=226S&code=SAPC"
+        }
+      ]
+    },
+    {
+      "id": "FL-071",
+      "severity": "documentation",
+      "title": "Residual weekday and unsupported ranking prose removed from both prediction tracks",
+      "detail": "The root Khachanov piece now dates the Sakamoto win to Wednesday, matching the earlier correction already present on /olbg/. The /olbg/ Linette piece and model basis no longer assert world No. 77, and the Jovic basis no longer asserts world No. 12; only officially sourced seeding and result facts remain. Automated selection/price consistency checks now cover both tracks so future line updates cannot silently leave a different written selection behind.",
+      "affected_rows": [
+        "TEN-23",
+        "TEN-902110",
+        "TEN-902071",
+        "TEN-902075"
+      ],
+      "sources": [
+        {
+          "label": "ATP Tour official Almaty results",
+          "url": "https://www.atptour.com/en/scores/current/almaty/9410/results"
+        },
+        {
+          "label": "WTA official Osaka main-draw PDF",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf"
+        },
+        {
+          "label": "WTA official Ningbo draws",
+          "url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+        }
+      ]
+    },
+    {
+      "id": "FL-072",
+      "severity": "documentation",
+      "title": "Three refreshed OLBG selection labels required explicit verified-name aliases",
+      "detail": "The dated overlay exposed three exact spelling differences that had left rows unpriced: New York Knicks / NY Knicks, Nordsjaelland Haandbold / Nordsjaelland Handbold, and SalthillKnocknacarra / Salthill-Knocknacarra. Three full-label aliases now map those raw selections to the already verified row sides. No fuzzy matching, new team, probability, or official fact was inferred; all 224 defensible root prices are restored.",
+      "affected_rows": [
+        "BKB-19",
+        "HBL-19",
+        "GAF-02"
+      ],
+      "sources": [
+        {
+          "label": "NBA official schedule — New York Knicks at Boston Celtics",
+          "url": "https://www.nba.com/games?date=2026-10-22"
+        },
+        {
+          "label": "Sønderjyske club-official fixture list — Nordsjælland Håndbold",
+          "url": "https://soenderjyskehh.dk/"
+        },
+        {
+          "label": "Maigh Cuilinn club-official county-final notice",
+          "url": "https://www.maighcuilinn.com/"
+        }
+      ]
+    },
+    {
+      "id": "FL-073",
+      "severity": "documentation",
+      "title": "/olbg/ started-HIGH gate now covers derived clocks and outright markets",
+      "detail": "The first 08:29 freshness repair used official timestamps for head-to-head rows but did not apply derived OLBG clocks to rows without official times, and single-selection outrights had no equivalent started gate. All 270 /olbg/ rows now carry either an official or explicitly derived kick-off and basis; official evidence always wins. At 08:29Z, 118 rows are started and zero of the 31 HIGH rows are started. A later-clock regression test prevents the derived-clock gap from returning. No additional current HIGH pick was removed by this closure.",
+      "affected_rows": [
+        "all /olbg/ rows",
+        "GLF-101904"
+      ],
+      "sources": [
+        {
+          "label": "OLBG betting-tips listings — raw undated-timezone clock labels",
+          "url": "https://www.olbg.com/betting-tips"
+        },
+        {
+          "label": "OLBG Bermuda outright event — single-selection market covered by the same gate",
+          "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
         }
       ]
     }

@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-22T07:35:00Z",
-  "odds_window_policy": "Every high-confidence selection sits strictly inside -250 to +10000 American odds (1.40 to 101.00 decimal odds) with model fair probability < 70%, filtering out trivial >70% moneyline chalk.",
+  "generated_utc": "2026-10-22T08:29:05Z",
+  "odds_window_policy": "Every high-confidence selection is within -250 through +10000 American odds inclusive (1.40 to 101.00 decimal) with model fair probability < 70%, and has not started at the snapshot.",
   "predictions": [
     {
       "match_id": "BSB-160789",
@@ -151,7 +151,8 @@
           "url": "https://www.atptour.com/en/news/almaty-brussels-lyon-2026-scouting-report"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "archive_reason": "Official ATP start 2026-10-22T08:00:00Z had passed before the 08:29Z snapshot."
     },
     {
       "match_id": "TEN-902082",
@@ -217,7 +218,7 @@
       "match": "Magda Linette vs Katerina Siniakova",
       "selection": "Katerina Siniakova to Win Match",
       "confidence": "medium",
-      "text": "Recent head-to-head history in Asia points squarely toward Katerina Siniakova in this second-round Osaka clash. Siniakova handled Magda Linette comfortably at the China Open in Beijing earlier this month and booked her Round of 16 spot after leading second seed Peyton Stearns 6-4, 0-6, 4-0 when the American retired. Although world No. 77 Linette snapped a skid by beating Claire Liu 6-4, 6-3 in Round 1, Siniakova's all-court variety on hard courts makes Katerina Siniakova to Win Match at 1.58 (-172) stand out.",
+      "text": "Recent head-to-head history in Asia points squarely toward Katerina Siniakova in this second-round Osaka clash. Siniakova handled Magda Linette comfortably at the China Open in Beijing earlier this month and booked her Round of 16 spot after leading second seed Peyton Stearns 6-4, 0-6, 4-0 when the American retired. Although Linette snapped a skid by beating Claire Liu 6-4, 6-3 in Round 1, Siniakova's all-court variety on hard courts makes Katerina Siniakova to Win Match at 1.58 (-172) stand out.",
       "sources": [
         {
           "label": "WTA Tour — Official 2026 Japan Open Osaka Player List",
@@ -247,7 +248,8 @@
           "url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/player-list"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "archive_reason": "Official WTA start 2026-10-22T08:00:00Z had passed before the 08:29Z snapshot."
     },
     {
       "match_id": "CRI-188814",
@@ -289,7 +291,8 @@
           "url": "https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "archive_reason": "Official start 2026-10-22T08:00:00Z had passed before the 08:29Z snapshot."
     },
     {
       "match_id": "CRI-188828",
@@ -308,7 +311,8 @@
           "url": "https://www.icc-cricket.com/news/paul-stirling-to-lead-ireland-for-the-namibia-tour"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "archive_reason": "Official start 2026-10-22T08:00:00Z had passed before the 08:29Z snapshot."
     },
     {
       "match_id": "CRI-188831",
@@ -485,16 +489,20 @@
       "match_id": "GLF-101904",
       "sport": "Golf",
       "match": "Bermuda Championship",
-      "selection": "Seamus Power to Win Tournament (+660 / 7.60)",
+      "selection": "Seamus Power to Win Tournament (+578 / 6.78)",
       "confidence": "high",
-      "text": "Port Royal Golf Course in Southampton, Bermuda puts coastal wind management and par-71 iron control ahead of raw driving distance across the 120-player PGA Tour FedExCup Fall field, a field size we disclose as a model input because the tour's own tournament page does not publish it. Former Butterfield Bermuda Championship winner Seamus Power holds a 5/22 (23%) share of OLBG tournament-winner tips on the event page, and his proven scoring record on exposed Atlantic layouts makes Seamus Power to Win Tournament at +660 (7.60) a prime plus-money selection inside our +10000 ceiling.",
+      "text": "Power’s current season numbers give this outright a firmer foundation than course history by itself. The PGA Tour profile credits him with three 2026 top-10s, seven top-25s, 14 made cuts in 21 starts and the circuit’s 11th-ranked strokes-gained putting performance; his 2022 Port Royal win adds useful local evidence. OLBG now records 6/24 tournament-win support (25%). Seamus Power to Win Tournament at +578 (6.78) is the selection, while 120 remains our disclosed field-size model input.",
       "sources": [
         {
-          "label": "PGA Tour — Official 2026 Butterfield Bermuda Championship Overview (120-player field)",
+          "label": "PGA Tour — Seamus Power official 2026 profile and season statistics",
+          "url": "https://www.pgatour.com/player/28252/seamus-power"
+        },
+        {
+          "label": "PGA Tour — Butterfield Bermuda Championship official overview",
           "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"
         },
         {
-          "label": "OLBG — Bermuda Championship Outright Tips (5/22 Seamus Power)",
+          "label": "OLBG — Bermuda Championship Win Tournament table (6/24 Seamus Power)",
           "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
         }
       ],

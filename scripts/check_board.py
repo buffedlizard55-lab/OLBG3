@@ -18,6 +18,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 from urllib.parse import urlparse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -33,6 +34,23 @@ CONF = {"HIGH", "MEDIUM", "LOW"}
 MARKERS = ("<<<<<<<", ">>>>>>>", "=======\n")
 
 errors, warnings = [], []
+
+
+def _selection_key(text):
+    text = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode().lower()
+    return "".join(ch for ch in text if ch.isalnum())
+
+
+def selection_matches(row_label, prediction_label):
+    """Allow documented club spelling aliases, but never allow a different selection to slip through."""
+    row_key = _selection_key(row_label)
+    pred_key = _selection_key(prediction_label)
+    aliases = {
+        "milbrewers": ("milwaukeebrewers",),
+        "bufsabres": ("buffalosabres",),
+    }
+    candidates = (row_key,) + aliases.get(row_key, ())
+    return any(candidate and candidate in pred_key for candidate in candidates)
 
 
 def load(path):
@@ -108,6 +126,20 @@ def check_rows(rows, preds):
             # the stored probability is rounded to 4dp before the price is taken, so allow 5p
             if abs(expected_price - r["model"]["prices"]["single"]) > 0.05:
                 errors.append(f"{ref}: outright price does not recompute ({expected_price} vs {r['model']['prices']['single']})")
+            field_status = prior.get("field_size_status")
+            if field_status not in ("official", "model_input", "competition_format"):
+                errors.append(f"{ref}: missing/invalid field_size_status {field_status!r}")
+            elif field_status == "official":
+                if not prior.get("field_size_source"):
+                    errors.append(f"{ref}: official field size has no independent source")
+                if prior.get("field_size_source_tier") not in ("official", "club-official"):
+                    errors.append(f"{ref}: official field size source tier is not official")
+            elif field_status == "model_input":
+                basis_lower = prior.get("basis", "").lower()
+                if "assum" not in basis_lower and "model input" not in basis_lower:
+                    errors.append(f"{ref}: model-input field size is not disclosed in its basis")
+                if prior.get("field_size_source"):
+                    errors.append(f"{ref}: model-input field size must not claim an official field source")
 
         pk = r.get("pick") or {}
         price = pk.get("price")
@@ -162,6 +194,8 @@ def check_predictions(preds, refs, rows_by_ref):
         if row:
             pk = row.get("pick") or {}
             price, us = pk.get("price"), pk.get("american")
+            if pk.get("label") and not selection_matches(pk["label"], p.get("selection", "")):
+                errors.append(f"{ref}: prediction selection {p.get('selection')!r} does not match row pick {pk['label']!r}")
             # "7.32 (+732 / 7.32)" style selection labels
             for q_us, q_dec in re.findall(r"([+-]\d{2,5})\s*/\s*(\d+\.\d{2})", p.get("selection", "")):
                 if us is not None and int(q_us) != us:

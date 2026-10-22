@@ -463,11 +463,11 @@
       "note": "Panathinaikos AKTOR v Baskonia, 20:15 CEST = 14:15 EDT, matching the OLBG listing exactly."
     },
     "BKB-03": {
-      "official": "2026-10-21 19:00 KST (10:00 UTC)",
+      "official": "2026-10-21 19:00 KST (10:00 UTC), Jamsil Student Gymnasium; Seoul Samsung 97-86 Busan KCC",
       "competition": "KBL 2026/27 Regular Season",
-      "source": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438",
-      "source_label": "SBS Korean Sports report (Seoul Samsung Thunders 97-86 Busan KCC Egis)",
-      "note": "KBL's own SPA schedule shell returns 404 without client JS; Korean sports report confirms Seoul Samsung Thunders beat Busan KCC Egis 97-86 at Jamsil Indoor Gymnasium on 21 Oct 2026."
+      "source": "https://www.kbl.or.kr/match/schedule",
+      "source_label": "KBL official schedule and result — Samsung 97-86 KCC, 21 October 2026",
+      "note": "KBL official schedule confirms Samsung 97-86 KCC at 19:00 KST on 21 October. The Samsung club-official page names Seoul Samsung Thunders and Busan KCC Egis and carries the same fixture, superseding the earlier third-party-only corroboration."
     },
     "BKB-10": {
       "status": "verified",
@@ -1716,6 +1716,21 @@
       "source": "https://www.legavolley.it/calendario/?idCampionato=999",
       "source_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
       "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Vero Volley Monza vs Rana Verona at OpiquadArena, Monza, Sun 25 Oct 2026 18:00 CET."
+    },
+    "BKB-23": {
+      "official": "2026-10-22 19:00 KST (10:00 UTC), Ulsan Dongcheon Gymnasium",
+      "competition": "KBL 2026/27 Regular Season",
+      "source": "https://www.kbl.or.kr/match/schedule",
+      "source_label": "KBL official schedule — Ulsan Hyundai Mobis v Changwon LG, 22 October 2026",
+      "note": "KBL lists Hyundai Mobis v LG at Ulsan Dongcheon on 22 October at 19:00 KST. Mobis club-official material confirms the fixture and Changwon LG Sakers identity. OLBG Tomorrow 06:00 is retained as a raw label but conflicts with this official date/time; the official 10:00 UTC instant drives expiry."
+    },
+    "TEN-37": {
+      "status": "verified",
+      "official": "2026 Kinoshita Group Japan Open main draw: Talia Gibson v Ashlyn Krueger; exact match time not established",
+      "competition": "WTA 250 Kinoshita Group Japan Open (Osaka)",
+      "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf",
+      "source_label": "WTA official 2026 Kinoshita Group Japan Open main-draw PDF (Osaka)",
+      "note": "The official Osaka draw contains Talia Gibson and Ashlyn Krueger. OLBG event 902107 retains its WTA_Guangzhou_Open URL slug as a raw value, but Guangzhou runs 26 October-1 November and is not this fixture's competition."
     }
   },
   "form_data": {
@@ -3914,6 +3929,27 @@
           "pa": 79
         }
       }
+    },
+    "KBL_2026_27_official_20261022": {
+      "source": "https://www.kbl.or.kr/match/schedule",
+      "retrieved_at": "2026-10-22T08:29:05Z",
+      "facts": [
+        "Samsung 97-86 KCC on 21 October at 19:00 KST, Jamsil Student Gymnasium.",
+        "Hyundai Mobis v LG on 22 October at 19:00 KST, Ulsan Dongcheon Gymnasium."
+      ]
+    },
+    "PGA_Bermuda_Seamus_Power_2026": {
+      "source": "https://www.pgatour.com/player/28252/seamus-power",
+      "retrieved_at": "2026-10-22T08:29:05Z",
+      "facts": {
+        "top_10": 3,
+        "top_25": 7,
+        "cuts_made": "14/21",
+        "sg_putting_rank": 11,
+        "sg_total_rank": 67,
+        "world_rank": 196,
+        "fedex_cup_rank": 114
+      }
     }
   },
   "round3_results_urc": {
@@ -4131,7 +4167,10 @@
       "www.golf.com.au",
       "www.nrl.com",
       "nrl.com",
-      "www.superleague.co.uk"
+      "www.superleague.co.uk",
+      "www.jgto.org",
+      "sunshinetour.com",
+      "www.kbl.or.kr"
     ],
     "club-official": [
       "hapoelbc.com",
@@ -4147,7 +4186,9 @@
       "aalborghaandbold.dk",
       "www.aalborghaandbold.dk",
       "www.cdbidasoa.eus",
-      "cdbidasoa.eus"
+      "cdbidasoa.eus",
+      "phoebus.kbl.or.kr",
+      "thunders.kbl.or.kr"
     ],
     "third-party": [
       "as.com",

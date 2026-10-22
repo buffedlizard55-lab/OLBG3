@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-21T07:05:00Z",
- "source_capture": "data/raw/gap_sports_capture_20261021.json",
+ "generated_at": "2026-10-22T08:29:05Z",
+ "source_capture": "data/raw/gap_sports_capture_20261022T0829Z.json",
  "listing_pages": {
   "Golf": "https://www.olbg.com/betting-tips/Golf/5",
   "Motor Racing": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -72,7 +72,10 @@
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -111,7 +114,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Earlier passes read this row as 5/18 (30%). The listing showed 6/20 at this capture; OLBG recount as tips arrive, so the share is a timestamped snapshot.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GLF-02",
@@ -120,12 +123,12 @@
    "competition": "PGA Tour FedExCup Fall \u2014 2026 Butterfield Bermuda Championship",
    "home": "Bermuda Championship",
    "away": "",
-   "start": "25 Oct 17:45",
+   "start": "Today 14:10",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Seamus Power",
-   "olbg_tips": "5/22",
-   "olbg_pct": 23,
+   "olbg_tips": "6/24",
+   "olbg_pct": 25,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
    "olbg_event_id": 101904,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -135,23 +138,28 @@
     "official_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview",
     "official_label": "PGA Tour official tournament overview + 'facts and figures' article (Oct 22-25, 2026, Port Royal GC, par 71, 6,828 yd, $6M, Seamus Power 2022 champion)",
     "official_datetime": "Oct 22 - 25, 2026, Port Royal Golf Course, Southampton, Bermuda (Par 71, 6,828 yds, $6M)",
-    "note": "Official pgatour.com pages confirmed the dates (Oct 22-25, 2026), the venue (Port Royal Golf Course, Southampton, par 71, 6,828 yards), the $6M purse and that Seamus Power won here in 2022. The official pages retrieved do NOT state a field size; 120 is taken from the tournament field listing as reported by multiple independent golf outlets and is used as a disclosed model input, not as an official fact.",
+    "note": "PGA Tour confirms the 22-25 October 2026 tournament at Port Royal and Power's 2022 title. A separate official player profile confirms current 2026 form: 3 top-10s, 7 top-25s, 14/21 cuts made and 11th in SG: Putting. Neither the overview nor the profile states a 120-player field; 120 remains a model input.",
+    "official_form_url": "https://www.pgatour.com/player/28252/seamus-power",
+    "official_form_label": "PGA Tour official Seamus Power profile \u2014 2026 form and season statistics",
     "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 8.4
+     "single": 7.35
     },
     "probs": {
-     "single": 0.113
+     "single": 0.1292
     },
     "prior": {
      "field": 120,
      "strength_k": 24,
      "a": 0.2,
      "b": 23.8,
-     "basis": "Field size 120, not the generic 156 assumption used when a field is not published: the official competition source recorded for this row states a 120-strong field, so the prior mean is 1/120. See this row's official source for the field statement."
+     "basis": "Field size 120, not the generic 156 assumption: 120 is an explicit model input, not a verified competition field count. The prior mean is 1/120.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -161,7 +169,7 @@
    "pick": {
     "side": "single",
     "label": "Seamus Power",
-    "prob": 0.113,
+    "prob": 0.1292,
     "confidence": "HIGH",
     "score": 6,
     "factors": {
@@ -169,18 +177,18 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 8.4,
-    "american": 740,
+    "price": 7.35,
+    "american": 635,
     "in_band": true,
     "band": [
      -250,
      10000
     ],
-    "start_iso": "2026-10-25",
-    "kickoff_utc": "2026-10-25T21:45Z",
+    "start_iso": "2026-10-22",
+    "kickoff_utc": "2026-10-22T18:10Z",
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
-    "start_basis": "derived from capture year",
+    "start_basis": "derived from capture date",
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
     "note": ""
@@ -189,8 +197,8 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: past Bermuda champion Seamus Power leads at 5/22 win tips (23%) across the confirmed 120-player Port Royal field (Ben James leads 1st Round Leader at 5/11).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "OLBG Win Tournament support updated to Seamus Power 6/24 (25%) at 08:29Z. The 120-player value is a disclosed model input; the official field page exists but no exact count was established.",
+   "captured_at": "2026-10-22T08:29:05Z"
   },
   {
    "ref": "GLF-03",
@@ -231,7 +239,10 @@
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -271,7 +282,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Two tips only: a 100% share from a sample of two is not evidence.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GLF-04",
@@ -295,7 +306,7 @@
     "official_url": "https://www.lpga.com/tournaments/bmw-lpga-championship/overview",
     "official_label": "LPGA Tour official tournament overview (Oct 22-25, 2026, Pine Beach Golf Links, par 72, 6,784 yd, $2.35M)",
     "official_datetime": "Oct 22 - 25, 2026, Pine Beach Golf Links, Haenam-gun (Par 72, 6,784 yds, $2.35M)",
-    "note": "Official lpga.com overview confirmed the dates (Oct 22-25, 2026), the venue (Pine Beach Golf Links, Haenam-gun), par 72, 6,784 yards, the $2.35M purse and Sei Young Kim as 2025 winner. The official page retrieved does NOT state a field size; 78 is a disclosed model input taken from the published entry list rather than a figure stated on the overview page.",
+    "note": "Official LPGA overview confirms dates, venue, par, yardage, purse and Sei Young Kim as the 2025 winner. It does not state a field size. The 78 value used by the model is an explicit model input, not an official field count.",
     "source_tier": "official"
    },
    "model": {
@@ -311,7 +322,10 @@
      "strength_k": 24,
      "a": 0.3077,
      "b": 23.6923,
-     "basis": "Field size 78, not the generic 156 assumption used when a field is not published: the official competition source recorded for this row states a 78-strong field, so the prior mean is 1/78. See this row's official source for the field statement."
+     "basis": "Field size 78, not the generic 156 assumption: 78 is an explicit model input, not a verified competition field count. The prior mean is 1/78.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -350,7 +364,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GLF-05",
@@ -362,9 +376,9 @@
    "start": "25 Oct 17:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Steven Alker",
-   "olbg_tips": "2/7",
-   "olbg_pct": 29,
+   "olbg_pick": "Stewart Cink",
+   "olbg_tips": "3/12",
+   "olbg_pct": 25,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
    "olbg_event_id": 101903,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -380,17 +394,20 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 13.67
+     "single": 10.84
     },
     "probs": {
-     "single": 0.0695
+     "single": 0.0876
     },
     "prior": {
      "field": 156,
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -399,17 +416,17 @@
    },
    "pick": {
     "side": "single",
-    "label": "Steven Alker",
-    "prob": 0.0695,
-    "confidence": "LOW",
-    "score": 2,
+    "label": "Stewart Cink",
+    "prob": 0.0876,
+    "confidence": "MEDIUM",
+    "score": 3,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 0
+     "model_edge": 1
     },
-    "price": 13.67,
-    "american": 1267,
+    "price": 10.84,
+    "american": 984,
     "in_band": true,
     "band": [
      -250,
@@ -421,7 +438,7 @@
     "kickoff_started": false,
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": ""
    },
    "flags": [
@@ -429,7 +446,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T08:29:05Z"
   },
   {
    "ref": "GLF-06",
@@ -441,9 +458,9 @@
    "start": "24 Oct 11:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Mikael Lundberg",
-   "olbg_tips": "1/2",
-   "olbg_pct": 50,
+   "olbg_pick": "Peter Baker",
+   "olbg_tips": "2/6",
+   "olbg_pct": 33,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Senior_Italian_Open/5?event_id=101911",
    "olbg_event_id": 101911,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -460,17 +477,20 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.41
+     "single": 13.23
     },
     "probs": {
-     "single": 0.0444
+     "single": 0.0718
     },
     "prior": {
      "field": 156,
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -479,8 +499,8 @@
    },
    "pick": {
     "side": "single",
-    "label": "Mikael Lundberg",
-    "prob": 0.0444,
+    "label": "Peter Baker",
+    "prob": 0.0718,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -488,8 +508,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 21.41,
-    "american": 2041,
+    "price": 13.23,
+    "american": 1223,
     "in_band": true,
     "band": [
      -250,
@@ -505,18 +525,17 @@
     "note": ""
    },
    "flags": [
-    "small_sample_lt5_tips",
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GLF-07",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "JGTO \u2014 Fortinet Players Cup 2026",
    "home": "Fortinet Players Cup",
    "away": "",
    "start": "25 Oct 02:45",
@@ -528,29 +547,34 @@
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Fortinet_Players_Cup/5?event_id=101908",
    "olbg_event_id": 101908,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Narita Hills Country Club, Chiba, Japan",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official tournament page retrieved in this pass.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://www.jgto.org/en/tournament/3048",
+    "official_label": "JGTO official Fortinet Players Cup 2026 tournament summary and Round 1 leaderboard",
+    "official_datetime": "22-25 October 2026, Narita Hills Country Club, Chiba; official Round 1 scoring live",
+    "note": "JGTO confirms tournament identity, dates, venue, \u00a5150,000,000 prize fund and Field 96. The linked official field page states Confirmed:96 / Planned:96 and includes Ryosuke KINOSHITA. Fixture, entrant and field-size verification are recorded separately from current-form verification, which remains false.",
+    "official_field_url": "https://www.jgto.org/en/tournament/3048/player",
+    "official_field_label": "JGTO official field \u2014 Confirmed 96 / Planned 96; Ryosuke Kinoshita entered",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.41
+     "single": 19.76
     },
     "probs": {
-     "single": 0.0444
+     "single": 0.0481
     },
     "prior": {
-     "field": 156,
+     "field": 96,
      "strength_k": 24,
-     "a": 0.1538,
-     "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "a": 0.25,
+     "b": 23.75,
+     "basis": "Official field size 96: the independently cited competition field source states 96 entrants, so the prior mean is 1/96. This field verification is separate from fixture and current-form verification.",
+     "field_size_status": "official",
+     "field_size_source": "https://www.jgto.org/en/tournament/3048/player",
+     "field_size_source_tier": "official"
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -560,16 +584,16 @@
    "pick": {
     "side": "single",
     "label": "Ryosuke Kinoshita",
-    "prob": 0.0444,
+    "prob": 0.0481,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 21.41,
-    "american": 2041,
+    "price": 19.76,
+    "american": 1876,
     "in_band": true,
     "band": [
      -250,
@@ -587,11 +611,10 @@
    "flags": [
     "small_sample_lt5_tips",
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_official_verified"
    ],
-   "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "JGTO officially confirms a 96-player field and lists Ryosuke Kinoshita. OLBG consensus remains the carried 1/2 snapshot; the tournament is in Round 1 on the official site, so this is not fresh current-form evidence.",
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GLF-08",
@@ -632,7 +655,10 @@
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -672,47 +698,50 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GLF-09",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "Sunshine Tour \u2014 Stella Artois Players Championship 2026",
    "home": "Stella Artois Players Championship",
    "away": "",
    "start": "25 Oct 10:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Daniel van Tonder",
-   "olbg_tips": "1/2",
-   "olbg_pct": 50,
+   "olbg_tips": "2/8",
+   "olbg_pct": 25,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stella_Artois_Players_Championship/5?event_id=101912",
    "olbg_event_id": 101912,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Glendower Golf Club, Johannesburg, South Africa",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "note": "No official tournament page retrieved in this pass.",
-    "source_tier": "unclassified"
+    "status": "verified",
+    "official_url": "https://sunshinetour.com/tournament?id=226S&code=SAPC",
+    "official_label": "Sunshine Tour official Stella Artois Players Championship tournament page and live scoring",
+    "official_datetime": "22-25 October 2026, Glendower Golf Club; four rounds; Round 1 scoring live",
+    "note": "Official Sunshine Tour page confirms tournament identity, dates, Glendower, four rounds, par 72 / 7,542 yards and defending champion JC Ritchie. It provides entries and live Round 1 scoring links. No exact field count was established, so the model keeps its disclosed generic field assumption.",
+    "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.41
+     "single": 14.11
     },
     "probs": {
-     "single": 0.0444
+     "single": 0.0673
     },
     "prior": {
      "field": 156,
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -722,16 +751,16 @@
    "pick": {
     "side": "single",
     "label": "Daniel van Tonder",
-    "prob": 0.0444,
+    "prob": 0.0673,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 21.41,
-    "american": 2041,
+    "price": 14.11,
+    "american": 1311,
     "in_band": true,
     "band": [
      -250,
@@ -747,13 +776,11 @@
     "note": ""
    },
    "flags": [
-    "small_sample_lt5_tips",
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
-    "official_source_not_retrieved"
+    "field_size_prior_assumed"
    ],
-   "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "Sunshine Tour confirms the 22-25 October four-round event at Glendower and exposes live Round 1 scoring. OLBG Win Tournament support updated to Daniel van Tonder 2/8; field size remains the generic model assumption.",
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GLF-10",
@@ -793,7 +820,10 @@
      "strength_k": 24,
      "a": 0.1538,
      "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -833,7 +863,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "The listing shows the selection but no tip count, so no probability and no price can be originated.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "MTR-01",
@@ -873,7 +903,10 @@
      "strength_k": 12,
      "a": 0.5455,
      "b": 11.4545,
-     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure."
+     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -911,7 +944,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: Max Verstappen leads USGP Win Race at 12/33 win tips (36%, 3 tracked experts) and Fastest Qualifier at 5/7.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "MTR-02",
@@ -952,7 +985,10 @@
      "strength_k": 12,
      "a": 0.5455,
      "b": 11.4545,
-     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure."
+     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -991,7 +1027,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "MTR-03",
@@ -1004,8 +1040,8 @@
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Max Verstappen",
-   "olbg_tips": "4/6",
-   "olbg_pct": 67,
+   "olbg_tips": "4/7",
+   "olbg_pct": 57,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912",
    "olbg_event_id": 912,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -1022,17 +1058,20 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 3.74
+     "single": 3.95
     },
     "probs": {
-     "single": 0.254
+     "single": 0.2406
     },
     "prior": {
      "field": 21,
      "strength_k": 12,
      "a": 0.5714,
      "b": 11.4286,
-     "basis": "Field size 21, not the generic 22 assumption used when a field is not published: the official competition source recorded for this row states a 21-strong field, so the prior mean is 1/21. See this row's official source for the field statement."
+     "basis": "Field size 21, not the generic 22 assumption: 21 is an explicit model input, not a verified competition field count. The prior mean is 1/21.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1042,7 +1081,7 @@
    "pick": {
     "side": "single",
     "label": "Max Verstappen",
-    "prob": 0.254,
+    "prob": 0.2406,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -1050,8 +1089,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 3.74,
-    "american": 274,
+    "price": 3.95,
+    "american": 295,
     "in_band": true,
     "band": [
      -250,
@@ -1070,8 +1109,8 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Our price is originated as if the field were 21 (the 22-car assumption minus the named runner), and is labelled accordingly.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "Our price uses 21 as an explicit model input for a without-Kimi-Antonelli market (22-car assumption minus one). It is not an official field-size statement. OLBG support updated to Max Verstappen 4/7.",
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GRY-01",
@@ -1111,7 +1150,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1151,7 +1193,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Race name carries the UK clock time (11:14); OLBG's separate 'Today 06:14' label is ~5 hours earlier, which is why no start time is derived from either value (see FL-002).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GRY-02",
@@ -1191,7 +1233,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1231,7 +1276,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GRY-03",
@@ -1271,7 +1316,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1311,7 +1359,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GRY-04",
@@ -1351,7 +1399,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1391,7 +1442,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GRY-05",
@@ -1431,7 +1482,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1471,7 +1525,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "GRY-06",
@@ -1511,7 +1565,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1551,7 +1608,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-21T20:15:00Z"
   },
   {
    "ref": "RGL-01",
@@ -1591,7 +1648,10 @@
      "strength_k": 4,
      "a": 2.0,
      "b": 2.0,
-     "basis": "State of Origin is decided between two states (New South Wales and Queensland), so the series-winner market has two outcomes. This is a fact about the competition, not a field-size assumption."
+     "basis": "State of Origin is decided between two states (New South Wales and Queensland), so the series-winner market has two outcomes. This is a fact about the competition, not a field-size assumption.",
+     "field_size_status": "competition_format",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1627,11 +1687,11 @@
    },
    "flags": [
     "outright_no_opposing_side",
-    "field_size_prior_assumed",
+    "field_size_competition_format",
     "official_source_not_retrieved"
    ],
    "row_notes": "A three-game series winner market, originated as a two-sided market (New South Wales v Queensland).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "RGL-02",
@@ -1671,7 +1731,10 @@
      "strength_k": 6,
      "a": 0.5,
      "b": 5.5,
-     "basis": "Assumed 12-team Super League field for a Grand Final winner market. The competition's team count for 2027 is not published on the OLBG page; 12 is the 2026 competition size and is used as a disclosed assumption."
+     "basis": "Assumed 12-team Super League field for a Grand Final winner market. The competition's team count for 2027 is not published on the OLBG page; 12 is the 2026 competition size and is used as a disclosed assumption.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1712,7 +1775,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Three tips only.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "RGL-03",
@@ -1725,8 +1788,8 @@
    "market_type": "outright",
    "olbg_market": "Grand Final Winner",
    "olbg_pick": "Penrith Panthers",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600",
    "olbg_event_id": 2801600,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
@@ -1743,17 +1806,20 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 4.92
+     "single": 5.62
     },
     "probs": {
-     "single": 0.1933
+     "single": 0.1691
     },
     "prior": {
      "field": 17,
      "strength_k": 6,
      "a": 0.3529,
      "b": 5.6471,
-     "basis": "Assumed 17-team NRL field (the 2026 competition size). Not stated on the OLBG page; disclosed assumption."
+     "basis": "Assumed 17-team NRL field (the 2026 competition size). Not stated on the OLBG page; disclosed assumption.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1763,7 +1829,7 @@
    "pick": {
     "side": "single",
     "label": "Penrith Panthers",
-    "prob": 0.1933,
+    "prob": 0.1691,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -1771,8 +1837,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 4.92,
-    "american": 392,
+    "price": 5.62,
+    "american": 462,
     "in_band": true,
     "band": [
      -250,
@@ -1793,7 +1859,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GFA-01",
@@ -1804,7 +1870,7 @@
    "away": "",
    "start": "25 Jul 2027 10:30",
    "market_type": "outright",
-   "olbg_market": "",
+   "olbg_market": "Win Tournament",
    "olbg_pick": "Kerry",
    "olbg_tips": "5/7",
    "olbg_pct": 71,
@@ -1833,7 +1899,10 @@
      "strength_k": 10,
      "a": 0.3125,
      "b": 9.6875,
-     "basis": "Assumed 32-county field for the All-Ireland Senior Football Championship winner market. Not stated on the OLBG page; disclosed assumption."
+     "basis": "Assumed 32-county field for the All-Ireland Senior Football Championship winner market. Not stated on the OLBG page; disclosed assumption.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1873,7 +1942,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "OLBG shows no market name on this row (an OLBG listing quirk already logged as a finding) but the selection is a tournament winner, not a match bet.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GRY-07",
@@ -1914,7 +1983,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -1954,7 +2026,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GRY-08",
@@ -1995,7 +2067,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -2035,7 +2110,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GRY-09",
@@ -2076,7 +2151,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -2116,7 +2194,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   },
   {
    "ref": "GRY-10",
@@ -2157,7 +2235,10 @@
      "strength_k": 6,
      "a": 1.0,
      "b": 5.0,
-     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners."
+     "basis": "Assumed six-dog field, the standard UK GBGB race size. OLBG's race rows do not state the number of runners.",
+     "field_size_status": "model_input",
+     "field_size_source": "",
+     "field_size_source_tier": ""
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -2197,7 +2278,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T07:25:00Z"
   }
  ]
 }

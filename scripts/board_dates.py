@@ -23,7 +23,7 @@ import re
 import os
 
 CAPTURE_DATE = dt.date(2026, 10, 21)   # data/events.json -> "generated"
-SNAPSHOT_UTC = dt.datetime(2026, 10, 22, 7, 35, tzinfo=dt.timezone.utc)
+SNAPSHOT_UTC = dt.datetime(2026, 10, 22, 8, 29, 5, tzinfo=dt.timezone.utc)
 
 
 def snapshot_utc():
@@ -93,8 +93,8 @@ def resolve_start(label, capture=CAPTURE_DATE):
 # read as US Eastern (UTC-4 in October, i.e. EDT): 13:00 -> 19:00 CEST handball, 04:00 -> 13:00 Almaty,
 # 08:00 -> 14:00 Lyon, 09:00 -> 13:30-15:00 Brussels. That reading is used ONLY to publish a derived
 # UTC clock and to show whether a same-day kick-off has already passed at build time. It never moves a
-# kick-off date and it never changes a confidence grade (grades must stay reproducible from the
-# committed data, which the hourly CI rebuild re-derives).
+# kick-off date. A started HIGH pick is archived to MEDIUM analysis; the committed snapshot and the
+# OLBG_NOW_UTC override keep that decision reproducible instead of freezing picks as permanently live.
 EASTERN_OFFSET_HOURS = 4
 
 

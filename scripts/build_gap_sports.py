@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """build_gap_sports.py - originate our own prices for OLBG's outright/race markets.
 
-Input : data/raw/gap_sports_capture_20261021.json  (verbatim OLBG listing capture + our disclosed assumptions)
+Input : newest data/raw/gap_sports_capture_*.json (dated OLBG values + explicit evidence/assumptions)
 Output: data/gap_sports.json                       (rows in the same schema as data/events.json)
 
 Why this exists
@@ -21,8 +21,10 @@ disclosed assumption (the size of the field), exactly as the two-sided model doe
     offered      decimal = (1 - 0.05) / p            # 5% overround, same as the two-sided model
 
 N is the field size and k is the prior strength; both are listed per basis below and copied into the
-output so every number can be reproduced and challenged. Nothing here is a verified fact.
+output so every number can be reproduced and challenged. Field size is model input unless a row
+carries an independent official field-size source; fixture verification never implies field verification.
 """
+import glob
 import json
 import os
 from urllib.parse import urlparse
@@ -66,7 +68,10 @@ def graded_verification(v):
                        "than verified.").strip()
     return out
 
-SRC = os.path.join(ROOT, "data/raw/gap_sports_capture_20261021.json")
+_captures = sorted(glob.glob(os.path.join(ROOT, "data/raw/gap_sports_capture_*.json")))
+if not _captures:
+    raise SystemExit("no dated gap-sports capture found")
+SRC = _captures[-1]
 OUT = os.path.join(ROOT, "data/gap_sports.json")
 
 OVERROUND = 0.05
@@ -120,24 +125,30 @@ def main() -> None:
         k = STRENGTH[basis]
         a, b = k / field, k - k / field
 
-        # The published basis text must describe the field actually used for this row. When a
-        # field_override replaces the generic assumption, say so and name the real number instead
-        # of repeating "assumed 156-player field" next to field=120.
-        field_basis = basis_table[basis]["basis"]
-        if field != default_field:
-            if e["verification"].get("status") == "verified":
-                field_basis = (
-                    f"Field size {field}, not the generic {default_field} assumption used when a field "
-                    f"is not published: the official competition source recorded for this row states a "
-                    f"{field}-strong field, so the prior mean is 1/{field}. See this row's official "
-                    f"source for the field statement."
-                )
-            else:
-                field_basis = (
-                    f"Field size {field}, not the generic {default_field} assumption: this row is a "
-                    f"derived market rather than a published field, so {field} is an explicit model "
-                    f"input recorded here and not a verified competition fact."
-                )
+        # Fixture verification and field-size verification are deliberately independent. An override
+        # must carry an explicit boolean; only a separate official field URL can promote it to fact.
+        if field != default_field and "field_size_verified" not in e:
+            raise SystemExit(f"{e['ref']}: field_override requires explicit field_size_verified")
+        field_official = e.get("field_size_verified") is True
+        field_status = "official" if field_official else basis_table[basis].get("status", "model_input")
+        field_source = e.get("field_size_source", "") if field_official else ""
+        if field_official:
+            if not field_source or source_tier(field_source) not in ("official", "club-official"):
+                raise SystemExit(f"{e['ref']}: official field size requires an official field_size_source")
+            field_basis = (
+                f"Official field size {field}: the independently cited competition field source states "
+                f"{field} entrants, so the prior mean is 1/{field}. This field verification is separate "
+                f"from fixture and current-form verification."
+            )
+        elif field != default_field:
+            field_basis = (
+                f"Field size {field}, not the generic {default_field} assumption: {field} is an explicit "
+                f"model input, not a verified competition field count. The prior mean is 1/{field}."
+            )
+        else:
+            field_basis = basis_table[basis]["basis"]
+        if field_status == "competition_format":
+            field_source = e["verification"].get("official_url", "")
 
         won, total = e["tips_won"], e["tips_total"]
         flags = []
@@ -152,7 +163,9 @@ def main() -> None:
                 flags.append("small_sample_lt5_tips")
         if e["market_type"] == "outright":
             flags.append("outright_no_opposing_side")
-        flags.append("field_size_prior_assumed")
+        flags.append({"official": "field_size_official_verified",
+                      "competition_format": "field_size_competition_format"}.get(
+                          field_status, "field_size_prior_assumed"))
         if e["verification"]["status"] != "verified":
             flags.append("official_source_not_retrieved")
 
@@ -200,7 +213,10 @@ def main() -> None:
                 "prices": ({"single": odds} if odds else {}),
                 "probs": ({"single": prob} if prob else {}),
                 "prior": {"field": field, "strength_k": k, "a": round(a, 4), "b": round(b, 4),
-                          "basis": field_basis},
+                          "basis": field_basis,
+                          "field_size_status": field_status,
+                          "field_size_source": field_source,
+                          "field_size_source_tier": source_tier(field_source) if field_source else ""},
                 "notes": [
                     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
                     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page.",
@@ -227,7 +243,7 @@ def main() -> None:
             },
             "flags": flags,
             "row_notes": e["row_notes"],
-            "captured_at": cap["captured_at"],
+            "captured_at": e.get("olbg_captured_at", cap["captured_at"]),
         })
 
     payload = {

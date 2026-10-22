@@ -1,103 +1,96 @@
 # Method
 
-This document describes what the board actually does, as of the 2026-10-21 evening pass. Every number here is
-reproducible by running the scripts named in section 7.
+This document describes the published board at the **2026-10-22T08:29:05Z snapshot**. The two dashboard tracks share evidence but use separate, documented pricing implementations. Generated JSON, not this prose, is authoritative for row-level values.
 
-## 1. Scope
+## 1. Scope and current coverage
 
-Included (15 sports, 137 rows): Tennis 14, Basketball 14, Ice Hockey 7, Cricket 9, Baseball 1, Volleyball 15,
-Darts 14, Snooker 6, Rugby Union 15, Rugby League 3, Handball 15, Gaelic Football 5, Golf 10, Motor Racing 3,
-Greyhounds 6.
+The root board contains **228 rows: 201 two-sided fixtures plus 27 outright/race rows**, across 15 included sports:
 
-Excluded as instructed: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing, cycling,
-specials. Gaelic football, greyhound racing and motor racing are **not** on that list, so they are included; each
-carries the ambiguity on the Flagged for Review page.
+- Tennis 37, Handball 31, Basketball 30, Volleyball 29, Darts 16, Rugby Union 15, Snooker 14, Ice Hockey 13;
+- Cricket 10, Golf 10, Greyhounds 10, Gaelic Football 6, Motor Racing 3, Rugby League 3, Baseball 1.
 
-Of the 137 rows, 114 are two-sided fixtures and 23 are outright or race markets (one selection, no opposing side).
+The `/olbg/` audit track contains **270 rows** across the same 15 sports. Soccer/football, American football, boxing, UFC/MMA, hurling, horse racing, cycling and specials are excluded. Gaelic football, greyhound racing and motor racing are not named by the exclusion list and remain included with their ambiguity notes.
 
-## 2. Capture
+## 2. Capture and provenance
 
-Each OLBG sport listing was read and transcribed row by row into `data/sports/<sport>.json` (fixtures) and
-`data/raw/gap_sports_capture_20261021.json` (outright/race markets), keeping OLBG's own strings — start label,
-market, most-tipped selection, tip count, percentage — plus the event URL and event id. Nothing is normalised
-except team-name aliases, which are published in `ALIASES` in `scripts/model.py` (name normalisation only, no value
-changed).
+Historical files in `data/raw/` are not rewritten. The current merged harvest is `olbg-harvest-20261022T0829Z.tsv`: it carries the 07:25Z primary rows verbatim and re-reads OLBG event ids **101904, 101903 and 536021** at 08:29Z. It is not represented as a fresh all-sport crawl or as Load-More pagination coverage.
 
-## 3. Verify — and the source tier that decides the label
+The root model applies `olbg-root-overlay-20261022T0829Z.json` only to explicitly named OLBG fields on matching event ids. Every overlaid row carries capture date `2026-10-22`, preventing a new “Today” label from being resolved against the previous day's date. Official names, verification and model inputs are not inferred from the overlay. Outright/race rows use the newest dated `gap_sports_capture_*.json`, with per-row capture timestamps.
 
-A row counts as **verified** only when the specific fixture appears on:
+Raw OLBG labels remain visible when an official source disagrees. For Mobis–Changwon, for example, the raw label resolves to 23 October while KBL officially lists 22 October at 19:00 KST; the official `2026-10-22T10:00:00Z` instant governs expiry and the conflict is flagged as `FL-068`.
 
-* the competition's own site (governing body, league or tour), e.g. `nba.com`, `nhl.com`, `mlb.com`,
-  `atptour.com`, `wst.tv`, `cricket.co.za`, `stats.unitedrugby.com`, `prod2.lnr.fr`, `top14.lnr.fr`,
-  `ice.hockey`, `euroleaguebasketball.net`, `eurohandball.com`, `ticker.ehf.eu`, `pdc.tv`, `formula1.com`; **or**
-* one of the two clubs' own sites (`hapoelbc.com`, `hcb.net`, `kac.at`) — tier `club-official`.
+## 3. Verification tiers and independent field evidence
 
-A reputable third party (ESPN, ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects,
-tipsterio.de) is recorded as **corroborated**: the link and label stay, the tier is shown in the row, the row earns
-**no** verification point, and it is listed on Flagged for Review. If nothing is found, the row is **unverified**
-and its official fields stay blank — never inferred.
+A root fixture is **verified** only by a competition governing body/league/tour or a club-official source. A reputable third party is only **corroborated**, earns no verification points and cannot be HIGH. Missing evidence stays blank and **unverified**. The current root split is **215 verified, 0 corroborated and 13 unverified**. The `/olbg/` track separately records 216 `verified`, 7 `verified_market_row`, 2 `verified_secondary_only` and 45 `unverified` rows.
 
-The tier register lives in `data/official.json` → `source_tiers`, and `scripts/check_board.py` fails the build if a
-row's status disagrees with its tier (an official host may not be labelled corroborated, a third-party host may not
-be labelled verified, and a corroborated row may not be graded HIGH).
+Fixture, current-form, entrant and field-size evidence are different claims:
 
-Current state from the 2026-10-21 captured board: **115 verified** (109 fixtures plus 6 outright/race events), **4 corroborated fixtures**, and **18 unverified** (17 outright/race rows and one fixture). Counts are recalculated by `scripts/check_board.py`; none means the source was refreshed on 2026-10-22.
+- `field_size_status=official` requires an independent official field URL and is checked by both pipelines;
+- `field_size_status=model_input` means the number is an assumption used for pricing, not an official fact;
+- `competition_format` covers a known format such as two-state State of Origin without pretending an entrant count was harvested.
 
-## 4. Originate lines — `scripts/model.py`, `scripts/build_gap_sports.py`
+JGTO explicitly states **Confirmed 96 / Planned 96** for the Fortinet Players Cup, so that field is official. Bermuda 120, BMW Ladies 78 and the without-Antonelli 21-runner value remain model inputs even though their tournaments are verified. See `FL-066`.
 
-Every price is ours. There are no bookmaker quotes anywhere in the repository.
+## 4. Independent line origination
 
-| Market | Rule |
-|---|---|
-| Win — rugby union (URC, Pro D2, Top 14) | exp = mean(own points-for/G, opponent points-against/G); home +3.0 pts; margin = difference; sd 13 pts; win/draw/loss from the normal CDF with a ±0.5 draw band. |
-| Win — ice hockey (NHL, ICEHL, SHL) | exp goals per side from official GF/G and GA/G; home +0.15 goals; P(home) = logistic(1.0 × goal difference). |
-| Win — everything else | Probability = the OLBG consensus tip share, capped to [2%, 98%] because 0% and 100% cannot be priced. No draw is priced. |
-| Handicap — official form | Line = projected margin forced to a half-point, quoted 1.91 each side. |
-| Handicap — no official table | margin = σ × z(p), with σ per sport: Tennis 4.5 games, Basketball 13.0 points, Handball 7.0 goals, Baseball 3.0 runs, Volleyball 1.6 sets, Snooker 1.4 frames. p is capped at 0.85 so a three-tip sample cannot set an extreme line. Labelled `consensus-scaled`. |
-| Handicap — cricket, darts, Gaelic football | **Not quoted.** OLBG states no format for cricket or darts (a runs line differs by an order of magnitude between T20 and a Test; a legs line needs the leg format) and no official scoring record was retrieved for the club Gaelic fixtures. |
-| Total | **Only** where an official scoring baseline exists (rugby union points, ice-hockey goals). Line = projected combined score floored to the next half point, 1.91 each side. Everywhere else the cell is empty and the reason is on the page. |
-| Outright / race | `p = (wins + a) / (total + k)` with a Beta(a, b) prior whose mean is 1/N (N = field size) and strength k; `odds = 0.95 / p`. N and k are disclosed per row. |
-| Overround | 5% total, allocated proportionally. |
+All published prices are originated here, not bookmaker quotations.
 
-**Disclosed assumptions** (chosen constants, not measured facts): rugby home advantage +3.0 points and margin
-sd 13.0; NHL/ICEHL/SHL home advantage +0.15 goals and logistic slope 1.0; the per-sport handicap scales in the
-table above; the outright field sizes and prior strength. All are printed on the site's method page.
+### Root track
 
-## 5. Pick and grade
+`scripts/model.py` uses official league tables, standings, rankings and scoring data where available for rugby union, ice hockey, EuroLeague basketball, baseball, cricket, darts, tennis, handball, snooker and volleyball. Where no defensible official-form model exists, it uses a shrunk OLBG consensus input and caps confidence accordingly. Exact selection-label aliases are explicit and source-backed; fuzzy team matching is not used.
 
-Pick = the highest model probability. Confidence is a 3-factor score:
+The root board currently has **224 priced rows, 186 handicap lines and 99 totals**. A blank price means no defensible input, not a value to fill by guessing. Handicaps use projected margins or disclosed sport-specific scales. Totals require a documented scoring baseline.
 
-| Factor | Points |
-|---|---|
-| Fixture verified against an official source (tier official or club-official) | +2 |
-| Official current-form data for **both** sides | +2 |
-| Model probability of the pick strictly > 70% | +2 (or +1 if ≥ 55%) |
+`scripts/build_gap_sports.py` prices outright/race markets with:
 
-HIGH ≥ 6 · MEDIUM 3–5 · LOW ≤ 2. A row whose only input is a public tip share therefore cannot reach HIGH, and a
-row that loses its official source can drop a grade — which is what happened to IHO-01 and IHO-03 in the
-source-tier audit.
-
-Current fixture split is generated from `data/events.json` and the 23 outright/race rows from `data/gap_sports.json`; this is a dated capture, not a live odds feed. Current row counts and confidence grades are shown on the dashboard. At the 2026-10-22 audit, 13 fixture picks remained HIGH after applying the strict >70% probability rule.
-
-## 6. Predictions
-
-Written only for HIGH picks. Each is at least 30 words, names the selection unambiguously (money line, handicap or
-total), gives the team or player, current form and recent results, and links the official source for every factual
-claim. Thirteen predictions remain, one for each current HIGH row. Two prior picks (IHO-06 at 65.13% and RGU-14 at 66.85%) were downgraded to MEDIUM and their predictions removed from the HIGH-only list when the threshold was raised from 65% to strictly above 70%.
-
-## 7. Build and check
-
-```bash
-python3 scripts/model.py            # data/events.json
-python3 scripts/build.py            # official-feed pages
-python3 scripts/build_gap_sports.py # data/gap_sports.json
-python3 scripts/build_site.py       # site/
-python3 scripts/build_site.py --snapshot  # mirror site/ to the repo root (legacy Pages publisher)
-python3 scripts/check_board.py      # row invariants, tiers, prices, predictions
-python3 scripts/check_links.py      # no broken local links
-python3 -m unittest discover -s tests
+```text
+a = k / N
+p = (wins + a) / (total + k)
+decimal price = 0.95 / p
 ```
 
-`check_board.py` enforces: an OLBG source link with an event id on every row; status/tier agreement; no official
-value on an unverified row; decimal prices that recompute; every HIGH row carries a 30+ word sourced prediction;
-no merge-conflict markers in any data file. The latest local checks are run during this audit and recorded in `COORDINATION.md`; the committed source capture itself is dated 2026-10-21. No build can certify that captured OLBG rows are still current without re-fetching their source pages.
+`N` and `k` are published per row. The field-provenance rules in section 3 apply independently of the formula.
+
+### `/olbg/` track
+
+`tools/originate.py` uses Beta/Dirichlet shrinkage, disclosed home-edge logits and the separately audited `OFFICIAL_STRENGTH` inputs. It publishes match-winner, handicap/spread, totals and outright fields where supported. Current grades are **31 HIGH, 95 MEDIUM and 144 LOW**.
+
+Both tracks use a 5% overround and standard decimal/American conversion.
+
+## 5. HIGH band and freshness
+
+The requested band is **-250 through +10000 American**, equivalent to **1.40 through 101.00 decimal**. On `/olbg/`, HIGH also requires fair probability strictly below 70%. On the root model, the 5% overround and 1.40 floor already prevent a pick at or above roughly 68% true probability from being HIGH.
+
+Root confidence starts with a six-point evidence score: two points for an official fixture, two for official form and two for a model probability of at least 55%. HIGH then additionally requires an in-band price and a start that has not passed. Started HIGH candidates become MEDIUM analysis; they do not remain live recommendations with a cosmetic badge.
+
+The committed clock is `SNAPSHOT_UTC=2026-10-22T08:29:05Z`. `OLBG_NOW_UTC=YYYY-MM-DDTHH:MMZ` reproduces another snapshot, and `OLBG_AS_OF=YYYY-MM-DD` overrides date-level expiry. At 08:29, four root and four `/olbg/` written pieces moved from HIGH to archived analysis.
+
+## 6. Written predictions
+
+The root board has **62 written pieces: 41 HIGH and 21 analysis**. `/olbg/` has **40: 31 HIGH and 9 analysis**. Every piece exceeds 30 words, names an explicit selection and cites sources. HIGH pieces use verified team/player, current-form and recent-history evidence. Archived analysis stays visible with its withdrawal reason.
+
+Both checkers compare each written selection to its originated row and validate quoted prices. This prevents a refreshed line from leaving stale prose or a different selection behind.
+
+## 7. Reproduce and verify
+
+Run the workflow order:
+
+```bash
+python3 scripts/update.py
+python3 -m unittest discover -s tests -v   # 38 tests
+python3 scripts/build.py
+python3 scripts/build_gap_sports.py
+python3 scripts/model.py
+python3 scripts/build_site.py
+python3 scripts/check_board.py
+python3 tools/build_dataset.py
+python3 tools/originate.py
+python3 tools/build_site.py
+python3 tools/check_site.py
+mkdir -p site/olbg && cp -r olbg-board/. site/olbg/
+python3 scripts/build_site.py --snapshot
+python3 scripts/check.py
+python3 scripts/check_links.py
+```
+
+`check_board.py` enforces source tiers, outright arithmetic, independent field provenance, band/freshness rules, selection/price consistency and prediction length. `tools/check_site.py` additionally checks the `/olbg/` host allowlist and every generated internal link. Structural checks cannot prove that a source supports a claim; manual review links and all remaining irregularities stay on the Flagged for Review pages.
