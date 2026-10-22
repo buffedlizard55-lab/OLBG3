@@ -85,6 +85,15 @@ def band_badge(r):
 n_events = len(EVENTS)
 n_fixtures = sum(1 for r in EVENTS if r.get("market_type", "fixture") == "fixture")
 n_outrights = n_events - n_fixtures
+# Archive counters are computed from the data at build time, never hard-coded: the published
+# finding used to say "Seventy of 137 rows" long after the board had grown to 196 rows.
+n_archived = sum(1 for r in EVENTS
+                 if (r.get("pick") or {}).get("start_iso") and r["pick"]["start_iso"] < BUILT)
+n_live = n_events - n_archived
+_live_dates = sorted((r.get("pick") or {}).get("start_iso") for r in EVENTS
+                     if (r.get("pick") or {}).get("start_iso") and r["pick"]["start_iso"] >= BUILT)
+_live_first = _live_dates[0] if _live_dates else None
+_live_last = _live_dates[-1] if _live_dates else None
 by_sport = defaultdict(list)
 for r in EVENTS:
     by_sport[r["sport"]].append(r)
@@ -911,8 +920,10 @@ IRREGULARITY_EXTRA = [
  ("A Pro D2 points-difference rank in the RGU-09 write-up was wrong",
   "The first draft said Grenoble's +37 differential &lsquo;ranks fifth&rsquo;. The official LNR table ranks it fourth behind Oyonnax (+159), Provence (+64) and Brive (+42). Corrected to fourth. The underlying figures (213 scored, 176 conceded, 22 points, third place) were unchanged, so the price and the grade did not move.",
   "https://prod2.lnr.fr/classement"),
- ("Seventy of 137 rows had already kicked off when this build ran",
-  "The board is a verbatim capture of OLBG's listings at 07:05Z on 21 October 2026, and OLBG labels those fixtures &lsquo;Today&rsquo;. At this 22 October rebuild, 70 rows carry a 21 Oct date, so their kick-offs have passed. They are kept, tagged <em>archive</em> and excluded from high-confidence grading rather than silently re-dated. The remaining 67 rows run from 22 Oct to 25 Jul 2027. A full re-capture and re-verification is the open task recorded in COORDINATION.md; none of the archived values was altered.",
+ (f"{n_archived} of {n_events} rows carry a kick-off date before this {BUILT} build",
+  f"The board is a verbatim capture of OLBG's listings taken at 01:26&ndash;01:32Z on 22 October 2026 (a clock OLBG labels &lsquo;Today&rsquo; for the 21st) and, before that, at 07:05Z on 21 October. At this {BUILT} rebuild the archive test answers for itself: <strong>{n_archived}</strong> rows are dated before today, so their kick-offs have passed. They are kept, tagged <em>archive</em> and excluded from high-confidence grading rather than silently re-dated, and <strong>{n_live}</strong> rows"
+  + (f" run from {_live_first} to {_live_last}." if _live_first else " remain.")
+  + " The full 15-sport re-capture was completed on 22 October (<code>data/raw/olbg-harvest-20261022.tsv</code>) and each newly added row carries its own governing-body confirmation in <code>data/verifications.json</code>; no archived value was altered. This count is recomputed on every build, so it cannot go stale the way a hand-written figure would.",
   "https://www.olbg.com/betting-tips"),
  ("Empirical proof of OLBG IP-timezone rendering across fetches",
   "Comparing fetches across US Eastern (EDT, UTC-4) and UK (BST, UTC+1) endpoints proved that OLBG dynamically shifts every bare timestamp into the requester&rsquo;s geolocation timezone without printing a zone label: MIL Bucks @ WAS Wizards renders as <code>Today 19:10</code> in EDT and <code>Tomorrow 00:10</code> in BST; RK Zagreb vs PSG renders as <code>12:45</code> in EDT and <code>17:45</code> in BST against the official <code>18:45 CEST</code> EHF throw-off.",

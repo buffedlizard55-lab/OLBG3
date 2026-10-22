@@ -17,7 +17,30 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `23` in-band `HIGH` predictions across 10 sports, `51` flagged items) |
+| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `23` in-band `HIGH` predictions across 10 sports, `53` flagged items) |
+
+## Latest audit — `session-e689d84a`, 2026-10-22 09:05 UTC
+
+Independent re-read of the live competition pages behind the published HIGH write-ups, and repair of what did not hold up.
+Register: **53 items** (`flagged.html`, `/olbg/flagged.html`).
+
+| Finding | What was wrong | Fix |
+|---|---|---|
+| FL-052 | Five `/olbg/` write-ups repeated defects already corrected on the root board, because the two tracks keep separate prediction files: `TEN-902110` dated Khachanov's 6-2 6-4 win over Sakamoto to "Tuesday" (the ATP results page puts that round of 32 on **Wednesday 21 October**); `TEN-902071` and `TEN-902063` asserted unverified weekdays; `TEN-902072` named Ningbo's "Plexipave" surface; `GLF-101904` re-used the withdrawn "far ahead of Ben James" comparison and the word "confirmed" for a 120-player field | Weekday corrected or removed, surface brand dropped, field size labelled a disclosed model input, unverifiable tip comparison removed. No price, probability or grade changed |
+| FL-053 | The published finding "Seventy of 137 rows … the remaining 67 rows" was written for a 137-row board; the live board holds 196, so the 2026-10-22 figures are **74 archived / 122 live** — and the same sentence still called the 15-sport re-capture an open task after it had been completed | `scripts/build_site.py` now computes both counts from the data on every build, and the sentence cites `data/raw/olbg-harvest-20261022.tsv` |
+
+Verified verbatim in this pass: [ATP Almaty results](https://www.atptour.com/en/scores/current/almaty/9410/results) and
+[Day 6 order of play](https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule) (Khachanov d. Sakamoto 6-2 6-4 on
+Wed 21 Oct; Machac d. Nurlanuly 6-2 6-0; Marozsan d. Skatov 7-5 7-6(4); Machac v Khachanov NB 13:00 and Bublik v Marozsan NB 19:30
+on Thu 22 Oct), [ATP Lyon results](https://www.atptour.com/en/scores/current/lyon/496/results) (Nakashima d. Medjedovic
+7-6(4) 6-7(4) 6-2; Gojo d. Fery 6-3 7-6(2); Altmaier d. Droguet 5-7 7-6(4) 7-6(3); Jacquet d. Berrettini 7-6(4) 7-5; Van Assche d.
+Tabur 7-6(3) 6-3; Wawrinka d. Landaluce 6-3 6-7(2) 7-6(5)), [EuroLeague Round 7 game facts](https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)
+(Panathinaikos 5-1 v Baskonia 1-5 on 22 Oct at 14:15, league-low 73.0 points allowed) and the
+[SHL table and 22 October schedule](https://stats.swehockey.se/ScheduleAndResults/Overview/20961) (Färjestad 10 GP 8-2-0, 27 pts,
+40:11; Brynäs 5th 28:23; Örebro 9th 20:29; Timrå 10th 20:23, 12 pts; Örebro-Brynäs and Timrå-Färjestad both 19:00).
+`wtatennis.com` scores/draws (client-side rendering) and `pdc.tv` (cookie wall) could not be read, so rows resting only on those
+pages were not re-certified by this session. No new HIGH prediction was written: every remaining in-band, verified `/olbg/`
+candidate without a written piece was a 2026-10-22 fixture at or past kick-off.
 
 ## Latest audit — independent pass, 2026-10-22 07:20 UTC
 
@@ -109,7 +132,7 @@ python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 | `data/predictions.json` | **`47` written pieces**: **`33` live `HIGH` predictions** + `14` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
 | `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
-| `data/flagged.json` | **`51` flagged review items** with direct source links | both tracks |
+| `data/flagged.json` | **`53` flagged review items** with direct source links | both tracks |
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)
 
