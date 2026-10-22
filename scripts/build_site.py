@@ -362,7 +362,9 @@ index = head("Dashboard") + f"""
   in the handball. Each row therefore shows a derived UTC kick-off, and rows whose kick-off was already running when this page
   was built carry a <span class="tag">started</span> marker ({n_started} of {n_events} rows, {n_hi_started} of them graded HIGH).
   The marker is information, not a grade change: the grades are re-derived hourly from committed data, so rewriting them against
-  the wall clock would make the published board irreproducible.
+  the wall clock would make the published board irreproducible. The derived clock is a reading of OLBG&rsquo;s label, not an official
+  start: where a verification block publishes the organiser&rsquo;s own time, that time governs. VLB-01 is the one live row where the
+  two disagree by an hour and it is flagged.
 </div>
 
 <div class="cards">
