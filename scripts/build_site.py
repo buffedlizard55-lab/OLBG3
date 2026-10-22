@@ -14,7 +14,8 @@ os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
 # official-feed track's pages (built by scripts/build.py, which runs before this script).
-NAV = [("index.html", "Dashboard"), ("predictions.html", "Predictions"), ("lines.html", "Originated lines"),
+NAV = [("index.html", "Dashboard"), ("brief.html", "Brief coverage"), ("predictions.html", "Predictions"),
+       ("lines.html", "Originated lines"), ("reconcile.html", "Cross-track review"),
        ("verification.html", "Verification"), ("source-health.html", "Source health"), ("discovery.html", "Current discovery"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
        ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review"),
@@ -115,7 +116,7 @@ n_total = sum(1 for r in EVENTS if r["model"].get("total"))
 # ---------- shared chrome ----------
 def head(title, depth=0):
     p = "../" * depth
-    primary = {"index.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
+    primary = {"index.html", "brief.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
     mainlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f in primary)
     morelinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f not in primary)
     navlinks = mainlinks + '<details class="nav-more"><summary>Data &amp; method</summary><div>' + morelinks + '</div></details>' 
@@ -253,6 +254,18 @@ HANDICAP_GAP = {
 TOTAL_GAP = ("Not originated: we captured no official scoring baseline for this sport in this pass, so any total would be a "
              "number we invented. The field is left empty on purpose and the gap is listed on the Flagged for Review page.")
 
+# ---------- brief coverage accounting ----------
+# data/brief_coverage.json is produced by scripts/brief_coverage.py from the same committed rows and
+# is re-checked by scripts/check_board.py, so these numbers cannot drift away from the board.
+BRIEF = json.load(open(os.path.join(ROOT, "data/brief_coverage.json")))
+BT = BRIEF["totals"]
+PE = BRIEF["prose_evidence"]
+
+
+def pct(n, d):
+    return f"{100.0 * n / d:.0f}%" if d else "&mdash;"
+
+
 # ---------- sport pages ----------
 os.makedirs(os.path.join(OUT, "sports"), exist_ok=True)
 for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
@@ -301,6 +314,185 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
 {(f'<h2>Match totals we originated ({len(tot)})</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody>{tot_rows}</tbody></table></div>') if tot else '<h2>Match totals</h2><p class="dim">' + TOTAL_GAP + '</p>'}
 """ + foot(1)
     open(os.path.join(OUT, "sports", meta["slug"] + ".html"), "w").write(page)
+
+# ---------- brief coverage page ----------
+brief_rows = ""
+for srow in BRIEF["sports"]:
+    slug = (SPORT_META.get(srow["sport"]) or {}).get("slug", "")
+    name = f'<a href="sports/{slug}.html">{e(srow["sport"])}</a>' if slug else e(srow["sport"])
+    markets_cell = (f'{srow["root_priced_win"]} win &middot; {srow["root_handicap"]} handicap &middot; '
+                    f'{srow["root_total"]} total &middot; {srow["root_outright"]} outright')
+    status = ('<span class="pill high">target met</span>' if srow["meets_target"]
+              else f'<span class="pill low">{srow["shortfall"]} short</span>')
+    brief_rows += (f'<tr><td>{name}</td><td class="num">{srow["root_rows"]}</td>'
+                   f'<td class="num">{srow["root_verified"]}</td>'
+                   f'<td class="small">{markets_cell}</td>'
+                   f'<td class="num">{srow["root_high"]}</td>'
+                   f'<td class="num">{srow["olbg_rows"]} / {srow["olbg_high"]}</td>'
+                   f'<td class="num"><strong>{srow["live_high_union"]}</strong></td>'
+                   f'<td class="num">{srow["target"]}</td>'
+                   f'<td>{status}</td></tr>')
+
+reason_blocks = ""
+for srow in BRIEF["sports"]:
+    if srow["meets_target"]:
+        continue
+    items = "".join(f"<li>{e(r)}</li>" for r in srow["reasons"]) or \
+            "<li>No mechanical blocker recorded; the sport simply has fewer in-band, verified, priced fixtures than the target.</li>"
+    reason_blocks += (f'<details class="sport-reasons"><summary>{e(srow["sport"])} '
+                      f'&mdash; {srow["live_high_union"]} of {srow["target"]} live HIGH picks</summary>'
+                      f'<ul class="small">{items}</ul></details>')
+
+live_pick_rows = ""
+for srow in BRIEF["sports"]:
+    for p_ in srow["live_picks"]:
+        ref = (f'<a href="sports/{(SPORT_META.get(p_["sport"]) or {}).get("slug","")}.html#row-{e(p_["root_ref"])}">{e(p_["root_ref"])}</a>'
+               if p_.get("root_ref") else '<span class="dim">root: none</span>')
+        olref = (f'<a href="olbg/picks.html">{e(p_["olbg_ref"])}</a>'
+                 if p_.get("olbg_ref") else '<span class="dim">/olbg/: none</span>')
+        tracks = " + ".join("root" if t == "root" else "/olbg/" for t in p_["tracks"])
+        live_pick_rows += (f'<tr><td>{e(p_["sport"])}</td><td>{ref}</td><td>{olref}</td>'
+                           f'<td class="pick">{e(p_["selection"] or "")}</td>'
+                           f'<td class="num">{money(p_["price"])}</td><td class="num">{e(p_["american"] or "")}</td>'
+                           f'<td class="small">{e(tracks)}</td></tr>')
+if not live_pick_rows:
+    live_pick_rows = '<tr><td colspan="7">No live HIGH pick on either track.</td></tr>'
+
+briefpage = head("Brief coverage") + f"""
+<section class="pagehead">
+  <p class="eyebrow">THE BRIEF, COUNTED HONESTLY</p>
+  <h1>Brief coverage: {BT['live_high_union']} of {BT['target_picks_if_all_sports_met']} targeted picks</h1>
+  <p class="lede">The brief asks for the <strong>five highest-confidence picks for every covered sport, every day</strong>, on
+  matches inside the <strong>-250 to +10000</strong> US-odds band (decimal 1.40&ndash;101.00), each with a written prediction of at least
+  30 words. This page counts what is actually published against that target, per sport, and states the mechanical reason each sport falls
+  short. It is an accounting of the committed board, not a promise that five exist.</p>
+  <p class="stamp">Publication clock {e(BRIEF['source_clocks']['root_publication_clock'])} &middot;
+  capture {e(BRIEF['source_clocks']['root_capture'])} &middot; built {e(BRIEF['source_clocks']['root_built'])}</p>
+</section>
+
+<div class="notice">
+  <strong>No source was re-fetched for this page.</strong> It is computed from the committed rows by
+  <code>scripts/brief_coverage.py</code> and re-checked by <code>scripts/check_board.py</code>. The counts are not a win rate, not a
+  calibrated probability and not bookmaker odds. A distinct pick is counted once even when both tracks publish the same fixture
+  (they are de-duplicated on the OLBG event id). Live re-verification is blocked in this environment by the outbound allowlist
+  described in FL-077, so no <code>checked_at</code>, quote or verification label was renewed.
+</div>
+
+<div class="cards">
+  <div class="card"><span class="k">{BT['sports_listed']}</span><span class="l">sports covered by the brief</span></div>
+  <div class="card"><span class="k">{BT['sports_meeting_target']}</span><span class="l">sports with 5+ live HIGH picks</span></div>
+  <div class="card"><span class="k">{BT['live_high_union']}</span><span class="l">distinct live HIGH picks</span></div>
+  <div class="card warn"><span class="k">{BT['shortfall_to_target']}</span><span class="l">picks short of the daily target</span></div>
+</div>
+
+<h2>Per-sport accounting</h2>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th class="num">Root rows</th><th class="num">Verified</th><th>Markets originated (root)</th>
+<th class="num">Root HIGH</th><th class="num">/olbg/ rows / HIGH</th><th class="num">Distinct live HIGH</th>
+<th class="num">Target</th><th>Against target</th></tr></thead>
+<tbody>{brief_rows}</tbody></table></div>
+<p class="dim">Margins, spreads, puck lines and run lines are originated where a scoring unit and an official baseline exist; match
+totals only where the official scoring rates support a projected combined score. A blank market is a withheld guess, not a zero.
+The full market-level detail per sport is on each sport page.</p>
+
+<h2>Why each sport falls short</h2>
+<p class="legend">Each reason is counted from the published row fields: no official current-form input for both sides, a HIGH-grade
+evidence score that sits outside the price band, an official-start or source-freshness gate, no defensible win price, or an
+unverified fixture. Rows can fail more than one test, so the counts overlap and are not meant to add up.</p>
+{reason_blocks}
+
+<h2>The {BT['live_high_union']} distinct live HIGH picks</h2>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th>Root ref</th><th>/olbg/ ref</th><th>Selection</th><th class="num">Decimal</th>
+<th class="num">US</th><th>Tracks publishing it</th></tr></thead>
+<tbody>{live_pick_rows}</tbody></table></div>
+
+<h2 id="evidence">How the write-ups are evidenced</h2>
+<p class="legend">Counted from each piece&rsquo;s own <code>sources</code> list. <em>Recorded official host</em> means a host this repository
+already records as a governing body, league or club source. A host outside that set is listed individually below &mdash; being cited is
+not the same as being verified, and some of them are league sites used as official elsewhere on the board.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Track</th><th class="num">Pieces</th><th class="num">Currently HIGH</th><th class="num">Words min / median / max</th>
+<th class="num">Under 30 words</th><th class="num">Citing a recorded official host</th><th class="num">Citing only hosts outside that set</th><th class="num">Duplicate bodies</th></tr></thead>
+<tbody>
+<tr><td>Root board</td><td class="num">{PE['root']['pieces']}</td><td class="num">{PE['root']['high']}</td>
+<td class="num">{PE['root']['words_min']} / {PE['root']['words_median']:.0f} / {PE['root']['words_max']}</td>
+<td class="num">{PE['root']['under_30_words']}</td><td class="num">{PE['root']['citing_an_official_host']}</td>
+<td class="num">{PE['root']['citing_only_hosts_outside_official_set']}</td><td class="num">{PE['root']['duplicate_bodies']}</td></tr>
+<tr><td>/olbg/ audit track</td><td class="num">{PE['olbg']['pieces']}</td><td class="num">{PE['olbg']['high']}</td>
+<td class="num">{PE['olbg']['words_min']} / {PE['olbg']['words_median']:.0f} / {PE['olbg']['words_max']}</td>
+<td class="num">{PE['olbg']['under_30_words']}</td><td class="num">{PE['olbg']['citing_an_official_host']}</td>
+<td class="num">{PE['olbg']['citing_only_hosts_outside_official_set']}</td><td class="num">{PE['olbg']['duplicate_bodies']}</td></tr>
+</tbody></table></div>
+<p class="small"><strong>Hosts outside the recorded official set, by number of citations:</strong>
+{", ".join(f"{e(h)} ({c})" for h, c in PE['root']['hosts_outside_official_set'].items())}.
+These citations are <strong>not</strong> re-read in this pass and are therefore not treated as verification anywhere on the board; the
+review item is <a href="flagged.html#FL-106">FL-106</a>.</p>
+
+<p class="small">The shortfall itself is also raised as <a href="flagged.html#FL-102">FL-102</a> in the shared register, and the
+evening source-availability audit behind it is in <code>docs/coverage-20261022-evening.md</code>.</p>
+
+<h2>What would raise the count</h2>
+<div class="panel"><p>Only two things can, and neither can be done by relabelling a row:</p>
+<ul>
+<li><strong>A new dated official observation</strong> for a fixture whose start is still ahead of the publication clock, with the
+competition naming the fixture and an explicit timezone on the clock. That is what unlocks the release gate.</li>
+<li><strong>Official current-form data for both sides</strong> on a sport that currently has none, so the model can earn the third
+evidence point instead of being capped at MEDIUM.</li>
+</ul>
+<p>Both require outbound access to the competitions' own sites. That access is blocked in this environment (FL-077), so the honest
+position today is the {BT['shortfall_to_target']}-pick shortfall shown above &mdash; published rather than papered over.</p></div>
+""" + foot(0)
+open(os.path.join(OUT, "brief.html"), "w").write(briefpage)
+
+# ---------- cross-track reconciliation page ----------
+XT = BRIEF["cross_track"]
+xt_rows = ""
+for r_ in XT["rows"]:
+    slug = (SPORT_META.get(r_["sport"]) or {}).get("slug", "")
+    root_ref = (f'<a href="sports/{slug}.html#row-{e(r_["root_ref"])}">{e(r_["root_ref"])}</a>'
+                if slug else e(r_["root_ref"]))
+    xt_rows += (f'<tr><td>{e(r_["sport"])}</td><td>{e(r_["match"])}</td>'
+                f'<td>{root_ref}<div class="small">{e(r_["root_selection"])}<br>'
+                f'{money(r_["root_price"])} ({e(r_["root_american"] or "")}) &middot; '
+                f'model {r_["root_prob"]*100:.1f}% &middot; {e(r_["root_confidence"] or "")}</div></td>'
+                f'<td><a href="olbg/picks.html">{e(r_["olbg_ref"])}</a><div class="small">{e(r_["olbg_selection"])}<br>'
+                f'{money(r_["olbg_price"])} ({e(r_["olbg_american"] or "")}) &middot; '
+                f'model {r_["olbg_prob"]*100:.1f}% &middot; {e(r_["olbg_confidence"] or "")}</div></td>'
+                f'<td class="small"><a href="{e(r_["olbg_url"])}" rel="noopener">OLBG event page</a></td></tr>')
+if not xt_rows:
+    xt_rows = '<tr><td colspan="5">The two tracks agree on every paired fixture.</td></tr>'
+
+recpage = head("Cross-track review") + f"""
+<section class="pagehead">
+  <p class="eyebrow">TWO MODELS, ONE FIXTURE</p>
+  <h1>Cross-track review: {XT['different_selection']} of {XT['paired_fixtures']} paired fixtures disagree</h1>
+  <p class="lede">The repository carries two independent pipelines. The root board builds its lines from official competition tables and
+  standings; the <code>/olbg/</code> audit track builds its own from the captured OLBG listing with a shrink plus home-edge model. Where
+  the same OLBG fixture appears on both, they can name different selections. Both versions stay published and both are listed here so the
+  disagreement is visible rather than hidden.</p>
+</section>
+
+<div class="notice">A disagreement is <strong>not</strong> evidence that either side is wrong, and it is not a settled outcome. Neither
+number is a bookmaker price. The list exists so a human can review the pair; it is also published as <a href="flagged.html#FL-105">FL-105</a>
+on the Flagged for Review page. Rows where one track deliberately withheld a selection (source conflict or a gate) are counted separately
+and are not treated as disagreements.</div>
+
+<div class="cards">
+  <div class="card"><span class="k">{XT['paired_fixtures']}</span><span class="l">fixtures priced on both tracks</span></div>
+  <div class="card"><span class="k">{XT['same_selection']}</span><span class="l">same selection</span></div>
+  <div class="card warn"><span class="k">{XT['different_selection']}</span><span class="l">different selection</span></div>
+  <div class="card"><span class="k">{XT['withheld_by_one_track']}</span><span class="l">selection withheld by one track</span></div>
+</div>
+
+<h2>Fixtures where the tracks pick different sides</h2>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th>Match</th><th>Root board pick</th><th>/olbg/ track pick</th><th>Source</th></tr></thead>
+<tbody>{xt_rows}</tbody></table></div>
+<p class="dim">Root picks carry their release status on the sport page; <code>/olbg/</code> picks carry theirs on the
+<a href="olbg/picks.html">/olbg/ lines page</a>. A selection shown as MEDIUM or <code>medium</code> is analysis, not a current pick.</p>
+""" + foot(0)
+open(os.path.join(OUT, "reconcile.html"), "w").write(recpage)
 
 # ---------- index ----------
 cov_rows = ""
@@ -372,6 +564,13 @@ index = head("Dashboard") + f"""
   <div class="card"><span class="k" data-high-count>{len(hi_rows)}</span><span class="l">current HIGH research picks</span></div>
   <div class="card"><span class="k">{n_verified}</span><span class="l">recorded official confirmations</span></div>
   <div class="card warn"><span class="k">{n_unverified + n_corroborated}</span><span class="l">unverified / corroborated only</span></div>
+</div>
+
+<div class="notice brief-summary">
+  <strong>Against the brief:</strong> {BT['live_high_union']} distinct live HIGH picks today across {BT['sports_listed']} covered sports,
+  against the daily target of {BT['target_picks_if_all_sports_met']} (five per sport).
+  {BT['sports_meeting_target']} sport(s) meet the five-pick target.
+  <a href="brief.html">See the per-sport accounting and every blocker &rarr;</a>
 </div>
 
 <h2>Coverage by sport</h2>

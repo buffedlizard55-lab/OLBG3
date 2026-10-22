@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained **324-row** `/olbg/` audit track (`104` review-register items) refreshed by an evening listing capture at `20:53Z–21:12Z`, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained **324-row** `/olbg/` audit track (`106` review-register items) refreshed by an evening listing capture at `20:53Z–21:12Z`, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
   These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
@@ -20,6 +20,8 @@ What the published numbers do and do not mean:
 | `discovery.html` | Latest robots-aware public OLBG discovery snapshot (partial by design, unverified rows stay blank) |
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
+| `brief.html` | **Brief coverage**: per-sport accounting of published live HIGH picks against the brief's five-per-sport daily target, the mechanical blocker for every sport that falls short, and how each written piece is evidenced |
+| `reconcile.html` | **Cross-track review**: every fixture priced on both tracks where the two models name different selections, both versions with their prices and confidence labels |
 | `/olbg/` | The separate OLBG lines audit track (21 pages, 298 chained rows, 24 live high-confidence picks) with the same release gate applied to its picks |
 
 ## Evening live re-validation, five-per-sport coverage audit & clock repair — `session-cab97f19`, 2026-10-22T21:20Z
@@ -55,6 +57,49 @@ What the published numbers do and do not mean:
   `tools/check_site.py` PASS (104 register items), root `check_board.py` PASS (265 rows, 13 live
   in-band `HIGH`), `check.py` PASS, `check_links.py` PASS (85 pages, 1,529 links, 0 broken),
   `75/75` unit tests OK including the new clock/capture regressions in `tests/test_evening_2100z.py`.
+
+## Brief-coverage accounting, cross-track reconciliation & feed-track labelling — `session-c038b7f4`, 2026-10-22T21:00Z
+
+This pass added no fixture, price, grade or source observation. Its subject is the question the brief asks most directly — *are there five
+high-confidence picks for every covered sport?* — and the honest answer, published as data and as a page instead of left implicit.
+
+- **`brief.html` + `data/brief_coverage.json` (`scripts/brief_coverage.py`):** per-sport accounting computed only from the committed rows.
+  The brief's daily target is five picks per covered sport = **75 across 15 sports**. At the **21:20Z** publication clock (the evening
+  re-stamp merged in PR #102) there are **17 distinct live HIGH picks** (14 on root, 17 on `/olbg/`, de-duplicated on OLBG event id), so
+  **1 sport meets the target** (Ice Hockey, 5) and the shortfall is **58**. Every sport that falls short carries the mechanical reason counted
+  from its own rows: no official current-form input for both sides (Tennis 21 of 40, Snooker 14 of 14, Volleyball 25 of 30, Basketball 22 of
+  30 …), HIGH-grade evidence outside the `-250..+10000` band (Ice Hockey 9, Darts 9, Rugby Union 8), an official start that has passed or is
+  unverified (Tennis 40 of 40, Snooker 14 of 14, Greyhounds 22 of 22), no defensible win price, or an unverified fixture (Greyhounds 22 of 22).
+  Rows can fail more than one test, so the counts overlap by design.
+- **`reconcile.html` + `flagged.html#FL-105`:** the root board and the `/olbg/` track are two independent models. Of **217 fixtures priced on
+  both**, **167 name the same selection**, **28 name different sides** and **22** have a selection withheld by one track (source conflict or
+  gate). All 28 disagreeing pairs are listed with both selections, both model probabilities, both confidence labels and the OLBG event page.
+  A disagreement is published as a review item; it is not treated as an error and not resolved by guessing.
+- **`brief.html#evidence` + `flagged.html#FL-106`:** how the write-ups are evidenced, counted from each piece's own `sources`: 73 root pieces
+  (14 currently HIGH, 59–143 words, none under 30, no duplicate bodies) of which **70 cite a host this repo records as official** and 3 cite
+  only hosts outside that set; `/olbg/` 55 pieces (17 HIGH, 46–105 words). The 14 hosts outside the recorded official set are listed with their
+  citation counts and are explicitly **not** treated as verification — none was re-read in this pass.
+- **`flagged.html#FL-102` (raised by the evening session) is the register entry for the five-per-sport shortfall;** `brief.html` is the live
+  accounting behind it and links to it rather than opening a duplicate item.
+- **Feed-track coherence:** the legacy official-feed pages said repo-wide things like *"No validated model … all picks remain withheld"* beside a
+  board that publishes 20 HIGH picks. They now state that they are the feed track, print their own capture time, warn that rows are not
+  filtered against the current clock, and link back to the dashboard and the brief coverage page. No feed data was changed.
+- **New build-time guards:** `scripts/check_board.py` rules 7 and 8 fail the build if `data/brief_coverage.json` no longer recomputes from the
+  rows, if it lists an excluded sport, if a shortfall does not recompute, if a "disagreement" pair names the same selection twice, or if two
+  write-ups are word-for-word identical. `tests/test_brief_coverage.py` adds 12 tests. `.github/workflows/pages.yml` now runs
+  `scripts/brief_coverage.py` between `model.py` and `build_site.py`.
+- **Verification performed this pass, re-run after rebasing onto the 21:20Z evening capture (PR #102):** every count above is derived from
+  committed data and the whole pipeline was rebuilt from a clean tree: `check_board.py` PASS (265 rows = 217 fixtures + 48 outright/race, 237
+  verified, 242 priced, 73 pieces, 14 live in-band HIGH), `tools/check_site.py` PASS (324 lines, 17 high, 55 pieces, 106 register items),
+  `check.py` PASS (40 feed rows), `check_links.py` PASS (110 pages, 2,402 links, 0 broken, with the stricter checker merged in PR #99), 93/93
+  unit tests, two consecutive builds byte-identical. **No source observation was renewed by this pass:** no `checked_at`, quote or verification
+  label was written, and nothing previously unverified is now claimed as verified. The 21:20Z clocks and the evening capture come from the
+  sibling session's live reads, not from this one. Two live pages *were* read here through the platform page tool for a sanity check — the
+  [OLBG tennis listing](https://www.olbg.com/betting-tips/Tennis/3) at 21:52Z and the
+  [NHL 2026-10-22 schedule](https://api-web.nhle.com/v1/schedule/2026-10-22) — and they confirm what the board already says: OLBG's headline
+  market and tip counts move between reads (902117 now shows *Sara Bejlek to win 2-1* under **Set Betting**, 902135 shows 6/7 not 1/1), which
+  is exactly why the committed labels are published as a timestamped snapshot and no start is derived from them. No row was rewritten from
+  those reads.
 
 ## Post-midday line-by-line timezone audit, PDC World Championship HIGH & root parity — `session-15487122`, 2026-10-22T12:40Z
 
@@ -207,7 +252,7 @@ LPGA BMW Ladies overview (Oct 22-25, Pine Beach, par 72, 6,784 yd, $2.35M, Sei Y
 2. **Focusing `HIGH` Confidence on `-250` to `+10000` Odds (`1.40` to `101.00` Decimal):**
    - Heavy >70% moneyline chalk (`price < 1.40`, shorter than `-250`) retains its honest calibrated probability and short price and is explicitly capped at **`MEDIUM`** with its reason disclosed.
    - A selection earns **`HIGH`** only when: (a) confirmed on an official governing-body / club domain (`verified`), (b) backed by official competition form/rankings, (c) kick-off has not passed as of `2026-10-22`, AND (d) its originated price sits strictly inside **`-250` to `+10000` (`1.40 <= price <= 101.00`)**.
-   - **Result (as of the committed snapshot; the dashboard is authoritative because the hourly build re-derives the gap rows and expires picks as official kick-offs pass):** **14 live `HIGH` predictions across 8 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Gaelic Football`, `Handball`, `Ice Hockey`, `Rugby Union`, `Volleyball`, spanning `-238` to `-141` US odds) and **19 live `HIGH` predictions across 9 sports** on `/olbg/` (spanning `-238` to `+619` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
+   - **Result (as of the committed snapshot; the dashboard and `brief.html` are authoritative because the hourly build re-derives the gap rows and expires picks as official kick-offs pass):** **20 live `HIGH` predictions across 9 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Gaelic Football`, `Handball`, `Ice Hockey`, `Rugby Union`, `Volleyball`, spanning `-238` to `+130` US odds) and **24 live `HIGH` predictions across 9 sports** on `/olbg/` (spanning `-238` to `+619` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs. That is **24 distinct fixtures**, because the two tracks overlap; `brief.html` counts them once each.
 
 ## Reproducible Build & Verification Commands
 
@@ -215,6 +260,7 @@ LPGA BMW Ladies overview (Oct 22-25, Pine Beach, par 72, 6,784 yd, $2.35M, Sei Y
 python3 scripts/build.py              # official-feed pages/data -> site/
 python3 scripts/build_gap_sports.py   # price outright/race markets -> data/gap_sports.json
 python3 scripts/model.py              # multi-sport lines, handicaps, totals, picks -> data/events.json
+python3 scripts/brief_coverage.py     # per-sport accounting vs the brief -> data/brief_coverage.json (must run after model.py)
 python3 scripts/build_site.py         # combined root site -> site/
 python3 scripts/check_board.py        # enforce OLBG links, tiers, price recomputation, -250..+10000 band & >=30w predictions
 python3 tools/build_dataset.py        # live 2026-10-22 /olbg/ dataset -> data/matches.json
@@ -224,7 +270,7 @@ python3 tools/check_site.py           # enforce host allowlist, links, -250..+10
 python3 scripts/build_site.py --snapshot
 python3 scripts/check.py              # official-feed invariants
 python3 scripts/check_links.py        # 0 broken local links across combined site
-python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
+python3 -m unittest discover -s tests # 93 unit, clock, band, release, link & brief-coverage tests
 ```
 
 ## Current repository audit (2026-10-22 12:04 UTC)
@@ -246,13 +292,13 @@ Earlier audit sections below describe prior sessions, not work independently rep
 | Tracked dataset | Repository count | Verification boundary |
 |---|---:|---|
 | Root fixtures (`data/events.json`) | 202 | Stored assertions only; not freshly retrieved |
-| Root outright/race rows (`data/gap_sports.json`) | 28 | Model prices, not verified bookmaker offers |
-| Root written pieces (`data/predictions.json`) | 67 | Includes analysis; not 67 released HIGH picks |
-| `/olbg/` fixtures and lines | 275 each | Separate track, not additive unique fixture coverage |
-| `/olbg/` written pieces | 47 | Includes analysis; current release eligibility depends on time |
-| Flag register | 77 | Includes resolved historical items and open review items |
+| Root outright/race rows (`data/gap_sports.json`) | 48 | Model prices, not verified bookmaker offers |
+| Root written pieces (`data/predictions.json`) | 73 | Includes analysis; not 67 released HIGH picks |
+| `/olbg/` fixtures and lines | 298 each | Separate track, not additive unique fixture coverage |
+| `/olbg/` written pieces | 53 | Includes analysis; current release eligibility depends on time |
+| Flag register | 101 | Includes resolved historical items and open review items |
 
-Current validation: 60 unit tests; both track validators; full build and local link scan.
+Current validation: 93 unit tests; both track validators; brief-coverage recompute; full build and local link scan (110 pages, 2,402 local links, 0 broken).
 These checks establish schema, price-band and release-policy consistency, not factual accuracy,
 calibrated confidence, exhaustive market coverage, or a profitable betting edge.
 
