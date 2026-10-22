@@ -8,8 +8,12 @@ from __future__ import annotations
 import html
 import json
 import shutil
+import sys
 from datetime import datetime
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from board_dates import snapshot_utc
+from discovery import OFFICIAL_REFERENCES
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -93,11 +97,12 @@ def page(title: str, body: str, active: str, depth: int, subtitle: str = "") -> 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Data as harvested {stamp}.</strong> Every OLBG field is transcribed from the linked OLBG page; our lines are model output, not market prices. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed {stamp}; publication clock {E(snapshot_utc().isoformat())}.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="{pre}methodology.html">Method</a> · <a href="{pre}flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
 <script src="{pre}assets/app.js"></script>
+<script src="{pre}assets/release.js"></script>
 </body>
 </html>
 """
@@ -123,6 +128,8 @@ def sources_cell(match: dict, verifications: dict) -> str:
         src = verifications.get(vid)
         if src:
             bits.append(link(src["url"], src["name"].split("—")[0].strip()))
+    if not any(verifications.get(v, {}).get('class') in ('official','primary') for v in match.get('verification_ids', [])):
+        bits.append(link(OFFICIAL_REFERENCES[match['sport']], 'Official reference — fixture unverified'))
     return " · ".join(bits)
 
 
@@ -150,7 +157,7 @@ def main() -> None:
     with_total = sum(1 for l in lines.values() if l.get("our_total_line") is not None)
 
     # ---------- index ----------
-    high_rows = [m for m in preds]
+    high_rows = [p for p in preds if lines[p["match_id"]]["confidence"] == "high"]
     high_table = "".join(
         f"""<tr><td>{E(p['sport'])}</td><td>{E(p['match'])}</td>
         <td class="pick">{E(p['selection'])}</td><td class="num">{lines[p['match_id']]['our_price_pick']} <span class="muted small">({lines[p['match_id']].get('our_us_odds_pick','')})</span></td>
@@ -174,7 +181,7 @@ def main() -> None:
 
     flag_rows = "".join(
         f"""<tr><td><a href="flagged.html#{E(f['id'])}">{E(f['id'])}</a></td><td>{E(f['severity'])}</td><td>{E(f['title'])}</td></tr>"""
-        for f in flagged[:6]
+        for f in list(reversed(flagged))[:6]
     )
 
     index_body = f"""
@@ -191,7 +198,7 @@ def main() -> None:
   {stat(len(matches), 'fixtures in scope', f'{len(sports)} sports')}
   {stat(with_price, 'fixtures with our own price', 'money line, both sides')}
   {stat(with_hc, 'with a handicap line', f'{with_total} with a total line')}
-  {stat(len(preds), 'high-confidence predictions', 'verified sources only')}
+  {stat(len(high_rows), 'current HIGH research picks', 'official-start & source-age gate')}
   {stat(len(flagged), 'items flagged', 'see register')}
 </section>
 
@@ -203,7 +210,7 @@ def main() -> None:
       <thead><tr><th>Sport</th><th>Match</th><th>Our pick</th><th>Price (US)</th><th>Conf.</th><th>Source</th></tr></thead>
       <tbody>{high_table}</tbody>
     </table>
-    <p><a class="btn" href="predictions.html">Read all {len(preds)} predictions →</a></p>
+    <p><a class="btn" href="predictions.html">Read {len(high_rows)} current predictions →</a></p>
   </div>
   <div class="card">
     <h2>Confidence split</h2>
@@ -261,7 +268,7 @@ def main() -> None:
 <section class="hero small">
   <h1>Our lines and picks</h1>
   <p class="lede">Every fixture in scope, with the price we would put up, our handicap and total, and the confidence label.
-  Prob. is our model probability of our pick; predictions cannot raise or floor it, and HIGH requires strictly above 70%. Prices are ours (5% theoretical hold).
+  Prob. is our model probability of our pick; predictions cannot raise or floor it, and HIGH never means a proven win rate: it requires a sourced write-up, a model probability below 70%, an in-band originated price and a fresh exact official start. Prices are ours (0.95/p), not bookmaker prices.
   <a href="methodology.html#model">How the numbers are made →</a></p>
   <div class="tools">
     <input id="q" type="search" placeholder="Filter by team, player, sport or competition…" aria-label="Filter rows">
@@ -291,7 +298,7 @@ def main() -> None:
         srcs = "".join(f"<li>{link(s['url'], s['label'])}</li>" for s in p["sources"])
         wc = len(p["text"].split())
         pred_cards.append(f"""
-<article class="card pred">
+<article class="card pred" data-current-high="true" data-expires-at="{E(l.get('release',{}).get('expires_at') or '')}">
   <div class="pred-head">
     <div><span class="tag">{E(p['sport'])}</span> {conf_badge('high')}</div>
     <h2>{E(p['match'])}</h2>
@@ -314,8 +321,8 @@ def main() -> None:
     <div><span class="tag">{E(p['sport'])}</span> {conf_badge(l['confidence'])} <span class="tag">analysis</span></div>
     <h2>{E(p['match'])}</h2>
   </div>
-  <p class="selection">Selection: <strong>{E(p['selection'])}</strong> · our price {l['our_price_pick']} ({E(l.get('our_us_odds_pick') or '')}) · model probability {(l['our_pick_probability'] or 0)*100:.1f}%</p>
-  <p class="muted small"><strong>Why this is not a live high-confidence pick:</strong> {E(p.get('archive_reason') or 'the row is graded ' + l['confidence'] + '.')}</p>
+  <p class="selection">Selection: <strong>{E(p['selection'])}</strong> · originated price {'' if l['our_price_pick'] is None else l['our_price_pick']} · model probability {'' if l['our_pick_probability'] is None else str(round(l['our_pick_probability']*100,1))+'%'}</p>
+  <p class="muted small"><strong>Why this is not a live high-confidence pick:</strong> {E(p.get('downgrade_reason') or p.get('archive_reason') or 'the row is graded ' + l['confidence'] + '.')}</p>
   <p class="predtext">{E(p['text'])}</p>
   <p class="muted small">{wc} words · start {E(l['start'])} · OLBG source {link(l['olbg_url'], 'fixture listing')}</p>
   <h3>The facts in this prediction, and where they come from</h3>
@@ -325,14 +332,14 @@ def main() -> None:
     preds_body = f"""
 <section class="hero small">
   <h1>High-confidence predictions</h1>
-  <p class="lede">{len(live_preds)} live fixtures qualified. A prediction is written only when form, recent results and the fixture itself
-  could be confirmed from an official or primary source, and only while the fixture's kick-off date is still ahead.
+  <p class="lede">{len(live_preds)} model research picks passed the release gate as of this build. A prediction is written only when form, recent results and the fixture itself
+  has linked factual evidence and a recently checked, timezone-qualified official start still ahead of the publication clock.
   Everything else is capped at low or medium, because we will not write a "current form" sentence we cannot source
   and we will not present a played fixture as a live tip.</p>
 </section>
 {''.join(pred_cards)}
 {('<section class="hero small"><h2>Archived analysis</h2><p class="lede">'
-  + str(len(archived_preds)) + ' pieces are kept for the record because their fixture has already kicked off. They are '
+  + str(len(archived_preds)) + ' pieces do not pass the current model, price, source-age or official-start gate. They are '
   + 'labelled analysis, never high confidence, and they carry the reason they were withdrawn.</p></section>'
   + ''.join(archived_cards)) if archived_cards else ''}
 """
@@ -423,7 +430,7 @@ def main() -> None:
   <h2>1 · Our line model</h2>
   <p>For each fixture where OLBG's most-tipped market is a winner market we take the tip split, shrink it with a
   Beta(2,2) prior of strength four, then apply a sport-specific home-field shift in logit space. Small samples are
-  pulled toward even money, so a 1/1 split becomes 60% rather than 100%. Prices are <code>1 / (p × 1.05)</code>.</p>
+  pulled toward even money, so a 1/1 split becomes 60% rather than 100%. Prices are <code>0.95 / p</code>: a 5% price haircut, implying about 5.26% reciprocal overround for an exhaustive two-way book. Editorial priors in <code>tools/originate.py</code> override the tip-share formula on specified events; they are uncalibrated assumptions, not official probabilities.</p>
   <p>Handicaps come from <code>−Φ⁻¹(p) × σ<sub>sport</sub></code> rounded to the nearest half point, where σ is our assumed
   margin dispersion (basketball 11.5 points, ice hockey 1.8 goals, snooker 2.3 frames, and so on). Totals are anchored to a
   per-sport baseline, not to per-match scoring data — we could not verify pace, weather or injuries fixture by fixture.</p>
@@ -492,6 +499,8 @@ python3 tools/check_site.py      # link + integrity checks (CI runs this)</code>
         shutil.rmtree(DOCS / "sports")
     (DOCS / "sports").mkdir(exist_ok=True)
     (DOCS / ".nojekyll").write_text("")
+    (DOCS / 'assets').mkdir(exist_ok=True)
+    shutil.copyfile(ROOT/'assets/release.js', DOCS/'assets/release.js')
 
     (DOCS / "index.html").write_text(page("Dashboard", index_body, "index.html", 0))
     (DOCS / "picks.html").write_text(page("Lines & picks", picks_body, "picks.html", 0))

@@ -10,3 +10,6 @@ node_modules/
 *.pyc
 .DS_Store
 .arena/
+
+# Hourly public discovery output and downloaded source evidence are runtime artifacts.
+data/discovery.json

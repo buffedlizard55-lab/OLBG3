@@ -1,23 +1,40 @@
-# OLBG3 — reverse-engineered multi-sport board, multi-market line origination & verified predictions
+# OLBG3 — reverse-engineered multi-sport board, originated lines & sourced research picks
 
-A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/betting-tips) sport listings and individual multi-market event pages across all **15 in-scope sports**, paired with our independently originated betting lines (Money Line / Win Match, Handicap / Spread / Run Line / Puck Line, Match Totals Over/Under, and Tournament/Race Outrights), confidence grades (`LOW`, `MEDIUM`, `HIGH`), non-repetitive human predictions (`>= 30` words) strictly inside the **`-250` to `+10000` American odds window (`1.40` to `101.00` decimal)**, and line-by-line official governing-body verification logs.
+A static research dashboard built from captured [OLBG.com](https://www.olbg.com/betting-tips) listings across **15 in-scope sports**, with independently originated model lines (win/money line, handicap/spread, totals and outright/race priors), `LOW`/`MEDIUM`/`HIGH` model confidence grades, sourced written predictions (>= 30 words) and a row-level publication (release) gate.
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
-**Latest live OLBG harvest:** **2026-10-22 07:21–07:26 UTC** (`data/meta.json` run `S-20261022-B`, `data/raw/olbg-harvest-20261022T0725Z.tsv`), refreshing all **15 allowed OLBG sport pages** (including all 8 WST Northern Ireland Open Last 16 ties on `/Snooker/8` and all 4 live UK morning bags on `/Greyhounds/28`) while chaining all prior harvests untouched for audit provenance and gating every started or passed fixture out of active `HIGH` confidence.
+What the published numbers do and do not mean:
+
+- **Captured board, not a complete live feed.** 228 root rows (201 fixtures + 27 outright/race) captured 21–22 Oct 2026, plus the chained 270-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
+- **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
+- **Honest provenance.** `HIGH` is an uncalibrated model grade, not a demonstrated win rate or betting edge. Fields that no retrieved source states stay blank and are listed on **Flagged for Review** together with every correction. Row-level release evidence (source quotes, checked-at, expiry) is on **Source health** (`source-health.html`).
 
 | Page | What it is |
 |---|---|
-| `index.html` | Main dashboard: coverage across all 15 sports, **45 live in-band `HIGH` picks across 12 sports**, filterable 228-row table |
-| `predictions.html` | Written human predictions: **45 live `HIGH` picks** across 12 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **17 `analysis` notes** on short chalk / started / archived rows |
-| `lines.html` | Multi-market originated lines: Money Line / Win Match (`224` priced), Handicap / Spread (`186`), Match Totals Over/Under (`99`), Outrights & Races (`27`) |
-| `verification.html` | Line-by-line official governing-body verification table (`210` official/club-verified, `1` third-party corroborated, `17` unverified left blank) |
-| `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: every audit finding + the **62-item** register (`FL-001`..`FL-062`) with direct official & OLBG source links |
-| `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
-| `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
-| `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Unified `2026-10-22T07:25Z` OLBG multi-market lines & audit track (**21 pages**: `270` chained rows across all 15 sports, `35` live in-band `HIGH` predictions across **12 sports**, `62` flagged items) |
+| `index.html` | Dashboard: coverage, current released HIGH picks, filterable captured-row table with per-row publication status |
+| `predictions.html` | Sourced written predictions; non-released pieces are labelled analysis with the reason |
+| `source-health.html` | Row-by-row release decisions, the official observations actually made (with quotes), and `research.json` export |
+| `discovery.html` | Latest robots-aware public OLBG discovery snapshot (partial by design, unverified rows stay blank) |
+| `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
+| `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
+| `/olbg/` | The separate OLBG lines audit track (21 pages, 270 chained rows) with the same release gate applied to its picks |
+
+## Audit — `session-0570f99b`, 2026-10-22 (provenance, freshness & release gate)
+
+Register items `FL-063`..`FL-069` (`flagged.html`); row evidence on `source-health.html`.
+
+| Finding | Fix |
+|---|---|
+| A failed official-feed refresh reused old matches and success text under a fresh timestamp | `scripts/update.py` rewritten: per-source `attempted_at`/`last_success_at`, payload SHA-256, cached rows withheld from the current feed, successful-empty responses clear the cache (FL-063) |
+| Every bare OLBG clock was converted with a global UTC−4 assumption and compared to a frozen snapshot time | Conversion removed; shared release gate requires a checked, timezone-qualified official start; in-browser expiry added (FL-064) |
+| The cited WST tournament URL renders a 404; seeds/venues/exact clocks were not supported by the working official page | Citations moved to the official WST Matches page; unsupported seeds, venue and clock inputs withheld; snooker write-ups rebuilt from the visible official results (FL-065) |
+| Two official EuroLeague pages disagree (Valencia record/scoring, Olympiacos scoring) | Both sources linked; conflicting inputs withheld; affected rows held as unpriced LOW/analysis instead of picking a side (FL-066) |
+| Stale/wrong prose: Zalgiris–ASVEL records (both 2-4, Zalgiris 0-2 home per official standings), GOG reverse-fixture date/opponent, an unconfirmed MLB Game 1 starter | Rewritten strictly from the official preview/standings/schedule pages; no starter or injury claims invented (FL-067) |
+| Discovery/completeness and bookmaker-odds limits were under-documented; "5% overround" mis-described `0.95/p` pricing | Limits published on the method page and register (FL-068, FL-069) |
+
+Reproduce: run the commands in `method.html` §6; use `OLBG_NOW_UTC` / `OLBG_AS_OF` to pin the publication clock. The committed tracks rebuild byte-identically (CI staleness gate).
 
 ## Latest audit & live morning refresh — `session-5cef1e25`, 2026-10-22 07:25 UTC
 

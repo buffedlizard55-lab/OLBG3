@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T01:48:00Z",
+  "generated_at": "2026-10-22T08:49:13.587705+00:00",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available.",
   "items": [
     {
@@ -1464,6 +1464,184 @@
         {
           "label": "WST Northern Ireland Open 2026",
           "url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/"
+        }
+      ]
+    },
+    {
+      "id": "FL-063",
+      "severity": "fixed; cache needs review",
+      "status": "needs review",
+      "session": "session-0570f99b",
+      "title": "A failed official refresh must not renew old evidence",
+      "detail": "The former total-failure fallback reused prior matches and success messages under a new generated timestamp. The new collector records per-league attempted_at/last_success_at, payload hashes and actual errors; cached rows retain their original verification time and are withheld from upcoming matches. Successful empty responses clear the prior league result. This sandbox cannot directly fetch the league APIs; local failures are reported, not described as successes.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "Official MLB schedule endpoint",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23"
+        },
+        {
+          "label": "Official NHL schedule endpoint",
+          "url": "https://api-web.nhle.com/v1/schedule/now"
+        },
+        {
+          "label": "Project implementation and tests",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/update.py"
+        }
+      ]
+    },
+    {
+      "id": "FL-064",
+      "severity": "fixed; missing source clocks need review",
+      "status": "done",
+      "session": "session-0570f99b",
+      "title": "No global US Eastern assumption; real-time official-start release gate",
+      "detail": "The old UTC conversion attached UTC-4 to every bare OLBG clock and compared same-day starts with a frozen 07:35Z snapshot. Matching some fixtures is not official timezone confirmation, and a fixed UTC-4 is wrong in winter. Bare labels now leave UTC blank. Both model tracks share an actual publication clock and require a recently checked, timezone-qualified exact official start before HIGH release. Missing/ambiguous starts, 24-hour-old observations and passed scheduled starts are retained as analysis, not inferred final results.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "Official EuroLeague dated schedule with CEST labels",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "Official MLB schedule with ET label",
+          "url": "https://www.mlb.com/schedule/2026-10-23"
+        },
+        {
+          "label": "Shared publication gate",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/release.py"
+        }
+      ]
+    },
+    {
+      "id": "FL-065",
+      "severity": "needs review",
+      "status": "needs review",
+      "session": "session-0570f99b",
+      "title": "WST tournament route is a 404; actual Matches confirms pairs, not timezone or seeds",
+      "detail": "On retrieval the previously cited /tournaments/northern-ireland-open-2026/ route rendered a 404 page and the day-four evening story exposed only a headline. The working official Matches page confirms the eight Round 3 pairs on 22 October and prior results. Citations now use it; unsourced venue, exact UTC clocks and seed inputs were removed/withheld. Returned clocks are personalized and not timezone-qualified. Round 3 write-ups were rewritten from the results actually visible, and are analysis rather than current HIGH picks.",
+      "affected_rows": [
+        "SNK-07",
+        "SNK-08",
+        "SNK-09",
+        "SNK-10",
+        "SNK-11",
+        "SNK-12",
+        "SNK-13",
+        "SNK-14",
+        "SNO-9940",
+        "SNO-9942",
+        "SNO-9946",
+        "SNO-9947",
+        "SNO-9943",
+        "SNO-9945",
+        "SNO-9944",
+        "SNO-9941"
+      ],
+      "sources": [
+        {
+          "label": "WST official Matches: Round 3 pairs and prior results",
+          "url": "https://www.wst.tv/matches/"
+        }
+      ]
+    },
+    {
+      "id": "FL-066",
+      "severity": "needs review; held and unpriced",
+      "status": "needs review",
+      "session": "session-0570f99b",
+      "title": "Two official EuroLeague sources disagree: Valencia record/scoring and Olympiacos scoring",
+      "detail": "The Round 7 preview says Valencia are 5-1 and score 98.3 ppg; the official standings say 4-2, 583 points in 6 games (97.2 ppg). The preview gives Olympiacos 98.2 ppg; the standings show 564 in 6 (94.0). No source was selected to make a stronger case. Conflicting team scoring inputs are withheld from active root model inputs (prior observations retained as an audit block), affected prices/handicaps/totals are blank in both tracks, and selections are held as LOW/analysis. Both official pages are linked for review.",
+      "affected_rows": [
+        "BKB-29",
+        "BKB-30",
+        "BKB-535925",
+        "BKB-535926"
+      ],
+      "sources": [
+        {
+          "label": "Official Round 7 preview",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "Official standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        }
+      ]
+    },
+    {
+      "id": "FL-067",
+      "severity": "fixed; starting pitchers unverified",
+      "status": "done",
+      "session": "session-0570f99b",
+      "title": "Prose corrections: Zalgiris/ASVEL records, GOG reverse date and opponent, MLB starter claim",
+      "detail": "The OLBG-track Zalgiris/ASVEL write-up still called the clubs 3-3 and 1-5; both official pages say 2-4 and 2-4, with Zalgiris 0-2 at home. Unsupported fortress/sold-out and player details were replaced by the official Patty Mills/defensive context. HBL-15 incorrectly said the reverse GOG match was earlier this month (it was 16 September) and attached the 39-30 Kolding score to Kristianstad; corrected from the EHF preview. MLB Gameday exposed no probable pitcher, so the Misiorowski assumption was removed; the Brewers 4-0 NLCS and Rays 4-2 ALCS results now support the baseball prose. No starter, injury or unsourced news is invented.",
+      "affected_rows": [
+        "BKB-22",
+        "BKB-535928",
+        "HBL-15",
+        "HAN-12051",
+        "BSB-01",
+        "BSB-160789"
+      ],
+      "sources": [
+        {
+          "label": "EuroLeague official preview",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "EuroLeague official standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        },
+        {
+          "label": "EHF official Round 5 preview",
+          "url": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins"
+        },
+        {
+          "label": "MLB postseason results",
+          "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
+        }
+      ]
+    },
+    {
+      "id": "FL-068",
+      "severity": "needs review; partial coverage",
+      "status": "needs review",
+      "session": "session-0570f99b",
+      "title": "Automated discovery does not prove a full all-sports list, every market, or a bookmaker-odds band",
+      "detail": "A robots-aware hourly public-HTML collector now records actual OLBG event anchors and source digests without touching private/disallowed APIs or bypassing challenges. Pagination, dynamically inserted/hidden events and full market inventories remain unverified. Newly observed events keep official UTC start, competition, winner, confidence and betting fields blank until verified; they never inherit another capture’s model. Only NBA/NHL/MLB have official JSON adapters. No bookmaker odds or calibrated betting edge were verified; the -250..+10000 filter concerns our model price only. This does not fully satisfy comprehensive live coverage and bookmaker-market verification.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "OLBG published robots policy",
+          "url": "https://www.olbg.com/robots.txt"
+        },
+        {
+          "label": "OLBG public tips index",
+          "url": "https://www.olbg.com/betting-tips"
+        },
+        {
+          "label": "Official NBA schedule",
+          "url": "https://www.nba.com/schedule"
+        }
+      ]
+    },
+    {
+      "id": "FL-069",
+      "severity": "documentation corrected; model calibration needs review",
+      "status": "needs review",
+      "session": "session-0570f99b",
+      "title": "Price arithmetic is a 5% haircut, not exactly 5% overround",
+      "detail": "The implemented decimal formula is 0.95/p. For exhaustive two-way probabilities summing to one, reciprocal prices sum to 1/0.95 = 1.0526316 before rounding, about 5.26% overround. Current methodology now describes that arithmetic accurately; no model prices were silently re-priced. The /olbg/ strength probabilities and some totals are manually specified editorial priors, not official probabilities or verified scoring-rate estimates. All remain uncalibrated model assumptions.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "Project model implementation",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py"
+        },
+        {
+          "label": "Project pricing implementation",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py"
         }
       ]
     }

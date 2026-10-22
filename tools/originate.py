@@ -26,6 +26,7 @@ PROB_MAX_HIGH = 0.70     # Strictly exclude >70% heavy chalk from HIGH confidenc
 # honours OLBG_AS_OF so an archived build can be reproduced. Never hard-code the date here, or the
 # clock freezes and yesterday's fixtures keep grading HIGH forever.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from release import apply_lines, sync_predictions
 from board_dates import build_date  # noqa: E402
 
 BUILD_DATE = build_date()
@@ -72,10 +73,11 @@ TOTAL_CFG = {
     "Snooker": (6.5, "frames", "WST Home Nations best-of-7 frames baseline"),
 }
 
-# Verified event-level multi-market lines and official strength priors audited directly from
-# official governing bodies + OLBG event pages on 2026-10-22.
-# Tuple format: (pick_name, official_fair_prob, total_line_override, total_side, basis_note)
-OFFICIAL_STRENGTH = {
+# Manually specified strength and total priors, informed by cited sporting facts.
+# Probabilities, totals, side preferences and field sizes below are MODELLING ASSUMPTIONS,
+# not values verified by a governing body and not fitted/calibrated model coefficients.
+# Tuple format: (pick_name, assumed_fair_prob, assumed_total, assumed_side, context_note)
+EDITORIAL_STRENGTH = {
     # Baseball — MLB World Series Game 1 (mlb.com standings: MIL 103-59, 55-26 home, +214 diff vs TB 98-64, +110 diff)
     "BSB-160789": ("MIL Brewers", 0.586, 6.5, "Over", "MLB official 2026 standings (MIL 103-59, .679 home vs TB 98-64) + OLBG 12/15 ML, 8/8 Over 6.5"),
     # Basketball — NBA & EuroLeague (nba.com game notes + euroleaguebasketball.net Round 7 tables)
@@ -156,14 +158,14 @@ OFFICIAL_STRENGTH = {
     "ICH-199899": ("IF Bjorkloven", 0.548, 5.5, "Under", "SHL official standings: #4 IF Bjorkloven (17 pts) home vs #7 IF Malmo Redhawks (14 pts in 9 GP)"),
     "ICH-199906": ("Frolunda HC", 0.5954, 5.5, "Over", "SHL official standings: #2 Frolunda HC (11 GP, 38:24, 25 pts) away at #6 Rogle BK (10 GP, 23:21, 14 pts)"),
     "ICH-199902": ("Lulea HF", 0.528, 5.5, "Over", "SHL official standings: #8 Lulea HF (14 pts) at #11 Vaxjo Lakers HC (12 pts)"),
-    "SNO-9940": ("Kyren Wilson", 0.5918, 5.5, "Over", "WST Northern Ireland Open Last 16: [9] Kyren Wilson vs [26] Pang Junxu"),
-    "SNO-9942": ("Matthew Selt", 0.5367, 5.5, "Over", "WST Northern Ireland Open Last 16: [46] Matthew Selt vs [70] Sam Craigie"),
-    "SNO-9946": ("Anthony McGill", 0.569, 5.5, "Over", "WST Northern Ireland Open Last 16: [38] Anthony McGill (beat [1] Lisowski 4-1) vs [84] Mateusz Baranowski"),
-    "SNO-9947": ("Elliot Slessor", 0.581, 5.5, "Over", "WST Northern Ireland Open Last 16: [22] Elliot Slessor (beat Jamie Jones 4-1) vs [56] Ricky Walden"),
-    "SNO-9943": ("Mark Williams", 0.6449, 5.5, "Under", "WST Northern Ireland Open Last 16: [10] Mark Williams vs [55] Martin O'Donnell"),
-    "SNO-9945": ("David Gilbert", 0.6033, 5.5, "Over", "WST Northern Ireland Open Last 16: [32] David Gilbert vs [106] Cheung Ka Wai — contrarian model edge"),
-    "SNO-9944": ("Jordan Brown", 0.5014, 6.5, "Over", "WST Northern Ireland Open Last 16: [63] Jordan Brown vs [64] Scott Donaldson coin-flip"),
-    "SNO-9941": ("Jak Jones", 0.5446, 5.5, "Over", "WST Northern Ireland Open Last 16: [30] Jak Jones vs [50] Daniel Wells"),
+    "SNO-9940": ("Kyren Wilson", 0.5918, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Kyren Wilson vs Pang Junxu"),
+    "SNO-9942": ("Matthew Selt", 0.5367, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Matthew Selt vs Sam Craigie"),
+    "SNO-9946": ("Anthony McGill", 0.569, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Anthony McGill (beat Lisowski 4-1) vs Mateusz Baranowski"),
+    "SNO-9947": ("Elliot Slessor", 0.581, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Elliot Slessor (beat Jamie Jones 4-1) vs Ricky Walden"),
+    "SNO-9943": ("Mark Williams", 0.6449, 5.5, "Under", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Mark Williams vs Martin O'Donnell"),
+    "SNO-9945": ("David Gilbert", 0.6033, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): David Gilbert vs Cheung Ka Wai — contrarian model edge"),
+    "SNO-9944": ("Jordan Brown", 0.5014, 6.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Jordan Brown vs Scott Donaldson coin-flip"),
+    "SNO-9941": ("Jak Jones", 0.5446, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Jak Jones vs Daniel Wells"),
     "TEN-902129": ("Stefanos Tsitsipas", 0.5739, 22.5, "Over", "ATP Almaty QF: #39 [7] Stefanos Tsitsipas (beat Kukushkin 6-1, 6-2) vs #73 James Duckworth"),
     "TEN-902133": ("Tommy Paul", 0.725, 21.5, "Under", "ATP Lyon QF: #15 [4] Tommy Paul (2575 pts) vs #94 Corentin Moutet (640 pts; >70% favorite -> medium)"),
     "VOL-36995": ("Itas Trentino", 0.5293, 182.5, "Over", "SuperLega Giornata 2 clash of 3-0 winners: Itas Trentino vs Cisterna Volley"),
@@ -365,8 +367,8 @@ def main() -> None:
 
         # Head-to-head match markets
         p_shrunk = round((won + 2) / (tot + 4), 4) if (won is not None and tot is not None) else 0.5
-        if mid in OFFICIAL_STRENGTH:
-            pick, p_pick, tot_override, tot_side_override, basis = OFFICIAL_STRENGTH[mid]
+        if mid in EDITORIAL_STRENGTH:
+            pick, p_pick, tot_override, tot_side_override, basis = EDITORIAL_STRENGTH[mid]
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
         else:
             side = resolve_team_side(m["olbg_consensus_selection"], home, away)
@@ -394,6 +396,8 @@ def main() -> None:
             tot_override, tot_side_override = None, None
             basis = "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
 
+        if mid in EDITORIAL_STRENGTH:
+            basis = "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): " + basis
         fair_odds = round(1.0 / p_pick, 2)
         price_pick = round((1.0 - MARGIN) / p_pick, 2)
         price_other = round((1.0 - MARGIN) / (1.0 - p_pick), 2)
@@ -418,7 +422,7 @@ def main() -> None:
             t_line = tot_override
             t_side = tot_side_override
             _, t_unit, _ = TOTAL_CFG.get(sport, (None, "pts", ""))
-            t_basis = "official team scoring rate & verified OLBG event-page total market"
+            t_basis = "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line"
         elif sport in TOTAL_CFG:
             base_line, t_unit, t_basis = TOTAL_CFG[sport]
             if sport == "Basketball" and (m.get("olbg_league_label") or "") != "NBA":
@@ -449,7 +453,7 @@ def main() -> None:
         elif carried:
             conf = "medium" if (m["competition_status"] == "verified" and (tot or 0) >= 5) else "low"
             flags.append("carried_from_prior_pass")
-        elif m["competition_status"] == "verified" and (mid in OFFICIAL_STRENGTH or ((tot or 0) >= 5 and p_pick >= 0.56)):
+        elif m["competition_status"] == "verified" and (mid in EDITORIAL_STRENGTH or ((tot or 0) >= 5 and p_pick >= 0.56)):
             conf = "medium"
         else:
             conf = "low"
@@ -490,6 +494,9 @@ def main() -> None:
             "flags": flags,
         })
 
+    out = apply_lines(out, matches)
+    sync_predictions(DATA / 'predictions-olbg.json', {r['match_id']: r for r in out},
+                     'match_id', lambda r: r['confidence'])
     (DATA / "lines.json").write_text(json.dumps(out, indent=2) + "\n")
     counts = {c: sum(1 for x in out if x["confidence"] == c) for c in ("high", "medium", "low")}
     print(f"lines: {len(out)}  high={counts['high']}  medium={counts['medium']}  low={counts['low']}")

@@ -1,46 +1,52 @@
-// Minimal, dependency-free live UTC clock badging + table filtering for the OLBG3 board.
+// Dependency-free table filtering for the board. Shows publication state, never scores.
 (function () {
-  var nowMs = Date.now();
-  Array.prototype.slice.call(document.querySelectorAll('td.when[data-kickoff-utc]')).forEach(function (cell) {
-    var iso = cell.getAttribute('data-kickoff-utc');
-    if (!iso) return;
-    var koMs = Date.parse(iso);
-    if (!isNaN(koMs) && koMs <= nowMs && cell.textContent.indexOf('started') === -1) {
-      var tag = document.createElement('span');
-      tag.className = 'tag';
-      tag.textContent = 'started';
-      cell.appendChild(document.createTextNode(' '));
-      cell.appendChild(tag);
-    }
-  });
-
+  'use strict';
   var q = document.getElementById('q');
   var fs = document.getElementById('fsport');
   var fc = document.getElementById('fconf');
+  var fr = document.getElementById('frelease');
+  var reset = document.getElementById('reset-filters');
   var count = document.getElementById('count');
-  if (!q || !fs || !fc) return;
-
-  // only the main board table: the page also has a coverage table and a picks table
   var rows = Array.prototype.slice.call(document.querySelectorAll('#tbl-all tbody tr'));
 
   function apply() {
-    var term = q.value.trim().toLowerCase();
-    var sport = fs.value;
-    var conf = fc.value;
+    var term = q ? q.value.trim().toLowerCase() : '';
+    var sport = fs ? fs.value : '';
+    var conf = fc ? fc.value : '';
+    var release = fr ? fr.value : '';
     var shown = 0;
     rows.forEach(function (r) {
-      var okText = !term || (r.getAttribute('data-text') || '').indexOf(term) !== -1;
-      var okSport = !sport || r.getAttribute('data-sport') === sport;
-      var okConf = !conf || r.getAttribute('data-conf') === conf;
-      var show = okText && okSport && okConf;
+      var show = (!term || (r.getAttribute('data-text') || '').indexOf(term) !== -1) &&
+        (!sport || r.getAttribute('data-sport') === sport) &&
+        (!conf || r.getAttribute('data-conf') === conf) &&
+        (!release || r.getAttribute('data-release') === release);
       r.style.display = show ? '' : 'none';
       if (show) shown++;
     });
     if (count) count.textContent = (shown === rows.length ? rows.length + ' rows' : shown + ' of ' + rows.length + ' rows');
   }
 
-  q.addEventListener('input', apply);
-  fs.addEventListener('change', apply);
-  fc.addEventListener('change', apply);
-  apply();
+  if (rows.length) {
+    [q, fs, fc, fr].forEach(function (el) {
+      if (el) el.addEventListener(el === q ? 'input' : 'change', apply);
+    });
+    if (reset) reset.addEventListener('click', function () {
+      [q, fs, fc, fr].forEach(function (el) { if (el) el.value = ''; });
+      apply();
+    });
+    window.addEventListener('release-refresh', apply);
+    apply();
+  }
+
+  var ds = document.getElementById('discovery-search');
+  var dt = document.getElementById('discovery-table');
+  if (ds && dt) {
+    var drows = Array.prototype.slice.call(dt.tBodies[0].rows);
+    ds.addEventListener('input', function () {
+      var term = ds.value.trim().toLowerCase();
+      drows.forEach(function (r) {
+        r.style.display = !term || r.textContent.toLowerCase().indexOf(term) !== -1 ? '' : 'none';
+      });
+    });
+  }
 })();

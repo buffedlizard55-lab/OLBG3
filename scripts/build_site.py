@@ -3,18 +3,19 @@
 import json, os, glob, html, shutil, sys
 from collections import Counter, defaultdict
 
-from board_dates import american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF
+from board_dates import american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF, snapshot_utc
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
 GEN = "2026-10-22"          # latest live OLBG harvest date (S-20261022-A)
 BUILT = AS_OF.isoformat()  # this rebuild
+CLOCK = snapshot_utc().isoformat().replace("+00:00", "Z")
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
 # official-feed track's pages (built by scripts/build.py, which runs before this script).
 NAV = [("index.html", "Dashboard"), ("predictions.html", "Predictions"), ("lines.html", "Originated lines"),
-       ("verification.html", "Verification"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
+       ("verification.html", "Verification"), ("source-health.html", "Source health"), ("discovery.html", "Current discovery"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
        ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review"),
        ("olbg/index.html", "OLBG lines (audit)")]
@@ -114,7 +115,10 @@ n_total = sum(1 for r in EVENTS if r["model"].get("total"))
 # ---------- shared chrome ----------
 def head(title, depth=0):
     p = "../" * depth
-    navlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV)
+    primary = {"index.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
+    mainlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f in primary)
+    morelinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f not in primary)
+    navlinks = mainlinks + '<details class="nav-more"><summary>Data &amp; method</summary><div>' + morelinks + '</div></details>' 
     return f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -137,12 +141,13 @@ FOOT = f"""
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
   <p><strong>Snapshot, not a complete live fixture feed.</strong> Rebuilding does not refresh the captured OLBG listings or
   reverify official sources. HIGH is an evidence-based model grade, not a calibrated win rate or a demonstrated betting edge.
-  Same-day start times have no confirmed timezone; a date-only expiry check cannot establish that a match is still upcoming.
+  Only explicitly timezone-qualified official clocks are converted to UTC. HIGH release expires at the scheduled start or 24 hours after its source check, whichever comes first. A clock cannot establish the final result.
   See <a href="{{P}}flagged.html">Flagged for Review</a> for limitations.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
 </footer>
 <script src="{{P}}assets/app.js"></script>
+<script src="{{P}}assets/release.js"></script>
 </body></html>"""
 
 def foot(depth):
@@ -152,6 +157,14 @@ def conf_pill(c):
     return f'<span class="pill {c.lower()}">{c}</span>'
 
 GOVERNING_PORTAL = {
+    "Tennis": ("https://www.atptour.com/en/scores/current", "ATP official reference; fixture unverified"),
+    "Basketball": ("https://www.nba.com/schedule", "NBA official reference; fixture unverified"),
+    "Ice Hockey": ("https://www.nhl.com/schedule", "NHL official reference; fixture unverified"),
+    "Volleyball": ("https://www.volleyballworld.com/", "official federation reference; fixture unverified"),
+    "Darts": ("https://www.pdc.tv/", "PDC official reference; fixture unverified"),
+    "Snooker": ("https://www.wst.tv/matches/", "WST official reference; fixture unverified"),
+    "Handball": ("https://www.eurohandball.com/en/calendar/", "EHF official reference; fixture unverified"),
+    "Rugby Union": ("https://www.world.rugby/", "World Rugby official reference; fixture unverified"),
     "Cricket": ("https://cricket.co.za/fixtures/", "check CSA / ICC"),
     "Golf": ("https://www.europeantour.com/dpworld-tour/schedule/", "check tour calendar"),
     "Motor Racing": ("https://www.formula1.com/en/results/2026/drivers", "check F1 standings"),
@@ -171,7 +184,7 @@ def ver_cell(r):
         return (f'<a class="med" href="{e(v["official_url"])}" rel="noopener" '
                 f'title="Third-party corroboration only, not the competition&#39;s own site. See Flagged for Review.">'
                 f'~ {lab} <span class="tag">third-party</span></a>')
-    gov_url, gov_lbl = GOVERNING_PORTAL.get(r["sport"], ("https://www.olbg.com/betting-tips", "check official site"))
+    gov_url, gov_lbl = GOVERNING_PORTAL.get(r["sport"], ("https://www.olbg.com/betting-tips", "OLBG listing only; fixture unverified"))
     return (f'<span class="unver" title="No official source retrieved for this fixture">unverified</span>'
             f' &middot; <a class="dim" href="{e(gov_url)}" rel="noopener">{e(gov_lbl)}</a>')
 
@@ -204,28 +217,27 @@ def match_label(r):
 
 def row_html(r):
     p = r["pick"]
-    pick = e(p["label"]) if p["label"] else '<span class="dim">no pick</span>'
-    prob = f'<span class="prob">{p["prob"]*100:.0f}%</span>' if p.get("prob") else ""
+    release = p.get("release", {})
+    pick = e(p["label"]) if p.get("label") else '<span class="dim">selection withheld</span>'
+    prob = f'<span class="prob">model {p["prob"]*100:.0f}%</span>' if p.get("prob") else ""
     ref = f'<a href="{e(r["olbg_event_url"])}" rel="noopener">{e(r["ref"])}</a>'
-    return f"""<tr data-sport="{e(r['sport'])}" data-conf="{p['confidence']}" data-text="{e((r['home']+' '+r['away']+' '+r['competition']+' '+r['sport']).lower())}">
-<td class="ref">{ref}</td>
-<td>{e(r['sport'])}</td>
-<td class="comp">{e(r['competition']) or '<span class="dim" title="OLBG does not state the competition for this fixture">not stated</span>'}</td>
-<td class="match">{match_label(r)}</td>
-<td class="market">{market_label(r)}</td>
-<td class="when" data-kickoff-utc="{e(p.get('kickoff_utc') or '')}">{e(r['start'])}{(' <span class="dim small">= ' + e(p['kickoff_utc']) + '</span>') if p.get('kickoff_utc') else ''}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}{' <span class="tag">started</span>' if p.get('kickoff_started') else ''}</td>
-{price_cell(r)}
-<td class="pick">{pick} {prob}</td>
-<td class="num odds">{usd(p.get('price'))} {band_badge(r)}</td>
-<td>{conf_pill(p['confidence'])}</td>
-<td class="basis">{e(r['model'].get('basis','none'))}</td>
+    price = (f'{money(p["price"])} <span class="dim">({usd(p["price"])} US)</span>' if p.get("price") else '')
+    official_clock = (f'<div class="small">Official → UTC {e(p["kickoff_utc"])}</div>' if p.get("kickoff_utc") else '')
+    state = release.get("status", "unverified_start")
+    return f"""<tr id="row-{e(r['ref'])}" data-sport="{e(r['sport'])}" data-conf="{p['confidence']}" data-release="{e(state)}" data-expires-at="{e(release.get('expires_at') or '')}" data-text="{e((r['home']+' '+r['away']+' '+r['competition']+' '+r['sport']).lower())}">
+<td class="ref">{ref}<div class="small">{e(r['sport'])}</div></td>
+<td class="match">{match_label(r)}<div class="small">{e(r['competition'])}</div></td>
+<td class="when" data-kickoff-utc="{e(p.get('kickoff_utc') or '')}">{e(r['start'])} <span class="small">OLBG, zone unverified</span>{official_clock}</td>
+<td class="market">{market_label(r)}<div class="small">{e(r.get('olbg_tips') or '')} public tips — not probabilities</div></td>
+<td class="pick">{pick}<div class="odds">{price} {prob}</div></td>
+<td class="confidence-cell">{conf_pill(p['confidence'])}<div class="small">{e(r['model'].get('basis','none'))}</div></td>
 <td class="src">{ver_cell(r)}</td>
+<td class="release-cell"><span class="tag">{e(state.replace('_',' '))}</span><div class="small">{e(release.get('reason',''))}</div></td>
 </tr>"""
 
 TABLE_HEAD = """<thead><tr>
-<th>Ref</th><th>Sport</th><th>Competition</th><th>Match / event</th><th>Market</th><th>Start (as listed)</th>
-<th class="num">Our price</th><th class="num">Draw</th><th class="num">Our price 2</th>
-<th>Our pick</th><th class="num">Pick price (US)</th><th>Conf.</th><th>Basis</th><th>Official source</th>
+<th>Ref / sport</th><th>Match / competition</th><th>Captured start / official UTC</th><th>OLBG market</th>
+<th>Our winner / originated odds</th><th>Model confidence</th><th>Official source / reference</th><th>Publication status</th>
 </tr></thead>"""
 
 def table(rows, tid="tbl"):
@@ -282,7 +294,7 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
   <div class="card"><span class="k">{len(med)}</span><span class="l">medium-confidence picks</span></div>
 </div>
 <h2>Rows, our lines and picks</h2>
-<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% overround), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
+<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% price haircut), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
 <strong>Basis:</strong> <code>official-league-table</code> / <code>official-standings</code> = model built on official data; <code>consensus</code> = de-vigged OLBG tip share only; <code>none</code> = no defensible input, so no price is shown.</p>
 {table(rows, 'tbl-' + meta['slug'])}
 {(f'<h2>Handicap lines we originated ({len(mark)})</h2><p class="legend"><code>official-form</code> = projected margin built on the competition&rsquo;s own scoring table. <code>consensus-scaled</code> = probability-implied line using a disclosed per-sport margin scale, capped at 85% probability. Both are our own lines, never bookmaker prices.</p><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th><th>Basis</th></tr></thead><tbody>{hcap_rows}</tbody></table></div>') if mark else '<h2>Handicap lines</h2><p class="dim">Not originated for this sport: ' + HANDICAP_GAP.get(sport, "no scoring unit and no defensible baseline were available, so a handicap would be a guess.") + ' Blank rather than invented.</p>'}
@@ -303,7 +315,8 @@ for sport in SPORT_ORDER:
                  f"<td class='num'>{n_out_s}</td><td class='num'>{ver}</td><td class='num'>{corr}</td><td class='num'>{hi}</td>"
                  f"<td class='num'>{len([r for r in rows if r['model'].get('prices')])}</td>"
                  f"<td class='num'>{len([r for r in rows if r['model'].get('handicap')])}</td>"
-                 f"<td class='num'>{len([r for r in rows if r['model'].get('total')])}</td></tr>")
+                 f"<td class='num'>{len([r for r in rows if r['model'].get('total')])}</td>"
+                 f"<td><a href='{e(next((r['verification'].get('official_url') for r in rows if r['verification']['status']=='verified'), GOVERNING_PORTAL.get(sport, ('https://www.olbg.com/betting-tips',''))[0]))}'>official reference</a></td></tr>")
 
 try:
     n_feed = len(json.load(open(os.path.join(ROOT, "data/current.json")))["matches"])
@@ -315,11 +328,11 @@ top = ""
 for r in hi_rows:
     p = r["pick"]; pr = r["model"]["prices"]
     price = pr.get("win_home") if p["side"] == "home" else pr.get("win_away")
-    top += (f"<tr><td><a href='sports/{r['sport_slug']}.html'>{e(r['sport'])}</a></td><td>{match_label(r)}</td>"
+    top += (f"<tr data-current-high='true' data-expires-at='{e(p.get('release',{}).get('expires_at') or '')}'><td><a href='sports/{r['sport_slug']}.html'>{e(r['sport'])}</a></td><td>{match_label(r)}</td>"
             f"<td class='pick'>{e(p['label'])}</td><td class='num'>{money(price)}</td>"
             f"<td class='num'>{usd(price)}</td><td class='num'>{p['prob']*100:.0f}%</td>"
             f"<td>{conf_pill(p['confidence'])} {band_badge(r)}</td>"
-            f"<td><a href='predictions.html#{e(r['ref'])}'>read prediction</a></td></tr>")
+            f"<td><a href='predictions.html#{e(r['ref'])}'>read prediction</a><br>{ver_cell(r)}</td></tr>")
 
 blocked = [r for r in EVENTS if r["pick"].get("evidence_grade") == "HIGH" and r["pick"]["confidence"] != "HIGH"]
 band_blocked_rows = ""
@@ -328,62 +341,42 @@ for r in sorted(blocked, key=lambda x: (x["pick"].get("in_band"), x["sport"], x[
     why = p_.get("note") or ("kick-off has passed" if p_.get("kickoff_passed") else "outside the requested band")
     band_blocked_rows += (f"<tr><td>{e(r['ref'])}</td><td>{e(r['sport'])}</td><td>{match_label(r)}</td>"
                           f"<td>{e(p_['label'])}</td><td class='num'>{money(pr)}</td><td class='num'>{usd(pr)}</td>"
-                          f"<td class='small'>{why}</td></tr>")
+                          f"<td class='small'>{why}<br>{ver_cell(r)}</td></tr>")
 if not band_blocked_rows:
     band_blocked_rows = "<tr><td colspan='7'>None.</td></tr>"
 
 index = head("Dashboard") + f"""
 <section class="hero">
-  <h1>Reverse-engineered board, our own lines, our own picks</h1>
-  <p class="lede">Every in-scope sport on OLBG.com except soccer/football, American football, boxing, UFC/MMA, hurling,
-  horse racing, cycling and specials. {n_events} rows: {n_fixtures} two-sided fixtures and {n_outrights} outright or race markets.
-  {n_verified} rows are confirmed against the competition&rsquo;s own site, {n_corroborated} rest on third-party
-  corroboration only and are labelled as such, {n_unverified} are published as unverified rather than guessed.
-  {n_price} rows carry a price we originated. {len(hi_rows)} picks are graded high confidence and every one of them
-  is priced inside the requested <strong>-250 to +10000</strong> US band; each carries a written prediction. {n_band_blocked}
-  stronger favourites were deliberately downgraded because their price is shorter than -250, and {n_expired} rows have a
-  kick-off that has already passed at this rebuild.</p>
-  <p class="stamp">Captured {GEN} &middot; rebuilt {BUILT} &middot; every row links to the OLBG event page it came from</p>
+  <p class="eyebrow">INDEPENDENT SPORTS RESEARCH · NOT AFFILIATED WITH OLBG</p>
+  <h1>Find the match. Check the evidence.</h1>
+  <p class="lede">A source-linked workspace for fixtures, independent model lines and candid verification notes.
+  {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
+  Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
+  <p class="hero-actions"><a class="button" href="#research-board">Explore the board ↓</a>
+  <a class="button secondary" href="predictions.html">Read the sourced predictions</a>
+  <a class="button secondary" href="discovery.html">Latest public discovery →</a></p>
+  <p class="stamp">Build {CLOCK} · OLBG captures span 21–22 October 2026 · <a href="source-health.html">Check source age</a></p>
 </section>
 
-<div class="notice">
-  <strong>Price-band correction, {BUILT}.</strong> Until this rebuild every high-confidence pick was priced shorter than
-  -250 (the shortest was 1.07, or -1429), which broke the brief&rsquo;s -250 to +10000 rule. The cause was a 65% probability
-  threshold that mathematically caps a HIGH price at 1.46. The threshold is now 55% <em>and</em> the price must sit in the
-  band, so the {len(hi_rows)} HIGH picks below are all inside it; {n_band_blocked} short-priced favourites are relabelled
-  MEDIUM and explained on <a href="flagged.html">Flagged for Review</a>. The arithmetic and the before/after are on the
-  <a href="audit.html">audit page</a>.
+<div class="notice clock-notice">
+  <strong>Publication clock: {CLOCK}.</strong> This is a captured research board, not a complete live fixture feed.
+  Bare OLBG clocks are <strong>not converted</strong>. A current HIGH release requires a checked, timezone-qualified
+  official start and an observation under 24 hours old. A passed start, missing clock, stale observation or source conflict
+  moves the piece to analysis. <a href="source-health.html">Inspect every row’s release evidence →</a>
 </div>
 
-<div class="notice">
-  <strong>Clock, {BUILT}.</strong> OLBG prints a bare clock and no time zone. Every row we could compare matches the
-  organiser&rsquo;s own start time only when that clock is read as <strong>US Eastern (UTC&minus;4)</strong> &mdash;
-  04:00 &rarr; 13:00 in Almaty, 08:00 &rarr; 14:00 in Lyon, 09:00 &rarr; 13:30&ndash;15:00 in Brussels, 13:00 &rarr; 19:00 CEST
-  in the handball. Each row therefore shows a derived UTC kick-off, and rows whose kick-off was already running when this page
-  was built carry a <span class="tag">started</span> marker ({n_started} of {n_events} rows, {n_hi_started} of them graded HIGH).
-  The marker is information, not a grade change: the grades are re-derived hourly from committed data, so rewriting them against
-  the wall clock would make the published board irreproducible. The derived clock is a reading of OLBG&rsquo;s label, not an official
-  start: where a verification block publishes the organiser&rsquo;s own time, that time governs. VLB-01 is the one live row where the
-  two disagree by an hour and it is flagged.
-</div>
-
-<div class="cards">
-  <div class="card"><span class="k">{len(by_sport)}</span><span class="l">sports covered</span></div>
-  <div class="card"><span class="k">{n_events}</span><span class="l">rows on the board</span></div>
-  <div class="card"><span class="k">{n_outrights}</span><span class="l">outright / race rows</span></div>
-  <div class="card"><span class="k">{n_verified}</span><span class="l">officially verified</span></div>
-  <div class="card"><span class="k">{n_corroborated}</span><span class="l">corroborated only</span></div>
-  <div class="card"><span class="k">{n_price}</span><span class="l">with our own price</span></div>
-  <div class="card"><span class="k">{len(hi_rows)}</span><span class="l">high-confidence picks</span></div>
-  <div class="card"><span class="k">{n_hi_in_band}/{len(hi_rows)}</span><span class="l">HIGH picks inside -250..+10000</span></div>
-  <div class="card warn"><span class="k">{n_expired}</span><span class="l">kick-off date already passed</span></div>
-  <div class="card warn"><span class="k">{n_started}</span><span class="l">kick-offs under way at build time</span></div>
-  <div class="card warn"><span class="k">{n_unverified}</span><span class="l">flagged unverified</span></div>
+<div class="cards overview-stats">
+  <div class="card"><span class="k">{len(by_sport)}</span><span class="l">sport categories</span></div>
+  <div class="card"><span class="k">{n_events}</span><span class="l">captured records</span></div>
+  <div class="card"><span class="k">{n_price}</span><span class="l">originated prices</span></div>
+  <div class="card"><span class="k" data-high-count>{len(hi_rows)}</span><span class="l">current HIGH research picks</span></div>
+  <div class="card"><span class="k">{n_verified}</span><span class="l">recorded official confirmations</span></div>
+  <div class="card warn"><span class="k">{n_unverified + n_corroborated}</span><span class="l">unverified / corroborated only</span></div>
 </div>
 
 <h2>Coverage by sport</h2>
 <div class="tablewrap"><table class="board">
-<thead><tr><th>Sport</th><th class="num">Rows</th><th class="num">of which outright/race</th><th class="num">Verified</th><th class="num">Corroborated</th><th class="num">High conf.</th><th class="num">Priced</th><th class="num">Handicaps</th><th class="num">Totals</th></tr></thead>
+<thead><tr><th>Sport</th><th class="num">Rows</th><th class="num">of which outright/race</th><th class="num">Verified</th><th class="num">Corroborated</th><th class="num">High conf.</th><th class="num">Priced</th><th class="num">Handicaps</th><th class="num">Totals</th><th>Source</th></tr></thead>
 <tbody>{cov_rows}</tbody></table></div>
 <p class="dim">Rugby League has no dated match fixture on OLBG at capture time: its three rows are 2027 outright markets. Golf, Motor Racing and Greyhounds are
 race or tournament markets with a single selection, so they carry one originated price and no handicap or total. All of this is itemised on the
@@ -392,31 +385,31 @@ race or tournament markets with a single selection, so they carry one originated
 <h2>High-confidence picks</h2>
 {"<div class='tablewrap'><table class='board'><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th class='num'>Decimal</th><th class='num'>US odds</th><th class='num'>Model</th><th>Conf. / band</th><th></th></tr></thead><tbody>" + top + "</tbody></table></div>" if top else "<p>None.</p>"}
 
-<h2>Price-band compliance</h2>
+<details class="research-details"><summary>Why stronger evidence does not always qualify for HIGH</summary><h2>Release and price-band gates</h2>
 <p class="dim">The brief asks for high-confidence picks on matches priced between <strong>-250</strong> and <strong>+10000</strong>
-US odds, i.e. decimal 1.40 to 101.00. The table below lists every row whose evidence score would otherwise have earned a HIGH
-grade but whose price falls outside that band, plus the one in-band pick whose kick-off had already passed. They are published as MEDIUM, with the reason, rather than stretched into a band
+US odds, i.e. decimal 1.40 to 101.00, applied to our model prices (no bookmaker price was verified). The table below also shows rows held by the official-start, freshness or conflict gates. They are published as MEDIUM, with the reason, rather than stretched into a band
 they do not fit.</p>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>Selection</th><th class="num">Decimal</th><th class="num">US odds</th><th>Why not HIGH</th></tr></thead>
 <tbody>{band_blocked_rows}</tbody></table></div>
 
-<h2>Every row on the board</h2>
+</details><h2 id="research-board">Every captured record</h2>
 <div class="tools">
   <input id="q" type="search" placeholder="Search team, competition or sport&hellip;" aria-label="Search fixtures">
   <select id="fsport" aria-label="Filter by sport"><option value="">All sports</option>
   {''.join(f'<option>{e(s)}</option>' for s in SPORT_ORDER if by_sport.get(s))}</select>
   <select id="fconf" aria-label="Filter by confidence"><option value="">All confidence</option>
   <option>HIGH</option><option>MEDIUM</option><option>LOW</option></select>
-  <span id="count" class="count"></span>
+  <select id="frelease" aria-label="Filter by publication status"><option value="">All captured rows</option>
+  <option value="upcoming">Official start ahead / source fresh</option><option value="source_conflict">Source conflict — held</option>
+  <option value="unverified_start">Start unverified</option><option value="past_date">Past-date archive</option>
+  <option value="stale_source">Stale source</option><option value="start_window_reached">Scheduled start passed</option></select>
+  <button type="button" id="reset-filters">Reset filters</button>
+  <span id="count" class="count" aria-live="polite"></span>
 </div>
-<p class="legend"><strong>Our price:</strong> decimal odds we originate (5% overround) for the home side, or for the single selection on an
-outright/race row. <strong>Pick price (US)</strong> is the same number in American odds, with an <em>in band</em> or
-<em>outside band</em> badge for the -250..+10000 rule; <strong>n/p</strong> = not priced because OLBG's most-tipped market was
-not a winner market on that row. <strong>archive</strong> = the listed date had already passed at the {BUILT} rebuild.
-<strong>Basis:</strong> <code>official-table</code>/<code>official-standings</code> = built on official league data;
-<code>consensus</code> = de-vigged OLBG tip share only; <code>outright-prior</code>/<code>race-prior</code> = tip share shrunk toward a disclosed
-field-size prior.</p>
+<p class="legend"><strong>Our odds</strong> are uncalibrated estimates, not observed bookmaker prices.
+The -250..+10000 badge applies to the originated price only. <strong>Official source</strong> refers to the recorded fixture confirmation,
+not a guarantee of current form. <a href="lines.html">Handicaps, totals and both outcome prices →</a></p>
 {table(EVENTS, 'tbl-all')}
 
 <h2>The other track: the official feed</h2>
@@ -443,7 +436,7 @@ open(os.path.join(OUT, "index.html"), "w").write(index)
 pblocks = ""       # rows currently graded HIGH and inside the band
 kept_blocks = ""   # medium-confidence analysis: price outside the band or kick-off passed
 _ordered = sorted(PREDS.items(), key=lambda kv: (
-    0 if kv[1].get("status") == "high" else 1,
+    0 if next((r["pick"]["confidence"] for r in EVENTS if r["ref"] == kv[0]), "") == "HIGH" else 1,
     next((x["sport"] for x in EVENTS if x["ref"] == kv[0]), ""),
     next((x["start"] for x in EVENTS if x["ref"] == kv[0]), "")))
 for ref, p in _ordered:
@@ -453,19 +446,16 @@ for ref, p in _ordered:
     pr = r["model"]["prices"]; side = r["pick"]["side"]
     price = pr.get("win_home") if side == "home" else pr.get("win_away")
     facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
-    _why = p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
-    _note = (f'<p class="note">Kept as medium-confidence analysis, not a high-confidence pick: {e(_why)}</p>' if _downgraded else '')
+    _why = r["pick"].get("note") or p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
+    _note = (f'<p class="note">Retained as research analysis, not a current high-confidence pick: {e(_why)}</p>' if _downgraded else '')
     _kick = r["pick"].get("kickoff_utc")
-    if _kick:
-        _clock = (f'<p class="note">Derived kick-off {e(_kick)} (OLBG clock read as US Eastern, UTC-4) &middot; '
-                  + ('<strong>this kick-off had already passed when this page was built</strong>, so the selection may be '
-                     'settled or in play. The grade is an evidence grade and is not rewritten by the clock.</p>'
-                     if r["pick"].get("kickoff_started") else
-                     'the fixture had not started when this page was built.</p>'))
-    else:
-        _clock = ''
+    _release = r["pick"].get("release", {})
+    _clock = (f'<p class="note">Official UTC start: {e(_kick)} · source observed {e(_release.get("checked_at"))}. '
+              f'{e(_release.get("reason"))}</p>' if _kick else
+              f'<p class="note">Exact official UTC start unverified. {e(_release.get("reason"))}</p>')
+    _prob = f'{r["pick"]["prob"]*100:.0f}%' if r['pick'].get('prob') is not None else 'withheld'
     _block = f"""
-<article class="prediction" id="{e(ref)}">
+<article class="prediction" id="{e(ref)}" data-expires-at="{e(_release.get('expires_at') or '')}" data-release="{e(_release.get('status') or 'unverified_start')}" {'data-current-high="true"' if not _downgraded else ''}>
   {_note}
   <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])} {band_badge(r)}</div>
   <h2>{e(p['headline'])}</h2>
@@ -473,9 +463,9 @@ for ref, p in _ordered:
      {('&middot; ' + e(r['verification']['official_datetime'])) if r['verification'].get('official_datetime') else ''}</p>
   {_clock}
   <p class="selection">Betting selection: <strong>{e(p['selection'])}</strong>
-     <span class="pricebox">our price {money(price)} ({usd(price)} US) &middot; model {r['pick']['prob']*100:.0f}%</span></p>
+     <span class="pricebox">our price {money(price)} ({usd(price)} US) &middot; model {_prob}</span></p>
   <p class="body">{e(p['body'])}</p>
-  <p class="srcs"><strong>Verified from:</strong></p><ul class="sourcelist">{facts}</ul>
+  <p class="srcs"><strong>Factual sources (selection and prices are our estimates):</strong></p><ul class="sourcelist">{facts}</ul>
 </article>"""
     if _downgraded:
         kept_blocks += _block
@@ -506,6 +496,76 @@ predpage = head("Predictions") + f"""
 {kept_section}
 """ + foot(0)
 open(os.path.join(OUT, "predictions.html"), "w").write(predpage)
+
+# ---------- automated public OLBG discovery ----------
+from discovery import OFFICIAL_REFERENCES
+_discovery_path = os.path.join(ROOT, 'data/discovery.json')
+_discovery = json.load(open(_discovery_path)) if os.path.exists(_discovery_path) else {
+    'attempted_at': None, 'events': [], 'sources': [], 'robots': {'state':'not attempted'}}
+_discovery_rows = ''.join(
+    f'<tr data-sport="{e(r["sport"])}"><td>{e(r["sport"])}</td><td><a href="{e(r["olbg_url"])}">{e(r["title"])}</a></td>'
+    f'<td>{e(r["observed_at"])}</td><td></td><td></td><td>Unverified — discovery only; no inferred facts or prices</td>'
+    f'<td><a href="{e(r["official_reference"])}">Official reference (not fixture verification)</a></td></tr>'
+    for r in _discovery.get('events', []))
+_discovery_sources = ''.join(
+    f'<tr><td>{e(r["sport"])}</td><td>{e(r["state"])}</td><td>{r["count"]}</td><td>{e(r.get("fetched_at"))}</td>'
+    f'<td>{e(r["detail"])}</td><td><a href="{e(r["url"])}">OLBG public listing</a> · '
+    f'<a href="{e(r["official_reference"])}">official sport reference</a></td></tr>' for r in _discovery.get('sources', []))
+_discovery_body = head('Current discovery') + f"""
+<section class="pagehead"><p class="eyebrow">AUTOMATED DISCOVERY · OFFICIAL VERIFICATION SEPARATE</p>
+<h1>What the public listings expose</h1><p class="lede">A bounded, robots-aware hourly scan of the eligible OLBG sport pages.
+Actual linked text and URLs only: no clock, league, form, winner or price is invented from a URL slug.</p></section>
+<div class="notice">Latest attempt: {e(_discovery.get('attempted_at'))}. Robots policy: {e(_discovery.get('robots', {}).get('state'))}.
+This is <strong>partial public-HTML discovery, not a complete upcoming match list</strong>. Dynamic, hidden and “load more” content may be missing;
+blocked or unparseable pages remain explicitly unverified. New events do not inherit an old event’s source verification or model.</div>
+<p><a href="discovery.json">Download discovery and collection-health JSON</a> · <a href="matches.html">Verified official-feed fixtures →</a></p>
+<h2>Source health by sport</h2>
+<div class="tablewrap"><table class="board"><thead><tr><th>Sport</th><th>Result</th><th>Links seen</th><th>Observed UTC</th><th>Limit / error</th><th>Sources</th></tr></thead><tbody>{_discovery_sources}</tbody></table></div>
+<h2>Observed event references</h2><label for="discovery-search">Search observed link text or sport</label>
+<input type="search" id="discovery-search" placeholder="Team, player or sport…">
+<div class="tablewrap"><table class="board" id="discovery-table"><thead><tr><th>Sport</th><th>Observed link text / OLBG source</th><th>Observed UTC</th><th>Official UTC start</th><th>Verified price</th><th>Verification</th><th>Official reference</th></tr></thead><tbody>{_discovery_rows}</tbody></table></div>
+<p class="dim">An empty discovery table means no parseable references were collected, not that no matches exist.
+Blank start and price cells are unverified, never zero. Football exclusions follow the board’s documented scope; Gaelic football remains an explicitly flagged ambiguity.</p>
+""" + foot(0)
+open(os.path.join(OUT, 'discovery.html'), 'w').write(_discovery_body)
+json.dump(_discovery, open(os.path.join(OUT, 'discovery.json'), 'w'), indent=2)
+
+# ---------- source health / row-level release audit ----------
+health_rows = ""
+for r in EVENTS:
+    rel = r['pick'].get('release', {})
+    source = rel.get('source') or (r['verification'].get('official_url') if r['verification']['status']=='verified' else '')
+    if not source:
+        source = GOVERNING_PORTAL.get(r['sport'], ('https://www.olbg.com/betting-tips',''))[0]
+    health_rows += (f'<tr><td>{e(r["ref"])}</td><td>{match_label(r)}</td><td>{e(rel.get("status"))}</td>'
+                    f'<td>{e(rel.get("start_utc"))}</td><td>{e(rel.get("checked_at"))}</td><td>{e(rel.get("expires_at"))}</td>'
+                    f'<td>{e(rel.get("reason"))}</td><td><a href="{e(source)}">official source / reference</a>'
+                    f' · <a href="{e(r["olbg_event_url"])}">OLBG capture</a></td></tr>')
+checks_doc = json.load(open(os.path.join(ROOT, 'data/release_checks.json')))
+observations = ''.join(f'<tr><td>{e(ident)}</td><td>{e(c["checked_at"])}</td><td>{e(c["quote"])}</td>'
+                       f'<td><a href="{e(c["source"])}">official observation</a>'
+                       + (f' · <a href="{e(c["conflicting_source"])}">conflicting official source</a>' if c.get('conflicting_source') else '')
+                       + '</td></tr>' for ident,c in checks_doc['events'].items())
+health = head('Source health') + f"""
+<section class="pagehead"><p class="eyebrow">PROVENANCE, NOT JUST LINKS</p><h1>Source health &amp; release checks</h1>
+<p class="lede">Publication as of {CLOCK}. A source URL is not proof that the page supports a claim.
+This register distinguishes a previously recorded fixture confirmation from a newly checked exact start.</p></section>
+<div class="notice">Blank UTC starts are intentional. “Not before”, “followed by”, a session start, a date-only draw or a
+personalized clock cannot establish an exact match time. HIGH is an uncalibrated research grade, not a guaranteed win rate
+or proof of value. No observed bookmaker price was verified; the -250..+10000 test applies to our originated price only.</div>
+<p><a href="research.json">Download model rows and release metadata (JSON)</a> · <a href="flagged.html">Flagged for Review</a></p>
+<h2>Official observations made in this pass</h2>
+<p class="dim">These are the observations actually retrieved and read, not a claim that all other historical rows were independently reverified.
+Paired official sources that disagree are both linked. Mathematical timezone conversion is labelled as derived UTC, never as an OLBG value.</p>
+<div class="tablewrap"><table class="board"><thead><tr><th>OLBG ID</th><th>Checked UTC</th><th>Source statement / dated heading</th><th>Official link</th></tr></thead><tbody>{observations}</tbody></table></div>
+<h2>Every board row — publication decision</h2>
+<p class="dim">An “official reference” on an unverified row is a research lead, not confirmation of that fixture. Missing normalized times and current checks stay blank.</p>
+<div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Event</th><th>Status</th><th>Official → UTC start</th><th>Last checked UTC</th><th>Release expires UTC</th><th>Reason</th><th>Sources</th></tr></thead><tbody>{health_rows}</tbody></table></div>
+""" + foot(0)
+open(os.path.join(OUT, 'source-health.html'), 'w').write(health)
+json.dump({'as_of': CLOCK, 'complete_live_coverage': False,
+           'bookmaker_price_verified': False, 'events': EVENTS},
+          open(os.path.join(OUT, 'research.json'), 'w'), indent=2, ensure_ascii=False)
 
 # ---------- verification ----------
 vrows = ""
@@ -608,7 +668,7 @@ linespage = head("Originated lines") + f"""
   <div class="card"><span class="k">{n_total}</span><span class="l">rows with a total</span></div>
   <div class="card"><span class="k">{sum(1 for r in EVENTS if (r['model'].get('handicap') or {}).get('basis')=='official-form')}</span><span class="l">handicaps from official form</span></div>
 </div>
-<p class="legend"><strong>Money line:</strong> home / draw / away decimal prices, 5% overround; <strong>n/p</strong> = not priced because the only input
+<p class="legend"><strong>Money line:</strong> home / draw / away decimal prices, 5% price haircut; <strong>n/p</strong> = not priced because the only input
 was a tip share on a different market. <strong>Handicap:</strong> our line in the sport&rsquo;s own scoring unit, priced at 1.91 each side.
 <strong>Total:</strong> quoted only where an official scoring baseline exists. <strong>Basis</strong> tells you what the model was fed:
 <code>official-form</code> (official league table/standings), <code>consensus-scaled</code> (the public tip share plus a disclosed
@@ -630,7 +690,7 @@ margin scale), <code>consensus</code> (tip share only), <code>single-selection</
   <li><strong>Official form</strong> &mdash; where the competition publishes a table, expected score is built from it (points/goals for and against), the two sides are compared, and a projected margin and combined score fall out of that.</li>
   <li><strong>Probability implied</strong> &mdash; where there is no official table, the only input is the public tip share. The win probability is turned into a margin with a disclosed per-sport scale (Tennis 4.5 games, Basketball 13 points, Handball 7 goals, Baseball 3 runs, Volleyball 1.6 sets, Snooker 1.4 frames), and the probability is capped at 85% so a three-tip sample cannot set an extreme line. These rows are labelled <code>consensus-scaled</code> and can never be graded high confidence.</li>
   <li><strong>Half-point lines only</strong> &mdash; every handicap and total is set on a half point, so a push is impossible and the quote is unambiguous.</li>
-  <li><strong>Price</strong> &mdash; 5% overround spread proportionally; handicap and total sides are quoted at our standard 1.91 two-way price.</li>
+  <li><strong>Price</strong> &mdash; 5% price haircut spread proportionally; handicap and total sides are quoted at our standard 1.91 two-way price.</li>
 </ol>
 """ + foot(0)
 open(os.path.join(OUT, "lines.html"), "w").write(linespage)
@@ -902,7 +962,7 @@ irregularities = [
  ("ICEHL form data came from an independent database", "The Austrian league table used to price Pustertal, HCB, KAC, Graz and Milano came from Eliteprospects. The league&rsquo;s own site now supplies it: <code>ice.hockey</code> publishes the Tabelle (HCB 1st, 11 games, 44-28; Pustertal 7th, 10 games, 17 points; Vorarlberg last, 0 wins, 52 conceded), and those are the figures the model uses. Eliteprospects stays in the repo only as a standby and is no longer cited by any verified row.", "https://www.ice.hockey/"),
  ("Sixteen markets were counted twice on the previous build", "The 2026-10-21 verification pass listed the golf, motor-racing and rugby-league outrights twice: once in data/sports/*.json (away = &lsquo;outright market&rsquo;) and again in data/gap_sports.json. The same OLBG event ids appear in both files (101905, 101904, 913, 828, 2695857 and so on). That is how a 137-row board was reported as 153 rows with &lsquo;130 two-sided fixtures&rsquo; &mdash; a golf tournament is not a two-sided fixture. This build drops the duplicate copies when the board is aggregated and prices each market once, on the outright/race track: 114 fixtures + 23 outright/race = 137 rows. Nothing was deleted from the capture; the deduplication is in code and the ids are listed here for manual review.", "https://www.olbg.com/betting-tips/Golf/5"),
  ("A venue in the verification pass was wrong", "The re-verification pass recorded IHO-03 at &lsquo;E.ON Arena, Timra&rsquo; and repeated it in the prediction text. The Swedish Ice Hockey Association&rsquo;s schedule (stats.swehockey.se, overview 20961) lists 2026-10-22 19:00 Timra IK v Farjestad BK at <strong>SCA Arena</strong>. Both the row and the prediction now say SCA Arena; the venue was corrected because it was wrong, not merely unsourced.", "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"),
- ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% overround. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
+ ("Our prices are model output, not market prices", "Every price on the site is computed by <code>scripts/model.py</code> from either official data or the OLBG tip share, with a 5% price haircut. They are not bookmaker prices and they are not verified facts. Where the only input is a public tip share, the row is graded LOW and cannot be graded higher.", "&mdash;"),
 ]
 
 
@@ -1050,12 +1110,13 @@ def _reg_row(it):
     srcs = "".join(f'<li><a href="{e(x["url"])}" rel="noopener">{e(x.get("label") or x["url"])}</a></li>'
                    for x in it.get("sources", []))
     rows = ", ".join(it.get("affected_rows") or []) or "&mdash;"
-    return (f'<tr><td><strong>{e(it["id"])}</strong></td><td>{e(str(it.get("severity","")))}</td>'
+    return (f'<tr id="{e(it["id"])}"><td><strong>{e(it["id"])}</strong></td><td>{e(str(it.get("severity","")))}</td>'
             f'<td><strong>{e(it.get("title",""))}</strong><br><span class="small">{e(it.get("detail",""))}</span></td>'
             f'<td class="small">{e(rows)}</td><td class="small"><ul class="srclist">{srcs}</ul></td></tr>')
 
 
-register_rows = "".join(_reg_row(it) for it in REGISTER)
+register_rows = "".join(_reg_row(it) for it in reversed(REGISTER))
+current_findings = "".join(_reg_row(it) for it in reversed(REGISTER) if int(it["id"].split("-")[1]) >= 63)
 
 flagpage = head("Flagged for Review") + f"""
 <section class="pagehead flagged">
@@ -1065,12 +1126,17 @@ flagpage = head("Flagged for Review") + f"""
   only, and {n_unverified} unverified rows.</p>
 </section>
 
-<h2>Findings &amp; irregularities</h2>
+<h2>Current audit priorities</h2>
+<p>New findings from this pass are listed below. A source observation is not a verified betting edge. Start with <a href="source-health.html">Source health</a> for row-level release decisions and the actual quoted official observations.</p>
+<div class="tablewrap"><table class="board"><thead><tr><th>ID</th><th>Severity</th><th>Finding</th><th>Affected rows</th><th>Sources</th></tr></thead><tbody>{current_findings.replace('id="FL-', 'id="current-FL-')}</tbody></table></div>
+<details class="research-details"><summary>Historical findings from earlier passes (may have been superseded)</summary>
+<p class="dim">These dated observations are retained as an audit trail, not statements of current verification. In particular, earlier timezone assumptions and source-count claims do not govern the current release gate.</p>
+<h2>Historical findings &amp; irregularities</h2>
 <div class="tablewrap"><table class="board">
 <thead><tr><th class="num">#</th><th>Finding and what we did about it</th><th>Evidence</th></tr></thead>
 <tbody>{irr_html}</tbody></table></div>
 
-<h2>Rows corroborated by a third party only ({n_corroborated})</h2>
+</details><h2>Rows corroborated by a third party only ({n_corroborated})</h2>
 <p>For these rows a reputable third party (ESPN, ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects,
 tipsterio.de) lists the fixture, but the competition&rsquo;s own site did not, or was not readable, in this pass. They are kept on the
 board because the link is real, and labelled <em>corroborated</em> rather than <em>verified</em>. Treat them as unconfirmed: the
@@ -1117,88 +1183,61 @@ gap_basis_notes = "".join(
     f"<li><strong>{e(k)}</strong> &mdash; {e(v['basis'])}</li>" for k, v in sorted(GAP_FIELDS.items()))
 
 method = head("Method & Scope") + f"""
-<section class="pagehead">
-  <h1>Method, scope and what we refuse to do</h1>
-</section>
-<h2>Scope</h2>
-<p>OLBG lists 20+ sports. We excluded, on instruction: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing,
-cycling and specials. Everything left is on the board: 114 two-sided fixtures plus the 23 outright and race markets that OLBG publishes
-for golf, Formula 1, greyhound racing, rugby league and the Gaelic football championship. A one-selection market is labelled
-&ldquo;outright&rdquo; or &ldquo;race&rdquo; in the Market column so it cannot be mistaken for a match.</p>
-<div class="grid2">
-  <div class="panel"><h3>Excluded</h3><ul class="tight">{excl}</ul></div>
-  <div class="panel"><h3>Included</h3><ul class="tight">{sport_links}</ul></div>
-</div>
-
-<div class="panel" style="margin-top:14px"><h3>Previously disclosed gap, now closed</h3><ul class="tight">{fc}</ul>
-<p class="dim" style="margin:8px 0 0">These four sports were missing from the previous build because their rows are race or tournament markets rather than
-two-sided fixtures. They are now captured from the same OLBG listings and priced with the one-selection model described below, so {n_gap} rows
-({n_gap_priced} of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
-<code>scripts/build_gap_sports.py</code>; output: <code>data/gap_sports.json</code>.</p></div>
-<div class="panel" style="margin-top:14px"><h3>Still not captured</h3><ul class="tight">{nc}</ul>
-<p class="dim" style="margin:8px 0 0">No esports listing surfaced on the OLBG tips index at capture time. That is disclosed rather than guessed at.</p></div>
-
-<h2>How the OLBG site is structured (reverse-engineered)</h2>
-<pre class="code">listing : https://www.olbg.com/betting-tips/&lt;Sport_Slug&gt;/&lt;sport_id&gt;
-event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Competition&gt;/&lt;Home&gt;_v_&lt;Away&gt;/&lt;sport_id&gt;?event_id=&lt;id&gt;</pre>
-<ul class="tight">
-  <li>IDs found: Tennis 3, Basketball 4, Cricket 7, Snooker 8, Rugby Union 9, Rugby League 10, Baseball 12, Ice Hockey 13, Darts 15, Handball 20, Volleyball 21, Gaelic Football 25.</li>
-  <li>The slug without an ID is a 404; a wrong ID redirects to the right slug, so the slug is authoritative and the ID is cosmetic.</li>
-  <li>The listing exposes, per event: both sides, date/time, competition (only for some sports), the market, the most-tipped selection, the tip count and the percentage of tips on that selection.</li>
-</ul>
-
-<h2>How our lines are made</h2>
-<ol class="steps">
-  <li><strong>Rugby union (URC fixtures).</strong> Expected points for each side = mean(its points-for per game, opponent&rsquo;s points-against per game), taken from the official URC table. Home side +{int(3)} points. Margin sd 13 points gives win/draw/loss probabilities; totals come from the same expected-points pair; the handicap line is the projected margin rounded to the nearest half point.</li>
-  <li><strong>Ice hockey (NHL fixtures).</strong> Same idea with goals from the official NHL standings, home side +0.15 goals, and a logistic mapping of the goal difference to a 2-way win probability.</li>
-  <li><strong>Everything else.</strong> The only input on the page is OLBG&rsquo;s consensus tip share, so our probability equals that share, capped at 98% (a 100% share cannot be priced). No total, no handicap &mdash; there is no scoring baseline to build one from.</li>
-  <li><strong>Pricing.</strong> Decimal odds = (1 &minus; 5%) / probability, i.e. a 5% overround allocated in proportion to probability.</li>
-</ol>
-
-<h2>How outright and race prices are made (the one-selection markets)</h2>
-<p>A golf tournament, an F1 race, a greyhound race or a season-long championship has one winner and no opposing side, so there is no
-home/away split and no draw to price. Handicapping it or setting a "match total" would be invention, so we originate the win price only:</p>
-<ol class="steps">
-  <li><code>p = (wins + a) / (total + k)</code>, where the prior <code>Beta(a, b)</code> has mean <code>1/N</code> and strength <code>k</code>
-      (<code>a = k/N</code>, <code>b = k &minus; k/N</code>). In words: the OLBG tip share is shrunk toward "one chance in a field of N".</li>
-  <li>Decimal odds = <code>(1 &minus; 0.05) / p</code>, the same 5% overround as the two-sided model.</li>
-  <li>If OLBG publishes a selection but no tip count (Hero Women&rsquo;s Indian Open), no probability and no price is originated.</li>
-</ol>
-<p class="note"><strong>Disclosed assumptions.</strong> N and k are ours, not facts. OLBG does not publish a field size on any of these rows.</p>
-<div class="tablewrap"><table class="board">
-<thead><tr><th>Field basis</th><th class="num">N assumed</th><th class="num">k (prior strength)</th><th>Why this number</th></tr></thead>
-<tbody>{gap_prior_rows}</tbody></table></div>
-<ul class="tight">{gap_basis_notes}</ul>
-<p class="dim">The figures above are written into every row (<code>data/gap_sports.json</code>) so a reviewer can recompute the price. Treat them as
-model output, never as a market quote.</p>
-<p class="note"><strong>Disclosed assumptions</strong> (constants we chose, not measured facts):</p>
-<ul class="tight">{assum}</ul>
-
-<h2>Confidence grading</h2>
-<p>Three evidence factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
-and our model giving the selection at least 55% (+2). A pick is graded <strong>HIGH</strong> only when the score is 6, the originated price sits
-inside <strong>-250 to +10000</strong> US odds (decimal 1.40 to 101.00) and the kick-off has not already passed. A score of 6 that fails the price
-or date test is <strong>MEDIUM</strong> with the reason published; 3&ndash;5 is MEDIUM and 0&ndash;2 is LOW. A row built only on a public tip share can
-never be graded above LOW.</p>
-<p><strong>Why 55% and not 70%?</strong> With our 5% overround, a 70% pick prices at 0.95/0.70 = 1.36, or -280, which is shorter than -250 and
-therefore outside the brief. The band itself caps a HIGH pick at 0.95/1.40 = 67.9% true probability. The previous 65% threshold made the band
-mathematically unreachable (its maximum price was 1.46), which is why all 15 published HIGH picks sat at 1.07&ndash;1.46. The threshold is now 55%,
-and the band &mdash; not the probability alone &mdash; defines the top grade.</p>
-<p>Current split: HIGH {conf_counter['HIGH']} &middot; MEDIUM {conf_counter['MEDIUM']} &middot; LOW {conf_counter['LOW']}. Of the
-{n_evidence_high} rows that clear the evidence bar, {n_band_blocked} are priced shorter than -250 and are published as MEDIUM.</p>
-
-<h2>What we will not do</h2>
-<ul class="tight">
-  <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
-  <li>We do not write predictions for picks we cannot support with verified form. That is why only {len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} of {n_events} rows carry a high-confidence prediction; the {len(PREDS) - len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} longer pieces are clearly labelled medium-confidence analysis.</li>
-  <li>We do not claim that a row is verified because a source exists for the competition. A row is verified only when the specific fixture appears on that source; see the <a href="audit.html">audit page</a>.</li>
-  <li>We do not present our own prices as facts or as bookmaker odds.</li>
-</ul>
+<section class="pagehead"><p class="eyebrow">REPRODUCIBLE ESTIMATES · TRACEABLE FACTS</p><h1>Method &amp; scope</h1>
+<p class="lede">Facts, captured opinions and model estimates are different things. This site labels them separately and never treats a source hostname as factual verification.</p></section>
+<h2>Coverage and exclusions</h2><p>The board contains {n_fixtures} captured two-sided fixtures and {n_outrights} outright/race rows.
+Neither that count nor the public HTML collector proves a full list of updated OLBG matches. Pagination and dynamic content remain a disclosed gap.</p>
+<div class="grid2"><div class="panel"><h3>Excluded sports</h3><ul>{excl}</ul><p>Gaelic football is retained only as the historically flagged scope ambiguity FL-001; the official-feed track excludes it conservatively.</p></div>
+<div class="panel"><h3>Categories</h3><ul>{sport_links}</ul></div></div>
+<h2>1. Discovery is not verification</h2><p>Public OLBG listing and event URLs are preserved. The hourly collector respects robots.txt and makes at most one public listing request per sport, two at a time.
+It reads actual linked text, never guesses a match from its URL, does not call disallowed private APIs and does not bypass challenges or invent pagination URLs.
+New event references remain unverified; their UTC time, competition and betting fields stay blank on <a href="discovery.html">Current discovery</a>.</p>
+<h2>2. Official sporting facts</h2><p>Recorded fixture confirmations and scoring/ranking inputs live in <code>data/official.json</code> and <code>data/verifications.json</code>, with official source links.
+Some are historical observations, not independently refreshed by this pass. Only retrieved official evidence may fill a factual field; third parties stay corroborated.
+The NBA/NHL/MLB connectors refresh their own schedules hourly, keep payload SHA-256 hashes, and show per-source successes and failures. Cached rows are withheld from the current feed.</p>
+<h2>3. Our originated prices</h2><p>The root model in <code>scripts/model.py</code> uses disclosed sport-specific heuristics: scoring-rate/normal-margin models for rugby, basketball and handball, a goals/logistic model for hockey,
+Log5 plus an assumed home adjustment for baseball, and assumed mappings of ranking points, ratings or seeds for some individual sports. Without the relevant inputs it may use a public tip share or leave a market empty.</p>
+<p>The separate <code>/olbg/</code> audit model uses shrunk tip shares and home-logit assumptions, plus explicitly marked <strong>editorial prior overrides</strong> in <code>tools/originate.py</code>.
+Those hard-coded probabilities and total preferences are assumptions, not official statistics, trained coefficients or independently validated edges. Different disclosed models can disagree.</p>
+<p>Both use <code>decimal = 0.95 / p</code>, a <strong>5% price haircut</strong>. In an exhaustive two-way book, the reciprocal probabilities therefore sum to approximately 1.05263 before rounding: about 5.26% overround, not exactly 5%.
+Fair decimal odds would be <code>1/p</code>. Single-selection field priors do not establish an exhaustive market book.</p>
+<h2>4. Markets investigated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Market</th><th>What is available</th><th>Limit / evidence</th></tr></thead><tbody>
+<tr><td>Match winner / money line</td><td>Our modeled selection and prices where inputs exist</td><td>Official schedules establish the fixture, not its probability. <a href="https://www.mlb.com/schedule/2026-10-23">Example official fixture</a></td></tr>
+<tr><td>Handicap / spread / run line / puck line</td><td>Projected or probability-mapped line where shown</td><td>Dispersion and standard prices are modeling assumptions; not verified settlement rules. <a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py">Formula</a></td></tr>
+<tr><td>Match totals</td><td>Root scoring/ranking heuristic or audit-track editorial baseline</td><td>Not a calibrated over/under distribution. Unsupported sport/format fields stay blank. <a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py">Audit priors</a></td></tr>
+<tr><td>Outright / race winner</td><td>Tip share shrunk toward an assumed field-size prior</td><td>Field size and prior strength are assumptions unless separately sourced. No invented opposing side, handicap or total. <a href="https://www.formula1.com/en/racing/2026/united-states">Example race source</a></td></tr>
+<tr><td>Set scores / periods / player props / other markets</td><td>OLBG labels retained where captured; no invented full market inventory</td><td>Automated comprehensive event-market discovery and settlement validation remain unverified. <a href="https://www.olbg.com/betting-tips">OLBG public index</a></td></tr>
+</tbody></table></div>
+<h2>5. Confidence and publication</h2><p>LOW/MEDIUM/HIGH are uncalibrated model evidence grades, not observed win rates. The root rubric scores fixture evidence, stored form inputs and its model preference.
+HIGH also requires a unique sourced prediction of at least 30 words, an originated price from 1.40 to 101.00 (−250 to +10000 US), and a current official-start release.</p>
+<p>No observed bookmaker price was verified, so <strong>we cannot certify that a market price is in the requested range or that a bet has positive expected value</strong>.
+Do not confuse filtering out very short model favorites with discovering value.</p>
+<p>A release requires a dated observation with an explicitly timezone-qualified exact official clock. No timezone is assigned to bare OLBG labels.
+“Followed by”, “not before”, session ordering and date-only draws cannot establish an exact start. A HIGH release expires at its scheduled start or 24 hours after the source check, whichever comes first.
+Passed starts are not final-result claims. A conflict blanks affected model lines and holds the pick for review. <a href="source-health.html">Inspect all release decisions →</a></p>
+<h2>6. Reproduce and validate</h2><pre class="code">python scripts/update.py
+python scripts/discovery.py
+python scripts/build.py
+python scripts/build_gap_sports.py
+python scripts/model.py
+python scripts/build_site.py
+python tools/build_dataset.py
+python tools/originate.py
+python tools/build_site.py
+python scripts/build_site.py --snapshot
+python -m unittest discover -s tests -v
+python scripts/check_board.py
+python tools/check_site.py
+python scripts/check.py
+python scripts/check_links.py</pre>
+<p>Use explicit <code>OLBG_NOW_UTC=2026-10-22T08:33Z</code> and <code>OLBG_AS_OF=2026-10-22</code> to reproduce a historical publication clock.
+This never renews capture/source timestamps. Builds and link checks are structural validation, not proof that every historical claim is supported.</p>
+<p>Outstanding issues and historical corrections are published on <a href="flagged.html">Flagged for Review</a>. No guaranteed outcomes. 18+.</p>
 """ + foot(0)
 open(os.path.join(OUT, "method.html"), "w").write(method)
 
 # ---------- nojekyll ----------
-for asset in ("style.css", "app.js"):
+for asset in ("style.css", "app.js", "release.js"):
     shutil.copyfile(os.path.join(ROOT, "assets", asset), os.path.join(OUT, "assets", asset))
 open(os.path.join(OUT, ".nojekyll"), "w").write("")
 

@@ -17,6 +17,8 @@ Run: python3 scripts/model.py   ->  data/events.json, data/picks.json
 """
 import json, math, glob, os
 from statistics import NormalDist
+from pathlib import Path
+from release import apply_board, sync_predictions
 from urllib.parse import urlparse
 
 from board_dates import (CAPTURE_DATE, AS_OF, resolve_start, resolve_kickoff_utc, started,
@@ -37,7 +39,7 @@ ASSUMPTIONS = [
     "Ice hockey: expected goals for a side = mean(its goals-for per game, opponent's goals-against per game); "
     "home side gets +0.15 goals; 2-way win probability = logistic(1.0 * goal difference). Modelling assumption.",
     "Draw: for 3-way sports with official data the draw band is +/-0.5 points around zero margin.",
-    "Overround: 5% total, allocated in proportion to the true (model) probabilities.",
+    "Overround: 5% price haircut: odds = 0.95/p. On an exhaustive two-way book this implies about 5.26% reciprocal overround, not exactly 5%.",
     "Unverified events: the only available input is the OLBG consensus tip share for one selection, so our "
     "probability equals the de-vigged consensus share. These rows are marked basis='consensus' and can never "
     "be graded above LOW confidence.",
@@ -47,7 +49,7 @@ ASSUMPTIONS = [
     "Price band: the brief asks for high-confidence picks priced between -250 and +10000 US odds. "
     "That is decimal 1.40 to 101.00. A pick cannot be graded HIGH unless its originated price sits inside "
     "that band, so an ultra-short favourite is downgraded to MEDIUM and the reason is published in the row. "
-    "With a 5% overround the band caps a HIGH pick at about 68% true probability (0.95/1.40 = 0.679).",
+    "With a 5% price haircut the band caps a HIGH pick at about 68% true probability (0.95/1.40 = 0.679).",
     "Handicaps: for sports with no official scoring table we quote a probability-implied handicap, margin = sigma * "
     "z(p). The per-sport sigma (Tennis 4.5 games, Basketball 13.0 points, Handball 7.0 goals, Baseball 3.0 runs, "
     "Volleyball 1.6 sets, Snooker 1.4 frames) is a disclosed modelling assumption, not a measured value, and the "
@@ -678,6 +680,7 @@ for e in events:
         "competition": e.get("competition", "") or _conf_comp,
         "home": e["home"], "away": e["away"],
         "start": e["start"],
+        "captured_at": e.get("captured") or CAPTURE_DATE.isoformat(),
         "olbg_market": e.get("market", ""),
         "olbg_pick": e.get("olbg_pick", ""),
         "olbg_tips": e.get("tips", ""),
@@ -699,7 +702,12 @@ for e in events:
                  "note": band_note},
     })
 
+picks = apply_board(picks, now=snapshot_utc())
+sync_predictions(Path(ROOT) / 'data/predictions.json', {r['ref']: r for r in picks},
+                 'ref', lambda r: r['pick']['confidence'].lower())
+
 json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
+           "publication_clock": snapshot_utc().isoformat(),
            "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)
 

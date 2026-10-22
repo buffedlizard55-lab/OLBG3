@@ -8,7 +8,7 @@
 <header class="topbar">
   <a class="brand" href="../index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../lines.html">Originated lines</a><a href="../verification.html">Verification</a><a href="../audit.html">Audit</a><a href="../flagged.html">Flagged for Review</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a>
+    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../lines.html">Originated lines</a><a href="../source-health.html">Source health</a><a href="../flagged.html">Flagged for Review</a><details class="nav-more"><summary>Data &amp; method</summary><div><a href="../verification.html">Verification</a><a href="../discovery.html">Current discovery</a><a href="../audit.html">Audit</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a></div></details>
   </nav>
 </header>
 <main>
@@ -26,421 +26,304 @@
   <div class="card"><span class="k">29</span><span class="l">rows</span></div>
   <div class="card"><span class="k">29</span><span class="l">officially verified</span></div>
   <div class="card"><span class="k">0</span><span class="l">corroborated (third-party)</span></div>
-  <div class="card"><span class="k">3</span><span class="l">high-confidence picks</span></div>
-  <div class="card"><span class="k">25</span><span class="l">medium-confidence picks</span></div>
+  <div class="card"><span class="k">0</span><span class="l">high-confidence picks</span></div>
+  <div class="card"><span class="k">28</span><span class="l">medium-confidence picks</span></div>
 </div>
 <h2>Rows, our lines and picks</h2>
-<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% overround), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
+<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% price haircut), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
 <strong>Basis:</strong> <code>official-league-table</code> / <code>official-standings</code> = model built on official data; <code>consensus</code> = de-vigged OLBG tip share only; <code>none</code> = no defensible input, so no price is shown.</p>
 <div class="tablewrap"><table id="tbl-volleyball" class="board"><thead><tr>
-<th>Ref</th><th>Sport</th><th>Competition</th><th>Match / event</th><th>Market</th><th>Start (as listed)</th>
-<th class="num">Our price</th><th class="num">Draw</th><th class="num">Our price 2</th>
-<th>Our pick</th><th class="num">Pick price (US)</th><th>Conf.</th><th>Basis</th><th>Official source</th>
-</tr></thead><tbody><tr data-sport="Volleyball" data-conf="MEDIUM" data-text="puijo w orpo w lentopallon mestaruusliiga (finland, women) - round 4 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Puijo_W_vs_Orpo_W/21?event_id=36981" rel="noopener">VLB-01</a></td>
-<td>Volleyball</td>
-<td class="comp">Lentopallon Mestaruusliiga (Finland, women) - round 4</td>
-<td class="match">Puijo W <span class="vs">v</span> Orpo W</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T14:00Z">Today 10:00 <span class="dim small">= 2026-10-21T14:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Puijo W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<th>Ref / sport</th><th>Match / competition</th><th>Captured start / official UTC</th><th>OLBG market</th>
+<th>Our winner / originated odds</th><th>Model confidence</th><th>Official source / reference</th><th>Publication status</th>
+</tr></thead><tbody><tr id="row-VLB-01" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="puijo w orpo w lentopallon mestaruusliiga (finland, women) - round 4 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Puijo_W_vs_Orpo_W/21?event_id=36981" rel="noopener">VLB-01</a><div class="small">Volleyball</div></td>
+<td class="match">Puijo W <span class="vs">v</span> Orpo W<div class="small">Lentopallon Mestaruusliiga (Finland, women) - round 4</div></td>
+<td class="when" data-kickoff-utc="">Today 10:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/3 public tips — not probabilities</div></td>
+<td class="pick">Puijo W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://mestaruusliiga.fi/uutiset/keskiviikon-ottelussa-voiitoputkessa-oleva-puijo-kohtaa-orpon/" rel="noopener" title="OLBG lists 10:00 ET; the league&#x27;s own notice gives 18:00 EEST, which is 11:00 ET. OLBG is one hour early here and the official time is what we publish.">&#10003; Mestaruusliiga official match preview, 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="luk lublin trefl gdansk plusliga (poland, men) - faza zasadnicza volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/LUK_Lublin_vs_Trefl_Gdansk/21?event_id=36961" rel="noopener">VLB-02</a></td>
-<td>Volleyball</td>
-<td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
-<td class="match">LUK Lublin <span class="vs">v</span> Trefl Gdansk</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T15:30Z">Today 11:30 <span class="dim small">= 2026-10-21T15:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">LUK Lublin <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-02" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="luk lublin trefl gdansk plusliga (poland, men) - faza zasadnicza volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/LUK_Lublin_vs_Trefl_Gdansk/21?event_id=36961" rel="noopener">VLB-02</a><div class="small">Volleyball</div></td>
+<td class="match">LUK Lublin <span class="vs">v</span> Trefl Gdansk<div class="small">PlusLiga (Poland, men) - Faza Zasadnicza</div></td>
+<td class="when" data-kickoff-utc="">Today 11:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/3 public tips — not probabilities</div></td>
+<td class="pick">LUK Lublin<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.tauronliga.pl/games.html" rel="noopener" title="Official match centre shows Wednesday 21 Oct, 17:30 - the OLBG time exactly.">&#10003; TAURON Liga official match centre, 2026/27</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="schweriner w erfurt w volleyball bundesliga (germany, women) volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Schweriner_W_vs_Erfurt_W/21?event_id=36945" rel="noopener">VLB-03</a></td>
-<td>Volleyball</td>
-<td class="comp">Volleyball Bundesliga (Germany, women)</td>
-<td class="match">Schweriner W <span class="vs">v</span> Erfurt W</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T16:00Z">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Schweriner W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-03" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="schweriner w erfurt w volleyball bundesliga (germany, women) volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Schweriner_W_vs_Erfurt_W/21?event_id=36945" rel="noopener">VLB-03</a><div class="small">Volleyball</div></td>
+<td class="match">Schweriner W <span class="vs">v</span> Erfurt W<div class="small">Volleyball Bundesliga (Germany, women)</div></td>
+<td class="when" data-kickoff-utc="">Today 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/3 public tips — not probabilities</div></td>
+<td class="pick">Schweriner W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_frauen/statistik/hauptrunde/tabelle_hauptrunde.xhtml" rel="noopener" title="Official league page lists Wed 10/21/26, 6:00 PM Schwerin v Erfurt - the OLBG time exactly.">&#10003; Volleyball Bundesliga official table &amp; fixtures page (women), 2026/27</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="slepsk suwalki gks katowice plusliga (poland, men) - faza zasadnicza volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Slepsk_Suwalki_vs_GKS_Katowice/21?event_id=36963" rel="noopener">VLB-04</a></td>
-<td>Volleyball</td>
-<td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
-<td class="match">Slepsk Suwalki <span class="vs">v</span> GKS Katowice</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-23T15:30Z">23 Oct 11:30 <span class="dim small">= 2026-10-23T15:30Z</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Slepsk Suwalki <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-04" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="slepsk suwalki gks katowice plusliga (poland, men) - faza zasadnicza volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Slepsk_Suwalki_vs_GKS_Katowice/21?event_id=36963" rel="noopener">VLB-04</a><div class="small">Volleyball</div></td>
+<td class="match">Slepsk Suwalki <span class="vs">v</span> GKS Katowice<div class="small">PlusLiga (Poland, men) - Faza Zasadnicza</div></td>
+<td class="when" data-kickoff-utc="">23 Oct 11:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Slepsk Suwalki<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.tauronliga.pl/games.html" rel="noopener" title="Official match centre shows Friday 23 Oct, 17:30 Slep sk Malow Suwalki v GKS Katowice - the OLBG date and time exactly.">&#10003; TAURON Liga official match centre, 2026/27</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="pge skra belchatow projekt warszawa plusliga (poland, men) - faza zasadnicza volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/PGE_Skra_Belchatow_vs_Projekt_Warszawa/21?event_id=36964" rel="noopener">VLB-05</a></td>
-<td>Volleyball</td>
-<td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
-<td class="match">PGE Skra Belchatow <span class="vs">v</span> Projekt Warszawa</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-24T16:00Z">24 Oct 12:00 <span class="dim small">= 2026-10-24T16:00Z</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Projekt Warszawa <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-05" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="pge skra belchatow projekt warszawa plusliga (poland, men) - faza zasadnicza volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/PGE_Skra_Belchatow_vs_Projekt_Warszawa/21?event_id=36964" rel="noopener">VLB-05</a><div class="small">Volleyball</div></td>
+<td class="match">PGE Skra Belchatow <span class="vs">v</span> Projekt Warszawa<div class="small">PlusLiga (Poland, men) - Faza Zasadnicza</div></td>
+<td class="when" data-kickoff-utc="">24 Oct 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Projekt Warszawa<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.tauronliga.pl/games.html" rel="noopener" title="Official match centre shows Saturday 24 Oct, 18:00 PGE GiEK SKRA Belchatow v PGE Projekt Warszawa - the OLBG date and time exactly.">&#10003; TAURON Liga official match centre, 2026/27</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="chks chelm resovia rzeszow plusliga (poland, men) - faza zasadnicza volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965" rel="noopener">VLB-06</a></td>
-<td>Volleyball</td>
-<td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
-<td class="match">CHKS Chelm <span class="vs">v</span> Resovia Rzeszow</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T17:00Z">25 Oct 13:00 <span class="dim small">= 2026-10-25T17:00Z</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Resovia Rzeszow <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-06" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="chks chelm resovia rzeszow plusliga (poland, men) - faza zasadnicza volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/CHKS_Chelm_vs_Resovia_Rzeszow/21?event_id=36965" rel="noopener">VLB-06</a><div class="small">Volleyball</div></td>
+<td class="match">CHKS Chelm <span class="vs">v</span> Resovia Rzeszow<div class="small">PlusLiga (Poland, men) - Faza Zasadnicza</div></td>
+<td class="when" data-kickoff-utc="">25 Oct 13:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Resovia Rzeszow<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.tauronliga.pl/games.html" rel="noopener" title="Official match centre shows Sunday 25 Oct, 18:00 ChKS Chelm v Asseco Resovia Rzeszow. Poland switches to CET that morning, so 18:00 local is 13:00 ET - the OLBG time.">&#10003; TAURON Liga official match centre, 2026/27</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="jelcz laskowice stal nysa puchar polski (poland, men) - round 3 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Jelcz_Laskowice_vs_Stal_Nysa/21?event_id=36979" rel="noopener">VLB-07</a></td>
-<td>Volleyball</td>
-<td class="comp">Puchar Polski (Poland, men) - round 3</td>
-<td class="match">Jelcz Laskowice <span class="vs">v</span> Stal Nysa</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T16:00Z">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Stal Nysa <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-07" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="jelcz laskowice stal nysa puchar polski (poland, men) - round 3 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Jelcz_Laskowice_vs_Stal_Nysa/21?event_id=36979" rel="noopener">VLB-07</a><div class="small">Volleyball</div></td>
+<td class="match">Jelcz Laskowice <span class="vs">v</span> Stal Nysa<div class="small">Puchar Polski (Poland, men) - round 3</div></td>
+<td class="when" data-kickoff-utc="">Today 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Stal Nysa<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://sedziowie.pzps.pl/system/mecze-puchar-polski-mezczyzn/" rel="noopener" title="The federation&#x27;s own match list has match 22: 2026-10-21, 18:00, Instytut Mechaniki Rekord Volley Jelcz-Laskowice v Stal Nysa - the OLBG time exactly. This is a Polish Cup tie, not a league fixture.">&#10003; PZPS official referee appointment list, Polish Cup men</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="netzhoppers kw helios grizzlys giesen volleyball bundesliga (germany, men) - matchday 1 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Netzhoppers_KW_vs_Helios_Grizzlys_Giesen/21?event_id=36984" rel="noopener">VLB-08</a></td>
-<td>Volleyball</td>
-<td class="comp">Volleyball Bundesliga (Germany, men) - matchday 1</td>
-<td class="match">Netzhoppers KW <span class="vs">v</span> Helios Grizzlys Giesen</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T17:00Z">Today 13:00 <span class="dim small">= 2026-10-21T17:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Helios Grizzlys Giesen <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-08" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="netzhoppers kw helios grizzlys giesen volleyball bundesliga (germany, men) - matchday 1 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Netzhoppers_KW_vs_Helios_Grizzlys_Giesen/21?event_id=36984" rel="noopener">VLB-08</a><div class="small">Volleyball</div></td>
+<td class="match">Netzhoppers KW <span class="vs">v</span> Helios Grizzlys Giesen<div class="small">Volleyball Bundesliga (Germany, men) - matchday 1</div></td>
+<td class="when" data-kickoff-utc="">Today 13:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Helios Grizzlys Giesen<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle/tabelle_hauptrunde.xhtml" rel="noopener" title="Official league page lists Wed 10/21/26, 7:00 PM Koenigs Wusterhausen v Giesen - the OLBG time exactly.">&#10003; Volleyball Bundesliga official table &amp; fixtures page (men), 2026/27</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="wwk volleys munchen vfb friedrichshafen volleyball bundesliga (germany, men) - matchday 1 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/WWK_Volleys_Munchen_vs_VfB_Friedrichshafen/21?event_id=36985" rel="noopener">VLB-09</a></td>
-<td>Volleyball</td>
-<td class="comp">Volleyball Bundesliga (Germany, men) - matchday 1</td>
-<td class="match">WWK Volleys Munchen <span class="vs">v</span> VfB Friedrichshafen</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T17:30Z">Today 13:30 <span class="dim small">= 2026-10-21T17:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">VfB Friedrichshafen <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-09" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="wwk volleys munchen vfb friedrichshafen volleyball bundesliga (germany, men) - matchday 1 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/WWK_Volleys_Munchen_vs_VfB_Friedrichshafen/21?event_id=36985" rel="noopener">VLB-09</a><div class="small">Volleyball</div></td>
+<td class="match">WWK Volleys Munchen <span class="vs">v</span> VfB Friedrichshafen<div class="small">Volleyball Bundesliga (Germany, men) - matchday 1</div></td>
+<td class="when" data-kickoff-utc="">Today 13:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">VfB Friedrichshafen<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle/tabelle_hauptrunde.xhtml" rel="noopener" title="Official league page lists Wed 10/21/26, 7:30 PM Muenchen v Friedrichshafen - the OLBG time exactly.">&#10003; Volleyball Bundesliga official table &amp; fixtures page (men), 2026/27</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="ssc karlsruhe svg luneburg volleyball bundesliga (germany, men) - matchday 1 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SSC_Karlsruhe_vs_SVG_Luneburg/21?event_id=36986" rel="noopener">VLB-10</a></td>
-<td>Volleyball</td>
-<td class="comp">Volleyball Bundesliga (Germany, men) - matchday 1</td>
-<td class="match">SSC Karlsruhe <span class="vs">v</span> SVG Luneburg</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T18:00Z">Today 14:00 <span class="dim small">= 2026-10-21T18:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">SVG Luneburg <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-10" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="ssc karlsruhe svg luneburg volleyball bundesliga (germany, men) - matchday 1 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/SSC_Karlsruhe_vs_SVG_Luneburg/21?event_id=36986" rel="noopener">VLB-10</a><div class="small">Volleyball</div></td>
+<td class="match">SSC Karlsruhe <span class="vs">v</span> SVG Luneburg<div class="small">Volleyball Bundesliga (Germany, men) - matchday 1</div></td>
+<td class="when" data-kickoff-utc="">Today 14:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">SVG Luneburg<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.volleyball-bundesliga.de/cms/home/1_bundesliga_maenner/statistik/tabelle/tabelle_hauptrunde.xhtml" rel="noopener" title="Official league page lists Wed 10/21/26, 8:00 PM Karlsruhe v Lueneburg - the OLBG time exactly.">&#10003; Volleyball Bundesliga official table &amp; fixtures page (men), 2026/27</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="vc sneek w vv utrecht w eredivisie volleyball (netherlands, women) - round 3 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/VC_Sneek_W_vs_VV_Utrecht_W/21?event_id=36968" rel="noopener">VLB-11</a></td>
-<td>Volleyball</td>
-<td class="comp">Eredivisie Volleyball (Netherlands, women) - round 3</td>
-<td class="match">VC Sneek W <span class="vs">v</span> VV Utrecht W</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T18:00Z">Today 14:00 <span class="dim small">= 2026-10-21T18:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">VC Sneek W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-11" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="vc sneek w vv utrecht w eredivisie volleyball (netherlands, women) - round 3 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/VC_Sneek_W_vs_VV_Utrecht_W/21?event_id=36968" rel="noopener">VLB-11</a><div class="small">Volleyball</div></td>
+<td class="match">VC Sneek W <span class="vs">v</span> VV Utrecht W<div class="small">Eredivisie Volleyball (Netherlands, women) - round 3</div></td>
+<td class="when" data-kickoff-utc="">Today 14:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">VC Sneek W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.volleybal.nl/nieuws/eerste-doordeweekse-speelronde-bij-eredivisie-volleybal-vrouwen" rel="noopener" title="The federation&#x27;s preview states the Friso Sneek v Meerdervoort VV Utrecht match is Wednesday at 20.00 - the OLBG time exactly. OLBG&#x27;s &#x27;VC Sneek&#x27; is the same club.">&#10003; Volleybal.nl (Nevobo) official round preview, 20 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="warta zawiercie kedzierzyn kozle plusliga (poland, men) - faza zasadnicza volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Warta_Zawiercie_vs_Kedzierzyn_Kozle/21?event_id=36962" rel="noopener">VLB-12</a></td>
-<td>Volleyball</td>
-<td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
-<td class="match">Warta Zawiercie <span class="vs">v</span> Kedzierzyn Kozle</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T18:30Z">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Warta Zawiercie <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-12" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="warta zawiercie kedzierzyn kozle plusliga (poland, men) - faza zasadnicza volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Warta_Zawiercie_vs_Kedzierzyn_Kozle/21?event_id=36962" rel="noopener">VLB-12</a><div class="small">Volleyball</div></td>
+<td class="match">Warta Zawiercie <span class="vs">v</span> Kedzierzyn Kozle<div class="small">PlusLiga (Poland, men) - Faza Zasadnicza</div></td>
+<td class="when" data-kickoff-utc="">Today 14:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Warta Zawiercie<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.tauronliga.pl/games.html" rel="noopener" title="Official match centre shows Wednesday 21 Oct, 20:30 Aluron CMC Warta Zawiercie v ZAKSA - the OLBG time exactly.">&#10003; TAURON Liga official match centre, 2026/27</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="vallefoglia w cuneo w lvf serie a1 femminile (italy) - 4th round volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Vallefoglia_W_vs_Cuneo_W/21?event_id=36977" rel="noopener">VLB-13</a></td>
-<td>Volleyball</td>
-<td class="comp">LVF Serie A1 Femminile (Italy) - 4th round</td>
-<td class="match">Vallefoglia W <span class="vs">v</span> Cuneo W</td>
-<td class="market">Set Score <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T18:30Z">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Cuneo W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-13" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="vallefoglia w cuneo w lvf serie a1 femminile (italy) - 4th round volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Vallefoglia_W_vs_Cuneo_W/21?event_id=36977" rel="noopener">VLB-13</a><div class="small">Volleyball</div></td>
+<td class="match">Vallefoglia W <span class="vs">v</span> Cuneo W<div class="small">LVF Serie A1 Femminile (Italy) - 4th round</div></td>
+<td class="when" data-kickoff-utc="">Today 14:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Score <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Cuneo W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.legavolleyfemminile.it/lvf-a1-fineco-derby-dalta-quota-tra-bergamo-e-milano-vallefoglia-cerca-conferme-contro-cuneo/" rel="noopener" title="The league&#x27;s own round programme lists Megabox Vallefoglia v Cuneo on Wednesday 21 Oct at 20.30 - the OLBG time exactly.">&#10003; Lega Volley Femminile official round-4 programme, 20 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="bergamo w milano w lvf serie a1 femminile (italy) - 4th round volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Bergamo_W_vs_Milano_W/21?event_id=36974" rel="noopener">VLB-14</a></td>
-<td>Volleyball</td>
-<td class="comp">LVF Serie A1 Femminile (Italy) - 4th round</td>
-<td class="match">Bergamo W <span class="vs">v</span> Milano W</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T18:30Z">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Milano W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-14" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="bergamo w milano w lvf serie a1 femminile (italy) - 4th round volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Bergamo_W_vs_Milano_W/21?event_id=36974" rel="noopener">VLB-14</a><div class="small">Volleyball</div></td>
+<td class="match">Bergamo W <span class="vs">v</span> Milano W<div class="small">LVF Serie A1 Femminile (Italy) - 4th round</div></td>
+<td class="when" data-kickoff-utc="">Today 14:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Milano W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.legavolleyfemminile.it/lvf-a1-fineco-derby-dalta-quota-tra-bergamo-e-milano-vallefoglia-cerca-conferme-contro-cuneo/" rel="noopener" title="The league&#x27;s own round programme lists ChorusLife Bergamo v Numia Milano on Wednesday 21 Oct at 20.30 - the OLBG time exactly.">&#10003; Lega Volley Femminile official round-4 programme, 20 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="novara w marignano w lvf serie a1 femminile (italy) - 4th round volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Novara_W_vs_Marignano_W/21?event_id=36976" rel="noopener">VLB-15</a></td>
-<td>Volleyball</td>
-<td class="comp">LVF Serie A1 Femminile (Italy) - 4th round</td>
-<td class="match">Novara W <span class="vs">v</span> Marignano W</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T18:30Z">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Novara W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VLB-15" data-sport="Volleyball" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="novara w marignano w lvf serie a1 femminile (italy) - 4th round volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Novara_W_vs_Marignano_W/21?event_id=36976" rel="noopener">VLB-15</a><div class="small">Volleyball</div></td>
+<td class="match">Novara W <span class="vs">v</span> Marignano W<div class="small">LVF Serie A1 Femminile (Italy) - 4th round</div></td>
+<td class="when" data-kickoff-utc="">Today 14:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Novara W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.legavolleyfemminile.it/lvf-a1-fineco-derby-dalta-quota-tra-bergamo-e-milano-vallefoglia-cerca-conferme-contro-cuneo/" rel="noopener" title="The league programme lists Igor Gorgonzola Novara v Omag Consolini Volley 1907 (San Giovanni in Marignano) on Wednesday 21 Oct at 20.30 - the OLBG time exactly; OLBG&#x27;s &#x27;Marignano&#x27; is that club.">&#10003; Lega Volley Femminile official round-4 programme, 20 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="radomka radom w mielec w polish tauron liga women 2026/27 volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Radomka_Radom_W_vs_Mielec_W/21?event_id=36988" rel="noopener">VOL-16</a></td>
-<td>Volleyball</td>
-<td class="comp">Polish TAURON Liga Women 2026/27</td>
-<td class="match">Radomka Radom W <span class="vs">v</span> Mielec W</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T15:30Z">Tomorrow 11:30 <span class="dim small">= 2026-10-22T15:30Z</span></td>
-<td class="num">1.19</td><td class="num dim">n/p</td><td class="num">4.75</td>
-<td class="pick">Radomka Radom W <span class="prob">80%</span></td>
-<td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-16" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="radomka radom w mielec w polish tauron liga women 2026/27 volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Radomka_Radom_W_vs_Mielec_W/21?event_id=36988" rel="noopener">VOL-16</a><div class="small">Volleyball</div></td>
+<td class="match">Radomka Radom W <span class="vs">v</span> Mielec W<div class="small">Polish TAURON Liga Women 2026/27</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 11:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">4/5 public tips — not probabilities</div></td>
+<td class="pick">Radomka Radom W<div class="odds">1.19 <span class="dim">(-526 US)</span> <span class="prob">model 80%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.tauronliga.pl/teams/tour/53/id/62.html" rel="noopener" title="MOYA Radomka Radom vs ITA TOOLS Stal Mielec.">&#10003; TAURON Liga — Official Polish Women&#x27;s Volleyball League</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="ceske budejovice beskydy czech cez extraliga men 2026/27 (round 2) volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ceske_Budejovice_vs_Beskydy/21?event_id=36990" rel="noopener">VOL-17</a></td>
-<td>Volleyball</td>
-<td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
-<td class="match">Ceske Budejovice <span class="vs">v</span> Beskydy</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T16:00Z">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
-<td class="num">1.42</td><td class="num dim">n/p</td><td class="num">2.88</td>
-<td class="pick">Ceske Budejovice <span class="prob">67%</span></td>
-<td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-17" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="ceske budejovice beskydy czech cez extraliga men 2026/27 (round 2) volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ceske_Budejovice_vs_Beskydy/21?event_id=36990" rel="noopener">VOL-17</a><div class="small">Volleyball</div></td>
+<td class="match">Ceske Budejovice <span class="vs">v</span> Beskydy<div class="small">Czech CEZ Extraliga Men 2026/27 (Round 2)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/3 public tips — not probabilities</div></td>
+<td class="pick">Ceske Budejovice<div class="odds">1.42 <span class="dim">(-238 US)</span> <span class="prob">model 67%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cvf.cz/extraliga-muzi" rel="noopener" title="#2 VK Jihostroj České Budějovice (3:0 R1) vs #5 Black Volley Beskydy (3:2 R1).">&#10003; Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings &amp; Round 2 schedule</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="ostrava kladno czech cez extraliga men 2026/27 (round 2) volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ostrava_vs_Kladno/21?event_id=36992" rel="noopener">VOL-18</a></td>
-<td>Volleyball</td>
-<td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
-<td class="match">Ostrava <span class="vs">v</span> Kladno</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T16:00Z">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Ostrava <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-18" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="ostrava kladno czech cez extraliga men 2026/27 (round 2) volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Ostrava_vs_Kladno/21?event_id=36992" rel="noopener">VOL-18</a><div class="small">Volleyball</div></td>
+<td class="match">Ostrava <span class="vs">v</span> Kladno<div class="small">Czech CEZ Extraliga Men 2026/27 (Round 2)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Ostrava<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cvf.cz/extraliga-muzi" rel="noopener" title="Confirmed on cvf.cz: VK Ostrava (lost 2:3 R1) vs #1 Kladno volejbal cz (won 3:0 R1, 75:56).">&#10003; Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings &amp; Round 2 schedule</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="brno odolena voda czech cez extraliga men 2026/27 (round 2) volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brno_vs_Odolena_Voda/21?event_id=36989" rel="noopener">VOL-19</a></td>
-<td>Volleyball</td>
-<td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
-<td class="match">Brno <span class="vs">v</span> Odolena Voda</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T16:00Z">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Brno <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-19" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="brno odolena voda czech cez extraliga men 2026/27 (round 2) volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brno_vs_Odolena_Voda/21?event_id=36989" rel="noopener">VOL-19</a><div class="small">Volleyball</div></td>
+<td class="match">Brno <span class="vs">v</span> Odolena Voda<div class="small">Czech CEZ Extraliga Men 2026/27 (Round 2)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Brno<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cvf.cz/extraliga-muzi" rel="noopener" title="Confirmed on cvf.cz: Volejbal Brno vs AERO Odolena Voda.">&#10003; Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings &amp; Round 2 schedule</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="usti nad labem zlin czech cez extraliga men 2026/27 (round 2) volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Usti_Nad_Labem_vs_Zlin/21?event_id=36993" rel="noopener">VOL-20</a></td>
-<td>Volleyball</td>
-<td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
-<td class="match">Usti Nad Labem <span class="vs">v</span> Zlin</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T16:00Z">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Zlin <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-20" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="usti nad labem zlin czech cez extraliga men 2026/27 (round 2) volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Usti_Nad_Labem_vs_Zlin/21?event_id=36993" rel="noopener">VOL-20</a><div class="small">Volleyball</div></td>
+<td class="match">Usti Nad Labem <span class="vs">v</span> Zlin<div class="small">Czech CEZ Extraliga Men 2026/27 (Round 2)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Zlin<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cvf.cz/extraliga-muzi" rel="noopener" title="Confirmed on cvf.cz CEZ Extraliga Men Round 2 schedule: SK Volejbal Usti nad Labem vs Fatra Eko Zlin (def. VK Ostrava 3:2 in R1).">&#10003; Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings &amp; Round 2 schedule</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="LOW" data-text="liberec benatky nad jizerou czech cez extraliga men 2026/27 (round 2) volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Liberec_vs_Benatky_nad_Jizerou/21?event_id=36991" rel="noopener">VOL-21</a></td>
-<td>Volleyball</td>
-<td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
-<td class="match">Liberec <span class="vs">v</span> Benatky nad Jizerou</td>
-<td class="market">Set Score <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T16:00Z">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
-<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
-<td class="pick">Liberec <span class="prob">50%</span></td>
-<td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-21" data-sport="Volleyball" data-conf="LOW" data-release="unverified_start" data-expires-at="" data-text="liberec benatky nad jizerou czech cez extraliga men 2026/27 (round 2) volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Liberec_vs_Benatky_nad_Jizerou/21?event_id=36991" rel="noopener">VOL-21</a><div class="small">Volleyball</div></td>
+<td class="match">Liberec <span class="vs">v</span> Benatky nad Jizerou<div class="small">Czech CEZ Extraliga Men 2026/27 (Round 2)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Score <span class="tag">match</span><div class="small">1/2 public tips — not probabilities</div></td>
+<td class="pick">Liberec<div class="odds">1.90 <span class="dim">(-111 US)</span> <span class="prob">model 50%</span></div></td>
+<td class="confidence-cell"><span class="pill low">LOW</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cvf.cz/extraliga-muzi" rel="noopener" title="Confirmed on cvf.cz CEZ Extraliga Men Round 2 schedule: VK Dukla Liberec (pushed Beskydy to 5 sets in R1) vs VK Benatky nad Jizerou.">&#10003; Czech Volleyball Federation (CVF) — Official CEZ Extraliga Men standings &amp; Round 2 schedule</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="brasilia volei w sesc rj flamengo w brazil superliga women volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Brasilia_Volei_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37000" rel="noopener">VOL-22</a></td>
-<td>Volleyball</td>
-<td class="comp">Brazil Superliga Women</td>
-<td class="match">Brasilia Volei W <span class="vs">v</span> Sesc RJ Flamengo W</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-23T21:30Z">Tomorrow 17:30 <span class="dim small">= 2026-10-23T21:30Z</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Sesc RJ Flamengo W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-22" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="brasilia volei w sesc rj flamengo w brazil superliga women volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Brasilia_Volei_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37000" rel="noopener">VOL-22</a><div class="small">Volleyball</div></td>
+<td class="match">Brasilia Volei W <span class="vs">v</span> Sesc RJ Flamengo W<div class="small">Brazil Superliga Women</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 17:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Sesc RJ Flamengo W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cbv.com.br/" rel="noopener" title="Confirmed on CBV official portal: Brasília Vôlei vs Sesc RJ Flamengo (swept Barueri 3-0 in R1), Round 2 on Fri 23 Oct 2026.">&#10003; CBV Superliga Feminina 2026/27 Round 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="osasco w sorocaba w brazil superliga women volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Osasco_W_vs_Sorocaba_W/21?event_id=37001" rel="noopener">VOL-23</a></td>
-<td>Volleyball</td>
-<td class="comp">Brazil Superliga Women</td>
-<td class="match">Osasco W <span class="vs">v</span> Sorocaba W</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-24T21:30Z">24 Oct 17:30 <span class="dim small">= 2026-10-24T21:30Z</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Osasco W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-23" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="osasco w sorocaba w brazil superliga women volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Osasco_W_vs_Sorocaba_W/21?event_id=37001" rel="noopener">VOL-23</a><div class="small">Volleyball</div></td>
+<td class="match">Osasco W <span class="vs">v</span> Sorocaba W<div class="small">Brazil Superliga Women</div></td>
+<td class="when" data-kickoff-utc="">24 Oct 17:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Osasco W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cbv.com.br/" rel="noopener" title="Confirmed on CBV official portal: Osasco São Cristóvão Saúde (swept Brasília 3-0 in R1) vs Sorocaba, Round 2 on Sat 24 Oct 2026.">&#10003; CBV Superliga Feminina 2026/27 Round 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="sesi bauru w fluminense w brazil superliga women volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Sesi_Bauru_W_vs_Fluminense_W/21?event_id=37002" rel="noopener">VOL-24</a></td>
-<td>Volleyball</td>
-<td class="comp">Brazil Superliga Women</td>
-<td class="match">Sesi Bauru W <span class="vs">v</span> Fluminense W</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T00:00Z">24 Oct 20:00 <span class="dim small">= 2026-10-25T00:00Z</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Sesi Bauru W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-24" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="sesi bauru w fluminense w brazil superliga women volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Sesi_Bauru_W_vs_Fluminense_W/21?event_id=37002" rel="noopener">VOL-24</a><div class="small">Volleyball</div></td>
+<td class="match">Sesi Bauru W <span class="vs">v</span> Fluminense W<div class="small">Brazil Superliga Women</div></td>
+<td class="when" data-kickoff-utc="">24 Oct 20:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Sesi Bauru W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cbv.com.br/" rel="noopener" title="Confirmed on CBV official portal: Sesi Vôlei Bauru vs Fluminense, Superliga Feminina 2026/27 Round 2 on Sat 24 Oct 2026.">&#10003; CBV Superliga Feminina 2026/27 Round 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="paulistano barueri w gerdau minas w brazil superliga women volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Paulistano_Barueri_W_vs_Gerdau_Minas_W/21?event_id=37003" rel="noopener">VOL-25</a></td>
-<td>Volleyball</td>
-<td class="comp">Brazil Superliga Women</td>
-<td class="match">Paulistano Barueri W <span class="vs">v</span> Gerdau Minas W</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T21:30Z">25 Oct 17:30 <span class="dim small">= 2026-10-25T21:30Z</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Gerdau Minas W <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-VOL-25" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="paulistano barueri w gerdau minas w brazil superliga women volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Paulistano_Barueri_W_vs_Gerdau_Minas_W/21?event_id=37003" rel="noopener">VOL-25</a><div class="small">Volleyball</div></td>
+<td class="match">Paulistano Barueri W <span class="vs">v</span> Gerdau Minas W<div class="small">Brazil Superliga Women</div></td>
+<td class="when" data-kickoff-utc="">25 Oct 17:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Gerdau Minas W<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://cbv.com.br/" rel="noopener" title="Confirmed on CBV official portal: Paulistano Barueri vs Gerdau Minas (beat Brusque 3-2 in R1), Round 2 on Sun 25 Oct 2026.">&#10003; CBV Superliga Feminina 2026/27 Round 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="MEDIUM" data-text="itas trentino cisterna volley superlega credem banca volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Itas_Trentino_vs_Cisterna_Volley/21?event_id=36995" rel="noopener">VOL-26</a></td>
-<td>Volleyball</td>
-<td class="comp">SuperLega Credem Banca</td>
-<td class="match">Itas Trentino <span class="vs">v</span> Cisterna Volley</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T16:00Z">25 Oct 12:00 <span class="dim small">= 2026-10-25T16:00Z</span></td>
-<td class="num">1.79</td><td class="num">&mdash;</td><td class="num">2.02</td>
-<td class="pick">Itas Trentino <span class="prob">53%</span></td>
-<td class="num odds">-127 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-VOL-26" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="itas trentino cisterna volley superlega credem banca volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Itas_Trentino_vs_Cisterna_Volley/21?event_id=36995" rel="noopener">VOL-26</a><div class="small">Volleyball</div></td>
+<td class="match">Itas Trentino <span class="vs">v</span> Cisterna Volley<div class="small">SuperLega Credem Banca</div></td>
+<td class="when" data-kickoff-utc="">25 Oct 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Itas Trentino<div class="odds">1.79 <span class="dim">(-127 US)</span> <span class="prob">model 53%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener" title="Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at ilT quotidiano / BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET.">&#10003; Lega Pallavolo Serie A SuperLega Giornata 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="HIGH" data-text="sir susa scai perugia tinet prata di pordenone superlega credem banca volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Sir_Susa_Scai_Perugia_vs_Tinet_Prata_di_Pordenone/21?event_id=36996" rel="noopener">VOL-27</a></td>
-<td>Volleyball</td>
-<td class="comp">SuperLega Credem Banca</td>
-<td class="match">Sir Susa Scai Perugia <span class="vs">v</span> Tinet Prata di Pordenone</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T17:00Z">25 Oct 13:00 <span class="dim small">= 2026-10-25T17:00Z</span></td>
-<td class="num">1.58</td><td class="num">&mdash;</td><td class="num">2.37</td>
-<td class="pick">Sir Susa Scai Perugia <span class="prob">60%</span></td>
-<td class="num odds">-172 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-VOL-27" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="sir susa scai perugia tinet prata di pordenone superlega credem banca volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Sir_Susa_Scai_Perugia_vs_Tinet_Prata_di_Pordenone/21?event_id=36996" rel="noopener">VOL-27</a><div class="small">Volleyball</div></td>
+<td class="match">Sir Susa Scai Perugia <span class="vs">v</span> Tinet Prata di Pordenone<div class="small">SuperLega Credem Banca</div></td>
+<td class="when" data-kickoff-utc="">25 Oct 13:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Sir Susa Scai Perugia<div class="odds">1.58 <span class="dim">(-172 US)</span> <span class="prob">model 60%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener" title="Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Sir Susa Scai Perugia vs Tinet Prata di Pordenone at Pala Barton Energy, Perugia, Sun 25 Oct 2026 18:00 CET.">&#10003; Lega Pallavolo Serie A SuperLega Giornata 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="HIGH" data-text="cucine lube civitanova pallavolo padova superlega credem banca volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Cucine_Lube_Civitanova_vs_Pallavolo_Padova/21?event_id=36994" rel="noopener">VOL-28</a></td>
-<td>Volleyball</td>
-<td class="comp">SuperLega Credem Banca</td>
-<td class="match">Cucine Lube Civitanova <span class="vs">v</span> Pallavolo Padova</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T17:00Z">25 Oct 13:00 <span class="dim small">= 2026-10-25T17:00Z</span></td>
-<td class="num">1.44</td><td class="num">&mdash;</td><td class="num">2.78</td>
-<td class="pick">Cucine Lube Civitanova <span class="prob">66%</span></td>
-<td class="num odds">-227 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-VOL-28" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="cucine lube civitanova pallavolo padova superlega credem banca volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Cucine_Lube_Civitanova_vs_Pallavolo_Padova/21?event_id=36994" rel="noopener">VOL-28</a><div class="small">Volleyball</div></td>
+<td class="match">Cucine Lube Civitanova <span class="vs">v</span> Pallavolo Padova<div class="small">SuperLega Credem Banca</div></td>
+<td class="when" data-kickoff-utc="">25 Oct 13:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Cucine Lube Civitanova<div class="odds">1.44 <span class="dim">(-227 US)</span> <span class="prob">model 66%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener" title="Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Cucine Lube Civitanova vs Pallavolo Padova at Eurosuole Forum, Sun 25 Oct 2026 18:00 CET.">&#10003; Lega Pallavolo Serie A SuperLega Giornata 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Volleyball" data-conf="HIGH" data-text="vero volley monza rana verona superlega credem banca volleyball">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Vero_Volley_Monza_vs_Rana_Verona/21?event_id=36997" rel="noopener">VOL-29</a></td>
-<td>Volleyball</td>
-<td class="comp">SuperLega Credem Banca</td>
-<td class="match">Vero Volley Monza <span class="vs">v</span> Rana Verona</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-25T17:00Z">25 Oct 13:00 <span class="dim small">= 2026-10-25T17:00Z</span></td>
-<td class="num">1.61</td><td class="num">&mdash;</td><td class="num">2.33</td>
-<td class="pick">Vero Volley Monza <span class="prob">59%</span></td>
-<td class="num odds">-164 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-VOL-29" data-sport="Volleyball" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="vero volley monza rana verona superlega credem banca volleyball">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Vero_Volley_Monza_vs_Rana_Verona/21?event_id=36997" rel="noopener">VOL-29</a><div class="small">Volleyball</div></td>
+<td class="match">Vero Volley Monza <span class="vs">v</span> Rana Verona<div class="small">SuperLega Credem Banca</div></td>
+<td class="when" data-kickoff-utc="">25 Oct 13:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Vero Volley Monza<div class="odds">1.61 <span class="dim">(-164 US)</span> <span class="prob">model 59%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener" title="Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Vero Volley Monza vs Rana Verona at OpiquadArena, Monza, Sun 25 Oct 2026 18:00 CET.">&#10003; Lega Pallavolo Serie A SuperLega Giornata 2</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr></tbody></table></div>
 <h2>Handicap lines we originated (29)</h2><p class="legend"><code>official-form</code> = projected margin built on the competition&rsquo;s own scoring table. <code>consensus-scaled</code> = probability-implied line using a disclosed per-sport margin scale, capped at 85% probability. Both are our own lines, never bookmaker prices.</p><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th><th>Basis</th></tr></thead><tbody><tr><td>VLB-01</td><td>Puijo W <span class="vs">v</span> Orpo W</td><td>Puijo W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Orpo W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-02</td><td>LUK Lublin <span class="vs">v</span> Trefl Gdansk</td><td>LUK Lublin -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Trefl Gdansk +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-03</td><td>Schweriner W <span class="vs">v</span> Erfurt W</td><td>Schweriner W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Erfurt W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-04</td><td>Slepsk Suwalki <span class="vs">v</span> GKS Katowice</td><td>Slepsk Suwalki -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>GKS Katowice +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-05</td><td>PGE Skra Belchatow <span class="vs">v</span> Projekt Warszawa</td><td>Projekt Warszawa -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>PGE Skra Belchatow +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-06</td><td>CHKS Chelm <span class="vs">v</span> Resovia Rzeszow</td><td>Resovia Rzeszow -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>CHKS Chelm +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-07</td><td>Jelcz Laskowice <span class="vs">v</span> Stal Nysa</td><td>Stal Nysa -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Jelcz Laskowice +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-08</td><td>Netzhoppers KW <span class="vs">v</span> Helios Grizzlys Giesen</td><td>Helios Grizzlys Giesen -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Netzhoppers KW +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-09</td><td>WWK Volleys Munchen <span class="vs">v</span> VfB Friedrichshafen</td><td>VfB Friedrichshafen -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>WWK Volleys Munchen +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-10</td><td>SSC Karlsruhe <span class="vs">v</span> SVG Luneburg</td><td>SVG Luneburg -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>SSC Karlsruhe +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-11</td><td>VC Sneek W <span class="vs">v</span> VV Utrecht W</td><td>VC Sneek W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>VV Utrecht W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-12</td><td>Warta Zawiercie <span class="vs">v</span> Kedzierzyn Kozle</td><td>Warta Zawiercie -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Kedzierzyn Kozle +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-13</td><td>Vallefoglia W <span class="vs">v</span> Cuneo W</td><td>Cuneo W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Vallefoglia W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-14</td><td>Bergamo W <span class="vs">v</span> Milano W</td><td>Milano W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Bergamo W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VLB-15</td><td>Novara W <span class="vs">v</span> Marignano W</td><td>Novara W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Marignano W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-16</td><td>Radomka Radom W <span class="vs">v</span> Mielec W</td><td>Radomka Radom W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Mielec W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-17</td><td>Ceske Budejovice <span class="vs">v</span> Beskydy</td><td>Ceske Budejovice -0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Beskydy +0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-18</td><td>Ostrava <span class="vs">v</span> Kladno</td><td>Ostrava -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Kladno +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-19</td><td>Brno <span class="vs">v</span> Odolena Voda</td><td>Brno -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Odolena Voda +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-20</td><td>Usti Nad Labem <span class="vs">v</span> Zlin</td><td>Zlin -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Usti Nad Labem +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-21</td><td>Liberec <span class="vs">v</span> Benatky nad Jizerou</td><td>Benatky nad Jizerou -0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Liberec +0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-22</td><td>Brasilia Volei W <span class="vs">v</span> Sesc RJ Flamengo W</td><td>Sesc RJ Flamengo W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Brasilia Volei W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-23</td><td>Osasco W <span class="vs">v</span> Sorocaba W</td><td>Osasco W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Sorocaba W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-24</td><td>Sesi Bauru W <span class="vs">v</span> Fluminense W</td><td>Sesi Bauru W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Fluminense W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-25</td><td>Paulistano Barueri W <span class="vs">v</span> Gerdau Minas W</td><td>Gerdau Minas W -1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Paulistano Barueri W +1.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>VOL-26</td><td>Itas Trentino <span class="vs">v</span> Cisterna Volley</td><td>Itas Trentino -0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Cisterna Volley +0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>VOL-27</td><td>Sir Susa Scai Perugia <span class="vs">v</span> Tinet Prata di Pordenone</td><td>Sir Susa Scai Perugia -0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Tinet Prata di Pordenone +0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>VOL-28</td><td>Cucine Lube Civitanova <span class="vs">v</span> Pallavolo Padova</td><td>Cucine Lube Civitanova -0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Pallavolo Padova +0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>VOL-29</td><td>Vero Volley Monza <span class="vs">v</span> Rana Verona</td><td>Vero Volley Monza -0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td>Rana Verona +0.5 <span class='dim small'>sets</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr></tbody></table></div>
 <h2>Match totals we originated (4)</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody><tr><td>VOL-26</td><td>Itas Trentino <span class="vs">v</span> Cisterna Volley</td><td class='num'>182.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>VOL-27</td><td>Sir Susa Scai Perugia <span class="vs">v</span> Tinet Prata di Pordenone</td><td class='num'>179.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>VOL-28</td><td>Cucine Lube Civitanova <span class="vs">v</span> Pallavolo Padova</td><td class='num'>183.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>VOL-29</td><td>Vero Volley Monza <span class="vs">v</span> Rana Verona</td><td class='num'>184.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr></tbody></table></div>
@@ -451,10 +334,11 @@
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
   <p><strong>Snapshot, not a complete live fixture feed.</strong> Rebuilding does not refresh the captured OLBG listings or
   reverify official sources. HIGH is an evidence-based model grade, not a calibrated win rate or a demonstrated betting edge.
-  Same-day start times have no confirmed timezone; a date-only expiry check cannot establish that a match is still upcoming.
+  Only explicitly timezone-qualified official clocks are converted to UTC. HIGH release expires at the scheduled start or 24 hours after its source check, whichever comes first. A clock cannot establish the final result.
   See <a href="../flagged.html">Flagged for Review</a> for limitations.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
 </footer>
 <script src="../assets/app.js"></script>
+<script src="../assets/release.js"></script>
 </body></html>

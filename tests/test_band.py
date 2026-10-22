@@ -72,12 +72,14 @@ class TestPublishedBoard(unittest.TestCase):
 
     def test_every_high_pick_is_in_the_band_and_live(self):
         highs = [r for r in self.events + self.gap if r["pick"]["confidence"] == "HIGH"]
-        self.assertGreater(len(highs), 0)
+        # Zero current HIGH picks is valid after expiry; never force a pick to keep a test green.
         for r in highs:
             pk = r["pick"]
             self.assertTrue(bd.in_band(pk["price"]), f"{r['ref']} price {pk['price']} outside band")
             self.assertFalse(pk.get("kickoff_passed"), f"{r['ref']} kick-off has passed")
             self.assertEqual(pk["american"], bd.american(pk["price"]), r["ref"])
+            self.assertTrue(pk.get('release', {}).get('eligible'), r['ref'])
+            self.assertTrue(pk.get('release', {}).get('start_utc'), r['ref'])
 
     def test_every_high_has_a_prediction(self):
         highs = [r["ref"] for r in self.events + self.gap if r["pick"]["confidence"] == "HIGH"]
