@@ -41,6 +41,8 @@ Baseline on this branch was `f55593f`; the branch was rebased onto `main` `29241
 
 **PR / deploy:** [#87](https://github.com/buffedlizard55-lab/OLBG3/pull/87) → merged to `main` at `2026-10-22T12:14:46Z` as `35f6129` (checks: build **pass** 10s, deploy skipped on the PR as expected). Main build run [39776764436](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39776764436): `build` **success**, `deploy` **success**; the Pages build for `35f6129` completed at 12:14:48Z and the live pages serve this commit (verified: `flagged.html` lists `FL-079`..`FL-089`; the earlier CDN copy showed the pre-merge register, so the pages were re-fetched with a cache-busting query to confirm). Leftover sibling PRs #76/#77 remain conflicting and superseded; nothing in them was deleted.
 
+**Follow-up:** [#90](https://github.com/buffedlizard55-lab/OLBG3/pull/90) → merged `4a9a11e` at `2026-10-22T12:22Z` (build **success**, deploy **success**, Pages built for `4a9a11e`). It aligned the README to the board after sibling PR #88 retired the withdrawn Humphries darts rows (229 rows / 208 prices / 14 root `HIGH` across 8 sports / 274 `/olbg/` lines with 19 `HIGH` of 46 pieces) and restored the feed pages, which the sibling's failed network refresh had left with an empty `matches` array while `data/current.json` still held 40 fixtures. Live check after deploy: dashboard shows 229 rows, 208 prices and 14 current `HIGH`, matching the committed JSON.
+
 
 ### ACTIVE CLAIM — `session-08885c97` (line-by-line re-verification, in-band HIGH expansion, defect repair & final integration, 2026-10-22)
 - **Session ID:** `session-08885c97`
