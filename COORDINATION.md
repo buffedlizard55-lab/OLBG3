@@ -1220,5 +1220,14 @@ No factual hallucination found in any spot-checked row. Pre-existing, already-do
 The brief's ">70% market-price chance" and "-250 floor" cannot both hold with the repo's disclosed 5% overround (0.95/0.70 = 1.36 decimal = -280 US, shorter than -250). The board therefore treats the -250..+10000 band as the hard gate for HIGH and publishes the cap (~68% true probability) as a disclosed assumption in `scripts/model.py` ASSUMPTIONS and `docs/method.md`. This was adjudicated in prior parallel sessions (session-f58890e3 vs session-8b151ab0) and is recorded in COORDINATION.md.
 
 ### Integration
-Below: PR creation, merge, and Pages deploy record.
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/67 — "Final integration & independent official-source verification (session-f508e61c)"
+- **Merge:** **MERGED** into `main` without waiting for approval, merge commit `0477401a627f40b8d931896673d3cbc4cff5dd08`
+- **Branch CI:** `Verify and publish dashboard` run [39740489122](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39740489122) — **success** (build + deploy)
+- **Pages deploy:** status `built`; live site https://buffedlizard55-lab.github.io/OLBG3/
+- **Live confirmation (200 OK):**
+  - `/` — 196 rows / 15 sports / 172 verified / 2 corroborated / 22 unverified / 192 priced / 33 HIGH, all inside -250..+10000
+  - `/predictions.html` — 33 HIGH predictions, each >=30 words with explicit selection and official source links
+- **Checks:** `unittest` 25/25 OK; `check_board.py` PASS; `tools/check_site.py` All checks passed; `scripts/check.py` PASS; `check_links.py` 81 pages / 1,280 links / 0 broken
+- **Independent spot-verification:** all CONFIRMED vs official sources (mlb.com, formula1.com, unitedrugby.com, atptour.com, pgatour.com, euroleaguebasketball.net, stats.swehockey.se, handbollsligan.se, lnh.fr, nzc.nz, icc-cricket.com); no factual hallucination
+- **Pre-existing non-blocking limitations (published on Flagged for Review):** 22 unverified rows left blank, 2 corroborated-only rows, pdc.tv cookie wall on DRT rows; no new irregularities found this pass
 
