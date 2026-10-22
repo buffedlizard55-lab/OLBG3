@@ -1012,6 +1012,7 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   - `scripts/check_links.py` → pages=81, local_links_checked=1234, broken=0.
   - Full CI chain re-run end-to-end (update.py → unittest → build.py → build_gap_sports.py → model.py → build_site.py → check_board → tools/* → snapshot → check → check_links) all green.
 - **Independent JSON audit:** 30 root HIGH + 26 /olbg/ HIGH, all prices inside -250..+10000 (1.44–7.60 decimal); 44 written pieces unique; min length >=30 words; 0 excluded-sport rows; 32 root rows remain blank+flagged (non-blocking).
+
 - **PR:** to be recorded after creation.
 ## Session `session-1bc4ae9a` — freshness safety and independent audit
 
@@ -1042,3 +1043,6 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - Branch CI https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39713569609 passed (build 13s). Local 25 tests and both deterministic pipelines passed; zero broken internal links.
 - Post-merge runs 39713621626 / 39713622166 were **cancelled**, not failed, while concurrent #49 advanced main. #49 preserves this code. Deployment confirmation will use the newest main run; cancellation must not be represented as successful deployment.
 - Remaining items are **needs review**, not verified: full current all-sports coverage, all historical official-source assertions, same-day timezone/start status, calibrated confidence, bookmaker-vs-model price comparison, separate /olbg/ expiry behavior. Published in root Flagged for Review and footer; no new odds or source values were invented.
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/47 — merged to `main` 2026-10-22T02:48:42Z (merge commit). Branch CI run 39713416476 build success; deploy job success.
+- **Pages deploy:** run 39713416476 deploy completed success. Live site: https://buffedlizard55-lab.github.io/OLBG3/ (196 rows / 15 sports / 30 in-band HIGH / 26 /olbg/ HIGH).
+
