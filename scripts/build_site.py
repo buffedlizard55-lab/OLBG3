@@ -427,7 +427,10 @@ not the same as being verified, and some of them are league sites used as offici
 <p class="small"><strong>Hosts outside the recorded official set, by number of citations:</strong>
 {", ".join(f"{e(h)} ({c})" for h, c in PE['root']['hosts_outside_official_set'].items())}.
 These citations are <strong>not</strong> re-read in this pass and are therefore not treated as verification anywhere on the board; the
-review item is <a href="flagged.html#FL-101">FL-101</a>.</p>
+review item is <a href="flagged.html#FL-106">FL-106</a>.</p>
+
+<p class="small">The shortfall itself is also raised as <a href="flagged.html#FL-102">FL-102</a> in the shared register, and the
+evening source-availability audit behind it is in <code>docs/coverage-20261022-evening.md</code>.</p>
 
 <h2>What would raise the count</h2>
 <div class="panel"><p>Only two things can, and neither can be done by relabelling a row:</p>
@@ -471,7 +474,7 @@ recpage = head("Cross-track review") + f"""
 </section>
 
 <div class="notice">A disagreement is <strong>not</strong> evidence that either side is wrong, and it is not a settled outcome. Neither
-number is a bookmaker price. The list exists so a human can review the pair; it is also published as <a href="flagged.html#FL-099">FL-099</a>
+number is a bookmaker price. The list exists so a human can review the pair; it is also published as <a href="flagged.html#FL-105">FL-105</a>
 on the Flagged for Review page. Rows where one track deliberately withheld a selection (source conflict or a gate) are counted separately
 and are not treated as disagreements.</div>
 

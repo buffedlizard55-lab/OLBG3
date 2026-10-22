@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-22T12:40:00+00:00",
+  "root_publication_clock": "2026-10-22T21:20:00+00:00",
   "root_capture": "2026-10-21",
   "root_built": "2026-10-22",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. Live re-verification is blocked in this sandbox by the documented outbound allowlist (FL-077)."
@@ -33,13 +33,13 @@
   "sports_listed": 15,
   "sports_with_rows": 15,
   "sports_meeting_target": 1,
-  "live_high_root": 20,
-  "live_high_olbg": 24,
-  "live_high_union": 24,
+  "live_high_root": 14,
+  "live_high_olbg": 17,
+  "live_high_union": 17,
   "root_rows": 265,
-  "olbg_rows": 298,
+  "olbg_rows": 324,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 51
+  "shortfall_to_target": 58
  },
  "sports": [
   {
@@ -52,10 +52,10 @@
    "root_handicap": 34,
    "root_total": 19,
    "root_high": 0,
-   "olbg_rows": 45,
-   "olbg_priced_win": 45,
-   "olbg_handicap": 45,
-   "olbg_total": 45,
+   "olbg_rows": 53,
+   "olbg_priced_win": 53,
+   "olbg_handicap": 53,
+   "olbg_total": 53,
    "olbg_high": 0,
    "live_high_union": 0,
    "target": 5,
@@ -85,55 +85,53 @@
    "root_outright": 0,
    "root_handicap": 28,
    "root_total": 8,
-   "root_high": 4,
-   "olbg_rows": 44,
-   "olbg_priced_win": 42,
-   "olbg_handicap": 42,
-   "olbg_total": 42,
-   "olbg_high": 4,
-   "live_high_union": 4,
+   "root_high": 1,
+   "olbg_rows": 46,
+   "olbg_priced_win": 44,
+   "olbg_handicap": 44,
+   "olbg_total": 44,
+   "olbg_high": 3,
+   "live_high_union": 3,
    "target": 5,
-   "shortfall": 1,
+   "shortfall": 2,
    "meets_target": false,
    "blocking": {
     "no_official_form": 22,
     "high_evidence_out_of_band": 1,
-    "start_or_source_gate": 23,
+    "start_or_source_gate": 25,
     "unpriced": 2,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "22 of 30 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "1 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "23 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "25 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "2 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced."
    ],
    "live_picks": [
     {
-     "event_id": "535918",
+     "event_id": "534841",
      "sport": "Basketball",
      "tracks": [
-      "root",
       "olbg"
      ],
-     "root_ref": "BKB-20",
-     "olbg_ref": "BKB-535918",
-     "selection": "Anadolu Efes",
-     "price": 1.71,
-     "american": -141
+     "root_ref": null,
+     "olbg_ref": "BKB-534841",
+     "selection": "SA Spurs",
+     "price": 1.72,
+     "american": "-139"
     },
     {
-     "event_id": "535921",
+     "event_id": "534842",
      "sport": "Basketball",
      "tracks": [
-      "root",
       "olbg"
      ],
-     "root_ref": "BKB-21",
-     "olbg_ref": "BKB-535921",
-     "selection": "Real Madrid",
-     "price": 1.5,
-     "american": -200
+     "root_ref": null,
+     "olbg_ref": "BKB-534842",
+     "selection": "BOS Celtics",
+     "price": 1.65,
+     "american": "-154"
     },
     {
      "event_id": "535928",
@@ -147,19 +145,6 @@
      "selection": "Zalgiris",
      "price": 1.48,
      "american": -208
-    },
-    {
-     "event_id": "535922",
-     "sport": "Basketball",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "BKB-26",
-     "olbg_ref": "BKB-535922",
-     "selection": "FC Barcelona",
-     "price": 1.68,
-     "american": -147
     }
    ]
   },
@@ -206,10 +191,10 @@
    "root_handicap": 0,
    "root_total": 0,
    "root_high": 1,
-   "olbg_rows": 16,
-   "olbg_priced_win": 15,
+   "olbg_rows": 18,
+   "olbg_priced_win": 17,
    "olbg_handicap": 0,
-   "olbg_total": 11,
+   "olbg_total": 13,
    "olbg_high": 1,
    "live_high_union": 1,
    "target": 5,
@@ -287,10 +272,10 @@
    "root_handicap": 15,
    "root_total": 15,
    "root_high": 1,
-   "olbg_rows": 16,
-   "olbg_priced_win": 16,
-   "olbg_handicap": 15,
-   "olbg_total": 15,
+   "olbg_rows": 18,
+   "olbg_priced_win": 18,
+   "olbg_handicap": 17,
+   "olbg_total": 17,
    "olbg_high": 1,
    "live_high_union": 1,
    "target": 5,
@@ -412,67 +397,29 @@
    "root_outright": 0,
    "root_handicap": 24,
    "root_total": 24,
-   "root_high": 7,
+   "root_high": 5,
    "olbg_rows": 28,
    "olbg_priced_win": 28,
    "olbg_handicap": 28,
    "olbg_total": 28,
-   "olbg_high": 8,
-   "live_high_union": 8,
+   "olbg_high": 5,
+   "live_high_union": 5,
    "target": 5,
    "shortfall": 0,
    "meets_target": true,
    "blocking": {
     "no_official_form": 1,
     "high_evidence_out_of_band": 9,
-    "start_or_source_gate": 7,
+    "start_or_source_gate": 13,
     "unpriced": 0,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "1 of 25 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "9 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "7 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
+    "13 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
    ],
    "live_picks": [
-    {
-     "event_id": "199901",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "ICH-199901",
-     "selection": "Farjestad BK",
-     "price": 1.44,
-     "american": "-227"
-    },
-    {
-     "event_id": "199900",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-10",
-     "olbg_ref": "ICH-199900",
-     "selection": "Brynas IF",
-     "price": 1.5,
-     "american": -200
-    },
-    {
-     "event_id": "199906",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-12",
-     "olbg_ref": "ICH-199906",
-     "selection": "Frolunda HC",
-     "price": 1.6,
-     "american": -167
-    },
     {
      "event_id": "199931",
      "sport": "Ice Hockey",
@@ -588,36 +535,24 @@
    "olbg_priced_win": 17,
    "olbg_handicap": 15,
    "olbg_total": 15,
-   "olbg_high": 4,
-   "live_high_union": 4,
+   "olbg_high": 2,
+   "live_high_union": 2,
    "target": 5,
-   "shortfall": 1,
+   "shortfall": 3,
    "meets_target": false,
    "blocking": {
     "no_official_form": 1,
     "high_evidence_out_of_band": 9,
-    "start_or_source_gate": 13,
+    "start_or_source_gate": 15,
     "unpriced": 0,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "1 of 17 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "9 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "13 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
+    "15 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
    ],
    "live_picks": [
-    {
-     "event_id": "32324",
-     "sport": "Darts",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "DAR-32324",
-     "selection": "Dirk van Duijvenbode",
-     "price": 1.5,
-     "american": "-200"
-    },
     {
      "event_id": "32332",
      "sport": "Darts",
@@ -629,18 +564,6 @@
      "selection": "Ryan Joyce",
      "price": 1.42,
      "american": "-238"
-    },
-    {
-     "event_id": "32338",
-     "sport": "Darts",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "DAR-32338",
-     "selection": "Gerwyn Price",
-     "price": 7.19,
-     "american": "+619"
     },
     {
      "event_id": "26023",
@@ -666,44 +589,30 @@
    "root_outright": 0,
    "root_handicap": 26,
    "root_total": 15,
-   "root_high": 1,
-   "olbg_rows": 33,
-   "olbg_priced_win": 33,
-   "olbg_handicap": 33,
-   "olbg_total": 33,
-   "olbg_high": 1,
-   "live_high_union": 1,
+   "root_high": 0,
+   "olbg_rows": 40,
+   "olbg_priced_win": 40,
+   "olbg_handicap": 40,
+   "olbg_total": 40,
+   "olbg_high": 0,
+   "live_high_union": 0,
    "target": 5,
-   "shortfall": 4,
+   "shortfall": 5,
    "meets_target": false,
    "blocking": {
     "no_official_form": 16,
     "high_evidence_out_of_band": 8,
-    "start_or_source_gate": 26,
+    "start_or_source_gate": 31,
     "unpriced": 5,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "16 of 31 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "8 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "26 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "31 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "5 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced."
    ],
-   "live_picks": [
-    {
-     "event_id": "12051",
-     "sport": "Handball",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "HBL-15",
-     "olbg_ref": "HAN-12051",
-     "selection": "Pick Szeged",
-     "price": 1.54,
-     "american": -185
-    }
-   ]
+   "live_picks": []
   },
   {
    "sport": "Volleyball",
@@ -715,10 +624,10 @@
    "root_handicap": 26,
    "root_total": 5,
    "root_high": 3,
-   "olbg_rows": 36,
-   "olbg_priced_win": 36,
-   "olbg_handicap": 36,
-   "olbg_total": 36,
+   "olbg_rows": 41,
+   "olbg_priced_win": 41,
+   "olbg_handicap": 41,
+   "olbg_total": 41,
    "olbg_high": 3,
    "live_high_union": 3,
    "target": 5,
@@ -863,7 +772,7 @@
  "prose_evidence": {
   "root": {
    "pieces": 73,
-   "high": 20,
+   "high": 14,
    "words_min": 59,
    "words_median": 75,
    "words_max": 143,
@@ -890,13 +799,13 @@
    "withheld_bodies": 0
   },
   "olbg": {
-   "pieces": 53,
-   "high": 24,
+   "pieces": 55,
+   "high": 17,
    "words_min": 46,
-   "words_median": 80,
+   "words_median": 81,
    "words_max": 105,
    "under_30_words": 0,
-   "citing_an_official_host": 52,
+   "citing_an_official_host": 54,
    "citing_only_hosts_outside_official_set": 1,
    "hosts_outside_official_set": {
     "lnv-web.dataproject.com": 1,
@@ -948,14 +857,14 @@
     "root_american": -125,
     "root_prob": 0.5266,
     "root_confidence": "MEDIUM",
-    "root_start_status": "upcoming",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "BKB-535920",
     "olbg_selection": "Dubai Basketball",
     "olbg_price": 1.74,
     "olbg_american": "-135",
     "olbg_prob": 0.545,
     "olbg_confidence": "medium",
-    "olbg_start_status": "upcoming",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/FC_Bayern_Munich_vs_Dubai_Basketball/4?event_id=535920"
    },
    {
@@ -968,14 +877,14 @@
     "root_american": -118,
     "root_prob": 0.5138,
     "root_confidence": "MEDIUM",
-    "root_start_status": "upcoming",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "BKB-535924",
     "olbg_selection": "Crvena Zvezda",
     "olbg_price": 1.75,
     "olbg_american": "-133",
     "olbg_prob": 0.542,
     "olbg_confidence": "medium",
-    "olbg_start_status": "upcoming",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Partizan_Belgrade_vs_Crvena_Zvezda/4?event_id=535924"
    },
    {
@@ -1028,14 +937,14 @@
     "root_american": -263,
     "root_prob": 0.6881,
     "root_confidence": "MEDIUM",
-    "root_start_status": "upcoming",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "DAR-32324",
     "olbg_selection": "Dirk van Duijvenbode",
     "olbg_price": 1.5,
     "olbg_american": "-200",
     "olbg_prob": 0.635,
-    "olbg_confidence": "high",
-    "olbg_start_status": "upcoming",
+    "olbg_confidence": "medium",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Dirk_van_Duijvenbode/15?event_id=32324"
    },
    {
@@ -1088,14 +997,14 @@
     "root_american": -172,
     "root_prob": 0.6,
     "root_confidence": "MEDIUM",
-    "root_start_status": "upcoming",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "HAN-12049",
     "olbg_selection": "MT Melsungen",
     "olbg_price": 1.88,
     "olbg_american": "-114",
     "olbg_prob": 0.5064,
     "olbg_confidence": "low",
-    "olbg_start_status": "upcoming",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/MT_Melsungen_vs_Wisla_Plock/20?event_id=12049"
    },
    {
@@ -1248,14 +1157,14 @@
     "root_american": -112,
     "root_prob": 0.5014,
     "root_confidence": "MEDIUM",
-    "root_start_status": "upcoming",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "ICH-199899",
     "olbg_selection": "IF Bjorkloven",
     "olbg_price": 1.73,
     "olbg_american": "-137",
     "olbg_prob": 0.548,
     "olbg_confidence": "medium",
-    "olbg_start_status": "upcoming",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/IF_Bjorkloven_vs_Malmo_Redhawks/13?event_id=199899"
    },
    {
@@ -1268,14 +1177,14 @@
     "root_american": -123,
     "root_prob": 0.525,
     "root_confidence": "MEDIUM",
-    "root_start_status": "upcoming",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "ICH-199902",
     "olbg_selection": "Lulea HF",
     "olbg_price": 1.8,
     "olbg_american": "-125",
     "olbg_prob": 0.528,
     "olbg_confidence": "medium",
-    "olbg_start_status": "upcoming",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Vaxjo_Lakers_vs_Lulea_HF/13?event_id=199902"
    },
    {

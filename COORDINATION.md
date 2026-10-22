@@ -1748,20 +1748,22 @@ themselves and published, so the gap cannot hide.
 - **`scripts/brief_coverage.py` (new) writes `data/brief_coverage.json`** — no network, no inference: it reads `data/events.json`,
   `data/gap_sports.json`, `data/lines.json`, `data/matches.json`, `data/meta.json`, `data/predictions.json`,
   `data/predictions-olbg.json` and `data/verifications.json`.
-  - target **5 picks x 15 sports = 75/day**, published today **24 distinct live HIGH** (root 20, `/olbg/` 24, de-duplicated on OLBG event
-    id), so **1 sport meets the target (Ice Hockey, 8)** and the shortfall is **51**.
+  - **Rebased onto the 21:20Z evening capture (PR #102) and re-derived from it.** At that clock the target is
+    **5 picks x 15 sports = 75/day**; published **17 distinct live HIGH** (root 14, `/olbg/` 17, de-duplicated on OLBG event id), so
+    **1 sport meets the target (Ice Hockey, 5)** and the shortfall is **58**.
   - per-sport blockers, counted from row fields: no official current-form input for both sides (Tennis 21/40, Snooker 14/14, Volleyball
     25/30, Handball 16/31 …); HIGH-grade evidence outside the band (Ice Hockey 9, Darts 9, Rugby Union 8, Tennis 6, Handball 8);
     official-start / source gate (Tennis 40/40, Snooker 14/14, Greyhounds 22/22); unpriced; unverified-or-corroborated (Greyhounds 22/22).
     Counts overlap on purpose and the page says so.
-  - prose evidence per track, from each piece's own `sources`: root 73 pieces (20 HIGH, 59–143 words, 0 under 30, 0 duplicate bodies), 70
-    citing a host recorded in this repo as official, 3 citing only hosts outside that set; `/olbg/` 53 pieces (24 HIGH, 46–105 words).
+  - prose evidence per track, from each piece's own `sources`: root 73 pieces (14 HIGH, 59–143 words, 0 under 30, 0 duplicate bodies), 70
+    citing a host recorded in this repo as official, 3 citing only hosts outside that set; `/olbg/` 55 pieces (17 HIGH, 46–105 words).
 - **`brief.html`** renders the accounting, the per-sport reason blocks, the 24 live picks with their refs and the prose-evidence table (with
   every host outside the recorded official set listed and explicitly **not** called verified).
 - **`reconcile.html`** lists the **28 of 217** fixtures priced on both tracks where the models name different selections (167 agree, 22 have a
   selection withheld by one track), each with both selections, prices, model probabilities, confidence labels and the OLBG event link.
-- **`data/flagged.json` FL-099 / FL-100 / FL-101** — cross-track disagreement (low), five-per-sport shortfall (medium), and the 14 hosts
-  outside the recorded official set (low). All three are `needs review`, all three are published on both Flagged pages, none blocks.
+- **`data/flagged.json` FL-105 / FL-106** (renumbered after the sibling merged FL-099..FL-104 into `main` first) — cross-track disagreement
+  (low) and the 14 hosts outside the recorded official set (low). The five-per-sport shortfall is *not* duplicated: the sibling's **FL-102**
+  already carries it and `brief.html` links to it. Both of my items are `needs review`, published on both Flagged pages, and block nothing.
 - **Feed-track coherence fix (no data changed):** the legacy feed pages printed "No validated model … all picks remain withheld" and
   "Validated predictions 0" next to a board publishing 20 HIGH picks. They now say which track they are, print their own capture time, warn
   that rows are not filtered against the current clock, add a Dashboard/brief link to their own nav, and scope every claim to the feed track.
@@ -1773,18 +1775,22 @@ themselves and published, so the gap cannot hide.
 **Verification actually performed this pass.** Full pipeline from a clean tree in the documented order:
 `build.py` → `build_gap_sports.py` → `model.py` → `brief_coverage.py` → `build_site.py` → `check_board.py` → `tools/build_dataset.py` →
 `tools/originate.py` → `tools/build_site.py` → `tools/check_site.py` → `--snapshot` → `check.py` → `check_links.py` → `unittest`.
-Results: `check_board.py` **PASS** (265 rows = 217 fixtures + 48 outright/race; 237 verified; 242 priced; 73 pieces; 20 live in-band HIGH);
-`tools/check_site.py` **PASS** (298 lines; 24 high; 53 pieces; 101 register items); `check.py` **PASS** (40 feed rows); `check_links.py`
-**PASS** (110 pages, 2,450 local links, 0 broken); `87/87` unit tests **OK**; consecutive rebuilds byte-identical (clean `git status` after a
-second run). Internal cross-checks also run this pass and recorded for review: every OLBG event URL slug still matches its row's home/away
+Results after the rebase: `check_board.py` **PASS** (265 rows = 217 fixtures + 48 outright/race; 237 verified; 242 priced; 73 pieces; 14 live
+in-band HIGH); `tools/check_site.py` **PASS** (324 lines; 17 high; 55 pieces; 106 register items); `check.py` **PASS** (40 feed rows);
+`check_links.py` **PASS** (110 pages, 2,402 local links, 0 broken); `93/93` unit tests **OK**; consecutive rebuilds byte-identical (clean
+`git status` after a second run). Internal cross-checks also run this pass and recorded for review: every OLBG event URL slug still matches its row's home/away
 names (0 mismatches), no duplicate OLBG event ids across the 265 root rows, every `verified` row's `official_url` host is a governing-body,
 league or club domain, every HIGH write-up names its selection, and the 0.95/p price and band arithmetic is enforced by the checker.
 
-**Boundary — what was *not* verified.** This sandbox's outbound allowlist is GitHub + package registries only; `www.olbg.com`,
-`api-web.nhle.com` and `www.mlb.com` all return HTTP 000. Therefore this session **fetched no OLBG page and no official source**, renewed no
-`checked_at`, quote or verification label, wrote no new fixture, price, grade or prediction, and claims no new verification. That limit is the
-existing **FL-077**, and the 14 hosts outside the recorded official set are **FL-101** rather than being silently trusted. It is also why the
-five-per-sport gap is published (**FL-100**) instead of being closed by relabelling rows.
+**Boundary — what was and was not verified.** The sandbox shell cannot reach sports sites (HTTP 000), so nothing was fetched through it. Two
+pages *were* read through the platform page tool as a sanity check at 21:52Z: the
+[OLBG tennis listing](https://www.olbg.com/betting-tips/Tennis/3) and the
+[NHL 2026-10-22 schedule](https://api-web.nhle.com/v1/schedule/2026-10-22). Both agree with what the board already states, and both show why
+the snapshot caveat exists: OLBG's headline market and tip counts had moved since capture (902117 now *Sara Bejlek to win 2-1* under **Set
+Betting**; 902135 now 6/7 rather than 1/1). **No row was rewritten from those reads, no `checked_at`/quote/verification label was renewed,
+no fixture, price, grade or prediction was created**, and no claim resting on an unread page is upgraded. The 21:20Z clocks and evening
+capture belong to the sibling session `cab97f19`, not to this one. The 14 hosts outside the recorded official set are **FL-106**, and the
+five-per-sport gap stays the sibling's **FL-102** — published, not papered over by relabelling rows.
 
 **Files touched:** `COORDINATION.md`, `README.md`, `.github/workflows/pages.yml`, `scripts/brief_coverage.py` (new), `scripts/build.py`,
 `scripts/build_site.py`, `scripts/check_board.py`, `tests/test_brief_coverage.py` (new), `data/brief_coverage.json` (new),

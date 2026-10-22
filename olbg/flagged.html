@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">104 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">106 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -751,6 +751,20 @@
   <p>Fixed by adding www.nba.com to the reviewed allowlist with the reason recorded in the source. Only that domain was added. This is a structural provenance check, not factual verification, and it does not upgrade any other row&#x27;s verification label.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-22" rel="noopener nofollow" target="_blank">NBA.com official schedule</a></li></ul>
+</article>
+<article class="card flag" id="FL-105">
+  <div class="flag-head"><span class="tag">FL-105</span> <span class="sev sev-low">low</span></div>
+  <h2>Cross-track model disagreement on 28 of 217 fixtures priced on both tracks</h2>
+  <p>Disclosed, not resolved: both versions stay published and every disagreeing pair is listed on reconcile.html with both selections, both model probabilities, both confidence labels and the OLBG event page. A disagreement is not evidence that either model is wrong and neither number is a bookmaker price. No source was re-read for this item, so no checked_at, quote or verification label was renewed. For review: decide whether the root board or the /olbg/ track should be treated as the published pick for betting purposes, or keep both as separate models.</p>
+  <p class="muted small">Affected rows: BKB-10, BKB-25, BKB-27, BKB-03, BKB-28, DRT-01, DRT-11, HBL-05, HBL-14, HBL-07, HBL-03, HBL-26, HBL-23, HBL-27, HBL-25, HBL-21, IHO-11, IHO-13, RGU-15, RGU-08, RGU-03, RGU-12, SNK-05, SNK-12, TEN-40, VLB-10, VOL-23, VOL-25</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG - All Sports betting tips listing (committed 2026-10-22 capture)</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/reconcile.html" rel="noopener nofollow" target="_blank">Cross-track review page (both selections per fixture)</a></li></ul>
+</article>
+<article class="card flag" id="FL-106">
+  <div class="flag-head"><span class="tag">FL-106</span> <span class="sev sev-low">low</span></div>
+  <h2>17 root write-ups cite 14 host(s) outside the recorded official set; none were re-read in this pass</h2>
+  <p>Being cited is not being verified. A host counts as official here only where a row&#x27;s own verification records a governing-body, league or club URL. Several listed hosts are league sites recorded as official on other rows (legavolley.it, ice.hockey, lnv-web.dataproject.com, tophaandbold.dk, ecb.co.uk); others are media outlets (BBC, L&#x27;Equipe, Rugbyrama, Sud Ouest, Sports.fr, Planet Rugby, Laola1). None was re-read in this pass, so no claim resting only on them is upgraded to verified. For review: sample-check the media citations, or drop them where the row&#x27;s official source already carries the claim.</p>
+  <p class="muted small">Affected rows: RGU-04, RGU-07, RGU-11, RGU-01, RGU-05, RGU-06, RGU-10, RGU-13, IHO-02, IHO-03, IHO-05, CRK-07, HBL-28, VOL-27, VOL-28, VOL-29, VOL-30</p>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/brief.html" rel="noopener nofollow" target="_blank">Brief coverage - how the write-ups are evidenced</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/source-health.html" rel="noopener nofollow" target="_blank">Source health - row-level release evidence</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG - All Sports betting tips listing (committed 2026-10-22 capture)</a></li></ul>
 </article>
 
 </main>
