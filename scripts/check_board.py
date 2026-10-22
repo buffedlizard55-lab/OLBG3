@@ -13,6 +13,11 @@ Rules enforced (each one maps to a promise made on the site):
     http(s) source, and a prediction exists only for a HIGH row; predictions never reference a row
     that is not on the board.
  6. No data file contains unresolved merge-conflict markers.
+ 7. The published brief-coverage accounting (data/brief_coverage.json) recomputes exactly from the
+    committed rows, covers every sport the brief covers and never lists an excluded sport. If the
+    rows move, the page's numbers must move with them - no hand-edited counts.
+ 8. No two written predictions on the root board are the same text: the brief asks for unique,
+    non-repetitive prose, so a copy-paste duplicate is a build failure, not a style note.
 """
 import json
 import os
@@ -22,6 +27,7 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from board_dates import in_band, american, BAND_LOW_DEC, BAND_HIGH_DEC
+from brief_coverage import build as build_brief_coverage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = {"Tennis", "Basketball", "Ice Hockey", "Cricket", "Baseball", "Volleyball", "Darts",
@@ -178,6 +184,65 @@ def check_predictions(preds, refs, rows_by_ref):
                     errors.append(f"{ref}: prose quotes {q_us} US but the row's US odds are {us}")
 
 
+def check_brief_coverage(allowed):
+    """Rule 7: the published accounting must recompute from the rows, not be typed by hand."""
+    try:
+        committed = load("data/brief_coverage.json")
+    except FileNotFoundError:
+        errors.append("data/brief_coverage.json is missing; run scripts/brief_coverage.py")
+        return
+    try:
+        recomputed = build_brief_coverage()
+    except Exception as exc:  # noqa: BLE001 - surfaced as a build failure with the reason
+        errors.append(f"data/brief_coverage.json cannot be recomputed: {exc!r}")
+        return
+    if committed != recomputed:
+        errors.append("data/brief_coverage.json is stale: it does not match the committed rows "
+                      "(run scripts/brief_coverage.py and rebuild)")
+
+    seen = [s["sport"] for s in committed.get("sports", [])]
+    if sorted(seen) != sorted(allowed):
+        errors.append(f"brief coverage lists {sorted(seen)} instead of the {len(allowed)} covered sports")
+    for s in committed.get("sports", []):
+        if s.get("target") != committed["brief_target"]["picks_per_sport_per_day"]:
+            errors.append(f"brief coverage {s['sport']}: target {s.get('target')} is not the brief's target")
+        if s.get("shortfall") != max(0, s["target"] - s["live_high_union"]):
+            errors.append(f"brief coverage {s['sport']}: shortfall does not recompute")
+        if s["meets_target"] != (s["live_high_union"] >= s["target"]):
+            errors.append(f"brief coverage {s['sport']}: meets_target does not recompute")
+    total_live = sum(s["live_high_union"] for s in committed.get("sports", []))
+    if committed["totals"]["live_high_union"] != total_live:
+        errors.append("brief coverage totals.live_high_union does not equal the per-sport sum")
+    for bad in ("soccer", "boxing", "ufc", "mma", "american football", "hurling",
+                "horse racing", "cycling", "specials"):
+        if bad in [s.lower() for s in seen]:
+            errors.append(f"brief coverage lists the excluded sport {bad!r}")
+
+    xt = committed.get("cross_track", {})
+    if xt.get("different_selection") != len(xt.get("rows", [])):
+        errors.append("brief coverage cross_track.different_selection does not match its rows")
+    for row in xt.get("rows", []):
+        for key in ("root_ref", "olbg_ref", "root_selection", "olbg_selection", "olbg_url"):
+            if not row.get(key):
+                errors.append(f"brief coverage {row.get('event_id')}: cross-track row missing {key}")
+        if row.get("root_selection", "").lower() == row.get("olbg_selection", "").lower():
+            errors.append(f"brief coverage {row.get('event_id')}: listed as a disagreement but the "
+                          "selections are identical")
+
+
+def check_unique_prose(preds):
+    """Rule 8: identical bodies are a duplicate, however plausible they read."""
+    seen = {}
+    for ref, p in preds.items():
+        body = " ".join((p.get("body") or "").split()).lower()
+        if not body:
+            continue
+        if body in seen:
+            errors.append(f"{ref}: prediction body duplicates {seen[body]} word for word")
+        else:
+            seen[body] = ref
+
+
 def main():
     ev = load("data/events.json")
     gap = load("data/gap_sports.json")
@@ -190,6 +255,8 @@ def main():
 
     refs = check_rows(fixture_rows + gap_rows, preds)
     check_predictions(preds, refs, {r["ref"]: r for r in fixture_rows + gap_rows})
+    check_brief_coverage(ALLOWED)
+    check_unique_prose(preds)
 
     priced = sum(1 for r in fixture_rows + gap_rows if (r.get("model", {}).get("prices") or {}))
     verified = sum(1 for r in fixture_rows + gap_rows if r["verification"]["status"] == "verified")
@@ -203,8 +270,8 @@ def main():
         print(f"FAIL: {len(errors)} rule violation(s)")
         return 1
     print("PASS: every row has an OLBG source, verification is all-or-nothing, prices recompute, every HIGH pick "
-          "is inside the -250..+10000 band with a live kick-off and a written prediction, and every non-HIGH piece "
-          "is labelled analysis.")
+          "is inside the -250..+10000 band with a live kick-off and a written prediction, every non-HIGH piece "
+          "is labelled analysis, the brief-coverage accounting recomputes and no two write-ups are duplicates.")
     return 0
 
 

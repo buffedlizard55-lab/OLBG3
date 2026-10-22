@@ -30,6 +30,9 @@ jobs:
       # priced from the captured OLBG listings with a disclosed field-size prior.
       - run: python scripts/build_gap_sports.py
       - run: python scripts/model.py
+      # Brief-coverage accounting: per-sport counts against the brief's five-picks-per-sport target,
+      # recomputed from the rows above. check_board.py fails if the committed file is stale.
+      - run: python scripts/brief_coverage.py
       # Board track: originated lines, picks, predictions, verification, audit + flagged pages.
       # Runs after build.py so it can own the landing page and the shared navigation.
       - run: python scripts/build_site.py
