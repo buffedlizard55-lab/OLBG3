@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-22T07:35:00Z",
+  "generated_utc": "2026-10-22T21:30:00Z",
   "odds_window_policy": "Every high-confidence selection sits strictly inside -250 to +10000 American odds (1.40 to 101.00 decimal odds) with model fair probability < 70%, filtering out trivial >70% moneyline chalk.",
   "predictions": [
     {
@@ -84,7 +84,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "BKB-535921",
@@ -107,7 +108,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/maccabi-rapyd-tel-aviv-real-madrid/E2026/62/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "BKB-535928",
@@ -349,7 +351,8 @@
           "url": "https://stats.swehockey.se/Players/Statistics/ScoringLeaders/20961"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "ICH-199901",
@@ -368,7 +371,8 @@
           "url": "https://stats.swehockey.se/Players/Statistics/ScoringLeaders/20961"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "DAR-32330",
@@ -526,7 +530,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "BKB-535925",
@@ -609,7 +614,8 @@
           "url": "https://www.olbg.com/betting-tips/Sweden/SHL/Rogle_BK_vs_Frolunda_HC/13?event_id=199906"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "SNO-9940",
@@ -821,7 +827,8 @@
           "url": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "GFA-3530",
@@ -855,7 +862,8 @@
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "DAR-32332",
@@ -889,7 +897,8 @@
           "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "ICH-199931",
@@ -1024,7 +1033,45 @@
         }
       ],
       "status": "high"
+    },
+    {
+      "match_id": "BKB-534842",
+      "sport": "Basketball",
+      "match": "NY Knicks @ BOS Celtics",
+      "selection": "Boston Celtics Money Line (model price -154)",
+      "confidence": "high",
+      "text": "Boston to win the money line is the selection for Friday night at TD Garden, where the NBA lists a 7:00 PM ET tip-off. Both clubs are 0-1 after the opening round of games: the Celtics lost on the road and the Knicks lost their home opener, so each carries an L1 streak into this one. Our model gives Boston 57.5% because the Celtics are at home and the spread market on OLBG is a lone -2.5 Boston selection, but this is a thin early-season sample and the price is the reason it stays inside the -250 to +10000 window rather than any proven edge.",
+      "sources": [
+        {
+          "label": "NBA.com official 2026-27 schedule (Fri 23 Oct, 7:00 PM ET, TD Garden)",
+          "url": "https://www.nba.com/schedule?date=2026-10-22"
+        },
+        {
+          "label": "NBA.com official 2026-27 standings (BOS 0-1, NYK 0-1)",
+          "url": "https://www.nba.com/standings?date=2026-10-22"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "BKB-534841",
+      "sport": "Basketball",
+      "match": "HOU Rockets @ SA Spurs",
+      "selection": "San Antonio Spurs Money Line (model price -139)",
+      "confidence": "high",
+      "text": "San Antonio to win the money line is the call for the Friday fixture the NBA lists at 9:30 PM ET at the Moody Center in Austin. Houston arrive 1-0 after winning their opener at home, while the Spurs are 0-1 having dropped their first game on their own floor. That record favours the Rockets, so the selection is a home-court model lean rather than a form pick: OLBG shows all three win tips on San Antonio and our line prices them at -139, still inside the -250 to +10000 window with only one game of evidence behind either side.",
+      "sources": [
+        {
+          "label": "NBA.com official 2026-27 schedule (Fri 23 Oct, 9:30 PM ET, Moody Center)",
+          "url": "https://www.nba.com/schedule?date=2026-10-22"
+        },
+        {
+          "label": "NBA.com official 2026-27 standings (HOU 1-0, SAS 0-1)",
+          "url": "https://www.nba.com/standings?date=2026-10-22"
+        }
+      ],
+      "status": "high"
     }
   ],
-  "note": "24 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "17 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

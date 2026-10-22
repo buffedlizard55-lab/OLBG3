@@ -65,14 +65,14 @@
     }
   ],
   "harvest_method": {
-    "tool": "agent page-retrieval across all 15 allowed OLBG sport pages plus multi-market individual event pages",
+    "tool": "agent page-retrieval across the 15 allowed OLBG sport pages plus multi-market individual event pages; evening re-read 2026-10-22T20:53Z..21:12Z",
     "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus multi-market event pages",
-    "granularity": "All server-rendered events on each allowed sport page as of 2026-10-22T01:26-01:32Z (130 live events across 13 active sports + 11 explicitly tagged carried rows across Snooker & Greyhounds = 141 fixtures across all 15 allowed sports).",
+    "granularity": "88 listing rows read live at 20:53Z..21:12Z on 2026-10-22 across Tennis, Basketball, Cricket, Darts, Rugby Union, Volleyball and Handball plus the 12 NHL games re-read through the official NHL schedule API; the 12:15Z capture and its predecessors are retained below and supply every row not re-listed tonight (Snooker returned 'No tips found.' at 21:07Z).",
     "values_inferred": "none - blank when not stated by an official source"
   },
   "harvest_file": "raw/olbg-harvest-20261022T1215Z.tsv",
   "harvest_format": "v2",
-  "harvest_timezone_note": "At 2026-10-22T12:10Z-12:25Z, OLBG rendered geo-proxy-dependent clocks across category endpoints (EDT UTC-4 on /Tennis/3, /Cricket/7, /Volleyball/21, /Darts/15, /Snooker/8, /Gaelic_Football/25 vs BST UTC+1 on /Ice_Hockey/NHL/13, /Basketball/4, /Golf/5, /Baseball/12, /Motor_Racing/14, /Handball/20, /Greyhounds/28). Relative Today/Tomorrow labels in the v2 harvest are normalized to olbg_locale_date=2026-10-22 with raw BST string noted; only explicitly sourced governing-body clocks in release_checks.json / verifications.json certify UTC start times.",
+  "harvest_timezone_note": "At 21:00Z the Basketball/4 page rendered clocks one hour ahead of the EDT-rendered NHL page for the same tip-off (CLE@PHI printed 'Tomorrow 00:10' while NBA.com states 7:00 PM ET on 22 Oct, i.e. 23:00Z). OLBG states no zone, so no clock is converted; only explicitly labelled official clocks in data/release_checks.json certify a UTC start.",
   "previous_harvest": {
     "file": "raw/olbg-harvest-20261022T0830Z.tsv",
     "format": "v2",
@@ -109,5 +109,14 @@
       "note": "Retained byte-for-byte unchanged for audit; supplies completed 21 Oct UK Greyhound race rows."
     }
   ],
-  "session": "session-a0a7003c"
+  "session": "session-cab97f19",
+  "supplementary_harvests": [
+    {
+      "file": "raw/olbg-harvest-20261022T2100Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-22",
+      "harvest_completed_utc": "2026-10-22T21:12:00Z",
+      "note": "Evening listing read across Tennis, Basketball, Cricket, Darts, Rugby Union, Volleyball and Handball. Adds only events absent from the earlier captures; never restates a row those captures already published."
+    }
+  ]
 }

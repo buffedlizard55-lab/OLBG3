@@ -122,6 +122,14 @@ def main() -> None:
         p_day = date.fromisoformat(prev.get("olbg_locale_date") or (prev.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
         sources.append((DATA / prev["file"], prev.get("format", "v1"), prev.get("harvest_completed_utc", ""), p_day,
                         f"carried from the {prev.get('harvest_completed_utc', '')[:16]} harvest: fixture started or rotated off OLBG listing prior to {fetched_at[:16]}Z"))
+    # A later-day supplementary capture (read after the primary harvest) may only ADD events the
+    # earlier captures did not contain. It never overwrites an existing row's published labels,
+    # so an evening re-read cannot silently restate what the midday capture recorded.
+    for extra in meta.get("supplementary_harvests", []):
+        if extra.get("file"):
+            s_day = date.fromisoformat(extra.get("olbg_locale_date") or (extra.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
+            sources.append((DATA / extra["file"], extra.get("format", "v2"), extra.get("harvest_completed_utc", ""), s_day,
+                            f"supplementary evening capture at {extra.get('harvest_completed_utc', '')}: event not present in earlier captures"))
     for extra in meta.get("previous_harvests_extra", []):
         if extra.get("file"):
             e_day = date.fromisoformat(extra.get("olbg_locale_date") or (extra.get("harvest_completed_utc") or meta["run_started_utc"])[:10])

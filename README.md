@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained 298-row `/olbg/` audit track (`98` review-register items) and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained **324-row** `/olbg/` audit track (`104` review-register items) refreshed by an evening listing capture at `20:53Z–21:12Z`, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
   These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
@@ -21,6 +21,40 @@ What the published numbers do and do not mean:
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
 | `/olbg/` | The separate OLBG lines audit track (21 pages, 298 chained rows, 24 live high-confidence picks) with the same release gate applied to its picks |
+
+## Evening live re-validation, five-per-sport coverage audit & clock repair — `session-cab97f19`, 2026-10-22T21:20Z
+
+- **Defect found first (FL-099):** the committed build takes its publication clock from the newest
+  source observation in `data/release_checks.json`, which was frozen at `12:40Z`. Re-assessing every
+  published `HIGH` pick against the real `21:05Z` clock showed **9 of 24 had already started**
+  (3 SHL games at 17:00Z, 3 EuroLeague games at 17:30/18:05/18:30Z, EHF handball at 16:45Z, 2 darts
+  matches at 17:00Z). After re-reading the official clocks that could be re-read this session — the
+  [NHL 2026-10-22 slate](https://api-web.nhle.com/v1/schedule/2026-10-22) (12 games, read 20:56Z) and
+  the [NBA 22/23 October slate](https://www.nba.com/schedule?date=2026-10-22) (5 games, read 21:20Z) —
+  the clock is `21:20Z` and every started row is demoted by the release gate. Root track: 13 live
+  `HIGH` (was 19). `/olbg/` track: 17 live `HIGH` (was 24).
+- **Evening listing capture:** 88 rows read live between `20:53Z` and `21:12Z`
+  (`data/raw/olbg-harvest-20261022T2100Z.tsv`) and chained as a *supplementary* capture — it adds the
+  26 fixtures no earlier capture held and never restates a row an earlier capture published. Snooker
+  returned "No tips found." at `21:07Z` (**FL-100**); 25 of the 26 new fixtures could not be certified
+  in this pass and publish unverified with blank fields (**FL-101**).
+- **Five-per-sport audit (FL-102, `docs/coverage-20261022-evening.md`):** 17 live `HIGH` picks across
+  nine sports — Ice Hockey 5, Basketball 3, Volleyball 3, Darts 2, Baseball 1, Cricket 1, Rugby Union
+  1, Gaelic Football 1. Seven sports carry none, and the reason is source availability rather than a
+  modelling choice: tennis and handball league pages publish local clocks without a zone, snooker has
+  no listing, rugby league has no upcoming fixture, and golf, motor racing and greyhounds are outright
+  or unverifiable race markets.
+- **New verified `HIGH` picks with unique sourced write-ups:** `BKB-534842` (Boston Celtics, `-154`,
+  p=0.575) and `BKB-534841` (San Antonio Spurs, `-139`, p=0.552), both sourced to the NBA.com schedule
+  and the NBA.com standings after the opening round of games.
+- **Allowlist repair (FL-104):** `data/release_checks.json` cited `nba.com` while
+  `scripts/release.py`'s reviewed `OFFICIAL_CLOCK_HOSTS` did not contain that domain, leaving every NBA
+  row stuck at `unverified_start`. `www.nba.com` was added with the reason recorded in the source; no
+  other domain was added and no verification label was upgraded.
+- **Snapshot state (`21:20Z`):** `/olbg/` 324 fixtures and 324 lines with **17 live `high`**;
+  `tools/check_site.py` PASS (104 register items), root `check_board.py` PASS (265 rows, 13 live
+  in-band `HIGH`), `check.py` PASS, `check_links.py` PASS (85 pages, 1,529 links, 0 broken),
+  `75/75` unit tests OK including the new clock/capture regressions in `tests/test_evening_2100z.py`.
 
 ## Post-midday line-by-line timezone audit, PDC World Championship HIGH & root parity — `session-15487122`, 2026-10-22T12:40Z
 
