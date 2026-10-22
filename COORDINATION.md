@@ -1337,3 +1337,42 @@ The brief's ">70% market-price chance" and "-250 floor" cannot both hold with th
 **Status:** `task-0570f99b-audit-and-integrate` → done pending PR/merge/Pages record below.
 
 - **Merge note (2026-10-22):** while this session was in flight, `main` advanced through PRs #74/#75 (sibling sessions `08885c97` / `5cef1e25`): WST dead-link repointing (their FL-063), the IHO-03 SHL shootout wording fix (FL-064) and the BSB-160789 joint-best home record fix (FL-065). Resolution without discarding their work: their register entries and `docs/source-health-20261022.md` are kept verbatim; their IHO-03 correction is merged into `data/predictions.json`; their WST URL swap and BSB prose fix are **superseded** by this session's stricter versions (seeds/venues/exact clocks withheld because the live official page does not state them; the unverified starter claim removed entirely). This session's seven register items were renumbered FL-066..FL-072 to avoid colliding with their FL-063..FL-065. All generated HTML was rebuilt from the merged sources rather than hand-merged.
+
+---
+
+## Session log — `session-08885c97` (task-36: line-by-line re-verification, defect repair & integration)
+
+**Branch:** `arena/08885c97-olbg3` (Arena-locked). **Claimed:** `task-36-...-20261022` at 08:24 UTC on baseline `main` `f8471f7`, after `git fetch origin --prune` showed only `origin/main` and `gh pr list --state open` returned no open PR.
+
+### Baseline (before any change)
+Clean tree, whole documented pipeline re-run: `unittest` 29/29, `check_board.py` PASS (228 rows / 210 verified / 224 priced / 62 pieces), `tools/check_site.py` PASS (21 pages / 270 lines / 35 HIGH), `check.py` PASS, `check_links.py` 81 pages / 1,280 links / **0 broken**. Re-running the OLBG track produced no diff.
+
+### Defects found and repaired (all published on `flagged.html` and `/olbg/flagged.html`)
+| Flag | Defect | Repair | Source |
+|---|---|---|---|
+| **FL-063** | 21 snooker citations pointed at `https://www.wst.tv/tournaments/northern-ireland-open-2026/`, which returns a WST **404** page (year-less variant too) | Repointed to the live WST match centre `https://www.wst.tv/matches/`; seed numerals left exactly as each row note already discloses (corroborated on snooker.org 2548) and **not** re-derived | [wst.tv/matches](https://www.wst.tv/matches/) · [WST Day Four Afternoon](https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-afternoon) |
+| **FL-064** | `IHO-03` called Farjestad's two non-regulation results "one overtime win, one overtime loss"; the official table prints `OTW 0, OTL 0, GWSW 1, GWSL 1` | Prose states one shootout win and one shootout loss, no overtime decisions. Price 1.42 / -238, probability and HIGH grade unchanged | [stats.swehockey.se](https://stats.swehockey.se/ScheduleAndResults/Overview/20961) |
+| **FL-065** | `BSB-160789` claimed Milwaukee held "MLB's premier home record at 55-26"; Tampa Bay finished 55-26 at home too | Rewritten as joint-best, level with Tampa Bay. All other figures stand | [mlb.com/standings](https://www.mlb.com/standings/2026) |
+
+### Verified and unchanged this pass
+SHL table (Farjestad 10 GP 8-2-0 40:11 27 TP; Frölunda 2nd 25 pts/11 GP 38:24; Rögle 6th 14 pts/10 GP 23:21; Timrå 10th 20:23 12 pts) ·
+[EuroLeague standings](https://www.euroleaguebasketball.net/en/euroleague/standings/) (Panathinaikos 5-1, 528:438, +90) and
+[Round 7 Game Facts](https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/) (5-1 v 1-5, league-low 73.0 conceded, Perasovic appointed Thursday) ·
+[ICC Men's ODI team rankings 21 Oct 2026](https://www.icc-cricket.com/rankings/team-rankings/mens/odi) (England 6, Sri Lanka 7, Ireland 12/51, Namibia 16/32) ·
+[Betoro Herreligaen](https://tophaandbold.dk/stillinger/herreligaen) (Skive 10 GP 328:366 2 pts; Aalborg 10 GP 323:306 15 pts) ·
+[MLB 2026 standings](https://www.mlb.com/standings/2026) (Brewers 103-59 832/618 +214; Rays 98-64 736/650 43-38 away) ·
+[ATP Almaty results](https://www.atptour.com/en/scores/current/almaty/9410/results) and
+[Day 6 order of play](https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule) (Machac v Khachanov NB 13:00, Bublik v Marozsan NB 19:30, Thu 22 Oct) ·
+WST Day Four reports and [BBC Sport](https://www.bbc.com/sport/snooker/articles/cwkg5k7873kxo) (Cheung 4-0 Bingham with 56/54/111; Jones 4-2 Higgins; McGill 4-1 Lisowski).
+
+**Not re-certified (disclosed, not upgraded):** `pdc.tv` draw page sits behind a cookie wall, and the `legavolley.it` standings table did not extract from its JS page — so no darts or volleyball claim was re-verified this pass. `docs/source-health-20261022.md` lists every URL opened, with the outcome.
+
+### Requirement check
+15 in-scope sports; **zero** rows for soccer, boxing, UFC/MMA, football, American football, hurling, horse racing, cycling or specials; every `HIGH` pick inside `-250..+10000` with a unique 30+ word written prediction citing an official source; register now **65 items** as merged (later renumbered/extended by sibling `session-0570f99b` to FL-072 without overwriting these three).
+
+### Publication record
+- **PR:** [#74](https://github.com/buffedlizard55-lab/OLBG3/pull/74) — merged **MERGED** at 2026-10-22 08:39:38Z as `98b616345dfb1db0254334d3b5fee95605896dc2`.
+- **Merge conflict:** `main` advanced mid-task with PR #75; the conflict was confined to `COORDINATION.md` and resolved by keeping **both** sessions' task rows and logs (duplicate `task-35` row removed only after confirming both copies were the same record, with main's newer MERGED note kept). Nothing was discarded.
+- **CI before merge:** run [39748125746](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39748125746) `build` **success** (all 20 steps, including the OLBG staleness gate and `check_links.py` 0 broken); re-run after the conflict-resolution merge, run [39749372076](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39749372076), `build` **success**.
+- **Pages path (irregularity, documented not fixed):** the repository's Pages source is `build_type: legacy` (`GET /repos/.../pages` → `{"build_type":"legacy","source":{"branch":"main","path":"/"}}`), so the site is published by the legacy **branch-root** builder and the workflow's artifact `deploy` job reports **skipped** (e.g. run 39751750284 `build` success, `deploy` skipped). Consequence: the deploy job's smoke tests never execute in this configuration, and a stale queue delays publication. Logged here rather than changed, because switching Pages to `workflow` publishing is a repository-setting decision for the owner.
+- **Live verification after deploy** (`pages` status `built`): `https://buffedlizard55-lab.github.io/OLBG3/flagged.html` serves **FL-063, FL-064 and FL-065** with their official source links; the previously dead `wst.tv/tournaments/...` citation is replaced on the rendered page.
