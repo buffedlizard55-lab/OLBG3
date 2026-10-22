@@ -172,11 +172,33 @@ def main() -> None:
         for m in rows:
             c[lines[m["id"]]["confidence"]] += 1
         slug = SPORT_SLUG[s]
+        pieces = sum(1 for pr in preds if pr["sport"] == s)
+        # Why a sport cannot publish five live HIGH picks right now. Every reason is read off
+        # the row's own release decision, so the column can never overstate the board.
+        blockers = {}
+        for m in rows:
+            st = (lines[m["id"]].get("release") or {}).get("status", "unverified_start")
+            if st != "upcoming":
+                blockers[st] = blockers.get(st, 0) + 1
+        if not rows:
+            why = "no live OLBG listing at the capture time"
+        elif c["high"] >= 5:
+            why = "target met"
+        else:
+            label = {"unverified_start": "no timezone-qualified official start",
+                     "start_window_reached": "fixture already started",
+                     "past_date": "fixture date passed",
+                     "stale_source": "official observation over 24 h old",
+                     "source_conflict": "official sources in conflict",
+                     "date_only": "official clock carries no timezone"}
+            parts = [f"{n} {label.get(k, k)}" for k, n in sorted(blockers.items(), key=lambda kv: -kv[1])]
+            why = "; ".join(parts[:3]) if parts else "fewer than five rows pass the price band"
         sport_rows.append(
             f"""<tr><td><a href="sports/{slug}.html">{SPORT_ICON.get(s,'•')} {E(s)}</a></td>
             <td class="num">{len(rows)}</td><td class="num">{c['high']}</td><td class="num">{c['medium']}</td><td class="num">{c['low']}</td>
-            <td>{confidence_bar(c)}</td>
-            <td class="num">{sum(1 for m in rows if m['competition_status']=='verified')}/{len(rows)}</td></tr>"""
+            <td>{confidence_bar(c)}</td><td class="num">{pieces}</td>
+            <td class="num">{sum(1 for m in rows if m['competition_status']=='verified')}/{len(rows)}</td>
+            <td class="small">{E(why)}</td></tr>"""
         )
 
     flag_rows = "".join(
@@ -232,7 +254,7 @@ def main() -> None:
   <h2>Coverage by sport</h2>
   <p class="muted">Only sports inside the brief are here. Soccer/football, American football, boxing/UFC/MMA, hurling, horse racing and cycling were seen on OLBG and deliberately excluded — the evidence is in <a href="methodology.html#exclusions">Method &amp; sources</a>.</p>
   <table class="tbl sortable">
-    <thead><tr><th>Sport</th><th class="num">Fixtures</th><th class="num">High</th><th class="num">Medium</th><th class="num">Low</th><th>Split</th><th class="num">Competition verified</th></tr></thead>
+    <thead><tr><th>Sport</th><th class="num">Fixtures</th><th class="num">High</th><th class="num">Medium</th><th class="num">Low</th><th>Split</th><th class="num">Written pieces</th><th class="num">Competition verified</th><th>Why fewer than five live HIGH picks</th></tr></thead>
     <tbody>{''.join(sport_rows)}</tbody>
   </table>
 </section>
@@ -465,6 +487,7 @@ def main() -> None:
     <thead><tr><th>Excluded</th><th>OLBG sport</th><th class="num">Rows seen</th><th>Notes / examples</th></tr></thead>
     <tbody>{excl}</tbody>
   </table>
+  <p class="notice"><strong>Five live HIGH picks per sport:</strong> the brief asks for five high-confidence selections for every sport we cover. The table above reports what the live OLBG listing and the official sources actually support at this capture, and the last column states the reason for any shortfall: a sport with no live listing, a fixture whose official clock carries no timezone, a match that has already started, or a row whose price falls outside the -250 to +10000 window. Where the evidence is short we publish the written piece as <em>analysis</em> rather than pretend the start time is confirmed, and every shortfall is listed on <a href="flagged.html">Flagged for review</a>.</p>
   <p class="notice"><strong>One judgement call:</strong> Gaelic football is not named in the exclusion list. It is a different sport from
   association football and from hurling, so it is included and every Gaelic row is tagged so the block can be deleted in one step.
   Flagged as FL-001.</p>

@@ -580,6 +580,11 @@ index = head("Dashboard") + f"""
 <p class="dim">Rugby League has no dated match fixture on OLBG at capture time: its three rows are 2027 outright markets. Golf, Motor Racing and Greyhounds are
 race or tournament markets with a single selection, so they carry one originated price and no handicap or total. All of this is itemised on the
 <a href="audit.html">audit page</a> and on <a href="flagged.html">Flagged for Review</a>.</p>
+<p class="dim"><strong>Five live HIGH picks per sport:</strong> the brief asks for five high-confidence selections for every sport we cover. This board is the
+curated capture dataset; the live listing and the per-sport reason for every shortfall are published on the
+<a href="olbg/index.html">OLBG lines board</a> (a sport with no live listing, a fixture whose official clock carries no timezone, a match that has
+already started, or a price outside the -250 to +10000 window). Where the official evidence is short, the written piece is published as
+<em>analysis</em> rather than a live pick, and every shortfall is listed on <a href="flagged.html">Flagged for Review</a>.</p>
 
 <h2>High-confidence picks</h2>
 {"<div class='tablewrap'><table class='board'><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th class='num'>Decimal</th><th class='num'>US odds</th><th class='num'>Model</th><th>Conf. / band</th><th></th></tr></thead><tbody>" + top + "</tbody></table></div>" if top else "<p>None.</p>"}
