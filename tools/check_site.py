@@ -19,6 +19,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
+BUILD_DATE = __import__("datetime").date(2026, 10, 22)  # mirrors tools/originate.py
 DOCS = ROOT / "olbg-board"
 DATA = ROOT / "data"
 
@@ -203,8 +204,15 @@ def main() -> int:
         seen_texts.add(p["text"].strip())
         if not p["sources"]:
             errors.append(f"prediction {p['match_id']} has no sources")
-        if lines[p["match_id"]]["confidence"] != "high":
-            errors.append(f"prediction {p['match_id']} is not marked high confidence")
+        row = lines[p["match_id"]]
+        status = p.get("status", "high")
+        if status not in ("high", "analysis"):
+            errors.append(f"prediction {p['match_id']} status {status!r} is not 'high' or 'analysis'")
+        if status == "high" and row["confidence"] != "high":
+            errors.append(f"prediction {p['match_id']} claims status 'high' but its row is "
+                          f"{row['confidence']}")
+        if status == "analysis" and row["confidence"] == "high":
+            errors.append(f"prediction {p['match_id']} is labelled analysis but its row is HIGH")
 
     for mid, l in lines.items():
         if l["confidence"] == "high":
@@ -216,6 +224,8 @@ def main() -> int:
                 errors.append(f"high pick {mid} prob {prob} >= 0.70 chalk cap")
             if mid not in pred_ids:
                 errors.append(f"high pick {mid} missing written prediction")
+            if l.get("start") and l["start"] < BUILD_DATE.isoformat():
+                errors.append(f"high pick {mid} kick-off {l['start']} has already passed")
 
     # 6 placeholders
     for f, _ in parsers.items():
