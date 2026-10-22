@@ -10,12 +10,41 @@ import datetime as dt
 import json
 from pathlib import Path
 from zoneinfo import ZoneInfo
+from urllib.parse import urlsplit
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 UTC = dt.timezone.utc
 MAX_SOURCE_AGE = dt.timedelta(hours=24)
 FIXED_ZONES = {'UTC': 0, 'GMT': 0, 'CEST': 2, 'CET': 1, 'EEST': 3,
                'EET': 2, 'CAT': 2, 'SAST': 2, 'TRT': 3, 'PKT': 5}
+
+
+# Explicitly reviewed clock-source domains in the committed release evidence.
+# This is a structural trust boundary, NOT verification of page contents.
+OFFICIAL_CLOCK_HOSTS = frozenset({
+    'api-web.nhle.com', 'en.volleyballworld.com', 'gaacork.ie',
+    'www.eurohandball.com', 'www.euroleaguebasketball.net',
+    'www.formula1.com', 'www.icc-cricket.com', 'www.leinsterrugby.ie',
+    'www.mlb.com', 'www.nrl.com', 'www.pdc.tv', 'www.pgatour.com',
+    'www.shl.se', 'www.wst.tv',
+    # The Swedish Ice Hockey Association publishes the SHL schedule and its clock on its own
+    # stats portal (stats.swehockey.se), not on shl.se. Federation domain, reviewed 2026-10-22.
+    'stats.swehockey.se',
+})
+
+
+def official_clock_url(value):
+    """Reject unknown/suffix-spoofed hosts; never fetch or certify a claim here."""
+    if not isinstance(value, str) or not value or any(c.isspace() or ord(c) < 32 for c in value):
+        return False
+    try:
+        url = urlsplit(value)
+        return (url.scheme == 'https' and url.hostname in OFFICIAL_CLOCK_HOSTS
+                and url.username is None and url.password is None
+                and url.port in (None, 443))
+    except ValueError:
+        return False
 
 
 def parse_utc(value):
@@ -38,6 +67,9 @@ def normalized_start(record):
         tz = dt.timezone(dt.timedelta(hours=FIXED_ZONES[zone]))
     else:
         return None
+    # Do not silently overwrite an embedded offset with the separate zone label.
+    if not re.fullmatch(r'\d{2}:\d{2}', record['time']):
+        raise ValueError('Source clock must be HH:MM without an embedded offset')
     moment = dt.datetime.fromisoformat(record['date'] + 'T' + record['time'])
     return moment.replace(tzinfo=tz).astimezone(UTC)
 
@@ -82,9 +114,9 @@ def assess(event_id, date_hint=None, now=None, records=None):
     # These two fields are mechanical UTC conversion of the quoted official source.
     result['start_utc'] = start.isoformat().replace('+00:00', 'Z')
     result['expires_at'] = min(start, checked + MAX_SOURCE_AGE).isoformat().replace('+00:00', 'Z')
-    if not record.get('source') or not record.get('quote'):
+    if not official_clock_url(record.get('source')) or not isinstance(record.get('quote'), str) or not record['quote'].strip():
         result.update(status='unverified_start', start_utc=None, expires_at=None,
-                      reason='Official URL and supporting quote are required; URL presence alone is not verification.')
+                      reason='Allowlisted official HTTPS URL and nonblank supporting quote are required; URL presence alone is not verification.')
     elif checked > now:
         result.update(status='unverified_start', reason='Source check is later than the publication clock; cannot certify it yet.')
     elif start <= now:

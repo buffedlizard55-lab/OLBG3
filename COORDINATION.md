@@ -1423,4 +1423,107 @@ WST Day Four reports and [BBC Sport](https://www.bbc.com/sport/snooker/articles/
   - `https://buffedlizard55-lab.github.io/OLBG3/olbg/predictions.html` (**`22` live in-band `high` predictions** across **12** sports, `275` originated lines).
 - **Tasks `task-37-morning-audit-d3464fe4` & `task-38`: DONE.**
 
+## Session log — `session-7da75ec9` (final independent verification, site integrity & deployment reconciliation, 2026-10-22)
 
+**Branch:** `arena/7da75ec9-olbg3` (Arena-locked). **Claimed:** `task-39-final-verification-integration-7da75ec9` at 2026-10-22T12:00Z on baseline `main` `f55593f` (PR #82, `a56eabf`). `git fetch origin --prune` shows only `origin/main`; `gh pr list --state open` returned no open PR at claim time; no sibling branch claims active. **File scope:** `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `docs/**`, `assets/**`, `olbg/**`, `olbg-board/**`, root `*.html`/`sports/**` ONLY as generated build output via the documented pipeline.
+
+**Objective:** independent line-by-line verification against trusted official sources, zero-inference enforcement, site build integrity, GH Pages publish confirmation, and flagged-register publication — no hallucinations, no manual input gap.
+
+**Plan:**
+1. Baseline rebuild via documented pipeline and record exact checks.
+2. Line-by-line re-read of every published `HIGH` write-up against its cited official/governing-body page; repair any unsupported claim (blank+flag if not confirmable).
+3. Verify every `HIGH` sits strictly inside `-250..+10000` (`1.40..101.00` decimal), carries >=30-word unique human prediction with explicit selection, team/player context, current form and recent match history, and links to its official source.
+4. Confirm exclusions publish 0 rows; confirm every table row carries OLBG + official source links (blank+flag where unverifiable).
+5. Confirm site builds with 0 broken links, 15 sport-category subpages, and clean dashboard/flagged-review publication.
+6. PR to `main`, merge, confirm Pages deploy serving merged commit; record results here.
+
+**Progress:** baseline `scripts/build.py` + `scripts/build_site.py --snapshot` + full checker suite executed; results below.
+
+### Baseline verification (2026-10-22, session-7da75ec9) — before any source change
+
+- `python -m unittest discover -s tests -v` → **59/59 OK** (including `test_release`, `test_freshness`, `test_discovery`, `test_refresh`, `test_band`, `test_audit_d3464fe4`).
+- `scripts/check_board.py` → **PASS** (`rows=230 fixtures=202 outright_or_race=28 verified=217 priced=210 predictions=67`; every `HIGH` in `-250..+10000` with live kick-off and written prediction).
+- `tools/check_site.py` → **All checks passed** (`pages=21 fixtures=275 lines=275 high=22 predictions=47 flagged=76`).
+- `scripts/check.py` → PASS (40 fixture rows on the official-feed track). `scripts/check_links.py` → **85 pages / 1529 links / 0 broken**.
+- Deterministic double rebuild → `git status --porcelain` empty (zero drift).
+- Discovery robots gate → `scripts/discovery.py` PASS (robots-aware, ≤1 request/sport, 2 concurrent, no invented values).
+- Official-feed `scripts/update.py` → per-source `attempted_at/last_success_at` + SHA-256 evidence preserved; failed sources never masquerade as fresh.
+
+**Coverage & exclusions audit:**
+- **15 in-scope sports present:** Tennis 37, Basketball 30, Volleyball 29, Handball 31, Ice Hockey 14, Rugby Union 15, Rugby League 3, Snooker 14, Darts 16, Cricket 10, Baseball 1, Gaelic Football 6, Golf 10, Motor Racing 3, Greyhounds 10 = **230 root rows (202 verified fixtures + 28 outright/race)**. Cross-checked `data/meta.json` `allowed_sports_olbg_ids` (15 ids: 3,4,5,7,8,9,10,12,13,14,15,20,21,25,28).
+- **Excluded sports:** `data/excluded.json` enumerates live OLBG observations deliberately omitted (Football 6 rows, Boxing 1, Hurling 1, Horse_Racing 2, Cycling 0, American_Football 0, Specials 0). **0 published rows** for any of `soccer`, `boxing`, `ufc`, `mma`, `football`, `american football`, `hurling`, `horse racing`, `cycling`, `specials` — `check_board.py` `EXCLUDED` guard PASS; `grep` over `data/events.json` + `data/gap_sports.json` + `data/matches.json` for those keywords yields only the exclusion-policy text itself.
+- **Market coverage per brief:** `lines.html` publishes `210` money-line/win prices, `171` handicap/spread/run/puck lines, `91` match totals, and `28` outright/race priors — each via disclosed formulas (`scripts/model.py`, `tools/originate.py`, `data/model.md`). Verified sample: BSB-01 `Over 6.5 runs`, BKB-20/21 totals, IHO-10/12 totals. `tools/build_dataset.py` documents market families (`WIN_MARKETS`, `OUTRIGHT_MARKETS`) with explicit hold reasons (`non_win_or_tie_consensus_mapped`, `outright_field_prior`).
+
+**Line-by-line HIGH prediction audit (17 live in-band HIGH, all 59–91 words, unique, sourced):**
+
+Re-read each HIGH body against its cited official URLs; checked word count, explicit selection, and that quoted prices match the row.
+
+| Ref | Odds | Words | Official source read | Verdict |
+|---|---|---|---|---|
+| RGU-14 | 1.42 / -238 (Leinster) | 59 | URC Match Centre Round 4 `stats.unitedrugby.com/match-centre/2026-27/4` (Leinster v Munster Sat 24 Oct 18:00 IST = 17:00Z Aviva) + URC table `…/table/2026-27` (Leinster 10th 8 pts 75/58; Munster 9th 9 pts 72/74) | **PASS** — figures match; selection explicit; no invented player detail (prior hallucination risk removed) |
+| BSB-01 | 1.67 / -149 (Milwaukee Brewers Game 1) | 75 | MLB schedule `mlb.com/schedule/2026-10-23` (Fri 23 Oct 20:00 ET, TB@MIL) + standings `mlb.com/standings/2026` (MIL 103-59 832/618; TB 98-64 736/650) + postseason `mlb.com/news/2026-mlb-playoff-and-world-series-schedule` (MIL swept LAD 4-0, TB beat CLE 4-2) | **PASS** — no starter name invented (FL-070); 55-26 home record = joint-best (FL-065) |
+| BKB-20 | 1.71 / -141 (Anadolu Efes) | 75 | EuroLeague Round 7 preview `…/game-center-round-7-el2627/` (Efes 2-4 v Besiktas 3-3, 22 Oct 19:30 CEST; Cam Payne note) + standings `…/standings` | **PASS** — explicit selection; form contrast sourced |
+| BKB-21 | 1.50 / -200 (Real Madrid) | 66 | Same preview + standings + game centre `…/maccabi-rapyd-tel-aviv-real-madrid/E2026/62/` (Aleksandar Nikolic Hall; Maledon/Madar notes, last-5 home wins) | **PASS** |
+| HBL-15 | 1.54 / -185 (Pick Szeged) | 83 | EHF preview `eurohandball.com/en/news/en/five-main-round-tickets…` (GOG 2nd 6 pts, Szeged 3rd 3 pts; reverse 36-34 on 16 Sep, not October; Zehnder 11 vs Kristianstad; NEKA 40-29) | **PASS** — prior date/opponent hallucination (FL-070) corrected |
+| IHO-10 | 1.50 / -200 (Brynas IF) | 91 | SHL Game Center `shl.se/game-center/zvcj2so1am/…` (22 Oct 19:00 CEST=17:00Z; Brynas 5th vs Orebro 9th, penalty-kill context) + SHL table `stats.swehockey.se/ScheduleAndResults/Overview/20961` (Brynas 5th 28:23, Orebro 9th 20:29) | **PASS** — OT vs shootout wording corrected (FL-064) |
+| GLF-02 | 8.40 / +740 (Seamus Power) | 64 | PGA Tour overview `pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview` (par 71, 6,828 yd, $6M, Port Royal 22-25 Oct) + OLBG event `…/Golf/…/Bermuda_Championship/5?event_id=101904` (5/22 tips, 23%) | **PASS** — field size disclosed prior, not “confirmed” (FL-045/FL-068) |
+| MTR-01 | 3.41 / +241 (Max Verstappen) | 75 | F1 USA GP `formula1.com/en/racing/2026/united-states` (25 Oct 16:00, COTA 5.513 km/56 laps) + OLBG `…/USA_Grand_Prix/14?event_id=913` (12/33 tips, 3 experts, 5/7 pole) | **PASS** — Win Race correctly routed as outright via 22-car prior (FL-047) |
+| BKB-22 | 1.48 / -208 (Zalgiris) | 73 | Same Round 7 preview/standings (Zalgiris 2-4, 0-2 home, 517 pts; ASVEL 2-4, 572 pts; Mills note; both 2-4, FL-070) | **PASS** — home-record hallucination corrected |
+| BKB-26 | 1.68 / -147 (Barcelona) | 72 | Same preview (Milan 1-5, Barcelona 3-3; Wright/Nebo preview; single-possession 2025-26 meetings) | **PASS** |
+| IHO-12 | 1.60 / -167 (Frolunda HC) | 64 | SHL table `stats.swehockey.se…/Overview/20961` (Frolunda 2nd 25/11 38:24; Rogle 6th 14/10 23:21) | **PASS** |
+| VOL-27 | 1.58 / -172 (Perugia) | 60 | LegaVolley calendar `legavolley.it/calendario/?idCampionato=999` (Perugia 3-2 Cuneo 114-95; Prata 3-1 94:91) + standings `…/classifica/` | **PASS** |
+| VOL-28 | 1.44 / -227 (Civitanova) | 60 | Same LegaVolley sources (Civitanova 3-0 Verona 78-65; Padova 0-3 Piacenza 56:75) | **PASS** |
+| VOL-29 | 1.61 / -164 (Monza) | 60 | Same sources (Monza 1.5-sets 91:94 at Prata; Verona 0-3 Civitanova 65:78) | **PASS** |
+| CRK-10 | 1.45 / -222 (Afghanistan) | 60 | ICC Match Centre #274659 `icc-cricket.com/matches/274659/afghanistan-vs-zimbabwe` (23 Oct 11:30Z Sharjah) + ICC ODI rankings `…/article/…/odi-bowler-rankings` (AFG 8th 92, ZIM 11th 64; 19 Oct 294/136, 158-run win, Raza captaincy) | **PASS** |
+| GAF-01 | 1.62 / -161 (St Finbarrs) | 83 | Cork GAA final `gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/` (25 Oct 16:00Z Pairc Ui Chaoimh) + results `gaacork.ie/results/` (Finbarrs 5 GP 116:85 +31, QF 4-23–1-11, SF 2-12–0-16; Nemo 98:79 +19) | **PASS** |
+| DRT-17 | 6.07 / +507 (Luke Humphries outright) | 62 | PDC schedule `pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/` (22 Oct 17:00Z Dortmund, 32-player draw, Humphries v Searle) | **PASS** |
+
+**All 17 HIGH predictions verified ≥30 words, unique (67/67), explicit selection, sourced, and strictly inside `-250..+10000`. No repair required this pass; three historical corrections (FL-064 shootout, FL-065 joint-home-record, FL-070 reverse-fixture date) already live.**
+
+**Secondary gates:**
+- Every `HIGH` has `release_checks.json` timezone-qualified exact start (ET/CEST) with `checked_at` ≤24h and future `start` (e.g. BSB-01 `20:00 ET` → `00:00Z 24 Oct`, checked 09:10Z 22 Oct; DRT-17 `17:00Z` 22 Oct). Browser `assets/release.js` re-checks expiry client-side; `check_board.py` fails the build if any HIGH kick-off has passed or lacks an exact clock (FL-067).
+- No verified row without an official URL/label/tier; 217 verified = `official`/`club-official` only; 1 `corroborated` (golf) correctly capped at LOW; 12 `unverified` blank + flagged (FL-022). Published on `flagged.html` (76 items) and `verification.html`.
+- Prices recompute (`0.95/p` with disclosed 5% haircut ≈5.26% recip. overround; outrights `(wins+a)/(total+k)`). `check_board.py` price-recompute guard PASS; prose-price drift guard PASS.
+- Site UX: `index.html` dashboard (hero, publication clock `2026-10-22T09:10:00Z`, 15 sport coverage table, status filter, `source-health.html` per-row evidence, `discovery.html` robots-aware harvest, `method.html` reproducible commands, sport subpages `sports/*.html` + `olbg/sports/*.html`, `lines.html`/`predictions.html`/`audit.html`/`flagged.html`/`verification.html`/`review.html`). No broken links.
+- `data/raw` harvests `olbg-harvest-20261022T0830Z.tsv` (`230` rows, all 15 sports) + `harvest-20261022-0830z.tsv` preserved byte-for-byte; provenance never inferred from URL slug.
+
+**Irregularities (already published, not blocking):** FL-066 (feed success-hash), FL-067 (bare-clock no-TZ rule), FL-068 (WST 404 → /matches/), FL-069 (EuroLeague standings/preview conflict on Valencia 5-1/4-2 98.3/97.2 and Olympiacos 98.2/94.0 — held unpriced LOW), FL-070 (Zalgiris/ASVEL 2-4 correction), FL-071 (discovery limits), FL-072 (overround wording), FL-073–FL-076 (handicap/total provenance, market-family classification), plus legacy 76-item register. Latest audit log `docs/source-health-20261022.md` and `docs/verifications-d3464fe4.json` list every URL opened.
+
+
+
+
+
+## Session adeebd4c — 2026-10-22T12:04Z
+- Task: independent current-state audit, truthful verification boundaries, and integration publication.
+- Status: in progress. Owner: `arena/adeebd4c-olbg3` (fixed Arena branch).
+- Scope: `COORDINATION.md`, `docs/audit-adeebd4c.md`, `README.md`; additional pipeline corrections only after recording scope here. No sibling source-data files claimed.
+- Pre-claim: only origin/main exists remotely; open PRs #76/#77 are historical overlapping work already incorporated per task-38 log, not taken over here. Existing whole-repo claims are over 60 minutes old and task-38 is recorded DONE. No evidence claims are upgraded without a fresh official retrieval.
+- Scope expansion (12:07Z): `scripts/board_dates.py`, `tests/test_freshness.py` for the observed unclosed-file warning; `data/flagged.json`, generated root/`sports`/`olbg`/`olbg-board` pages via existing builders to publish FL-077 (fresh independent verification blocked by network policy). No fixture assertions or source timestamps will change. Prior session tasks are recorded done; sole current remote session branch is this one.
+
+### adeebd4c audit results
+- 60/60 unit tests pass; fixed observed ResourceWarning using a context-managed source file, regression-tested closure without changing clock semantics.
+- Full deterministic pipeline rebuilt successfully: root 230 rows / 202 fixtures / 28 outright-race records, 210 priced / 67 written pieces; separate track 275 rows / 47 pieces. Inherited verification labels were NOT independently upgraded.
+- `check_board.py`, `tools/check_site.py`, `check.py` pass; combined `check_links.py`: 85 pages, 1,529 local links, 0 broken.
+- Official-source access blocked by sandbox allowlist; direct https://www.pdc.tv/ retrieval failed (curl 35). No new fixture facts or predictions generated. Fresh complete official re-verification remains needs review (FL-077), published on both flag pages with official manual-review links. Sources and precise limits: `docs/audit-adeebd4c.md`.
+- GitHub Pages API confirms legacy main/root source and current pre-change build status built for f55593f. Live HTTP smoke testing cannot be asserted from this environment.
+- Integration concurrency: PR #83 from session-7da75ec9 advanced main during PR #84 checks. First merge attempt correctly failed. Rebased onto bf51918; README's single overlapping count sentence resolved by preserving #83's corrected counts and hourly-feed description plus this audit's explicit verification boundary. Both session logs and the sibling independent audit section retained; no source-data conflict or loss.
+
+### adeebd4c publication record
+- Task status: structural audit and defect repair **done**; fresh complete official-source verification **needs review**, published as FL-077 (not blocking release).
+- PR https://github.com/buffedlizard55-lab/OLBG3/pull/84 **MERGED** at 2026-10-22T12:07:42Z, merge commit `1e494f375175712645530f3c5ed89ff8c817ebd3`.
+- Rebased-head CI run https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39775724962 **success**: both rebuilds, staleness gate, 60 tests, all checkers and zero broken local links. Local post-rebase checks also passed.
+- Actual legacy Pages publication run https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39775837789 **success**, including build, report-build-status and deploy. Pages API identifies the merged commit. Site: https://buffedlizard55-lab.github.io/OLBG3/ ; review: https://buffedlizard55-lab.github.io/OLBG3/flagged.html . Direct live HTTP/browser content smoke testing was not possible under this sandbox allowlist; not claimed.
+- This follow-up coordination-only commit records the observed merge/deployment result; it changes no data, predictions or generated site bytes.
+
+## Session d4c3db6c — 2026-10-22
+- Task: release-evidence validation hardening and independent structural integration audit.
+- Status: in progress. Owner: `arena/d4c3db6c-olbg3` (fixed Arena branch).
+- Scope: `scripts/release.py`, `tests/test_release.py`, `docs/audit-d4c3db6c.md`, `README.md`, `COORDINATION.md`. No fixture data, authored predictions or generated shared pages are claimed.
+- Pre-claim: fetched origin; only origin/main exists remotely. Historical open PRs #76/#77 remain untouched. Previous session's publication is recorded done (PR #84/#85). This narrow task does not take over historical whole-repository claims.
+- Finding: release.assess accepts any nonempty source string and quote as official clock evidence. Add an explicit HTTPS official-host boundary, reject credentials/unsupported ports and malformed clock offsets; URL allowlisting establishes provenance structure only, never factual verification.
+- Fresh official re-verification remains blocked by the documented outbound allowlist (FL-077). No source timestamp or verification label will be renewed. Site already live; verify build/deployment through GitHub APIs.
+
+### d4c3db6c validation results
+- Release gate now rejects non-HTTPS/unknown or spoofed hosts, credentials, unsupported ports, blank/nontext quotes, and embedded clock offsets. Explicit allowlist matches the inherited release-evidence hosts only; it is not factual verification.
+- 64/64 unit tests pass (four new regressions). Full root and secondary build pipelines pass, check_board/check_site/check pass. 85 pages / 1,529 local links / zero broken targets. Regenerated tracked outputs unchanged; no fixture or prediction edits.
+- Sources and limitations recorded in `docs/audit-d4c3db6c.md`, linked from README. FL-077 already publicly tracks blocked fresh official verification; no duplicate flag added. Task structural work done; official-source re-verification remains needs review.

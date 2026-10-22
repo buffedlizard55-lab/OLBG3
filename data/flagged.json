@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T12:45:00+00:00",
+  "generated_at": "2026-10-22T08:49:13.587705+00:00",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available.",
   "items": [
     {
@@ -1810,6 +1810,25 @@
     },
     {
       "id": "FL-077",
+      "severity": "warning",
+      "status": "needs review",
+      "sport": "All sports",
+      "title": "Fresh independent official-source verification blocked in 12:04 UTC audit",
+      "summary": "Structural checks passed; inherited source assertions were not freshly verified in this session.",
+      "detail": "The 2026-10-22 12:04 UTC audit environment permits outbound access only to GitHub and package registries, not OLBG or official sports websites. A direct PDC HTTPS request failed with curl exit 35. Existing quotes, fixture confirmations and checked_at timestamps are inherited evidence, not newly verified facts. Completeness, current form, match history, bookmaker prices and prediction accuracy cannot be independently confirmed by this audit. No new predictions, source observations or fixture confirmations were invented. Consult the linked official sources and source-health page; structural validators do not prove factual correctness.",
+      "sources": [
+        {
+          "label": "PDC official website (retrieval failed in this audit)",
+          "url": "https://www.pdc.tv/"
+        },
+        {
+          "label": "MLB official schedule (not retrieved in this audit)",
+          "url": "https://www.mlb.com/schedule/2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "FL-078",
       "severity": "corrected",
       "status": "resolved",
       "sport": "Volleyball",
@@ -1828,7 +1847,7 @@
       ]
     },
     {
-      "id": "FL-078",
+      "id": "FL-079",
       "severity": "corrected",
       "status": "resolved",
       "sport": "Rugby League",
@@ -1848,7 +1867,7 @@
       ]
     },
     {
-      "id": "FL-079",
+      "id": "FL-080",
       "severity": "corrected",
       "status": "resolved",
       "sport": "Ice Hockey",
@@ -1870,7 +1889,7 @@
       ]
     },
     {
-      "id": "FL-080",
+      "id": "FL-081",
       "severity": "corrected",
       "status": "resolved",
       "sport": "Ice Hockey",
@@ -1888,7 +1907,7 @@
       ]
     },
     {
-      "id": "FL-081",
+      "id": "FL-082",
       "severity": "corrected",
       "status": "resolved",
       "sport": "Rugby Union",
@@ -1907,7 +1926,7 @@
       ]
     },
     {
-      "id": "FL-082",
+      "id": "FL-083",
       "severity": "corrected",
       "status": "resolved",
       "sport": "Cricket",
@@ -1930,7 +1949,7 @@
       ]
     },
     {
-      "id": "FL-083",
+      "id": "FL-084",
       "severity": "info",
       "status": "resolved",
       "sport": "Golf",
@@ -1949,7 +1968,7 @@
       ]
     },
     {
-      "id": "FL-084",
+      "id": "FL-085",
       "severity": "info",
       "status": "resolved",
       "sport": "All",
@@ -1965,7 +1984,7 @@
       ]
     },
     {
-      "id": "FL-085",
+      "id": "FL-086",
       "severity": "info",
       "status": "open",
       "sport": "Gaelic Football",
@@ -1984,7 +2003,7 @@
       ]
     },
     {
-      "id": "FL-086",
+      "id": "FL-087",
       "severity": "info",
       "status": "open",
       "sport": "Darts",
@@ -2005,7 +2024,7 @@
       ]
     },
     {
-      "id": "FL-087",
+      "id": "FL-088",
       "severity": "info",
       "status": "open",
       "sport": "Ice Hockey",

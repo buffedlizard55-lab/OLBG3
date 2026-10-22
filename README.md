@@ -7,6 +7,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 What the published numbers do and do not mean:
 
 - **Captured board, not a complete live feed.** 230 root rows (202 fixtures + 28 outright/race) captured 21–22 Oct 2026, plus the chained 275-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+  These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
 - **Honest provenance.** `HIGH` is an uncalibrated model grade, not a demonstrated win rate or betting edge. Fields that no retrieved source states stay blank and are listed on **Flagged for Review** together with every correction. Row-level release evidence (source quotes, checked-at, expiry) is on **Source health** (`source-health.html`).
@@ -20,6 +21,10 @@ What the published numbers do and do not mean:
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
 | `/olbg/` | The separate OLBG lines audit track (21 pages, 275 chained rows) with the same release gate applied to its picks |
+
+## Independent verification — `session-7da75ec9`, 2026-10-22T12:00Z (this branch, no data change)
+
+Full pipeline re-run on `main` `f55593f` (PR #82) with zero drift: `59/59` unit tests, `check_board.py` **PASS** (`230 rows / 202 fixtures + 28 outright / 217 verified / 210 priced / 67 pieces`, 17 live in-band HIGH across 11 sports, 0 broken links across 85 pages/1,529 links), `tools/check_site.py` **PASS** (`275 fixtures / 275 lines / 22 HIGH / 47 predictions / 76 flags`), `check.py` PASS, `scripts/update.py` + `discovery.py` PASS. **0 excluded-sport rows** in both tracks; every row carries an OLBG `event_id` source link; every `HIGH` sits strictly inside `-250..+10000` (`1.40–101.00` decimal) with a timezone-qualified official start in `data/release_checks.json` and a unique ≥30-word sourced write-up (59–91 words) naming teams, current form, recent results and an explicit selection (table). 12 unverified / 1 corroborated rows blank+flagged; pricing recomputes (`0.95/p`, ~5.26% recip. overround). No invented player claims; WST 404, EuroLeague Valencia/Olympiacos conflicts, Zalgiris/ASVEL 2-4, and SHL shootout corrections already live (FL-063–FL-076). `COORDINATION.md` `task-39` holds the per-row audit table with official URLs.
 
 ## Audit — `session-0570f99b`, 2026-10-22 (provenance, freshness & release gate)
 
@@ -171,7 +176,7 @@ python3 scripts/check_links.py        # 0 broken local links across combined sit
 python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 ```
 
-## Summary Data Metrics (`2026-10-22`)
+## Current repository audit (2026-10-22 12:04 UTC)
 
 | File | Contents | Track |
 |---|---|---|
@@ -180,7 +185,25 @@ python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 | `data/predictions.json` | **`67` written pieces**: **`15` live `HIGH` predictions** + `52` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`275` fixtures & multi-market lines** across all 15 allowed sports | `/olbg/` track |
 | `data/predictions-olbg.json` | **`47` written pieces**: **`19` live `HIGH` predictions** across 9 sports (`-238` to `+478` US) + `28` `analysis` notes | `/olbg/` track |
-| `data/flagged.json` | **`88` flagged review items** with direct source links | both tracks |
+| `data/flagged.json` | **`89` flagged review items** with direct source links | both tracks |
+`session-adeebd4c`, 12:04 UTC: fresh independent sports-source verification is **blocked from the agent shell**: outbound access
+via `curl` is restricted to GitHub and package registries. A direct PDC HTTPS request failed (curl exit 35).
+No inherited quote or verification timestamp was renewed. **Passing tests does not verify match facts.**
+See [audit details](docs/audit-adeebd4c.md) and **FL-077** on [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html).
+Earlier audit sections below describe prior sessions, not work independently reproduced here.
+
+| Tracked dataset | Repository count | Verification boundary |
+|---|---:|---|
+| Root fixtures (`data/events.json`) | 202 | Stored assertions only; not freshly retrieved |
+| Root outright/race rows (`data/gap_sports.json`) | 28 | Model prices, not verified bookmaker offers |
+| Root written pieces (`data/predictions.json`) | 67 | Includes analysis; not 67 released HIGH picks |
+| `/olbg/` fixtures and lines | 275 each | Separate track, not additive unique fixture coverage |
+| `/olbg/` written pieces | 47 | Includes analysis; current release eligibility depends on time |
+| Flag register | 77 | Includes resolved historical items and open review items |
+
+Current validation: 60 unit tests; both track validators; full build and local link scan.
+These checks establish schema, price-band and release-policy consistency, not factual accuracy,
+calibrated confidence, exhaustive market coverage, or a profitable betting edge.
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)
 
@@ -197,3 +220,10 @@ Automated URL/schema checks establish structural consistency, **not that a sourc
 This session re-read the [official MLB standings](https://www.mlb.com/standings/2026):
 Tampa Bay 98–64, 736 RS / 650 RA; Milwaukee 103–59, 832 RS / 618 RA match the stored figures.
 This targeted check must not be treated as independent re-verification of every row or prediction.
+
+### Release-evidence hardening (2026-10-22)
+
+The [independent structural audit](docs/audit-d4c3db6c.md) adds fail-closed official-clock
+URL and clock-format checks with four regression tests (64 tests total). Both site pipelines
+and 1,529 local links pass; generated data is unchanged. This does not upgrade any factual
+verification label: complete fresh official-source verification remains **FL-077, needs review**.
