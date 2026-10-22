@@ -1812,3 +1812,28 @@ five-per-sport gap stays the sibling's **FL-102** — published, not papered ove
 `scripts/build_site.py`, `scripts/check_board.py`, `tests/test_brief_coverage.py` (new), `data/brief_coverage.json` (new),
 `data/flagged.json`, and the generated root/`sports/**`/`site/**` output. No `data/raw/**` capture and no `/olbg/` track data file was
 edited; the `/olbg/` pages changed only because the shared register grew.
+
+### Merge & deployment record — `session-c038b7f4` (`task-44`)
+
+- **PR [#101](https://github.com/buffedlizard55-lab/OLBG3/pull/101) MERGED** to `main` at `2026-10-22T21:05:17Z` as
+  `3c3a9297a537f0a6ace988addc522c638af6a7a4`, after rebasing onto `main` `26c04f4` (PR #102, the sibling's 21:20Z evening
+  re-validation) so that none of the sibling's clock re-stamps, evening capture or flags `FL-099`–`FL-104` were lost.
+- **Conflict resolution, recorded rather than hidden:** `COORDINATION.md` and `README.md` keep **both** sessions' records (the sibling's
+  evening section first, this session's second); regenerated HTML was taken from the rebuilt artifact rather than either side of the
+  conflict; `data/flagged.json` was re-applied on top of the sibling's register, and this session's two items were **renumbered to
+  `FL-105`/`FL-106`** because `FL-099`–`FL-104` were already taken. The five-per-sport shortfall was **not** duplicated as a new flag: the
+  sibling's `FL-102` already carries it and `brief.html` links to it.
+- **CI on the PR:** `Verify and publish dashboard` run
+  [`39854207655`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39854207655) — `build` **pass** (16s), `deploy` skipped on the PR
+  as expected (`mergeStateStatus` CLEAN before merge).
+- **Post-merge publication:** `Verify and publish dashboard` run
+  [`39854365275`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39854365275) — **success** (build + deploy);
+  `pages build and deployment` run [`39854363086`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39854363086) — **success**.
+- **Live site re-read after deploy (21:08Z):** <https://buffedlizard55-lab.github.io/OLBG3/brief.html> renders
+  **"Brief coverage: 17 of 75 targeted picks"**, the 15-row per-sport table (Ice Hockey 5 = target met; Tennis/Snooker/Handball/Golf/
+  Motor Racing/Rugby League/Greyhounds 0), the four reason blocks per short sport, the 17-pick list and the evidence table. The register is
+  live at `flagged.html#FL-105`/`#FL-106` and `reconcile.html` lists the 28 disagreements. Nothing on the published page contradicts the
+  committed data.
+- **Final task status:** `task-44` **done**. Residual `needs review` items (not blocking): `FL-102` (five-per-sport shortfall, sibling),
+  `FL-105` (cross-track disagreements), `FL-106` (hosts outside the recorded official set), `FL-077` (shell cannot reach sports sites).
+
