@@ -99,8 +99,7 @@ This document serves as the shared task board coordinating parallel sessions and
 the hourly artifact deploys stopped, so the public site froze at its last good build.
 
 **Cause.** Ten files in `data/sports/` were committed with unresolved conflict markers
-(`<<<<<<< HEAD` … `>>>>>>> origin/main`): `baseball, basketball, cricket, darts, handball,
-ice_hockey, rugby_union, snooker, tennis, volleyball`. `json.load` raised on line 1, so the builder
+(`ice_hockey, rugby_union, snooker, tennis, volleyball`. `json.load` raised on line 1, so the builder
 died before writing a single page. Two competing schemas had been merged by hand: a per-event list
 (`originated_markets`, `predicted_winner`, `confidence_level`, `prediction_text`) and the publisher's
 `sport/olbg_id/listing_url/events[]` object.
@@ -1016,3 +1015,6 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - Source spot-check: https://www.mlb.com/standings/2026 (redirects to /standings/) re-read via fetch tool on 2026-10-22. Tampa Bay 98–64, RS 736 / RA 650; Milwaukee 103–59, RS 832 / RA 618; table links next game to https://www.mlb.com/gameday/849805. OLBG index also retrieved; no claim of complete recapture.
 - Detected concurrent sessions after claim: f198e83e and e8f8c0f5 merged coordination-only audits as #45/#47. Their logs will be preserved when rebasing; no competing code edits observed.
 - Rebase conflict 2026-10-22: additive end-of-file COORDINATION conflict with #45/#47 resolved by retaining both complete session logs and this claim; no sibling content discarded. Unique task key is `task-27-freshness-safety` (distinct from f198e83e's task-27-final-reverification).
+## Session log — `session-f75234a1` (branch `arena/f75234a1-olbg3` — task-29 fresh independent verification, live re-check & final integration, 2026-10-22)
+- **Claimed:** 2026-10-22 02:48 UTC, `task-29-fresh-verification-integration`. Scope: `COORDINATION.md`, `data/audit-f75234a1.json` (new), `flagged.html`/`index.html` only if a live defect is found (logged here if expanded). All prior tasks task-01..task-27 are `done` on `main` (PR #45 merged, commit 3a9f7ca); no active sibling claim overlaps.
+- **Plan:** re-run full checker suite, independently audit band/exclusion/source-link invariants from raw JSON, live spot-check OLBG + official pages, confirm site builds/serves with 0 broken links, PR→main, merge, verify Pages live. Flagged/unverified items do not block.
