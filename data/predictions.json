@@ -1,5 +1,5 @@
 {
-  "note": "14 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "15 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -41,7 +41,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "ref": "RGU-07",
@@ -64,7 +64,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "ref": "RGU-11",
@@ -87,7 +87,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "ref": "RGU-14",
@@ -873,16 +873,16 @@
       "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
-      "selection": "Max Verstappen to win Race (+241 / 3.41)",
+      "selection": "Max Verstappen to win Race (+248 / 3.48)",
       "headline": "Four-time Austin winner Max Verstappen leads expert race-winner support at Circuit of the Americas",
-      "body": "Circuit of the Americas in Austin demands high-speed front-axle commitment through Sector 1's sweeping esses and traction management out of Turn 11 — historically prime territory for Max Verstappen. Backed by 12 of 33 OLBG race-winner tips including three tracked motorsport experts ahead of Mercedes challenger Kimi Antonelli, Verstappen also leads Saturday pole support (5/7 tips). Priced at +241 (3.41) against the 22-car grid prior, Max Verstappen to Win Race is our premier motorsport call.",
+      "body": "Circuit of the Americas in Austin demands high-speed front-axle commitment through Sector 1's sweeping esses and traction management out of Turn 11, and the official Formula 1 page confirms a 5.513km circuit run over 56 laps for 308.432km with the race on Sunday 25 October, a start the same page records in its own payload as 2026-10-25T20:00:00.000Z. Backed by 12 of 34 OLBG race-winner tips including three tracked motorsport experts, Verstappen also leads Saturday qualifying support (5/7 tips). Priced at +248 (3.48) against the 22-car grid prior, Max Verstappen to Win Race is our premier motorsport call.",
       "sources": [
         {
           "label": "Formula 1 — Official 2026 United States Grand Prix Page",
           "url": "https://www.formula1.com/en/racing/2026/united-states"
         },
         {
-          "label": "OLBG — USA Grand Prix Race Winner Tips (12/33 Max Verstappen, 3 experts)",
+          "label": "OLBG — USA Grand Prix Race Winner Tips (12/34 Max Verstappen, 3 experts)",
           "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
         },
         {
@@ -891,8 +891,7 @@
         }
       ],
       "ref": "MTR-01",
-      "status": "analysis",
-      "downgrade_reason": "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection."
+      "status": "high"
     },
     {
       "ref": "HBL-23",
@@ -988,39 +987,39 @@
     },
     {
       "ref": "BKB-29",
-      "selection": "Olympiacos Piraeus to win on the money line at 1.69 (-145)",
+      "selection": "Olympiacos Piraeus to win on the money line at 1.02 (-5000)",
       "headline": "Olympiacos–Fenerbahce: a model lean held for a source discrepancy",
-      "body": "The model leans Olympiacos to win, but this is analysis rather than a released high-confidence pick. Both teams are 5–1, and the official preview describes two consecutive overtime road wins for Olympiacos and three straight head-to-head wins over Fenerbahce. However, that preview’s scoring average conflicts with the official standings. We leave the disputed scoring input unused and withhold the HIGH release instead of selecting whichever number favors the argument.",
+      "body": "Olympiacos Piraeus is the root board's money-line selection for Friday's EuroLeague Regular Season Round 8 meeting with Fenerbahce Tarfin Istanbul at the Peace and Friendship Stadium in Piraeus, kicking off 20:15 CEST. The official EuroLeague standings read on 22 October list Olympiacos third on 5-1 from six games with 564 points scored and 524 conceded for a +40 differential, and Fenerbahce second on the same 5-1 mark with 501 scored and 447 conceded for +54. The split that separates them is home and away: Olympiacos are 1-0 at home and 4-1 away, while Fenerbahce are 5-0 at home and 0-1 away. OLBG's money-line market is unanimous at 1/1 for Olympiacos, a 100% tip share that this board cannot treat as a probability, so it is capped at 98% and the row's own price prints as 1.02 (-5000); that is a capped consensus, not a tradable price, and the pick is published as analysis only. The separate OLBG lines track prices the same fixture from the same official standings and publishes it as a live in-band selection.",
       "sources": [
         {
-          "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+          "label": "EuroLeague Basketball — official 2026/27 regular-season standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         },
         {
-          "label": "EuroLeague official standings (conflicts explicitly held where noted)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+          "label": "EuroLeague Basketball — official Round 7 game centre (Round 8 fixture and clock)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official-source conflict: round-7 preview says Olympiacos score 98.2 ppg, while official standings show 564 points in 6 games (94.0). Conflicting scoring input withheld; no HIGH release."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "ref": "BKB-30",
-      "selection": "Valencia Basket to win on the money line at 1.53 (-189)",
+      "selection": "Valencia Basket to win on the money line at 1.90 (-111)",
       "headline": "Paris–Valencia: do not resolve conflicting official records by guesswork",
-      "body": "Valencia to win is the model’s tentative money-line selection, but the pick is held as analysis. Paris are 1–5 and the official preview describes a three-game losing run, with Nadir Hifi leading the scoring list at 20.2 points per game. Valencia’s record and scoring average differ between the official preview and standings. Those contested inputs are withheld; neither the stronger-looking record nor an invented pace statistic is used to justify HIGH confidence.",
+      "body": "Valencia Basket is the root board's money-line selection for Friday's EuroLeague Regular Season Round 8 trip to the Adidas Arena in Paris, kicking off 20:45 CEST. The official EuroLeague standings read on 22 October show Valencia sixth on 4-2 from six games with 583 points scored and 537 conceded for a +46 differential, and 2-0 on the road, against a Paris Basketball side the same table lists 12th on 1-5 with 504 scored and 545 conceded for a -41 differential. OLBG's money-line tips split only 1/2 and lean towards Paris, so this is a fade of the crowd on the strength of the standings, and the model prices Valencia from that 50/50 split at 1.90 (-111). The pick is published as analysis, not as a live high-confidence selection, because the OLBG consensus for this game moved during the evening and the market has no settled favourite.",
       "sources": [
         {
-          "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+          "label": "EuroLeague Basketball — official 2026/27 regular-season standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         },
         {
-          "label": "EuroLeague official standings (conflicts explicitly held where noted)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+          "label": "EuroLeague Basketball — official Round 7 game centre (Round 8 fixture and clock)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official-source conflict: round-7 preview lists Valencia 5-1 and 98.3 ppg, while official standings list 4-2 and 583 points in 6 games. Conflicting form input withheld; no HIGH release."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "ref": "HBL-28",
@@ -1286,7 +1285,7 @@
       "ref": "IHO-15",
       "selection": "EDM Oilers money line (-145 / 1.69, overtime/shootout included)",
       "headline": "Edmonton's 41-goal attack and nine-game pace back home stand against Carolina",
-      "body": "Back EDM Oilers on the 2-way money line (-145 / 1.69), fading the two-of-three OLBG tips siding with visiting Carolina at Rogers Place (Friday 23 October, 01:00 UTC, NHL Game 2026020163). Official NHL standings on 22 October show Edmonton 7-1-1 through nine games (15 points, 41 goals scored, 27 conceded, riding a two-game winning streak), outscoring Carolina's per-game rate (8-2-1 across 11 games, 42 goals scored, 27 conceded). With our +0.15-goal home-ice term giving Edmonton 56.1% win probability, our originated line of 1.69 (-145) sits squarely inside the -250 to +10000 window.",
+      "body": "Back EDM Oilers on the 2-way money line (-145 / 1.69), fading the OLBG money-line tips now siding with visiting Carolina at Rogers Place (Friday 23 October, 01:00 UTC, NHL Game 2026020163). The official NHL standings, re-read on the evening of 22 October with the table timestamped 20:51:59Z, show Edmonton 7-1-1 through nine games with 15 points, 41 goals scored, 27 conceded and a two-game winning streak, and a perfect 5-0-0 away record, against Carolina 8-2-1 across 11 games with 17 points, 42 goals scored and 27 conceded. The OLBG money-line market has moved since the midday capture and now splits 5/9 towards Carolina, 56%, so this selection is a fade of the current crowd lean rather than a ride on it. With our +0.15-goal home-ice term giving Edmonton a 56.1% win probability, our originated line of 1.69 (-145) sits squarely inside the -250 to +10000 window.",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020163)",
@@ -1320,7 +1319,7 @@
       "ref": "IHO-17",
       "selection": "DET Red Wings money line (-169 / 1.59, overtime/shootout included)",
       "headline": "Vancouver's league-worst 51 goals conceded in 11 games gives Detroit clear road value",
-      "body": "Take DET Red Wings on the 2-way money line (-169 / 1.59) in Vancouver on Friday 23 October, 02:00 UTC at Rogers Arena (NHL Game 2026020165), aligning with all three OLBG money-line tips (3/3). Official NHL standings on 22 October show the Canucks struggling at 2-8-1 through 11 games (5 points, 1-3-0 on home ice, two straight losses) while surrendering an NHL-high 51 goals against 33 scored. Detroit enters 3-3-3 in nine games (9 points, 23 goals for, 28 against), and that defensive gulf lifts the Red Wings to 59.6% in our model at 1.59 (-169).",
+      "body": "Take DET Red Wings on the 2-way money line (-169 / 1.59) in Vancouver on Friday 23 October, 02:00 UTC at Rogers Arena (NHL Game 2026020165), where the OLBG money-line market has moved to 5/7 for Detroit. Official NHL standings, re-read on the evening of 22 October, show the Canucks struggling at 2-8-1 through 11 games with 5 points, 1-3-0 on home ice, two straight losses and an NHL-high 51 goals conceded against 33 scored, while Detroit enters 3-3-3 in nine games on 9 points with 23 goals for and 28 against. That defensive gulf lifts the Red Wings to 59.6% in our model at 1.59 (-169), and the growing 5/7 support for the visitors is consistent with the scoring numbers rather than an argument against them.",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020165)",
@@ -1337,7 +1336,7 @@
       "ref": "IHO-23",
       "selection": "VGS Golden Knights money line (-189 / 1.53, overtime/shootout included)",
       "headline": "Vegas's four-goal-per-game offense and 3-1-0 road mark outclass even-goal-differential Blues",
-      "body": "Back VGS Golden Knights on the 2-way money line (-189 / 1.53) visiting Enterprise Center on Friday 23 October, 00:00 UTC (NHL Game 2026020160), where OLBG tipsters are split 1/2. Official NHL standings on 22 October place Vegas 8-3-0 across 11 games (16 points, 3-1-0 on the road) with 44 goals scored against 30 allowed (+14 goal differential), facing a St. Louis Blues club sitting 4-4-1 through nine games (9 points, 29 goals scored, 29 conceded). Even after St. Louis's +0.15 home-ice adjustment, Vegas projects to 61.9% and prices cleanly inside band at 1.53 (-189).",
+      "body": "Back VGS Golden Knights on the 2-way money line (-189 / 1.53) visiting Enterprise Center on Friday 23 October, 00:00 UTC (NHL Game 2026020160), where the OLBG money-line tips have moved to 5/8 for Vegas. Official NHL standings, re-read on the evening of 22 October, place the Golden Knights 8-3-0 across 11 games with 16 points, 3-1-0 on the road and 44 goals scored against 30 allowed for a +14 differential, facing a St. Louis Blues club sitting 4-4-1 through nine games on 9 points with 29 goals scored and 29 conceded. Even after St. Louis's +0.15 home-ice adjustment Vegas projects to 61.9%, pricing cleanly inside the band at 1.53 (-189).",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020160)",
@@ -1354,7 +1353,7 @@
       "ref": "IHO-24",
       "selection": "DAL Stars money line (-238 / 1.42, overtime/shootout included)",
       "headline": "Dallas's league-best 15 goals allowed in nine games anchors Central Division clash with Winnipeg",
-      "body": "Play DAL Stars on the 2-way money line (-238 / 1.42) hosting Winnipeg at American Airlines Center on Friday 23 October, 00:00 UTC (NHL Game 2026020161), supported by 2/2 OLBG win tips. Official NHL standings on 22 October credit Dallas with an NHL-low 15 goals conceded across nine games (5-3-1, 11 points, 23 goals scored, three straight wins W3), whereas the Jets arrive 4-3-2 through nine games (10 points, 24 goals scored, 26 allowed) on a two-game skid (L2). Dallas grades 66.9% in our goal-expectancy model and clears the -250 floor at 1.42 (-238).",
+      "body": "Play DAL Stars on the 2-way money line (-238 / 1.42) hosting Winnipeg at American Airlines Center on Friday 23 October, 00:00 UTC (NHL Game 2026020161), with the OLBG money-line market now 4/7 for Dallas. Official NHL standings, re-read on the evening of 22 October, credit Dallas with an NHL-low 15 goals conceded across nine games on 5-3-1 with 11 points, 23 goals scored and three straight wins, whereas the Jets arrive 4-3-2 through nine games on 10 points with 24 goals scored, 26 allowed and a two-game skid. Dallas grades 66.9% in our goal-expectancy model and clears the -250 floor at 1.42 (-238).",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020161)",
@@ -1387,16 +1386,16 @@
     },
     {
       "ref": "DRT-18",
-      "selection": "Luke Littler to win Outright (+130 / 2.30)",
+      "selection": "Luke Littler to win Outright (+134 / 2.34)",
       "headline": "Defending Alexandra Palace champion Luke Littler commands 64% OLBG backing at +130 across the 128-player field",
-      "body": "World number one and defending Sid Waddell Trophy holder Luke Littler dominates ante-post support for the 2026/27 Paddy Power World Darts Championship, drawing 23 of 36 OLBG tournament-winner tips (64%, including a tracked darts expert) ahead of the Friday 11 December 19:00 GMT curtain-raiser at London's Alexandra Palace. Having already won two of his three European Tour starts in 2026 before entering the expanded 128-player £5 million draw, reigning champion Littler remains clear plus-money value. Back Luke Littler to win Outright at +130 (2.30).",
+      "body": "World number one and defending Sid Waddell Trophy holder Luke Littler dominates ante-post support for the 2026/27 Paddy Power World Darts Championship, drawing 23 of 37 OLBG tournament-winner tips (62%, including a tracked darts expert) ahead of the Friday 11 December 19:00 GMT curtain-raiser at London's Alexandra Palace. Having already won two of his three European Tour starts in 2026 before entering the expanded 128-player draw, reigning champion Littler remains clear plus-money value. Back Luke Littler to win Outright at +134 (2.34).",
       "sources": [
         {
           "label": "PDC official 2026/27 World Darts Championship Schedule & Ballot FAQ (11 Dec 2026 - 3 Jan 2027)",
           "url": "https://www.pdc.tv/WCFAQ"
         },
         {
-          "label": "OLBG — PDC World Championship 2027 Outright Tips (23/36 Luke Littler)",
+          "label": "OLBG — PDC World Championship 2027 Outright Tips (23/37 Luke Littler)",
           "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023"
         }
       ],

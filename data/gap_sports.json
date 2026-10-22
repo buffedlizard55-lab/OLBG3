@@ -145,7 +145,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -234,7 +234,7 @@
     "release": {
      "status": "start_window_reached",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": "2026-10-22T10:35:00Z",
      "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times",
@@ -324,7 +324,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -414,7 +414,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -493,22 +493,22 @@
      10000
     ],
     "start_iso": "2026-10-25",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-23T15:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T21:55:00+00:00",
+     "start_utc": "2026-10-23T15:00:00Z",
+     "checked_at": "2026-10-22T21:55:00Z",
+     "source": "https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026625/tee-times",
+     "expires_at": "2026-10-23T15:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    },
    "flags": [
@@ -593,7 +593,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -684,7 +684,7 @@
     "release": {
      "status": "start_window_reached",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": "2026-10-21T22:00:00Z",
      "checked_at": "2026-10-22T12:25:00Z",
      "source": "https://www.jgto.org/en/",
@@ -775,7 +775,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -866,7 +866,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -956,7 +956,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -983,8 +983,8 @@
    "market_type": "race",
    "olbg_market": "Win Race",
    "olbg_pick": "Max Verstappen",
-   "olbg_tips": "12/33",
-   "olbg_pct": 36,
+   "olbg_tips": "12/34",
+   "olbg_pct": 35,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913",
    "olbg_event_id": 913,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -993,14 +993,18 @@
     "status": "verified",
     "official_url": "https://www.formula1.com/en/racing/2026/united-states",
     "official_label": "Formula 1 \u2014 United States Grand Prix 2026 (official race page)",
-    "official_datetime": "Race: Sun 25 Oct 2026, 16:00 (schedule shown in track time)",
-    "note": "Official page lists Practice 1 23 Oct 13:30-14:30, Practice 2 23 Oct 17:00-18:00, Practice 3 24 Oct 13:30-14:30, Qualifying 24 Oct 17:00-18:00 and the Race 25 Oct 16:00, at the 5.513 km Circuit of the Americas over 56 laps. OLBG's '25 Oct 16:00' matches the official race start.",
+    "official_datetime": "Race: Sun 25 Oct 2026, 16:00 (page renders the session list in the reader clock, which the page pins as EDT; the same page payload records startDate 2026-10-25T20:00:00.000Z)",
+    "note": "Official page lists Practice 1 23 Oct 13:30-14:30, Practice 2 23 Oct 17:00-18:00, Practice 3 24 Oct 13:30-14:30, Qualifying 24 Oct 17:00-18:00 and the Race 25 Oct 16:00, at the 5.513 km Circuit of the Americas over 56 laps. Re-read 2026-10-22T21:40Z: the same page's Rolex widget shows St. Louis (UTC-5) one hour behind the reader clock, so the listed 16:00 race is 16:00 EDT = 20:00 UTC, matching the page's own race payload startDate 2026-10-25T20:00:00.000Z (FL-099 resolved).",
     "source_tier": "official"
    },
    "model": {
     "basis": "race-prior",
-    "prices": {},
-    "probs": {},
+    "prices": {
+     "single": 3.48
+    },
+    "probs": {
+     "single": 0.2727
+    },
     "prior": {
      "field": 22,
      "strength_k": 12,
@@ -1010,53 +1014,50 @@
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
-     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page.",
-     "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection."
-    ],
-    "handicap": null,
-    "total": null
+     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page."
+    ]
    },
    "pick": {
-    "side": null,
-    "label": null,
-    "prob": null,
-    "confidence": "LOW",
+    "side": "single",
+    "label": "Max Verstappen",
+    "prob": 0.2727,
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
      "model_edge": 2
     },
-    "price": null,
-    "american": null,
-    "in_band": false,
+    "price": 3.48,
+    "american": 248,
+    "in_band": true,
     "band": [
      -250,
      10000
     ],
     "start_iso": "2026-10-25",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T20:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection.",
+    "note": "",
     "release": {
-     "status": "source_conflict",
-     "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
-     "start_utc": null,
+     "status": "upcoming",
+     "eligible": true,
+     "as_of": "2026-10-22T21:55:00+00:00",
+     "start_utc": "2026-10-25T20:00:00Z",
      "checked_at": "2026-10-22T12:10:00Z",
      "source": "https://www.formula1.com/en/racing/2026/united-states",
-     "expires_at": null,
-     "reason": "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection."
+     "expires_at": "2026-10-23T12:10:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    },
    "flags": [
     "field_size_prior_assumed"
    ],
-   "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: Max Verstappen leads USGP Win Race at 12/33 win tips (36%, 3 tracked experts) and Fastest Qualifier at 5/7.",
+   "row_notes": "Updated from the live 2026-10-22T21:00Z OLBG re-capture: Max Verstappen leads the USGP Win Race at 12/34 win tips (35%, 3 tracked experts) and /Motor_Racing/14 no longer lists a separate Fastest Qualifier row for this event.",
    "captured_at": "2026-10-21T07:05:00Z"
   },
   {
@@ -1134,7 +1135,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1224,7 +1225,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1313,7 +1314,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1403,7 +1404,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1493,7 +1494,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1583,7 +1584,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1673,7 +1674,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1763,7 +1764,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1854,7 +1855,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1943,7 +1944,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2035,7 +2036,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": "2026-10-22T12:10:00Z",
      "source": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
@@ -2125,7 +2126,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2216,7 +2217,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2307,7 +2308,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2398,7 +2399,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2489,7 +2490,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2580,7 +2581,7 @@
     "release": {
      "status": "start_window_reached",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": "2026-10-22T17:00:00Z",
      "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -2670,7 +2671,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2761,7 +2762,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2852,7 +2853,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2943,7 +2944,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3034,7 +3035,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3125,7 +3126,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3216,7 +3217,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3307,7 +3308,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3398,7 +3399,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3425,8 +3426,8 @@
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Luke Littler",
-   "olbg_tips": "23/36",
-   "olbg_pct": 64,
+   "olbg_tips": "23/37",
+   "olbg_pct": 62,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023",
    "olbg_event_id": 26023,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
@@ -3443,10 +3444,10 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 2.3
+     "single": 2.34
     },
     "probs": {
-     "single": 0.4135
+     "single": 0.4062
     },
     "prior": {
      "field": 128,
@@ -3463,7 +3464,7 @@
    "pick": {
     "side": "single",
     "label": "Luke Littler",
-    "prob": 0.4135,
+    "prob": 0.4062,
     "confidence": "HIGH",
     "score": 6,
     "factors": {
@@ -3471,8 +3472,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 2.3,
-    "american": 130,
+    "price": 2.34,
+    "american": 134,
     "in_band": true,
     "band": [
      -250,
@@ -3489,7 +3490,7 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": "2026-12-11T19:00:00Z",
      "checked_at": "2026-10-22T12:40:00Z",
      "source": "https://www.pdc.tv/WCFAQ",
@@ -3501,7 +3502,7 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Synced live from /betting-tips/Darts/15 (23/36 win tips on defending champion Luke Littler, 1 expert).",
+   "row_notes": "Synced live from /betting-tips/Darts/15 (23/36 win tips on defending champion Luke Littler, 1 expert). Re-read 2026-10-22T21:00Z: the OLBG PDC World Championship 2027 outright carries 37 win tips, 23 of them on Luke Littler (62%).",
    "captured_at": "2026-10-21T07:05:00Z"
   },
   {
@@ -3579,7 +3580,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3668,7 +3669,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3758,7 +3759,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3848,7 +3849,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -3939,7 +3940,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -4030,7 +4031,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -4121,7 +4122,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -4213,7 +4214,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -4304,7 +4305,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -4395,7 +4396,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T21:20:00+00:00",
+     "as_of": "2026-10-22T21:55:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,

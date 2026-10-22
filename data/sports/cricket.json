@@ -4,7 +4,7 @@
   "olbg_id": 7,
   "listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
   "fetched": "2026-10-22",
-  "listing_note": "Competition is NOT shown on the cricket listing (only 'All_Cricket/All_Events' in the URL); it is embedded in the event title (e.g. '1st T20 Match'). OLBG also lists outright/tournament markets separately - those are excluded from the match tables and recorded in data/outrights.json.",
+  "listing_note": "Competition is NOT shown on the cricket listing (only 'All_Cricket/All_Events' in the URL); it is embedded in the event title (e.g. '1st T20 Match'). OLBG also lists outright/tournament markets separately - those are excluded from the match tables and recorded in data/outrights.json. Counts synced to the 2026-10-22T20:55Z live OLBG re-capture; the dated harvest file data/raw/olbg-harvest-20261022T2055Z.tsv holds the verbatim listing.",
   "events": [
     {
       "ref": "CRK-01",
@@ -140,8 +140,8 @@
       "start": "23 Oct 07:30",
       "market": "Win Match",
       "olbg_pick": "Afghanistan",
-      "tips": "1/1",
-      "pct": 100,
+      "tips": "6/7",
+      "pct": 86,
       "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Afghanistan_vs_Zimbabwe_One_Day_Match/7?event_id=188831",
       "event_id": 188831
     },
@@ -154,8 +154,8 @@
       "captured": "2026-10-22",
       "market": "Man Of The Match",
       "olbg_pick": "S Mandhana",
-      "tips": "1/1",
-      "pct": 100,
+      "tips": "1/2",
+      "pct": 50,
       "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/India_W_vs_Zimbabwe_W_1st_ODI/7?event_id=188830",
       "event_id": 188830
     }
