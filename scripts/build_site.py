@@ -952,6 +952,20 @@ def _corr_row(r):
 
 corr_rows = "".join(_corr_row(r) for r in EVENTS if r["verification"]["status"] == "corroborated")
 
+REGISTER = json.load(open(os.path.join(ROOT, "data/flagged.json")))["items"]
+
+
+def _reg_row(it):
+    srcs = "".join(f'<li><a href="{e(x["url"])}" rel="noopener">{e(x.get("label") or x["url"])}</a></li>'
+                   for x in it.get("sources", []))
+    rows = ", ".join(it.get("affected_rows") or []) or "&mdash;"
+    return (f'<tr><td><strong>{e(it["id"])}</strong></td><td>{e(str(it.get("severity","")))}</td>'
+            f'<td><strong>{e(it.get("title",""))}</strong><br><span class="small">{e(it.get("detail",""))}</span></td>'
+            f'<td class="small">{e(rows)}</td><td class="small"><ul class="srclist">{srcs}</ul></td></tr>')
+
+
+register_rows = "".join(_reg_row(it) for it in REGISTER)
+
 flagpage = head("Flagged for Review") + f"""
 <section class="pagehead flagged">
   <h1>Flagged for Review</h1>
@@ -981,6 +995,14 @@ to promote or drop it.</p>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Ref</th><th>Sport</th><th>Match</th><th>Competition</th><th>Start (as listed)</th><th>OLBG source</th><th>Status</th></tr></thead>
 <tbody>{unver_rows}</tbody></table></div>
+
+<h2>The itemised register ({len(REGISTER)})</h2>
+<p>Every numbered finding from the audit register, with its source links. The same register drives the
+<a href="olbg/flagged.html">/olbg/ lines-track Flagged page</a>; it is reproduced here so the main site has one
+complete list. Nothing in it blocks the release.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>ID</th><th>Severity</th><th>Finding</th><th>Affected rows</th><th>Sources</th></tr></thead>
+<tbody>{register_rows}</tbody></table></div>
 """ + foot(0)
 open(os.path.join(OUT, "flagged.html"), "w").write(flagpage)
 
