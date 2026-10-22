@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">43 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">46 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -324,6 +324,27 @@
   <p>On 2026-10-22, OLBG&#x27;s Basketball listing card shows &#x27;Panathinaikos vs Baskonia&#x27; split 2/4 (50%) on Money Line while the underlying event page (?event_id=535923) carries 2/3 (67%) on Pointspread Panathinaikos -15.50 and Game Totals 171.50; similarly &#x27;TB Rays @ MIL Brewers&#x27; (?event_id=160789) carries 7/8 on Run Line -1.50 and 8/8 (100%) on Over 6.50 runs, and &#x27;Danny Noppert vs Stephen Bunting&#x27; (?event_id=32330) carries 5/5 (100%) on Over 9.50 legs.</p>
   <p class="muted small">Affected rows: BKB-535923, BSB-160789, DAR-32330, BKB-534839, BKB-535674</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Baskonia/4?event_id=535923" rel="noopener nofollow" target="_blank">OLBG — Panathinaikos vs Baskonia Event Page</a></li><li><a href="https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789" rel="noopener nofollow" target="_blank">OLBG — TB Rays @ MIL Brewers Event Page</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Danny_Noppert_vs_Stephen_Bunting/15?event_id=32330" rel="noopener nofollow" target="_blank">OLBG — Danny Noppert vs Stephen Bunting Event Page</a></li></ul>
+</article>
+<article class="card flag" id="FL-044">
+  <div class="flag-head"><span class="tag">FL-044</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Three /olbg/ high-confidence picks were dated 21 October and have been archived</h2>
+  <p>The /olbg/ track graded confidence without looking at the fixture date, so three rows whose listed start date was 2026-10-21 (BKB-534839 GS Warriors @ LA Lakers, BKB-535674 SAC Kings @ LA Clippers, TEN-902063 Ann Li vs Zeynep Sonmez) were published as live high-confidence picks on a 22 October build. A tip on a fixture that has already been played is not a prediction. All three are now graded medium with the flag kick_off_passed_archived, and their written pieces are kept on the predictions page under a clearly labelled &#x27;Archived analysis&#x27; heading with the reason. A date gate in tools/originate.py and tools/check_site.py prevents a repeat. Live high-confidence count on /olbg/ therefore falls from 26 to 23.</p>
+  <p class="muted small">Affected rows: BKB-534839, BKB-535674, TEN-902063</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Basketball/NBA/4?event_id=534839" rel="noopener nofollow" target="_blank">OLBG — GS Warriors @ LA Lakers event page</a></li><li><a href="https://www.olbg.com/betting-tips/Basketball/NBA/4?event_id=535674" rel="noopener nofollow" target="_blank">OLBG — SAC Kings @ LA Clippers event page</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3?event_id=902063" rel="noopener nofollow" target="_blank">OLBG — Ann Li vs Zeynep Sonmez event page</a></li></ul>
+</article>
+<article class="card flag" id="FL-045">
+  <div class="flag-head"><span class="tag">FL-045</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Two golf field sizes were described as officially confirmed; the official pages do not state them</h2>
+  <p>GLF-02 (Butterfield Bermuda Championship) and GLF-04 (BMW Ladies Championship) carried verification notes saying the official tournament page confirmed a 120- and a 78-player field. Re-checking pgatour.com and lpga.com on 2026-10-22 confirmed the dates, venue, par, yardage, purse and defending/past champion, but neither official page states a field size. The field counts are still used as model inputs, now labelled as disclosed inputs corroborated by independent golf outlets rather than as facts stated by the governing body. The GLF-02 write-up no longer calls the field &#x27;confirmed&#x27;. No price changed: the prior scales the tip share either way, and 120 vs 156 moves GLF-02 from +740 to +748.</p>
+  <p class="muted small">Affected rows: GLF-02, GLF-04</p>
+  <ul class="srclist"><li><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview" rel="noopener nofollow" target="_blank">PGA Tour — Butterfield Bermuda Championship overview</a></li><li><a href="https://www.pgatour.com/article/news/latest/2026/10/20/butterfield-bermuda-championship-facts-and-figures-port-royal-golf-course-southampton-2026" rel="noopener nofollow" target="_blank">PGA Tour — Butterfield Bermuda Championship facts and figures</a></li><li><a href="https://www.lpga.com/tournaments/bmw-lpga-championship/overview" rel="noopener nofollow" target="_blank">LPGA Tour — BMW Ladies Championship overview</a></li></ul>
+</article>
+<article class="card flag" id="FL-046">
+  <div class="flag-head"><span class="tag">FL-046</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Two EuroLeague write-ups named players the cited official page never mentions</h2>
+  <p>BKB-20 (Efes v Besiktas) credited the Kaunas road win to &#x27;Shane Larkin and Vincent Poirier&#x27;, and BKB-21 (Maccabi v Real Madrid) built its case on &#x27;Walter Tavares in the paint and Facundo Campazzo at point guard&#x27;. The official EuroLeague Round 7 Game Center, which is now cited on both pieces, instead attributes Efes&#x27;s backcourt to Cam Payne filling in for the injured Mike James, and Real Madrid&#x27;s guard step-forward to Theo Maledon. Both write-ups were rewritten to use only what that page states, and the official page was added to their source lists. BKB-21 also now discloses that the home side has won each of the last five meetings, which cuts against the pick.</p>
+  <p class="muted small">Affected rows: BKB-20, BKB-21</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">EuroLeague — Round 7 Game Center (official)</a></li><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/" rel="noopener nofollow" target="_blank">EuroLeague — official 2026-27 schedule announcement</a></li></ul>
 </article>
 
 </main>

@@ -13,11 +13,33 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 | `lines.html` | Multi-market originated lines: Money Line / Win Match (`191` priced), Handicap / Spread (`157`), Match Totals Over/Under (`68`), Outrights (`23`) |
 | `verification.html` | Line-by-line official governing-body verification table (`162` official/club-verified, `2` third-party corroborated, `32` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: 37 root audit findings + 43 `/olbg/` register items with direct official & OLBG source links |
+| `flagged.html` | **Flagged for Review**: 37 root audit findings + 46 `/olbg/` register items with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `26` in-band `HIGH` predictions across 10 sports, `43` flagged items) |
+| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `23` in-band `HIGH` predictions across 10 sports, `46` flagged items) |
+
+## Latest audit — `session-8c24595c` (2026-10-22)
+
+Re-verified live against official sources and fixed. Full register on `flagged.html` (46 items).
+
+| Finding | What was wrong | Fix |
+|---|---|---|
+| FL-044 | The `/olbg/` track graded `HIGH` without looking at the fixture date, so **3 picks** were published for matches already played on 2026-10-21 (`BKB-534839`, `BKB-535674`, `TEN-902063`) | Kick-off gate added in `tools/originate.py`; rows archived to `medium` with the `kick_off_passed_archived` flag; write-ups moved under a labelled **Archived analysis** section; `tools/check_site.py` now rejects a past-dated `HIGH`. Live `HIGH` 26 → **23** |
+| FL-045 | `GLF-02`/`GLF-04` claimed the official pages confirmed a 120- and a 78-player field — they do not | Field sizes re-labelled as disclosed model inputs; `GLF-02` prose no longer says "confirmed" |
+| FL-046 | `BKB-20` credited a win to "Shane Larkin and Vincent Poirier" and `BKB-21` to "Walter Tavares and Facundo Campazzo"; the official EuroLeague Round 7 page names neither | Both rewritten to the official wording (Cam Payne in for the injured Mike James; Theo Maledon) and the official Game Center added as a source |
+| Price drift | `GLF-02` quoted `+738 / 8.38` and `MTR-01` quoted `+254 / 3.54` while their published lines were `+740 / 8.40` and `+241 / 3.41` | Corrected, and `check_board.py` now fails the build if any price quoted in a write-up disagrees with its row (negative-tested) |
+| Conflict markers | PR #44 merged four `<<<<<<<`/`=======`/`>>>>>>>` marker lines into `COORDINATION.md` | Removed; `check_board.py` rule 6 now guards every data file |
+| Prior text | `gap_sports` rows with a field override repeated the generic "assumed 156-player field" / "22-car grid" text next to `field: 120` / `78` / `21` | Per-row basis text now names the field actually used |
+
+Re-verified exactly against the governing body during this pass: MLB World Series Game 1 (TB @ MIL, Fri 23 Oct,
+8:00 PM ET, Misiorowski starting, Brewers 103-59 / 832-618, Rays 98-64 / 736-650); URC table (Leinster 10th,
+8 pts, 75/58; Munster 9th, 9 pts, 72/74); LNR Pro D2 J7 (Agen 10th 15 pts, Nissa 13th 11 pts, Soyaux 7th 17 pts,
+Dax 6th 19 pts / 269-264, Valence Romans 11th 13 pts, Colomiers 12th 12 pts, Grenoble 3rd 22 pts / 213-176 +37,
+Biarritz 5th 20 pts / 213-191); ATP Almaty Day 6 (Bublik v Marozsan R16 NB 19:30, Machac v Khachanov NB 13:00);
+ATP Lyon (Wawrinka beat Landaluce 6-3 6-7(2) 7-6(5); Gojo v Altmaier R16); EuroLeague Round 7 game center;
+PGA Tour Bermuda overview + facts article (Oct 22-25, Port Royal, par 71, 6,828 yd, $6M, Power won 2022);
+LPGA BMW Ladies overview (Oct 22-25, Pine Beach, par 72, 6,784 yd, $2.35M, Sei Young Kim 2025 winner).
 
 ## Scope & Strict Exclusions
 
@@ -37,7 +59,7 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 2. **Focusing `HIGH` Confidence on `-250` to `+10000` Odds (`1.40` to `101.00` Decimal):**
    - Heavy >70% moneyline chalk (`price < 1.40`, shorter than `-250`) retains its honest calibrated probability and short price and is explicitly capped at **`MEDIUM`** with its reason disclosed.
    - A selection earns **`HIGH`** only when: (a) confirmed on an official governing-body / club domain (`verified`), (b) backed by official competition form/rankings, (c) kick-off has not passed as of `2026-10-22`, AND (d) its originated price sits strictly inside **`-250` to `+10000` (`1.40 <= price <= 101.00`)**.
-   - **Result:** **30 live `HIGH` predictions across 10 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Golf`, `Handball`, `Ice Hockey`, `Motor Racing`, `Rugby Union`, `Tennis`, spanning `-238` to `+738` US odds) and **26 live `HIGH` predictions across 10 sports** on `/olbg/` (spanning `-227` to `+660` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
+   - **Result:** **30 live `HIGH` predictions across 10 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Golf`, `Handball`, `Ice Hockey`, `Motor Racing`, `Rugby Union`, `Tennis`, spanning `-238` to `+740` US odds) and **23 live `HIGH` predictions across 10 sports** on `/olbg/` (spanning `-227` to `+660` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
 
 ## Reproducible Build & Verification Commands
 
@@ -65,7 +87,7 @@ python3 -m unittest discover -s tests # 20 unit & band invariant tests
 | `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`162` verified, `191` priced) | root board |
 | `data/predictions.json` | **`44` written pieces**: **`30` live `HIGH` predictions** (`-238` to `+738` US) + `14` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
-| `data/predictions-olbg.json` | **`26` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) | `/olbg/` track |
+| `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
 | `data/flagged.json` | **`43` flagged review items** (plus `37` root `flagged.html` findings) with direct source links | both tracks |
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)

@@ -283,15 +283,17 @@ def main() -> None:
 """
 
     # ---------- predictions ----------
+    live_preds = [p for p in preds if p.get("status", "high") == "high"]
+    archived_preds = [p for p in preds if p.get("status", "high") == "analysis"]
     pred_cards = []
-    for p in preds:
+    for p in live_preds:
         l = lines[p["match_id"]]
         srcs = "".join(f"<li>{link(s['url'], s['label'])}</li>" for s in p["sources"])
         wc = len(p["text"].split())
         pred_cards.append(f"""
 <article class="card pred">
   <div class="pred-head">
-    <div><span class="tag">{E(p['sport'])}</span> {conf_badge(p['confidence'])}</div>
+    <div><span class="tag">{E(p['sport'])}</span> {conf_badge('high')}</div>
     <h2>{E(p['match'])}</h2>
   </div>
   <p class="selection">Selection: <strong>{E(p['selection'])}</strong> · our price {l['our_price_pick']} ({E(l.get('our_us_odds_pick') or '')}) · model probability {l['our_pick_probability']*100:.1f}%</p>
@@ -301,14 +303,38 @@ def main() -> None:
   <ul class="srclist">{srcs}</ul>
 </article>""")
 
+    archived_cards = []
+    for p in archived_preds:
+        l = lines[p["match_id"]]
+        srcs = "".join(f"<li>{link(s['url'], s['label'])}</li>" for s in p["sources"])
+        wc = len(p["text"].split())
+        archived_cards.append(f"""
+<article class="card pred archived">
+  <div class="pred-head">
+    <div><span class="tag">{E(p['sport'])}</span> {conf_badge(l['confidence'])} <span class="tag">analysis</span></div>
+    <h2>{E(p['match'])}</h2>
+  </div>
+  <p class="selection">Selection: <strong>{E(p['selection'])}</strong> · our price {l['our_price_pick']} ({E(l.get('our_us_odds_pick') or '')}) · model probability {(l['our_pick_probability'] or 0)*100:.1f}%</p>
+  <p class="muted small"><strong>Why this is not a live high-confidence pick:</strong> {E(p.get('archive_reason') or 'the row is graded ' + l['confidence'] + '.')}</p>
+  <p class="predtext">{E(p['text'])}</p>
+  <p class="muted small">{wc} words · start {E(l['start'])} · OLBG source {link(l['olbg_url'], 'fixture listing')}</p>
+  <h3>The facts in this prediction, and where they come from</h3>
+  <ul class="srclist">{srcs}</ul>
+</article>""")
+
     preds_body = f"""
 <section class="hero small">
   <h1>High-confidence predictions</h1>
-  <p class="lede">Only {len(preds)} fixtures qualified. A prediction is written only when form, recent results and the fixture itself
-  could be confirmed from an official or primary source. Everything else is capped at medium, because we will not write a
-  "current form" sentence we cannot source.</p>
+  <p class="lede">{len(live_preds)} live fixtures qualified. A prediction is written only when form, recent results and the fixture itself
+  could be confirmed from an official or primary source, and only while the fixture's kick-off date is still ahead.
+  Everything else is capped at low or medium, because we will not write a "current form" sentence we cannot source
+  and we will not present a played fixture as a live tip.</p>
 </section>
 {''.join(pred_cards)}
+{('<section class="hero small"><h2>Archived analysis</h2><p class="lede">'
+  + str(len(archived_preds)) + ' pieces are kept for the record because their fixture has already kicked off. They are '
+  + 'labelled analysis, never high confidence, and they carry the reason they were withdrawn.</p></section>'
+  + ''.join(archived_cards)) if archived_cards else ''}
 """
 
     # ---------- all matches ----------

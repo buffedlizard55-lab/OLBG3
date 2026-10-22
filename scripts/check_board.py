@@ -135,7 +135,14 @@ def check_rows(rows, preds):
     return refs
 
 
-def check_predictions(preds, refs):
+def check_predictions(preds, refs, rows_by_ref):
+    """Every price quoted in a written piece must be the price published on its row.
+
+    Prose is hand-written and the model re-prices rows on every rebuild, so without this rule a
+    prediction can keep tipping "8.38" long after the row moved to 8.40. The site would then show
+    two different prices for the same selection. Quoted prices are therefore compared to the row
+    and any drift is a build failure, not a warning.
+    """
     for ref, p in preds.items():
         body = p.get("body", "")
         words = len(body.split())
@@ -151,6 +158,25 @@ def check_predictions(preds, refs):
             if urlparse(s.get("url", "")).scheme not in ("http", "https"):
                 errors.append(f"{ref}: prediction source without a URL")
 
+        row = rows_by_ref.get(ref)
+        if row:
+            pk = row.get("pick") or {}
+            price, us = pk.get("price"), pk.get("american")
+            # "7.32 (+732 / 7.32)" style selection labels
+            for q_us, q_dec in re.findall(r"([+-]\d{2,5})\s*/\s*(\d+\.\d{2})", p.get("selection", "")):
+                if us is not None and int(q_us) != us:
+                    errors.append(f"{ref}: selection quotes {q_us} but the row's US odds are {us}")
+                if price is not None and abs(float(q_dec) - price) > 0.005:
+                    errors.append(f"{ref}: selection quotes {q_dec} but the row's decimal price is {price}")
+            # prices quoted inline in the prose, e.g. "at 1.67" / "Priced at +241 (3.41)"
+            for q_dec in re.findall(r"(?:\bat\b|\bPriced\b)\s*(?:an?\s+)?(\d\.\d{2})\b", body):
+                if price is not None and BAND_LOW_DEC <= float(q_dec) <= BAND_HIGH_DEC \
+                        and abs(float(q_dec) - price) > 0.005:
+                    errors.append(f"{ref}: prose quotes decimal {q_dec} but the row's price is {price}")
+            for q_us in re.findall(r"(?:\bat\b|\bPriced\b)\s*(?:an?\s+)?([+-]\d{2,5})\b", body):
+                if us is not None and int(q_us) != us:
+                    errors.append(f"{ref}: prose quotes {q_us} US but the row's US odds are {us}")
+
 
 def main():
     ev = load("data/events.json")
@@ -163,7 +189,7 @@ def main():
         r.setdefault("market_type", "fixture")
 
     refs = check_rows(fixture_rows + gap_rows, preds)
-    check_predictions(preds, refs)
+    check_predictions(preds, refs, {r["ref"]: r for r in fixture_rows + gap_rows})
 
     priced = sum(1 for r in fixture_rows + gap_rows if (r.get("model", {}).get("prices") or {}))
     verified = sum(1 for r in fixture_rows + gap_rows if r["verification"]["status"] == "verified")

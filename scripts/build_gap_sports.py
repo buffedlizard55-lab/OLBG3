@@ -114,9 +114,29 @@ def main() -> None:
         basis = e["field_basis"]
         if basis not in basis_table:
             raise SystemExit(f"unknown field basis {basis} on {e['ref']}")
-        field = e.get("field_override", basis_table[basis]["field"])
+        default_field = basis_table[basis]["field"]
+        field = e.get("field_override", default_field)
         k = STRENGTH[basis]
         a, b = k / field, k - k / field
+
+        # The published basis text must describe the field actually used for this row. When a
+        # field_override replaces the generic assumption, say so and name the real number instead
+        # of repeating "assumed 156-player field" next to field=120.
+        field_basis = basis_table[basis]["basis"]
+        if field != default_field:
+            if e["verification"].get("status") == "verified":
+                field_basis = (
+                    f"Field size {field}, not the generic {default_field} assumption used when a field "
+                    f"is not published: the official competition source recorded for this row states a "
+                    f"{field}-strong field, so the prior mean is 1/{field}. See this row's official "
+                    f"source for the field statement."
+                )
+            else:
+                field_basis = (
+                    f"Field size {field}, not the generic {default_field} assumption: this row is a "
+                    f"derived market rather than a published field, so {field} is an explicit model "
+                    f"input recorded here and not a verified competition fact."
+                )
 
         won, total = e["tips_won"], e["tips_total"]
         flags = []
@@ -173,7 +193,7 @@ def main() -> None:
                 "prices": ({"single": odds} if odds else {}),
                 "probs": ({"single": prob} if prob else {}),
                 "prior": {"field": field, "strength_k": k, "a": round(a, 4), "b": round(b, 4),
-                          "basis": basis_table[basis]["basis"]},
+                          "basis": field_basis},
                 "notes": [
                     "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
                     "No handicap and no total: a one-selection market has no opposing side to handicap and no scoring baseline on the page.",

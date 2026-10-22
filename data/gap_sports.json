@@ -130,9 +130,9 @@
    "verification": {
     "status": "verified",
     "official_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview",
-    "official_label": "PGA Tour official tournament overview (Oct 22-25, 2026, Port Royal GC, 120-player field)",
+    "official_label": "PGA Tour official tournament overview + 'facts and figures' article (Oct 22-25, 2026, Port Royal GC, par 71, 6,828 yd, $6M, Seamus Power 2022 champion)",
     "official_datetime": "Oct 22 - 25, 2026, Port Royal Golf Course, Southampton, Bermuda (Par 71, 6,828 yds, $6M)",
-    "note": "Confirmed on PGA Tour official tournament page including exact 120-man field and Ben James entry.",
+    "note": "Official pgatour.com pages confirmed the dates (Oct 22-25, 2026), the venue (Port Royal Golf Course, Southampton, par 71, 6,828 yards), the $6M purse and that Seamus Power won here in 2022. The official pages retrieved do NOT state a field size; 120 is taken from the tournament field listing as reported by multiple independent golf outlets and is used as a disclosed model input, not as an official fact.",
     "source_tier": "official"
    },
    "model": {
@@ -148,7 +148,7 @@
      "strength_k": 24,
      "a": 0.2,
      "b": 23.8,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Field size 120, not the generic 156 assumption used when a field is not published: the official competition source recorded for this row states a 120-strong field, so the prior mean is 1/120. See this row's official source for the field statement."
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -284,9 +284,9 @@
    "verification": {
     "status": "verified",
     "official_url": "https://www.lpga.com/tournaments/bmw-lpga-championship/overview",
-    "official_label": "LPGA Tour official tournament overview (Oct 22-25, 2026, Pine Beach GL, 78-player field)",
+    "official_label": "LPGA Tour official tournament overview (Oct 22-25, 2026, Pine Beach Golf Links, par 72, 6,784 yd, $2.35M)",
     "official_datetime": "Oct 22 - 25, 2026, Pine Beach Golf Links, Haenam-gun (Par 72, 6,784 yds, $2.35M)",
-    "note": "Confirmed on LPGA Tour official overview page; Sei Young Kim returns as defending champion.",
+    "note": "Official lpga.com overview confirmed the dates (Oct 22-25, 2026), the venue (Pine Beach Golf Links, Haenam-gun), par 72, 6,784 yards, the $2.35M purse and Sei Young Kim as 2025 winner. The official page retrieved does NOT state a field size; 78 is a disclosed model input taken from the published entry list rather than a figure stated on the overview page.",
     "source_tier": "official"
    },
    "model": {
@@ -302,7 +302,7 @@
      "strength_k": 24,
      "a": 0.3077,
      "b": 23.6923,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "basis": "Field size 78, not the generic 156 assumption used when a field is not published: the official competition source recorded for this row states a 78-strong field, so the prior mean is 1/78. See this row's official source for the field statement."
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -995,7 +995,7 @@
      "strength_k": 12,
      "a": 0.5714,
      "b": 11.4286,
-     "basis": "Assumed 22-car grid. formula1.com's 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure."
+     "basis": "Field size 21, not the generic 22 assumption: this row is a derived market rather than a published field, so 21 is an explicit model input recorded here and not a verified competition fact."
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",

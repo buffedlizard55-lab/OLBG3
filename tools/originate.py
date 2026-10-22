@@ -8,9 +8,11 @@ Every parameter, official rating input, and formula is documented in data/model.
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import math
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +22,13 @@ MARGIN = 0.05  # 5% theoretical bookmaker hold on two-way / outright markets
 PRICE_MIN_HIGH = 1.40    # -250 American odds exact decimal floor (1 + 100/250)
 PRICE_MAX_HIGH = 101.00  # +10000 American odds exact decimal ceiling (1 + 10000/100)
 PROB_MAX_HIGH = 0.70     # Strictly exclude >70% heavy chalk from HIGH confidence
+# Single source of truth for the expiry clock: scripts/board_dates.py reads real UTC today and
+# honours OLBG_AS_OF so an archived build can be reproduced. Never hard-code the date here, or the
+# clock freezes and yesterday's fixtures keep grading HIGH forever.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from board_dates import build_date  # noqa: E402
+
+BUILD_DATE = build_date()
 
 HOME_LOGIT = {
     "Basketball": 0.14,
@@ -403,8 +412,13 @@ def main() -> None:
             flags.append("heavy_chalk_above_70pct_excluded_from_high")
 
         in_window = (PRICE_MIN_HIGH <= price_pick <= PRICE_MAX_HIGH) and (p_pick < PROB_MAX_HIGH)
+        ko_passed = bool(m.get("date_iso")) and m["date_iso"] < BUILD_DATE.isoformat()
+        if ko_passed:
+            # A fixture whose kick-off date has already passed cannot be a live high-confidence
+            # selection: publishing it as one would mean tipping a match that has been played.
+            flags.append("kick_off_passed_archived")
         if (mid in high_verified_ids and m["competition_status"] == "verified"
-                and not carried and in_window):
+                and not carried and in_window and not ko_passed):
             conf = "high"
         elif carried:
             conf = "medium" if (m["competition_status"] == "verified" and (tot or 0) >= 5) else "low"
