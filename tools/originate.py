@@ -91,8 +91,15 @@ EDITORIAL_STRENGTH = {
     "BKB-535918": ("Anadolu Efes", 0.572, 169.5, "Over", "EuroLeague R7 Istanbul derby: Efes (beat Zalgiris 85-70 away in R6) home vs Besiktas (3-3, beat Bayern 95-87 in R6)"),
     "BKB-535921": ("Real Madrid", 0.585, 172.5, "Over", "EuroLeague R7 neutral Belgrade: Real Madrid (beat Milan 98-89 & ASVEL) vs Maccabi (neutral-court game)"),
     "BKB-535923": ("Panathinaikos", 0.780, 171.5, "Over", "EuroLeague R7 table: #1 Panathinaikos (5-1, +90) vs #20 Baskonia (1-5, -60); >70% chalk on ML -> medium"),
+    "BKB-535926": ("Valencia Basket", 0.600, 169.5, "Over", "Official EuroLeague standings read 2026-10-22T21:55Z: Valencia Basket 6th (4-2, 583:537, +46, 2-0 away) v Paris Basketball 12th (1-5, 504:545, -41); OLBG money line 1/2 Paris is faded on the official table"),
     "BKB-535928": ("Zalgiris", 0.655, 165.5, "Under", "EuroLeague R7 Kaunas: Zalgiris (3-3) home vs #19 ASVEL (1-5, lost to Crvena Zvezda 82-84 & Real Madrid)"),
     # Tennis — ATP 250 Almaty, Brussels, Lyon & WTA Ningbo / Osaka (official ATP/WTA rankings + R1 results)
+    "TEN-902119": ("Adrian Mannarino", 0.600, 22.5, "Over", "Official ATP Almaty order of play (Fri 23 Oct, Center Court starts 11:30): [Q] Basilashvili v Mannarino; OLBG money line 1/1 Mannarino"),
+    "TEN-902135": ("Ann Li", 0.660, 21.5, "Over", "Official WTA Osaka order of play (Fri 23 Oct, Center Court starts 11:30): [1] Ann Li v Lilli Tagger; #1 seed Li beat Emerson Jones 5-7, 6-0, 6-3 with 10 aces; OLBG money line 6/7 Li"),
+    "TEN-902107": ("Ashlyn Krueger", 0.600, 21.5, "Over", "Official WTA Osaka order of play (Fri 23 Oct, Center Court follows the 11:30 opener): [4] Talia Gibson v Ashlyn Krueger; OLBG money line 3/4 Krueger"),
+    "TEN-902138": ("Katerina Siniakova", 0.600, 21.5, "Over", "Official WTA Osaka order of play (Fri 23 Oct, Center Court, third match): [Q] Mary Stoiana v Katerina Siniakova; OLBG money line 1/1 Siniakova"),
+    "TEN-902134": ("Katie Boulter", 0.600, 21.5, "Over", "Official WTA Osaka order of play (Fri 23 Oct, Center Court, fourth match): [8] Katie Boulter v Antonia Ruzic; OLBG money line is a games-won handicap row, not the match market"),
+    "TEN-902145": ("Daniil Medvedev", 0.660, 21.5, "Over", "Official ATP Almaty order of play (Fri 23 Oct, Center Court, follows the 13:00 Tsitsipas match): [1] Medvedev v Terence Atmane; OLBG money line 2/2 Medvedev"),
     "TEN-902110": ("Karen Khachanov", 0.597, 22.5, "Over", "ATP Almaty R16: #5 seed Khachanov (beat Sakamoto 6-2, 6-4) vs Machac + OLBG 3/5"),
     "TEN-902082": ("Alexander Bublik", 0.625, 22.5, "Over", "ATP Almaty R16: #3 seed world #22 Bublik (Shanghai R16) home indoor vs #64 Marozsan (beat Skatov 7-5, 7-6)"),
     "TEN-902069": ("Daniil Medvedev", 0.835, 20.5, "Under", "ATP Almaty R16: #1 seed world #5 Medvedev vs #109 Shimabukuro (>70% heavy chalk -> medium)"),
@@ -135,10 +142,12 @@ EDITORIAL_STRENGTH = {
     "ICH-199905": ("Skelleftea AIK", 0.715, 5.5, "Over", "SHL official standings: #3 Skelleftea AIK (32:25, 19 pts) home vs #12 Djurgardens IF (23:33, 12 pts; >70% chalk -> medium)"),
     "ICH-199912": ("Jyp", 0.585, 5.5, "Over", "Finnish Liiga official table: #8 JYP (12 GP, 24 pts) home vs #9 HPK (14 GP, 21 pts)"),
     # Rugby Union — URC, Pro D2 & Top 14 official tables
-    "RGU-609578": ("Leinster", 0.660, 47.5, "Over", "URC Round 6 Irish derby: Leinster home in Dublin vs Munster + official URC table"),
+    "RGU-609578": ("Leinster", 0.660, 47.5, "Over", "Official URC 2026/27 fixtures list Round 4 (24 Oct, KO 18.00 IRE & UK) + official URC table after Round 3: Leinster 10th (1-0-2, 8 pts, 75:58, +17) v Munster 9th (1-1-1, 9 pts, 72:74, -2)"),
     "RGU-609556": ("Oyonnax", 0.605, 46.5, "Over", "French Pro D2 J8: Oyonnax away at bottom-two Montauban + OLBG 10/15 consensus"),
-    "RGU-609577": ("Connacht", 0.725, 49.5, "Over", "URC Round 6: Connacht home in Galway vs Zebre Parma (>70% favorite -> medium; OLBG handicap -18.5)"),
-    "RGU-609576": ("Bulls", 0.770, 52.5, "Over", "URC Round 6: Bulls at Loftus Versfeld vs Ulster (>70% favorite -> medium; OLBG handicap Ulster +18.5)"),
+    "RGU-609577": ("Connacht", 0.660, 49.5, "Over", "Official URC 2026/27 fixtures list Round 4 (23 Oct, Dexcom Stadium Galway, KO 19.45 IRE & UK) + official URC table after Round 3: Connacht 14th (1-0-2, 5 pts, 56:84, -28) v Zebre Parma 16th (0-0-3, 1 pt, 52:116, -64); OLBG money line 5/7 Connacht"),
+    "RGU-609576": ("Vodacom Bulls", 0.620, 52.5, "Over", "Official URC 2026/27 fixtures list Round 4 (24 Oct, Loftus Versfeld Pretoria, KO 12.45 IRE & UK) + official URC table after Round 3: Vodacom Bulls 3rd (2-0-1, 11 pts, 126:54, +72) v Ulster 11th (0-2-1, 8 pts, 88:93, -5); OLBG money line 2/3 Ulster is faded on the official table"),
+    "RGU-609580": ("DHL Stormers", 0.600, 49.5, "Over", "Official URC 2026/27 fixtures list Round 4 (24 Oct, DHL Stadium Cape Town, KO 15.00 IRE & UK) + official URC table after Round 3: DHL Stormers 4th (2-0-1, 11 pts, 81:54, +27) v Scarlets 12th (1-0-2, 7 pts, 68:85, -17); OLBG money line 1/2 Stormers"),
+    "RGU-609579": ("Edinburgh", 0.670, 49.5, "Over", "Official URC 2026/27 fixtures list Round 4 (23 Oct, Hive Stadium Edinburgh, KO 19.45 IRE & UK) + official URC table after Round 3: Edinburgh 1st and unbeaten (3-0-0, 14 pts, 80:54, +26) v 10bet Lions 7th (2-0-1, 9 pts, 77:102, -25); OLBG money line 2/2 Edinburgh"),
     "RGU-609567": ("Toulouse", 0.840, 54.5, "Over", "Top 14 J8: leader Toulouse home vs winless Perpignan (>70% heavy chalk -> medium; OLBG Perpignan +23.5)"),
     # Handball — EHF Champions League Round 5 & DAIKIN HBL Matchday 10 official standings
     "HAN-12046": ("FC Barcelona", 0.765, 62.5, "Over", "EHFCL Group E: unbeaten Barca (4-0-0, 137:104, 20 straight wins) vs Montpellier (1-0-3, 116:125; >70% chalk -> medium)"),
@@ -153,7 +162,8 @@ EDITORIAL_STRENGTH = {
     "BKB-535925": ("Olympiacos Piraeus", 0.5621, 172.5, "Over", "EuroLeague R7 co-leaders clash at SEF: Olympiacos (5-1, 564:524) home vs Fenerbahce (5-1, 501:447)"),
     "BKB-535926": ("Valencia Basket", 0.6223, 183.5, "Over", "EuroLeague R7: Valencia Basket (4-2, 583:537, 97.2 ppg) at Paris Basketball (1-5, 504:545)"),
     "HAN-12076": ("Aalborg Handbold", 0.589, 67.5, "Over", "Betoro Herreligaen: Aalborg Handbold (15 pts, 323:306) away at bottom Skive fH (2 pts, 328:366) — overrides 3/7 crowd lean"),
-    "HAN-12101": ("Bidasoa Irun", 0.720, 61.5, "Over", "Liga ASOBAL J7: #2 Bidasoa Irun (6 GP, 210:178, 12 pts) home vs Caserio (5 GP, 160:155, 7 pts; >70% chalk -> medium)"),
+    "HAN-12101": ("Bidasoa Irun", 0.620, 61.5, "Over", "Official ASOBAL site (read 2026-10-22T21:55Z): Bidasoa Irun 'se mantiene en lo mas alto' of the Liga NEXUS ENERGIA ASOBAL table; Bidasoa 6 GP, 210:178, 12 pts v BM Caserio Ciudad Real 5 GP, 160:155, 7 pts; OLBG money line 1/3 Bidasoa"),
+    "HAN-12110": ("Kosovo W", 0.580, 55.5, "Under", "Official EHF competition calendar (read 2026-10-22T21:55Z): both Phase 1 legs of the 2027 IHF Women's World Championship European qualifier are staged at the Palace of Youth and Sports, Prishtina, Kosovo, so the listed home side Estonia has no home edge; OLBG money line 3/5 Kosovo (W)"),
     "HAN-12109": ("Kosovo W", 0.535, 55.5, "Under", "IHF Women's WCQ Europe: both legs staged in Prishtina, Kosovo — zero home edge for listed home side Estonia W"),
     "ICH-199899": ("IF Bjorkloven", 0.548, 5.5, "Under", "SHL official standings: #4 IF Bjorkloven (17 pts) home vs #7 IF Malmo Redhawks (14 pts in 9 GP)"),
     "ICH-199906": ("Frolunda HC", 0.5954, 5.5, "Over", "SHL official standings: #2 Frolunda HC (11 GP, 38:24, 25 pts) away at #6 Rogle BK (10 GP, 23:21, 14 pts)"),
@@ -196,7 +206,7 @@ OUTRIGHT_FIELDS = {
     "GLF-101911": (72, 16, None, None, "Senior tour 72-player field prior"),
     "GLF-101912": (120, 20, None, None, "Sunshine Tour 120-player field prior"),
     "GLF-101903": (72, 16, None, None, "PGA Tour Champions Stifel Charity Classic 72-player Schwab Cup Playoffs field prior"),
-    "MTR-913": (22, 12, "Max Verstappen", 0.284, "FIA Formula 1 22-car Austin COTA grid prior + 12/33 OLBG win tips (3 experts)"),
+    "MTR-913": (22, 12, "Max Verstappen", 0.2727, "FIA Formula 1 22-car Austin COTA grid prior + 12/34 OLBG win tips (3 experts) re-read 2026-10-22T21:00Z"),
     "MTR-911": (22, 12, None, None, "FIA Formula 1 22-car Austin Qualifying grid prior + 5/7 OLBG tips"),
     "MTR-828": (22, 12, None, None, "FIA Formula 1 2026 Drivers Championship prior + 9/33 OLBG tips"),
     "MTR-912": (21, 10, None, None, "FIA Formula 1 Drivers Championship w/o leader market prior"),
@@ -262,6 +272,14 @@ def resolve_team_side(selection: str | None, home: str | None, away: str | None)
     if home.lower() in clean or clean in home.lower():
         return home
     if away.lower() in clean or clean in away.lower():
+        return away
+    # Some listings label a side with a bracketed qualifier, e.g. "Kosovo (W)" for Kosovo W.
+    # Drop the brackets before matching so the side is not silently left unresolved and the
+    # model falls back to a generic home-side prior it cannot justify from the source.
+    plain = re.sub(r"[()]", "", clean).strip()
+    if plain and (home.lower() in plain or plain in home.lower()):
+        return home
+    if plain and (away.lower() in plain or plain in away.lower()):
         return away
     return None
 

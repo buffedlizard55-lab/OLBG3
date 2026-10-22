@@ -47,17 +47,23 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         self.assertEqual(self.rc["26023"]["timezone"], "GMT")
         self.assertEqual(self.gap["DRT-18"]["pick"]["confidence"], "HIGH")
         self.assertEqual(self.gap["DRT-18"]["pick"]["label"], "Luke Littler")
-        self.assertEqual(self.gap["DRT-18"]["pick"]["price"], 2.30)
+        # The OLBG outright tip count moved from 23/36 to 23/37 in the 20:55Z re-capture, so
+        # the disclosed Dirichlet shrinkage re-prices the same selection.
+        self.assertEqual(self.gap["DRT-18"]["pick"]["price"], 2.34)
         self.assertGreaterEqual(len(self.preds_root["DRT-18"]["body"].split()), 30)
 
         self.assertEqual(self.lines["DAR-26023"]["confidence"], "high")
         self.assertEqual(self.lines["DAR-26023"]["our_pick"], "Luke Littler")
-        self.assertEqual(self.lines["DAR-26023"]["our_price_pick"], 2.30)
+        self.assertEqual(self.lines["DAR-26023"]["our_price_pick"], 2.34)
         self.assertGreaterEqual(len(self.preds_olbg["DAR-26023"]["text"].split()), 30)
 
         # TEN-40 (902117) + 18 live 12:15Z root tip counts synced
-        self.assertEqual(self.events["TEN-40"]["olbg_tips"], "1/1")
-        self.assertEqual(self.events["BSB-01"]["olbg_tips"], "14/17")
+        # Evening refresh 2026-10-22T20:55Z (session-784afe97): the live Osaka listing now
+        # carries 2/2 tips on the Sara Bejlek v Marie Bouzkova quarter-final.
+        self.assertEqual(self.events["TEN-40"]["olbg_tips"], "2/2")
+        # Evening refresh 2026-10-22T20:55Z (session-784afe97): the live MLB listing now
+        # carries 16/20 tips on the World Series opener.
+        self.assertEqual(self.events["BSB-01"]["olbg_tips"], "16/20")
         self.assertEqual(self.events["SNK-14"]["olbg_tips"], "3/4")
         self.assertIn("FL-098", self.flagged)
 

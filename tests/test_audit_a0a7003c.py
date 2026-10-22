@@ -95,7 +95,10 @@ class AuditA0a7003cTests(unittest.TestCase):
             self.assertGreaterEqual(len(preds_olbg[omid]["text"].split()), 30, omid)
         self.assertEqual(events["VOL-30"]["pick"]["confidence"], "MEDIUM")
         self.assertEqual(events["VOL-30"]["pick"]["label"], "Chaumont")
-        self.assertEqual(lines["VOL-37005"]["confidence"], "medium")
+        # Evening refresh 2026-10-22T20:55Z (session-784afe97): the Sete v Chaumont tie has
+        # rotated off the live OLBG listing, so the row is now carried from the dated 12:15Z
+        # capture and can no longer carry a live grade. It stays published as analysis.
+        self.assertEqual(lines["VOL-37005"]["confidence"], "low")
         self.assertEqual(preds_olbg["VOL-37005"]["status"], "analysis")
 
         # 3. Man Of The Match non-winner market guard on CRK-11 / CRI-188830
