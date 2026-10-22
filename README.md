@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 253 root rows (216 fixtures + 37 outright/race) captured 21–22 Oct 2026 (through `12:25Z`), plus the chained 298-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained 298-row `/olbg/` audit track (`98` review-register items) and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
   These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
@@ -20,7 +20,16 @@ What the published numbers do and do not mean:
 | `discovery.html` | Latest robots-aware public OLBG discovery snapshot (partial by design, unverified rows stay blank) |
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
-| `/olbg/` | The separate OLBG lines audit track (21 pages, 298 chained rows) with the same release gate applied to its picks |
+| `/olbg/` | The separate OLBG lines audit track (21 pages, 298 chained rows, 24 live high-confidence picks) with the same release gate applied to its picks |
+
+## Post-midday line-by-line timezone audit, PDC World Championship HIGH & root parity — `session-15487122`, 2026-10-22T12:40Z
+
+Line-by-line official-source audit on top of PR #93 (`FL-096`..`FL-098`):
+
+- **Repaired two venue-guessed timezones & a non-verbatim quote (`FL-096`, `FL-097`):** Re-reading live `lnv.fr` (`programmation-tv-alterna-volstar-x-bein-sports-j1-j8`) confirmed the verbatim text is `J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)` with **no explicit CET/CEST label**, and re-reading `wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf` confirmed `Starting at 11:30 AM` carries **no explicit JST/UTC+9 string**. Both `release_checks['37005']` and `release_checks['902135']` were downgraded to `kind=date_only` (`timezone=null`), honestly stepping `VOL-30`/`VOL-37005` down from live `HIGH` to `MEDIUM`/`analysis` under the strict no-guessed-timezone rule.
+- **Verified PDC World Championship 2027 (`DRT-18` / `DAR-26023`) as live `HIGH`/`high` (`FL-098`):** Official `pdc.tv/WCFAQ` explicitly states `Friday December 11 (1900 GMT)` (`2026-12-11T19:00:00Z`) and a `128`-player Alexandra Palace draw; reigning World Champion & world #1 `Luke Littler` (`23/36` OLBG win tips, `64%`) prices at `+130` (`2.30` decimal) across both `/` and `/olbg/` with unique sourced prose.
+- **Full root `/` parity & live `12:15Z` tip-count sync (`FL-098`):** Added the 12 missing root rows already present on `/olbg/` (`TEN-40` WTA Ningbo QF `902117`, `DRT-18` `26023`, `MTR-04` `911`, `RGU-16` `613137`, `CRK-12..16`, `GRY-20..22`) and synced 18 stale morning OLBG consensus tip counts on root `data/sports/{baseball,snooker,basketball,handball,volleyball}.json`.
+- **Snapshot state (`12:40Z`):** `check_board.py` **PASS** (`265` rows = `217/217` verified fixtures + `48` outright/race; `242` priced; `20` live in-band `HIGH` across `9` sports; `73` pieces), `tools/check_site.py` **PASS** (`298` fixtures/lines; `24` live `high`; `53` pieces; `98` register items), `check.py` **PASS**, `check_links.py` **PASS** (`85` pages, `1,529` links, `0` broken), `69/69` unit tests **OK**.
 
 ## Midday live harvest & official-source integration — `session-a0a7003c`, 2026-10-22T12:25Z
 

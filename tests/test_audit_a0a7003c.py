@@ -75,14 +75,14 @@ class AuditA0a7003cTests(unittest.TestCase):
         self.assertEqual(events["IHO-14"]["pick"]["confidence"], "MEDIUM")
         self.assertEqual(events["IHO-14"]["pick"]["price"], 1.79)
 
-        # 2. All 6 new midday in-band HIGH picks active on both tracks
+        # 2. All 5 new midday NHL in-band HIGH picks active on both tracks;
+        #    VOL-30 / VOL-37005 is MEDIUM / analysis per FL-096 because official lnv.fr prints '(20h)' with no CEST label.
         expected_pairs = [
             ("IHO-15", "ICH-199931", "EDM Oilers", 1.69),
             ("IHO-16", "ICH-199932", "NJ Devils", 1.68),
             ("IHO-17", "ICH-199933", "DET Red Wings", 1.59),
             ("IHO-23", "ICH-199940", "VGS Golden Knights", 1.53),
             ("IHO-24", "ICH-199941", "DAL Stars", 1.42),
-            ("VOL-30", "VOL-37005", "Chaumont", 1.67),
         ]
         for rref, omid, label, dec_price in expected_pairs:
             self.assertEqual(events[rref]["pick"]["confidence"], "HIGH", rref)
@@ -93,6 +93,10 @@ class AuditA0a7003cTests(unittest.TestCase):
             self.assertEqual(lines[omid]["our_pick"], label, omid)
             self.assertEqual(lines[omid]["our_price_pick"], dec_price, omid)
             self.assertGreaterEqual(len(preds_olbg[omid]["text"].split()), 30, omid)
+        self.assertEqual(events["VOL-30"]["pick"]["confidence"], "MEDIUM")
+        self.assertEqual(events["VOL-30"]["pick"]["label"], "Chaumont")
+        self.assertEqual(lines["VOL-37005"]["confidence"], "medium")
+        self.assertEqual(preds_olbg["VOL-37005"]["status"], "analysis")
 
         # 3. Man Of The Match non-winner market guard on CRK-11 / CRI-188830
         self.assertEqual(events["CRK-11"]["model"]["basis"], "none")

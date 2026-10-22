@@ -991,8 +991,8 @@
       "sport": "Volleyball",
       "match": "Sete vs Chaumont",
       "selection": "Chaumont to win (-149 / 1.67)",
-      "confidence": "high",
-      "text": "Back Chaumont to win the match (-149 / 1.67) in Thursday's LNV Alterna VOLSTAR Journée 3 televised fixture in Salle Louis Marty (22 October, 20:00 CEST / 18:00 UTC), matching 3/3 OLBG win tips including an expert pick. Official LNV DataProject standings after two rounds place Chaumont second on a maximum 6 points (2-0, 6:1 sets, 173 rally points won to 146 lost after beating Plessis-Robinson and sweeping Toulouse 3-0), while Arago de Sète sit 13th on 0 points (0-2, 1:6 sets, 165 rally points won to 194 lost). Our rally-points model gives Chaumont 56.7% and prices the away win at 1.67 (-149).",
+      "confidence": "medium",
+      "text": "Back Chaumont to win the match (-149 / 1.67) in Thursday's LNV Alterna VOLSTAR Journée 3 televised fixture in Salle Louis Marty (22 October, 20:00 local French clock (un-timezoned on lnv.fr)), matching 3/3 OLBG win tips including an expert pick. Official LNV DataProject standings after two rounds place Chaumont second on a maximum 6 points (2-0, 6:1 sets, 173 rally points won to 146 lost after beating Plessis-Robinson and sweeping Toulouse 3-0), while Arago de Sète sit 13th on 0 points (0-2, 1:6 sets, 165 rally points won to 194 lost). Our rally-points model gives Chaumont 56.7% and prices the away win at 1.67 (-149).",
       "sources": [
         {
           "label": "LNV official Alterna VOLSTAR J1-J8 calendar (J3 Sète vs Chaumont)",
@@ -1001,6 +1001,26 @@
         {
           "label": "LNV DataProject official 2026/27 Alterna VOLSTAR standings",
           "url": "https://lnv-web.dataproject.com/CompetitionStandings.aspx?ID=137&PID=192"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Official LNV TV schedule prints 'jeudi 22 octobre (20h)' (and DataProject prints '22/10/2026 - 20:00') without an explicit CET/CEST timezone label; timezone is never inferred from a French venue."
+    },
+    {
+      "match_id": "DAR-26023",
+      "sport": "Darts",
+      "match": "PDC World Championship 2027",
+      "selection": "Luke Littler Outright Winner (+130 / 2.30)",
+      "confidence": "high",
+      "text": "Reigning World Champion and world number one Luke Littler commands 23 of 36 OLBG tournament-winner tips (64%, backed by a tracked darts expert) for the 2026/27 Paddy Power World Darts Championship at London's Alexandra Palace, which officially opens Friday 11 December 2026 at 19:00 GMT across a 128-player draw. Having already captured two European Tour titles in three starts this season, Luke Littler Outright Winner (+130 / 2.30) sits squarely inside our plus-money high-confidence window.",
+      "sources": [
+        {
+          "label": "PDC official 2026/27 World Darts Championship Schedule & Ballot FAQ",
+          "url": "https://www.pdc.tv/WCFAQ"
+        },
+        {
+          "label": "OLBG — PDC World Championship 2027 Outright Tips (23/36 Luke Littler)",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023"
         }
       ],
       "status": "high"
