@@ -432,7 +432,9 @@ for e in events:
         pick_side = max(keys, key=lambda k: model["probs"][k])
         pick_prob = model["probs"][pick_side]
         pick_label = {"home": e["home"], "away": e["away"], "draw": "Draw"}[pick_side]
-        edge_pts = 2 if pick_prob >= 0.65 else (1 if pick_prob >= 0.55 else 0)
+        # HIGH must clear the user's >70% probability bar; 65%-70% picks can earn
+        # one evidence point but cannot reach HIGH even with official verification/form.
+        edge_pts = 2 if pick_prob > 0.70 else (1 if pick_prob >= 0.55 else 0)
 
     score = ver_pts + form_pts + edge_pts
     conf_label = "HIGH" if score >= 6 else ("MEDIUM" if score >= 3 else "LOW")

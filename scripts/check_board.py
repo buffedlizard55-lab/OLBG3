@@ -27,6 +27,8 @@ ALLOWED = {"Tennis", "Basketball", "Ice Hockey", "Cricket", "Baseball", "Volleyb
 EXCLUDED = {"football", "soccer", "boxing", "ufc", "mma", "american football", "hurling",
             "horse racing", "cycling", "specials"}
 CONF = {"HIGH", "MEDIUM", "LOW"}
+OFFICIAL_TIERS = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                           "data/official.json"), encoding="utf-8")).get("source_tiers", {})
 MARKERS = ("<<<<<<<", ">>>>>>>", "=======\n")
 
 errors, warnings = [], []
@@ -106,6 +108,8 @@ def check_rows(rows, preds):
             if abs(expected_price - r["model"]["prices"]["single"]) > 0.05:
                 errors.append(f"{ref}: outright price does not recompute ({expected_price} vs {r['model']['prices']['single']})")
 
+        if r["pick"]["confidence"] == "HIGH" and (r["pick"].get("prob") is None or r["pick"]["prob"] <= 0.70):
+            errors.append(f"{ref}: HIGH confidence must have model probability strictly above 70%")
         if r["pick"]["confidence"] == "HIGH" and ref not in preds:
             errors.append(f"{ref}: HIGH confidence but no written prediction")
         # ...and the converse: a row that has been downgraded must not keep a published prediction,
@@ -115,6 +119,18 @@ def check_rows(rows, preds):
                           f"{r['pick']['confidence']}, not HIGH")
 
     return refs
+
+
+def prediction_source_tier(url):
+    host = (urlparse(url or "").hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    for tier in ("official", "club-official", "third-party"):
+        for known in OFFICIAL_TIERS.get(tier, []):
+            known = known.lower().removeprefix("www.")
+            if host == known or host.endswith("." + known):
+                return tier
+    return "unclassified"
 
 
 def check_predictions(preds, refs):
@@ -127,9 +143,16 @@ def check_predictions(preds, refs):
             errors.append(f"{ref}: prediction has no explicit selection")
         if ref not in refs:
             warnings.append(f"{ref}: prediction exists for a row that is not on the board")
+        secondary = []
         for s in p.get("sources", []):
             if urlparse(s.get("url", "")).scheme not in ("http", "https"):
                 errors.append(f"{ref}: prediction source without a URL")
+                continue
+            tier = prediction_source_tier(s["url"])
+            if tier not in ("official", "club-official"):
+                secondary.append(f"{s.get('label', s['url'])} [{tier}]")
+        if secondary:
+            warnings.append(f"{ref}: prediction includes non-official supporting source(s): " + "; ".join(secondary))
 
 
 def main():

@@ -6,6 +6,13 @@ predictions for the high-confidence picks, and a verification log that links eve
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+> **Freshness and market-price limitation (2026-10-22 review):** the committed OLBG board is a historical
+> snapshot captured on 2026-10-21 (the outright capture is timestamped 07:05 UTC). This checkout did not
+> retrieve a fresh OLBG listing for 2026-10-22, so do not treat relative labels such as “Today” as proof that a
+> fixture is still upcoming. No bookmaker-market odds were captured either: prices shown are our own model
+> decimal prices, not sportsbook quotes. Consequently the requested American-odds band (-250 to +10000)
+> cannot be verified or used as an eligibility filter from this data. See **Flagged for Review**.
+
 | Page | What it is |
 |---|---|
 | `index.html` | Dashboard: coverage by sport, high-confidence picks, every row in one filterable table |
@@ -47,12 +54,14 @@ each with the ambiguity recorded on the Flagged for Review page.
      `Beta(a, b)` prior whose mean is `1/N` (N = the field size) and strength `k`, then `odds = 0.95 / p`.
      N and k are disclosed assumptions and are written into every row.
 3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
-   both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
+   both sides (+2), model probability **strictly above 70%** (+2) or at least 55% (+1). HIGH ≥ 6, MEDIUM 3–5,
+   LOW ≤ 2. The 70% threshold applies to our model probability, not a sportsbook market probability.
 4. **Predictions** — written only for HIGH picks, at least 30 words, non-repetitive prose naming real verified
-   2026 match players, current form, recent match history and an unmistakable betting selection, with every
-   factual claim attached to an official source. Currently **15** predictions: nine rugby union fixtures
-   (URC, Pro D2, Top 14), five ice hockey fixtures (three ICEHL, one SHL, one NHL), and one EuroLeague
-   basketball fixture (`BKB-11` Panathinaikos v Baskonia).
+   match players, form, recent match history and an unmistakable betting selection. Source tiers are shown on
+   the Predictions page; any non-official supporting link is disclosed and flagged, not represented as an official
+   verification. Currently **13** predictions: eight rugby union fixtures, four ice hockey fixtures, and one
+   EuroLeague basketball fixture (`BKB-11` Panathinaikos v Baskonia). Two previous picks at 65.13% and
+   66.85% were downgraded to MEDIUM and removed from the HIGH-prediction list.
 5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
    competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
    A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
@@ -90,16 +99,16 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 14 predictions, one per HIGH row | board |
+| `data/predictions.json` | 13 predictions, one per HIGH row | board |
 | `data/matches.json`, `data/lines.json` | 137 captured rows + 137 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
-| `data/flagged.json`, `data/flagged_review.json` | findings | documentation |
+| `data/flagged.json` and findings embedded in the board build | findings | documentation |
 
 ## Known limitations (also on the site)
 
-* 23 of 137 rows have no confirmation at all and 9 more rest on a third-party listing only. Both groups are
-  published and labelled, not quietly dropped.
-* Handicaps exist for 83 rows; totals for 22 (rugby union and ice hockey only, the two sports with an official
+* 18 of 137 rows are unverified (including 17 outright/race markets and one fixture); four more fixture rows
+  have third-party corroboration only. Both groups are labelled and listed on Flagged for Review.
+* Handicaps exist for 83 rows; totals for 25 (rugby union and ice hockey only, the two sports with an official
   scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.
 * OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
 * OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
