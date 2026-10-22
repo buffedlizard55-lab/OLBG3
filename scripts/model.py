@@ -19,7 +19,8 @@ import json, math, glob, os
 from statistics import NormalDist
 from urllib.parse import urlparse
 
-from board_dates import (CAPTURE_DATE, AS_OF, resolve_start, american, in_band,
+from board_dates import (CAPTURE_DATE, AS_OF, resolve_start, resolve_kickoff_utc, started,
+                         american, in_band,
                          BAND_LOW_US, BAND_HIGH_US)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -551,6 +552,9 @@ for e in events:
     band_ok = in_band(pick_price)
     start_iso, start_basis = resolve_start(e["start"])
     kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
+    # derived clock only - never changes the grade (see board_dates.EASTERN_OFFSET_HOURS)
+    kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"])
+    clock_started = started(e["start"])
 
     reasons = []
     if not band_ok and pick_price:
@@ -600,6 +604,8 @@ for e in events:
                  "price": pick_price, "american": american(pick_price) if pick_price else None,
                  "in_band": band_ok, "band": [BAND_LOW_US, BAND_HIGH_US],
                  "start_iso": start_iso, "start_basis": start_basis,
+                 "kickoff_utc": kickoff_utc, "clock_basis": clock_basis,
+                 "kickoff_started": clock_started,
                  "kickoff_passed": kickoff_passed, "evidence_grade": evidence_conf,
                  "note": band_note},
     })

@@ -13,11 +13,32 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 | `lines.html` | Multi-market originated lines: Money Line / Win Match (`192` priced), Handicap / Spread (`158`), Match Totals Over/Under (`75`), Outrights (`23`) |
 | `verification.html` | Line-by-line official governing-body verification table (`172` official/club-verified, `2` third-party corroborated, `22` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: 47 root audit findings + 49 `/olbg/` register items with direct official & OLBG source links |
+| `flagged.html` | **Flagged for Review**: every audit finding + the 51-item `/olbg/` register with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `23` in-band `HIGH` predictions across 10 sports, `46` flagged items) |
+| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `23` in-band `HIGH` predictions across 10 sports, `51` flagged items) |
+
+## Latest audit — independent pass, 2026-10-22 07:20 UTC
+
+Two defects fixed and one method gap closed; full detail on the Flagged page (`FL-050`, `FL-051`).
+
+| Finding | What was wrong | Fix |
+|---|---|---|
+| FL-050 | OLBG prints a bare clock with no time zone and the board only resolved a **date**, so a same-day fixture could be published as live after its start. Reading the captured labels as **US Eastern (UTC−4)** reproduces the organiser's own times exactly — 04:00 → 13:00 Almaty, 08:00 → 14:00 Lyon, 09:00 → the second Centre Court match in Brussels (from 13:30), 13:00 → 19:00 CEST handball — and at 07:20 UTC that put **TEN-20** (05:00 UTC), **TEN-21** (05:30 UTC) and **CRK-04** (07:00 UTC; the ICC live score already had New Zealand batting) past kick-off while still published as live HIGH picks | Every row now carries a derived UTC kick-off (`board_dates.resolve_kickoff_utc`) plus a `started` marker in the table and on the prediction card (74 of 196 rows, 3 of them HIGH). Grades are deliberately **not** rewritten by the wall clock: the hourly CI rebuild re-derives the board from committed inputs, so a clock-dependent grade would be irreproducible. The date-level archive gate is unchanged |
+| FL-051 | `TEN-20` published "world No. 12" for Iva Jovic in both the headline and the body; the official Ningbo main-draw sheet (released 21 Oct 2026 22:13) prints her at **rank 11**. The same piece's "No. 35" for Paolini and `TEN-21`'s "No. 77" for Linette are not published for unseeded players on any reachable official page | Ranks corrected to the published No. 11; the two unverifiable ranks removed rather than guessed. `TEN-21` now cites the official Osaka main-draw sheet, which carries its scorelines, instead of the player-list page that does not |
+
+Re-verified line by line during this pass: the Almaty Day 6 order of play (Machac v Khachanov NB 13:00, Bublik v Marozsan NB 19:30,
+seeds 5 and 3), the Lyon Day 5 order of play (Vacherot v Van Assche NB 14:00, Cobolli v Wawrinka NB 19:00, Jacquet v Nakashima
+closing, Gojo v Altmaier on Court 1), the Brussels Day 6 order of play (Goffin v Michelsen, Dzumhur v Bergs NB 17:00, seeds 5 and 6),
+the Ningbo and Osaka main-draw sheets (Jovic rank 11, Shnaider 13; Eala 6-3 6-1 Parry; Paolini 6-2 7-5 Kalinina; Siniakova
+6-4 0-6 4-0 ret. Stearns; Linette 6-4 6-3 Liu; Linette v Siniakova is the R16 pairing), the China Open sheet (Swiatek 6-1 6-3 Jovic;
+Siniakova 6-4 6-3 Linette), the Handbollsligan table (Ystads 6th, 6 pts, 125-112; Önnereds 12th, 2 pts, 140-152; Skånela 13th, 2 pts,
+142-155; Karlskrona 11th, 4 pts, 156-164), the LNH table (Aix 8th, 6 pts, 227-223; Toulouse 13th, 6 pts, 198-201; Dunkerque lowest on
+175), the EHF Group D table (Szeged 3rd, 3 pts, 139:136; GOG 2nd, 6 pts), the ICC ODI team rankings (Ireland 12th/51, Namibia 16th/32),
+the ICC ODI batting/blocks pages and the 2026 T20 World Cup final (India 255/5, New Zealand 159, Samson 89), the Pakistan tri-series
+results (Pakistan beat Sri Lanka by 37 on 18 Oct and England by 87 on 20 Oct), the MLB standings and Game 1 schedule, and the two
+remaining same-day live cards (BKB-20/21, HTR/HBL/Darts rows) against the competitions' own pages — no further contradiction found.
 
 ## Latest audit — `session-8c24595c` (2026-10-22)
 
@@ -76,7 +97,7 @@ python3 tools/check_site.py           # enforce host allowlist, links, -250..+10
 python3 scripts/build_site.py --snapshot
 python3 scripts/check.py              # official-feed invariants
 python3 scripts/check_links.py        # 0 broken local links across combined site
-python3 -m unittest discover -s tests # 20 unit & band invariant tests
+python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 ```
 
 ## Summary Data Metrics (`2026-10-22`)
@@ -88,7 +109,7 @@ python3 -m unittest discover -s tests # 20 unit & band invariant tests
 | `data/predictions.json` | **`47` written pieces**: **`33` live `HIGH` predictions** + `14` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
 | `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
-| `data/flagged.json` | **`43` flagged review items** (plus `37` root `flagged.html` findings) with direct source links | both tracks |
+| `data/flagged.json` | **`51` flagged review items** with direct source links | both tracks |
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)
 

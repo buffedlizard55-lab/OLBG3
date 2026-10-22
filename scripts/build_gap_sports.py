@@ -29,7 +29,7 @@ from urllib.parse import urlparse
 
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from board_dates import resolve_start, american, in_band, AS_OF
+from board_dates import resolve_start, resolve_kickoff_utc, started, american, in_band, AS_OF
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -165,6 +165,8 @@ def main() -> None:
             total or 0,
         )
         start_iso, start_basis = resolve_start(e["start"])
+        kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"])
+        clock_started = started(e["start"])
         kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
         band_ok = in_band(odds)
         if conf == "HIGH" and (kickoff_passed or not band_ok):
@@ -211,6 +213,8 @@ def main() -> None:
                 "in_band": band_ok,
                 "band": [-250, 10000],
                 "start_iso": start_iso,
+                "kickoff_utc": kickoff_utc, "clock_basis": clock_basis,
+                "kickoff_started": clock_started,
                 "start_basis": start_basis,
                 "kickoff_passed": kickoff_passed,
                 "evidence_grade": conf,
