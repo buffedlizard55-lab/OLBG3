@@ -12,6 +12,7 @@ import datetime as dt
 import json
 import math
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,7 +22,13 @@ MARGIN = 0.05  # 5% theoretical bookmaker hold on two-way / outright markets
 PRICE_MIN_HIGH = 1.40    # -250 American odds exact decimal floor (1 + 100/250)
 PRICE_MAX_HIGH = 101.00  # +10000 American odds exact decimal ceiling (1 + 10000/100)
 PROB_MAX_HIGH = 0.70     # Strictly exclude >70% heavy chalk from HIGH confidence
-BUILD_DATE = dt.date(2026, 10, 22)  # mirrors scripts/board_dates.AS_OF on the main board
+# Single source of truth for the expiry clock: scripts/board_dates.py reads real UTC today and
+# honours OLBG_AS_OF so an archived build can be reproduced. Never hard-code the date here, or the
+# clock freezes and yesterday's fixtures keep grading HIGH forever.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from board_dates import build_date  # noqa: E402
+
+BUILD_DATE = build_date()
 
 HOME_LOGIT = {
     "Basketball": 0.14,

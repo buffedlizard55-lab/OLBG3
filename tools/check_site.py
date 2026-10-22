@@ -19,7 +19,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
-BUILD_DATE = __import__("datetime").date(2026, 10, 22)  # mirrors tools/originate.py
+sys.path.insert(0, str(ROOT / "scripts"))
+from board_dates import build_date  # noqa: E402
+
+BUILD_DATE = build_date()  # real UTC today, never a frozen constant
 DOCS = ROOT / "olbg-board"
 DATA = ROOT / "data"
 
