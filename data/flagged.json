@@ -1113,6 +1113,78 @@
         }
       ],
       "raised_by": "session-f0f3be65 (independent odds-consistency audit)"
+    },
+    {
+      "id": "FL-048",
+      "severity": "data quality",
+      "title": "Seven HIGH write-ups carried stale or wrong figures; corrected against the official source (fixed 2026-10-22)",
+      "detail": "A line-by-line re-read of all 33 published HIGH pieces against the official pages they cite found stale or wrong figures in seven of them; all are corrected and re-sourced. (1) HBL-15 said Szeged had conceded 124 goals in four EHF Champions League games and GOG 132. The official EHF Group D table publishes Szeged 139:136 and GOG 145:139, and the same table plus the EHF round-5 preview show GOG won the reverse fixture 36:34, which the piece had omitted; the write-up was rewritten to those figures and now states the counter-evidence. (2) DRT-11 called Krzysztof Ratajski the 19th seed; the PDC's own field-and-draw release lists him as the third seed against 30th seed Dave Chisnall. (3) MTR-01's headline called Max Verstappen a three-time Austin winner; Formula 1's own race statistics list four Circuit of the Americas wins (2021, 2022, 2023, 2025). (4) TEN-31 gave Alexander Bublik as world No. 22; the official ATP list of 19 October 2026 has him at No. 19. (5) TEN-32 gave Damir Dzumhur as world No. 103; the same list has him at No. 83. (6) TEN-33 said Flavio Cobolli carried 1,650 ATP ranking points; the official list shows 3,640. (7) TEN-27 quoted a '300-point ATP ranking deficit'; the 19 October list puts Vacherot (No. 32, 1,480 points) 415 points and 16 places above Van Assche (No. 48, 1,065). The three tennis values and TEN-27 are ranking-list numbers that moved in the 19 October update, so write-ups drafted against the previous week's list were stale rather than invented; they now cite the dated ATP list. A separate clause in BSB-01 stating that Tampa Bay had not named a Game 1 starter was removed: MLB.com's probable-pitchers page still shows TBD, but multiple reports name Drew Rasmussen, so the claim cannot be published as settled fact. No price, probability or confidence grade changed; every corrected piece remains inside the -250..+10000 band.",
+      "affected_rows": [
+        "HBL-15",
+        "DRT-11",
+        "MTR-01",
+        "TEN-27",
+        "TEN-31",
+        "TEN-32",
+        "TEN-33",
+        "BSB-01"
+      ],
+      "sources": [
+        {
+          "label": "EHF Champions League 2026/27 - official Group D standings (Szeged 139:136, GOG 145:139)",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+        },
+        {
+          "label": "EHF - Round 5 preview (GOG won the first meeting 36:34; Zehnder scored 11 v Kristianstad)",
+          "url": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins"
+        },
+        {
+          "label": "PDC - 2026 Machineseeker European Championship field & draw (Ratajski (3) v Chisnall (30))",
+          "url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+        },
+        {
+          "label": "Formula 1 - Facts and Stats: Verstappen first driver to win seven US Grands Prix (four in Austin)",
+          "url": "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO"
+        },
+        {
+          "label": "ATP Tour - PIF ATP Rankings, 19 October 2026",
+          "url": "https://www.atptour.com/en/rankings/singles?rankDate=2026-10-19&rankRange=1-100"
+        },
+        {
+          "label": "MLB.com - Rays @ Brewers probable pitchers (Game 1)",
+          "url": "https://www.mlb.com/brewers/roster/probable-pitchers"
+        }
+      ]
+    },
+    {
+      "id": "FL-049",
+      "severity": "data quality",
+      "title": "Four more HIGH write-ups corrected after the same line-by-line read (fixed 2026-10-22)",
+      "detail": "The re-read that produced FL-048 also caught four prose claims that were unsupported or wrong. (1) TEN-24 said Alexandra Eala beat Diane Parry 'on Tuesday'; the WTA draw and the tour's own report date that first-round win to Monday 19 October. The same sentence named Ningbo's surface 'Plexipave'; the WTA publishes the event as a hard-court tournament but does not name the acrylic brand, so the brand was removed rather than guessed. (2) TEN-28 described Borna Gojo's two Lyon qualifying wins as 'three-hour battles'; the ATP scorelines (4-6 6-3 7-6(8-6) against Maestrelli and 6-3 7-6(4) against Sachko) do not support a duration, so the phrase now simply says two qualifying wins. The 2-0 Altmaier head-to-head and the 6-3 7-6(2) Fery scoreline in the same piece were both confirmed. (3) GLF-02 said Seamus Power topped the OLBG tournament tips 'ahead of rising contender Ben James'; today's OLBG capture gives Power 5/22 but does not publish James's win-market count, and James is in fact the PGA Tour's +1000/+1175 favourite, so the comparison was dropped and the verifiable 5/22 figure kept. (4) BKB-21's headline called Maccabi's recent home record in the fixture 'perfect'; the EuroLeague game centre says only that the home team won each of the last five meetings, and the most recent meeting was in Madrid, so the headline now states the five-meeting home-side streak exactly. No price, grade or market line changed.",
+      "affected_rows": [
+        "TEN-24",
+        "TEN-28",
+        "GLF-02",
+        "BKB-21"
+      ],
+      "sources": [
+        {
+          "label": "WTA - Ningbo Open 2026 draws and results (Eala d. Parry 6-3 6-1)",
+          "url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+        },
+        {
+          "label": "ATP Tour - Lyon 2026 results (Gojo d. Fery 6-3 7-6(2); Altmaier d. Droguet 5-7 7-6(4) 7-6(3))",
+          "url": "https://www.atptour.com/en/scores/current/lyon/496/results"
+        },
+        {
+          "label": "PGA Tour - Butterfield Bermuda Championship overview (Power, 2022 champion)",
+          "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"
+        },
+        {
+          "label": "EuroLeague - Game Center Round 7 (home team won each of the last five Maccabi-Real Madrid meetings)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        }
+      ]
     }
   ]
 }
