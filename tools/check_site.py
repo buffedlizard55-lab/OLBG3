@@ -254,6 +254,16 @@ def main() -> int:
         if status == "analysis" and row["confidence"] == "high":
             errors.append(f"prediction {p['match_id']} is labelled analysis but its row is HIGH")
 
+    # every quoted price in a write-up must be the price the row actually carries
+    for p in preds:
+        row = lines[p["match_id"]]
+        price, us = row.get("our_price_pick"), row.get("our_us_odds_pick")
+        for q_dec, q_us in re.findall(r"(\d+\.\d{2})\s*\(([+-]\d{2,5})\)", p["selection"] + " " + p["text"]):
+            if price is not None and abs(float(q_dec) - price) > 0.005:
+                errors.append(f"prediction {p['match_id']} quotes decimal {q_dec} but its row prices {price}")
+            if us is not None and int(q_us) != int(us):
+                errors.append(f"prediction {p['match_id']} quotes {q_us} but its row's US odds are {us}")
+
     for mid, l in lines.items():
         if l["confidence"] == "high":
             price = l.get("our_price_pick")
