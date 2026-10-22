@@ -4,6 +4,18 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ## Session Information
 
+### ACTIVE CLAIM — `session-cab97f19` (evening live re-validation, five-per-sport coverage pass & final integration, 2026-10-22T21:00Z)
+
+- **Session ID:** `session-cab97f19`
+- **Active Working Branch:** `arena/cab97f19-olbg3` (Arena-locked; the branch name is fixed for this session, so the `session-<id>/<task>` convention is satisfied by this branch and only the claimed files are edited).
+- **Claimed:** `task-43-evening-live-revalidation-five-per-sport-and-integration-20261022` at 2026-10-22 21:00 UTC.
+- **Pre-claim check (20:55Z):** `git fetch origin --prune` → only `origin/main` at `13f31f4` (PR #98 merged). `gh pr list --state open` → **no open pull requests**. No sibling `arena/*` branch is live on the remote, so no concurrent scope is at risk.
+- **File scope:** `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `docs/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**` — regenerated through the documented pipeline only.
+- **Baseline (this branch, 20:52Z, real UTC clock):** full CI-order pipeline runs green with zero data drift — `check_board.py` PASS (265 rows = 217 fixtures + 48 outright/race, 242 priced, 19 live in-band HIGH), `tools/check_site.py` PASS (298 fixtures/lines, 24 HIGH), `check.py` PASS (40 feed rows), `check_links.py` PASS (85 pages / 1,529 links / 0 broken).
+- **Plan:** (1) re-validate every published live `HIGH` pick and its write-up against the competition's own page at the real 21:00Z clock, expiring anything whose official start has passed; (2) take a fresh evening OLBG listing read across all 15 allowed sports and record what is genuinely *upcoming*; (3) report, per sport, how many fixtures are actually available and select the five highest-confidence upcoming matches where five exist, with explicit disclosure where a sport has fewer; (4) rebuild both tracks, run every checker/test/link scan, PR to `main`, merge, confirm GitHub Pages; (5) record sources, verification and irregularities here and on the Flagged page.
+- **Known environment constraint:** the agent shell's outbound HTTP allowlist covers GitHub and package registries only, so live sports pages are read through the platform page-fetch tool; every fetch is timestamped and quoted in this record. Nothing is inferred from memory.
+- **Status:** in progress.
+
 ### CLOSED AS SUPERSEDED — `session-bb34505f` (parallel midday 15-sport re-harvest & integration; PR #96 closed unmerged after cross-check against `main`, 2026-10-22T12:15–13:30Z)
 - **Session ID:** `session-bb34505f` — **Branch:** `arena/bb34505f-olbg3` (Arena-locked; branched from `main` `f55593f`, claim commit `3113d35` — the claim was pushed to the branch but never reached `main` before the sibling merges, so this record is written post-hoc onto current `main`).
 - **Claimed:** `task-39-midday-live-refresh-highpick-expansion-and-final-integration-20261022` at 2026-10-22 12:15 UTC. At claim time `gh pr list` showed only stale CONFLICTING PRs #76/#77 (closed by this session at ~13:05Z with handoff comments referencing task-38/PRs #81–82). Unbeknownst at claim time, four sibling sessions (`7da75ec9`, `b6cb43c5`, `a0a7003c`, `15487122`) were mid-flight on the same midday window and merged PRs #83–#95 into `main` while this session harvested.
