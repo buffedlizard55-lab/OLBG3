@@ -17,6 +17,13 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+### Active session — `session-dc0474d5` (documentation/data-state audit)
+- **Session ID:** `session-dc0474d5`
+- **Active Working Branch:** `arena/dc0474d5-olbg3` (Arena-locked; branch naming is fixed for this session)
+- **Claimed:** `task-22-current-state-reconciliation`
+- **File scope:** `README.md`, `COORDINATION.md` only; no source data or generated site pages
+- **Plan:** reconcile public documentation against current tracked data and successful local checks; log stale-data limits and any remaining discrepancies without upgrading source verification claims.
+
 ## Task Board
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
@@ -36,6 +43,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-13-reverify-refresh-integrate` | Re-verify the published board line by line against live OLBG listings and official competition sources; fix every discrepancy found; refresh stale captures; re-render and publish the site | `data/events.json`, `data/official.json`, `data/predictions.json`, `data/raw/*`, `scripts/*`, generated root pages + `sports/*.html`, `COORDINATION.md`, `README.md` | done | `session-7244efad` | Claimed 2026-10-21; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) |
 | `task-08-reaudit` | Independent line-by-line re-verification of all published rows vs official sources; every row must carry an official source link; blank+flag unverifiable values | `data/audit-074739aa.json`, `data/verifications.json`, `data/flagged.json`, `tools/check_site.py`, `COORDINATION.md` | done | `session-074739aa` | 101/137 rows verified against official/primary sources (75 new this pass); 36 left blank + flagged (FL-022); audit at data/audit-074739aa.json |
 | `task-14-docs-current-state-audit` | Independently audit current documentation/counts against generated artifacts and CI; reconcile README/coordination publication status without altering source data or another task's scope | `README.md`, `COORDINATION.md` | done | `session-41ad74d9` (branch `arena/41ad74d9-olbg3`) | Current board from PR #32: 153 rows / 114 verified (113 fixtures and MTR-01) / 39 unverified / 14 board predictions. Docs audit PR [#29](https://github.com/buffedlizard55-lab/OLBG3/pull/29) merged as `7935cc5`; post-merge verification and Pages deployment succeeded. Rebased to preserve the completed official-source audit; task numbering avoids collision with the other task-13 claims. |
+| `task-22-current-state-reconciliation` | Reconcile current README claims with tracked board data and checks; document snapshot freshness limits without changing facts or source records | `README.md`, `COORDINATION.md` | in progress | `session-dc0474d5` (branch `arena/dc0474d5-olbg3`) | Claim pushed before work; documentation-only scope. |
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
 
