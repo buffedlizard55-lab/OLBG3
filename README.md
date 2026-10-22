@@ -8,10 +8,10 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 
 | Page | What it is |
 |---|---|
-| `index.html` | Main dashboard: coverage across all 15 sports, 30 live in-band `HIGH` picks across 10 sports, filterable 196-row table |
-| `predictions.html` | Written human predictions: **30 live `HIGH` picks** across 10 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **14 `analysis` notes** on short chalk / archived rows |
-| `lines.html` | Multi-market originated lines: Money Line / Win Match (`191` priced), Handicap / Spread (`157`), Match Totals Over/Under (`68`), Outrights (`23`) |
-| `verification.html` | Line-by-line official governing-body verification table (`171` official/club-verified, `2` third-party corroborated, `23` unverified left blank) |
+| `index.html` | Main dashboard: coverage across all 15 sports, 33 live in-band `HIGH` picks across 10 sports, filterable 196-row table |
+| `predictions.html` | Written human predictions: **33 live `HIGH` picks** across 10 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **14 `analysis` notes** on short chalk / archived rows |
+| `lines.html` | Multi-market originated lines: Money Line / Win Match (`192` priced), Handicap / Spread (`158`), Match Totals Over/Under (`75`), Outrights (`23`) |
+| `verification.html` | Line-by-line official governing-body verification table (`172` official/club-verified, `2` third-party corroborated, `22` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
 | `flagged.html` | **Flagged for Review**: 37 root audit findings + 46 `/olbg/` register items with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
@@ -59,7 +59,7 @@ LPGA BMW Ladies overview (Oct 22-25, Pine Beach, par 72, 6,784 yd, $2.35M, Sei Y
 2. **Focusing `HIGH` Confidence on `-250` to `+10000` Odds (`1.40` to `101.00` Decimal):**
    - Heavy >70% moneyline chalk (`price < 1.40`, shorter than `-250`) retains its honest calibrated probability and short price and is explicitly capped at **`MEDIUM`** with its reason disclosed.
    - A selection earns **`HIGH`** only when: (a) confirmed on an official governing-body / club domain (`verified`), (b) backed by official competition form/rankings, (c) kick-off has not passed as of `2026-10-22`, AND (d) its originated price sits strictly inside **`-250` to `+10000` (`1.40 <= price <= 101.00`)**.
-   - **Result:** **30 live `HIGH` predictions across 10 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Golf`, `Handball`, `Ice Hockey`, `Motor Racing`, `Rugby Union`, `Tennis`, spanning `-238` to `+740` US odds) and **23 live `HIGH` predictions across 10 sports** on `/olbg/` (spanning `-227` to `+660` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
+   - **Result:** **33 live `HIGH` predictions across 10 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Golf`, `Handball`, `Ice Hockey`, `Motor Racing`, `Rugby Union`, `Tennis`, spanning `-238` to `+740` US odds) and **23 live `HIGH` predictions across 10 sports** on `/olbg/` (spanning `-227` to `+660` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
 
 ## Reproducible Build & Verification Commands
 
@@ -84,8 +84,8 @@ python3 -m unittest discover -s tests # 20 unit & band invariant tests
 | File | Contents | Track |
 |---|---|---|
 | `data/raw/olbg-harvest-20261022.tsv` | Live `2026-10-22` OLBG harvest across all active sports + multi-market notes | `/olbg/` & root |
-| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`171` verified, `191` priced) | root board |
-| `data/predictions.json` | **`44` written pieces**: **`30` live `HIGH` predictions** (`-238` to `+738` US) + `14` `analysis` notes | root board |
+| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`172` verified, `192` priced) | root board |
+| `data/predictions.json` | **`47` written pieces**: **`33` live `HIGH` predictions** + `14` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
 | `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
 | `data/flagged.json` | **`43` flagged review items** (plus `37` root `flagged.html` findings) with direct source links | both tracks |
