@@ -31,12 +31,20 @@ This document serves as the shared task board coordinating parallel sessions and
 - **File scope (whole-repo, sole active session):** `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `.github/workflows/pages.yml`. No other remote session branch exists at claim time (verified `git fetch origin --prune`: only `origin/main`), so no sibling scope is at risk. If a sibling branch appears mid-task I will rename this claim to the narrower scope and log the handoff before touching any file it owns.
 - **Plan:** (1) repair the merge-conflict markers that PR #44 published into `COORDINATION.md`; (2) line-by-line re-verification of every published row, line and prediction against official sources, blanking and flagging anything unconfirmed; (3) fix every defect found in data, checks, docs or site; (4) rebuild both tracks, run every checker and the test suite, confirm zero broken links; (5) PR to `main`, merge, and confirm GitHub Pages serves the pages live.
 
+### Active session — `session-f0f3be65` (independent odds-consistency re-verification & F1 outright repair)
+- **Session ID:** `session-f0f3be65`
+- **Active Working Branch:** `arena/f0f3be65-olbg3` (Arena-locked; fixed branch name)
+- **Claimed:** `task-31-mtr913-win-race-outright-classification-fix`
+- **File scope:** `tools/build_dataset.py`, `scripts/build_site.py`, `data/flagged.json`, regenerated `data/matches.json` + `data/lines.json` and the generated root + `/olbg/` HTML, plus this file. All prior tasks (through #30, PR #59, HEAD `44d61dc`) are `done` on `main`; the branch was rebased onto that state and only the one still-open defect below is changed.
+- **Plan / finding:** an independent from-scratch rebuild was byte-deterministic and an external, official-source re-verification across ten sports found no factual hallucination. The one live defect not already resolved on `main` is the F1 `Win Race` classification (FL-047): MTR-913 was priced through the two-way fallback at **-120** despite being a 22-driver outright with a **+235 / 3.35** written prediction. The prose-price drift (MTR-01/GLF-02) and golf field-narrative issues found in the same audit were already fixed on `main` (commits 6fa36e6 and FL-045), so those edits were dropped rather than re-applied.
+
 ---
 
 ## Task Board
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
+| `task-31-mtr913-win-race-outright-classification-fix` | Independent odds-consistency re-verification; reclassify the multi-runner `Win Race` label as an outright so MTR-913 (22-driver F1 USA GP) prices through its field prior (+235/3.35) instead of the two-way fallback (-120); add FL-047; rebuild both tracks; PR, merge, confirm Pages | `tools/build_dataset.py`, `scripts/build_site.py`, `data/flagged.json`, `data/matches.json`, `data/lines.json`, generated root + `olbg/**` + `olbg-board/**` HTML, `COORDINATION.md` | done | `session-f0f3be65` (branch `arena/f0f3be65-olbg3`) | Only MTR-913 changed (prob 0.284, 3.35/+235, stays HIGH); FL-047 added (register now 47); 25/25 tests + check_board/check_site/check/check_links (81 pages, 1280 links, 0 broken) green; deterministic re-run identical; see session log below |
 | `task-27-final-audit-and-integration-20261022` | Republish `COORDINATION.md` without the merge-conflict markers PR #44 left in it; line-by-line re-audit of every published row/line/prediction against official sources; repair defects in data, checks, docs and site; rebuild both tracks; PR, merge and confirm the Pages deploy | `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `.github/workflows/pages.yml` | done | `session-8c24595c` (branch `arena/8c24595c-olbg3`) | Conflict markers removed; 6 defect classes fixed (FL-044/045/046 + price drift, prior text, marker guard); both tracks rebuilt, all checkers and 20/20 tests green; see session log below |
 | `task-26-high-pick-reverification-20261022` | Re-verify every published HIGH pick line by line against the competition's own match sheet, correct any wrong stored value, rewrite the HIGH prose so no two pieces share a template, and keep the -250..+10000 band gate enforced | `data/official.json`, `data/predictions.json`, `scripts/build_site.py`, `assets/style.css`, `README.md`, `COORDINATION.md`, root HTML snapshot | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | `check_board.py` PASS (137 rows / 114 fixtures / 23 outright / 115 verified / 132 priced / 20 written pieces); 6 HIGH, all in band; 20 unit tests; two corrections published on the Flagged page |
 | `task-01-audit` | Initial repo audit, baseline structure, task board initialization | `COORDINATION.md`, `README.md` | done | `session-3f4d1682` | Session initialized on branch arena/3f4d1682-olbg3 |
@@ -1093,3 +1101,42 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **Live confirmation:** `https://buffedlizard55-lab.github.io/OLBG3/` served from `44d61dc` shows *"196 rows … 172 rows are confirmed against the competition's own site, 2 rest on third-party corroboration only, 22 are published as unverified … 192 rows carry a price … 33 picks are graded high confidence"*; `flagged.html` shows *44 findings* including FL-044 and the new handball findings; `verification.html` and `sports/handball.html` link the ASOBAL, LNH, DanskHåndbold, Handbollsligan and Sønderjyske sources.
 - **Conflicts met and resolved (none discarded):** main advanced seven times during this task (PRs #46–#59). Every `COORDINATION.md` conflict was resolved by keeping both sides; `data/official.json` was resolved as a **union** of both sessions' handball confirmations (the parallel `session-8c24595c` had independently verified HBL-21/23/26/27/30 on the same LNH and Handbollsligan calendars — recorded as duplicated effort, not deleted); all generated HTML was regenerated from the merged sources rather than hand-merged.
 - **Merged board state after the merge:** 196 rows, 172 verified, 2 corroborated, 22 unverified, 192 priced, 158 handicaps, 75 totals, 47 written pieces (33 live HIGH). Checks: `unittest` (25) OK, `check_board.py` PASS, `tools/check_site.py` All checks passed, `scripts/check.py` PASS, `check_links.py` 81 pages / 1,280 links / 0 broken.
+
+---
+
+## Session log — `session-f0f3be65` (task-31: independent odds-consistency re-verification & F1 outright repair)
+
+### 1. Reproducibility baseline
+A clean checkout of the branch point was rebuilt end-to-end (`update` → `build` → `build_gap_sports` → `model` → `build_dataset` → `originate` → both site builders + root snapshot). The regenerated tree was byte-identical to the committed artifacts, confirming the dashboard is fully deterministic and that any later diff is attributable to an explicit source change rather than pipeline drift.
+
+### 2. Independent audit (formulas re-derived, not the repo's own checkers)
+- Re-derived every decimal↔US price, the vig-free fair line (`1/p`), and the `-250…+10000` (1.40–101.00) band. Every HIGH pick is in-band and below the 0.70 probability chalk cap; ≥70% rows are correctly held at MEDIUM/LOW with the reason disclosed.
+- Cross-checked every HIGH prediction's quoted odds against its table line on both tracks, and checked minimum length, uniqueness, excluded-sport values and blank-vs-flag handling.
+- External fact re-verification against official/primary sources across ten sports (ATP Tour, URC, PDC, MLB/NBA, EuroLeague, ICC, PGA Tour, Formula 1) corroborated every sampled score, seed, table position, date, venue and injury; **no factual hallucination found**. Direct TLS egress to sports hosts is blocked in the sandbox, so verification used the platform web tools.
+
+### 3. The single live defect found on current `main` — FL-047
+MTR-913 (USA Grand Prix, Max Verstappen "Win Race") is a 22-driver outright with no home/away side, but `tools/build_dataset.py` mapped the OLBG label `Win Race` to `market_family=match_winner`. With no side to resolve, `originate.py` fell through to the non-win/tie fallback `p_base=0.52` and published **1.83 / -120** (flag `non_win_or_tie_consensus_mapped`), contradicting:
+- its own written prediction and rendered `/olbg/` line **+235 / 3.35**, and
+- the parallel root-track outright model MTR-01 (same 22-car field, 3.41 / +241).
+**Fix:** move `Win Race` from `WIN_MARKETS` to `OUTRIGHT_MARKETS`. The row now routes through its disclosed 22-car field prior (`OUTRIGHT_FIELDS` override, p=0.284) → **3.35 / +235**, flag `outright_field_prior`. `Win Race` is used by no other OLBG row, so `matches.json`/`lines.json` change for MTR-913 only; it stays HIGH (verified, in-band, p 0.284 < 0.70) and the high/medium/low counts are unchanged (23/59/63 on `/olbg/`). FL-047 appended; the register now holds 47 items.
+
+### 4. Findings already resolved on `main` (deliberately NOT re-applied)
+The same audit initially surfaced two more issues against the older branch base; both had since been fixed by parallel sessions merged to `main`, so they were dropped during the rebase rather than duplicated or contested:
+- **Prose-vs-table odds drift** on MTR-01 (+254/3.54 → +241/3.41) and GLF-02 (+738/8.38 → +740/8.40): main commit `6fa36e6` ("price drift in HIGH prose") already publishes the exact corrected strings.
+- **Golf field narrative** (GLF-02=120 / GLF-04=78 wording): main's `build_gap_sports.py` already states the real field while FL-045 documents that pgatour.com/lpga.com do not themselves print a field size, so the counts stay labelled as disclosed/corroborated inputs (`field_size_prior_assumed`), not governing-body-confirmed facts. This session respected that more conservative conclusion and did not re-tag them `field_size_official`.
+
+### 5. Rebase discipline
+`origin/main` had advanced from `3a9f7ca` (PR #45) to `44d61dc` (PR #50/#59) while this work was in flight, and PR #60 reported a conflict (including an FL-ID collision: another session used FL-044). Rather than hand-merge regenerated files, the branch was reset to current `main` and the one still-required fix re-applied cleanly; the new flag took the next free ID (FL-047). No other session's work was discarded; all parallel verifications, the 25-test suite and the 46 pre-existing flags are retained.
+
+### 6. Final verification on the rebased branch
+- `python3 -m unittest discover -s tests` → **25/25 OK**.
+- `check_board.py` PASS (196 rows; 173 fixtures + 23 outright/race; 172 verified; 192 priced; 47 predictions; every HIGH in-band with a live kick-off and written prediction).
+- `tools/check_site.py` PASS; `check.py` PASS (40 fixture rows); `check_links.py` → 81 pages, **1280 links, 0 broken**.
+- Independent prose/table re-check after the fix: **0** root and **0** `/olbg/` odds mismatches; **0** band/cap violations.
+- Idempotency: a second full end-to-end rebuild leaves the identical 17-file diff (2 source scripts, `flagged.json`, `matches.json`, `lines.json`, 12 generated HTML pages); `gap_sports.json` and both prediction inputs are untouched.
+
+### 7. Sources used for FL-047 / Formula 1 corroboration
+- Formula 1 official — United States Grand Prix 2026, Circuit of the Americas, race 25 Oct: https://www.formula1.com/en/racing/2026/united-states
+- ESPN F1 schedule/results (Verstappen/Red Bull, Antonelli/Mercedes, COTA): https://www.espn.com/f1/
+- OLBG USA Grand Prix event (event_id 913, `Win Race` label): https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913
+- Code fix: https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/build_dataset.py
