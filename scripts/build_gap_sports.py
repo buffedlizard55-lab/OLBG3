@@ -23,6 +23,7 @@ disclosed assumption (the size of the field), exactly as the two-sided model doe
 N is the field size and k is the prior strength; both are listed per basis below and copied into the
 output so every number can be reproduced and challenged. Nothing here is a verified fact.
 """
+import datetime as dt
 import json
 import os
 from urllib.parse import urlparse
@@ -36,7 +37,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Source tiers, exactly as scripts/model.py applies them: only a competition's own site (or a club's own
 # site) counts as verified; a third party is labelled corroborated and listed on Flagged for Review.
-_TIERS = json.load(open(os.path.join(ROOT, "data/official.json")))["source_tiers"]
+_OFFICIAL = json.load(open(os.path.join(ROOT, "data/official.json")))
+_TIERS = _OFFICIAL["source_tiers"]
 
 
 def _bare(host):
@@ -109,6 +111,7 @@ def grade(fixture_verified: bool, official_form: bool, prob: float, field: int, 
 def main() -> None:
     cap = json.load(open(SRC))
     basis_table = cap["field_size_assumptions"]
+    start_overrides = _OFFICIAL.get("start_overrides", {})
     rows = []
 
     for e in cap["events"]:
@@ -172,6 +175,15 @@ def main() -> None:
         start_iso, start_basis = resolve_start(e["start"], capture=ev_capture)
         kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"], capture=ev_capture)
         clock_started = started(e["start"], now_utc=snapshot_utc(), capture=ev_capture)
+        start_override = start_overrides.get(e["ref"]) or {}
+        if start_override.get("start_utc"):
+            moment = dt.datetime.fromisoformat(start_override["start_utc"].replace("Z", "+00:00"))
+            if moment.tzinfo is None:
+                raise ValueError(f"{e['ref']}: official start override must include a timezone")
+            moment = moment.astimezone(dt.timezone.utc)
+            kickoff_utc = moment.strftime("%Y-%m-%dT%H:%MZ")
+            clock_started = moment <= snapshot_utc()
+            clock_basis = start_override.get("basis", "official organiser tournament start")
         kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
         band_ok = in_band(odds)
         if conf == "HIGH" and (kickoff_passed or bool(clock_started) or not band_ok):
@@ -219,6 +231,7 @@ def main() -> None:
                 "band": [-250, 10000],
                 "start_iso": start_iso,
                 "kickoff_utc": kickoff_utc, "clock_basis": clock_basis,
+                "official_start_url": start_override.get("official_url", ""),
                 "kickoff_started": clock_started,
                 "start_basis": start_basis,
                 "kickoff_passed": kickoff_passed,

@@ -74,6 +74,14 @@ NO_HANDICAP_REASON = {
 }
 MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
 
+# A tip on one of these markets says nothing directly about the match-winner probability.
+# Official standings/models may still price the fixture independently; only the consensus
+# fallback is forbidden from reusing the non-winner selection's tip share.
+NON_WIN_CONSENSUS_MARKETS = {
+    "Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
+    "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner",
+}
+
 # ---------- source tiers ----------
 _OFF = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                                    "data/official.json")))["source_tiers"]
@@ -514,7 +522,8 @@ for e in events:
     side, kind = side_of_pick(e)
     if probs is None:
         # consensus-derived two-way price, draw not priced (no data to split it)
-        if side in ("home", "away") and e.get("pct"):
+        if (kind is None and e.get("market") not in NON_WIN_CONSENSUS_MARKETS
+                and side in ("home", "away") and e.get("pct")):
             p = e["pct"] / 100.0
             # a 0% or 100% tip share cannot be priced; cap it and say so
             if p >= 1.0:
@@ -702,6 +711,32 @@ for e in events:
 json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
            "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)
+
+# This generator runs after build_gap_sports.py in the documented pipeline, so both root row
+# files are now authoritative. Keep every written piece in the correct live/analysis section when
+# a same-day start, market change, or price change alters its row's confidence.
+prediction_path = os.path.join(ROOT, "data/predictions.json")
+if os.path.exists(prediction_path):
+    prediction_doc = json.load(open(prediction_path, encoding="utf-8"))
+    root_rows = list(picks)
+    gap_path = os.path.join(ROOT, "data/gap_sports.json")
+    if os.path.exists(gap_path):
+        root_rows += json.load(open(gap_path, encoding="utf-8"))["rows"]
+    confidence_by_ref = {row["ref"]: row["pick"]["confidence"] for row in root_rows}
+    prediction_status_changes = 0
+    for prediction in prediction_doc.get("predictions", []):
+        confidence = confidence_by_ref.get(prediction.get("ref"))
+        if confidence is None:
+            continue
+        desired = "high" if confidence == "HIGH" else "analysis"
+        if prediction.get("status") != desired:
+            prediction["status"] = desired
+            prediction_status_changes += 1
+    if prediction_status_changes:
+        json.dump(prediction_doc, open(prediction_path, "w", encoding="utf-8"),
+                  indent=2, ensure_ascii=False)
+        open(prediction_path, "a", encoding="utf-8").write("\n")
+    print("prediction statuses synchronized:", prediction_status_changes)
 
 from collections import Counter
 c = Counter(p["pick"]["confidence"] for p in picks)

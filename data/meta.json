@@ -67,9 +67,18 @@
   "harvest_method": {
     "tool": "agent page-retrieval across all 15 allowed OLBG sport pages plus multi-market individual event pages",
     "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus multi-market event pages",
-    "granularity": "All server-rendered events on each allowed sport page as of 2026-10-22T01:26-01:32Z (130 live events across 13 active sports + 11 explicitly tagged carried rows across Snooker & Greyhounds = 141 fixtures across all 15 allowed sports).",
+    "granularity": "Primary 07:25Z harvest: 150 server-rendered rows across all 15 allowed sport pages, with older rows explicitly carried by the previous-harvest chain. A separate eight-row volleyball correction retrieved at 08:35Z takes precedence only for event IDs 36994-36997 and 37000-37003; it is not represented as a new all-sport harvest.",
     "values_inferred": "none - blank when not stated by an official source"
   },
+  "correction_harvests": [
+    {
+      "file": "raw/olbg-volleyball-correction-20261022T0835Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-22",
+      "harvest_completed_utc": "2026-10-22T08:35:00Z",
+      "note": "Eight current volleyball rows from the live listing; replaces only matching event IDs and preserves every historical harvest byte-for-byte."
+    }
+  ],
   "harvest_file": "raw/olbg-harvest-20261022T0725Z.tsv",
   "harvest_format": "v2",
   "harvest_timezone_note": "At 2026-10-22T07:25Z (03:25 EDT), OLBG renders relative dates in US Eastern Daylight Time (UTC-4), so 'Today' = 2026-10-22 and 'Tomorrow' = 2026-10-23 across all 15 allowed sports. Prior harvests retain their exact capture olbg_locale_date per source file.",

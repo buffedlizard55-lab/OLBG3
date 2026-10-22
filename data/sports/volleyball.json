@@ -4,7 +4,7 @@
   "olbg_id": 21,
   "listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
   "fetched": "2026-10-22",
-  "listing_note": "The volleyball listing groups every fixture under 'All_Volleyball/All_Events' and shows no competition name, so the league is left BLANK on the site (not inferred from team names).",
+  "listing_note": "The volleyball listing groups every fixture under 'All_Volleyball/All_Events' and shows no competition name, so the league is left BLANK on the site (not inferred from team names). Eight rows (VOL-22..29) were corrected from the live 08:35Z listing by event ID and re-verified against Lega Volley/CBV; earlier source captures remain unchanged.",
   "events": [
     {
       "ref": "VLB-01",
@@ -282,58 +282,63 @@
     {
       "ref": "VOL-22",
       "competition": "Brazil Superliga Women",
-      "home": "Brasilia Volei W",
+      "home": "Brasilia W",
       "away": "Sesc RJ Flamengo W",
       "start": "Tomorrow 17:30",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Sesc RJ Flamengo W",
-      "tips": "1/1",
+      "market": "Win Match",
+      "olbg_pick": "Brasilia W",
+      "tips": "2/2",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Brasilia_Volei_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37000",
-      "event_id": 37000
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brasilia_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37001",
+      "event_id": 37001,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     },
     {
       "ref": "VOL-23",
       "competition": "Brazil Superliga Women",
-      "home": "Osasco W",
-      "away": "Sorocaba W",
-      "start": "24 Oct 17:30",
+      "home": "Mackenzie W",
+      "away": "Osasco W",
+      "start": "24 Oct 15:00",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Osasco W",
+      "market": "Set Score",
+      "olbg_pick": "Mackenzie W to win 3-1",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Osasco_W_vs_Sorocaba_W/21?event_id=37001",
-      "event_id": 37001
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mackenzie_W_vs_Osasco_W/21?event_id=37002",
+      "event_id": 37002,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     },
     {
       "ref": "VOL-24",
       "competition": "Brazil Superliga Women",
-      "home": "Sesi Bauru W",
-      "away": "Fluminense W",
+      "home": "Abel/Moda Brusque W",
+      "away": "Praia Clube W",
       "start": "24 Oct 20:00",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Sesi Bauru W",
+      "market": "Win Match",
+      "olbg_pick": "Abel/Moda Brusque W",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Sesi_Bauru_W_vs_Fluminense_W/21?event_id=37002",
-      "event_id": 37002
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Abel-Moda_Brusque_W_vs_Praia_Clube_W/21?event_id=37003",
+      "event_id": 37003,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     },
     {
       "ref": "VOL-25",
       "competition": "Brazil Superliga Women",
-      "home": "Paulistano Barueri W",
-      "away": "Gerdau Minas W",
-      "start": "25 Oct 17:30",
+      "home": "Gerdau Minas",
+      "away": "Paulistano/Barueri W",
+      "start": "Tomorrow 17:30",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Gerdau Minas W",
+      "market": "Set Score",
+      "olbg_pick": "Paulistano/Barueri W to win 3-1",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Paulistano_Barueri_W_vs_Gerdau_Minas_W/21?event_id=37003",
-      "event_id": 37003
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Paulistano-Barueri_W_vs_Minas_W/21?event_id=37000",
+      "event_id": 37000,
+      "source_retrieved_at": "2026-10-22T08:35:00Z",
+      "source_order_note": "OLBG slug/order is Paulistano-Barueri W vs Minas W; CBV official Round 2 list states Gerdau Minas x Paulistano Barueri, so official home/away order is published and the conflict is flagged."
     },
     {
       "ref": "VOL-26",
@@ -342,12 +347,13 @@
       "away": "Cisterna Volley",
       "start": "25 Oct 12:00",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Itas Trentino",
+      "market": "Win Match",
+      "olbg_pick": "Cisterna",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Itas_Trentino_vs_Cisterna_Volley/21?event_id=36995",
-      "event_id": 36995
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994",
+      "event_id": 36994,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     },
     {
       "ref": "VOL-27",
@@ -356,12 +362,13 @@
       "away": "Tinet Prata di Pordenone",
       "start": "25 Oct 13:00",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Sir Susa Scai Perugia",
+      "market": "Set Score",
+      "olbg_pick": "Pordenone to win 3-1",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Sir_Susa_Scai_Perugia_vs_Tinet_Prata_di_Pordenone/21?event_id=36996",
-      "event_id": 36996
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Perugia_vs_Pordenone/21?event_id=36997",
+      "event_id": 36997,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     },
     {
       "ref": "VOL-28",
@@ -370,12 +377,13 @@
       "away": "Pallavolo Padova",
       "start": "25 Oct 13:00",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Cucine Lube Civitanova",
+      "market": "Win Match",
+      "olbg_pick": "Padova",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Cucine_Lube_Civitanova_vs_Pallavolo_Padova/21?event_id=36994",
-      "event_id": 36994
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
+      "event_id": 36995,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     },
     {
       "ref": "VOL-29",
@@ -384,12 +392,13 @@
       "away": "Rana Verona",
       "start": "25 Oct 13:00",
       "captured": "2026-10-22",
-      "market": "Match Winner",
-      "olbg_pick": "Rana Verona",
+      "market": "Win Match",
+      "olbg_pick": "Monza",
       "tips": "1/1",
       "pct": 100,
-      "event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Vero_Volley_Monza_vs_Rana_Verona/21?event_id=36997",
-      "event_id": 36997
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996",
+      "event_id": 36996,
+      "source_retrieved_at": "2026-10-22T08:35:00Z"
     }
   ]
 }

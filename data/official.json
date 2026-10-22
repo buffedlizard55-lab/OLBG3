@@ -1666,35 +1666,35 @@
       "competition": "Brazil Superliga Women",
       "source": "https://cbv.com.br/",
       "source_label": "CBV Superliga Feminina 2026/27 Round 2",
-      "note": "Confirmed on CBV official portal: Brasília Vôlei vs Sesc RJ Flamengo (swept Barueri 3-0 in R1), Round 2 on Fri 23 Oct 2026."
+      "note": "Confirmed on CBV official portal: Brasília Vôlei / BRB x Sesc RJ Flamengo, Round 2 on Fri 23 Oct 2026 at 18:30 BRT; Round 1 results were Brasília 0-3 Osasco and Sesc RJ 3-0 Paulistano."
     },
     "VOL-23": {
-      "official": "2026-10-24 18:30 BRT (21:30 UTC)",
+      "official": "2026-10-24 16:00 BRT (19:00 UTC)",
       "competition": "Brazil Superliga Women",
       "source": "https://cbv.com.br/",
       "source_label": "CBV Superliga Feminina 2026/27 Round 2",
-      "note": "Confirmed on CBV official portal: Osasco São Cristóvão Saúde (swept Brasília 3-0 in R1) vs Sorocaba, Round 2 on Sat 24 Oct 2026."
+      "note": "Confirmed on CBV official portal: Batavo Mackenzie x Osasco São Cristóvão Saúde, Round 2 on Sat 24 Oct 2026 at 16:00 BRT; Round 1 results were Sesi Bauru 3-0 Mackenzie and Brasília 0-3 Osasco."
     },
     "VOL-24": {
-      "official": "2026-10-24 21:00 BRT (00:00+1 UTC)",
+      "official": "2026-10-24 21:00 BRT (2026-10-25 00:00 UTC)",
       "competition": "Brazil Superliga Women",
       "source": "https://cbv.com.br/",
       "source_label": "CBV Superliga Feminina 2026/27 Round 2",
-      "note": "Confirmed on CBV official portal: Sesi Vôlei Bauru vs Fluminense, Superliga Feminina 2026/27 Round 2 on Sat 24 Oct 2026."
+      "note": "Confirmed on CBV official portal: Brusque Vôlei x Dentil Praia Clube, Round 2 on Sat 24 Oct 2026 at 21:00 BRT; Round 1 results were Gerdau Minas 3-2 Brusque and Praia Clube 3-0 Pinheiros."
     },
     "VOL-25": {
-      "official": "2026-10-25 18:30 BRT (21:30 UTC)",
+      "official": "2026-10-23 18:30 BRT (21:30 UTC)",
       "competition": "Brazil Superliga Women",
       "source": "https://cbv.com.br/",
       "source_label": "CBV Superliga Feminina 2026/27 Round 2",
-      "note": "Confirmed on CBV official portal: Paulistano Barueri vs Gerdau Minas (beat Brusque 3-2 in R1), Round 2 on Sun 25 Oct 2026."
+      "note": "CBV official Round 2 list states Gerdau Minas x Paulistano Barueri on Fri 23 Oct 2026 at 18:30 BRT; Round 1: Minas 3-2 Brusque and Sesc RJ 3-0 Paulistano. OLBG displays the reverse team order, so official home/away order is used and the conflict is flagged."
     },
     "VOL-26": {
       "official": "2026-10-25 17:00 CET (16:00 UTC)",
       "competition": "SuperLega Credem Banca",
       "source": "https://www.legavolley.it/calendario/?idCampionato=999",
       "source_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
-      "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at ilT quotidiano / BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET."
+      "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET."
     },
     "VOL-27": {
       "official": "2026-10-25 18:00 CET (17:00 UTC)",
@@ -4164,5 +4164,12 @@
       "news.sbs.co.kr",
       "biz.chosun.com"
     ]
+  },
+  "start_overrides": {
+    "GLF-02": {
+      "start_utc": "2026-10-22T10:35:00Z",
+      "official_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times",
+      "basis": "PGA Tour official Round 1 tee sheet: first groups 6:35 AM EDT on 22 Oct 2026 (10:35Z); used for tournament-start expiry while preserving the OLBG outright label."
+    }
   }
 }

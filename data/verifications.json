@@ -994,6 +994,12 @@
       "name": "SBS Korean Sports — Samsung Thunders 97-86 Busan KCC Egis report",
       "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438",
       "class": "secondary"
+    },
+    {
+      "id": "S-PGA-BERMUDA-TEE",
+      "name": "PGA Tour — Butterfield Bermuda Championship 2026 official Round 1 tee times",
+      "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times",
+      "class": "official"
     }
   ],
   "event_verifications": {
@@ -1673,11 +1679,14 @@
       "status": "verified",
       "sources": [
         "S-PGA-BERMUDA",
-        "S-BBC-GOLF"
+        "S-BBC-GOLF",
+        "S-PGA-BERMUDA-TEE"
       ],
       "facts": [
-        "Official event site: 'The Butterfield Bermuda Championship is a PGA TOUR event that will be staged at Port Royal Golf Club and played October 22-25, 2026' (S-PGA-BERMUDA). BBC golf calendar agrees (S-BBC-GOLF)."
-      ]
+        "Official event site: 'The Butterfield Bermuda Championship is a PGA TOUR event that will be staged at Port Royal Golf Club and played October 22-25, 2026' (S-PGA-BERMUDA). BBC golf calendar agrees (S-BBC-GOLF).",
+        "PGA Tour's R1 tee sheet states time zone EDT and first groups at 6:35 AM EDT on 22 Oct (10:35Z); this official tournament start governs expiry, independently of OLBG's 25 Oct outright label."
+      ],
+      "start_utc": "2026-10-22T10:35:00Z"
     },
     "101905": {
       "status": "verified",
@@ -3923,77 +3932,57 @@
     },
     "37000": {
       "competition": "Brazil Superliga Feminina 2026/27 — Round 2",
-      "venue": "Ginásio Sesi Taguatinga, Brasília",
+      "fixture_name": "Gerdau Minas vs Paulistano Barueri",
+      "home": "Gerdau Minas",
+      "away": "Paulistano/Barueri W",
       "start_local": "2026-10-23 18:30 BRT",
+      "start_utc": "2026-10-23T21:30:00Z",
       "status": "verified",
       "sources": [
         "S-CBV-2627"
       ],
       "facts": [
-        "Brasília Vôlei vs Sesc RJ Flamengo (3-0 winners in Round 1)."
-      ]
+        "CBV Round 2 lists Gerdau Minas x Paulistano Barueri on 23 Oct at 18:30 BRT; Round 1: Gerdau Minas 3-2 Brusque and Sesc RJ Flamengo 3-0 Paulistano Barueri."
+      ],
+      "note": "OLBG slug/order is Paulistano-Barueri W vs Minas W, but CBV lists Gerdau Minas x Paulistano Barueri. Official home/away order is used and the conflict is flagged; no venue is populated because the retrieved CBV list does not state one."
     },
     "37001": {
       "competition": "Brazil Superliga Feminina 2026/27 — Round 2",
-      "venue": "Ginásio José Liberatti, Osasco",
-      "start_local": "2026-10-24 18:30 BRT",
+      "start_local": "2026-10-23 18:30 BRT",
+      "start_utc": "2026-10-23T21:30:00Z",
       "status": "verified",
       "sources": [
         "S-CBV-2627"
       ],
       "facts": [
-        "Osasco São Cristóvão Saúde (3-0 winners in Round 1) vs Sorocaba."
+        "CBV Round 2 lists Brasília Vôlei / BRB x Sesc RJ Flamengo on 23 Oct at 18:30 BRT; Round 1: Brasília 0-3 Osasco and Sesc RJ Flamengo 3-0 Paulistano."
       ]
     },
     "37002": {
       "competition": "Brazil Superliga Feminina 2026/27 — Round 2",
-      "venue": "Arena Paulo Skaf, Bauru",
-      "start_local": "2026-10-24 21:00 BRT",
+      "start_local": "2026-10-24 16:00 BRT",
+      "start_utc": "2026-10-24T19:00:00Z",
       "status": "verified",
       "sources": [
         "S-CBV-2627"
       ],
       "facts": [
-        "Sesi Vôlei Bauru vs Fluminense."
+        "CBV Round 2 lists Batavo Mackenzie x Osasco São Cristóvão Saúde on 24 Oct at 16:00 BRT; Round 1: Sesi Bauru 3-0 Mackenzie and Brasília 0-3 Osasco."
       ]
     },
     "37003": {
       "competition": "Brazil Superliga Feminina 2026/27 — Round 2",
-      "venue": "Sportville, Barueri",
-      "start_local": "2026-10-25 18:30 BRT",
+      "start_local": "2026-10-24 21:00 BRT",
+      "start_utc": "2026-10-25T00:00:00Z",
       "status": "verified",
       "sources": [
         "S-CBV-2627"
       ],
       "facts": [
-        "Paulistano Barueri vs Gerdau Minas (3-2 winners in Round 1)."
+        "CBV Round 2 lists Brusque Vôlei x Dentil Praia Clube on 24 Oct at 21:00 BRT; Round 1: Gerdau Minas 3-2 Brusque and Dentil Praia Clube 3-0 Pinheiros."
       ]
     },
     "36995": {
-      "competition": "SuperLega Credem Banca 2026/27 — Giornata 2",
-      "venue": "BTS Arena, Trento",
-      "start_local": "2026-10-25 17:00 CET",
-      "status": "verified",
-      "sources": [
-        "S-LEGA-CAL"
-      ],
-      "facts": [
-        "Itas Trentino (3-0, 75:61) vs Cisterna Volley (3-0, 79:56)."
-      ]
-    },
-    "36996": {
-      "competition": "SuperLega Credem Banca 2026/27 — Giornata 2",
-      "venue": "Pala Barton Energy, Perugia",
-      "start_local": "2026-10-25 18:00 CET",
-      "status": "verified",
-      "sources": [
-        "S-LEGA-CAL"
-      ],
-      "facts": [
-        "Sir Susa Scai Perugia (3-2, 114:95 rally pts) vs Tinet Prata di Pordenone (3-1, 94:91)."
-      ]
-    },
-    "36994": {
       "competition": "SuperLega Credem Banca 2026/27 — Giornata 2",
       "venue": "Eurosuole Forum, Civitanova Marche",
       "start_local": "2026-10-25 18:00 CET",
@@ -4003,9 +3992,11 @@
       ],
       "facts": [
         "Cucine Lube Civitanova (3-0, 78:65) vs Pallavolo Padova (0-3, 56:75)."
-      ]
+      ],
+      "start_utc": "2026-10-25T17:00:00Z",
+      "note": "Fixture identity reconfirmed on the official Lega Volley calendar; corrected from the crossed OLBG numeric ID in the 07:25Z integration."
     },
-    "36997": {
+    "36996": {
       "competition": "SuperLega Credem Banca 2026/27 — Giornata 2",
       "venue": "OpiquadArena, Monza",
       "start_local": "2026-10-25 18:00 CET",
@@ -4015,7 +4006,37 @@
       ],
       "facts": [
         "Vero Volley Monza (1-3, 91:94) vs Rana Verona (0-3, 65:78)."
-      ]
+      ],
+      "start_utc": "2026-10-25T17:00:00Z",
+      "note": "Fixture identity reconfirmed on the official Lega Volley calendar; corrected from the crossed OLBG numeric ID in the 07:25Z integration."
+    },
+    "36994": {
+      "competition": "SuperLega Credem Banca 2026/27 — Giornata 2",
+      "venue": "BTS Arena, Trento",
+      "start_local": "2026-10-25 17:00 CET",
+      "status": "verified",
+      "sources": [
+        "S-LEGA-CAL"
+      ],
+      "facts": [
+        "Itas Trentino (3-0, 75:61) vs Cisterna Volley (3-0, 79:56)."
+      ],
+      "start_utc": "2026-10-25T16:00:00Z",
+      "note": "Fixture identity reconfirmed on the official Lega Volley calendar; corrected from the crossed OLBG numeric ID in the 07:25Z integration."
+    },
+    "36997": {
+      "competition": "SuperLega Credem Banca 2026/27 — Giornata 2",
+      "venue": "Pala Barton Energy, Perugia",
+      "start_local": "2026-10-25 18:00 CET",
+      "status": "verified",
+      "sources": [
+        "S-LEGA-CAL"
+      ],
+      "facts": [
+        "Sir Susa Scai Perugia (3-2, 114:95 rally pts) vs Tinet Prata di Pordenone (3-1, 94:91)."
+      ],
+      "start_utc": "2026-10-25T17:00:00Z",
+      "note": "Fixture identity reconfirmed on the official Lega Volley calendar; corrected from the crossed OLBG numeric ID in the 07:25Z integration."
     },
     "188837": {
       "competition": "CSA Pro20 Cup 2026/27 — Division 2",
@@ -4131,5 +4152,6 @@
     }
   },
   "retrieved_at_previous_2": "2026-10-21T05:40:00Z",
-  "retrieved_at_previous_3": "2026-10-22T01:26:00Z to 2026-10-22T01:36:00Z (session-4f267387 live 2026-10-22 harvest & governing-body verification pass; all earlier verified records preserved)"
+  "retrieved_at_previous_3": "2026-10-22T01:26:00Z to 2026-10-22T01:36:00Z (session-4f267387 live 2026-10-22 harvest & governing-body verification pass; all earlier verified records preserved)",
+  "retrieved_at_correction": "2026-10-22T08:35:00Z"
 }

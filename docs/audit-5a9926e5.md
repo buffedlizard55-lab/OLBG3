@@ -1,6 +1,6 @@
 # Fresh coverage and source audit — session-5a9926e5
 
-Audit window: **2026-10-22 08:24–08:37 UTC**. This is a working evidence record, not a claim that the final integration has already passed. Historical captures remain immutable; corrections belong in new captures and generated outputs.
+Audit window: **2026-10-22 08:24–08:56 UTC**. Historical captures remain immutable; corrections belong in new captures and generated outputs. Local repair-candidate results are recorded below; CI, PR, merge, and deployment receipts are added only after they occur.
 
 ## Baseline and preservation
 
@@ -24,7 +24,7 @@ The code changes in this session:
 4. retain written pieces as `analysis` after a downgrade and synchronise prediction statuses from regenerated confidence;
 5. reject started HIGH rows in both validators and in unit tests, including a second check against the actual timestamp so a stale boolean cannot hide a started event.
 
-The regression tests cover a started 07:00Z event at a 07:35Z snapshot, a future 08:00Z event, an unknown same-day clock, and an official tournament start overriding an outright settlement label. The published-data regression is expected to fail until `data/lines.json` is regenerated with the new clock fields.
+The regression tests cover a started 07:00Z event at a 07:35Z snapshot, a future 08:00Z event, an unknown same-day clock, and an official tournament start overriding an outright settlement label. The published-data regression initially exposed stale generated rows; regeneration with the new clock fields fixed that failure.
 
 ### Golf: official first tee versus outright display date
 
@@ -65,7 +65,7 @@ Official CBV scoreboard, standings and Round 2 list: <https://cbv.com.br/>
 | `37002` | Mackenzie–Osasco; Mackenzie to win 3–1, 1/1, 24 Oct 15:00 | Batavo Mackenzie × Osasco São Cristóvão Saúde, 24 Oct, 16:00 BRT. |
 | `37003` | Abel-Moda Brusque–Praia Clube; Abel/Moda Brusque, 1/1, 24 Oct 20:00 | Brusque Vôlei × Dentil Praia Clube, 24 Oct, 21:00 BRT. |
 
-CBV's Round 1 results confirm: Sesc RJ 3–0 Paulistano; Sesi Bauru 3–0 Mackenzie; Brasília 0–3 Osasco; Gerdau Minas 3–2 Brusque; Dentil Praia Clube 3–0 Pinheiros; Fluminense 3–2 Sancor. The current four fixtures must receive new verification records based on these facts. They must **not** inherit the prior IDs' Brasilia/Osasco/Sesi/Paulistano records blindly. Old Osasco–Sorocaba and Sesi Bauru–Fluminense rows are not in the current visible listing and need fresh-coverage reconciliation, not silent retention as current rows.
+CBV's Round 1 results confirm: Sesc RJ 3–0 Paulistano; Sesi Bauru 3–0 Mackenzie; Brasília 0–3 Osasco; Gerdau Minas 3–2 Brusque; Dentil Praia Clube 3–0 Pinheiros; Fluminense 3–2 Sancor. The current four fixtures must receive new verification records based on these facts. They must **not** inherit the prior IDs' Brasilia/Osasco/Sesi/Paulistano records blindly. The 08:35Z correction overlay replaces all four crossed IDs. Old Osasco–Sorocaba and Sesi Bauru–Fluminense rows remain only in immutable historical input; they are not retained as current published rows.
 
 ## Other live-source drift requiring fresh-capture reconciliation
 
@@ -81,11 +81,14 @@ These are observations from the live listing pages, not permission to overwrite 
 - **Motor Racing:** <https://www.olbg.com/betting-tips/Motor_Racing/14> — USA Grand Prix `913` moved to Max Verstappen 12/33 (36%).
 - **Gaelic Football:** <https://www.olbg.com/betting-tips/Gaelic_Football/25> — six visible markets (`3530`, `3532`, `3531`, `3536`, `3537`, `3327`) require coverage reconciliation against the five-row gap input.
 
-## Integration gates still open
+## Local repair-candidate results — 08:56 UTC
 
-- Obtain or consume the completed fresh harvest; do not label the queued capture as successful.
-- Rebase onto completed sibling data work before editing shared data or generated HTML.
-- Apply the volleyball repairs by fixture identity and add explicit review flags for the crossed IDs and CBV/OLBG home-away conflict.
-- Add the official Bermuda first-tee timestamp without modifying either historical raw source label.
-- Regenerate both tracks, synchronise prediction statuses, re-read every resulting HIGH piece against its new fixture/price, and run the complete workflow order including both link checkers.
-- Record final counts, PR, merge and Pages receipts only after they actually occur.
+- Added immutable `data/raw/olbg-volleyball-correction-20261022T0835Z.tsv`, SHA-256 `55987f3a495cff241b1833824867988684460fc42c31aa90ee3f2e87c137d79f`. The 07:25Z and gap-source hashes above are unchanged.
+- Applied the eight-row overlay by event ID while preserving first-seen historical chain order. Remapped Italian official-strength evidence and written pieces by fixture identity; published CBV's Minas/Paulistano order while preserving the OLBG slug and flagging the conflict.
+- Added FL-066 through FL-069. The register now has 69 items. Bermuda uses official `2026-10-22T10:35Z` for expiry on both tracks, while source display labels remain unchanged.
+- Excluded every listed non-winner market from winner-consensus fallback in both models. A final semantic audit also caught team-only `1st Set Winner` labels on `TEN-06` and `TEN-29`; market-based gating now covers those too. Twelve stale consensus-derived root prices were removed, and the two remapped Brazilian Set Score rows lost their crossed official-strength evidence and are blank/LOW on the root track.
+- `/olbg/` retains only disclosed independent baselines where no official-strength model exists; it does not convert Set Score, Set Betting, first-set, handicap, or totals tip share into winner probability.
+- Rebuilt in workflow order from `scripts/build.py` onward; a second exact rebuild produced no diff, confirming generated outputs are current and deterministic. Final local checks: **40/40 unit tests**; root **228 rows, 210 verified, 17 unverified, 210 priced, 172 handicaps, 99 totals, 62 written pieces, 45 HIGH**; `/olbg/` **270 rows, 35 HIGH / 89 MEDIUM / 146 LOW, 40 written pieces, 69 flags, 21 pages**; `scripts/check_board.py`, `tools/check_site.py`, and `scripts/check.py` PASS with 40 feed rows; `scripts/check_links.py` PASS with **81 pages, 1,280 local links, zero broken**; `git diff --check` PASS.
+- The sandbox cannot fetch the NHL/MLB/NBA hosts used by `scripts/update.py`; the authoritative update step is therefore verified in GitHub Actions rather than represented as a successful local official-source fetch.
+- At the 08:52Z remote check, `origin/main` was `98b6163` and sibling `session-d3464fe4` remained claim-only at `2570b53`; no uncompleted sibling harvest was consumed. Other live-listing drift above remains explicitly pending that separately claimed fresh-capture task.
+- PR, merge, CI, and Pages receipts remain pending until their actual completion and are recorded in `COORDINATION.md`.

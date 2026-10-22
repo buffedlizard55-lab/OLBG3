@@ -137,7 +137,7 @@ FOOT = f"""
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
   <p><strong>Snapshot, not a complete live fixture feed.</strong> Rebuilding does not refresh the captured OLBG listings or
   reverify official sources. HIGH is an evidence-based model grade, not a calibrated win rate or a demonstrated betting edge.
-  Same-day start times have no confirmed timezone; a date-only expiry check cannot establish that a match is still upcoming.
+  Same-day expiry uses an official organiser timestamp when available, otherwise the documented US-Eastern reading of OLBG's display clock; an unknown same-day clock cannot be HIGH.
   See <a href="{{P}}flagged.html">Flagged for Review</a> for limitations.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
@@ -175,10 +175,19 @@ def ver_cell(r):
     return (f'<span class="unver" title="No official source retrieved for this fixture">unverified</span>'
             f' &middot; <a class="dim" href="{e(gov_url)}" rel="noopener">{e(gov_lbl)}</a>')
 
+def kickoff_caption(p):
+    if not p.get("kickoff_utc"):
+        return ""
+    if p.get("official_start_url"):
+        return (f' <a class="dim small" href="{e(p["official_start_url"])}" rel="noopener">'
+                f'official start {e(p["kickoff_utc"])}</a>')
+    return f' <span class="dim small">= {e(p["kickoff_utc"])}</span>'
+
+
 def price_cell(r):
     m = r["model"]
     if not m.get("prices"):
-        return ('<td class="num dim" colspan="3" title="No defensible input: OLBG published a selection but no tip count">'
+        return ('<td class="num dim" colspan="3" title="No defensible winner input; see the model basis and OLBG source market">'
                 'no price</td>')
     p = m["prices"]
     if "single" in p:
@@ -213,7 +222,7 @@ def row_html(r):
 <td class="comp">{e(r['competition']) or '<span class="dim" title="OLBG does not state the competition for this fixture">not stated</span>'}</td>
 <td class="match">{match_label(r)}</td>
 <td class="market">{market_label(r)}</td>
-<td class="when" data-kickoff-utc="{e(p.get('kickoff_utc') or '')}">{e(r['start'])}{(' <span class="dim small">= ' + e(p['kickoff_utc']) + '</span>') if p.get('kickoff_utc') else ''}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}{' <span class="tag">started</span>' if p.get('kickoff_started') else ''}</td>
+<td class="when" data-kickoff-utc="{e(p.get('kickoff_utc') or '')}">{e(r['start'])}{kickoff_caption(p)}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}{' <span class="tag">started</span>' if p.get('kickoff_started') else ''}</td>
 {price_cell(r)}
 <td class="pick">{pick} {prob}</td>
 <td class="num odds">{usd(p.get('price'))} {band_badge(r)}</td>

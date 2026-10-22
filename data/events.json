@@ -4572,42 +4572,25 @@
     "note": "Cork GAA lists the Premier Senior Football final for 25/10/2026 at 16:00 in Pairc Ui Chaoimh. Ireland moves to GMT at 02:00 that morning, so 16:00 local is 12:00 ET - the OLBG time."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.14,
-     "win_home": 5.59
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.83,
-     "home": 0.17
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -5.5,
-     "price": 1.91,
-     "dog_line": 5.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (17%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Nemo Rangers",
-    "prob": 0.83,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.14,
-    "american": -714,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -4619,7 +4602,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -4649,33 +4632,16 @@
     "note": "The club's own site carries the county final notice: 7pm, Saturday 24 October 2026, Pearse Stadium. 19:00 IST is 14:00 ET - the OLBG time. Galway GAA's fixtures page is a JavaScript widget with no readable fixture text, so the participating club's official notice is cited."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.79,
-     "win_away": 2.02
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.53,
-     "away": 0.47
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -0.5,
-     "price": 1.91,
-     "dog_line": 0.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (53%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Moycullen",
-    "prob": 0.53,
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -4683,9 +4649,9 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 1.79,
-    "american": -127,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -4803,43 +4769,25 @@
     "note": "Waterford GAA's fixture list and the Munster GAA calendar both put the Rathgormack v The Nire final on Sunday 25 Oct at 14:30 in Fraher Field. OLBG shows 1 Nov 10:30, a week late - that is an OLBG error and the official date is what we publish."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -5.5,
-     "price": 1.91,
-     "dog_line": 5.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Rathgormack",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -4851,7 +4799,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -4881,43 +4829,25 @@
     "note": "Confirmed club championship contenders Fr. Casey's vs Kildimo-Pallaskenry on Munster GAA bracket."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -5.5,
-     "price": 1.91,
-     "dog_line": 5.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 5.5 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Fr Caseys",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -4929,7 +4859,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -5885,43 +5815,25 @@
     "note": "The club's official programme lists 21.10.2026 kl. 20:00 Mors-Thy v Bjerringbro-Silkeborg at Sparekassen Thy Arena - the OLBG time exactly."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -7.5,
-     "price": 1.91,
-     "dog_line": 7.5,
-     "dog_price": 1.91,
-     "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Mors Thy Handbold",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -5933,7 +5845,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -11357,42 +11269,25 @@
     "note": "Second on Centre Court ('followed by'); OLBG's 04:00 ET is the equivalent slot."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.27,
-     "win_away": 3.8
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.75,
-     "away": 0.25
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -3.5,
-     "price": 1.91,
-     "dog_line": 3.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (75%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Zangar Nurlanuly",
-    "prob": 0.75,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.27,
-    "american": -370,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -11404,7 +11299,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -11434,43 +11329,26 @@
     "note": "Opening singles on Court 1. Date and 11:30 local start match the OLBG time."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.67,
-     "home": 0.33
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Tomas Martin Etcheverry",
-    "prob": 0.67,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -11481,7 +11359,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -11745,33 +11623,16 @@
     "note": "Second on Court 1 ('followed by'); OLBG's 04:00 ET is the equivalent slot."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.9,
-     "win_home": 1.9
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.5,
-     "home": 0.5
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -0.5,
-     "price": 1.91,
-     "dog_line": 0.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Facundo Diaz Acosta",
-    "prob": 0.5,
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -11779,9 +11640,9 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 1.9,
-    "american": -111,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -11822,43 +11683,25 @@
     "note": "Opening singles on Centre Court. Pairing, date and 11:30 start match the OLBG row exactly."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -4.5,
-     "price": 1.91,
-     "dog_line": 4.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Francisco Cerundolo",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -11870,7 +11713,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -13242,43 +13085,25 @@
     "note": "Center Court Day 6 opener: Terence Atmane vs Mattia Bellucci."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -4.5,
-     "price": 1.91,
-     "dog_line": 4.5,
-     "dog_price": 1.91,
-     "unit": "games",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line. Tennis has no home side: the line is stated against the first-listed player."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Mattia Bellucci",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -13290,7 +13115,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -14935,43 +14760,25 @@
     "note": "The league's own round programme lists Megabox Vallefoglia v Cuneo on Wednesday 21 Oct at 20.30 - the OLBG time exactly."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Cuneo W",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -14983,7 +14790,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -15557,33 +15364,16 @@
     "note": "Confirmed on cvf.cz CEZ Extraliga Men Round 2 schedule: VK Dukla Liberec (pushed Beskydy to 5 sets in R1) vs VK Benatky nad Jizerou."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.9,
-     "win_home": 1.9
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.5,
-     "home": 0.5
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -0.5,
-     "price": 1.91,
-     "dog_line": 0.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Liberec",
-    "prob": 0.5,
+    "side": null,
+    "label": null,
+    "prob": null,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -15591,9 +15381,9 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 1.9,
-    "american": -111,
-    "in_band": true,
+    "price": null,
+    "american": null,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -15613,15 +15403,15 @@
    "sport": "Volleyball",
    "sport_slug": "volleyball",
    "competition": "Brazil Superliga Women",
-   "home": "Brasilia Volei W",
+   "home": "Brasilia W",
    "away": "Sesc RJ Flamengo W",
    "start": "Tomorrow 17:30",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Sesc RJ Flamengo W",
-   "olbg_tips": "1/1",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Brasilia W",
+   "olbg_tips": "2/2",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Brasilia_Volei_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37000",
-   "olbg_event_id": 37000,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Brasilia_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37001",
+   "olbg_event_id": 37001,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
@@ -15631,36 +15421,36 @@
     "competition_official": "Brazil Superliga Women",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on CBV official portal: Brasília Vôlei vs Sesc RJ Flamengo (swept Barueri 3-0 in R1), Round 2 on Fri 23 Oct 2026."
+    "note": "Confirmed on CBV official portal: Brasília Vôlei / BRB x Sesc RJ Flamengo, Round 2 on Fri 23 Oct 2026 at 18:30 BRT; Round 1 results were Brasília 0-3 Osasco and Sesc RJ 3-0 Paulistano."
    },
    "model": {
     "basis": "consensus",
     "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
+     "win_home": 1.02,
+     "win_away": 47.5
     },
     "notes": [
      "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
      "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "away": 0.98,
-     "home": 0.02
+     "home": 0.98,
+     "away": 0.02
     },
     "handicap": {
-     "fav": "away",
+     "fav": "home",
      "line": -1.5,
      "price": 1.91,
      "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "sets",
      "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Sesc RJ Flamengo W",
+    "side": "home",
+    "label": "Brasilia W",
     "prob": 0.98,
     "confidence": "MEDIUM",
     "score": 4,
@@ -15691,64 +15481,46 @@
    "sport": "Volleyball",
    "sport_slug": "volleyball",
    "competition": "Brazil Superliga Women",
-   "home": "Osasco W",
-   "away": "Sorocaba W",
-   "start": "24 Oct 17:30",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Osasco W",
+   "home": "Mackenzie W",
+   "away": "Osasco W",
+   "start": "24 Oct 15:00",
+   "olbg_market": "Set Score",
+   "olbg_pick": "Mackenzie W to win 3-1",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Osasco_W_vs_Sorocaba_W/21?event_id=37001",
-   "olbg_event_id": 37001,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Mackenzie_W_vs_Osasco_W/21?event_id=37002",
+   "olbg_event_id": 37002,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
     "official_url": "https://cbv.com.br/",
     "official_label": "CBV Superliga Feminina 2026/27 Round 2",
-    "official_datetime": "2026-10-24 18:30 BRT (21:30 UTC)",
+    "official_datetime": "2026-10-24 16:00 BRT (19:00 UTC)",
     "competition_official": "Brazil Superliga Women",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on CBV official portal: Osasco São Cristóvão Saúde (swept Brasília 3-0 in R1) vs Sorocaba, Round 2 on Sat 24 Oct 2026."
+    "note": "Confirmed on CBV official portal: Batavo Mackenzie x Osasco São Cristóvão Saúde, Round 2 on Sat 24 Oct 2026 at 16:00 BRT; Round 1 results were Sesi Bauru 3-0 Mackenzie and Brasília 0-3 Osasco."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "home",
-    "label": "Osasco W",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
@@ -15756,11 +15528,11 @@
     ],
     "start_iso": "2026-10-24",
     "start_basis": "derived from capture year",
-    "kickoff_utc": "2026-10-24T21:30Z",
+    "kickoff_utc": "2026-10-24T19:00Z",
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -15769,25 +15541,25 @@
    "sport": "Volleyball",
    "sport_slug": "volleyball",
    "competition": "Brazil Superliga Women",
-   "home": "Sesi Bauru W",
-   "away": "Fluminense W",
+   "home": "Abel/Moda Brusque W",
+   "away": "Praia Clube W",
    "start": "24 Oct 20:00",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Sesi Bauru W",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Abel/Moda Brusque W",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Sesi_Bauru_W_vs_Fluminense_W/21?event_id=37002",
-   "olbg_event_id": 37002,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Abel-Moda_Brusque_W_vs_Praia_Clube_W/21?event_id=37003",
+   "olbg_event_id": 37003,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
     "official_url": "https://cbv.com.br/",
     "official_label": "CBV Superliga Feminina 2026/27 Round 2",
-    "official_datetime": "2026-10-24 21:00 BRT (00:00+1 UTC)",
+    "official_datetime": "2026-10-24 21:00 BRT (2026-10-25 00:00 UTC)",
     "competition_official": "Brazil Superliga Women",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on CBV official portal: Sesi Vôlei Bauru vs Fluminense, Superliga Feminina 2026/27 Round 2 on Sat 24 Oct 2026."
+    "note": "Confirmed on CBV official portal: Brusque Vôlei x Dentil Praia Clube, Round 2 on Sat 24 Oct 2026 at 21:00 BRT; Round 1 results were Gerdau Minas 3-2 Brusque and Praia Clube 3-0 Pinheiros."
    },
    "model": {
     "basis": "consensus",
@@ -15816,7 +15588,7 @@
    },
    "pick": {
     "side": "home",
-    "label": "Sesi Bauru W",
+    "label": "Abel/Moda Brusque W",
     "prob": 0.98,
     "confidence": "MEDIUM",
     "score": 4,
@@ -15847,76 +15619,58 @@
    "sport": "Volleyball",
    "sport_slug": "volleyball",
    "competition": "Brazil Superliga Women",
-   "home": "Paulistano Barueri W",
-   "away": "Gerdau Minas W",
-   "start": "25 Oct 17:30",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Gerdau Minas W",
+   "home": "Gerdau Minas",
+   "away": "Paulistano/Barueri W",
+   "start": "Tomorrow 17:30",
+   "olbg_market": "Set Score",
+   "olbg_pick": "Paulistano/Barueri W to win 3-1",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Paulistano_Barueri_W_vs_Gerdau_Minas_W/21?event_id=37003",
-   "olbg_event_id": 37003,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Paulistano-Barueri_W_vs_Minas_W/21?event_id=37000",
+   "olbg_event_id": 37000,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
     "official_url": "https://cbv.com.br/",
     "official_label": "CBV Superliga Feminina 2026/27 Round 2",
-    "official_datetime": "2026-10-25 18:30 BRT (21:30 UTC)",
+    "official_datetime": "2026-10-23 18:30 BRT (21:30 UTC)",
     "competition_official": "Brazil Superliga Women",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on CBV official portal: Paulistano Barueri vs Gerdau Minas (beat Brusque 3-2 in R1), Round 2 on Sun 25 Oct 2026."
+    "note": "CBV official Round 2 list states Gerdau Minas x Paulistano Barueri on Fri 23 Oct 2026 at 18:30 BRT; Round 1: Minas 3-2 Brusque and Sesc RJ 3-0 Paulistano. OLBG displays the reverse team order, so official home/away order is used and the conflict is flagged."
    },
    "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
-    },
+    "basis": "none",
+    "prices": {},
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "away": 0.98,
-     "home": 0.02
-    },
-    "handicap": {
-     "fav": "away",
-     "line": -1.5,
-     "price": 1.91,
-     "dog_line": 1.5,
-     "dog_price": 1.91,
-     "unit": "sets",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
+     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
+    ]
    },
    "pick": {
-    "side": "away",
-    "label": "Gerdau Minas W",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "side": null,
+    "label": null,
+    "prob": null,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
+    "price": null,
+    "american": null,
     "in_band": false,
     "band": [
      -250,
      10000
     ],
-    "start_iso": "2026-10-25",
-    "start_basis": "derived from capture year",
-    "kickoff_utc": "2026-10-25T21:30Z",
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T21:30Z",
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -15928,12 +15682,12 @@
    "home": "Itas Trentino",
    "away": "Cisterna Volley",
    "start": "25 Oct 12:00",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Itas Trentino",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Cisterna",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Itas_Trentino_vs_Cisterna_Volley/21?event_id=36995",
-   "olbg_event_id": 36995,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Trentino_vs_Cisterna/21?event_id=36994",
+   "olbg_event_id": 36994,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
@@ -15943,7 +15697,7 @@
     "competition_official": "SuperLega Credem Banca",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at ilT quotidiano / BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET."
+    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET."
    },
    "model": {
     "basis": "official-standings",
@@ -16014,12 +15768,12 @@
    "home": "Sir Susa Scai Perugia",
    "away": "Tinet Prata di Pordenone",
    "start": "25 Oct 13:00",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Sir Susa Scai Perugia",
+   "olbg_market": "Set Score",
+   "olbg_pick": "Pordenone to win 3-1",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Sir_Susa_Scai_Perugia_vs_Tinet_Prata_di_Pordenone/21?event_id=36996",
-   "olbg_event_id": 36996,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Perugia_vs_Pordenone/21?event_id=36997",
+   "olbg_event_id": 36997,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
@@ -16100,12 +15854,12 @@
    "home": "Cucine Lube Civitanova",
    "away": "Pallavolo Padova",
    "start": "25 Oct 13:00",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Cucine Lube Civitanova",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Padova",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Cucine_Lube_Civitanova_vs_Pallavolo_Padova/21?event_id=36994",
-   "olbg_event_id": 36994,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995",
+   "olbg_event_id": 36995,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",
@@ -16186,12 +15940,12 @@
    "home": "Vero Volley Monza",
    "away": "Rana Verona",
    "start": "25 Oct 13:00",
-   "olbg_market": "Match Winner",
-   "olbg_pick": "Rana Verona",
+   "olbg_market": "Win Match",
+   "olbg_pick": "Monza",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Vero_Volley_Monza_vs_Rana_Verona/21?event_id=36997",
-   "olbg_event_id": 36997,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996",
+   "olbg_event_id": 36996,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
    "verification": {
     "status": "verified",

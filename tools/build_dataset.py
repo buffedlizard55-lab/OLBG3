@@ -116,7 +116,15 @@ def main() -> None:
 
     # Sports that the primary harvest did not cover keep their rows from the previous
     # harvest (same OLBG event ids), tagged so the reader can see the older fetch time.
-    sources = [(harvest, fmt, fetched_at, run_day, None)]
+    # Narrow, timestamped correction captures take precedence by OLBG event ID. The historical
+    # primary harvest remains byte-for-byte intact and still supplies every unaffected row.
+    sources = []
+    for correction in meta.get("correction_harvests", []):
+        completed = correction["harvest_completed_utc"]
+        correction_day = date.fromisoformat(correction.get("olbg_locale_date") or completed[:10])
+        sources.append((DATA / correction["file"], correction.get("format", "v2"), completed,
+                        correction_day, None))
+    sources.append((harvest, fmt, fetched_at, run_day, None))
     prev = meta.get("previous_harvest") or {}
     if prev.get("file"):
         p_day = date.fromisoformat(prev.get("olbg_locale_date") or (prev.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
@@ -127,6 +135,21 @@ def main() -> None:
             e_day = date.fromisoformat(extra.get("olbg_locale_date") or (extra.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
             sources.append((DATA / extra["file"], extra.get("format", "v1"), extra.get("harvest_completed_utc", ""), e_day,
                             f"carried from the {extra.get('harvest_completed_utc', '')[:16]} harvest: fixture started or rotated off OLBG listing prior to {fetched_at[:16]}Z"))
+
+    # Corrections replace matching IDs without moving them ahead of unaffected fixtures. Record
+    # the original chain order from the primary and historical harvests; correction-only IDs,
+    # if any, remain at the end in capture order.
+    corrections = meta.get("correction_harvests", [])
+    chain_order = {}
+    for old_path, old_fmt, _, _, _ in sources[len(corrections):]:
+        for old_line in old_path.read_text().splitlines():
+            if not old_line.strip() or old_line.startswith("#"):
+                continue
+            old_parts = old_line.split("|")
+            old_parts += [""] * (11 - len(old_parts))
+            old_eid = old_parts[4] if old_fmt == "v2" else old_parts[3]
+            if old_eid and old_eid not in chain_order:
+                chain_order[old_eid] = len(chain_order)
 
     rows = []
     missing_url_parts = []
@@ -159,13 +182,16 @@ def main() -> None:
                 note = (note + "; " if note else "") + carry_note
             url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
             event_name = slug.replace("_", " ")
-            # The slug is lossy for "@" events; prefer the human name from the page where known.
-            display = event_name
-            home, away = split_teams(display)
-            if away:
-                away = SUFFIX_RE.sub("", away)
-            won, total = parse_tips(tips)
             ev = ver["event_verifications"].get(eid, {})
+            source_home, source_away = split_teams(event_name)
+            if source_away:
+                source_away = SUFFIX_RE.sub("", source_away)
+            # An official competition record may correct a source slug's home/away order. Preserve
+            # the OLBG slug in the URL and as olbg_event_name, while publishing the official order.
+            display = ev.get("fixture_name") or event_name
+            home = ev.get("home") or source_home
+            away = ev.get("away") or source_away
+            won, total = parse_tips(tips)
             if market in WIN_MARKETS:
                 family = "match_winner"
             elif market in OUTRIGHT_MARKETS:
@@ -182,6 +208,7 @@ def main() -> None:
                 "venue": ev.get("venue") or None,
                 "verified_start": ev.get("start_local") or None,
                 "event_name": display,
+                **({"olbg_event_name": event_name} if display != event_name else {}),
                 "home": home,
                 "away": away,
                 "olbg_date_label": date_label,
@@ -215,6 +242,7 @@ def main() -> None:
             continue
         seen[key] = r
     matches = list(seen.values())
+    matches.sort(key=lambda r: chain_order.get(r["id"].split("-", 1)[1], len(chain_order)))
 
     (DATA / "matches.json").write_text(json.dumps(matches, indent=2) + "\n")
     print(f"matches: {len(matches)}  (skipped {len(missing_url_parts)} rows without a sport id)")

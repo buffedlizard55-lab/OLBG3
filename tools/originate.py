@@ -60,6 +60,11 @@ SPREAD_CFG = {
     "Snooker": (2.0, "frames"),
 }
 
+NON_WIN_CONSENSUS_MARKETS = {
+    "Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
+    "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner",
+}
+
 TOTAL_CFG = {
     "Basketball": (228.5, "pts", "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)"),
     "Baseball": (7.5, "runs", "MLB postseason run-scoring environment baseline"),
@@ -167,10 +172,10 @@ OFFICIAL_STRENGTH = {
     "SNO-9941": ("Jak Jones", 0.5446, 5.5, "Over", "WST Northern Ireland Open Last 16: [30] Jak Jones vs [50] Daniel Wells"),
     "TEN-902129": ("Stefanos Tsitsipas", 0.5739, 22.5, "Over", "ATP Almaty QF: #39 [7] Stefanos Tsitsipas (beat Kukushkin 6-1, 6-2) vs #73 James Duckworth"),
     "TEN-902133": ("Tommy Paul", 0.725, 21.5, "Under", "ATP Lyon QF: #15 [4] Tommy Paul (2575 pts) vs #94 Corentin Moutet (640 pts; >70% favorite -> medium)"),
-    "VOL-36995": ("Itas Trentino", 0.5293, 182.5, "Over", "SuperLega Giornata 2 clash of 3-0 winners: Itas Trentino vs Cisterna Volley"),
-    "VOL-36996": ("Sir Susa Scai Perugia", 0.5995, 179.5, "Over", "SuperLega Giornata 2: Sir Susa Scai Perugia (3-2, 114:95 pts) home vs Prata di Pordenone (3-1, 94:91)"),
-    "VOL-36994": ("Cucine Lube Civitanova", 0.6585, 183.5, "Under", "SuperLega Giornata 2: Cucine Lube Civitanova (3-0, 78:65) home vs Pallavolo Padova (0-3, 56:75)"),
-    "VOL-36997": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2: Vero Volley Monza (91:94 at Prata) home vs Rana Verona (0-3, 65:78)"),
+    "VOL-36994": ("Itas Trentino", 0.5293, 182.5, "Over", "SuperLega Giornata 2 clash of 3-0 winners: Itas Trentino vs Cisterna Volley; official fixture re-mapped from crossed ID 36995"),
+    "VOL-36997": ("Sir Susa Scai Perugia", 0.5995, 179.5, "Over", "SuperLega Giornata 2: Sir Susa Scai Perugia (3-2, 114:95 pts) home vs Prata di Pordenone (3-1, 94:91); official fixture re-mapped from crossed ID 36996"),
+    "VOL-36995": ("Cucine Lube Civitanova", 0.6585, 183.5, "Under", "SuperLega Giornata 2: Cucine Lube Civitanova (3-0, 78:65) home vs Pallavolo Padova (0-3, 56:75); official fixture re-mapped from crossed ID 36994"),
+    "VOL-36996": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2: Vero Volley Monza (91:94 at Prata) home vs Rana Verona (0-3, 65:78); official fixture re-mapped from crossed ID 36997"),
 }
 
 # Verified outright field-size priors (Dirichlet shrinkage toward 1/F)
@@ -450,12 +455,15 @@ def main() -> None:
             pick, p_pick, tot_override, tot_side_override, basis = OFFICIAL_STRENGTH[mid]
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
         else:
-            side = resolve_team_side(m["olbg_consensus_selection"], home, away)
+            non_win_consensus = m.get("olbg_market") in NON_WIN_CONSENSUS_MARKETS
+            side = None if non_win_consensus else resolve_team_side(m["olbg_consensus_selection"], home, away)
             if side is None:
-                # e.g. Handball "Tie" consensus or totals-only listing -> lean home edge
+                # A set-score/handicap/total tip is not a match-winner probability. Exclude it
+                # from p_base and use only the disclosed independent home-edge baseline.
                 side = home or m["olbg_consensus_selection"]
                 p_base = 0.52
-                flags.append("non_win_or_tie_consensus_mapped")
+                flags.append("non_win_consensus_excluded_from_winner_probability"
+                             if non_win_consensus else "non_win_or_tie_consensus_mapped")
             else:
                 p_base = p_shrunk
             logit = math.log(p_base / (1.0 - p_base))
@@ -473,7 +481,9 @@ def main() -> None:
                 p_pick = round(1.0 - p_side, 4)
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
             tot_override, tot_side_override = None, None
-            basis = "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+            basis = ("Independent home-edge baseline; non-winner OLBG consensus excluded from winner probability"
+                     if non_win_consensus else
+                     "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment")
 
         fair_odds = round(1.0 / p_pick, 2)
         price_pick = round((1.0 - MARGIN) / p_pick, 2)

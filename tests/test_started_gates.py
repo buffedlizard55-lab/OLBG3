@@ -126,5 +126,73 @@ class TestPublishedOlbgClocks(unittest.TestCase):
                              pred["match_id"])
 
 
+class TestPublishedSourceCorrections(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        def load(name):
+            with open(os.path.join(ROOT, "data", name), encoding="utf-8") as f:
+                return json.load(f)
+        cls.matches = {row["id"]: row for row in load("matches.json")}
+        cls.lines = {row["match_id"]: row for row in load("lines.json")}
+        cls.events = {row["ref"]: row for row in load("events.json")["events"]}
+        cls.gap = {row["ref"]: row for row in load("gap_sports.json")["rows"]}
+        cls.verifications = load("verifications.json")["event_verifications"]
+        cls.preds = {row["match_id"]: row for row in load("predictions-olbg.json")["predictions"]}
+
+    def test_italian_ids_and_evidence_stay_with_fixture(self):
+        expected = {
+            "VOL-36994": ("Trentino vs Cisterna", "Itas Trentino"),
+            "VOL-36995": ("Civitanova vs Padova", "Cucine Lube Civitanova"),
+            "VOL-36996": ("Monza vs Verona", "Vero Volley Monza"),
+            "VOL-36997": ("Perugia vs Pordenone", "Sir Susa Scai Perugia"),
+        }
+        for mid, (event_name, fact_name) in expected.items():
+            self.assertEqual(self.matches[mid]["event_name"], event_name)
+            facts = " ".join(self.verifications[mid.split("-")[1]]["facts"])
+            self.assertIn(fact_name, facts, mid)
+        for mid, name in (("VOL-36995", "Cucine Lube Civitanova"),
+                          ("VOL-36996", "Vero Volley Monza"),
+                          ("VOL-36997", "Sir Susa Scai Perugia")):
+            self.assertIn(name, self.preds[mid]["selection"])
+            self.assertEqual(self.preds[mid]["status"], "high")
+
+    def test_brazilian_official_order_and_source_slug_are_both_preserved(self):
+        row = self.matches["VOL-37000"]
+        self.assertEqual(row["event_name"], "Gerdau Minas vs Paulistano Barueri")
+        self.assertEqual(row["home"], "Gerdau Minas")
+        self.assertEqual(row["olbg_event_name"], "Paulistano-Barueri W vs Minas W")
+        self.assertIn("Paulistano-Barueri_W_vs_Minas_W", row["olbg_url"])
+        self.assertEqual(row["official_start_utc"], "2026-10-23T21:30:00Z")
+
+    def test_set_score_consensus_does_not_become_winner_probability(self):
+        for ref in ("TEN-06", "TEN-29", "VOL-23", "VOL-25"):
+            self.assertEqual(self.events[ref]["model"]["prices"], {}, ref)
+            self.assertIsNone(self.events[ref]["pick"]["price"], ref)
+        for mid in ("VOL-37000", "VOL-37002"):
+            row = self.lines[mid]
+            self.assertIn("non_win_consensus_excluded_from_winner_probability", row["flags"], mid)
+            self.assertIn("non-winner OLBG consensus excluded", row["inputs"]["basis"], mid)
+
+    def test_no_non_winner_market_uses_tip_share_as_winner_consensus(self):
+        non_winner = {
+            "Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
+            "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner",
+        }
+        for row in self.events.values():
+            if row["olbg_market"] in non_winner:
+                self.assertNotEqual(row["model"]["basis"], "consensus", row["ref"])
+        for row in self.lines.values():
+            if row["inputs"]["olbg_market"] in non_winner:
+                self.assertFalse(row["inputs"]["basis"].startswith("OLBG tip split"), row["match_id"])
+
+    def test_bermuda_uses_official_first_tee_on_both_tracks(self):
+        expected = "2026-10-22T10:35:00Z"
+        self.assertEqual(self.lines["GLF-101904"]["start_utc"], expected)
+        self.assertEqual(self.gap["GLF-02"]["pick"]["kickoff_utc"], "2026-10-22T10:35Z")
+        self.assertIn("pgatour.com", self.gap["GLF-02"]["pick"]["official_start_url"])
+        self.assertFalse(self.lines["GLF-101904"]["kickoff_started"])
+        self.assertFalse(self.gap["GLF-02"]["pick"]["kickoff_started"])
+
+
 if __name__ == "__main__":
     unittest.main()

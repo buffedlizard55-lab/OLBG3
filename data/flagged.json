@@ -1565,6 +1565,127 @@
           "url": "https://www.mlb.com/standings/2026"
         }
       ]
+    },
+    {
+      "id": "FL-066",
+      "severity": "high",
+      "title": "Eight volleyball rows carried verification facts for different OLBG event IDs; corrected by fixture identity against Lega Volley and CBV",
+      "detail": "The 07:25Z integration crossed Trentino/Cisterna, Civitanova/Padova, Monza/Verona and Perugia/Pordenone across IDs 36994-36997, and attached four prior Brazilian records to IDs 37000-37003 now used for different or reordered fixtures. A new 08:35Z overlay preserves every historical raw file while replacing only those IDs. Italian evidence and written pieces move with the fixture, not the number. Brazilian records were rebuilt from CBV Round 2 and Round 1 evidence rather than inherited. The previous Osasco-Sorocaba and Sesi Bauru-Fluminense listings are not presented as part of this current eight-row correction.",
+      "affected_rows": [
+        "VOL-22",
+        "VOL-23",
+        "VOL-24",
+        "VOL-25",
+        "VOL-26",
+        "VOL-27",
+        "VOL-28",
+        "VOL-29",
+        "VOL-36994",
+        "VOL-36995",
+        "VOL-36996",
+        "VOL-36997",
+        "VOL-37000",
+        "VOL-37001",
+        "VOL-37002",
+        "VOL-37003"
+      ],
+      "sources": [
+        {
+          "label": "OLBG live Volleyball listing (08:35Z correction capture)",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        },
+        {
+          "label": "Lega Pallavolo Serie A official SuperLega calendar, Giornata 1 and 2",
+          "url": "https://www.legavolley.it/calendario/?co=26"
+        },
+        {
+          "label": "CBV official Superliga Feminina scoreboard, standings and Round 2 list",
+          "url": "https://cbv.com.br/"
+        }
+      ]
+    },
+    {
+      "id": "FL-067",
+      "severity": "medium",
+      "title": "OLBG and CBV list opposite home/away order for Gerdau Minas versus Paulistano Barueri",
+      "detail": "OLBG event 37000 is slugged Paulistano-Barueri_W_vs_Minas_W and its Set Score selection is Paulistano/Barueri W to win 3-1. CBV official Round 2 lists Gerdau Minas x Paulistano Barueri on 23 Oct at 18:30 BRT. The published fixture uses CBV official home/away order, preserves the OLBG slug and selection in source fields, and leaves venue blank because the retrieved official list does not state one.",
+      "affected_rows": [
+        "VOL-25",
+        "VOL-37000"
+      ],
+      "sources": [
+        {
+          "label": "OLBG event 37000 source listing",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Paulistano-Barueri_W_vs_Minas_W/21?event_id=37000"
+        },
+        {
+          "label": "CBV official Round 2 fixture order",
+          "url": "https://cbv.com.br/"
+        }
+      ]
+    },
+    {
+      "id": "FL-068",
+      "severity": "low",
+      "title": "Bermuda outright expiry uses the official 22 Oct first tee, not OLBG's 25 Oct settlement label",
+      "detail": "OLBG event 101904 currently labels the Bermuda outright 25 Oct 17:45. PGA Tour officially dates the tournament 22-25 Oct and its R1 tee sheet states EDT with first groups at 6:35 AM EDT on 22 Oct (10:35Z). The source label remains unchanged, but 10:35Z is the effective tournament start for HIGH-pick expiry. At the committed 07:35Z snapshot it had not started.",
+      "affected_rows": [
+        "GLF-02",
+        "GLF-101904"
+      ],
+      "sources": [
+        {
+          "label": "PGA Tour official Round 1 tee times (EDT; first groups 6:35 AM)",
+          "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times"
+        },
+        {
+          "label": "OLBG Golf listing (outright display label)",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ]
+    },
+    {
+      "id": "FL-069",
+      "severity": "medium",
+      "title": "Non-winner OLBG consensus was being reused as a match-winner probability; exact-score and handicap inputs are now separated",
+      "detail": "The root model treated Set Betting, Set Score, 1st Set Winner and handicap tip shares as though they priced the match winner. Those markets remain verbatim in source fields, but their consensus no longer supplies a winner probability. Without a separate official-strength model the root winner price is blank and the row is LOW rather than inventing a number; rows with official strength retain independently originated winner lines. On the /olbg/ track, non-winner consensus is excluded from p_base and only the disclosed independent baseline is used. This correction removes twelve stale consensus-derived root prices and downgrades Gaelic Football GFA-3530 from MEDIUM to LOW; the two remapped Brazilian Set Score rows are also left unpriced on the root track because their crossed official-strength evidence was removed.",
+      "affected_rows": [
+        "GAF-01",
+        "GAF-02",
+        "GAF-04",
+        "GFA-05",
+    "HBL-13",
+    "TEN-06",
+    "TEN-29",
+    "TEN-07",
+        "TEN-11",
+        "TEN-12",
+        "VLB-13",
+        "VOL-21",
+        "VOL-23",
+        "VOL-25",
+        "GFA-3530",
+        "VOL-37000",
+        "VOL-37002"
+      ],
+      "sources": [
+        {
+          "label": "OLBG Volleyball listing (Win Match versus Set Score market definitions)",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        },
+        {
+          "label": "OLBG Tennis listing (Set Betting and 1st Set Winner source rows)",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        },
+        {
+          "label": "OLBG Gaelic Football listing (handicap source rows)",
+          "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+        },
+        {
+          "label": "OLBG Handball listing (handicap source rows)",
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
+        }
+      ]
     }
   ]
 }

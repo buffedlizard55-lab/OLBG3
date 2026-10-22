@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">65 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">69 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -478,6 +478,34 @@
   <p>The World Series Game 1 write-up on the /olbg/ track said Milwaukee carried &quot;MLB&#x27;s premier home record at 55-26 (.679)&quot;. The official MLB standings for the completed 2026 regular season print Milwaukee 103-59 with a 55-26 home mark AND Tampa Bay 98-64 with a 55-26 home mark, both .679, so the record is joint-best rather than Milwaukee&#x27;s alone - a meaningful distinction in a piece arguing a home-field edge. The sentence now reads &#x27;a 55-26 (.679) home record, level with Tampa Bay&#x27;s own home mark as the joint-best in MLB&#x27;. Every other figure in the piece was re-read on the same page and stands: Brewers 103-59, 832 RS / 618 RA (+214), Rays 98-64, 736 / 650, Rays 43-38 on the road, and the 23 Oct series opener. No price, probability or grade changed.</p>
   <p class="muted small">Affected rows: BSB-160789</p>
   <ul class="srclist"><li><a href="https://www.mlb.com/standings/2026" rel="noopener nofollow" target="_blank">MLB.com official 2026 standings (Brewers 103-59, 55-26 home, 832/618, +214; Rays 98-64, 55-26 home, 43-38 away, 736/650; next game Oct 23 vs TB)</a></li></ul>
+</article>
+<article class="card flag" id="FL-066">
+  <div class="flag-head"><span class="tag">FL-066</span> <span class="sev sev-high">high</span></div>
+  <h2>Eight volleyball rows carried verification facts for different OLBG event IDs; corrected by fixture identity against Lega Volley and CBV</h2>
+  <p>The 07:25Z integration crossed Trentino/Cisterna, Civitanova/Padova, Monza/Verona and Perugia/Pordenone across IDs 36994-36997, and attached four prior Brazilian records to IDs 37000-37003 now used for different or reordered fixtures. A new 08:35Z overlay preserves every historical raw file while replacing only those IDs. Italian evidence and written pieces move with the fixture, not the number. Brazilian records were rebuilt from CBV Round 2 and Round 1 evidence rather than inherited. The previous Osasco-Sorocaba and Sesi Bauru-Fluminense listings are not presented as part of this current eight-row correction.</p>
+  <p class="muted small">Affected rows: VOL-22, VOL-23, VOL-24, VOL-25, VOL-26, VOL-27, VOL-28, VOL-29, VOL-36994, VOL-36995, VOL-36996, VOL-36997, VOL-37000, VOL-37001, VOL-37002, VOL-37003</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG live Volleyball listing (08:35Z correction capture)</a></li><li><a href="https://www.legavolley.it/calendario/?co=26" rel="noopener nofollow" target="_blank">Lega Pallavolo Serie A official SuperLega calendar, Giornata 1 and 2</a></li><li><a href="https://cbv.com.br/" rel="noopener nofollow" target="_blank">CBV official Superliga Feminina scoreboard, standings and Round 2 list</a></li></ul>
+</article>
+<article class="card flag" id="FL-067">
+  <div class="flag-head"><span class="tag">FL-067</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG and CBV list opposite home/away order for Gerdau Minas versus Paulistano Barueri</h2>
+  <p>OLBG event 37000 is slugged Paulistano-Barueri_W_vs_Minas_W and its Set Score selection is Paulistano/Barueri W to win 3-1. CBV official Round 2 lists Gerdau Minas x Paulistano Barueri on 23 Oct at 18:30 BRT. The published fixture uses CBV official home/away order, preserves the OLBG slug and selection in source fields, and leaves venue blank because the retrieved official list does not state one.</p>
+  <p class="muted small">Affected rows: VOL-25, VOL-37000</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Paulistano-Barueri_W_vs_Minas_W/21?event_id=37000" rel="noopener nofollow" target="_blank">OLBG event 37000 source listing</a></li><li><a href="https://cbv.com.br/" rel="noopener nofollow" target="_blank">CBV official Round 2 fixture order</a></li></ul>
+</article>
+<article class="card flag" id="FL-068">
+  <div class="flag-head"><span class="tag">FL-068</span> <span class="sev sev-low">low</span></div>
+  <h2>Bermuda outright expiry uses the official 22 Oct first tee, not OLBG&#x27;s 25 Oct settlement label</h2>
+  <p>OLBG event 101904 currently labels the Bermuda outright 25 Oct 17:45. PGA Tour officially dates the tournament 22-25 Oct and its R1 tee sheet states EDT with first groups at 6:35 AM EDT on 22 Oct (10:35Z). The source label remains unchanged, but 10:35Z is the effective tournament start for HIGH-pick expiry. At the committed 07:35Z snapshot it had not started.</p>
+  <p class="muted small">Affected rows: GLF-02, GLF-101904</p>
+  <ul class="srclist"><li><a href="https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times" rel="noopener nofollow" target="_blank">PGA Tour official Round 1 tee times (EDT; first groups 6:35 AM)</a></li><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing (outright display label)</a></li></ul>
+</article>
+<article class="card flag" id="FL-069">
+  <div class="flag-head"><span class="tag">FL-069</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Non-winner OLBG consensus was being reused as a match-winner probability; exact-score and handicap inputs are now separated</h2>
+  <p>The root model treated Set Betting, Set Score, 1st Set Winner and handicap tip shares as though they priced the match winner. Those markets remain verbatim in source fields, but their consensus no longer supplies a winner probability. Without a separate official-strength model the root winner price is blank and the row is LOW rather than inventing a number; rows with official strength retain independently originated winner lines. On the /olbg/ track, non-winner consensus is excluded from p_base and only the disclosed independent baseline is used. This correction removes twelve stale consensus-derived root prices and downgrades Gaelic Football GFA-3530 from MEDIUM to LOW; the two remapped Brazilian Set Score rows are also left unpriced on the root track because their crossed official-strength evidence was removed.</p>
+  <p class="muted small">Affected rows: GAF-01, GAF-02, GAF-04, GFA-05, HBL-13, TEN-06, TEN-29, TEN-07, TEN-11, TEN-12, VLB-13, VOL-21, VOL-23, VOL-25, GFA-3530, VOL-37000, VOL-37002</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing (Win Match versus Set Score market definitions)</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG Tennis listing (Set Betting and 1st Set Winner source rows)</a></li><li><a href="https://www.olbg.com/betting-tips/Gaelic_Football/25" rel="noopener nofollow" target="_blank">OLBG Gaelic Football listing (handicap source rows)</a></li><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG Handball listing (handicap source rows)</a></li></ul>
 </article>
 
 </main>

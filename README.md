@@ -10,16 +10,29 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 |---|---|
 | `index.html` | Main dashboard: coverage across all 15 sports, **45 live in-band `HIGH` picks across 12 sports**, filterable 228-row table |
 | `predictions.html` | Written human predictions: **45 live `HIGH` picks** across 12 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **17 `analysis` notes** on short chalk / started / archived rows |
-| `lines.html` | Multi-market originated lines: Money Line / Win Match (`224` priced), Handicap / Spread (`186`), Match Totals Over/Under (`99`), Outrights & Races (`27`) |
+| `lines.html` | Multi-market originated lines: Money Line / Win Match (`210` priced), Handicap / Spread (`172`), Match Totals Over/Under (`99`), Outrights & Races (`27`) |
 | `verification.html` | Line-by-line official governing-body verification table (`210` official/club-verified, `1` third-party corroborated, `17` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: every audit finding + the **65-item** register (`FL-001`..`FL-065`) with direct official & OLBG source links |
+| `flagged.html` | **Flagged for Review**: every audit finding + the **69-item** register (`FL-001`..`FL-069`) with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Unified `2026-10-22T07:25Z` OLBG multi-market lines & audit track (**21 pages**: `270` chained rows across all 15 sports, `35` live in-band `HIGH` predictions across **12 sports**, `65` flagged items) |
+| `/olbg/` | Unified `2026-10-22T07:25Z` OLBG multi-market lines & audit track plus the immutable `08:35Z` volleyball correction overlay (**21 pages**: `270` chained rows across all 15 sports, `35` live in-band `HIGH` predictions across **12 sports**, `69` flagged items) |
 
-## Latest audit — `session-08885c97`, 2026-10-22 08:20–09:10 UTC
+## Latest source correction — `session-5a9926e5`, 2026-10-22 08:35–08:50 UTC
+
+An immutable eight-row volleyball overlay corrects the 07:25 harvest's crossed event IDs without rewriting history. Official Lega Volley and CBV fixture evidence, generated prices, and written predictions now stay with the same teams on both board tracks. Register: **69 items** (`flagged.html`, `/olbg/flagged.html`).
+
+| Finding | What was wrong | Fix |
+|---|---|---|
+| FL-066 | Eight volleyball IDs had crossed the Italian fixtures, selections, and verification evidence | Exact fixture-keyed remapping of IDs `36994`–`36997` and `37000`–`37003`; original 07:25 rows remain preserved and the `08:35Z` source rows take precedence by ID |
+| FL-067 | OLBG lists `37000` as Paulistano/Barueri v Minas, while CBV's official Round 2 table lists Gerdau Minas first | Published home/away order follows CBV; the OLBG slug and label remain visible and the disagreement is flagged |
+| FL-068 | Bermuda's OLBG settlement label (`25 Oct 17:45`) is not the tournament start | PGA Tour's official first tee, `2026-10-22T10:35Z`, now controls expiry while the source label stays displayed |
+| FL-069 | Set Score / Set Betting and other non-winner selections were being used as winner-consensus probabilities | Both models exclude non-winner markets. Unsupported root rows are blank/`LOW`; `/olbg/` uses its disclosed independent baseline where available. Twelve stale consensus-derived root prices were removed and `GFA-3530` was downgraded to `LOW` |
+
+Local candidate validation: **40/40 unit tests**, root board **228 rows / 210 verified / 210 priced / 45 HIGH**, `/olbg/` **270 rows / 35 HIGH / 89 MEDIUM / 146 LOW / 69 flags**, **40** official-feed fixture rows, and **81 pages / 1,280 internal links / zero broken links**. CI and deployment receipts are recorded in `COORDINATION.md` when completed.
+
+## Previous audit — `session-08885c97`, 2026-10-22 08:20–09:10 UTC
 
 Independent re-read of the published write-ups against the competitions' own pages, plus a dead-link sweep of every official source cited by a snooker row.
 Three defects were found and repaired; register: **65 items** (`flagged.html`, `/olbg/flagged.html`).
