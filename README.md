@@ -8,10 +8,10 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 
 | Page | What it is |
 |---|---|
-| `index.html` | Main dashboard: coverage across all 15 sports, 30 live in-band `HIGH` picks across 10 sports, filterable 196-row table |
+| `index.html` | Main dashboard: coverage across all 15 sports, 33 live in-band `HIGH` picks across 10 sports, filterable 196-row table |
 | `predictions.html` | Written human predictions: **30 live `HIGH` picks** across 10 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **14 `analysis` notes** on short chalk / archived rows |
 | `lines.html` | Multi-market originated lines: Money Line / Win Match (`191` priced), Handicap / Spread (`157`), Match Totals Over/Under (`68`), Outrights (`23`) |
-| `verification.html` | Line-by-line official governing-body verification table (`162` official/club-verified, `2` third-party corroborated, `32` unverified left blank) |
+| `verification.html` | Line-by-line official governing-body verification table (`167` official/club-verified, `2` third-party corroborated, `27` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
 | `flagged.html` | **Flagged for Review**: 37 root audit findings + 46 `/olbg/` register items with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
@@ -84,7 +84,7 @@ python3 -m unittest discover -s tests # 20 unit & band invariant tests
 | File | Contents | Track |
 |---|---|---|
 | `data/raw/olbg-harvest-20261022.tsv` | Live `2026-10-22` OLBG harvest across all active sports + multi-market notes | `/olbg/` & root |
-| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`162` verified, `191` priced) | root board |
+| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`167` verified, `192` priced) | root board |
 | `data/predictions.json` | **`44` written pieces**: **`30` live `HIGH` predictions** (`-238` to `+738` US) + `14` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
 | `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
