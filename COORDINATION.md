@@ -1019,7 +1019,7 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **Claimed:** 2026-10-22 02:48 UTC, `task-29-fresh-verification-integration`. Scope: `COORDINATION.md`, `data/audit-f75234a1.json` (new), `flagged.html`/`index.html` only if a live defect is found (logged here if expanded). All prior tasks task-01..task-27 are `done` on `main` (PR #45 merged, commit 3a9f7ca); no active sibling claim overlaps.
 - **Plan:** re-run full checker suite, independently audit band/exclusion/source-link invariants from raw JSON, live spot-check OLBG + official pages, confirm site builds/serves with 0 broken links, PR→main, merge, verify Pages live. Flagged/unverified items do not block.
 
-### task-28 result — `session-f75234a1` (done, 2026-10-22 02:52 UTC)
+### task-29 result — `session-f75234a1` (done, 2026-10-22 02:52 UTC)
 - **Checks (all PASS):** unittest 20/20; `check_board.py` 196 rows/162 verified/191 priced; `tools/check_site.py` 21 pages/145 fixtures/26 HIGH; `scripts/check.py` PASS; `check_links.py` 81 pages/1,234 links/0 broken. Full record: `data/audit-f75234a1.json`.
 - **Independent JSON audit:** 30 root HIGH (-238..+740 US, all inside -250..+10000, min 59 words, 44/44 bodies unique) + 26 /olbg/ HIGH (min 76 words, 26/26 unique); 0 excluded-sport rows; 0 rows missing OLBG URL; 32 unverified rows blank + flagged.
 - **Live spot-verification:** OLBG Tennis live 02:50Z matches stored IDs 902110/902071/902072; MLB official schedule confirms BSB-01 verbatim (WS Game 1 TB@MIL 23 Oct 8pm ET, Jacob Misiorowski probable).
