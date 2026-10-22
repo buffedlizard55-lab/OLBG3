@@ -8,87 +8,60 @@
 <header class="topbar">
   <a class="brand" href="index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="index.html">Dashboard</a><a href="predictions.html">Predictions</a><a href="lines.html">Originated lines</a><a href="verification.html">Verification</a><a href="audit.html">Audit</a><a href="flagged.html">Flagged for Review</a><a href="method.html">Method &amp; Scope</a><a href="feed-overview.html">Official feed</a><a href="matches.html">Feed matches</a><a href="coverage.html">Feed coverage</a><a href="review.html">Feed review</a><a href="olbg/index.html">OLBG lines (audit)</a>
+    <a href="index.html">Dashboard</a><a href="predictions.html">Predictions</a><a href="lines.html">Originated lines</a><a href="source-health.html">Source health</a><a href="flagged.html">Flagged for Review</a><details class="nav-more"><summary>Data &amp; method</summary><div><a href="verification.html">Verification</a><a href="discovery.html">Current discovery</a><a href="audit.html">Audit</a><a href="method.html">Method &amp; Scope</a><a href="feed-overview.html">Official feed</a><a href="matches.html">Feed matches</a><a href="coverage.html">Feed coverage</a><a href="review.html">Feed review</a><a href="olbg/index.html">OLBG lines (audit)</a></div></details>
   </nav>
 </header>
 <main>
-<section class="pagehead">
-  <h1>Method, scope and what we refuse to do</h1>
-</section>
-<h2>Scope</h2>
-<p>OLBG lists 20+ sports. We excluded, on instruction: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing,
-cycling and specials. Everything left is on the board: 114 two-sided fixtures plus the 23 outright and race markets that OLBG publishes
-for golf, Formula 1, greyhound racing, rugby league and the Gaelic football championship. A one-selection market is labelled
-&ldquo;outright&rdquo; or &ldquo;race&rdquo; in the Market column so it cannot be mistaken for a match.</p>
-<div class="grid2">
-  <div class="panel"><h3>Excluded</h3><ul class="tight"><li>Soccer / Football</li><li>American Football</li><li>Boxing</li><li>UFC / MMA</li><li>Hurling</li><li>Horse Racing</li><li>Cycling</li><li>Specials (TV/Politics/Awards)</li></ul></div>
-  <div class="panel"><h3>Included</h3><ul class="tight"><li><a href='sports/tennis.html'>Tennis</a> &mdash; 37 rows (37 fixtures, 0 outright/race)</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 30 rows (30 fixtures, 0 outright/race)</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 13 rows (13 fixtures, 0 outright/race)</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 10 rows (10 fixtures, 0 outright/race)</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 rows (1 fixtures, 0 outright/race)</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 29 rows (29 fixtures, 0 outright/race)</li><li><a href='sports/darts.html'>Darts</a> &mdash; 16 rows (16 fixtures, 0 outright/race)</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 14 rows (14 fixtures, 0 outright/race)</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/handball.html'>Handball</a> &mdash; 31 rows (31 fixtures, 0 outright/race)</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 6 rows (5 fixtures, 1 outright/race)</li><li><a href='sports/golf.html'>Golf</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li><li><a href='sports/motor_racing.html'>Motor Racing</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/greyhounds.html'>Greyhounds</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li></ul></div>
-</div>
-
-<div class="panel" style="margin-top:14px"><h3>Previously disclosed gap, now closed</h3><ul class="tight"><li>Golf - now captured as 10 outright rows (data/raw/gap_sports_capture_20261021.json)</li><li>Motor Racing - now captured as 1 race and 2 outright rows</li><li>Greyhound Racing - now captured as 6 race rows</li></ul>
-<p class="dim" style="margin:8px 0 0">These four sports were missing from the previous build because their rows are race or tournament markets rather than
-two-sided fixtures. They are now captured from the same OLBG listings and priced with the one-selection model described below, so 27 rows
-(27 of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
-<code>scripts/build_gap_sports.py</code>; output: <code>data/gap_sports.json</code>.</p></div>
-<div class="panel" style="margin-top:14px"><h3>Still not captured</h3><ul class="tight"><li>Esports (no listing surfaced on the OLBG tips index at capture time)</li></ul>
-<p class="dim" style="margin:8px 0 0">No esports listing surfaced on the OLBG tips index at capture time. That is disclosed rather than guessed at.</p></div>
-
-<h2>How the OLBG site is structured (reverse-engineered)</h2>
-<pre class="code">listing : https://www.olbg.com/betting-tips/&lt;Sport_Slug&gt;/&lt;sport_id&gt;
-event   : https://www.olbg.com/betting-tips/&lt;Sport&gt;/&lt;Group&gt;/&lt;Competition&gt;/&lt;Home&gt;_v_&lt;Away&gt;/&lt;sport_id&gt;?event_id=&lt;id&gt;</pre>
-<ul class="tight">
-  <li>IDs found: Tennis 3, Basketball 4, Cricket 7, Snooker 8, Rugby Union 9, Rugby League 10, Baseball 12, Ice Hockey 13, Darts 15, Handball 20, Volleyball 21, Gaelic Football 25.</li>
-  <li>The slug without an ID is a 404; a wrong ID redirects to the right slug, so the slug is authoritative and the ID is cosmetic.</li>
-  <li>The listing exposes, per event: both sides, date/time, competition (only for some sports), the market, the most-tipped selection, the tip count and the percentage of tips on that selection.</li>
-</ul>
-
-<h2>How our lines are made</h2>
-<ol class="steps">
-  <li><strong>Rugby union (URC fixtures).</strong> Expected points for each side = mean(its points-for per game, opponent&rsquo;s points-against per game), taken from the official URC table. Home side +3 points. Margin sd 13 points gives win/draw/loss probabilities; totals come from the same expected-points pair; the handicap line is the projected margin rounded to the nearest half point.</li>
-  <li><strong>Ice hockey (NHL fixtures).</strong> Same idea with goals from the official NHL standings, home side +0.15 goals, and a logistic mapping of the goal difference to a 2-way win probability.</li>
-  <li><strong>Everything else.</strong> The only input on the page is OLBG&rsquo;s consensus tip share, so our probability equals that share, capped at 98% (a 100% share cannot be priced). No total, no handicap &mdash; there is no scoring baseline to build one from.</li>
-  <li><strong>Pricing.</strong> Decimal odds = (1 &minus; 5%) / probability, i.e. a 5% overround allocated in proportion to probability.</li>
-</ol>
-
-<h2>How outright and race prices are made (the one-selection markets)</h2>
-<p>A golf tournament, an F1 race, a greyhound race or a season-long championship has one winner and no opposing side, so there is no
-home/away split and no draw to price. Handicapping it or setting a "match total" would be invention, so we originate the win price only:</p>
-<ol class="steps">
-  <li><code>p = (wins + a) / (total + k)</code>, where the prior <code>Beta(a, b)</code> has mean <code>1/N</code> and strength <code>k</code>
-      (<code>a = k/N</code>, <code>b = k &minus; k/N</code>). In words: the OLBG tip share is shrunk toward "one chance in a field of N".</li>
-  <li>Decimal odds = <code>(1 &minus; 0.05) / p</code>, the same 5% overround as the two-sided model.</li>
-  <li>If OLBG publishes a selection but no tip count (Hero Women&rsquo;s Indian Open), no probability and no price is originated.</li>
-</ol>
-<p class="note"><strong>Disclosed assumptions.</strong> N and k are ours, not facts. OLBG does not publish a field size on any of these rows.</p>
-<div class="tablewrap"><table class="board">
-<thead><tr><th>Field basis</th><th class="num">N assumed</th><th class="num">k (prior strength)</th><th>Why this number</th></tr></thead>
-<tbody><tr><td>all_ireland_32</td><td class='num'>10</td><td class='num'>10</td><td>32</td></tr><tr><td>f1_grid_22</td><td class='num'>12</td><td class='num'>12</td><td>22</td></tr><tr><td>golf_field_156</td><td class='num'>24</td><td class='num'>24</td><td>156</td></tr><tr><td>greyhound_six_dog</td><td class='num'>6</td><td class='num'>6</td><td>6</td></tr><tr><td>nrl_seventeen</td><td class='num'>6</td><td class='num'>6</td><td>17</td></tr><tr><td>state_of_origin_two_side</td><td class='num'>4</td><td class='num'>4</td><td>2</td></tr><tr><td>super_league_twelve</td><td class='num'>6</td><td class='num'>6</td><td>12</td></tr></tbody></table></div>
-<ul class="tight"><li><strong>all_ireland_32</strong> &mdash; Assumed 32-county field for the All-Ireland Senior Football Championship winner market. Not stated on the OLBG page; disclosed assumption.</li><li><strong>f1_grid_22</strong> &mdash; Assumed 22-car grid. formula1.com&#x27;s 2026 driver and team listings retrieved on 2026-10-21 include works entries for Audi, Cadillac and Alpine alongside the established teams, but the race page itself does not state the number of starters, so 22 is a disclosed assumption rather than a verified figure.</li><li><strong>golf_field_156</strong> &mdash; Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact.</li><li><strong>greyhound_six_dog</strong> &mdash; Assumed six-dog field, the standard UK GBGB race size. OLBG&#x27;s race rows do not state the number of runners.</li><li><strong>nrl_seventeen</strong> &mdash; Assumed 17-team NRL field (the 2026 competition size). Not stated on the OLBG page; disclosed assumption.</li><li><strong>state_of_origin_two_side</strong> &mdash; State of Origin is decided between two states (New South Wales and Queensland), so the series-winner market has two outcomes. This is a fact about the competition, not a field-size assumption.</li><li><strong>super_league_twelve</strong> &mdash; Assumed 12-team Super League field for a Grand Final winner market. The competition&#x27;s team count for 2027 is not published on the OLBG page; 12 is the 2026 competition size and is used as a disclosed assumption.</li></ul>
-<p class="dim">The figures above are written into every row (<code>data/gap_sports.json</code>) so a reviewer can recompute the price. Treat them as
-model output, never as a market quote.</p>
-<p class="note"><strong>Disclosed assumptions</strong> (constants we chose, not measured facts):</p>
-<ul class="tight"><li>Rugby union: expected points for a side = mean(its points-for per game, opponent&#x27;s points-against per game); home side gets +3.0 points; margin sd = 13.0 points. Both constants are disclosed modelling assumptions, not measured facts.</li><li>Ice hockey: expected goals for a side = mean(its goals-for per game, opponent&#x27;s goals-against per game); home side gets +0.15 goals; 2-way win probability = logistic(1.0 * goal difference). Modelling assumption.</li><li>Draw: for 3-way sports with official data the draw band is +/-0.5 points around zero margin.</li><li>Overround: 5% total, allocated in proportion to the true (model) probabilities.</li><li>Unverified events: the only available input is the OLBG consensus tip share for one selection, so our probability equals the de-vigged consensus share. These rows are marked basis=&#x27;consensus&#x27; and can never be graded above LOW confidence.</li><li>Source tiers: a fixture counts as verified only when the competition&#x27;s own site (or one of the two clubs&#x27; own sites) shows it. Reputable third parties are recorded as &#x27;corroborated&#x27;, never as verified, and stay on the Flagged for Review page.</li><li>Price band: the brief asks for high-confidence picks priced between -250 and +10000 US odds. That is decimal 1.40 to 101.00. A pick cannot be graded HIGH unless its originated price sits inside that band, so an ultra-short favourite is downgraded to MEDIUM and the reason is published in the row. With a 5% overround the band caps a HIGH pick at about 68% true probability (0.95/1.40 = 0.679).</li><li>Handicaps: for sports with no official scoring table we quote a probability-implied handicap, margin = sigma * z(p). The per-sport sigma (Tennis 4.5 games, Basketball 13.0 points, Handball 7.0 goals, Baseball 3.0 runs, Volleyball 1.6 sets, Snooker 1.4 frames) is a disclosed modelling assumption, not a measured value, and the probability used is capped at 0.85 so a 3-tip public sample cannot produce an absurd line. Cricket, darts and Gaelic football carry no handicap because the scoring format needed to express one was not established.</li><li>Totals are quoted only where an official scoring baseline was captured (rugby union points, ice-hockey goals). Everywhere else the total field is left empty and the reason is published; we do not invent a scoring baseline.</li></ul>
-
-<h2>Confidence grading</h2>
-<p>Three evidence factors, scored 0&ndash;6: fixture verified against an official source (+2), official current-form data for <em>both</em> sides (+2),
-and our model giving the selection at least 55% (+2). A pick is graded <strong>HIGH</strong> only when the score is 6, the originated price sits
-inside <strong>-250 to +10000</strong> US odds (decimal 1.40 to 101.00) and the kick-off has not already passed. A score of 6 that fails the price
-or date test is <strong>MEDIUM</strong> with the reason published; 3&ndash;5 is MEDIUM and 0&ndash;2 is LOW. A row built only on a public tip share can
-never be graded above LOW.</p>
-<p><strong>Why 55% and not 70%?</strong> With our 5% overround, a 70% pick prices at 0.95/0.70 = 1.36, or -280, which is shorter than -250 and
-therefore outside the brief. The band itself caps a HIGH pick at 0.95/1.40 = 67.9% true probability. The previous 65% threshold made the band
-mathematically unreachable (its maximum price was 1.46), which is why all 15 published HIGH picks sat at 1.07&ndash;1.46. The threshold is now 55%,
-and the band &mdash; not the probability alone &mdash; defines the top grade.</p>
-<p>Current split: HIGH 45 &middot; MEDIUM 140 &middot; LOW 43. Of the
-90 rows that clear the evidence bar, 38 are priced shorter than -250 and are published as MEDIUM.</p>
-
-<h2>What we will not do</h2>
-<ul class="tight">
-  <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
-  <li>We do not write predictions for picks we cannot support with verified form. That is why only 45 of 228 rows carry a high-confidence prediction; the 17 longer pieces are clearly labelled medium-confidence analysis.</li>
-  <li>We do not claim that a row is verified because a source exists for the competition. A row is verified only when the specific fixture appears on that source; see the <a href="audit.html">audit page</a>.</li>
-  <li>We do not present our own prices as facts or as bookmaker odds.</li>
-</ul>
+<section class="pagehead"><p class="eyebrow">REPRODUCIBLE ESTIMATES · TRACEABLE FACTS</p><h1>Method &amp; scope</h1>
+<p class="lede">Facts, captured opinions and model estimates are different things. This site labels them separately and never treats a source hostname as factual verification.</p></section>
+<h2>Coverage and exclusions</h2><p>The board contains 201 captured two-sided fixtures and 27 outright/race rows.
+Neither that count nor the public HTML collector proves a full list of updated OLBG matches. Pagination and dynamic content remain a disclosed gap.</p>
+<div class="grid2"><div class="panel"><h3>Excluded sports</h3><ul><li>Soccer / Football</li><li>American Football</li><li>Boxing</li><li>UFC / MMA</li><li>Hurling</li><li>Horse Racing</li><li>Cycling</li><li>Specials (TV/Politics/Awards)</li></ul><p>Gaelic football is retained only as the historically flagged scope ambiguity FL-001; the official-feed track excludes it conservatively.</p></div>
+<div class="panel"><h3>Categories</h3><ul><li><a href='sports/tennis.html'>Tennis</a> &mdash; 37 rows (37 fixtures, 0 outright/race)</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 30 rows (30 fixtures, 0 outright/race)</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 13 rows (13 fixtures, 0 outright/race)</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 10 rows (10 fixtures, 0 outright/race)</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 rows (1 fixtures, 0 outright/race)</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 29 rows (29 fixtures, 0 outright/race)</li><li><a href='sports/darts.html'>Darts</a> &mdash; 16 rows (16 fixtures, 0 outright/race)</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 14 rows (14 fixtures, 0 outright/race)</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/handball.html'>Handball</a> &mdash; 31 rows (31 fixtures, 0 outright/race)</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 6 rows (5 fixtures, 1 outright/race)</li><li><a href='sports/golf.html'>Golf</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li><li><a href='sports/motor_racing.html'>Motor Racing</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/greyhounds.html'>Greyhounds</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li></ul></div></div>
+<h2>1. Discovery is not verification</h2><p>Public OLBG listing and event URLs are preserved. The hourly collector respects robots.txt and makes at most one public listing request per sport, two at a time.
+It reads actual linked text, never guesses a match from its URL, does not call disallowed private APIs and does not bypass challenges or invent pagination URLs.
+New event references remain unverified; their UTC time, competition and betting fields stay blank on <a href="discovery.html">Current discovery</a>.</p>
+<h2>2. Official sporting facts</h2><p>Recorded fixture confirmations and scoring/ranking inputs live in <code>data/official.json</code> and <code>data/verifications.json</code>, with official source links.
+Some are historical observations, not independently refreshed by this pass. Only retrieved official evidence may fill a factual field; third parties stay corroborated.
+The NBA/NHL/MLB connectors refresh their own schedules hourly, keep payload SHA-256 hashes, and show per-source successes and failures. Cached rows are withheld from the current feed.</p>
+<h2>3. Our originated prices</h2><p>The root model in <code>scripts/model.py</code> uses disclosed sport-specific heuristics: scoring-rate/normal-margin models for rugby, basketball and handball, a goals/logistic model for hockey,
+Log5 plus an assumed home adjustment for baseball, and assumed mappings of ranking points, ratings or seeds for some individual sports. Without the relevant inputs it may use a public tip share or leave a market empty.</p>
+<p>The separate <code>/olbg/</code> audit model uses shrunk tip shares and home-logit assumptions, plus explicitly marked <strong>editorial prior overrides</strong> in <code>tools/originate.py</code>.
+Those hard-coded probabilities and total preferences are assumptions, not official statistics, trained coefficients or independently validated edges. Different disclosed models can disagree.</p>
+<p>Both use <code>decimal = 0.95 / p</code>, a <strong>5% price haircut</strong>. In an exhaustive two-way book, the reciprocal probabilities therefore sum to approximately 1.05263 before rounding: about 5.26% overround, not exactly 5%.
+Fair decimal odds would be <code>1/p</code>. Single-selection field priors do not establish an exhaustive market book.</p>
+<h2>4. Markets investigated</h2><div class="tablewrap"><table class="board"><thead><tr><th>Market</th><th>What is available</th><th>Limit / evidence</th></tr></thead><tbody>
+<tr><td>Match winner / money line</td><td>Our modeled selection and prices where inputs exist</td><td>Official schedules establish the fixture, not its probability. <a href="https://www.mlb.com/schedule/2026-10-23">Example official fixture</a></td></tr>
+<tr><td>Handicap / spread / run line / puck line</td><td>Projected or probability-mapped line where shown</td><td>Dispersion and standard prices are modeling assumptions; not verified settlement rules. <a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/model.py">Formula</a></td></tr>
+<tr><td>Match totals</td><td>Root scoring/ranking heuristic or audit-track editorial baseline</td><td>Not a calibrated over/under distribution. Unsupported sport/format fields stay blank. <a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py">Audit priors</a></td></tr>
+<tr><td>Outright / race winner</td><td>Tip share shrunk toward an assumed field-size prior</td><td>Field size and prior strength are assumptions unless separately sourced. No invented opposing side, handicap or total. <a href="https://www.formula1.com/en/racing/2026/united-states">Example race source</a></td></tr>
+<tr><td>Set scores / periods / player props / other markets</td><td>OLBG labels retained where captured; no invented full market inventory</td><td>Automated comprehensive event-market discovery and settlement validation remain unverified. <a href="https://www.olbg.com/betting-tips">OLBG public index</a></td></tr>
+</tbody></table></div>
+<h2>5. Confidence and publication</h2><p>LOW/MEDIUM/HIGH are uncalibrated model evidence grades, not observed win rates. The root rubric scores fixture evidence, stored form inputs and its model preference.
+HIGH also requires a unique sourced prediction of at least 30 words, an originated price from 1.40 to 101.00 (−250 to +10000 US), and a current official-start release.</p>
+<p>No observed bookmaker price was verified, so <strong>we cannot certify that a market price is in the requested range or that a bet has positive expected value</strong>.
+Do not confuse filtering out very short model favorites with discovering value.</p>
+<p>A release requires a dated observation with an explicitly timezone-qualified exact official clock. No timezone is assigned to bare OLBG labels.
+“Followed by”, “not before”, session ordering and date-only draws cannot establish an exact start. A HIGH release expires at its scheduled start or 24 hours after the source check, whichever comes first.
+Passed starts are not final-result claims. A conflict blanks affected model lines and holds the pick for review. <a href="source-health.html">Inspect all release decisions →</a></p>
+<h2>6. Reproduce and validate</h2><pre class="code">python scripts/update.py
+python scripts/discovery.py
+python scripts/build.py
+python scripts/build_gap_sports.py
+python scripts/model.py
+python scripts/build_site.py
+python tools/build_dataset.py
+python tools/originate.py
+python tools/build_site.py
+python scripts/build_site.py --snapshot
+python -m unittest discover -s tests -v
+python scripts/check_board.py
+python tools/check_site.py
+python scripts/check.py
+python scripts/check_links.py</pre>
+<p>Use explicit <code>OLBG_NOW_UTC=2026-10-22T08:33Z</code> and <code>OLBG_AS_OF=2026-10-22</code> to reproduce a historical publication clock.
+This never renews capture/source timestamps. Builds and link checks are structural validation, not proof that every historical claim is supported.</p>
+<p>Outstanding issues and historical corrections are published on <a href="flagged.html">Flagged for Review</a>. No guaranteed outcomes. 18+.</p>
 
 </main>
 <footer>
@@ -96,10 +69,11 @@ and the band &mdash; not the probability alone &mdash; defines the top grade.</p
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
   <p><strong>Snapshot, not a complete live fixture feed.</strong> Rebuilding does not refresh the captured OLBG listings or
   reverify official sources. HIGH is an evidence-based model grade, not a calibrated win rate or a demonstrated betting edge.
-  Same-day start times have no confirmed timezone; a date-only expiry check cannot establish that a match is still upcoming.
+  Only explicitly timezone-qualified official clocks are converted to UTC. HIGH release expires at the scheduled start or 24 hours after its source check, whichever comes first. A clock cannot establish the final result.
   See <a href="flagged.html">Flagged for Review</a> for limitations.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
 </footer>
 <script src="assets/app.js"></script>
+<script src="assets/release.js"></script>
 </body></html>

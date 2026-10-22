@@ -93,6 +93,13 @@ ALLOWED_HOSTS = {
     "www.cvf.cz",
     "www.plusliga.pl",
     "www.pgatour.com",
+    # Governing-body reference portals linked as "official reference — fixture unverified"
+    # for rows without a retrieved official confirmation (session-0570f99b). The link is a
+    # research lead to the sport's official body, never a claim that it confirms the row.
+    "www.world.rugby",
+    "www.intrl.sport",
+    "www.gaa.ie",
+    "www.volleyballworld.com",
     "www.ladieseuropeantour.com",
     "munster.gaa.ie",
     "gaacork.ie",

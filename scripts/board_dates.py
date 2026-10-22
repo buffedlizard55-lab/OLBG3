@@ -23,17 +23,34 @@ import re
 import os
 
 CAPTURE_DATE = dt.date(2026, 10, 21)   # data/events.json -> "generated"
-SNAPSHOT_UTC = dt.datetime(2026, 10, 22, 7, 35, tzinfo=dt.timezone.utc)
+
 
 
 def snapshot_utc():
-    """Deterministic UTC reference clock for committed snapshot builds (`OLBG_NOW_UTC` overrides)."""
+    """Deterministic publication clock: the newest committed source observation.
+
+    The committed build must be byte-reproducible (CI fails the build when a rebuild
+    drifts), so the default clock comes from data/release_checks.json rather than the
+    wall clock. Freshness against real time is enforced three ways instead: the date-level
+    AS_OF gate uses real UTC today, the release gate expires 24 h after this stored
+    observation clock, and the published pages re-check expiry in the browser.
+    `OLBG_NOW_UTC` overrides for live verification passes and tests.
+    """
     override = os.environ.get("OLBG_NOW_UTC")
     if override is not None:
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z", override):
             raise ValueError("OLBG_NOW_UTC must be YYYY-MM-DDTHH:MMZ")
         return dt.datetime.strptime(override, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
-    return SNAPSHOT_UTC
+    try:
+        import json
+        doc = json.loads(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                           "data/release_checks.json"), encoding="utf-8").read())
+        stamps = [c.get("checked_at") for c in doc.get("events", {}).values() if c.get("checked_at")]
+        stamps.append(doc.get("checked_at"))
+        newest = max(s for s in stamps if s)
+        return dt.datetime.fromisoformat(newest.replace("Z", "+00:00")).astimezone(dt.timezone.utc)
+    except (OSError, ValueError, KeyError):
+        return dt.datetime.now(dt.timezone.utc).replace(second=0, microsecond=0)
 
 
 def build_date():
@@ -88,58 +105,18 @@ def resolve_start(label, capture=CAPTURE_DATE):
     return None, f"unrecognised label {label!r}"
 
 
-# The clock attached to an OLBG label is not the venue's local time and OLBG never names a zone.
-# Every row we have been able to compare converts to the organiser's own start time when the label is
-# read as US Eastern (UTC-4 in October, i.e. EDT): 13:00 -> 19:00 CEST handball, 04:00 -> 13:00 Almaty,
-# 08:00 -> 14:00 Lyon, 09:00 -> 13:30-15:00 Brussels. That reading is used ONLY to publish a derived
-# UTC clock and to show whether a same-day kick-off has already passed at build time. It never moves a
-# kick-off date and it never changes a confidence grade (grades must stay reproducible from the
-# committed data, which the hourly CI rebuild re-derives).
-EASTERN_OFFSET_HOURS = 4
-
-
+# OLBG does not identify the timezone of its bare labels. Matching a few fixtures
+# is not permission to assign every sport a US Eastern offset (and UTC-4 is wrong
+# in winter). Only scripts/release.py normalizes explicitly sourced official clocks.
 def resolve_kickoff_utc(label, capture=CAPTURE_DATE):
-    """Return the derived UTC kick-off ('YYYY-MM-DDTHH:MMZ') or (None, reason).
-
-    Derived, never an OLBG value: the label clock is read as US Eastern (see EASTERN_OFFSET_HOURS).
-    """
-    label = (label or "").strip()
-    m = _LABEL.match(label)
-    hours = minutes = None
-    if m:
-        if int(m.group(2)) > 23 or int(m.group(3)) > 59:
-            return None, "invalid clock in label"
-        day = capture if m.group(1) == "Today" else capture + dt.timedelta(days=1)
-        hours, minutes = int(m.group(2)), int(m.group(3))
-    else:
-        m = _DATED.match(label)
-        if not m:
-            return None, f"unrecognised label {label!r}"
-        day_s, mon, year, hh, mi = m.groups()
-        month = _MONTHS.get(mon)
-        if not month:
-            return None, f"unrecognised month {mon!r}"
-        if int(hh) > 23 or int(mi) > 59:
-            return None, "invalid clock in label"
-        y = int(year) if year else capture.year + (month < capture.month)
-        try:
-            day = dt.date(y, month, int(day_s))
-        except ValueError:
-            return None, "invalid calendar date in label"
-        hours, minutes = int(hh), int(mi)
-    moment = dt.datetime(day.year, day.month, day.day, hours, minutes, tzinfo=dt.timezone.utc)
-    moment += dt.timedelta(hours=EASTERN_OFFSET_HOURS)
-    return moment.strftime("%Y-%m-%dT%H:%MZ"), "OLBG clock read as US Eastern (UTC-4)"
+    """Unknown timezone -> blank. Kept as an API for archived consumers."""
+    date, reason = resolve_start(label, capture)
+    return None, ("OLBG timezone unverified; no UTC conversion" if date else reason)
 
 
 def started(label, now_utc=None, capture=CAPTURE_DATE):
-    """True when the derived kick-off is at or before `now_utc` (default: the real UTC clock)."""
-    iso, _reason = resolve_kickoff_utc(label, capture)
-    if not iso:
-        return None
-    moment = dt.datetime.strptime(iso, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
-    now_utc = now_utc or dt.datetime.now(dt.timezone.utc)
-    return moment <= now_utc
+    """A zone-less listing cannot establish whether a fixture has started."""
+    return None
 
 
 def american(decimal_price):

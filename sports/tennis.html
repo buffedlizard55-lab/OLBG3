@@ -8,7 +8,7 @@
 <header class="topbar">
   <a class="brand" href="../index.html"><span class="dot"></span> OLBG3 <span class="brandsub">Match Board</span></a>
   <nav>
-    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../lines.html">Originated lines</a><a href="../verification.html">Verification</a><a href="../audit.html">Audit</a><a href="../flagged.html">Flagged for Review</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a>
+    <a href="../index.html">Dashboard</a><a href="../predictions.html">Predictions</a><a href="../lines.html">Originated lines</a><a href="../source-health.html">Source health</a><a href="../flagged.html">Flagged for Review</a><details class="nav-more"><summary>Data &amp; method</summary><div><a href="../verification.html">Verification</a><a href="../discovery.html">Current discovery</a><a href="../audit.html">Audit</a><a href="../method.html">Method &amp; Scope</a><a href="../feed-overview.html">Official feed</a><a href="../matches.html">Feed matches</a><a href="../coverage.html">Feed coverage</a><a href="../review.html">Feed review</a><a href="../olbg/index.html">OLBG lines (audit)</a></div></details>
   </nav>
 </header>
 <main>
@@ -26,533 +26,384 @@
   <div class="card"><span class="k">37</span><span class="l">rows</span></div>
   <div class="card"><span class="k">36</span><span class="l">officially verified</span></div>
   <div class="card"><span class="k">0</span><span class="l">corroborated (third-party)</span></div>
-  <div class="card"><span class="k">10</span><span class="l">high-confidence picks</span></div>
-  <div class="card"><span class="k">23</span><span class="l">medium-confidence picks</span></div>
+  <div class="card"><span class="k">0</span><span class="l">high-confidence picks</span></div>
+  <div class="card"><span class="k">33</span><span class="l">medium-confidence picks</span></div>
 </div>
 <h2>Rows, our lines and picks</h2>
-<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% overround), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
+<p class="legend"><strong>Our price / Our price 2:</strong> decimal prices we originate (5% price haircut), one for each side, or a single price on a one-selection market. <strong>n/p</strong> = not priced, because the only input was an OLBG consensus figure on a different market. 
 <strong>Basis:</strong> <code>official-league-table</code> / <code>official-standings</code> = model built on official data; <code>consensus</code> = de-vigged OLBG tip share only; <code>none</code> = no defensible input, so no price is shown.</p>
 <div class="tablewrap"><table id="tbl-tennis" class="board"><thead><tr>
-<th>Ref</th><th>Sport</th><th>Competition</th><th>Match / event</th><th>Market</th><th>Start (as listed)</th>
-<th class="num">Our price</th><th class="num">Draw</th><th class="num">Our price 2</th>
-<th>Our pick</th><th class="num">Pick price (US)</th><th>Conf.</th><th>Basis</th><th>Official source</th>
-</tr></thead><tbody><tr data-sport="Tennis" data-conf="MEDIUM" data-text="leylah fernandez aliaksandra sasnovich wta 500 - bnb ningbo open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Leylah_Fernandez_vs_Aliaksandra_Sasnovich/3?event_id=902039" rel="noopener">TEN-01</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 - BNB Ningbo Open</td>
-<td class="match">Leylah Fernandez <span class="vs">v</span> Aliaksandra Sasnovich</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T06:30Z">Today 02:30 <span class="dim small">= 2026-10-21T06:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.10</td><td class="num dim">n/p</td><td class="num">6.79</td>
-<td class="pick">Leylah Fernandez <span class="prob">86%</span></td>
-<td class="num odds">-1000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<th>Ref / sport</th><th>Match / competition</th><th>Captured start / official UTC</th><th>OLBG market</th>
+<th>Our winner / originated odds</th><th>Model confidence</th><th>Official source / reference</th><th>Publication status</th>
+</tr></thead><tbody><tr id="row-TEN-01" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="leylah fernandez aliaksandra sasnovich wta 500 - bnb ningbo open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Leylah_Fernandez_vs_Aliaksandra_Sasnovich/3?event_id=902039" rel="noopener">TEN-01</a><div class="small">Tennis</div></td>
+<td class="match">Leylah Fernandez <span class="vs">v</span> Aliaksandra Sasnovich<div class="small">WTA 500 - BNB Ningbo Open</div></td>
+<td class="when" data-kickoff-utc="">Today 02:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">6/7 public tips — not probabilities</div></td>
+<td class="pick">Leylah Fernandez<div class="odds">1.10 <span class="dim">(-1000 US)</span> <span class="prob">model 86%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="The WTA draw places Fernandez v Sasnovich in the Round of 16 and the tournament&#x27;s published schedule puts that round on 21 Oct. The WTA publishes no machine-readable order of play, so the court slot is taken from the published schedule and matches OLBG&#x27;s 02:30 ET.">&#10003; WTA official main-draw PDF, BNB Ningbo Open 2026 (released 20 Oct)</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="katie boulter viktorija golubic wta 250 - kinoshita group japan open, osaka tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katie_Boulter_vs_Viktorija_Golubic/3?event_id=902065" rel="noopener">TEN-02</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 250 - Kinoshita Group Japan Open, Osaka</td>
-<td class="match">Katie Boulter <span class="vs">v</span> Viktorija Golubic</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T05:30Z">Today 01:30 <span class="dim small">= 2026-10-21T05:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.51</td><td class="num dim">n/p</td><td class="num">2.57</td>
-<td class="pick">Katie Boulter <span class="prob">63%</span></td>
-<td class="num odds">-196 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-02" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="katie boulter viktorija golubic wta 250 - kinoshita group japan open, osaka tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katie_Boulter_vs_Viktorija_Golubic/3?event_id=902065" rel="noopener">TEN-02</a><div class="small">Tennis</div></td>
+<td class="match">Katie Boulter <span class="vs">v</span> Viktorija Golubic<div class="small">WTA 250 - Kinoshita Group Japan Open, Osaka</div></td>
+<td class="when" data-kickoff-utc="">Today 01:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">5/8 public tips — not probabilities</div></td>
+<td class="pick">Katie Boulter<div class="odds">1.51 <span class="dim">(-196 US)</span> <span class="prob">model 63%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf" rel="noopener" title="Pairing and round confirmed on the WTA draw; the Round of 16 is played 21 Oct. OLBG&#x27;s 01:30 ET is ten minutes earlier than the published third-match slot - treated as a slot estimate, not a conflict.">&#10003; WTA official main-draw PDF, Japan Open Osaka 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="james duckworth luciano darderi atp 250 - almaty open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/James_Duckworth_vs_Luciano_Darderi/3?event_id=902038" rel="noopener">TEN-03</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - Almaty Open</td>
-<td class="match">James Duckworth <span class="vs">v</span> Luciano Darderi</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T06:30Z">Today 02:30 <span class="dim small">= 2026-10-21T06:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">4.75</td><td class="num dim">n/p</td><td class="num">1.19</td>
-<td class="pick">Luciano Darderi <span class="prob">80%</span></td>
-<td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-03" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="james duckworth luciano darderi atp 250 - almaty open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/James_Duckworth_vs_Luciano_Darderi/3?event_id=902038" rel="noopener">TEN-03</a><div class="small">Tennis</div></td>
+<td class="match">James Duckworth <span class="vs">v</span> Luciano Darderi<div class="small">ATP 250 - Almaty Open</div></td>
+<td class="when" data-kickoff-utc="">Today 02:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">4/5 public tips — not probabilities</div></td>
+<td class="pick">Luciano Darderi<div class="odds">1.19 <span class="dim">(-526 US)</span> <span class="prob">model 80%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/9410/op.pdf" rel="noopener" title="Opening singles on Centre Court. Almaty is UTC+5, so 11:30 local is 02:30 ET, matching OLBG.">&#10003; ATP official order of play, Almaty (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="adrian mannarino andrey rublev atp 250 - almaty open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Adrian_Mannarino_vs_Andrey_Rublev/3?event_id=902037" rel="noopener">TEN-04</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - Almaty Open</td>
-<td class="match">Adrian Mannarino <span class="vs">v</span> Andrey Rublev</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T09:30Z">Today 05:30 <span class="dim small">= 2026-10-21T09:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">4.75</td><td class="num dim">n/p</td><td class="num">1.19</td>
-<td class="pick">Andrey Rublev <span class="prob">80%</span></td>
-<td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-04" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="adrian mannarino andrey rublev atp 250 - almaty open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Adrian_Mannarino_vs_Andrey_Rublev/3?event_id=902037" rel="noopener">TEN-04</a><div class="small">Tennis</div></td>
+<td class="match">Adrian Mannarino <span class="vs">v</span> Andrey Rublev<div class="small">ATP 250 - Almaty Open</div></td>
+<td class="when" data-kickoff-utc="">Today 05:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">4/5 public tips — not probabilities</div></td>
+<td class="pick">Andrey Rublev<div class="odds">1.19 <span class="dim">(-526 US)</span> <span class="prob">model 80%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/9410/op.pdf" rel="noopener" title="Third on Centre Court (&#x27;followed by&#x27;); OLBG&#x27;s 05:30 ET is the equivalent slot.">&#10003; ATP official order of play, Almaty (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="LOW" data-text="sorana cirstea sara bejlek wta 500 - bnb ningbo open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Sorana_Cirstea_vs_Sara_Bejlek/3?event_id=902074" rel="noopener">TEN-05</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 - BNB Ningbo Open</td>
-<td class="match">Sorana Cirstea <span class="vs">v</span> Sara Bejlek</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T08:00Z">Today 04:00 <span class="dim small">= 2026-10-21T08:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
-<td class="pick">Sorana Cirstea <span class="prob">50%</span></td>
-<td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-05" data-sport="Tennis" data-conf="LOW" data-release="past_date" data-expires-at="" data-text="sorana cirstea sara bejlek wta 500 - bnb ningbo open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Sorana_Cirstea_vs_Sara_Bejlek/3?event_id=902074" rel="noopener">TEN-05</a><div class="small">Tennis</div></td>
+<td class="match">Sorana Cirstea <span class="vs">v</span> Sara Bejlek<div class="small">WTA 500 - BNB Ningbo Open</div></td>
+<td class="when" data-kickoff-utc="">Today 04:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/6 public tips — not probabilities</div></td>
+<td class="pick">Sorana Cirstea<div class="odds">1.90 <span class="dim">(-111 US)</span> <span class="prob">model 50%</span></div></td>
+<td class="confidence-cell"><span class="pill low">LOW</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="Cirstea v Bejlek is a Round of 16 tie on the official draw; the round is scheduled for 21 Oct. Court slot from the published schedule; OLBG&#x27;s 04:00 ET fits third on Centre Court.">&#10003; WTA official main-draw PDF, BNB Ningbo Open 2026 (released 20 Oct)</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="zangar nurlanuly tomas machac atp 250 - almaty open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Zangar_Nurlanuly_vs_Tomas_Machac/3?event_id=901935" rel="noopener">TEN-06</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - Almaty Open</td>
-<td class="match">Zangar Nurlanuly <span class="vs">v</span> Tomas Machac</td>
-<td class="market">1st Set Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T08:00Z">Today 04:00 <span class="dim small">= 2026-10-21T08:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.27</td><td class="num dim">n/p</td><td class="num">3.80</td>
-<td class="pick">Zangar Nurlanuly <span class="prob">75%</span></td>
-<td class="num odds">-370 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-06" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="zangar nurlanuly tomas machac atp 250 - almaty open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Zangar_Nurlanuly_vs_Tomas_Machac/3?event_id=901935" rel="noopener">TEN-06</a><div class="small">Tennis</div></td>
+<td class="match">Zangar Nurlanuly <span class="vs">v</span> Tomas Machac<div class="small">ATP 250 - Almaty Open</div></td>
+<td class="when" data-kickoff-utc="">Today 04:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">1st Set Winner <span class="tag">match</span><div class="small">3/4 public tips — not probabilities</div></td>
+<td class="pick">Zangar Nurlanuly<div class="odds">1.27 <span class="dim">(-370 US)</span> <span class="prob">model 75%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/9410/op.pdf" rel="noopener" title="Second on Centre Court (&#x27;followed by&#x27;); OLBG&#x27;s 04:00 ET is the equivalent slot.">&#10003; ATP official order of play, Almaty (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="mattia bellucci tomas martin etcheverry atp 250 - almaty open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mattia_Bellucci_vs_Tomas_Martin_Etcheverry/3?event_id=901993" rel="noopener">TEN-07</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - Almaty Open</td>
-<td class="match">Mattia Bellucci <span class="vs">v</span> Tomas Martin Etcheverry</td>
-<td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T06:30Z">Today 02:30 <span class="dim small">= 2026-10-21T06:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">2.88</td><td class="num dim">n/p</td><td class="num">1.42</td>
-<td class="pick">Tomas Martin Etcheverry <span class="prob">67%</span></td>
-<td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-07" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="mattia bellucci tomas martin etcheverry atp 250 - almaty open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mattia_Bellucci_vs_Tomas_Martin_Etcheverry/3?event_id=901993" rel="noopener">TEN-07</a><div class="small">Tennis</div></td>
+<td class="match">Mattia Bellucci <span class="vs">v</span> Tomas Martin Etcheverry<div class="small">ATP 250 - Almaty Open</div></td>
+<td class="when" data-kickoff-utc="">Today 02:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Betting <span class="tag">match</span><div class="small">2/3 public tips — not probabilities</div></td>
+<td class="pick">Tomas Martin Etcheverry<div class="odds">1.42 <span class="dim">(-238 US)</span> <span class="prob">model 67%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/9410/op.pdf" rel="noopener" title="Opening singles on Court 1. Date and 11:30 local start match the OLBG time.">&#10003; ATP official order of play, Almaty (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="dino prizmic damir dzumhur atp 250 - european open, brussels tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Dino_Prizmic_vs_Damir_Dzumhur/3?event_id=901896" rel="noopener">TEN-08</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - European Open, Brussels</td>
-<td class="match">Dino Prizmic <span class="vs">v</span> Damir Dzumhur</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T09:30Z">Today 05:30 <span class="dim small">= 2026-10-21T09:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Damir Dzumhur <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-08" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="dino prizmic damir dzumhur atp 250 - european open, brussels tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Dino_Prizmic_vs_Damir_Dzumhur/3?event_id=901896" rel="noopener">TEN-08</a><div class="small">Tennis</div></td>
+<td class="match">Dino Prizmic <span class="vs">v</span> Damir Dzumhur<div class="small">ATP 250 - European Open, Brussels</div></td>
+<td class="when" data-kickoff-utc="">Today 05:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Damir Dzumhur<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/7485/op.pdf" rel="noopener" title="Opening singles on Court 1. Pairing, date and 11:30 start match the OLBG row exactly.">&#10003; ATP official order of play, Brussels (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="stan wawrinka martin landaluce atp 250 - grand prix de tennis de lyon tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stan_Wawrinka_vs_Martin_Landaluce/3?event_id=901974" rel="noopener">TEN-09</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - Grand Prix de Tennis de Lyon</td>
-<td class="match">Stan Wawrinka <span class="vs">v</span> Martin Landaluce</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T12:00Z">Today 08:00 <span class="dim small">= 2026-10-21T12:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">Stan Wawrinka <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-09" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="stan wawrinka martin landaluce atp 250 - grand prix de tennis de lyon tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stan_Wawrinka_vs_Martin_Landaluce/3?event_id=901974" rel="noopener">TEN-09</a><div class="small">Tennis</div></td>
+<td class="match">Stan Wawrinka <span class="vs">v</span> Martin Landaluce<div class="small">ATP 250 - Grand Prix de Tennis de Lyon</div></td>
+<td class="when" data-kickoff-utc="">Today 08:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Stan Wawrinka<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/496/op.pdf" rel="noopener" title="The sheet lists Wawrinka v Landaluce &#x27;Not Before 14:00&#x27; on Court Central after the opening doubles - 08:00 ET, the OLBG time.">&#10003; ATP official order of play, Lyon (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="david goffin remy bertola atp 250 - european open, brussels tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Remy_Bertola/3?event_id=902028" rel="noopener">TEN-10</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - European Open, Brussels</td>
-<td class="match">David Goffin <span class="vs">v</span> Remy Bertola</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T16:00Z">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
-<td class="pick">David Goffin <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-10" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="david goffin remy bertola atp 250 - european open, brussels tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Remy_Bertola/3?event_id=902028" rel="noopener">TEN-10</a><div class="small">Tennis</div></td>
+<td class="match">David Goffin <span class="vs">v</span> Remy Bertola<div class="small">ATP 250 - European Open, Brussels</div></td>
+<td class="when" data-kickoff-utc="">Today 12:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">David Goffin<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/7485/op.pdf" rel="noopener" title="The official sheet gives &#x27;Not Before 18:00&#x27;, which is 12:00 ET - exactly the OLBG time.">&#10003; ATP official order of play, Brussels (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="LOW" data-text="facundo diaz acosta nikoloz basilashvili atp 250 - almaty open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Facundo_Diaz_Acosta_vs_Nikoloz_Basilashvili/3?event_id=902040" rel="noopener">TEN-11</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - Almaty Open</td>
-<td class="match">Facundo Diaz Acosta <span class="vs">v</span> Nikoloz Basilashvili</td>
-<td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T08:00Z">Today 04:00 <span class="dim small">= 2026-10-21T08:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
-<td class="pick">Facundo Diaz Acosta <span class="prob">50%</span></td>
-<td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-11" data-sport="Tennis" data-conf="LOW" data-release="past_date" data-expires-at="" data-text="facundo diaz acosta nikoloz basilashvili atp 250 - almaty open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Facundo_Diaz_Acosta_vs_Nikoloz_Basilashvili/3?event_id=902040" rel="noopener">TEN-11</a><div class="small">Tennis</div></td>
+<td class="match">Facundo Diaz Acosta <span class="vs">v</span> Nikoloz Basilashvili<div class="small">ATP 250 - Almaty Open</div></td>
+<td class="when" data-kickoff-utc="">Today 04:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Betting <span class="tag">match</span><div class="small">1/2 public tips — not probabilities</div></td>
+<td class="pick">Facundo Diaz Acosta<div class="odds">1.90 <span class="dim">(-111 US)</span> <span class="prob">model 50%</span></div></td>
+<td class="confidence-cell"><span class="pill low">LOW</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/9410/op.pdf" rel="noopener" title="Second on Court 1 (&#x27;followed by&#x27;); OLBG&#x27;s 04:00 ET is the equivalent slot.">&#10003; ATP official order of play, Almaty (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="martin damm francisco cerundolo atp 250 - european open, brussels tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Martin_Damm_vs_Francisco_Cerundolo/3?event_id=902048" rel="noopener">TEN-12</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - European Open, Brussels</td>
-<td class="match">Martin Damm <span class="vs">v</span> Francisco Cerundolo</td>
-<td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T09:30Z">Today 05:30 <span class="dim small">= 2026-10-21T09:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Francisco Cerundolo <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-12" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="martin damm francisco cerundolo atp 250 - european open, brussels tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Martin_Damm_vs_Francisco_Cerundolo/3?event_id=902048" rel="noopener">TEN-12</a><div class="small">Tennis</div></td>
+<td class="match">Martin Damm <span class="vs">v</span> Francisco Cerundolo<div class="small">ATP 250 - European Open, Brussels</div></td>
+<td class="when" data-kickoff-utc="">Today 05:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Betting <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Francisco Cerundolo<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/7485/op.pdf" rel="noopener" title="Opening singles on Centre Court. Pairing, date and 11:30 start match the OLBG row exactly.">&#10003; ATP official order of play, Brussels (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="mariano navone tallon griekspoor atp 250 - european open, brussels tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mariano_Navone_vs_Tallon_Griekspoor/3?event_id=902085" rel="noopener">TEN-13</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 - European Open, Brussels</td>
-<td class="match">Mariano Navone <span class="vs">v</span> Tallon Griekspoor</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T11:00Z">Today 07:00 <span class="dim small">= 2026-10-21T11:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Tallon Griekspoor <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-13" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="mariano navone tallon griekspoor atp 250 - european open, brussels tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mariano_Navone_vs_Tallon_Griekspoor/3?event_id=902085" rel="noopener">TEN-13</a><div class="small">Tennis</div></td>
+<td class="match">Mariano Navone <span class="vs">v</span> Tallon Griekspoor<div class="small">ATP 250 - European Open, Brussels</div></td>
+<td class="when" data-kickoff-utc="">Today 07:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Tallon Griekspoor<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.protennislive.com/posting/2026/7485/op.pdf" rel="noopener" title="Listed as &#x27;followed by&#x27; the 11:30 opener, so the slot is approximate by design; OLBG&#x27;s 07:00 ET falls inside it.">&#10003; ATP official order of play, Brussels (PDF), Wed 21 Oct 2026</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="ekaterina alexandrova marta kostyuk wta 500 - bnb ningbo open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ekaterina_Alexandrova_vs_Marta_Kostyuk/3?event_id=902084" rel="noopener">TEN-14</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 - BNB Ningbo Open</td>
-<td class="match">Ekaterina Alexandrova <span class="vs">v</span> Marta Kostyuk</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-21T11:00Z">Today 07:00 <span class="dim small">= 2026-10-21T11:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Marta Kostyuk <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-14" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="ekaterina alexandrova marta kostyuk wta 500 - bnb ningbo open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ekaterina_Alexandrova_vs_Marta_Kostyuk/3?event_id=902084" rel="noopener">TEN-14</a><div class="small">Tennis</div></td>
+<td class="match">Ekaterina Alexandrova <span class="vs">v</span> Marta Kostyuk<div class="small">WTA 500 - BNB Ningbo Open</div></td>
+<td class="when" data-kickoff-utc="">Today 07:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Marta Kostyuk<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="Alexandrova v Kostyuk is confirmed as a Round of 16 tie on the official draw, scheduled 21 Oct. The WTA publishes no machine-readable order of play, so the exact court slot and time are OLBG&#x27;s and are not independently confirmed here.">&#10003; WTA official main-draw PDF, BNB Ningbo Open 2026 (released 20 Oct)</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="ann li zeynep sonmez wta 250 kinoshita group japan open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Zeynep_Sonmez/3?event_id=902063" rel="noopener">TEN-15</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
-<td class="match">Ann Li <span class="vs">v</span> Zeynep Sonmez</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T02:30Z">Today 22:30 <span class="dim small">= 2026-10-22T02:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.63</td><td class="num">&mdash;</td><td class="num">2.29</td>
-<td class="pick">Ann Li <span class="prob">58%</span></td>
-<td class="num odds">-159 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-15" data-sport="Tennis" data-conf="MEDIUM" data-release="past_date" data-expires-at="" data-text="ann li zeynep sonmez wta 250 kinoshita group japan open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Zeynep_Sonmez/3?event_id=902063" rel="noopener">TEN-15</a><div class="small">Tennis</div></td>
+<td class="match">Ann Li <span class="vs">v</span> Zeynep Sonmez<div class="small">WTA 250 Kinoshita Group Japan Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Today 22:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">8/10 public tips — not probabilities</div></td>
+<td class="pick">Ann Li<div class="odds">1.63 <span class="dim">(-159 US)</span> <span class="prob">model 58%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.wtatennis.com/tournaments/405/osaka/2026/player-list" rel="noopener" title="Top seed Ann Li (#25, def. Emerson Jones 5-7, 6-0, 6-3) vs Zeynep Sonmez (#63, def. Maya Joint 3-6, 6-4, 6-3).">&#10003; WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="mary stoiana moyuka uchijima wta 250 kinoshita group japan open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mary_Stoiana_vs_Moyuka_Uchijima/3?event_id=902067" rel="noopener">TEN-16</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
-<td class="match">Mary Stoiana <span class="vs">v</span> Moyuka Uchijima</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T04:00Z">Tomorrow 00:00 <span class="dim small">= 2026-10-22T04:00Z</span> <span class="tag">started</span></td>
-<td class="num">1.42</td><td class="num dim">n/p</td><td class="num">2.88</td>
-<td class="pick">Mary Stoiana <span class="prob">67%</span></td>
-<td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-16" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="mary stoiana moyuka uchijima wta 250 kinoshita group japan open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Mary_Stoiana_vs_Moyuka_Uchijima/3?event_id=902067" rel="noopener">TEN-16</a><div class="small">Tennis</div></td>
+<td class="match">Mary Stoiana <span class="vs">v</span> Moyuka Uchijima<div class="small">WTA 250 Kinoshita Group Japan Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 00:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">6/9 public tips — not probabilities</div></td>
+<td class="pick">Mary Stoiana<div class="odds">1.42 <span class="dim">(-238 US)</span> <span class="prob">model 67%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.wtatennis.com/tournaments/405/osaka/2026/player-list" rel="noopener" title="Qualifier Mary Stoiana vs Moyuka Uchijima.">&#10003; WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="katarzyna kawa belinda bencic wta 500 bnb ningbo open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katarzyna_Kawa_vs_Belinda_Bencic/3?event_id=902093" rel="noopener">TEN-17</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
-<td class="match">Katarzyna Kawa <span class="vs">v</span> Belinda Bencic</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T06:30Z">Tomorrow 02:30 <span class="dim small">= 2026-10-22T06:30Z</span> <span class="tag">started</span></td>
-<td class="num">3.09</td><td class="num">&mdash;</td><td class="num">1.37</td>
-<td class="pick">Belinda Bencic <span class="prob">69%</span></td>
-<td class="num odds">-270 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-17" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="katarzyna kawa belinda bencic wta 500 bnb ningbo open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katarzyna_Kawa_vs_Belinda_Bencic/3?event_id=902093" rel="noopener">TEN-17</a><div class="small">Tennis</div></td>
+<td class="match">Katarzyna Kawa <span class="vs">v</span> Belinda Bencic<div class="small">WTA 500 BNB Ningbo Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 02:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">6/7 public tips — not probabilities</div></td>
+<td class="pick">Belinda Bencic<div class="odds">1.37 <span class="dim">(-270 US)</span> <span class="prob">model 69%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="Qualifier Katarzyna Kawa vs #5 seed Belinda Bencic (def. Jelena Ostapenko 6-3, 1-1 ret.).">&#10003; WTA Tour — 2026 BNB Ningbo Open official main-draw PDF</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="elena rybakina polina kudermetova wta 500 bnb ningbo open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Polina_Kudermetova/3?event_id=902073" rel="noopener">TEN-18</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
-<td class="match">Elena Rybakina <span class="vs">v</span> Polina Kudermetova</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T11:00Z">Tomorrow 07:00 <span class="dim small">= 2026-10-22T11:00Z</span></td>
-<td class="num">1.19</td><td class="num">&mdash;</td><td class="num">4.78</td>
-<td class="pick">Elena Rybakina <span class="prob">80%</span></td>
-<td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-18" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="elena rybakina polina kudermetova wta 500 bnb ningbo open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Polina_Kudermetova/3?event_id=902073" rel="noopener">TEN-18</a><div class="small">Tennis</div></td>
+<td class="match">Elena Rybakina <span class="vs">v</span> Polina Kudermetova<div class="small">WTA 500 BNB Ningbo Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 07:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">6/8 public tips — not probabilities</div></td>
+<td class="pick">Elena Rybakina<div class="odds">1.19 <span class="dim">(-526 US)</span> <span class="prob">model 80%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="Top seed World No. 1 Elena Rybakina vs qualifier Polina Kudermetova (def. Cristina Bucsa 7-6(5), 6-2).">&#10003; WTA Tour — 2026 BNB Ningbo Open official main-draw PDF</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="daniil medvedev sho shimabukuro atp 250 almaty open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Sho_Shimabukuro/3?event_id=902069" rel="noopener">TEN-19</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Almaty Open (Round of 16)</td>
-<td class="match">Daniil Medvedev <span class="vs">v</span> Sho Shimabukuro</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T09:30Z">Tomorrow 05:30 <span class="dim small">= 2026-10-22T09:30Z</span></td>
-<td class="num">1.28</td><td class="num">&mdash;</td><td class="num">3.71</td>
-<td class="pick">Daniil Medvedev <span class="prob">74%</span></td>
-<td class="num odds">-357 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-19" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="daniil medvedev sho shimabukuro atp 250 almaty open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Sho_Shimabukuro/3?event_id=902069" rel="noopener">TEN-19</a><div class="small">Tennis</div></td>
+<td class="match">Daniil Medvedev <span class="vs">v</span> Sho Shimabukuro<div class="small">ATP 250 Almaty Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 05:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">5/6 public tips — not probabilities</div></td>
+<td class="pick">Daniil Medvedev<div class="odds">1.28 <span class="dim">(-357 US)</span> <span class="prob">model 74%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule" rel="noopener" title="Center Court: (1) Daniil Medvedev vs Sho Shimabukuro.">&#10003; ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="iva jovic jasmine paolini wta 500 bnb ningbo open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Iva_Jovic_vs_Jasmine_Paolini/3?event_id=902075" rel="noopener">TEN-20</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
-<td class="match">Iva Jovic <span class="vs">v</span> Jasmine Paolini</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T05:00Z">Tomorrow 01:00 <span class="dim small">= 2026-10-22T05:00Z</span> <span class="tag">started</span></td>
-<td class="num">1.60</td><td class="num">&mdash;</td><td class="num">2.35</td>
-<td class="pick">Iva Jovic <span class="prob">60%</span></td>
-<td class="num odds">-167 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-20" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="iva jovic jasmine paolini wta 500 bnb ningbo open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Iva_Jovic_vs_Jasmine_Paolini/3?event_id=902075" rel="noopener">TEN-20</a><div class="small">Tennis</div></td>
+<td class="match">Iva Jovic <span class="vs">v</span> Jasmine Paolini<div class="small">WTA 500 BNB Ningbo Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 01:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">4/7 public tips — not probabilities</div></td>
+<td class="pick">Iva Jovic<div class="odds">1.60 <span class="dim">(-167 US)</span> <span class="prob">model 60%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="#4 seed Iva Jovic vs Jasmine Paolini (def. Anhelina Kalinina 6-2, 7-5).">&#10003; WTA Tour — 2026 BNB Ningbo Open official main-draw PDF</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="magda linette katerina siniakova wta 250 kinoshita group japan open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Magda_Linette_vs_Katerina_Siniakova/3?event_id=902071" rel="noopener">TEN-21</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
-<td class="match">Magda Linette <span class="vs">v</span> Katerina Siniakova</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T05:30Z">Tomorrow 01:30 <span class="dim small">= 2026-10-22T05:30Z</span> <span class="tag">started</span></td>
-<td class="num">2.19</td><td class="num">&mdash;</td><td class="num">1.68</td>
-<td class="pick">Katerina Siniakova <span class="prob">57%</span></td>
-<td class="num odds">-147 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-21" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="magda linette katerina siniakova wta 250 kinoshita group japan open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Magda_Linette_vs_Katerina_Siniakova/3?event_id=902071" rel="noopener">TEN-21</a><div class="small">Tennis</div></td>
+<td class="match">Magda Linette <span class="vs">v</span> Katerina Siniakova<div class="small">WTA 250 Kinoshita Group Japan Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 01:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">4/6 public tips — not probabilities</div></td>
+<td class="pick">Katerina Siniakova<div class="odds">1.68 <span class="dim">(-147 US)</span> <span class="prob">model 57%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.wtatennis.com/tournaments/405/osaka/2026/player-list" rel="noopener" title="Magda Linette (def. Claire Liu 6-4, 6-3) vs Katerina Siniakova (def. #2 seed Peyton Stearns 6-4, 0-6, 4-0 ret.).">&#10003; WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="LOW" data-text="antonia ruzic kayla day wta 250 kinoshita group japan open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Antonia_Ruzic_vs_Kayla_Day/3?event_id=902066" rel="noopener">TEN-22</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
-<td class="match">Antonia Ruzic <span class="vs">v</span> Kayla Day</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T02:30Z">Today 22:30 <span class="dim small">= 2026-10-22T02:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
-<td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
-<td class="pick">Antonia Ruzic <span class="prob">50%</span></td>
-<td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-22" data-sport="Tennis" data-conf="LOW" data-release="past_date" data-expires-at="" data-text="antonia ruzic kayla day wta 250 kinoshita group japan open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Antonia_Ruzic_vs_Kayla_Day/3?event_id=902066" rel="noopener">TEN-22</a><div class="small">Tennis</div></td>
+<td class="match">Antonia Ruzic <span class="vs">v</span> Kayla Day<div class="small">WTA 250 Kinoshita Group Japan Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Today 22:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/6 public tips — not probabilities</div></td>
+<td class="pick">Antonia Ruzic<div class="odds">1.90 <span class="dim">(-111 US)</span> <span class="prob">model 50%</span></div></td>
+<td class="confidence-cell"><span class="pill low">LOW</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.wtatennis.com/tournaments/405/osaka/2026/player-list" rel="noopener" title="Antonia Ruzic (def. Paula Badosa 3-6, 6-4, 6-3) vs Kayla Day (def. Sofia Kenin 6-3, 6-2).">&#10003; WTA Tour — 2026 Kinoshita Group Japan Open Osaka player list</a></td>
+<td class="release-cell"><span class="tag">past date</span><div class="small">The recorded fixture date has passed; archive only. Outcome not inferred.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="tomas machac karen khachanov atp 250 almaty open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Tomas_Machac_vs_Karen_Khachanov/3?event_id=902110" rel="noopener">TEN-23</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Almaty Open (Round of 16)</td>
-<td class="match">Tomas Machac <span class="vs">v</span> Karen Khachanov</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T08:00Z">Tomorrow 04:00 <span class="dim small">= 2026-10-22T08:00Z</span></td>
-<td class="num">2.36</td><td class="num">&mdash;</td><td class="num">1.59</td>
-<td class="pick">Karen Khachanov <span class="prob">60%</span></td>
-<td class="num odds">-169 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-23" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="tomas machac karen khachanov atp 250 almaty open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Tomas_Machac_vs_Karen_Khachanov/3?event_id=902110" rel="noopener">TEN-23</a><div class="small">Tennis</div></td>
+<td class="match">Tomas Machac <span class="vs">v</span> Karen Khachanov<div class="small">ATP 250 Almaty Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 04:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/5 public tips — not probabilities</div></td>
+<td class="pick">Karen Khachanov<div class="odds">1.59 <span class="dim">(-169 US)</span> <span class="prob">model 60%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule" rel="noopener" title="Center Court: Tomas Machac vs (5) Karen Khachanov.">&#10003; ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="alexandra eala diana shnaider wta 500 bnb ningbo open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Diana_Shnaider/3?event_id=902072" rel="noopener">TEN-24</a></td>
-<td>Tennis</td>
-<td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
-<td class="match">Alexandra Eala <span class="vs">v</span> Diana Shnaider</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T08:00Z">Tomorrow 04:00 <span class="dim small">= 2026-10-22T08:00Z</span></td>
-<td class="num">2.35</td><td class="num">&mdash;</td><td class="num">1.60</td>
-<td class="pick">Diana Shnaider <span class="prob">60%</span></td>
-<td class="num odds">-167 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-24" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="alexandra eala diana shnaider wta 500 bnb ningbo open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexandra_Eala_vs_Diana_Shnaider/3?event_id=902072" rel="noopener">TEN-24</a><div class="small">Tennis</div></td>
+<td class="match">Alexandra Eala <span class="vs">v</span> Diana Shnaider<div class="small">WTA 500 BNB Ningbo Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 04:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/4 public tips — not probabilities</div></td>
+<td class="pick">Diana Shnaider<div class="odds">1.60 <span class="dim">(-167 US)</span> <span class="prob">model 60%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf" rel="noopener" title="Alexandra Eala (def. Diane Parry 6-3, 6-1) vs #6 seed Diana Shnaider.">&#10003; WTA Tour — 2026 BNB Ningbo Open official main-draw PDF</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="raphael collignon jiri lehecka atp 250 bnp paribas fortis european open brussels (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Raphael_Collignon_vs_Jiri_Lehecka/3?event_id=902104" rel="noopener">TEN-25</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</td>
-<td class="match">Raphael Collignon <span class="vs">v</span> Jiri Lehecka</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T11:30Z">Tomorrow 07:30 <span class="dim small">= 2026-10-22T11:30Z</span></td>
-<td class="num">3.33</td><td class="num">&mdash;</td><td class="num">1.33</td>
-<td class="pick">Jiri Lehecka <span class="prob">71%</span></td>
-<td class="num odds">-303 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-25" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="raphael collignon jiri lehecka atp 250 bnp paribas fortis european open brussels (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Raphael_Collignon_vs_Jiri_Lehecka/3?event_id=902104" rel="noopener">TEN-25</a><div class="small">Tennis</div></td>
+<td class="match">Raphael Collignon <span class="vs">v</span> Jiri Lehecka<div class="small">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 07:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/5 public tips — not probabilities</div></td>
+<td class="pick">Jiri Lehecka<div class="odds">1.33 <span class="dim">(-303 US)</span> <span class="prob">model 71%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule" rel="noopener" title="Centre Court opener: Raphael Collignon vs (2) Jiri Lehecka.">&#10003; ATP Tour — European Open Brussels Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="pierre hugues herbert taylor fritz atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Pierre_Hugues_Herbert_vs_Taylor_Fritz/3?event_id=902087" rel="noopener">TEN-26</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
-<td class="match">Pierre Hugues Herbert <span class="vs">v</span> Taylor Fritz</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T13:30Z">Tomorrow 09:30 <span class="dim small">= 2026-10-22T13:30Z</span></td>
-<td class="num">5.25</td><td class="num">&mdash;</td><td class="num">1.16</td>
-<td class="pick">Taylor Fritz <span class="prob">82%</span></td>
-<td class="num odds">-625 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-26" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="pierre hugues herbert taylor fritz atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Pierre_Hugues_Herbert_vs_Taylor_Fritz/3?event_id=902087" rel="noopener">TEN-26</a><div class="small">Tennis</div></td>
+<td class="match">Pierre Hugues Herbert <span class="vs">v</span> Taylor Fritz<div class="small">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 09:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/5 public tips — not probabilities</div></td>
+<td class="pick">Taylor Fritz<div class="odds">1.16 <span class="dim">(-625 US)</span> <span class="prob">model 82%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/lyon/496/daily-schedule" rel="noopener" title="Court Central: (Q) Pierre-Hugues Herbert vs (2) Taylor Fritz.">&#10003; ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="valentin vacherot luca van assche atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Valentin_Vacherot_vs_Luca_Van_Assche/3?event_id=902103" rel="noopener">TEN-27</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
-<td class="match">Valentin Vacherot <span class="vs">v</span> Luca Van Assche</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T12:00Z">Tomorrow 08:00 <span class="dim small">= 2026-10-22T12:00Z</span></td>
-<td class="num">1.73</td><td class="num">&mdash;</td><td class="num">2.11</td>
-<td class="pick">Valentin Vacherot <span class="prob">55%</span></td>
-<td class="num odds">-137 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-27" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="valentin vacherot luca van assche atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Valentin_Vacherot_vs_Luca_Van_Assche/3?event_id=902103" rel="noopener">TEN-27</a><div class="small">Tennis</div></td>
+<td class="match">Valentin Vacherot <span class="vs">v</span> Luca Van Assche<div class="small">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 08:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/2 public tips — not probabilities</div></td>
+<td class="pick">Valentin Vacherot<div class="odds">1.73 <span class="dim">(-137 US)</span> <span class="prob">model 55%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/lyon/496/daily-schedule" rel="noopener" title="Court Central: (3) Valentin Vacherot vs Luca Van Assche.">&#10003; ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="borna gojo daniel altmaier atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Borna_Gojo_vs_Daniel_Altmaier/3?event_id=902100" rel="noopener">TEN-28</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
-<td class="match">Borna Gojo <span class="vs">v</span> Daniel Altmaier</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T12:00Z">Tomorrow 08:00 <span class="dim small">= 2026-10-22T12:00Z</span></td>
-<td class="num">2.43</td><td class="num">&mdash;</td><td class="num">1.56</td>
-<td class="pick">Daniel Altmaier <span class="prob">61%</span></td>
-<td class="num odds">-179 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-28" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="borna gojo daniel altmaier atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Borna_Gojo_vs_Daniel_Altmaier/3?event_id=902100" rel="noopener">TEN-28</a><div class="small">Tennis</div></td>
+<td class="match">Borna Gojo <span class="vs">v</span> Daniel Altmaier<div class="small">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 08:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">2/4 public tips — not probabilities</div></td>
+<td class="pick">Daniel Altmaier<div class="odds">1.56 <span class="dim">(-179 US)</span> <span class="prob">model 61%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/lyon/496/results" rel="noopener" title="ATP Lyon R16: qualifier Borna Gojo (def. #8 seed Arthur Fery 6-3, 7-6(2)) vs Daniel Altmaier (def. Titouan Droguet 5-7, 7-6(4), 7-6(3)).">&#10003; ATP Tour — Lyon 2026 official results</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="terence atmane mattia bellucci atp 250 almaty open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Terence_Atmane_vs_Mattia_Bellucci/3?event_id=902109" rel="noopener">TEN-29</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Almaty Open (Round of 16)</td>
-<td class="match">Terence Atmane <span class="vs">v</span> Mattia Bellucci</td>
-<td class="market">1st Set Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T06:30Z">Tomorrow 02:30 <span class="dim small">= 2026-10-22T06:30Z</span> <span class="tag">started</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Mattia Bellucci <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">consensus</td>
+<tr id="row-TEN-29" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="terence atmane mattia bellucci atp 250 almaty open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Terence_Atmane_vs_Mattia_Bellucci/3?event_id=902109" rel="noopener">TEN-29</a><div class="small">Tennis</div></td>
+<td class="match">Terence Atmane <span class="vs">v</span> Mattia Bellucci<div class="small">ATP 250 Almaty Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 02:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">1st Set Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Mattia Bellucci<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">consensus</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule" rel="noopener" title="Center Court Day 6 opener: Terence Atmane vs Mattia Bellucci.">&#10003; ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="david goffin alex michelsen atp 250 bnp paribas fortis european open brussels (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Alex_Michelsen/3?event_id=902131" rel="noopener">TEN-30</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</td>
-<td class="match">David Goffin <span class="vs">v</span> Alex Michelsen</td>
-<td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T13:00Z">Tomorrow 09:00 <span class="dim small">= 2026-10-22T13:00Z</span></td>
-<td class="num">2.26</td><td class="num">&mdash;</td><td class="num">1.64</td>
-<td class="pick">Alex Michelsen <span class="prob">58%</span></td>
-<td class="num odds">-156 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-30" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="david goffin alex michelsen atp 250 bnp paribas fortis european open brussels (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/David_Goffin_vs_Alex_Michelsen/3?event_id=902131" rel="noopener">TEN-30</a><div class="small">Tennis</div></td>
+<td class="match">David Goffin <span class="vs">v</span> Alex Michelsen<div class="small">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 09:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Betting <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Alex Michelsen<div class="odds">1.64 <span class="dim">(-156 US)</span> <span class="prob">model 58%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule" rel="noopener" title="Centre Court: (WC) David Goffin vs (5) Alex Michelsen.">&#10003; ATP Tour — European Open Brussels Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="alexander bublik fabian marozsan atp 250 almaty open (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Bublik_vs_Fabian_Marozsan/3?event_id=902082" rel="noopener">TEN-31</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Almaty Open (Round of 16)</td>
-<td class="match">Alexander Bublik <span class="vs">v</span> Fabian Marozsan</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T14:30Z">Tomorrow 10:30 <span class="dim small">= 2026-10-22T14:30Z</span></td>
-<td class="num">1.52</td><td class="num">&mdash;</td><td class="num">2.54</td>
-<td class="pick">Alexander Bublik <span class="prob">63%</span></td>
-<td class="num odds">-192 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-31" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="alexander bublik fabian marozsan atp 250 almaty open (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Bublik_vs_Fabian_Marozsan/3?event_id=902082" rel="noopener">TEN-31</a><div class="small">Tennis</div></td>
+<td class="match">Alexander Bublik <span class="vs">v</span> Fabian Marozsan<div class="small">ATP 250 Almaty Open (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 10:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">3/4 public tips — not probabilities</div></td>
+<td class="pick">Alexander Bublik<div class="odds">1.52 <span class="dim">(-192 US)</span> <span class="prob">model 63%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule" rel="noopener" title="Center Court evening session: (3) Alexander Bublik vs Fabian Marozsan.">&#10003; ATP Tour — Almaty Open Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="damir dzumhur zizou bergs atp 250 bnp paribas fortis european open brussels (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Damir_Dzumhur_vs_Zizou_Bergs/3?event_id=902120" rel="noopener">TEN-32</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</td>
-<td class="match">Damir Dzumhur <span class="vs">v</span> Zizou Bergs</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T15:00Z">Tomorrow 11:00 <span class="dim small">= 2026-10-22T15:00Z</span></td>
-<td class="num">2.29</td><td class="num">&mdash;</td><td class="num">1.62</td>
-<td class="pick">Zizou Bergs <span class="prob">59%</span></td>
-<td class="num odds">-161 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-32" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="damir dzumhur zizou bergs atp 250 bnp paribas fortis european open brussels (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Damir_Dzumhur_vs_Zizou_Bergs/3?event_id=902120" rel="noopener">TEN-32</a><div class="small">Tennis</div></td>
+<td class="match">Damir Dzumhur <span class="vs">v</span> Zizou Bergs<div class="small">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 11:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Zizou Bergs<div class="odds">1.62 <span class="dim">(-161 US)</span> <span class="prob">model 59%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule" rel="noopener" title="Centre Court: Damir Dzumhur vs (6) Zizou Bergs.">&#10003; ATP Tour — European Open Brussels Day 6 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="flavio cobolli stan wawrinka atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Flavio_Cobolli_vs_Stan_Wawrinka/3?event_id=902126" rel="noopener">TEN-33</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
-<td class="match">Flavio Cobolli <span class="vs">v</span> Stan Wawrinka</td>
-<td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T17:00Z">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
-<td class="num">1.49</td><td class="num">&mdash;</td><td class="num">2.62</td>
-<td class="pick">Flavio Cobolli <span class="prob">64%</span></td>
-<td class="num odds">-204 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-33" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="flavio cobolli stan wawrinka atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Flavio_Cobolli_vs_Stan_Wawrinka/3?event_id=902126" rel="noopener">TEN-33</a><div class="small">Tennis</div></td>
+<td class="match">Flavio Cobolli <span class="vs">v</span> Stan Wawrinka<div class="small">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 13:00 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Set Betting <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Flavio Cobolli<div class="odds">1.49 <span class="dim">(-204 US)</span> <span class="prob">model 64%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/lyon/496/daily-schedule" rel="noopener" title="Court Central evening: (1) Flavio Cobolli vs (WC) Stan Wawrinka.">&#10003; ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="kyrian jacquet brandon nakashima atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Kyrian_Jacquet_vs_Brandon_Nakashima/3?event_id=902105" rel="noopener">TEN-34</a></td>
-<td>Tennis</td>
-<td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
-<td class="match">Kyrian Jacquet <span class="vs">v</span> Brandon Nakashima</td>
-<td class="market">Win Match <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-22T18:30Z">Tomorrow 14:30 <span class="dim small">= 2026-10-22T18:30Z</span></td>
-<td class="num">2.76</td><td class="num">&mdash;</td><td class="num">1.45</td>
-<td class="pick">Brandon Nakashima <span class="prob">66%</span></td>
-<td class="num odds">-222 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-34" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="kyrian jacquet brandon nakashima atp 250 grand prix auvergne-rhone-alpes lyon (round of 16) tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Kyrian_Jacquet_vs_Brandon_Nakashima/3?event_id=902105" rel="noopener">TEN-34</a><div class="small">Tennis</div></td>
+<td class="match">Kyrian Jacquet <span class="vs">v</span> Brandon Nakashima<div class="small">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 14:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Win Match <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Brandon Nakashima<div class="odds">1.45 <span class="dim">(-222 US)</span> <span class="prob">model 66%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/lyon/496/daily-schedule" rel="noopener" title="Court Central night: (Q) Kyrian Jacquet vs (5) Brandon Nakashima.">&#10003; ATP Tour — Grand Prix Auvergne-Rhone-Alpes Lyon Day 5 order of play (Thu 22 Oct 2026)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="HIGH" data-text="stefanos tsitsipas james duckworth atp almaty open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Almaty_Open/Stefanos_Tsitsipas_vs_James_Duckworth/3?event_id=902129" rel="noopener">TEN-35</a></td>
-<td>Tennis</td>
-<td class="comp">ATP Almaty Open</td>
-<td class="match">Stefanos Tsitsipas <span class="vs">v</span> James Duckworth</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-23T06:30Z">Tomorrow 02:30 <span class="dim small">= 2026-10-23T06:30Z</span></td>
-<td class="num">1.66</td><td class="num">&mdash;</td><td class="num">2.23</td>
-<td class="pick">Stefanos Tsitsipas <span class="prob">57%</span></td>
-<td class="num odds">-152 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
-<td><span class="pill high">HIGH</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-35" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="stefanos tsitsipas james duckworth atp almaty open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Almaty_Open/Stefanos_Tsitsipas_vs_James_Duckworth/3?event_id=902129" rel="noopener">TEN-35</a><div class="small">Tennis</div></td>
+<td class="match">Stefanos Tsitsipas <span class="vs">v</span> James Duckworth<div class="small">ATP Almaty Open</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 02:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/2 public tips — not probabilities</div></td>
+<td class="pick">Stefanos Tsitsipas<div class="odds">1.66 <span class="dim">(-152 US)</span> <span class="prob">model 57%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/almaty/9410/draws" rel="noopener" title="Confirmed on ATP Tour official Almaty Open draw: [7] Stefanos Tsitsipas (beat Kukushkin 6-1, 6-2) vs James Duckworth (upset [2] Darderi 7-5, 7-6(7)) in Quarter-Final action on Fri 23 Oct 2026.">&#10003; ATP Tour official Almaty Open singles draw (9410)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="MEDIUM" data-text="corentin moutet tommy paul atp grand prix auvergne-rhone-alpes lyon tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Lyon/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133" rel="noopener">TEN-36</a></td>
-<td>Tennis</td>
-<td class="comp">ATP Grand Prix Auvergne-Rhone-Alpes Lyon</td>
-<td class="match">Corentin Moutet <span class="vs">v</span> Tommy Paul</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-23T09:30Z">Tomorrow 05:30 <span class="dim small">= 2026-10-23T09:30Z</span></td>
-<td class="num">2.99</td><td class="num">&mdash;</td><td class="num">1.39</td>
-<td class="pick">Tommy Paul <span class="prob">68%</span></td>
-<td class="num odds">-256 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill medium">MEDIUM</span></td>
-<td class="basis">official-standings</td>
+<tr id="row-TEN-36" data-sport="Tennis" data-conf="MEDIUM" data-release="unverified_start" data-expires-at="" data-text="corentin moutet tommy paul atp grand prix auvergne-rhone-alpes lyon tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Lyon/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133" rel="noopener">TEN-36</a><div class="small">Tennis</div></td>
+<td class="match">Corentin Moutet <span class="vs">v</span> Tommy Paul<div class="small">ATP Grand Prix Auvergne-Rhone-Alpes Lyon</div></td>
+<td class="when" data-kickoff-utc="">Tomorrow 05:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Tommy Paul<div class="odds">1.39 <span class="dim">(-256 US)</span> <span class="prob">model 68%</span></div></td>
+<td class="confidence-cell"><span class="pill medium">MEDIUM</span><div class="small">official-standings</div></td>
 <td class="src"><a class="ok" href="https://www.atptour.com/en/scores/current/lyon/496/draws" rel="noopener" title="Confirmed on ATP Tour official Lyon draw: Corentin Moutet (beat [7] Humbert 6-2, 6-7(5), 7-6(4)) vs [4] Tommy Paul (beat Bonzi 6-4, 6-7(4), 6-3) in Quarter-Final action on Fri 23 Oct 2026.">&#10003; ATP Tour official Lyon singles draw (496)</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr>
-<tr data-sport="Tennis" data-conf="LOW" data-text="talia gibson ashlyn krueger wta guangzhou open tennis">
-<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107" rel="noopener">TEN-37</a></td>
-<td>Tennis</td>
-<td class="comp">WTA Guangzhou Open</td>
-<td class="match">Talia Gibson <span class="vs">v</span> Ashlyn Krueger</td>
-<td class="market">Match Winner <span class="tag">match</span></td>
-<td class="when" data-kickoff-utc="2026-10-23T02:30Z">Today 22:30 <span class="dim small">= 2026-10-23T02:30Z</span></td>
-<td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
-<td class="pick">Ashlyn Krueger <span class="prob">98%</span></td>
-<td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
-<td><span class="pill low">LOW</span></td>
-<td class="basis">consensus</td>
-<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span> &middot; <a class="dim" href="https://www.olbg.com/betting-tips" rel="noopener">check official site</a></td>
+<tr id="row-TEN-37" data-sport="Tennis" data-conf="LOW" data-release="unverified_start" data-expires-at="" data-text="talia gibson ashlyn krueger wta guangzhou open tennis">
+<td class="ref"><a href="https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107" rel="noopener">TEN-37</a><div class="small">Tennis</div></td>
+<td class="match">Talia Gibson <span class="vs">v</span> Ashlyn Krueger<div class="small">WTA Guangzhou Open</div></td>
+<td class="when" data-kickoff-utc="">Today 22:30 <span class="small">OLBG, zone unverified</span></td>
+<td class="market">Match Winner <span class="tag">match</span><div class="small">1/1 public tips — not probabilities</div></td>
+<td class="pick">Ashlyn Krueger<div class="odds">1.02 <span class="dim">(-5000 US)</span> <span class="prob">model 98%</span></div></td>
+<td class="confidence-cell"><span class="pill low">LOW</span><div class="small">consensus</div></td>
+<td class="src"><span class="unver" title="No official source retrieved for this fixture">unverified</span> &middot; <a class="dim" href="https://www.atptour.com/en/scores/current" rel="noopener">ATP official reference; fixture unverified</a></td>
+<td class="release-cell"><span class="tag">unverified start</span><div class="small">No recently checked official, timezone-qualified exact start. Retained as analysis.</div></td>
 </tr></tbody></table></div>
 <h2>Handicap lines we originated (37)</h2><p class="legend"><code>official-form</code> = projected margin built on the competition&rsquo;s own scoring table. <code>consensus-scaled</code> = probability-implied line using a disclosed per-sport margin scale, capped at 85% probability. Both are our own lines, never bookmaker prices.</p><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th>Favourite line</th><th class="num">Price</th><th>Underdog line</th><th class="num">Price</th><th>Basis</th></tr></thead><tbody><tr><td>TEN-01</td><td>Leylah Fernandez <span class="vs">v</span> Aliaksandra Sasnovich</td><td>Leylah Fernandez -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Aliaksandra Sasnovich +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-02</td><td>Katie Boulter <span class="vs">v</span> Viktorija Golubic</td><td>Katie Boulter -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Viktorija Golubic +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-03</td><td>James Duckworth <span class="vs">v</span> Luciano Darderi</td><td>Luciano Darderi -3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>James Duckworth +3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-04</td><td>Adrian Mannarino <span class="vs">v</span> Andrey Rublev</td><td>Andrey Rublev -3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Adrian Mannarino +3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-05</td><td>Sorana Cirstea <span class="vs">v</span> Sara Bejlek</td><td>Sara Bejlek -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Sorana Cirstea +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-06</td><td>Zangar Nurlanuly <span class="vs">v</span> Tomas Machac</td><td>Zangar Nurlanuly -3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Tomas Machac +3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-07</td><td>Mattia Bellucci <span class="vs">v</span> Tomas Martin Etcheverry</td><td>Tomas Martin Etcheverry -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Mattia Bellucci +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-08</td><td>Dino Prizmic <span class="vs">v</span> Damir Dzumhur</td><td>Damir Dzumhur -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Dino Prizmic +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-09</td><td>Stan Wawrinka <span class="vs">v</span> Martin Landaluce</td><td>Stan Wawrinka -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Martin Landaluce +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-10</td><td>David Goffin <span class="vs">v</span> Remy Bertola</td><td>David Goffin -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Remy Bertola +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-11</td><td>Facundo Diaz Acosta <span class="vs">v</span> Nikoloz Basilashvili</td><td>Nikoloz Basilashvili -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Facundo Diaz Acosta +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-12</td><td>Martin Damm <span class="vs">v</span> Francisco Cerundolo</td><td>Francisco Cerundolo -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Martin Damm +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-13</td><td>Mariano Navone <span class="vs">v</span> Tallon Griekspoor</td><td>Tallon Griekspoor -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Mariano Navone +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-14</td><td>Ekaterina Alexandrova <span class="vs">v</span> Marta Kostyuk</td><td>Marta Kostyuk -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Ekaterina Alexandrova +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-15</td><td>Ann Li <span class="vs">v</span> Zeynep Sonmez</td><td>Ann Li -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Zeynep Sonmez +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-16</td><td>Mary Stoiana <span class="vs">v</span> Moyuka Uchijima</td><td>Mary Stoiana -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Moyuka Uchijima +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-17</td><td>Katarzyna Kawa <span class="vs">v</span> Belinda Bencic</td><td>Belinda Bencic -2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Katarzyna Kawa +2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-18</td><td>Elena Rybakina <span class="vs">v</span> Polina Kudermetova</td><td>Elena Rybakina -3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Polina Kudermetova +3.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-19</td><td>Daniil Medvedev <span class="vs">v</span> Sho Shimabukuro</td><td>Daniil Medvedev -2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Sho Shimabukuro +2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-20</td><td>Iva Jovic <span class="vs">v</span> Jasmine Paolini</td><td>Iva Jovic -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Jasmine Paolini +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-21</td><td>Magda Linette <span class="vs">v</span> Katerina Siniakova</td><td>Katerina Siniakova -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Magda Linette +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-22</td><td>Antonia Ruzic <span class="vs">v</span> Kayla Day</td><td>Kayla Day -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Antonia Ruzic +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-23</td><td>Tomas Machac <span class="vs">v</span> Karen Khachanov</td><td>Karen Khachanov -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Tomas Machac +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-24</td><td>Alexandra Eala <span class="vs">v</span> Diana Shnaider</td><td>Diana Shnaider -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Alexandra Eala +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-25</td><td>Raphael Collignon <span class="vs">v</span> Jiri Lehecka</td><td>Jiri Lehecka -2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Raphael Collignon +2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-26</td><td>Pierre Hugues Herbert <span class="vs">v</span> Taylor Fritz</td><td>Taylor Fritz -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Pierre Hugues Herbert +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-27</td><td>Valentin Vacherot <span class="vs">v</span> Luca Van Assche</td><td>Valentin Vacherot -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Luca Van Assche +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-28</td><td>Borna Gojo <span class="vs">v</span> Daniel Altmaier</td><td>Daniel Altmaier -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Borna Gojo +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-29</td><td>Terence Atmane <span class="vs">v</span> Mattia Bellucci</td><td>Mattia Bellucci -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Terence Atmane +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr><tr><td>TEN-30</td><td>David Goffin <span class="vs">v</span> Alex Michelsen</td><td>Alex Michelsen -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>David Goffin +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-31</td><td>Alexander Bublik <span class="vs">v</span> Fabian Marozsan</td><td>Alexander Bublik -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Fabian Marozsan +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-32</td><td>Damir Dzumhur <span class="vs">v</span> Zizou Bergs</td><td>Zizou Bergs -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Damir Dzumhur +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-33</td><td>Flavio Cobolli <span class="vs">v</span> Stan Wawrinka</td><td>Flavio Cobolli -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Stan Wawrinka +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-34</td><td>Kyrian Jacquet <span class="vs">v</span> Brandon Nakashima</td><td>Brandon Nakashima -1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Kyrian Jacquet +1.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-35</td><td>Stefanos Tsitsipas <span class="vs">v</span> James Duckworth</td><td>Stefanos Tsitsipas -0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>James Duckworth +0.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-36</td><td>Corentin Moutet <span class="vs">v</span> Tommy Paul</td><td>Tommy Paul -2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Corentin Moutet +2.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>official-form</td></tr><tr><td>TEN-37</td><td>Talia Gibson <span class="vs">v</span> Ashlyn Krueger</td><td>Ashlyn Krueger -4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td>Talia Gibson +4.5 <span class='dim small'>games</span></td><td class='num'>1.91</td><td class='small'>consensus-scaled</td></tr></tbody></table></div>
 <h2>Match totals we originated (19)</h2><div class="tablewrap"><table class="board"><thead><tr><th>Ref</th><th>Match</th><th class="num">Line</th><th class="num">Over</th><th class="num">Under</th></tr></thead><tbody><tr><td>TEN-15</td><td>Ann Li <span class="vs">v</span> Zeynep Sonmez</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-17</td><td>Katarzyna Kawa <span class="vs">v</span> Belinda Bencic</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-18</td><td>Elena Rybakina <span class="vs">v</span> Polina Kudermetova</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-19</td><td>Daniil Medvedev <span class="vs">v</span> Sho Shimabukuro</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-20</td><td>Iva Jovic <span class="vs">v</span> Jasmine Paolini</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-21</td><td>Magda Linette <span class="vs">v</span> Katerina Siniakova</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-23</td><td>Tomas Machac <span class="vs">v</span> Karen Khachanov</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-24</td><td>Alexandra Eala <span class="vs">v</span> Diana Shnaider</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-25</td><td>Raphael Collignon <span class="vs">v</span> Jiri Lehecka</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-26</td><td>Pierre Hugues Herbert <span class="vs">v</span> Taylor Fritz</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-27</td><td>Valentin Vacherot <span class="vs">v</span> Luca Van Assche</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-28</td><td>Borna Gojo <span class="vs">v</span> Daniel Altmaier</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-30</td><td>David Goffin <span class="vs">v</span> Alex Michelsen</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-31</td><td>Alexander Bublik <span class="vs">v</span> Fabian Marozsan</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-32</td><td>Damir Dzumhur <span class="vs">v</span> Zizou Bergs</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-33</td><td>Flavio Cobolli <span class="vs">v</span> Stan Wawrinka</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-34</td><td>Kyrian Jacquet <span class="vs">v</span> Brandon Nakashima</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-35</td><td>Stefanos Tsitsipas <span class="vs">v</span> James Duckworth</td><td class='num'>22.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr><tr><td>TEN-36</td><td>Corentin Moutet <span class="vs">v</span> Tommy Paul</td><td class='num'>20.5</td><td class='num'>1.91</td><td class='num'>1.91</td></tr></tbody></table></div>
@@ -563,10 +414,11 @@
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
   <p><strong>Snapshot, not a complete live fixture feed.</strong> Rebuilding does not refresh the captured OLBG listings or
   reverify official sources. HIGH is an evidence-based model grade, not a calibrated win rate or a demonstrated betting edge.
-  Same-day start times have no confirmed timezone; a date-only expiry check cannot establish that a match is still upcoming.
+  Only explicitly timezone-qualified official clocks are converted to UTC. HIGH release expires at the scheduled start or 24 hours after its source check, whichever comes first. A clock cannot establish the final result.
   See <a href="../flagged.html">Flagged for Review</a> for limitations.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
 </footer>
 <script src="../assets/app.js"></script>
+<script src="../assets/release.js"></script>
 </body></html>

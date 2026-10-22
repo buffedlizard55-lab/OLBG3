@@ -22,6 +22,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/update.py
+      # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
+      - run: python scripts/discovery.py
       - run: python -m unittest discover -s tests -v
       - run: python scripts/build.py
       # Outright / race markets (Golf, Motor Racing, Greyhounds, Rugby League, Gaelic championship):

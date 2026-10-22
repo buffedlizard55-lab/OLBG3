@@ -1,0 +1,190 @@
+{
+  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds.",
+  "session": "session-0570f99b",
+  "checked_at": "2026-10-22T08:33:00Z",
+  "events": {
+    "160789": {
+      "date": "2026-10-23",
+      "time": "20:00",
+      "timezone": "ET",
+      "kind": "exact",
+      "source": "https://www.mlb.com/schedule/2026-10-23",
+      "quote": "Friday Oct 23 — World Series — TB @ MIL — 8:00 PM ET",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535918": {
+      "date": "2026-10-22",
+      "time": "19:30",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 22, 2026 — Anadolu Efes Istanbul vs. Besiktas Istanbul (19:30 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535920": {
+      "date": "2026-10-22",
+      "time": "20:00",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 22, 2026 — FC Bayern Munich vs. Dubai Basketball (20:00 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535921": {
+      "date": "2026-10-22",
+      "time": "20:05",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 22, 2026 — Maccabi Rapyd Tel Aviv vs. Real Madrid (20:05 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535923": {
+      "date": "2026-10-22",
+      "time": "20:15",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 22, 2026 — Panathinaikos AKTOR Athens vs. Kosner Baskonia Vitoria-Gasteiz (20:15 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535922": {
+      "date": "2026-10-22",
+      "time": "20:30",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 22, 2026 — Armani Olimpia Milan vs. FC Barcelona (20:30 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535924": {
+      "date": "2026-10-22",
+      "time": "20:45",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 22, 2026 — Partizan Mozzart Bet Belgrade vs. Crvena Zvezda Meridianbet Belgrade (20:45 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535928": {
+      "date": "2026-10-23",
+      "time": "19:00",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 23, 2026 — Zalgiris Kaunas vs. LDLC ASVEL Villeurbanne (19:00 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "535925": {
+      "date": "2026-10-23",
+      "time": "20:15",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 23, 2026 — Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul (20:15 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "hold": "Official-source conflict: round-7 preview says Olympiacos score 98.2 ppg, while official standings show 564 points in 6 games (94.0). Conflicting scoring input withheld; no HIGH release.",
+      "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+    },
+    "535926": {
+      "date": "2026-10-23",
+      "time": "20:45",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+      "quote": "October 23, 2026 — Paris Basketball vs. Valencia Basket (20:45 CEST)",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "hold": "Official-source conflict: round-7 preview lists Valencia 5-1 and 98.3 ppg, while official standings list 4-2 and 583 points in 6 games. Conflicting form input withheld; no HIGH release.",
+      "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+    },
+    "12051": {
+      "date": "2026-10-22",
+      "time": "18:45",
+      "timezone": "CEST",
+      "kind": "exact",
+      "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
+      "quote": "OTP Bank - PICK Szeged (HUN) vs GOG (DEN) — Thursday 22 October, 18:45 CEST",
+      "checked_at": "2026-10-22T08:33:00Z"
+    },
+    "9940": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Kyren Wilson vs Pang Junxu",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9942": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Matthew Selt vs Sam Craigie",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9946": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Anthony McGill vs Mateusz Baranowski",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9947": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Elliot Slessor vs Ricky Walden",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9943": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Mark Williams vs Martin O'Donnell",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9945": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — David Gilbert vs Ka Wai Cheung",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9944": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Jordan Brown vs Scott Donaldson",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    },
+    "9941": {
+      "date": "2026-10-22",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.wst.tv/matches/",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Jak Jones vs Daniel Wells",
+      "checked_at": "2026-10-22T08:33:00Z",
+      "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+    }
+  }
+}

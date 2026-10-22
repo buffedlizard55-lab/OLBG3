@@ -18,13 +18,15 @@ disclosed assumption (the size of the field), exactly as the two-sided model doe
     prior        Beta(a, b) with mean 1/N and strength k
                  a = k / N,  b = k - k / N
     probability  p = (wins + a) / (total + k)        # i.e. the tip share shrunk toward 1/N
-    offered      decimal = (1 - 0.05) / p            # 5% overround, same as the two-sided model
+    offered      decimal = (1 - 0.05) / p            # 5% price haircut, same as the two-sided model
 
 N is the field size and k is the prior strength; both are listed per basis below and copied into the
 output so every number can be reproduced and challenged. Nothing here is a verified fact.
 """
 import json
 import os
+from pathlib import Path
+from release import apply_board, sync_predictions
 from urllib.parse import urlparse
 
 import sys
@@ -85,7 +87,7 @@ STRENGTH = {
 
 
 def price(p: float) -> float:
-    """Decimal odds we would offer, with a 5% overround, rounded to 2dp."""
+    """Decimal odds we would offer, with a 5% price haircut, rounded to 2dp."""
     return round((1 - OVERROUND) / p, 2)
 
 
@@ -229,6 +231,10 @@ def main() -> None:
             "row_notes": e["row_notes"],
             "captured_at": cap["captured_at"],
         })
+
+    rows = apply_board(rows, now=snapshot_utc())
+    sync_predictions(Path(ROOT) / 'data/predictions.json', {r['ref']: r for r in rows},
+                     'ref', lambda r: r['pick']['confidence'].lower())
 
     payload = {
         "generated_at": cap["captured_at"],
