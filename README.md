@@ -13,7 +13,7 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 | `lines.html` | Multi-market originated lines: Money Line / Win Match (`192` priced), Handicap / Spread (`158`), Match Totals Over/Under (`75`), Outrights (`23`) |
 | `verification.html` | Line-by-line official governing-body verification table (`172` official/club-verified, `2` third-party corroborated, `22` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: 37 root audit findings + 46 `/olbg/` register items with direct official & OLBG source links |
+| `flagged.html` | **Flagged for Review**: 47 root audit findings + 49 `/olbg/` register items with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
@@ -21,7 +21,7 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 
 ## Latest audit — `session-8c24595c` (2026-10-22)
 
-Re-verified live against official sources and fixed. Full register on `flagged.html` (47 items).
+Re-verified live against official sources and fixed. Full register on `flagged.html` (49 items).
 
 | Finding | What was wrong | Fix |
 |---|---|---|
