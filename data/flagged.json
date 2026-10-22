@@ -1018,6 +1018,75 @@
           "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Danny_Noppert_vs_Stephen_Bunting/15?event_id=32330"
         }
       ]
+    },
+    {
+      "id": "FL-044",
+      "severity": "medium",
+      "title": "Three /olbg/ high-confidence picks were dated 21 October and have been archived",
+      "detail": "The /olbg/ track graded confidence without looking at the fixture date, so three rows whose listed start date was 2026-10-21 (BKB-534839 GS Warriors @ LA Lakers, BKB-535674 SAC Kings @ LA Clippers, TEN-902063 Ann Li vs Zeynep Sonmez) were published as live high-confidence picks on a 22 October build. A tip on a fixture that has already been played is not a prediction. All three are now graded medium with the flag kick_off_passed_archived, and their written pieces are kept on the predictions page under a clearly labelled 'Archived analysis' heading with the reason. A date gate in tools/originate.py and tools/check_site.py prevents a repeat. Live high-confidence count on /olbg/ therefore falls from 26 to 23.",
+      "affected_rows": [
+        "BKB-534839",
+        "BKB-535674",
+        "TEN-902063"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — GS Warriors @ LA Lakers event page",
+          "url": "https://www.olbg.com/betting-tips/Basketball/NBA/4?event_id=534839"
+        },
+        {
+          "label": "OLBG — SAC Kings @ LA Clippers event page",
+          "url": "https://www.olbg.com/betting-tips/Basketball/NBA/4?event_id=535674"
+        },
+        {
+          "label": "OLBG — Ann Li vs Zeynep Sonmez event page",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3?event_id=902063"
+        }
+      ]
+    },
+    {
+      "id": "FL-045",
+      "severity": "medium",
+      "title": "Two golf field sizes were described as officially confirmed; the official pages do not state them",
+      "detail": "GLF-02 (Butterfield Bermuda Championship) and GLF-04 (BMW Ladies Championship) carried verification notes saying the official tournament page confirmed a 120- and a 78-player field. Re-checking pgatour.com and lpga.com on 2026-10-22 confirmed the dates, venue, par, yardage, purse and defending/past champion, but neither official page states a field size. The field counts are still used as model inputs, now labelled as disclosed inputs corroborated by independent golf outlets rather than as facts stated by the governing body. The GLF-02 write-up no longer calls the field 'confirmed'. No price changed: the prior scales the tip share either way, and 120 vs 156 moves GLF-02 from +740 to +748.",
+      "affected_rows": [
+        "GLF-02",
+        "GLF-04"
+      ],
+      "sources": [
+        {
+          "label": "PGA Tour — Butterfield Bermuda Championship overview",
+          "url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"
+        },
+        {
+          "label": "PGA Tour — Butterfield Bermuda Championship facts and figures",
+          "url": "https://www.pgatour.com/article/news/latest/2026/10/20/butterfield-bermuda-championship-facts-and-figures-port-royal-golf-course-southampton-2026"
+        },
+        {
+          "label": "LPGA Tour — BMW Ladies Championship overview",
+          "url": "https://www.lpga.com/tournaments/bmw-lpga-championship/overview"
+        }
+      ]
+    },
+    {
+      "id": "FL-046",
+      "severity": "medium",
+      "title": "Two EuroLeague write-ups named players the cited official page never mentions",
+      "detail": "BKB-20 (Efes v Besiktas) credited the Kaunas road win to 'Shane Larkin and Vincent Poirier', and BKB-21 (Maccabi v Real Madrid) built its case on 'Walter Tavares in the paint and Facundo Campazzo at point guard'. The official EuroLeague Round 7 Game Center, which is now cited on both pieces, instead attributes Efes's backcourt to Cam Payne filling in for the injured Mike James, and Real Madrid's guard step-forward to Theo Maledon. Both write-ups were rewritten to use only what that page states, and the official page was added to their source lists. BKB-21 also now discloses that the home side has won each of the last five meetings, which cuts against the pick.",
+      "affected_rows": [
+        "BKB-20",
+        "BKB-21"
+      ],
+      "sources": [
+        {
+          "label": "EuroLeague — Round 7 Game Center (official)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "EuroLeague — official 2026-27 schedule announcement",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/"
+        }
+      ]
     }
   ]
 }
