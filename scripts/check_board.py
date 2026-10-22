@@ -14,6 +14,7 @@ Rules enforced (each one maps to a promise made on the site):
     that is not on the board.
  6. No data file contains unresolved merge-conflict markers.
 """
+import datetime as dt
 import json
 import os
 import re
@@ -21,7 +22,7 @@ import sys
 from urllib.parse import urlparse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from board_dates import in_band, american, BAND_LOW_DEC, BAND_HIGH_DEC
+from board_dates import in_band, american, snapshot_utc, BAND_LOW_DEC, BAND_HIGH_DEC
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = {"Tennis", "Basketball", "Ice Hockey", "Cricket", "Baseball", "Volleyball", "Darts",
@@ -31,6 +32,7 @@ EXCLUDED = {"football", "soccer", "boxing", "ufc", "mma", "american football", "
             "horse racing", "cycling", "specials"}
 CONF = {"HIGH", "MEDIUM", "LOW"}
 MARKERS = ("<<<<<<<", ">>>>>>>", "=======\n")
+SNAPSHOT_UTC = snapshot_utc()
 
 errors, warnings = [], []
 
@@ -117,6 +119,20 @@ def check_rows(rows, preds):
                               f"-250..+10000 band (decimal {BAND_LOW_DEC}..{BAND_HIGH_DEC})")
             if pk.get("kickoff_passed"):
                 errors.append(f"{ref}: HIGH confidence but its kick-off date has passed")
+            if pk.get("kickoff_started"):
+                errors.append(f"{ref}: HIGH confidence but its same-day kick-off has started")
+            if pk.get("start_iso") == SNAPSHOT_UTC.date().isoformat() \
+                    and pk.get("kickoff_started") is None:
+                errors.append(f"{ref}: HIGH confidence but its same-day start clock is unknown")
+            if pk.get("kickoff_utc"):
+                try:
+                    moment = dt.datetime.strptime(pk["kickoff_utc"], "%Y-%m-%dT%H:%MZ") \
+                        .replace(tzinfo=dt.timezone.utc)
+                    if moment <= SNAPSHOT_UTC:
+                        errors.append(f"{ref}: HIGH confidence but kick-off {pk['kickoff_utc']} is at/before "
+                                      f"snapshot {SNAPSHOT_UTC.strftime('%Y-%m-%dT%H:%MZ')}")
+                except (TypeError, ValueError) as exc:
+                    errors.append(f"{ref}: invalid derived kick-off {pk.get('kickoff_utc')!r}: {exc}")
             if ref not in preds:
                 errors.append(f"{ref}: HIGH confidence but no written prediction")
             elif preds[ref].get("status") != "high":

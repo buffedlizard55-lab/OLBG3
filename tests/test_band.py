@@ -77,6 +77,13 @@ class TestPublishedBoard(unittest.TestCase):
             pk = r["pick"]
             self.assertTrue(bd.in_band(pk["price"]), f"{r['ref']} price {pk['price']} outside band")
             self.assertFalse(pk.get("kickoff_passed"), f"{r['ref']} kick-off has passed")
+            self.assertIs(pk.get("kickoff_started"), False,
+                          f"{r['ref']} has started or lacks a known not-started clock")
+            if pk.get("kickoff_utc"):
+                kickoff = dt.datetime.strptime(pk["kickoff_utc"], "%Y-%m-%dT%H:%MZ") \
+                    .replace(tzinfo=dt.timezone.utc)
+                self.assertGreater(kickoff, bd.snapshot_utc(),
+                                   f"{r['ref']} kick-off is at/before the board snapshot")
             self.assertEqual(pk["american"], bd.american(pk["price"]), r["ref"])
 
     def test_every_high_has_a_prediction(self):

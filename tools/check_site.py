@@ -11,6 +11,7 @@ Checks
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import re
 import sys
@@ -20,9 +21,10 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-from board_dates import build_date  # noqa: E402
+from board_dates import build_date, snapshot_utc  # noqa: E402
 
 BUILD_DATE = build_date()  # real UTC today, never a frozen constant
+SNAPSHOT_UTC = snapshot_utc()
 DOCS = ROOT / "olbg-board"
 DATA = ROOT / "data"
 
@@ -242,7 +244,23 @@ def main() -> int:
                 errors.append(f"high pick {mid} prob {prob} >= 0.70 chalk cap")
             if mid not in pred_ids:
                 errors.append(f"high pick {mid} missing written prediction")
-            if l.get("start") and l["start"] < BUILD_DATE.isoformat():
+            if l.get("kickoff_passed"):
+                errors.append(f"high pick {mid} kick-off date {l.get('start')} has already passed")
+            # `is False` deliberately rejects both started=True and an unknown same-day clock.
+            if l.get("kickoff_started") is not False:
+                errors.append(f"high pick {mid} has started or has no verified-not-started clock "
+                              f"(kickoff_started={l.get('kickoff_started')!r})")
+            if l.get("start_utc"):
+                try:
+                    moment = dt.datetime.fromisoformat(str(l["start_utc"]).replace("Z", "+00:00"))
+                    if moment.tzinfo is None:
+                        raise ValueError("timezone missing")
+                    if moment.astimezone(dt.timezone.utc) <= SNAPSHOT_UTC:
+                        errors.append(f"high pick {mid} start {l['start_utc']} is at/before snapshot "
+                                      f"{SNAPSHOT_UTC.strftime('%Y-%m-%dT%H:%MZ')}")
+                except ValueError as exc:
+                    errors.append(f"high pick {mid} has invalid start_utc {l['start_utc']!r}: {exc}")
+            elif l.get("start") and l["start"] < BUILD_DATE.isoformat():
                 errors.append(f"high pick {mid} kick-off {l['start']} has already passed")
 
     # 6 placeholders

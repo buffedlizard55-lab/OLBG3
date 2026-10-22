@@ -26,9 +26,10 @@ PROB_MAX_HIGH = 0.70     # Strictly exclude >70% heavy chalk from HIGH confidenc
 # honours OLBG_AS_OF so an archived build can be reproduced. Never hard-code the date here, or the
 # clock freezes and yesterday's fixtures keep grading HIGH forever.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from board_dates import build_date  # noqa: E402
+from board_dates import CAPTURE_DATE, build_date, resolve_kickoff_utc, snapshot_utc  # noqa: E402
 
 BUILD_DATE = build_date()
+SNAPSHOT_UTC = snapshot_utc()
 
 HOME_LOGIT = {
     "Basketball": 0.14,
@@ -248,6 +249,70 @@ def resolve_team_side(selection: str | None, home: str | None, away: str | None)
     return None
 
 
+def _capture_date(m: dict) -> dt.date:
+    """Recover the listing date without guessing from the wall clock.
+
+    Fresh rows carry ``fetched_at``. Older rows still carry their resolved date, which
+    determines the capture date unambiguously for Today/Tomorrow labels. The historical
+    board default is only a final compatibility fallback for legacy rows.
+    """
+    if m.get("fetched_at"):
+        try:
+            return dt.date.fromisoformat(str(m["fetched_at"])[:10])
+        except ValueError:
+            pass
+    if m.get("date_iso") and m.get("olbg_date_label") in ("Today", "Tomorrow"):
+        day = dt.date.fromisoformat(m["date_iso"])
+        return day - dt.timedelta(days=m["olbg_date_label"] == "Tomorrow")
+    return CAPTURE_DATE
+
+
+def match_clock(m: dict, now_utc: dt.datetime | None = None) -> tuple[str | None, bool | None, str]:
+    """Return ``(start_utc, started, basis)`` at a deterministic snapshot.
+
+    An official organiser timestamp takes precedence over OLBG's display label. This is
+    essential for outright markets whose displayed date can be the settlement/final-round
+    date rather than the first tee. Otherwise the source label is interpreted with the
+    documented US-Eastern clock rule. Unknown clocks remain ``None``; they are never
+    presented as officially verified times.
+    """
+    now_utc = now_utc or SNAPSHOT_UTC
+    if now_utc.tzinfo is None:
+        raise ValueError("now_utc must be timezone-aware")
+    now_utc = now_utc.astimezone(dt.timezone.utc)
+
+    official = m.get("official_start_utc")
+    if official:
+        try:
+            moment = dt.datetime.fromisoformat(str(official).replace("Z", "+00:00"))
+            if moment.tzinfo is None:
+                raise ValueError("official_start_utc must include a timezone")
+            moment = moment.astimezone(dt.timezone.utc)
+            return (moment.strftime("%Y-%m-%dT%H:%M:%SZ"), moment <= now_utc,
+                    "official organiser start timestamp")
+        except ValueError:
+            # A malformed optional official value must not make the source label unusable.
+            pass
+
+    date_label = str(m.get("olbg_date_label") or "").strip()
+    time_label = str(m.get("olbg_time_label") or "").strip()
+    label = f"{date_label} {time_label}".strip()
+    start_utc, basis = resolve_kickoff_utc(label, capture=_capture_date(m))
+    if start_utc:
+        moment = dt.datetime.strptime(start_utc, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
+        return start_utc, moment <= now_utc, basis
+
+    # A future/previous calendar date is still sufficient to establish not-started/started
+    # when the clock is absent. A same-day unknown clock stays unknown and cannot be HIGH.
+    if m.get("date_iso"):
+        day = dt.date.fromisoformat(m["date_iso"])
+        if day < now_utc.date():
+            return None, True, basis
+        if day > now_utc.date():
+            return None, False, basis
+    return None, None, basis
+
+
 def main() -> None:
     matches = json.loads((DATA / "matches.json").read_text())
     preds_doc = json.loads((DATA / "predictions-olbg.json").read_text()) if (DATA / "predictions-olbg.json").exists() else {"predictions": []}
@@ -262,6 +327,20 @@ def main() -> None:
         p_raw = round(won / tot, 4) if (won is not None and tot) else None
         carried = bool(m.get("row_notes") and "carried from" in m["row_notes"])
         flags: list[str] = []
+        start_utc, clock_started, clock_basis = match_clock(m)
+        ko_passed = bool(m.get("date_iso")) and m["date_iso"] < BUILD_DATE.isoformat()
+        clock_fields = {
+            "start_utc": start_utc,
+            "kickoff_started": clock_started,
+            "kickoff_passed": ko_passed,
+            "clock_basis": clock_basis,
+        }
+        if ko_passed:
+            flags.append("kick_off_passed_archived")
+        elif clock_started:
+            flags.append("kick_off_started_archived")
+        elif clock_started is None:
+            flags.append("kick_off_clock_unverified")
 
         # Outright / multi-runner markets (including Greyhound races)
         if m["market_family"] == "outright" or sport == "Greyhounds":
@@ -281,6 +360,7 @@ def main() -> None:
                     "away": away,
                     "competition": m["competition"],
                     "start": m["date_iso"] or m["olbg_date_label"],
+                    **clock_fields,
                     "olbg_url": m["olbg_url"],
                     "inputs": {
                         "olbg_market": m["olbg_market"],
@@ -306,7 +386,7 @@ def main() -> None:
                     "our_total_unit": None,
                     "our_total_basis": "not applicable to unpriced outright market",
                     "confidence": "low",
-                    "flags": ["zero_tips_unpriced", "outright_market"],
+                    "flags": flags + ["zero_tips_unpriced", "outright_market"],
                 })
                 continue
 
@@ -319,7 +399,7 @@ def main() -> None:
 
             in_window = (PRICE_MIN_HIGH <= price_pick <= PRICE_MAX_HIGH) and (p_pick < PROB_MAX_HIGH)
             if (mid in high_verified_ids and m["competition_status"] == "verified"
-                    and not carried and in_window):
+                    and not carried and in_window and not ko_passed and clock_started is False):
                 conf = "high"
             elif m["competition_status"] == "verified" and tot >= 6 and p_pick >= 0.15 and not carried:
                 conf = "medium"
@@ -334,6 +414,7 @@ def main() -> None:
                 "away": away,
                 "competition": m["competition"],
                 "start": m["date_iso"] or m["olbg_date_label"],
+                **clock_fields,
                 "olbg_url": m["olbg_url"],
                 "inputs": {
                     "olbg_market": m["olbg_market"],
@@ -359,7 +440,7 @@ def main() -> None:
                 "our_total_unit": None,
                 "our_total_basis": "single-selection outright / multi-runner field",
                 "confidence": conf,
-                "flags": ["outright_field_prior"] + (["carried_from_prior_pass"] if carried else []),
+                "flags": flags + ["outright_field_prior"] + (["carried_from_prior_pass"] if carried else []),
             })
             continue
 
@@ -438,13 +519,8 @@ def main() -> None:
             flags.append("heavy_chalk_above_70pct_excluded_from_high")
 
         in_window = (PRICE_MIN_HIGH <= price_pick <= PRICE_MAX_HIGH) and (p_pick < PROB_MAX_HIGH)
-        ko_passed = bool(m.get("date_iso")) and m["date_iso"] < BUILD_DATE.isoformat()
-        if ko_passed:
-            # A fixture whose kick-off date has already passed cannot be a live high-confidence
-            # selection: publishing it as one would mean tipping a match that has been played.
-            flags.append("kick_off_passed_archived")
         if (mid in high_verified_ids and m["competition_status"] == "verified"
-                and not carried and in_window and not ko_passed):
+                and not carried and in_window and not ko_passed and clock_started is False):
             conf = "high"
         elif carried:
             conf = "medium" if (m["competition_status"] == "verified" and (tot or 0) >= 5) else "low"
@@ -462,6 +538,7 @@ def main() -> None:
             "away": away,
             "competition": m["competition"],
             "start": m["date_iso"] or m["olbg_date_label"],
+            **clock_fields,
             "olbg_url": m["olbg_url"],
             "inputs": {
                 "olbg_market": m["olbg_market"],
@@ -491,8 +568,26 @@ def main() -> None:
         })
 
     (DATA / "lines.json").write_text(json.dumps(out, indent=2) + "\n")
+
+    # A written piece remains useful as explicitly labelled analysis after its event starts,
+    # but it must not stay in the live HIGH section. Synchronise statuses from the regenerated
+    # lines so a confidence downgrade can never leave a contradictory prediction behind.
+    confidence_by_id = {row["match_id"]: row["confidence"] for row in out}
+    status_changes = 0
+    for prediction in preds_doc.get("predictions", []):
+        confidence = confidence_by_id.get(prediction.get("match_id"))
+        if confidence is None:
+            continue
+        desired = "high" if confidence == "high" else "analysis"
+        if prediction.get("status") != desired:
+            prediction["status"] = desired
+            status_changes += 1
+    if status_changes:
+        (DATA / "predictions-olbg.json").write_text(json.dumps(preds_doc, indent=2, ensure_ascii=False) + "\n")
+
     counts = {c: sum(1 for x in out if x["confidence"] == c) for c in ("high", "medium", "low")}
-    print(f"lines: {len(out)}  high={counts['high']}  medium={counts['medium']}  low={counts['low']}")
+    print(f"lines: {len(out)}  high={counts['high']}  medium={counts['medium']}  low={counts['low']}  "
+          f"prediction_status_changes={status_changes}")
 
 
 if __name__ == "__main__":
