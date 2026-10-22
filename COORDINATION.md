@@ -922,3 +922,17 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   0 broken; `python3 -m unittest discover -s tests` 20/20; `build_site.py --snapshot` root snapshot refreshed.
 - **Open items unchanged:** the OLBG capture is still 2026-10-21 (no new listing retrieval), no bookmaker odds
   exist in the repo (prices are ours), and 18 rows remain unverified and 4 corroborated-only.
+- **Local verification (2026-10-22, after the rewrite):** `check_board.py` PASS —
+  `rows=137 fixtures=114 outright_or_race=23 verified=115 priced=132 predictions=20`; `check.py` PASS (40 feed
+  rows); `check_links.py` `pages=81 local_links_checked=1234 broken=0`; `python3 -m unittest discover -s tests`
+  20 tests OK; `/olbg/` pipeline (`tools/build_dataset.py` → `originate.py` → `build_site.py` → `check_site.py`)
+  "All checks passed"; `build_site.py --snapshot` refreshed the committed root HTML.
+- **A second stored figure was wrong (MLB):** the 21 October capture recorded Tampa Bay at 755 runs scored / 645
+  allowed. The live standings page gives **736 / 650 (+86)**; the DIFF column agrees. Corrected in
+  `data/official.json` and in the BSB-01 prose (650 conceded, 4.01 per game). The win-loss record (98-64) and the
+  log5 input were unaffected, so the 1.67 price and the HIGH grade did not move.
+- **URC cross-check:** the Round 4 match centre was re-read for RGU-14. It lists Leinster v Munster on Saturday
+  24 October, 13:00, at the Aviva Stadium (match id 292614), and the table gives Leinster 8 points (75/58) and
+  Munster 9 (72/74). Those are the only two sources the RGU-14 write-up uses.
+- **Flagged page:** 36 findings are now published, including the venue correction, the rank correction and the
+  MLB run-total correction. Nothing was hidden or silently overwritten.
