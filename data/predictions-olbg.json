@@ -878,15 +878,16 @@
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "match_id": "DAR-32338",
       "sport": "Darts",
       "match": "European Championship",
-      "selection": "Gerwyn Price Outright Winner (+619 / 7.19)",
-      "confidence": "high",
-      "text": "Gerwyn Price is the remaining OLBG consensus after Luke Humphries withdrew from the 2026 Machineseeker European Championship on 22 October with gastroenteritis. OLBG's tournament page now carries 12 win tips and three of them, 25%, are on Price, who reached the Grand Prix final this month. Our Dirichlet shrinkage toward a 1/32 field prior gives him a 13.2% chance and a price of 7.19 (+619), inside the -250 to +10000 window. The sample is thin, so this is a model-priced longshot rather than a strong edge.",
+      "selection": "No selection published: outright consensus moved from Price (3/12) to van Veen (3/16) during 22 October",
+      "confidence": "analysis",
+      "text": "No selection is published on the 2026 Machineseeker European Championship outright. The OLBG consensus moved twice on 22 October: the morning capture carried Luke Humphries, the 12:45Z re-read carried Gerwyn Price at 3/12 (25%), and the 21:19Z re-read now carries Gian van Veen at 3/16 (19%). Humphries withdrew with gastroenteritis, so the field moved too. Re-pricing a market whose leading selection and field are both moving would publish a number the source no longer supports, so the row is retained as analysis and no high-confidence call is made. The PDC's official schedule remains the fixture source: Westfalenhalle, Dortmund, 22-25 October 2026.",
       "sources": [
         {
           "label": "PDC — Humphries withdraws from 2026 Machineseeker European Championship",
@@ -1073,5 +1074,5 @@
       "status": "high"
     }
   ],
-  "note": "17 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "16 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

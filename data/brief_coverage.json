@@ -34,12 +34,12 @@
   "sports_with_rows": 15,
   "sports_meeting_target": 1,
   "live_high_root": 14,
-  "live_high_olbg": 17,
-  "live_high_union": 17,
+  "live_high_olbg": 16,
+  "live_high_union": 16,
   "root_rows": 265,
   "olbg_rows": 324,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 58
+  "shortfall_to_target": 59
  },
  "sports": [
   {
@@ -535,10 +535,10 @@
    "olbg_priced_win": 17,
    "olbg_handicap": 15,
    "olbg_total": 15,
-   "olbg_high": 2,
-   "live_high_union": 2,
+   "olbg_high": 1,
+   "live_high_union": 1,
    "target": 5,
-   "shortfall": 3,
+   "shortfall": 4,
    "meets_target": false,
    "blocking": {
     "no_official_form": 1,
@@ -553,18 +553,6 @@
     "15 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
    ],
    "live_picks": [
-    {
-     "event_id": "32332",
-     "sport": "Darts",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "DAR-32332",
-     "selection": "Ryan Joyce",
-     "price": 1.42,
-     "american": "-238"
-    },
     {
      "event_id": "26023",
      "sport": "Darts",
@@ -800,7 +788,7 @@
   },
   "olbg": {
    "pieces": 55,
-   "high": 17,
+   "high": 16,
    "words_min": 46,
    "words_median": 81,
    "words_max": 105,
@@ -823,8 +811,8 @@
  "cross_track": {
   "description": "Fixtures captured on both tracks are priced by two independent models. Where they disagree on the selection, both versions are published and listed here for review. A disagreement is not evidence that either side is wrong, and neither is a bookmaker price.",
   "paired_fixtures": 217,
-  "same_selection": 167,
-  "different_selection": 28,
+  "same_selection": 166,
+  "different_selection": 29,
   "withheld_by_one_track": 22,
   "rows": [
    {
@@ -948,6 +936,26 @@
     "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Dirk_van_Duijvenbode/15?event_id=32324"
    },
    {
+    "event_id": "32327",
+    "sport": "Darts",
+    "match": "Nathan Aspinall v Cristo Reyes",
+    "root_ref": "DRT-12",
+    "root_selection": "Nathan Aspinall",
+    "root_price": 1.36,
+    "root_american": -278,
+    "root_prob": 0.6995,
+    "root_confidence": "MEDIUM",
+    "root_start_status": "unverified_start",
+    "olbg_ref": "DAR-32327",
+    "olbg_selection": "Cristo Reyes",
+    "olbg_price": 1.63,
+    "olbg_american": "-159",
+    "olbg_prob": 0.5833,
+    "olbg_confidence": "medium",
+    "olbg_start_status": "unverified_start",
+    "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Nathan_Aspinall_vs_Cristo_Reyes/15?event_id=32327"
+   },
+   {
     "event_id": "32333",
     "sport": "Darts",
     "match": "Krzysztof Ratajski v Dave Chisnall",
@@ -960,9 +968,9 @@
     "root_start_status": "unverified_start",
     "olbg_ref": "DAR-32333",
     "olbg_selection": "Dave Chisnall",
-    "olbg_price": 1.74,
-    "olbg_american": "-135",
-    "olbg_prob": 0.5455,
+    "olbg_price": 1.76,
+    "olbg_american": "-132",
+    "olbg_prob": 0.5385,
     "olbg_confidence": "low",
     "olbg_start_status": "unverified_start",
     "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Krzysztof_Ratajski_vs_Dave_Chisnall/15?event_id=32333"

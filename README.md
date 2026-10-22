@@ -101,6 +101,10 @@ high-confidence picks for every covered sport?* — and the honest answer, publi
   is exactly why the committed labels are published as a timestamped snapshot and no start is derived from them. No row was rewritten from
   those reads.
 
+## Reconciled follow-up — `session-22fd95c8`, 2026-10-22T23:00Z
+
+Claimed the same evening task five minutes before `session-cab97f19` and merged after PRs #102 and #101. The overlap was resolved by resetting onto `main` and keeping only what the merged passes did not cover: the **21:19Z darts re-read** (European Championship outright consensus Price 3/12 → **van Veen 3/16**, eight quarter-final tip counts corrected, Littler–O'Connor relabelled to the win market — FL-107) and a **written-piece price-rule fix** after five snooker pieces quoted stale money-line prices in their selection labels (FL-108, four regression tests). `tools/originate.py` now refuses to certify a `HIGH` row from a piece labelled `analysis`, which removes the 82%-consensus Ryan Joyce row priced at 1.30. Nothing from #101/#102 was reverted; the duplicated parts of this session's own work were dropped rather than re-applied.
+
 ## Post-midday line-by-line timezone audit, PDC World Championship HIGH & root parity — `session-15487122`, 2026-10-22T12:40Z
 
 Line-by-line official-source audit on top of PR #93 (`FL-096`..`FL-098`):
