@@ -574,11 +574,15 @@ for e in events:
             f"The listed kick-off date {start_iso} has passed at the {AS_OF.isoformat()} build, so the pick is "
             f"archived rather than presented as a live high-confidence selection.")
 
+    # OLBG leaves the competition blank for most sports. When the official source we verified the
+    # fixture against names the competition, that name is published instead - it is quoted from the
+    # official page, never inferred from the team names.
+    _conf_comp = (conf.get(ref) or {}).get("competition", "") if isinstance(conf.get(ref), dict) else ""
     picks.append({
         "ref": ref,
         "sport": e["sport"],
         "sport_slug": e["sport_slug"],
-        "competition": e.get("competition", ""),
+        "competition": e.get("competition", "") or _conf_comp,
         "home": e["home"], "away": e["away"],
         "start": e["start"],
         "olbg_market": e.get("market", ""),

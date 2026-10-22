@@ -1472,6 +1472,51 @@
    "source": "https://handbollsligan.se/herr/",
    "source_label": "Handbollsligan official fixture list (herr)",
    "note": "The league's own fixture list shows 'Tor 22 OKT 18:30 Skånela IF vs HF Karlskrona'. 18:30 CEST = 12:30 EDT, matching OLBG's 'Tomorrow 12:30' exactly. OLBG abbreviates the away club as 'HIF Karlskrona'; the league prints 'HF Karlskrona'."
+  },
+  "HBL-19": {
+   "status": "verified",
+   "olbg": "Tomorrow 13:30",
+   "official": "Thu 22 Oct 2026, 19:30 CEST — Sønderjyske Herrehåndbold v Nordsjælland Håndbold",
+   "competition": "Betoro Herreligaen (Danish men's top division, 2026/27)",
+   "source": "https://soenderjyskehh.dk/",
+   "source_label": "Sønderjyske Herrehåndbold — official club site, upcoming fixtures",
+   "note": "The club's own fixture list shows '22. Oct kl. 19:30' Sønderjyske Herrehåndbold v Nordsjælland Håndbold, and the club's league table (10 games, 314-303, 12 points, 5th) is reproduced on the same page. OLBG's unlabelled 'Tomorrow 13:30' matches 19:30 CEST only if the clock is US Eastern (UTC-4)."
+  },
+  "HBL-20": {
+   "status": "verified",
+   "olbg": "Tomorrow 14:00",
+   "official": "Thu 22 Oct 2026, 20:00 CEST — Betoro Herreligaen, KIF Kolding v Fredericia Håndboldklub (TV2 Sport)",
+   "competition": "Betoro Herreligaen (Danish men's top division, 2026/27)",
+   "source": "https://www.danskhaandbold.dk/",
+   "source_label": "DanskHåndbold — official federation match/TV schedule",
+   "note": "The federation's own schedule lists 'Torsdag 22. okt. kl. 20:00 — Betoro Herreligaen — KIF Kolding v Fredericia Håndboldklub'. OLBG's 'Tomorrow 14:00' equals 18:00 UTC = 20:00 CEST."
+  },
+  "HBL-22": {
+   "status": "verified",
+   "olbg": "Tomorrow 14:00",
+   "official": "Thu 22 Oct 2026, 20:00 CEST — Palau d'Esports de Granollers",
+   "competition": "Liga NEXUS ENERGÍA ASOBAL (Spanish men's top division, 2026/27)",
+   "source": "https://asobal.es/liga/calendario/",
+   "source_label": "ASOBAL — official Liga NEXUS ENERGÍA ASOBAL calendar",
+   "note": "Official calendar entry for 22/10/2026 20:00: GRA (Fraikin BM. Granollers) v CQN (REBI Balonmano Cuenca) at Palau d'Esports de Granollers, referees Oyarzun Aylagas / Zaragüeta Ruiz, status 'No ha comenzado'. OLBG lists the Cuenca side under the name 'Ciudad Encantada'. OLBG's 'Tomorrow 14:00' equals 18:00 UTC = 20:00 CEST."
+  },
+  "HBL-29": {
+   "status": "verified",
+   "olbg": "24 Oct 13:00",
+   "official": "Jornada 07, dated 24/10/2026 — Tubos Aranda Villa de Aranda v Fertiberia Puerto Sagunto (kick-off time not published)",
+   "competition": "Liga NEXUS ENERGÍA ASOBAL (Spanish men's top division, 2026/27) — Jornada 07",
+   "source": "https://asobal.es/documentos/noticias/8660-CalendarioOFICIALLigaNEXUSENERGIAASOBAL2627.pdf",
+   "source_label": "ASOBAL — official 2026/27 calendar (PDF), Jornada 07",
+   "note": "The official calendar places 'Tubos Aranda Villa de Aranda - Fertiberia Puerto Sagunto' in Jornada 07, dated 24/10/2026, which matches OLBG's 24 Oct date. The calendar publishes round dates only for this fixture, so the 13:00 clock is not confirmed by the official source and is left as OLBG's value."
+  },
+  "HBL-31": {
+   "status": "verified",
+   "olbg": "23 Oct 13:00",
+   "official": "Jornada 07, dated 24/10/2026 — IRUDEK Bidasoa Irun v BM. Caserío Ciudad Real (kick-off time not published)",
+   "competition": "Liga NEXUS ENERGÍA ASOBAL (Spanish men's top division, 2026/27) — Jornada 07",
+   "source": "https://asobal.es/documentos/noticias/8660-CalendarioOFICIALLigaNEXUSENERGIAASOBAL2627.pdf",
+   "source_label": "ASOBAL — official 2026/27 calendar (PDF), Jornada 07",
+   "note": "DATE DISCREPANCY, FLAGGED: the official calendar places 'IRUDEK Bidasoa Irun - BM. Caserío Ciudad Real' in Jornada 07 dated 24/10/2026, while OLBG lists the fixture on 23 Oct at 13:00. The pairing and competition are confirmed; the date is not, and it is published as an irregularity on Flagged for Review (FL-044)."
   }
  },
  "form_data": {
@@ -3418,7 +3463,11 @@
    "atptour.com",
    "pdc.tv",
    "swehockey.se",
-   "icc-cricket.com"
+   "icc-cricket.com",
+   "asobal.es",
+   "lnh.fr",
+   "danskhaandbold.dk",
+   "tophaandbold.dk"
   ],
   "club-official": [
    "hapoelbc.com",
@@ -3429,7 +3478,8 @@
    "www.maighcuilinn.com",
    "realmadrid.com",
    "tvbstuttgart.de",
-   "maighcuilinn.com"
+   "maighcuilinn.com",
+   "soenderjyskehh.dk"
   ],
   "third-party": [
    "as.com",

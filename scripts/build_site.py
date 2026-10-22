@@ -912,6 +912,15 @@ IRREGULARITY_EXTRA = [
   "row records '23 Oct 20:00' and a Money Line tip at 3/6 (50%). Tip counts were always known to move; a five-hour shift in the clock label "
   "and a change of featured market were not. The captured labels are published unchanged as a snapshot, and no start time is derived from them.",
   "https://www.olbg.com/betting-tips/Baseball/12"),
+ ("Nine handball fixtures were confirmed on their own league's site, and the official clock settles the time-zone question",
+  "Nine of the twelve handball rows that had been published as unverified are now confirmed on the organiser's own page: KIF Kolding v Fredericia on DanskHåndbold's official schedule (<em>Torsdag 22. okt. kl. 20:00, Betoro Herreligaen</em>), Sønderjyske v Nordsjælland on the club's own fixture list (<em>22. Oct kl. 19:30</em>), Önnereds v Ystads IF and Skånela v Karlskrona on the Handbollsligan fixture list (<em>Tors 22 OKT 19:00</em>), Granollers v Cuenca on ASOBAL's calendar (<em>22/10/2026 20:00</em>), and Aix v Toulouse, Limoges v Dunkerque and Sélestat v Caen on the LNH's Daikin StarLigue J08 calendar (<em>ven. 23 oct. 20h00 / 20h30</em>). In every case OLBG's unlabelled clock converts to the official throw-off only when read as US Eastern (UTC&minus;4): 13:30&rarr;19:30, 14:00&rarr;20:00, 14:30&rarr;20:30 CEST. Three rows stay unverified because the organiser's page did not publish the fixture (Skive fH v Aalborg, Estonia W v Kosovo W) or the listing could not be read.",
+  "https://handbollsligan.se/herr/spelschema/"),
+ ("One official Spanish calendar contradicts OLBG's date (FL-044)",
+  "ASOBAL's official 2026/27 calendar places IRUDEK Bidasoa Irun v BM. Caserío Ciudad Real in <em>Jornada 07, dated 24/10/2026</em>. OLBG lists the same fixture on <strong>23 Oct at 13:00</strong>. The pairing and the competition are confirmed, so the row is published as verified with the official round date in its verification block, but the date OLBG shows is a day apart from the official one and is <em>not</em> confirmed. The neighbouring Jornada 07 fixture (Villa de Aranda v Puerto Sagunto, 24 Oct) agrees with OLBG, so this looks like a single-fixture slip rather than a different round.",
+  "https://asobal.es/documentos/noticias/8660-CalendarioOFICIALLigaNEXUSENERGIAASOBAL2627.pdf"),
+ ("OLBG's spelling of the Cuenca club is not the league's",
+  "OLBG lists &lsquo;Ciudad Encantada&rsquo; for the Granollers fixture; ASOBAL's calendar and team list publish the same club as <strong>REBI Balonmano Cuenca</strong> (code CQN). The row is verified on the league's pairing; the club name is published as OLBG printed it, and the league's name is quoted in the verification note rather than silently substituted.",
+  "https://asobal.es/liga/calendario/"),
 ]
 IRREGULARITY_EXTRA.append((
     "Freshness clock repaired; source freshness remains a separate limitation",
