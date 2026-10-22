@@ -75,6 +75,60 @@ def resolve_start(label, capture=CAPTURE_DATE):
     return None, f"unrecognised label {label!r}"
 
 
+# The clock attached to an OLBG label is not the venue's local time and OLBG never names a zone.
+# Every row we have been able to compare converts to the organiser's own start time when the label is
+# read as US Eastern (UTC-4 in October, i.e. EDT): 13:00 -> 19:00 CEST handball, 04:00 -> 13:00 Almaty,
+# 08:00 -> 14:00 Lyon, 09:00 -> 13:30-15:00 Brussels. That reading is used ONLY to publish a derived
+# UTC clock and to show whether a same-day kick-off has already passed at build time. It never moves a
+# kick-off date and it never changes a confidence grade (grades must stay reproducible from the
+# committed data, which the hourly CI rebuild re-derives).
+EASTERN_OFFSET_HOURS = 4
+
+
+def resolve_kickoff_utc(label, capture=CAPTURE_DATE):
+    """Return the derived UTC kick-off ('YYYY-MM-DDTHH:MMZ') or (None, reason).
+
+    Derived, never an OLBG value: the label clock is read as US Eastern (see EASTERN_OFFSET_HOURS).
+    """
+    label = (label or "").strip()
+    m = _LABEL.match(label)
+    hours = minutes = None
+    if m:
+        if int(m.group(2)) > 23 or int(m.group(3)) > 59:
+            return None, "invalid clock in label"
+        day = capture if m.group(1) == "Today" else capture + dt.timedelta(days=1)
+        hours, minutes = int(m.group(2)), int(m.group(3))
+    else:
+        m = _DATED.match(label)
+        if not m:
+            return None, f"unrecognised label {label!r}"
+        day_s, mon, year, hh, mi = m.groups()
+        month = _MONTHS.get(mon)
+        if not month:
+            return None, f"unrecognised month {mon!r}"
+        if int(hh) > 23 or int(mi) > 59:
+            return None, "invalid clock in label"
+        y = int(year) if year else capture.year + (month < capture.month)
+        try:
+            day = dt.date(y, month, int(day_s))
+        except ValueError:
+            return None, "invalid calendar date in label"
+        hours, minutes = int(hh), int(mi)
+    moment = dt.datetime(day.year, day.month, day.day, hours, minutes, tzinfo=dt.timezone.utc)
+    moment += dt.timedelta(hours=EASTERN_OFFSET_HOURS)
+    return moment.strftime("%Y-%m-%dT%H:%MZ"), "OLBG clock read as US Eastern (UTC-4)"
+
+
+def started(label, now_utc=None, capture=CAPTURE_DATE):
+    """True when the derived kick-off is at or before `now_utc` (default: the real UTC clock)."""
+    iso, _reason = resolve_kickoff_utc(label, capture)
+    if not iso:
+        return None
+    moment = dt.datetime.strptime(iso, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
+    now_utc = now_utc or dt.datetime.now(dt.timezone.utc)
+    return moment <= now_utc
+
+
 def american(decimal_price):
     """Decimal -> US odds, rounded the way a sportsbook quotes them."""
     if not decimal_price or decimal_price <= 1:

@@ -34,6 +34,16 @@
   <a href="audit.html">audit page</a>.
 </div>
 
+<div class="notice">
+  <strong>Clock, 2026-10-22.</strong> OLBG prints a bare clock and no time zone. Every row we could compare matches the
+  organiser&rsquo;s own start time only when that clock is read as <strong>US Eastern (UTC&minus;4)</strong> &mdash;
+  04:00 &rarr; 13:00 in Almaty, 08:00 &rarr; 14:00 in Lyon, 09:00 &rarr; 13:30&ndash;15:00 in Brussels, 13:00 &rarr; 19:00 CEST
+  in the handball. Each row therefore shows a derived UTC kick-off, and rows whose kick-off was already running when this page
+  was built carry a <span class="tag">started</span> marker (80 of 196 rows, 3 of them graded HIGH).
+  The marker is information, not a grade change: the grades are re-derived hourly from committed data, so rewriting them against
+  the wall clock would make the published board irreproducible.
+</div>
+
 <div class="cards">
   <div class="card"><span class="k">15</span><span class="l">sports covered</span></div>
   <div class="card"><span class="k">196</span><span class="l">rows on the board</span></div>
@@ -43,7 +53,8 @@
   <div class="card"><span class="k">192</span><span class="l">with our own price</span></div>
   <div class="card"><span class="k">33</span><span class="l">high-confidence picks</span></div>
   <div class="card"><span class="k">33/33</span><span class="l">HIGH picks inside -250..+10000</span></div>
-  <div class="card warn"><span class="k">74</span><span class="l">kick-offs already passed</span></div>
+  <div class="card warn"><span class="k">74</span><span class="l">kick-off date already passed</span></div>
+  <div class="card warn"><span class="k">80</span><span class="l">kick-offs under way at build time</span></div>
   <div class="card warn"><span class="k">22</span><span class="l">flagged unverified</span></div>
 </div>
 
@@ -93,7 +104,7 @@ field-size prior.</p>
 <td class="comp">MLB</td>
 <td class="match">MIL Brewers <span class="vs">v</span> TB Rays</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 20:00</td>
+<td class="when">23 Oct 20:00 <span class="dim small">= 2026-10-24T00:00Z</span></td>
 <td class="num">1.67</td><td class="num">&mdash;</td><td class="num">2.20</td>
 <td class="pick">MIL Brewers <span class="prob">57%</span></td>
 <td class="num odds">-149 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -107,7 +118,7 @@ field-size prior.</p>
 <td class="comp">NBA</td>
 <td class="match">WAS Wizards <span class="vs">v</span> MIL Bucks</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 19:10 <span class="tag">archive</span></td>
+<td class="when">Today 19:10 <span class="dim small">= 2026-10-21T23:10Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.16</td><td class="num dim">n/p</td><td class="num">5.28</td>
 <td class="pick">WAS Wizards <span class="prob">82%</span></td>
 <td class="num odds">-625 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -121,7 +132,7 @@ field-size prior.</p>
 <td class="comp">Euroleague</td>
 <td class="match">Hapoel Tel Aviv <span class="vs">v</span> Virtus Bologna</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.78</td><td class="num">&mdash;</td><td class="num">2.04</td>
 <td class="pick">Hapoel Tel Aviv <span class="prob">53%</span></td>
 <td class="num odds">-128 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -135,7 +146,7 @@ field-size prior.</p>
 <td class="comp">Korea KBL</td>
 <td class="match">Seoul Thunders <span class="vs">v</span> KCC Egis</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 06:00 <span class="tag">archive</span></td>
+<td class="when">Today 06:00 <span class="dim small">= 2026-10-21T10:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.58</td><td class="num dim">n/p</td><td class="num">2.37</td>
 <td class="pick">Seoul Thunders <span class="prob">60%</span></td>
 <td class="num odds">-172 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -149,7 +160,7 @@ field-size prior.</p>
 <td class="comp">NBA</td>
 <td class="match">ORL Magic <span class="vs">v</span> ATL Hawks</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 19:10 <span class="tag">archive</span></td>
+<td class="when">Today 19:10 <span class="dim small">= 2026-10-21T23:10Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.37</td><td class="num dim">n/p</td><td class="num">1.58</td>
 <td class="pick">ATL Hawks <span class="prob">60%</span></td>
 <td class="num odds">-172 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -163,7 +174,7 @@ field-size prior.</p>
 <td class="comp">NBA</td>
 <td class="match">TOR Raptors <span class="vs">v</span> CHI Bulls</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 19:40 <span class="tag">archive</span></td>
+<td class="when">Today 19:40 <span class="dim small">= 2026-10-21T23:40Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.27</td><td class="num dim">n/p</td><td class="num">3.80</td>
 <td class="pick">TOR Raptors <span class="prob">75%</span></td>
 <td class="num odds">-370 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -177,7 +188,7 @@ field-size prior.</p>
 <td class="comp">Euro Cup</td>
 <td class="match">PAOK <span class="vs">v</span> Ratiopharm Ulm</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:00 <span class="tag">archive</span></td>
+<td class="when">Today 13:00 <span class="dim small">= 2026-10-21T17:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">PAOK <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -191,7 +202,7 @@ field-size prior.</p>
 <td class="comp">Euro Cup</td>
 <td class="match">Bosna Sarajevo <span class="vs">v</span> Bahcesehir Koleji</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:30 <span class="tag">archive</span></td>
+<td class="when">Today 13:30 <span class="dim small">= 2026-10-21T17:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.88</td><td class="num dim">n/p</td><td class="num">1.42</td>
 <td class="pick">Bahcesehir Koleji <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -205,7 +216,7 @@ field-size prior.</p>
 <td class="comp">Euro Cup</td>
 <td class="match">Hapoel Jerusalem <span class="vs">v</span> Rigas Zelli</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 14:00 <span class="tag">archive</span></td>
+<td class="when">Today 14:00 <span class="dim small">= 2026-10-21T18:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.42</td><td class="num dim">n/p</td><td class="num">2.88</td>
 <td class="pick">Hapoel Jerusalem <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -219,7 +230,7 @@ field-size prior.</p>
 <td class="comp">NBA</td>
 <td class="match">NO Pelicans <span class="vs">v</span> IND Pacers</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 20:10 <span class="tag">archive</span></td>
+<td class="when">Today 20:10 <span class="dim small">= 2026-10-22T00:10Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">NO Pelicans <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -233,7 +244,7 @@ field-size prior.</p>
 <td class="comp">NBA</td>
 <td class="match">POR Trail Blazers <span class="vs">v</span> PHX Suns</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 22:10 <span class="tag">archive</span></td>
+<td class="when">Today 22:10 <span class="dim small">= 2026-10-22T02:10Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.88</td><td class="num dim">n/p</td><td class="num">1.42</td>
 <td class="pick">PHX Suns <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -247,7 +258,7 @@ field-size prior.</p>
 <td class="comp">Euroleague</td>
 <td class="match">Panathinaikos <span class="vs">v</span> Baskonia</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:15</td>
+<td class="when">Tomorrow 14:15 <span class="dim small">= 2026-10-22T18:15Z</span></td>
 <td class="num">1.07</td><td class="num">&mdash;</td><td class="num">8.36</td>
 <td class="pick">Panathinaikos <span class="prob">89%</span></td>
 <td class="num odds">-1429 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -261,7 +272,7 @@ field-size prior.</p>
 <td class="comp">NBA</td>
 <td class="match">OKC Thunder <span class="vs">v</span> DEN Nuggets</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 21:40</td>
+<td class="when">Tomorrow 21:40 <span class="dim small">= 2026-10-23T01:40Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">OKC Thunder <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -275,7 +286,7 @@ field-size prior.</p>
 <td class="comp">Euro Cup</td>
 <td class="match">U BT Cluj Napoca <span class="vs">v</span> London Lions</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">U BT Cluj Napoca <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -289,7 +300,7 @@ field-size prior.</p>
 <td class="comp">Basketball Champions League</td>
 <td class="match">AEK <span class="vs">v</span> Antwerp Giants</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">AEK <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -303,7 +314,7 @@ field-size prior.</p>
 <td class="comp">NBA Regular Season 2026-27</td>
 <td class="match">LA Lakers <span class="vs">v</span> GS Warriors</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 22:10 <span class="tag">archive</span></td>
+<td class="when">Today 22:10 <span class="dim small">= 2026-10-22T02:10Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.46</td><td class="num dim">n/p</td><td class="num">2.71</td>
 <td class="pick">LA Lakers <span class="prob">65%</span></td>
 <td class="num odds">-217 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -317,7 +328,7 @@ field-size prior.</p>
 <td class="comp">NBA Regular Season 2026-27</td>
 <td class="match">LA Clippers <span class="vs">v</span> SAC Kings</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 22:40 <span class="tag">archive</span></td>
+<td class="when">Today 22:40 <span class="dim small">= 2026-10-22T02:40Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.04</td><td class="num dim">n/p</td><td class="num">10.56</td>
 <td class="pick">LA Clippers <span class="prob">91%</span></td>
 <td class="num odds">-2500 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -331,7 +342,7 @@ field-size prior.</p>
 <td class="comp">NBA Regular Season 2026-27</td>
 <td class="match">SA Spurs <span class="vs">v</span> HOU Rockets</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 21:40</td>
+<td class="when">23 Oct 21:40 <span class="dim small">= 2026-10-24T01:40Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">SA Spurs <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -345,7 +356,7 @@ field-size prior.</p>
 <td class="comp">NBA Regular Season 2026-27</td>
 <td class="match">PHI 76ers <span class="vs">v</span> CLE Cavaliers</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 19:10</td>
+<td class="when">Tomorrow 19:10 <span class="dim small">= 2026-10-22T23:10Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">PHI 76ers <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -359,7 +370,7 @@ field-size prior.</p>
 <td class="comp">NBA Regular Season 2026-27</td>
 <td class="match">BOS Celtics <span class="vs">v</span> NY Knicks</td>
 <td class="market">Pointspread <span class="tag">match</span></td>
-<td class="when">23 Oct 19:10</td>
+<td class="when">23 Oct 19:10 <span class="dim small">= 2026-10-23T23:10Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">BOS Celtics <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -373,7 +384,7 @@ field-size prior.</p>
 <td class="comp">EuroLeague Regular Season 2026-27 (Round 7)</td>
 <td class="match">Anadolu Efes <span class="vs">v</span> Besiktas</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:30</td>
+<td class="when">Tomorrow 13:30 <span class="dim small">= 2026-10-22T17:30Z</span></td>
 <td class="num">1.55</td><td class="num">&mdash;</td><td class="num">2.45</td>
 <td class="pick">Anadolu Efes <span class="prob">61%</span></td>
 <td class="num odds">-182 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -387,7 +398,7 @@ field-size prior.</p>
 <td class="comp">EuroLeague Regular Season 2026-27 (Round 7)</td>
 <td class="match">Maccabi Tel Aviv <span class="vs">v</span> Real Madrid</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:05</td>
+<td class="when">Tomorrow 14:05 <span class="dim small">= 2026-10-22T18:05Z</span></td>
 <td class="num">2.47</td><td class="num">&mdash;</td><td class="num">1.54</td>
 <td class="pick">Real Madrid <span class="prob">62%</span></td>
 <td class="num odds">-185 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -401,7 +412,7 @@ field-size prior.</p>
 <td class="comp">EuroLeague Regular Season 2026-27 (Round 7)</td>
 <td class="match">Zalgiris <span class="vs">v</span> Asvel Lyon Villeurbanne</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 13:00</td>
+<td class="when">23 Oct 13:00 <span class="dim small">= 2026-10-23T17:00Z</span></td>
 <td class="num">1.35</td><td class="num">&mdash;</td><td class="num">3.23</td>
 <td class="pick">Zalgiris <span class="prob">71%</span></td>
 <td class="num odds">-286 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -415,7 +426,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Mobis Phoebus <span class="vs">v</span> Changwon Sakers</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 06:00</td>
+<td class="when">Tomorrow 06:00 <span class="dim small">= 2026-10-22T10:00Z</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Changwon Sakers <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -429,7 +440,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Fortaleza BC <span class="vs">v</span> Pinheiros</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 18:30</td>
+<td class="when">Tomorrow 18:30 <span class="dim small">= 2026-10-22T22:30Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Fortaleza BC <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -443,7 +454,7 @@ field-size prior.</p>
 <td class="comp">UAE ODI Tri-Nation Series 2026 - 3rd Match</td>
 <td class="match">Afghanistan <span class="vs">v</span> Bangladesh</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 07:30 <span class="tag">archive</span></td>
+<td class="when">Today 07:30 <span class="dim small">= 2026-10-21T11:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Afghanistan <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -457,7 +468,7 @@ field-size prior.</p>
 <td class="comp">CSA Pro20 Cup / T20 Challenge 2026</td>
 <td class="match">Northern Cape Heat <span class="vs">v</span> Garden Route Badgers</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 07:00 <span class="tag">archive</span></td>
+<td class="when">Today 07:00 <span class="dim small">= 2026-10-21T11:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.57</td><td class="num dim">n/p</td><td class="num">1.51</td>
 <td class="pick">Garden Route Badgers <span class="prob">63%</span></td>
 <td class="num odds">-196 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -471,7 +482,7 @@ field-size prior.</p>
 <td class="comp">CSA Pro20 Cup / T20 Challenge 2026</td>
 <td class="match">North West Dragons <span class="vs">v</span> Limpopo Impalas</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.14</td><td class="num dim">n/p</td><td class="num">5.59</td>
 <td class="pick">North West Dragons <span class="prob">83%</span></td>
 <td class="num odds">-714 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -485,7 +496,7 @@ field-size prior.</p>
 <td class="comp">New Zealand v India T20I Series 2026-27 - 1st T20I</td>
 <td class="match">New Zealand <span class="vs">v</span> India</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 03:00</td>
+<td class="when">Tomorrow 03:00 <span class="dim small">= 2026-10-22T07:00Z</span> <span class="tag">started</span></td>
 <td class="num">2.42</td><td class="num">&mdash;</td><td class="num">1.57</td>
 <td class="pick">India <span class="prob">61%</span></td>
 <td class="num odds">-175 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -499,7 +510,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Eastern Storm <span class="vs">v</span> Tuskers</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Eastern Storm <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -513,7 +524,7 @@ field-size prior.</p>
 <td class="comp">Ireland Tour of Namibia 2026 (1st ODI)</td>
 <td class="match">Namibia <span class="vs">v</span> Ireland</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 04:00</td>
+<td class="when">Tomorrow 04:00 <span class="dim small">= 2026-10-22T08:00Z</span></td>
 <td class="num">2.54</td><td class="num">&mdash;</td><td class="num">1.52</td>
 <td class="pick">Ireland <span class="prob">63%</span></td>
 <td class="num odds">-192 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -527,7 +538,7 @@ field-size prior.</p>
 <td class="comp">Pakistan ODI Tri-Series 2026-27 (3rd Match)</td>
 <td class="match">England <span class="vs">v</span> Sri Lanka</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 04:00</td>
+<td class="when">Tomorrow 04:00 <span class="dim small">= 2026-10-22T08:00Z</span></td>
 <td class="num">1.64</td><td class="num">&mdash;</td><td class="num">2.26</td>
 <td class="pick">England <span class="prob">58%</span></td>
 <td class="num odds">-156 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -541,7 +552,7 @@ field-size prior.</p>
 <td class="comp">Australia v New Zealand Women T20Is 2026 - 3rd T20I</td>
 <td class="match">Australia W <span class="vs">v</span> New Zealand W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 04:15</td>
+<td class="when">Tomorrow 04:15 <span class="dim small">= 2026-10-22T08:15Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Australia W <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -555,7 +566,7 @@ field-size prior.</p>
 <td class="comp">CSA T20 Challenge 2026/27 - Pool stage</td>
 <td class="match">Mpumalanga Rhinos <span class="vs">v</span> South Africa Emerging</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 07:00</td>
+<td class="when">Tomorrow 07:00 <span class="dim small">= 2026-10-22T11:00Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Mpumalanga Rhinos <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -569,7 +580,7 @@ field-size prior.</p>
 <td class="comp">UAE ODI Tri-Nation Series 2026 (Final)</td>
 <td class="match">Afghanistan <span class="vs">v</span> Zimbabwe</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">23 Oct 07:30</td>
+<td class="when">23 Oct 07:30 <span class="dim small">= 2026-10-23T11:30Z</span></td>
 <td class="num">1.35</td><td class="num">&mdash;</td><td class="num">3.21</td>
 <td class="pick">Afghanistan <span class="prob">70%</span></td>
 <td class="num odds">-286 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -583,7 +594,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Luke Woodhouse <span class="vs">v</span> Dirk van Duijvenbode</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:15</td>
+<td class="when">Tomorrow 13:15 <span class="dim small">= 2026-10-22T17:15Z</span></td>
 <td class="num">1.38</td><td class="num">&mdash;</td><td class="num">3.05</td>
 <td class="pick">Luke Woodhouse <span class="prob">69%</span></td>
 <td class="num odds">-263 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -597,7 +608,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Niels Zonneveld <span class="vs">v</span> Cameron Menzies</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:15</td>
+<td class="when">Tomorrow 14:15 <span class="dim small">= 2026-10-22T18:15Z</span></td>
 <td class="num">1.20</td><td class="num">&mdash;</td><td class="num">4.59</td>
 <td class="pick">Niels Zonneveld <span class="prob">79%</span></td>
 <td class="num odds">-500 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -611,7 +622,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Gerwyn Price <span class="vs">v</span> Rob Cross</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:45</td>
+<td class="when">Tomorrow 14:45 <span class="dim small">= 2026-10-22T18:45Z</span></td>
 <td class="num">1.61</td><td class="num">&mdash;</td><td class="num">2.32</td>
 <td class="pick">Gerwyn Price <span class="prob">59%</span></td>
 <td class="num odds">-164 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -625,7 +636,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">James Wade <span class="vs">v</span> Damon Heta</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 15:15</td>
+<td class="when">Tomorrow 15:15 <span class="dim small">= 2026-10-22T19:15Z</span></td>
 <td class="num">1.85</td><td class="num">&mdash;</td><td class="num">1.95</td>
 <td class="pick">James Wade <span class="prob">51%</span></td>
 <td class="num odds">-118 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -639,7 +650,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Luke Humphries <span class="vs">v</span> Ryan Searle</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 15:45</td>
+<td class="when">Tomorrow 15:45 <span class="dim small">= 2026-10-22T19:45Z</span></td>
 <td class="num">1.54</td><td class="num">&mdash;</td><td class="num">2.47</td>
 <td class="pick">Luke Humphries <span class="prob">62%</span></td>
 <td class="num odds">-185 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -653,7 +664,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Danny Noppert <span class="vs">v</span> Stephen Bunting</td>
 <td class="market">Total Legs <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:45</td>
+<td class="when">Tomorrow 13:45 <span class="dim small">= 2026-10-22T17:45Z</span></td>
 <td class="num">1.23</td><td class="num">&mdash;</td><td class="num">4.20</td>
 <td class="pick">Danny Noppert <span class="prob">77%</span></td>
 <td class="num odds">-435 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -667,7 +678,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Gian van Veen <span class="vs">v</span> Andrew Gilding</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 16:15</td>
+<td class="when">Tomorrow 16:15 <span class="dim small">= 2026-10-22T20:15Z</span></td>
 <td class="num">1.34</td><td class="num">&mdash;</td><td class="num">3.29</td>
 <td class="pick">Gian van Veen <span class="prob">71%</span></td>
 <td class="num odds">-294 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -681,7 +692,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Ross Smith <span class="vs">v</span> Karel Sedlacek</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">Tomorrow 16:45</td>
+<td class="when">Tomorrow 16:45 <span class="dim small">= 2026-10-22T20:45Z</span></td>
 <td class="num">1.12</td><td class="num">&mdash;</td><td class="num">6.11</td>
 <td class="pick">Ross Smith <span class="prob">84%</span></td>
 <td class="num odds">-833 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -695,7 +706,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Jonny Clayton <span class="vs">v</span> Niko Springer</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 14:45</td>
+<td class="when">23 Oct 14:45 <span class="dim small">= 2026-10-23T18:45Z</span></td>
 <td class="num">1.30</td><td class="num">&mdash;</td><td class="num">3.55</td>
 <td class="pick">Jonny Clayton <span class="prob">73%</span></td>
 <td class="num odds">-333 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -709,7 +720,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Ryan Joyce <span class="vs">v</span> Jermaine Wattimena</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 13:15</td>
+<td class="when">23 Oct 13:15 <span class="dim small">= 2026-10-23T17:15Z</span></td>
 <td class="num">1.76</td><td class="num">&mdash;</td><td class="num">2.06</td>
 <td class="pick">Ryan Joyce <span class="prob">54%</span></td>
 <td class="num odds">-132 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -723,7 +734,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Krzysztof Ratajski <span class="vs">v</span> Dave Chisnall</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 13:45</td>
+<td class="when">23 Oct 13:45 <span class="dim small">= 2026-10-23T17:45Z</span></td>
 <td class="num">1.48</td><td class="num">&mdash;</td><td class="num">2.64</td>
 <td class="pick">Krzysztof Ratajski <span class="prob">64%</span></td>
 <td class="num odds">-208 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -737,7 +748,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Nathan Aspinall <span class="vs">v</span> Cristo Reyes</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 14:15</td>
+<td class="when">23 Oct 14:15 <span class="dim small">= 2026-10-23T18:15Z</span></td>
 <td class="num">1.36</td><td class="num">&mdash;</td><td class="num">3.16</td>
 <td class="pick">Nathan Aspinall <span class="prob">70%</span></td>
 <td class="num odds">-278 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -751,7 +762,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Luke Littler <span class="vs">v</span> William OConnor</td>
 <td class="market">Handicap 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 15:15</td>
+<td class="when">23 Oct 15:15 <span class="dim small">= 2026-10-23T19:15Z</span></td>
 <td class="num">1.30</td><td class="num">&mdash;</td><td class="num">3.55</td>
 <td class="pick">Luke Littler <span class="prob">73%</span></td>
 <td class="num odds">-333 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -765,7 +776,7 @@ field-size prior.</p>
 <td class="comp">PDC European Championship 2026 - Round 1</td>
 <td class="match">Wessel Nijman <span class="vs">v</span> Martin Schindler</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 15:45</td>
+<td class="when">23 Oct 15:45 <span class="dim small">= 2026-10-23T19:45Z</span></td>
 <td class="num">1.15</td><td class="num">&mdash;</td><td class="num">5.54</td>
 <td class="pick">Wessel Nijman <span class="prob">83%</span></td>
 <td class="num odds">-667 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -779,7 +790,7 @@ field-size prior.</p>
 <td class="comp">2026 PDC Machineseeker European Championship (Round 1, Best of 11)</td>
 <td class="match">Josh Rock <span class="vs">v</span> Chris Dobey</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 16:45</td>
+<td class="when">23 Oct 16:45 <span class="dim small">= 2026-10-23T20:45Z</span></td>
 <td class="num">1.43</td><td class="num">&mdash;</td><td class="num">2.83</td>
 <td class="pick">Josh Rock <span class="prob">66%</span></td>
 <td class="num odds">-233 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -793,7 +804,7 @@ field-size prior.</p>
 <td class="comp">2026 PDC Machineseeker European Championship (Round 1, Best of 11)</td>
 <td class="match">Kevin Doets <span class="vs">v</span> Michael van Gerwen</td>
 <td class="market">Win Match 2-way <span class="tag">match</span></td>
-<td class="when">23 Oct 16:15</td>
+<td class="when">23 Oct 16:15 <span class="dim small">= 2026-10-23T20:15Z</span></td>
 <td class="num">2.88</td><td class="num dim">n/p</td><td class="num">1.42</td>
 <td class="pick">Michael van Gerwen <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -807,7 +818,7 @@ field-size prior.</p>
 <td class="comp">Cork Senior Football Championship final</td>
 <td class="match">St Finbarrs <span class="vs">v</span> Nemo Rangers</td>
 <td class="market">market not shown by OLBG <span class="tag">match</span></td>
-<td class="when">25 Oct 12:00</td>
+<td class="when">25 Oct 12:00 <span class="dim small">= 2026-10-25T16:00Z</span></td>
 <td class="num">5.59</td><td class="num dim">n/p</td><td class="num">1.14</td>
 <td class="pick">Nemo Rangers <span class="prob">83%</span></td>
 <td class="num odds">-714 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -821,7 +832,7 @@ field-size prior.</p>
 <td class="comp">Galway Senior Football Championship final</td>
 <td class="match">Moycullen <span class="vs">v</span> Salthill-Knocknacarra</td>
 <td class="market">market not shown by OLBG <span class="tag">match</span></td>
-<td class="when">24 Oct 14:00</td>
+<td class="when">24 Oct 14:00 <span class="dim small">= 2026-10-24T18:00Z</span></td>
 <td class="num">1.79</td><td class="num dim">n/p</td><td class="num">2.02</td>
 <td class="pick">Moycullen <span class="prob">53%</span></td>
 <td class="num odds">-127 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -835,7 +846,7 @@ field-size prior.</p>
 <td class="comp">Cork Senior &#x27;A&#x27; Football Championship final</td>
 <td class="match">Kanturk <span class="vs">v</span> Eire Og Cor</td>
 <td class="market">market not shown by OLBG <span class="tag">match</span></td>
-<td class="when">01 Nov 09:00</td>
+<td class="when">01 Nov 09:00 <span class="dim small">= 2026-11-01T13:00Z</span></td>
 <td class="num">1.27</td><td class="num dim">n/p</td><td class="num">3.80</td>
 <td class="pick">Kanturk <span class="prob">75%</span></td>
 <td class="num odds">-370 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -849,7 +860,7 @@ field-size prior.</p>
 <td class="comp">Waterford Senior Football Championship final</td>
 <td class="match">Rathgormack <span class="vs">v</span> The Nire</td>
 <td class="market">market not shown by OLBG <span class="tag">match</span></td>
-<td class="when">01 Nov 10:30</td>
+<td class="when">01 Nov 10:30 <span class="dim small">= 2026-11-01T14:30Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Rathgormack <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -863,7 +874,7 @@ field-size prior.</p>
 <td class="comp">2026 Limerick Senior Football Championship</td>
 <td class="match">Fr Caseys <span class="vs">v</span> Kildimo Pallaskenry</td>
 <td class="market">Handicap <span class="tag">match</span></td>
-<td class="when">01 Nov 10:30</td>
+<td class="when">01 Nov 10:30 <span class="dim small">= 2026-11-01T14:30Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Fr Caseys <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -877,7 +888,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">RK Zagreb <span class="vs">v</span> PSG Handball</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:45 <span class="tag">archive</span></td>
+<td class="when">Today 12:45 <span class="dim small">= 2026-10-21T16:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.50</td><td class="num dim">n/p</td><td class="num">1.53</td>
 <td class="pick">PSG Handball <span class="prob">62%</span></td>
 <td class="num odds">-189 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -891,7 +902,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">Nantes <span class="vs">v</span> HC Vardar</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 14:45 <span class="tag">archive</span></td>
+<td class="when">Today 14:45 <span class="dim small">= 2026-10-21T18:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.58</td><td class="num dim">n/p</td><td class="num">2.37</td>
 <td class="pick">Nantes <span class="prob">60%</span></td>
 <td class="num odds">-172 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -905,7 +916,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">Veszprem <span class="vs">v</span> Fuchse Berlin</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:45 <span class="tag">archive</span></td>
+<td class="when">Today 12:45 <span class="dim small">= 2026-10-21T16:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.11</td><td class="num dim">n/p</td><td class="num">1.73</td>
 <td class="pick">Fuchse Berlin <span class="prob">55%</span></td>
 <td class="num odds">-137 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -919,7 +930,7 @@ field-size prior.</p>
 <td class="comp">REMA 1000-ligaen (Norway, men) - round 8</td>
 <td class="match">Sandefjord <span class="vs">v</span> Runar</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:15 <span class="tag">archive</span></td>
+<td class="when">Today 12:15 <span class="dim small">= 2026-10-21T16:15Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">4.75</td><td class="num dim">n/p</td><td class="num">1.19</td>
 <td class="pick">Runar <span class="prob">80%</span></td>
 <td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -933,7 +944,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">Dinamo Bucuresti <span class="vs">v</span> Skanderborg Handbold</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:45 <span class="tag">archive</span></td>
+<td class="when">Today 12:45 <span class="dim small">= 2026-10-21T16:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.64</td><td class="num dim">n/p</td><td class="num">1.48</td>
 <td class="pick">Skanderborg Handbold <span class="prob">64%</span></td>
 <td class="num odds">-208 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -947,7 +958,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">Aalborg Handbold <span class="vs">v</span> RK Celje</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 14:45 <span class="tag">archive</span></td>
+<td class="when">Today 14:45 <span class="dim small">= 2026-10-21T18:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num dim" colspan="3" title="No defensible input: OLBG published a selection but no tip count">no price</td>
 <td class="pick"><span class="dim">no pick</span> </td>
 <td class="num odds">&mdash; <span class="tag">no price</span></td>
@@ -961,7 +972,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">RK Partizan <span class="vs">v</span> FC Porto</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 12:45 <span class="tag">archive</span></td>
+<td class="when">Today 12:45 <span class="dim small">= 2026-10-21T16:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.50</td><td class="num dim">n/p</td><td class="num">1.53</td>
 <td class="pick">FC Porto <span class="prob">62%</span></td>
 <td class="num odds">-189 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -975,7 +986,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 - Round 5</td>
 <td class="match">HC Kriens Luzern <span class="vs">v</span> KS Kielce</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 14:45 <span class="tag">archive</span></td>
+<td class="when">Today 14:45 <span class="dim small">= 2026-10-21T18:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num dim" colspan="3" title="No defensible input: OLBG published a selection but no tip count">no price</td>
 <td class="pick"><span class="dim">no pick</span> </td>
 <td class="num odds">&mdash; <span class="tag">no price</span></td>
@@ -989,7 +1000,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men - round 5</td>
 <td class="match">Kolstad <span class="vs">v</span> SC Magdeburg</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:45</td>
+<td class="when">Tomorrow 14:45 <span class="dim small">= 2026-10-22T18:45Z</span></td>
 <td class="num">7.24</td><td class="num">&mdash;</td><td class="num">1.09</td>
 <td class="pick">SC Magdeburg <span class="prob">87%</span></td>
 <td class="num odds">-1111 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1003,7 +1014,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men - round 5</td>
 <td class="match">Sporting CP <span class="vs">v</span> IFK Kristianstad</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:45</td>
+<td class="when">Tomorrow 14:45 <span class="dim small">= 2026-10-22T18:45Z</span></td>
 <td class="num">1.27</td><td class="num">&mdash;</td><td class="num">3.76</td>
 <td class="pick">Sporting CP <span class="prob">75%</span></td>
 <td class="num odds">-370 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1017,7 +1028,7 @@ field-size prior.</p>
 <td class="comp">Handbollsligan (Sweden, men)</td>
 <td class="match">IF Hallby HK <span class="vs">v</span> IK Savehof</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:00 <span class="tag">archive</span></td>
+<td class="when">Today 13:00 <span class="dim small">= 2026-10-21T17:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">3.91</td><td class="num">&mdash;</td><td class="num">1.25</td>
 <td class="pick">IK Savehof <span class="prob">76%</span></td>
 <td class="num odds">-400 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1031,7 +1042,7 @@ field-size prior.</p>
 <td class="comp">Handbollsligan (Sweden, men)</td>
 <td class="match">Hammarby IF HF <span class="vs">v</span> Alingsas HK</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:00 <span class="tag">archive</span></td>
+<td class="when">Today 13:00 <span class="dim small">= 2026-10-21T17:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.59</td><td class="num">&mdash;</td><td class="num">2.36</td>
 <td class="pick">Hammarby IF HF <span class="prob">60%</span></td>
 <td class="num odds">-169 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1045,7 +1056,7 @@ field-size prior.</p>
 <td class="comp">Herreligaen (Denmark, men)</td>
 <td class="match">Mors Thy Handbold <span class="vs">v</span> Bjerringbro Silkeborg</td>
 <td class="market">Match Handicap <span class="tag">match</span></td>
-<td class="when">Today 14:00 <span class="tag">archive</span></td>
+<td class="when">Today 14:00 <span class="dim small">= 2026-10-21T18:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Mors Thy Handbold <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1059,7 +1070,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men - round 5</td>
 <td class="match">MT Melsungen <span class="vs">v</span> Wisla Plock</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:45</td>
+<td class="when">Tomorrow 12:45 <span class="dim small">= 2026-10-22T16:45Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">MT Melsungen <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1073,7 +1084,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men - round 5</td>
 <td class="match">Pick Szeged <span class="vs">v</span> GOG</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:45</td>
+<td class="when">Tomorrow 12:45 <span class="dim small">= 2026-10-22T16:45Z</span></td>
 <td class="num">1.54</td><td class="num">&mdash;</td><td class="num">2.48</td>
 <td class="pick">Pick Szeged <span class="prob">62%</span></td>
 <td class="num odds">-185 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1087,7 +1098,7 @@ field-size prior.</p>
 <td class="comp">EHF Champions League Men 2026/27 (Group E, Round 5)</td>
 <td class="match">FC Barcelona <span class="vs">v</span> Montpellier</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:45</td>
+<td class="when">Tomorrow 14:45 <span class="dim small">= 2026-10-22T18:45Z</span></td>
 <td class="num">1.32</td><td class="num">&mdash;</td><td class="num">3.36</td>
 <td class="pick">FC Barcelona <span class="prob">72%</span></td>
 <td class="num odds">-312 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1101,7 +1112,7 @@ field-size prior.</p>
 <td class="comp">Women&#x27;s EHF EURO Qualifiers 2026</td>
 <td class="match">Bulgaria W <span class="vs">v</span> Italy W</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num dim" colspan="3" title="No defensible input: OLBG published a selection but no tip count">no price</td>
 <td class="pick"><span class="dim">no pick</span> </td>
 <td class="num odds">&mdash; <span class="tag">no price</span></td>
@@ -1115,7 +1126,7 @@ field-size prior.</p>
 <td class="comp">DAIKIN Handball-Bundesliga 2026/27 (Matchday 10)</td>
 <td class="match">TVB Stuttgart <span class="vs">v</span> SG BBM Bietigheim</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:00</td>
+<td class="when">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
 <td class="num">1.34</td><td class="num">&mdash;</td><td class="num">3.26</td>
 <td class="pick">TVB Stuttgart <span class="prob">71%</span></td>
 <td class="num odds">-294 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1129,7 +1140,7 @@ field-size prior.</p>
 <td class="comp">Betoro Herreligaen (Danish men&#x27;s top division, 2026/27)</td>
 <td class="match">SonderjyskE <span class="vs">v</span> Nordsjaelland Handbold</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:30</td>
+<td class="when">Tomorrow 13:30 <span class="dim small">= 2026-10-22T17:30Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">SonderjyskE <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1143,7 +1154,7 @@ field-size prior.</p>
 <td class="comp">Betoro Herreligaen (Danish men&#x27;s top division, 2026/27)</td>
 <td class="match">KIF Kolding <span class="vs">v</span> Fredericia HK</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:00</td>
+<td class="when">Tomorrow 14:00 <span class="dim small">= 2026-10-22T18:00Z</span></td>
 <td class="num">2.37</td><td class="num dim">n/p</td><td class="num">1.58</td>
 <td class="pick">Fredericia HK <span class="prob">60%</span></td>
 <td class="num odds">-172 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1157,7 +1168,7 @@ field-size prior.</p>
 <td class="comp">Handbollsligan 2026/27</td>
 <td class="match">Onnereds HK <span class="vs">v</span> Ystads IF HF</td>
 <td class="market">Match Handicap <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:00</td>
+<td class="when">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
 <td class="num">2.34</td><td class="num">&mdash;</td><td class="num">1.60</td>
 <td class="pick">Ystads IF HF <span class="prob">59%</span></td>
 <td class="num odds">-167 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1171,7 +1182,7 @@ field-size prior.</p>
 <td class="comp">Liga NEXUS ENERGÍA ASOBAL (Spanish men&#x27;s top division, 2026/27)</td>
 <td class="match">BM Granollers <span class="vs">v</span> Ciudad Encantada</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:00</td>
+<td class="when">Tomorrow 14:00 <span class="dim small">= 2026-10-22T18:00Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">BM Granollers <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1185,7 +1196,7 @@ field-size prior.</p>
 <td class="comp">Daikin StarLigue 2026/27 - Journee 08</td>
 <td class="match">Pays dAix UC <span class="vs">v</span> Toulouse</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 14:00</td>
+<td class="when">23 Oct 14:00 <span class="dim small">= 2026-10-23T18:00Z</span></td>
 <td class="num">1.52</td><td class="num">&mdash;</td><td class="num">2.53</td>
 <td class="pick">Pays dAix UC <span class="prob">62%</span></td>
 <td class="num odds">-192 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1199,7 +1210,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Estonia W <span class="vs">v</span> Kosovo W</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 14:00</td>
+<td class="when">23 Oct 14:00 <span class="dim small">= 2026-10-23T18:00Z</span></td>
 <td class="num dim" colspan="3" title="No defensible input: OLBG published a selection but no tip count">no price</td>
 <td class="pick"><span class="dim">no pick</span> </td>
 <td class="num odds">&mdash; <span class="tag">no price</span></td>
@@ -1213,7 +1224,7 @@ field-size prior.</p>
 <td class="comp">DAIKIN Handball-Bundesliga 2026/27 (Matchday 10)</td>
 <td class="match">Frisch Auf Goppingen <span class="vs">v</span> ThSV Eisenach</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 14:00</td>
+<td class="when">23 Oct 14:00 <span class="dim small">= 2026-10-23T18:00Z</span></td>
 <td class="num">1.74</td><td class="num">&mdash;</td><td class="num">2.09</td>
 <td class="pick">Frisch Auf Goppingen <span class="prob">55%</span></td>
 <td class="num odds">-135 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1227,7 +1238,7 @@ field-size prior.</p>
 <td class="comp">Daikin StarLigue 2026/27 - Journee 08</td>
 <td class="match">Limoges 87 <span class="vs">v</span> Dunkerque</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 14:00</td>
+<td class="when">23 Oct 14:00 <span class="dim small">= 2026-10-23T18:00Z</span></td>
 <td class="num">1.24</td><td class="num">&mdash;</td><td class="num">4.04</td>
 <td class="pick">Limoges 87 <span class="prob">76%</span></td>
 <td class="num odds">-417 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1241,7 +1252,7 @@ field-size prior.</p>
 <td class="comp">Daikin StarLigue 2026/27 - Journee 08</td>
 <td class="match">Selestat Alsace <span class="vs">v</span> Caen</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 14:30</td>
+<td class="when">23 Oct 14:30 <span class="dim small">= 2026-10-23T18:30Z</span></td>
 <td class="num">1.33</td><td class="num">&mdash;</td><td class="num">3.33</td>
 <td class="pick">Selestat Alsace <span class="prob">71%</span></td>
 <td class="num odds">-303 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1255,7 +1266,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Skive FH <span class="vs">v</span> Aalborg Handbold</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">24 Oct 09:00</td>
+<td class="when">24 Oct 09:00 <span class="dim small">= 2026-10-24T13:00Z</span></td>
 <td class="num">2.88</td><td class="num dim">n/p</td><td class="num">1.42</td>
 <td class="pick">Aalborg Handbold <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1269,7 +1280,7 @@ field-size prior.</p>
 <td class="comp">Liga NEXUS ENERGÍA ASOBAL (Spanish men&#x27;s top division, 2026/27) — Jornada 07</td>
 <td class="match">Villa De Aranda <span class="vs">v</span> Puerto Sagunto</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">24 Oct 13:00</td>
+<td class="when">24 Oct 13:00 <span class="dim small">= 2026-10-24T17:00Z</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Puerto Sagunto <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1283,7 +1294,7 @@ field-size prior.</p>
 <td class="comp">Handbollsligan 2026/27</td>
 <td class="match">Skanela IF <span class="vs">v</span> HIF Karlskrona</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:30</td>
+<td class="when">Tomorrow 12:30 <span class="dim small">= 2026-10-22T16:30Z</span></td>
 <td class="num">1.70</td><td class="num">&mdash;</td><td class="num">2.16</td>
 <td class="pick">Skanela IF <span class="prob">56%</span></td>
 <td class="num odds">-143 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1297,7 +1308,7 @@ field-size prior.</p>
 <td class="comp">Liga NEXUS ENERGÍA ASOBAL (Spanish men&#x27;s top division, 2026/27) — Jornada 07</td>
 <td class="match">Bidasoa Irun <span class="vs">v</span> Caserio Ciudad Real</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">23 Oct 13:00</td>
+<td class="when">23 Oct 13:00 <span class="dim small">= 2026-10-23T17:00Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Bidasoa Irun <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1311,7 +1322,7 @@ field-size prior.</p>
 <td class="comp">Austria EHL</td>
 <td class="match">Pustertal <span class="vs">v</span> Pioneers Vorarlberg</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:45 <span class="tag">archive</span></td>
+<td class="when">Today 13:45 <span class="dim small">= 2026-10-21T17:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.18</td><td class="num">&mdash;</td><td class="num">4.93</td>
 <td class="pick">Pustertal <span class="prob">81%</span></td>
 <td class="num odds">-556 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1325,7 +1336,7 @@ field-size prior.</p>
 <td class="comp">Austria EHL</td>
 <td class="match">HCB Sudtirol Alperia <span class="vs">v</span> HC TWK Innsbruck</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:45 <span class="tag">archive</span></td>
+<td class="when">Today 13:45 <span class="dim small">= 2026-10-21T17:45Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.27</td><td class="num">&mdash;</td><td class="num">3.76</td>
 <td class="pick">HCB Sudtirol Alperia <span class="prob">75%</span></td>
 <td class="num odds">-370 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1339,7 +1350,7 @@ field-size prior.</p>
 <td class="comp">Swedish Hockey League</td>
 <td class="match">Timra IK <span class="vs">v</span> Farjestad BK</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:00</td>
+<td class="when">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
 <td class="num">5.00</td><td class="num">&mdash;</td><td class="num">1.17</td>
 <td class="pick">Farjestad BK <span class="prob">81%</span></td>
 <td class="num odds">-588 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1353,7 +1364,7 @@ field-size prior.</p>
 <td class="comp">Austria EHL</td>
 <td class="match">Graz 99ers <span class="vs">v</span> Milano HC</td>
 <td class="market">Puck Line <span class="tag">match</span></td>
-<td class="when">Today 12:30 <span class="tag">archive</span></td>
+<td class="when">Today 12:30 <span class="dim small">= 2026-10-21T16:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.81</td><td class="num">&mdash;</td><td class="num">2.00</td>
 <td class="pick">Graz 99ers <span class="prob">53%</span></td>
 <td class="num odds">-123 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1367,7 +1378,7 @@ field-size prior.</p>
 <td class="comp">Austria EHL</td>
 <td class="match">KAC Klagenfurt <span class="vs">v</span> Fehervar AV19</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Today 13:15 <span class="tag">archive</span></td>
+<td class="when">Today 13:15 <span class="dim small">= 2026-10-21T17:15Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.23</td><td class="num">&mdash;</td><td class="num">4.21</td>
 <td class="pick">KAC Klagenfurt <span class="prob">77%</span></td>
 <td class="num odds">-435 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1381,7 +1392,7 @@ field-size prior.</p>
 <td class="comp">NHL</td>
 <td class="match">BUF Sabres <span class="vs">v</span> PHI Flyers</td>
 <td class="market">Game Totals <span class="tag">match</span></td>
-<td class="when">Today 19:37 <span class="tag">archive</span></td>
+<td class="when">Today 19:37 <span class="dim small">= 2026-10-21T23:37Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.46</td><td class="num">&mdash;</td><td class="num">2.72</td>
 <td class="pick">BUF Sabres <span class="prob">65%</span></td>
 <td class="num odds">-217 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1395,7 +1406,7 @@ field-size prior.</p>
 <td class="comp">NHL</td>
 <td class="match">OTT Senators <span class="vs">v</span> FLA Panthers</td>
 <td class="market">Game Totals <span class="tag">match</span></td>
-<td class="when">Today 19:37 <span class="tag">archive</span></td>
+<td class="when">Today 19:37 <span class="dim small">= 2026-10-21T23:37Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.97</td><td class="num">&mdash;</td><td class="num">1.83</td>
 <td class="pick">FLA Panthers <span class="prob">52%</span></td>
 <td class="num odds">-120 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1409,7 +1420,7 @@ field-size prior.</p>
 <td class="comp">Swedish Hockey League (SHL) 2026-27</td>
 <td class="match">Skelleftea AIK <span class="vs">v</span> Djurgardens IF</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:00</td>
+<td class="when">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
 <td class="num">1.32</td><td class="num">&mdash;</td><td class="num">3.42</td>
 <td class="pick">Skelleftea AIK <span class="prob">72%</span></td>
 <td class="num odds">-312 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1423,7 +1434,7 @@ field-size prior.</p>
 <td class="comp">Finnish Liiga 2026-27 (Regular Season)</td>
 <td class="match">Jyp <span class="vs">v</span> HPK</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 11:30</td>
+<td class="when">Tomorrow 11:30 <span class="dim small">= 2026-10-22T15:30Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Jyp <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1437,7 +1448,7 @@ field-size prior.</p>
 <td class="comp">Swedish Hockey League (SHL) 2026-27</td>
 <td class="match">Orebro HK <span class="vs">v</span> Brynas IF</td>
 <td class="market">Money Line <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:00</td>
+<td class="when">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
 <td class="num">2.60</td><td class="num">&mdash;</td><td class="num">1.50</td>
 <td class="pick">Brynas IF <span class="prob">63%</span></td>
 <td class="num odds">-200 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1451,7 +1462,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Montauban <span class="vs">v</span> Oyonnax</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">Tomorrow 15:00</td>
+<td class="when">Tomorrow 15:00 <span class="dim small">= 2026-10-22T19:00Z</span></td>
 <td class="num">4.85</td><td class="num">43.28</td><td class="num">1.21</td>
 <td class="pick">Oyonnax <span class="prob">78%</span></td>
 <td class="num odds">-476 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1465,7 +1476,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Agen <span class="vs">v</span> Nissa</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">23 Oct 13:30</td>
+<td class="when">23 Oct 13:30 <span class="dim small">= 2026-10-23T17:30Z</span></td>
 <td class="num">1.51</td><td class="num">33.13</td><td class="num">2.78</td>
 <td class="pick">Agen <span class="prob">63%</span></td>
 <td class="num odds">-196 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1479,7 +1490,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Soyaux Angouleme <span class="vs">v</span> Dax</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">23 Oct 13:30</td>
+<td class="when">23 Oct 13:30 <span class="dim small">= 2026-10-23T17:30Z</span></td>
 <td class="num">1.46</td><td class="num">33.86</td><td class="num">2.95</td>
 <td class="pick">Soyaux Angouleme <span class="prob">65%</span></td>
 <td class="num odds">-217 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1493,7 +1504,7 @@ field-size prior.</p>
 <td class="comp">United Rugby Championship - Round 4</td>
 <td class="match">Connacht <span class="vs">v</span> Zebre Parma</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">23 Oct 14:45</td>
+<td class="when">23 Oct 14:45 <span class="dim small">= 2026-10-23T18:45Z</span></td>
 <td class="num">1.28</td><td class="num">39.34</td><td class="num">4.09</td>
 <td class="pick">Connacht <span class="prob">74%</span></td>
 <td class="num odds">-357 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1507,7 +1518,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Narbonne <span class="vs">v</span> Brive</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">23 Oct 13:00</td>
+<td class="when">23 Oct 13:00 <span class="dim small">= 2026-10-23T17:00Z</span></td>
 <td class="num">3.65</td><td class="num">37.17</td><td class="num">1.33</td>
 <td class="pick">Brive <span class="prob">71%</span></td>
 <td class="num odds">-303 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1521,7 +1532,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Aurillac <span class="vs">v</span> Nevers</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">23 Oct 13:30</td>
+<td class="when">23 Oct 13:30 <span class="dim small">= 2026-10-23T17:30Z</span></td>
 <td class="num">1.35</td><td class="num">36.45</td><td class="num">3.51</td>
 <td class="pick">Aurillac <span class="prob">70%</span></td>
 <td class="num odds">-286 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1535,7 +1546,7 @@ field-size prior.</p>
 <td class="comp">United Rugby Championship - Round 4</td>
 <td class="match">Bulls <span class="vs">v</span> Ulster</td>
 <td class="market">Handicap <span class="tag">match</span></td>
-<td class="when">24 Oct 07:45</td>
+<td class="when">24 Oct 07:45 <span class="dim small">= 2026-10-24T11:45Z</span></td>
 <td class="num">1.08</td><td class="num">64.99</td><td class="num">9.09</td>
 <td class="pick">Bulls <span class="prob">88%</span></td>
 <td class="num odds">-1250 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1549,7 +1560,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Valence Romans <span class="vs">v</span> Colomiers</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">23 Oct 13:30</td>
+<td class="when">23 Oct 13:30 <span class="dim small">= 2026-10-23T17:30Z</span></td>
 <td class="num">1.72</td><td class="num">31.42</td><td class="num">2.28</td>
 <td class="pick">Valence Romans <span class="prob">55%</span></td>
 <td class="num odds">-139 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1563,7 +1574,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Grenoble <span class="vs">v</span> Biarritz</td>
 <td class="market">Handicap <span class="tag">match</span></td>
-<td class="when">23 Oct 15:00</td>
+<td class="when">23 Oct 15:00 <span class="dim small">= 2026-10-23T19:00Z</span></td>
 <td class="num">1.56</td><td class="num">32.52</td><td class="num">2.62</td>
 <td class="pick">Grenoble <span class="prob">61%</span></td>
 <td class="num odds">-179 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1577,7 +1588,7 @@ field-size prior.</p>
 <td class="comp">Pro D2 2026/27 - Journee 8</td>
 <td class="match">Provence <span class="vs">v</span> Beziers</td>
 <td class="market">Handicap <span class="tag">match</span></td>
-<td class="when">23 Oct 15:00</td>
+<td class="when">23 Oct 15:00 <span class="dim small">= 2026-10-23T19:00Z</span></td>
 <td class="num">1.11</td><td class="num">56.28</td><td class="num">7.37</td>
 <td class="pick">Provence <span class="prob">85%</span></td>
 <td class="num odds">-909 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1591,7 +1602,7 @@ field-size prior.</p>
 <td class="comp">United Rugby Championship - Round 4</td>
 <td class="match">Stormers <span class="vs">v</span> Scarlets</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">24 Oct 10:00</td>
+<td class="when">24 Oct 10:00 <span class="dim small">= 2026-10-24T14:00Z</span></td>
 <td class="num">1.23</td><td class="num">42.46</td><td class="num">4.70</td>
 <td class="pick">Stormers <span class="prob">78%</span></td>
 <td class="num odds">-435 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1605,7 +1616,7 @@ field-size prior.</p>
 <td class="comp">Top 14 2026/27 - Journee 7</td>
 <td class="match">Bayonne <span class="vs">v</span> Lyon</td>
 <td class="market">Handicap <span class="tag">match</span></td>
-<td class="when">24 Oct 10:35</td>
+<td class="when">24 Oct 10:35 <span class="dim small">= 2026-10-24T14:35Z</span></td>
 <td class="num">1.76</td><td class="num">31.25</td><td class="num">2.20</td>
 <td class="pick">Bayonne <span class="prob">54%</span></td>
 <td class="num odds">-132 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1619,7 +1630,7 @@ field-size prior.</p>
 <td class="comp">Top 14 2026/27 - Journee 7</td>
 <td class="match">Toulouse <span class="vs">v</span> Perpignan</td>
 <td class="market">Handicap <span class="tag">match</span></td>
-<td class="when">24 Oct 10:35</td>
+<td class="when">24 Oct 10:35 <span class="dim small">= 2026-10-24T14:35Z</span></td>
 <td class="num">1.18</td><td class="num">46.85</td><td class="num">5.54</td>
 <td class="pick">Toulouse <span class="prob">81%</span></td>
 <td class="num odds">-556 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1633,7 +1644,7 @@ field-size prior.</p>
 <td class="comp">United Rugby Championship - Round 4</td>
 <td class="match">Leinster <span class="vs">v</span> Munster</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">24 Oct 13:00</td>
+<td class="when">24 Oct 13:00 <span class="dim small">= 2026-10-24T17:00Z</span></td>
 <td class="num">1.42</td><td class="num">34.65</td><td class="num">3.12</td>
 <td class="pick">Leinster <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1647,7 +1658,7 @@ field-size prior.</p>
 <td class="comp">Top 14 2026/27 - Journee 7</td>
 <td class="match">La Rochelle <span class="vs">v</span> Bordeaux</td>
 <td class="market">To Win <span class="tag">match</span></td>
-<td class="when">25 Oct 16:05</td>
+<td class="when">25 Oct 16:05 <span class="dim small">= 2026-10-25T20:05Z</span></td>
 <td class="num">2.18</td><td class="num">31.19</td><td class="num">1.78</td>
 <td class="pick">Bordeaux <span class="prob">53%</span></td>
 <td class="num odds">-128 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1661,7 +1672,7 @@ field-size prior.</p>
 <td class="comp">BetVictor Northern Ireland Open 2026 - Round 2</td>
 <td class="match">Cheung Ka Wai <span class="vs">v</span> Stuart Bingham</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 05:00 <span class="tag">archive</span></td>
+<td class="when">Today 05:00 <span class="dim small">= 2026-10-21T09:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.30</td><td class="num dim">n/p</td><td class="num">3.52</td>
 <td class="pick">Cheung Ka Wai <span class="prob">73%</span></td>
 <td class="num odds">-333 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1675,7 +1686,7 @@ field-size prior.</p>
 <td class="comp">BetVictor Northern Ireland Open 2026 - Round 2</td>
 <td class="match">Pang Junxu <span class="vs">v</span> Liam Davies</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 05:00 <span class="tag">archive</span></td>
+<td class="when">Today 05:00 <span class="dim small">= 2026-10-21T09:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.42</td><td class="num dim">n/p</td><td class="num">2.88</td>
 <td class="pick">Pang Junxu <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1689,7 +1700,7 @@ field-size prior.</p>
 <td class="comp">BetVictor Northern Ireland Open 2026 - Round 2</td>
 <td class="match">Elliot Slessor <span class="vs">v</span> Jamie Jones</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 15:00 <span class="tag">archive</span></td>
+<td class="when">Today 15:00 <span class="dim small">= 2026-10-21T19:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Jamie Jones <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1703,7 +1714,7 @@ field-size prior.</p>
 <td class="comp">BetVictor Northern Ireland Open 2026 - Round 2</td>
 <td class="match">Luca Brecel <span class="vs">v</span> Martin O Donnell</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 15:00 <span class="tag">archive</span></td>
+<td class="when">Today 15:00 <span class="dim small">= 2026-10-21T19:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">4.75</td><td class="num dim">n/p</td><td class="num">1.19</td>
 <td class="pick">Martin O Donnell <span class="prob">80%</span></td>
 <td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1717,7 +1728,7 @@ field-size prior.</p>
 <td class="comp">BetVictor Northern Ireland Open 2026 - Round 2</td>
 <td class="match">John Higgins <span class="vs">v</span> Jak Jones</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 08:00 <span class="tag">archive</span></td>
+<td class="when">Today 08:00 <span class="dim small">= 2026-10-21T12:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">John Higgins <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1731,7 +1742,7 @@ field-size prior.</p>
 <td class="comp">BetVictor Northern Ireland Open 2026 - Round 2</td>
 <td class="match">Sam Craigie <span class="vs">v</span> Xu Si</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 09:00 <span class="tag">archive</span></td>
+<td class="when">Today 09:00 <span class="dim small">= 2026-10-21T13:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Sam Craigie <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1745,7 +1756,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 - BNB Ningbo Open</td>
 <td class="match">Leylah Fernandez <span class="vs">v</span> Aliaksandra Sasnovich</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 02:30 <span class="tag">archive</span></td>
+<td class="when">Today 02:30 <span class="dim small">= 2026-10-21T06:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.10</td><td class="num dim">n/p</td><td class="num">6.79</td>
 <td class="pick">Leylah Fernandez <span class="prob">86%</span></td>
 <td class="num odds">-1000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1759,7 +1770,7 @@ field-size prior.</p>
 <td class="comp">WTA 250 - Kinoshita Group Japan Open, Osaka</td>
 <td class="match">Katie Boulter <span class="vs">v</span> Viktorija Golubic</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 01:30 <span class="tag">archive</span></td>
+<td class="when">Today 01:30 <span class="dim small">= 2026-10-21T05:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.51</td><td class="num dim">n/p</td><td class="num">2.57</td>
 <td class="pick">Katie Boulter <span class="prob">63%</span></td>
 <td class="num odds">-196 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1773,7 +1784,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - Almaty Open</td>
 <td class="match">James Duckworth <span class="vs">v</span> Luciano Darderi</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 02:30 <span class="tag">archive</span></td>
+<td class="when">Today 02:30 <span class="dim small">= 2026-10-21T06:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">4.75</td><td class="num dim">n/p</td><td class="num">1.19</td>
 <td class="pick">Luciano Darderi <span class="prob">80%</span></td>
 <td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1787,7 +1798,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - Almaty Open</td>
 <td class="match">Adrian Mannarino <span class="vs">v</span> Andrey Rublev</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 05:30 <span class="tag">archive</span></td>
+<td class="when">Today 05:30 <span class="dim small">= 2026-10-21T09:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">4.75</td><td class="num dim">n/p</td><td class="num">1.19</td>
 <td class="pick">Andrey Rublev <span class="prob">80%</span></td>
 <td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1801,7 +1812,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 - BNB Ningbo Open</td>
 <td class="match">Sorana Cirstea <span class="vs">v</span> Sara Bejlek</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 04:00 <span class="tag">archive</span></td>
+<td class="when">Today 04:00 <span class="dim small">= 2026-10-21T08:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Sorana Cirstea <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1815,7 +1826,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - Almaty Open</td>
 <td class="match">Zangar Nurlanuly <span class="vs">v</span> Tomas Machac</td>
 <td class="market">1st Set Winner <span class="tag">match</span></td>
-<td class="when">Today 04:00 <span class="tag">archive</span></td>
+<td class="when">Today 04:00 <span class="dim small">= 2026-10-21T08:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.27</td><td class="num dim">n/p</td><td class="num">3.80</td>
 <td class="pick">Zangar Nurlanuly <span class="prob">75%</span></td>
 <td class="num odds">-370 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1829,7 +1840,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - Almaty Open</td>
 <td class="match">Mattia Bellucci <span class="vs">v</span> Tomas Martin Etcheverry</td>
 <td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when">Today 02:30 <span class="tag">archive</span></td>
+<td class="when">Today 02:30 <span class="dim small">= 2026-10-21T06:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.88</td><td class="num dim">n/p</td><td class="num">1.42</td>
 <td class="pick">Tomas Martin Etcheverry <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1843,7 +1854,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - European Open, Brussels</td>
 <td class="match">Dino Prizmic <span class="vs">v</span> Damir Dzumhur</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 05:30 <span class="tag">archive</span></td>
+<td class="when">Today 05:30 <span class="dim small">= 2026-10-21T09:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Damir Dzumhur <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1857,7 +1868,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - Grand Prix de Tennis de Lyon</td>
 <td class="match">Stan Wawrinka <span class="vs">v</span> Martin Landaluce</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 08:00 <span class="tag">archive</span></td>
+<td class="when">Today 08:00 <span class="dim small">= 2026-10-21T12:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Stan Wawrinka <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1871,7 +1882,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - European Open, Brussels</td>
 <td class="match">David Goffin <span class="vs">v</span> Remy Bertola</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">David Goffin <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1885,7 +1896,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - Almaty Open</td>
 <td class="match">Facundo Diaz Acosta <span class="vs">v</span> Nikoloz Basilashvili</td>
 <td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when">Today 04:00 <span class="tag">archive</span></td>
+<td class="when">Today 04:00 <span class="dim small">= 2026-10-21T08:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Facundo Diaz Acosta <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1899,7 +1910,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - European Open, Brussels</td>
 <td class="match">Martin Damm <span class="vs">v</span> Francisco Cerundolo</td>
 <td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when">Today 05:30 <span class="tag">archive</span></td>
+<td class="when">Today 05:30 <span class="dim small">= 2026-10-21T09:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Francisco Cerundolo <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1913,7 +1924,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 - European Open, Brussels</td>
 <td class="match">Mariano Navone <span class="vs">v</span> Tallon Griekspoor</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 07:00 <span class="tag">archive</span></td>
+<td class="when">Today 07:00 <span class="dim small">= 2026-10-21T11:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Tallon Griekspoor <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1927,7 +1938,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 - BNB Ningbo Open</td>
 <td class="match">Ekaterina Alexandrova <span class="vs">v</span> Marta Kostyuk</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 07:00 <span class="tag">archive</span></td>
+<td class="when">Today 07:00 <span class="dim small">= 2026-10-21T11:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Marta Kostyuk <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1941,7 +1952,7 @@ field-size prior.</p>
 <td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
 <td class="match">Ann Li <span class="vs">v</span> Zeynep Sonmez</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 22:30 <span class="tag">archive</span></td>
+<td class="when">Today 22:30 <span class="dim small">= 2026-10-22T02:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.63</td><td class="num">&mdash;</td><td class="num">2.29</td>
 <td class="pick">Ann Li <span class="prob">58%</span></td>
 <td class="num odds">-159 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1955,7 +1966,7 @@ field-size prior.</p>
 <td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
 <td class="match">Mary Stoiana <span class="vs">v</span> Moyuka Uchijima</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 00:00</td>
+<td class="when">Tomorrow 00:00 <span class="dim small">= 2026-10-22T04:00Z</span> <span class="tag">started</span></td>
 <td class="num">1.42</td><td class="num dim">n/p</td><td class="num">2.88</td>
 <td class="pick">Mary Stoiana <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -1969,7 +1980,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
 <td class="match">Katarzyna Kawa <span class="vs">v</span> Belinda Bencic</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 02:30</td>
+<td class="when">Tomorrow 02:30 <span class="dim small">= 2026-10-22T06:30Z</span> <span class="tag">started</span></td>
 <td class="num">3.09</td><td class="num">&mdash;</td><td class="num">1.37</td>
 <td class="pick">Belinda Bencic <span class="prob">69%</span></td>
 <td class="num odds">-270 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1983,7 +1994,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
 <td class="match">Elena Rybakina <span class="vs">v</span> Polina Kudermetova</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 07:00</td>
+<td class="when">Tomorrow 07:00 <span class="dim small">= 2026-10-22T11:00Z</span></td>
 <td class="num">1.19</td><td class="num">&mdash;</td><td class="num">4.78</td>
 <td class="pick">Elena Rybakina <span class="prob">80%</span></td>
 <td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -1997,7 +2008,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Almaty Open (Round of 16)</td>
 <td class="match">Daniil Medvedev <span class="vs">v</span> Sho Shimabukuro</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 05:30</td>
+<td class="when">Tomorrow 05:30 <span class="dim small">= 2026-10-22T09:30Z</span></td>
 <td class="num">1.28</td><td class="num">&mdash;</td><td class="num">3.71</td>
 <td class="pick">Daniil Medvedev <span class="prob">74%</span></td>
 <td class="num odds">-357 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2011,7 +2022,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
 <td class="match">Iva Jovic <span class="vs">v</span> Jasmine Paolini</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 01:00</td>
+<td class="when">Tomorrow 01:00 <span class="dim small">= 2026-10-22T05:00Z</span> <span class="tag">started</span></td>
 <td class="num">1.60</td><td class="num">&mdash;</td><td class="num">2.35</td>
 <td class="pick">Iva Jovic <span class="prob">60%</span></td>
 <td class="num odds">-167 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2025,7 +2036,7 @@ field-size prior.</p>
 <td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
 <td class="match">Magda Linette <span class="vs">v</span> Katerina Siniakova</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 01:30</td>
+<td class="when">Tomorrow 01:30 <span class="dim small">= 2026-10-22T05:30Z</span> <span class="tag">started</span></td>
 <td class="num">2.19</td><td class="num">&mdash;</td><td class="num">1.68</td>
 <td class="pick">Katerina Siniakova <span class="prob">57%</span></td>
 <td class="num odds">-147 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2039,7 +2050,7 @@ field-size prior.</p>
 <td class="comp">WTA 250 Kinoshita Group Japan Open (Round of 16)</td>
 <td class="match">Antonia Ruzic <span class="vs">v</span> Kayla Day</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 22:30 <span class="tag">archive</span></td>
+<td class="when">Today 22:30 <span class="dim small">= 2026-10-22T02:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Antonia Ruzic <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2053,7 +2064,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Almaty Open (Round of 16)</td>
 <td class="match">Tomas Machac <span class="vs">v</span> Karen Khachanov</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 04:00</td>
+<td class="when">Tomorrow 04:00 <span class="dim small">= 2026-10-22T08:00Z</span></td>
 <td class="num">2.36</td><td class="num">&mdash;</td><td class="num">1.59</td>
 <td class="pick">Karen Khachanov <span class="prob">60%</span></td>
 <td class="num odds">-169 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2067,7 +2078,7 @@ field-size prior.</p>
 <td class="comp">WTA 500 BNB Ningbo Open (Round of 16)</td>
 <td class="match">Alexandra Eala <span class="vs">v</span> Diana Shnaider</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 04:00</td>
+<td class="when">Tomorrow 04:00 <span class="dim small">= 2026-10-22T08:00Z</span></td>
 <td class="num">2.35</td><td class="num">&mdash;</td><td class="num">1.60</td>
 <td class="pick">Diana Shnaider <span class="prob">60%</span></td>
 <td class="num odds">-167 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2081,7 +2092,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</td>
 <td class="match">Raphael Collignon <span class="vs">v</span> Jiri Lehecka</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 07:30</td>
+<td class="when">Tomorrow 07:30 <span class="dim small">= 2026-10-22T11:30Z</span></td>
 <td class="num">3.33</td><td class="num">&mdash;</td><td class="num">1.33</td>
 <td class="pick">Jiri Lehecka <span class="prob">71%</span></td>
 <td class="num odds">-303 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2095,7 +2106,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
 <td class="match">Pierre Hugues Herbert <span class="vs">v</span> Taylor Fritz</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 09:30</td>
+<td class="when">Tomorrow 09:30 <span class="dim small">= 2026-10-22T13:30Z</span></td>
 <td class="num">5.25</td><td class="num">&mdash;</td><td class="num">1.16</td>
 <td class="pick">Taylor Fritz <span class="prob">82%</span></td>
 <td class="num odds">-625 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2109,7 +2120,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
 <td class="match">Valentin Vacherot <span class="vs">v</span> Luca Van Assche</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 08:00</td>
+<td class="when">Tomorrow 08:00 <span class="dim small">= 2026-10-22T12:00Z</span></td>
 <td class="num">1.73</td><td class="num">&mdash;</td><td class="num">2.11</td>
 <td class="pick">Valentin Vacherot <span class="prob">55%</span></td>
 <td class="num odds">-137 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2123,7 +2134,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
 <td class="match">Borna Gojo <span class="vs">v</span> Daniel Altmaier</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 08:00</td>
+<td class="when">Tomorrow 08:00 <span class="dim small">= 2026-10-22T12:00Z</span></td>
 <td class="num">2.43</td><td class="num">&mdash;</td><td class="num">1.56</td>
 <td class="pick">Daniel Altmaier <span class="prob">61%</span></td>
 <td class="num odds">-179 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2137,7 +2148,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Almaty Open (Round of 16)</td>
 <td class="match">Terence Atmane <span class="vs">v</span> Mattia Bellucci</td>
 <td class="market">1st Set Winner <span class="tag">match</span></td>
-<td class="when">Tomorrow 02:30</td>
+<td class="when">Tomorrow 02:30 <span class="dim small">= 2026-10-22T06:30Z</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Mattia Bellucci <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2151,7 +2162,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</td>
 <td class="match">David Goffin <span class="vs">v</span> Alex Michelsen</td>
 <td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when">Tomorrow 09:00</td>
+<td class="when">Tomorrow 09:00 <span class="dim small">= 2026-10-22T13:00Z</span></td>
 <td class="num">2.26</td><td class="num">&mdash;</td><td class="num">1.64</td>
 <td class="pick">Alex Michelsen <span class="prob">58%</span></td>
 <td class="num odds">-156 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2165,7 +2176,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Almaty Open (Round of 16)</td>
 <td class="match">Alexander Bublik <span class="vs">v</span> Fabian Marozsan</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 10:30</td>
+<td class="when">Tomorrow 10:30 <span class="dim small">= 2026-10-22T14:30Z</span></td>
 <td class="num">1.52</td><td class="num">&mdash;</td><td class="num">2.54</td>
 <td class="pick">Alexander Bublik <span class="prob">63%</span></td>
 <td class="num odds">-192 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2179,7 +2190,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 BNP Paribas Fortis European Open Brussels (Round of 16)</td>
 <td class="match">Damir Dzumhur <span class="vs">v</span> Zizou Bergs</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 11:00</td>
+<td class="when">Tomorrow 11:00 <span class="dim small">= 2026-10-22T15:00Z</span></td>
 <td class="num">2.29</td><td class="num">&mdash;</td><td class="num">1.62</td>
 <td class="pick">Zizou Bergs <span class="prob">59%</span></td>
 <td class="num odds">-161 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2193,7 +2204,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
 <td class="match">Flavio Cobolli <span class="vs">v</span> Stan Wawrinka</td>
 <td class="market">Set Betting <span class="tag">match</span></td>
-<td class="when">Tomorrow 13:00</td>
+<td class="when">Tomorrow 13:00 <span class="dim small">= 2026-10-22T17:00Z</span></td>
 <td class="num">1.49</td><td class="num">&mdash;</td><td class="num">2.62</td>
 <td class="pick">Flavio Cobolli <span class="prob">64%</span></td>
 <td class="num odds">-204 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2207,7 +2218,7 @@ field-size prior.</p>
 <td class="comp">ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon (Round of 16)</td>
 <td class="match">Kyrian Jacquet <span class="vs">v</span> Brandon Nakashima</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 14:30</td>
+<td class="when">Tomorrow 14:30 <span class="dim small">= 2026-10-22T18:30Z</span></td>
 <td class="num">2.76</td><td class="num">&mdash;</td><td class="num">1.45</td>
 <td class="pick">Brandon Nakashima <span class="prob">66%</span></td>
 <td class="num odds">-222 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2221,7 +2232,7 @@ field-size prior.</p>
 <td class="comp">Lentopallon Mestaruusliiga (Finland, women) - round 4</td>
 <td class="match">Puijo W <span class="vs">v</span> Orpo W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 10:00 <span class="tag">archive</span></td>
+<td class="when">Today 10:00 <span class="dim small">= 2026-10-21T14:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Puijo W <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2235,7 +2246,7 @@ field-size prior.</p>
 <td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
 <td class="match">LUK Lublin <span class="vs">v</span> Trefl Gdansk</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 11:30 <span class="tag">archive</span></td>
+<td class="when">Today 11:30 <span class="dim small">= 2026-10-21T15:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">LUK Lublin <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2249,7 +2260,7 @@ field-size prior.</p>
 <td class="comp">Volleyball Bundesliga (Germany, women)</td>
 <td class="match">Schweriner W <span class="vs">v</span> Erfurt W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Schweriner W <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2263,7 +2274,7 @@ field-size prior.</p>
 <td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
 <td class="match">Slepsk Suwalki <span class="vs">v</span> GKS Katowice</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">23 Oct 11:30</td>
+<td class="when">23 Oct 11:30 <span class="dim small">= 2026-10-23T15:30Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Slepsk Suwalki <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2277,7 +2288,7 @@ field-size prior.</p>
 <td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
 <td class="match">PGE Skra Belchatow <span class="vs">v</span> Projekt Warszawa</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">24 Oct 12:00</td>
+<td class="when">24 Oct 12:00 <span class="dim small">= 2026-10-24T16:00Z</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Projekt Warszawa <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2291,7 +2302,7 @@ field-size prior.</p>
 <td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
 <td class="match">CHKS Chelm <span class="vs">v</span> Resovia Rzeszow</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">25 Oct 13:00</td>
+<td class="when">25 Oct 13:00 <span class="dim small">= 2026-10-25T17:00Z</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Resovia Rzeszow <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2305,7 +2316,7 @@ field-size prior.</p>
 <td class="comp">Puchar Polski (Poland, men) - round 3</td>
 <td class="match">Jelcz Laskowice <span class="vs">v</span> Stal Nysa</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 12:00 <span class="tag">archive</span></td>
+<td class="when">Today 12:00 <span class="dim small">= 2026-10-21T16:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Stal Nysa <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2319,7 +2330,7 @@ field-size prior.</p>
 <td class="comp">Volleyball Bundesliga (Germany, men) - matchday 1</td>
 <td class="match">Netzhoppers KW <span class="vs">v</span> Helios Grizzlys Giesen</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 13:00 <span class="tag">archive</span></td>
+<td class="when">Today 13:00 <span class="dim small">= 2026-10-21T17:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Helios Grizzlys Giesen <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2333,7 +2344,7 @@ field-size prior.</p>
 <td class="comp">Volleyball Bundesliga (Germany, men) - matchday 1</td>
 <td class="match">WWK Volleys Munchen <span class="vs">v</span> VfB Friedrichshafen</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 13:30 <span class="tag">archive</span></td>
+<td class="when">Today 13:30 <span class="dim small">= 2026-10-21T17:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">VfB Friedrichshafen <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2347,7 +2358,7 @@ field-size prior.</p>
 <td class="comp">Volleyball Bundesliga (Germany, men) - matchday 1</td>
 <td class="match">SSC Karlsruhe <span class="vs">v</span> SVG Luneburg</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 14:00 <span class="tag">archive</span></td>
+<td class="when">Today 14:00 <span class="dim small">= 2026-10-21T18:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">SVG Luneburg <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2361,7 +2372,7 @@ field-size prior.</p>
 <td class="comp">Eredivisie Volleyball (Netherlands, women) - round 3</td>
 <td class="match">VC Sneek W <span class="vs">v</span> VV Utrecht W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 14:00 <span class="tag">archive</span></td>
+<td class="when">Today 14:00 <span class="dim small">= 2026-10-21T18:00Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">VC Sneek W <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2375,7 +2386,7 @@ field-size prior.</p>
 <td class="comp">PlusLiga (Poland, men) - Faza Zasadnicza</td>
 <td class="match">Warta Zawiercie <span class="vs">v</span> Kedzierzyn Kozle</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 14:30 <span class="tag">archive</span></td>
+<td class="when">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Warta Zawiercie <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2389,7 +2400,7 @@ field-size prior.</p>
 <td class="comp">LVF Serie A1 Femminile (Italy) - 4th round</td>
 <td class="match">Vallefoglia W <span class="vs">v</span> Cuneo W</td>
 <td class="market">Set Score <span class="tag">match</span></td>
-<td class="when">Today 14:30 <span class="tag">archive</span></td>
+<td class="when">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Cuneo W <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2403,7 +2414,7 @@ field-size prior.</p>
 <td class="comp">LVF Serie A1 Femminile (Italy) - 4th round</td>
 <td class="match">Bergamo W <span class="vs">v</span> Milano W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 14:30 <span class="tag">archive</span></td>
+<td class="when">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Milano W <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2417,7 +2428,7 @@ field-size prior.</p>
 <td class="comp">LVF Serie A1 Femminile (Italy) - 4th round</td>
 <td class="match">Novara W <span class="vs">v</span> Marignano W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Today 14:30 <span class="tag">archive</span></td>
+<td class="when">Today 14:30 <span class="dim small">= 2026-10-21T18:30Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Novara W <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2431,7 +2442,7 @@ field-size prior.</p>
 <td class="comp">Polish TAURON Liga Women 2026/27</td>
 <td class="match">Radomka Radom W <span class="vs">v</span> Mielec W</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 11:30</td>
+<td class="when">Tomorrow 11:30 <span class="dim small">= 2026-10-22T15:30Z</span></td>
 <td class="num">1.19</td><td class="num dim">n/p</td><td class="num">4.75</td>
 <td class="pick">Radomka Radom W <span class="prob">80%</span></td>
 <td class="num odds">-526 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2445,7 +2456,7 @@ field-size prior.</p>
 <td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
 <td class="match">Ceske Budejovice <span class="vs">v</span> Beskydy</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num">1.42</td><td class="num dim">n/p</td><td class="num">2.88</td>
 <td class="pick">Ceske Budejovice <span class="prob">67%</span></td>
 <td class="num odds">-238 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2459,7 +2470,7 @@ field-size prior.</p>
 <td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
 <td class="match">Ostrava <span class="vs">v</span> Kladno</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Ostrava <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2473,7 +2484,7 @@ field-size prior.</p>
 <td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
 <td class="match">Brno <span class="vs">v</span> Odolena Voda</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num">1.02</td><td class="num dim">n/p</td><td class="num">47.50</td>
 <td class="pick">Brno <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2487,7 +2498,7 @@ field-size prior.</p>
 <td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
 <td class="match">Usti Nad Labem <span class="vs">v</span> Zlin</td>
 <td class="market">Win Match <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num">47.50</td><td class="num dim">n/p</td><td class="num">1.02</td>
 <td class="pick">Zlin <span class="prob">98%</span></td>
 <td class="num odds">-5000 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2501,7 +2512,7 @@ field-size prior.</p>
 <td class="comp">Czech CEZ Extraliga Men 2026/27 (Round 2)</td>
 <td class="match">Liberec <span class="vs">v</span> Benatky nad Jizerou</td>
 <td class="market">Set Score <span class="tag">match</span></td>
-<td class="when">Tomorrow 12:00</td>
+<td class="when">Tomorrow 12:00 <span class="dim small">= 2026-10-22T16:00Z</span></td>
 <td class="num">1.90</td><td class="num dim">n/p</td><td class="num">1.90</td>
 <td class="pick">Liberec <span class="prob">50%</span></td>
 <td class="num odds">-111 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2515,7 +2526,7 @@ field-size prior.</p>
 <td class="comp">DP World Tour / KPGA — 2026 Genesis Championship</td>
 <td class="match">Genesis Championship <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 04:00</td>
+<td class="when">25 Oct 04:00 <span class="dim small">= 2026-10-25T08:00Z</span></td>
 <td class="num">6.79</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Si Woo Kim <span class="prob">14%</span></td>
 <td class="num odds">+579 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2529,7 +2540,7 @@ field-size prior.</p>
 <td class="comp">PGA Tour FedExCup Fall — 2026 Butterfield Bermuda Championship</td>
 <td class="match">Bermuda Championship <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 17:45</td>
+<td class="when">25 Oct 17:45 <span class="dim small">= 2026-10-25T21:45Z</span></td>
 <td class="num">8.40</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Seamus Power <span class="prob">11%</span></td>
 <td class="num odds">+740 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2543,7 +2554,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Players Series SA <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 02:45</td>
+<td class="when">25 Oct 02:45 <span class="dim small">= 2026-10-25T06:45Z</span></td>
 <td class="num">11.47</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Josh Armstrong <span class="prob">8%</span></td>
 <td class="num odds">+1047 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2557,7 +2568,7 @@ field-size prior.</p>
 <td class="comp">LPGA Tour — 2026 BMW Ladies Championship</td>
 <td class="match">BMW Ladies Championship <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 04:00</td>
+<td class="when">25 Oct 04:00 <span class="dim small">= 2026-10-25T08:00Z</span></td>
 <td class="num">13.17</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Sei Young Kim <span class="prob">7%</span></td>
 <td class="num odds">+1217 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2571,7 +2582,7 @@ field-size prior.</p>
 <td class="comp">PGA Tour Champions — 2026 Stifel Charity Classic</td>
 <td class="match">Stifel Charity Classic <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 17:45</td>
+<td class="when">25 Oct 17:45 <span class="dim small">= 2026-10-25T21:45Z</span></td>
 <td class="num">13.67</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Steven Alker <span class="prob">7%</span></td>
 <td class="num odds">+1267 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2585,7 +2596,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Senior Italian Open <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">24 Oct 11:45</td>
+<td class="when">24 Oct 11:45 <span class="dim small">= 2026-10-24T15:45Z</span></td>
 <td class="num">21.41</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Mikael Lundberg <span class="prob">4%</span></td>
 <td class="num odds">+2041 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2599,7 +2610,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Fortinet Players Cup <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 02:45</td>
+<td class="when">25 Oct 02:45 <span class="dim small">= 2026-10-25T06:45Z</span></td>
 <td class="num">21.41</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Ryosuke Kinoshita <span class="prob">4%</span></td>
 <td class="num odds">+2041 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2613,7 +2624,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Hong Kong Open <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 03:45</td>
+<td class="when">25 Oct 03:45 <span class="dim small">= 2026-10-25T07:45Z</span></td>
 <td class="num">22.23</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Paul Casey <span class="prob">4%</span></td>
 <td class="num odds">+2123 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2627,7 +2638,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">Stella Artois Players Championship <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 10:45</td>
+<td class="when">25 Oct 10:45 <span class="dim small">= 2026-10-25T14:45Z</span></td>
 <td class="num">21.41</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Daniel van Tonder <span class="prob">4%</span></td>
 <td class="num odds">+2041 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2641,7 +2652,7 @@ field-size prior.</p>
 <td class="comp">Ladies European Tour — 2026 Hero Women&#x27;s Indian Open</td>
 <td class="match">Hero Womens Indian Open <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">25 Oct 08:00</td>
+<td class="when">25 Oct 08:00 <span class="dim small">= 2026-10-25T12:00Z</span></td>
 <td class="num">148.20</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Avani Prashanth <span class="prob">1%</span></td>
 <td class="num odds">+14720 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2655,7 +2666,7 @@ field-size prior.</p>
 <td class="comp">Formula 1</td>
 <td class="match">USA Grand Prix <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Race <span class="tag">race</span></td>
-<td class="when">25 Oct 16:00</td>
+<td class="when">25 Oct 16:00 <span class="dim small">= 2026-10-25T20:00Z</span></td>
 <td class="num">3.41</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Max Verstappen <span class="prob">28%</span></td>
 <td class="num odds">+241 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2669,7 +2680,7 @@ field-size prior.</p>
 <td class="comp">Formula 1</td>
 <td class="match">Formula 1 Drivers Championship 2026 <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">06 Dec 08:00</td>
+<td class="when">06 Dec 08:00 <span class="dim small">= 2026-12-06T12:00Z</span></td>
 <td class="num">4.48</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Max Verstappen <span class="prob">21%</span></td>
 <td class="num odds">+348 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2683,7 +2694,7 @@ field-size prior.</p>
 <td class="comp">Formula 1</td>
 <td class="match">Formula 1 Drivers Championship 2026 Without Kimi Antonelli <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">06 Dec 08:00</td>
+<td class="when">06 Dec 08:00 <span class="dim small">= 2026-12-06T12:00Z</span></td>
 <td class="num">3.74</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Max Verstappen <span class="prob">25%</span></td>
 <td class="num odds">+274 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2697,7 +2708,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">11:14 Kinsley <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Daily Races <span class="tag">race</span></td>
-<td class="when">Today 06:14 <span class="tag">archive</span></td>
+<td class="when">Today 06:14 <span class="dim small">= 2026-10-21T10:14Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">2.53</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Swift Perry <span class="prob">38%</span></td>
 <td class="num odds">+153 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2711,7 +2722,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">10:32 Harlow <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Daily Races <span class="tag">race</span></td>
-<td class="when">Today 05:32 <span class="tag">archive</span></td>
+<td class="when">Today 05:32 <span class="dim small">= 2026-10-21T09:32Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">3.33</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Makeit Sway <span class="prob">29%</span></td>
 <td class="num odds">+233 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2725,7 +2736,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">10:48 Harlow <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Daily Races <span class="tag">race</span></td>
-<td class="when">Today 05:48 <span class="tag">archive</span></td>
+<td class="when">Today 05:48 <span class="dim small">= 2026-10-21T09:48Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">3.33</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Moaning Cashout <span class="prob">29%</span></td>
 <td class="num odds">+233 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2739,7 +2750,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">11:03 Monmore <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Daily Races <span class="tag">race</span></td>
-<td class="when">Today 06:03 <span class="tag">archive</span></td>
+<td class="when">Today 06:03 <span class="dim small">= 2026-10-21T10:03Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">3.33</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Relentless I Am <span class="prob">29%</span></td>
 <td class="num odds">+233 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2753,7 +2764,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">11:04 Harlow <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Daily Races <span class="tag">race</span></td>
-<td class="when">Today 06:04 <span class="tag">archive</span></td>
+<td class="when">Today 06:04 <span class="dim small">= 2026-10-21T10:04Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">3.33</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Muinteoir Jane <span class="prob">29%</span></td>
 <td class="num odds">+233 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2767,7 +2778,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">11:09 Nottingham <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Daily Races <span class="tag">race</span></td>
-<td class="when">Today 06:09 <span class="tag">archive</span></td>
+<td class="when">Today 06:09 <span class="dim small">= 2026-10-21T10:09Z</span> <span class="tag">archive</span> <span class="tag">started</span></td>
 <td class="num">3.33</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Bluejig Polly <span class="prob">29%</span></td>
 <td class="num odds">+233 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2781,7 +2792,7 @@ field-size prior.</p>
 <td class="comp">State of Origin</td>
 <td class="match">State of Origin 2027 <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Win Tournament <span class="tag">outright</span></td>
-<td class="when">27 May 2027 06:00</td>
+<td class="when">27 May 2027 06:00 <span class="dim small">= 2027-05-27T10:00Z</span></td>
 <td class="num">1.38</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">New South Wales <span class="prob">69%</span></td>
 <td class="num odds">-263 <span class="pill low" title="Outside the requested -250 to +10000 US band">outside band</span></td>
@@ -2795,7 +2806,7 @@ field-size prior.</p>
 <td class="comp">Super League</td>
 <td class="match">Super League 2027 <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Grand Final Winner <span class="tag">outright</span></td>
-<td class="when">02 Oct 2027 13:00</td>
+<td class="when">02 Oct 2027 13:00 <span class="dim small">= 2027-10-02T17:00Z</span></td>
 <td class="num">5.70</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Leeds Rhinos <span class="prob">17%</span></td>
 <td class="num odds">+470 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2809,7 +2820,7 @@ field-size prior.</p>
 <td class="comp">NRL</td>
 <td class="match">NRL 2027 <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">Grand Final Winner <span class="tag">outright</span></td>
-<td class="when">03 Oct 2027 04:30</td>
+<td class="when">03 Oct 2027 04:30 <span class="dim small">= 2027-10-03T08:30Z</span></td>
 <td class="num">4.92</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Penrith Panthers <span class="prob">19%</span></td>
 <td class="num odds">+392 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>
@@ -2823,7 +2834,7 @@ field-size prior.</p>
 <td class="comp"><span class="dim" title="OLBG does not state the competition for this fixture">not stated</span></td>
 <td class="match">All Ireland Football Championship 2027 <span class="vs">&middot;</span> <span class="dim small">single-selection</span></td>
 <td class="market">market not shown by OLBG <span class="tag">outright</span></td>
-<td class="when">25 Jul 2027 10:30</td>
+<td class="when">25 Jul 2027 10:30 <span class="dim small">= 2027-07-25T14:30Z</span></td>
 <td class="num">3.04</td><td class="num dim" title="A single-selection market has no draw">&mdash;</td><td class="num dim" title="A single-selection market has no opposing side">&mdash;</td>
 <td class="pick">Kerry <span class="prob">31%</span></td>
 <td class="num odds">+204 <span class="pill high" title="Inside the requested -250 to +10000 US band">in band</span></td>

@@ -95,6 +95,8 @@ conf_counter = Counter(r["pick"]["confidence"] for r in EVENTS)
 n_price = sum(1 for r in EVENTS if r["model"].get("prices"))
 n_hcap = sum(1 for r in EVENTS if r["model"].get("handicap"))
 n_expired = sum(1 for r in EVENTS if r["pick"].get("kickoff_passed"))
+n_started = sum(1 for r in EVENTS if r["pick"].get("kickoff_started"))
+n_hi_started = sum(1 for r in EVENTS if r["pick"].get("kickoff_started") and r["pick"]["confidence"] == "HIGH")
 n_evidence_high = sum(1 for r in EVENTS if r["pick"].get("evidence_grade") == "HIGH")
 n_band_blocked = sum(1 for r in EVENTS if r["pick"].get("evidence_grade") == "HIGH" and not r["pick"].get("in_band"))
 n_hi_in_band = sum(1 for r in EVENTS if r["pick"]["confidence"] == "HIGH" and r["pick"].get("in_band"))
@@ -202,7 +204,7 @@ def row_html(r):
 <td class="comp">{e(r['competition']) or '<span class="dim" title="OLBG does not state the competition for this fixture">not stated</span>'}</td>
 <td class="match">{match_label(r)}</td>
 <td class="market">{market_label(r)}</td>
-<td class="when">{e(r['start'])}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}</td>
+<td class="when">{e(r['start'])}{(' <span class="dim small">= ' + e(p['kickoff_utc']) + '</span>') if p.get('kickoff_utc') else ''}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}{' <span class="tag">started</span>' if p.get('kickoff_started') else ''}</td>
 {price_cell(r)}
 <td class="pick">{pick} {prob}</td>
 <td class="num odds">{usd(p.get('price'))} {band_badge(r)}</td>
@@ -344,6 +346,16 @@ index = head("Dashboard") + f"""
   <a href="audit.html">audit page</a>.
 </div>
 
+<div class="notice">
+  <strong>Clock, {BUILT}.</strong> OLBG prints a bare clock and no time zone. Every row we could compare matches the
+  organiser&rsquo;s own start time only when that clock is read as <strong>US Eastern (UTC&minus;4)</strong> &mdash;
+  04:00 &rarr; 13:00 in Almaty, 08:00 &rarr; 14:00 in Lyon, 09:00 &rarr; 13:30&ndash;15:00 in Brussels, 13:00 &rarr; 19:00 CEST
+  in the handball. Each row therefore shows a derived UTC kick-off, and rows whose kick-off was already running when this page
+  was built carry a <span class="tag">started</span> marker ({n_started} of {n_events} rows, {n_hi_started} of them graded HIGH).
+  The marker is information, not a grade change: the grades are re-derived hourly from committed data, so rewriting them against
+  the wall clock would make the published board irreproducible.
+</div>
+
 <div class="cards">
   <div class="card"><span class="k">{len(by_sport)}</span><span class="l">sports covered</span></div>
   <div class="card"><span class="k">{n_events}</span><span class="l">rows on the board</span></div>
@@ -353,7 +365,8 @@ index = head("Dashboard") + f"""
   <div class="card"><span class="k">{n_price}</span><span class="l">with our own price</span></div>
   <div class="card"><span class="k">{len(hi_rows)}</span><span class="l">high-confidence picks</span></div>
   <div class="card"><span class="k">{n_hi_in_band}/{len(hi_rows)}</span><span class="l">HIGH picks inside -250..+10000</span></div>
-  <div class="card warn"><span class="k">{n_expired}</span><span class="l">kick-offs already passed</span></div>
+  <div class="card warn"><span class="k">{n_expired}</span><span class="l">kick-off date already passed</span></div>
+  <div class="card warn"><span class="k">{n_started}</span><span class="l">kick-offs under way at build time</span></div>
   <div class="card warn"><span class="k">{n_unverified}</span><span class="l">flagged unverified</span></div>
 </div>
 
@@ -431,6 +444,15 @@ for ref, p in _ordered:
     facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
     _why = p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
     _note = (f'<p class="note">Kept as medium-confidence analysis, not a high-confidence pick: {e(_why)}</p>' if _downgraded else '')
+    _kick = r["pick"].get("kickoff_utc")
+    if _kick:
+        _clock = (f'<p class="note">Derived kick-off {e(_kick)} (OLBG clock read as US Eastern, UTC-4) &middot; '
+                  + ('<strong>this kick-off had already passed when this page was built</strong>, so the selection may be '
+                     'settled or in play. The grade is an evidence grade and is not rewritten by the clock.</p>'
+                     if r["pick"].get("kickoff_started") else
+                     'the fixture had not started when this page was built.</p>'))
+    else:
+        _clock = ''
     _block = f"""
 <article class="prediction" id="{e(ref)}">
   {_note}
@@ -438,6 +460,7 @@ for ref, p in _ordered:
   <h2>{e(p['headline'])}</h2>
   <p class="fixture">{match_label(r)} &middot; <span class="when">{e(r['start'])} (OLBG)</span>
      {('&middot; ' + e(r['verification']['official_datetime'])) if r['verification'].get('official_datetime') else ''}</p>
+  {_clock}
   <p class="selection">Betting selection: <strong>{e(p['selection'])}</strong>
      <span class="pricebox">our price {money(price)} ({usd(price)} US) &middot; model {r['pick']['prob']*100:.0f}%</span></p>
   <p class="body">{e(p['body'])}</p>
@@ -458,7 +481,7 @@ kept_section = (f'<h2>Medium-confidence analysis ({n_kept})</h2><p class="dim">T
 predpage = head("Predictions") + f"""
 <section class="pagehead">
   <h1>Written predictions &mdash; high-confidence picks inside the band</h1>
-  <p class="lede">{len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} picks clear the high-confidence bar: an officially verified fixture,
+  <p class="lede">{len([r for r in EVENTS if r['pick']['confidence']=='HIGH'])} picks clear the high-confidence bar ({n_hi_started} of them had already kicked off when this page was built and say so on the card): an officially verified fixture,
   official current-form data for both sides, a model probability of at least 55%, <em>and</em> a price inside the requested
   <strong>-250 to +10000</strong> US band. Every sentence that states a fact carries a source link. Picks that fail the price test are
   kept below as clearly labelled medium-confidence analysis rather than passed off as high confidence.</p>
@@ -964,6 +987,17 @@ IRREGULARITY_EXTRA.append((
     "publishes Power's 5/22 but not James's count (and James is the market favourite); and BKB-21's headline called Maccabi's home record in the fixture 'perfect' when the EuroLeague says only that the home team "
     "won each of the last five meetings, the most recent of which was in Madrid. Each sentence now states only what its source states. No price, grade or market line changed.",
     "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"))
+IRREGULARITY_EXTRA.append((
+    "The OLBG clock is US Eastern, and three same-day HIGH picks had already kicked off at the verification clock (FL-050, fixed)",
+    "OLBG prints a bare clock and no zone, so the board could only date a fixture, not time it. Reading the captured labels as "
+    "<strong>US Eastern (UTC&minus;4)</strong> reproduces the organiser&rsquo;s own start time in every case we could check &mdash; "
+    "04:00 &rarr; 13:00 Almaty, 08:00 &rarr; 14:00 Lyon, 09:00 &rarr; the second Centre Court match in Brussels from 13:30, "
+    "13:00 &rarr; 19:00 CEST handball. At 07:20 UTC that puts TEN-20 (05:00 UTC), TEN-21 (05:30 UTC) and CRK-04 (07:00 UTC, ICC live "
+    "score already showing New Zealand batting) past their start while still published as live HIGH picks. Every row now carries a "
+    "derived UTC kick-off and a <em>started</em> marker instead of implying a kick-off is still ahead; the grade is not rewritten by "
+    "the wall clock, because the hourly rebuild re-derives the board from committed inputs and a clock-dependent grade would be "
+    "irreproducible. The date-level archive gate is unchanged.",
+    "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule"))
 irregularities = IRREGULARITY_EXTRA + irregularities
 
 def _src(u):
