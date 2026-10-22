@@ -2,7 +2,7 @@
   "project": "OLBG3",
   "run_id": "S-20261022-D",
   "run_started_utc": "2026-10-22T08:27:00Z",
-  "harvest_completed_utc": "2026-10-22T21:20:00Z",
+  "harvest_completed_utc": "2026-10-22T21:35:00Z",
   "olbg_locale_date": "2026-10-22",
   "excluded_sports_verbatim": [
     "soccer",
@@ -70,17 +70,23 @@
     "granularity": "128 live listing rows captured at 2026-10-22T20:55Z-21:20Z across 13 of the 15 allowed sports; Snooker and Greyhounds returned 'No tips found.' server-side (the Northern Ireland Open and the UK greyhound cards had finished), so their dated rows are carried forward and are not graded HIGH.",
     "values_inferred": "none - blank when not stated by an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261022T2055Z.tsv",
+  "harvest_file": "raw/olbg-harvest-20261022T2130Z.tsv",
   "harvest_format": "v2",
   "harvest_timezone_note": "At 2026-10-22T20:55Z-21:20Z OLBG rendered a bare local clock with no zone label, and the render basis differed between endpoints and changed relative to the midday capture (St Finbarrs v Nemo Rangers now reads 16:00 where the 12:15Z capture read 12:00; the NBA page now reads 'Tomorrow 00:10' where the 12:15Z capture read 'Today 19:10', while the all-sports page kept the 19:10 rendering). Every label in this capture is copied VERBATIM and is never converted. Only explicitly timezone-qualified governing-body clocks in release_checks.json certify a UTC start.",
   "previous_harvest": {
-    "file": "raw/olbg-harvest-20261022T1215Z.tsv",
+    "file": "raw/olbg-harvest-20261022T2055Z.tsv",
     "format": "v2",
     "olbg_locale_date": "2026-10-22",
-    "harvest_completed_utc": "2026-10-22T12:25:00Z",
-    "note": "Retained byte-for-byte unchanged for audit; supplies the midday fixtures that had rotated off the live listing by 21:00Z."
+    "harvest_completed_utc": "2026-10-22T21:20:00Z"
   },
   "previous_harvests_extra": [
+    {
+      "file": "raw/olbg-harvest-20261022T1215Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-22",
+      "harvest_completed_utc": "2026-10-22T12:25:00Z",
+      "note": "Retained byte-for-byte unchanged for audit; midday 22 Oct capture."
+    },
     {
       "file": "raw/olbg-harvest-20261022T2100Z.tsv",
       "format": "v2",
@@ -131,7 +137,7 @@
       "note": "Retained byte-for-byte unchanged for audit; chained behind the current live capture."
     }
   ],
-  "session": "session-784afe97",
+  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893)",
   "supplementary_harvests": [
     {
       "file": "raw/olbg-harvest-20261022T2100Z.tsv",

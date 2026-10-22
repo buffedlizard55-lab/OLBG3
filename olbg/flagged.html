@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">120 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">122 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -864,11 +864,25 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/release.py" rel="noopener nofollow" target="_blank">scripts/release.py - sync_predictions (this repository)</a></li></ul>
 </article>
+<article class="card flag" id="FL-129">
+  <div class="flag-head"><span class="tag">FL-129</span> <span class="sev sev-data">data quality</span></div>
+  <h2>EuroLeague release-source URL now 404s (BKB-22 / 535928 manual-review link rot)</h2>
+  <p>Re-read 21:50Z–22:00Z on 2026-10-22 (session-4b642f84). The EuroLeague standings page on the same host loads normally and confirms the Round 7 table after that night’s games (Panathinaikos 6-1 +96, Fenerbahce 5-1, Olympiacos 5-1). No replacement exact-clock page for Zalgiris v ASVEL (Fri 23 Oct, 19:00 CEST) could be read on the official host that evening, so the 12:10Z observation was left untouched rather than re-dated without an equivalent reading. Related but distinct from FL-118 (preview-vs-standings staleness) and FL-119 (URC 404 repoints). Flagged for a future source-URL repair pass.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el26" rel="noopener nofollow" target="_blank">EuroLeague — Round 7 game center article (404 at re-read)</a></li><li><a href="https://www.euroleaguebasketball.net/en/euroleague/standings/" rel="noopener nofollow" target="_blank">EuroLeague — official standings (loads; table re-read)</a></li></ul>
+</article>
+<article class="card flag" id="FL-130">
+  <div class="flag-head"><span class="tag">FL-130</span> <span class="sev sev-unverified">unverified</span></div>
+  <h2>21 root fixtures from the 21:30Z evening harvest published unverified (no governing-body source read)</h2>
+  <p>Leagues involved: Brazil NBB and NBA (basketball), South African domestic T20 (cricket), French/German/Danish/Spanish domestic handball, Danish Metal Ligaen and win2day ICE Hockey League (ice hockey), URC Edinburgh v Lions and Premiership Newcastle v Sale (rugby union), and Finnish/Austrian/German domestic volleyball. The nine other evening fixtures (eight tennis quarter-finals and NZ v India) were verified against ATP/WTA/ICC pages read that evening. This is the root-track counterpart of FL-101/FL-126 (the /olbg/-only evening rows). tests/test_audit_d3464fe4.py pins this exact exemption set so the list cannot grow silently.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T21:20:00Z; publication clock 2026-10-22T21:55:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-22T21:35:00Z; publication clock 2026-10-22T22:10:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

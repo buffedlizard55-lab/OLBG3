@@ -2678,6 +2678,40 @@
           "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/release.py"
         }
       ]
+    },
+    {
+      "id": "FL-129",
+      "severity": "data quality",
+      "status": "needs review",
+      "sport": "Basketball",
+      "title": "EuroLeague release-source URL now 404s (BKB-22 / 535928 manual-review link rot)",
+      "summary": "The EuroLeague article cited by release_checks[’535928’] (game-center-round-7-el26, observed 2026-10-22T12:10Z) returns the site’s 404 page when re-read on the evening of 22 October, as does /en/euroleague/calendar/. The stored verbatim quote is unchanged and the Zalgiris pick is unaffected arithmetically, but the manual-review link is dead.",
+      "detail": "Re-read 21:50Z–22:00Z on 2026-10-22 (session-4b642f84). The EuroLeague standings page on the same host loads normally and confirms the Round 7 table after that night’s games (Panathinaikos 6-1 +96, Fenerbahce 5-1, Olympiacos 5-1). No replacement exact-clock page for Zalgiris v ASVEL (Fri 23 Oct, 19:00 CEST) could be read on the official host that evening, so the 12:10Z observation was left untouched rather than re-dated without an equivalent reading. Related but distinct from FL-118 (preview-vs-standings staleness) and FL-119 (URC 404 repoints). Flagged for a future source-URL repair pass.",
+      "sources": [
+        {
+          "label": "EuroLeague — Round 7 game center article (404 at re-read)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el26"
+        },
+        {
+          "label": "EuroLeague — official standings (loads; table re-read)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        }
+      ]
+    },
+    {
+      "id": "FL-130",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "21 root fixtures from the 21:30Z evening harvest published unverified (no governing-body source read)",
+      "summary": "Root rows BKB-31, BKB-32, CRK-18, HBL-32..HBL-38, IHO-26..IHO-29, RGU-17, RGU-18 and VOL-31..VOL-35 (session-4b642f84) carry verbatim OLBG listing data only. No competition-official page was read for them, so their official URL/datetime fields are blank, their verification status is unverified, and none can grade HIGH (MEDIUM only where an official standings table already in the dataset prices them, e.g. IHO-28 via the ICEHL table).",
+      "detail": "Leagues involved: Brazil NBB and NBA (basketball), South African domestic T20 (cricket), French/German/Danish/Spanish domestic handball, Danish Metal Ligaen and win2day ICE Hockey League (ice hockey), URC Edinburgh v Lions and Premiership Newcastle v Sale (rugby union), and Finnish/Austrian/German domestic volleyball. The nine other evening fixtures (eight tennis quarter-finals and NZ v India) were verified against ATP/WTA/ICC pages read that evening. This is the root-track counterpart of FL-101/FL-126 (the /olbg/-only evening rows). tests/test_audit_d3464fe4.py pins this exact exemption set so the list cannot grow silently.",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
     }
   ]
 }
