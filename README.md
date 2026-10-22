@@ -13,11 +13,34 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 | `lines.html` | Multi-market originated lines: Money Line / Win Match (`224` priced), Handicap / Spread (`186`), Match Totals Over/Under (`99`), Outrights & Races (`27`) |
 | `verification.html` | Line-by-line official governing-body verification table (`210` official/club-verified, `1` third-party corroborated, `17` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: every audit finding + the **62-item** register (`FL-001`..`FL-062`) with direct official & OLBG source links |
+| `flagged.html` | **Flagged for Review**: every audit finding + the **65-item** register (`FL-001`..`FL-065`) with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Unified `2026-10-22T07:25Z` OLBG multi-market lines & audit track (**21 pages**: `270` chained rows across all 15 sports, `35` live in-band `HIGH` predictions across **12 sports**, `62` flagged items) |
+| `/olbg/` | Unified `2026-10-22T07:25Z` OLBG multi-market lines & audit track (**21 pages**: `270` chained rows across all 15 sports, `35` live in-band `HIGH` predictions across **12 sports**, `65` flagged items) |
+
+## Latest audit — `session-08885c97`, 2026-10-22 08:20–09:10 UTC
+
+Independent re-read of the published write-ups against the competitions' own pages, plus a dead-link sweep of every official source cited by a snooker row.
+Three defects were found and repaired; register: **65 items** (`flagged.html`, `/olbg/flagged.html`).
+
+| Finding | What was wrong | Fix |
+|---|---|---|
+| FL-063 | All 21 snooker source links pointed at `wst.tv/tournaments/northern-ireland-open-2026/`, which now returns a **World Snooker Tour `404 error` page** (the year-less variant 404s too). A row cannot be labelled `verified` on a dead URL | Every occurrence repointed to the live WST match centre `https://www.wst.tv/matches/`, which serves the *BetVictor Northern Ireland Open 2026* match list. Seed numerals in the prose are corroborated on snooker.org Event 2548 exactly as each row note already says; they were **not** re-derived or altered |
+| FL-064 | `IHO-03` described Farjestad's two non-regulation results as "one overtime win, one overtime loss". The official SHL table prints `OTW 0, OTL 0, GWSW 1, GWSL 1` — one **shootout** win and one shootout loss, no overtime at all | Prose now states the shootout split. Price (1.42 / -238), probability and `HIGH` grade unchanged |
+| FL-065 | `BSB-160789` claimed Milwaukee held "MLB's premier home record at 55-26". Tampa Bay finished **55-26 at home as well**, so the mark is joint-best, not Milwaukee's alone | Rewritten to "a 55-26 (.679) home record, level with Tampa Bay's own home mark as the joint-best in MLB". Every other figure in the piece stands |
+
+Figures re-read verbatim and confirmed **unchanged** this pass: the official SHL table
+([Farjestad 10 GP, 8-2-0, 40:11, 27 TP, 1 shootout win / 1 shootout loss](https://stats.swehockey.se/ScheduleAndResults/Overview/20961); Frolunda 2nd on 25 from 11, 38:24; Rogle 6th on 14 from 10, 23:21),
+the [EuroLeague standings](https://www.euroleaguebasketball.net/en/euroleague/standings/) (Panathinaikos 5-1, 528:438, +90 — `BKB-11`),
+the [ICC Men's ODI team rankings of 21 Oct 2026](https://www.icc-cricket.com/rankings/team-rankings/mens/odi) (England 6, Sri Lanka 7, Ireland 12/51, Namibia 16/32 — `CRK-06`, `CRK-07`),
+the [Betoro Herreligaen table](https://tophaandbold.dk/stillinger/herreligaen) (Skive 10 GP, 328:366, 2 pts; Aalborg 10 GP, 323:306, 15 pts — `HBL-28`),
+the [MLB 2026 standings](https://www.mlb.com/standings/2026) (Brewers 103-59, 832/618, +214; Rays 98-64, 736/650, 43-38 away — `BSB-01`/`BSB-160789`),
+WST's own Day Four reports (Cheung 4-0 Bingham with breaks of 56, 54 and 111; Jak Jones 4-2 John Higgins; McGill 4-1 Lisowski, corroborated by
+[BBC Sport](https://www.bbc.com/sport/snooker/articles/cwkg5k7873kxo)), and the ATP Almaty Day 6 order of play
+([Machac v Khachanov NB 13:00, Bublik v Marozsan NB 19:30 on Thu 22 Oct](https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule)) behind `TEN-23`/`TEN-31`.
+The PDC European Championship draw page could not be read this pass (cookie wall), so no darts claim was re-certified — it stays disclosed, not upgraded.
+Full source-by-source record: `docs/source-health-20261022.md`.
 
 ## Latest audit & live morning refresh — `session-5cef1e25`, 2026-10-22 07:25 UTC
 
@@ -140,7 +163,7 @@ python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 | `data/predictions.json` | **`47` written pieces**: **`33` live `HIGH` predictions** + `14` `analysis` notes | root board |
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
 | `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
-| `data/flagged.json` | **`53` flagged review items** with direct source links | both tracks |
+| `data/flagged.json` | **`65` flagged review items** with direct source links | both tracks |
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)
 
