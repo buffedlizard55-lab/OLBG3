@@ -1511,3 +1511,8 @@ Re-read each HIGH body against its cited official URLs; checked word count, expl
 - Pre-claim: fetched origin; only origin/main exists remotely. Historical open PRs #76/#77 remain untouched. Previous session's publication is recorded done (PR #84/#85). This narrow task does not take over historical whole-repository claims.
 - Finding: release.assess accepts any nonempty source string and quote as official clock evidence. Add an explicit HTTPS official-host boundary, reject credentials/unsupported ports and malformed clock offsets; URL allowlisting establishes provenance structure only, never factual verification.
 - Fresh official re-verification remains blocked by the documented outbound allowlist (FL-077). No source timestamp or verification label will be renewed. Site already live; verify build/deployment through GitHub APIs.
+
+### d4c3db6c validation results
+- Release gate now rejects non-HTTPS/unknown or spoofed hosts, credentials, unsupported ports, blank/nontext quotes, and embedded clock offsets. Explicit allowlist matches the inherited release-evidence hosts only; it is not factual verification.
+- 64/64 unit tests pass (four new regressions). Full root and secondary build pipelines pass, check_board/check_site/check pass. 85 pages / 1,529 local links / zero broken targets. Regenerated tracked outputs unchanged; no fixture or prediction edits.
+- Sources and limitations recorded in `docs/audit-d4c3db6c.md`, linked from README. FL-077 already publicly tracks blocked fresh official verification; no duplicate flag added. Task structural work done; official-source re-verification remains needs review.

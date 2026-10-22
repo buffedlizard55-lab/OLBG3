@@ -84,3 +84,37 @@ class Release(unittest.TestCase):
         self.assertFalse(result['eligible'])
         self.assertIsNone(result['checked_at'])
         self.assertIsNone(result['start_utc'])
+
+
+class EvidenceBoundary(unittest.TestCase):
+    def assess(self, r):
+        return release.assess('42', now=NOW, records={'42': r})
+
+    def test_untrusted_urls_fail_closed(self):
+        for url in [None, '', 'not a URL', 'http://www.mlb.com/schedule',
+                    'https://www.mlb.com.evil.test/schedule',
+                    'https://evil.test/www.mlb.com', 'https://www.mlb.com@evil.test/',
+                    'https://user:secret@www.mlb.com/', 'https://www.mlb.com:8443/',
+                    'https://www.mlb.com:invalid/', 'https://www.mlb.com/ bad',
+                    'https://www.mlb.com/\n', 42]:
+            with self.subTest(url=url):
+                result = self.assess(record(source=url))
+                self.assertFalse(result['eligible'])
+                self.assertIsNone(result['start_utc'])
+                self.assertIsNone(result['expires_at'])
+
+    def test_allowlist_is_not_a_suffix_match(self):
+        self.assertTrue(release.official_clock_url('https://www.mlb.com:443/schedule'))
+        self.assertFalse(release.official_clock_url('https://fake.www.mlb.com/'))
+
+    def test_blank_or_nontext_quotes_fail_closed(self):
+        for quote in [' ', '\n\t', None, 42, ['a quote']]:
+            with self.subTest(quote=quote):
+                self.assertFalse(self.assess(record(quote=quote))['eligible'])
+
+    def test_embedded_offset_cannot_be_overwritten(self):
+        for clock in ['19:30+05:00', '19:30Z', '19:30:00', '7:30', '25:30']:
+            with self.subTest(clock=clock):
+                result = self.assess(record(time=clock))
+                self.assertFalse(result['eligible'])
+                self.assertIsNone(result['start_utc'])
