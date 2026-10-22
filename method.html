@@ -22,13 +22,13 @@ for golf, Formula 1, greyhound racing, rugby league and the Gaelic football cham
 &ldquo;outright&rdquo; or &ldquo;race&rdquo; in the Market column so it cannot be mistaken for a match.</p>
 <div class="grid2">
   <div class="panel"><h3>Excluded</h3><ul class="tight"><li>Soccer / Football</li><li>American Football</li><li>Boxing</li><li>UFC / MMA</li><li>Hurling</li><li>Horse Racing</li><li>Cycling</li><li>Specials (TV/Politics/Awards)</li></ul></div>
-  <div class="panel"><h3>Included</h3><ul class="tight"><li><a href='sports/tennis.html'>Tennis</a> &mdash; 34 rows (34 fixtures, 0 outright/race)</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 24 rows (24 fixtures, 0 outright/race)</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 10 rows (10 fixtures, 0 outright/race)</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 10 rows (10 fixtures, 0 outright/race)</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 rows (1 fixtures, 0 outright/race)</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 21 rows (21 fixtures, 0 outright/race)</li><li><a href='sports/darts.html'>Darts</a> &mdash; 16 rows (16 fixtures, 0 outright/race)</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 6 rows (6 fixtures, 0 outright/race)</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/handball.html'>Handball</a> &mdash; 31 rows (31 fixtures, 0 outright/race)</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 6 rows (5 fixtures, 1 outright/race)</li><li><a href='sports/golf.html'>Golf</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li><li><a href='sports/motor_racing.html'>Motor Racing</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/greyhounds.html'>Greyhounds</a> &mdash; 6 rows (0 fixtures, 6 outright/race)</li></ul></div>
+  <div class="panel"><h3>Included</h3><ul class="tight"><li><a href='sports/tennis.html'>Tennis</a> &mdash; 37 rows (37 fixtures, 0 outright/race)</li><li><a href='sports/basketball.html'>Basketball</a> &mdash; 30 rows (30 fixtures, 0 outright/race)</li><li><a href='sports/ice_hockey.html'>Ice Hockey</a> &mdash; 13 rows (13 fixtures, 0 outright/race)</li><li><a href='sports/cricket.html'>Cricket</a> &mdash; 10 rows (10 fixtures, 0 outright/race)</li><li><a href='sports/baseball.html'>Baseball</a> &mdash; 1 rows (1 fixtures, 0 outright/race)</li><li><a href='sports/volleyball.html'>Volleyball</a> &mdash; 29 rows (29 fixtures, 0 outright/race)</li><li><a href='sports/darts.html'>Darts</a> &mdash; 16 rows (16 fixtures, 0 outright/race)</li><li><a href='sports/snooker.html'>Snooker</a> &mdash; 14 rows (14 fixtures, 0 outright/race)</li><li><a href='sports/rugby_union.html'>Rugby Union</a> &mdash; 15 rows (15 fixtures, 0 outright/race)</li><li><a href='sports/rugby_league.html'>Rugby League</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/handball.html'>Handball</a> &mdash; 31 rows (31 fixtures, 0 outright/race)</li><li><a href='sports/gaelic_football.html'>Gaelic Football</a> &mdash; 6 rows (5 fixtures, 1 outright/race)</li><li><a href='sports/golf.html'>Golf</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li><li><a href='sports/motor_racing.html'>Motor Racing</a> &mdash; 3 rows (0 fixtures, 3 outright/race)</li><li><a href='sports/greyhounds.html'>Greyhounds</a> &mdash; 10 rows (0 fixtures, 10 outright/race)</li></ul></div>
 </div>
 
 <div class="panel" style="margin-top:14px"><h3>Previously disclosed gap, now closed</h3><ul class="tight"><li>Golf - now captured as 10 outright rows (data/raw/gap_sports_capture_20261021.json)</li><li>Motor Racing - now captured as 1 race and 2 outright rows</li><li>Greyhound Racing - now captured as 6 race rows</li></ul>
 <p class="dim" style="margin:8px 0 0">These four sports were missing from the previous build because their rows are race or tournament markets rather than
-two-sided fixtures. They are now captured from the same OLBG listings and priced with the one-selection model described below, so 23 rows
-(23 of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
+two-sided fixtures. They are now captured from the same OLBG listings and priced with the one-selection model described below, so 27 rows
+(27 of them priced) have been added. Raw capture: <code>data/raw/gap_sports_capture_20261021.json</code>; generator:
 <code>scripts/build_gap_sports.py</code>; output: <code>data/gap_sports.json</code>.</p></div>
 <div class="panel" style="margin-top:14px"><h3>Still not captured</h3><ul class="tight"><li>Esports (no listing surfaced on the OLBG tips index at capture time)</li></ul>
 <p class="dim" style="margin:8px 0 0">No esports listing surfaced on the OLBG tips index at capture time. That is disclosed rather than guessed at.</p></div>
@@ -79,13 +79,13 @@ never be graded above LOW.</p>
 therefore outside the brief. The band itself caps a HIGH pick at 0.95/1.40 = 67.9% true probability. The previous 65% threshold made the band
 mathematically unreachable (its maximum price was 1.46), which is why all 15 published HIGH picks sat at 1.07&ndash;1.46. The threshold is now 55%,
 and the band &mdash; not the probability alone &mdash; defines the top grade.</p>
-<p>Current split: HIGH 33 &middot; MEDIUM 119 &middot; LOW 44. Of the
-73 rows that clear the evidence bar, 37 are priced shorter than -250 and are published as MEDIUM.</p>
+<p>Current split: HIGH 45 &middot; MEDIUM 140 &middot; LOW 43. Of the
+90 rows that clear the evidence bar, 38 are priced shorter than -250 and are published as MEDIUM.</p>
 
 <h2>What we will not do</h2>
 <ul class="tight">
   <li>We do not infer a competition, a venue, a time zone or a score. If the official source does not say it, the cell stays blank and the row is flagged.</li>
-  <li>We do not write predictions for picks we cannot support with verified form. That is why only 33 of 196 rows carry a high-confidence prediction; the 14 longer pieces are clearly labelled medium-confidence analysis.</li>
+  <li>We do not write predictions for picks we cannot support with verified form. That is why only 45 of 228 rows carry a high-confidence prediction; the 17 longer pieces are clearly labelled medium-confidence analysis.</li>
   <li>We do not claim that a row is verified because a source exists for the competition. A row is verified only when the specific fixture appears on that source; see the <a href="audit.html">audit page</a>.</li>
   <li>We do not present our own prices as facts or as bookmaker odds.</li>
 </ul>

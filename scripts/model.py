@@ -173,8 +173,10 @@ ALIASES = {
     "Crvena Zvezda": "Crvena Zvezda Meridianbet Belgrade",
     "Olympiacos": "Olympiacos Piraeus",
     "Fenerbahce": "Fenerbahce Tarfin Istanbul",
+    "Fenerbahce Istanbul": "Fenerbahce Tarfin Istanbul",
     "Paris": "Paris Basketball",
     "Valencia": "Valencia Basket",
+    "Panathinaikos Athens": "Panathinaikos AKTOR Athens",
     # Italian Men's SuperLega Credem Banca (Lega Pallavolo Serie A official club names)
     "Civitanova": "Cucine Lube Civitanova",
     "Padova": "Pallavolo Padova",
@@ -186,6 +188,7 @@ ALIASES = {
     "Cisterna": "Cisterna Volley",
     # World Snooker Tour official player order
     "Cheung Ka Wai": "Ka Wai Cheung",
+    "Martin O'Donnell": "Martin O Donnell",
 }
 
 def verification_for(ref, conf):
@@ -319,11 +322,11 @@ hbl_es = off["form_data"].get("Handball_Spain_ASOBAL_2026_27", {})
 hbl_es_tbl = hbl_es.get("teams", {})
 hbl_es_src = hbl_es.get("source", "")
 handball_tables = {}
-handball_tables.update(hbl_tbl)
-handball_tables.update(hbl_fr_tbl)
-handball_tables.update(hbl_se_tbl)
 handball_tables.update(hbl_dk_tbl)
 handball_tables.update(hbl_es_tbl)
+handball_tables.update(hbl_fr_tbl)
+handball_tables.update(hbl_se_tbl)
+handball_tables.update(hbl_tbl)
 
 snk_tbl = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("players", {})
 snk_src = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("source", "")
@@ -464,7 +467,17 @@ for e in events:
         basis = "official-standings"
         model["notes"].append(f"Official October 2026 ATP/WTA Tour ranking points used ({ten_src}).")
     elif e["sport"] == "Handball" and handball_name(e["home"]) in handball_tables and handball_name(e["away"]) in handball_tables:
-        hr, ar = handball_tables[handball_name(e["home"])], handball_tables[handball_name(e["away"])]
+        _hn, _an = handball_name(e["home"]), handball_name(e["away"])
+        if _hn in hbl_dk_tbl and _an in hbl_dk_tbl:
+            hr, ar, _hsrc, _asrc = hbl_dk_tbl[_hn], hbl_dk_tbl[_an], hbl_dk_src, hbl_dk_src
+        elif _hn in hbl_es_tbl and _an in hbl_es_tbl:
+            hr, ar, _hsrc, _asrc = hbl_es_tbl[_hn], hbl_es_tbl[_an], hbl_es_src, hbl_es_src
+        elif _hn in hbl_fr_tbl and _an in hbl_fr_tbl:
+            hr, ar, _hsrc, _asrc = hbl_fr_tbl[_hn], hbl_fr_tbl[_an], hbl_fr_src, hbl_fr_src
+        elif _hn in hbl_se_tbl and _an in hbl_se_tbl:
+            hr, ar, _hsrc, _asrc = hbl_se_tbl[_hn], hbl_se_tbl[_an], hbl_se_src, hbl_se_src
+        else:
+            hr, ar, _hsrc, _asrc = handball_tables[_hn], handball_tables[_an], hbl_src, hbl_src
         exp_h = (hr["gf"] / hr["gp"] + ar["ga"] / ar["gp"]) / 2.0 + 1.4
         exp_a = (ar["gf"] / ar["gp"] + hr["ga"] / hr["gp"]) / 2.0
         margin = exp_h - exp_a
@@ -472,25 +485,13 @@ for e in events:
         p_home = 1.0 - normal_cdf(-margin / 6.0)
         probs = {"home": p_home, "away": 1.0 - p_home}
         basis = "official-standings"
-        def _hbl_source(name):
-            if name in hbl_fr_tbl:
-                return hbl_fr_src
-            if name in hbl_se_tbl:
-                return hbl_se_src
-            if name in hbl_dk_tbl:
-                return hbl_dk_src
-            if name in hbl_es_tbl:
-                return hbl_es_src
-            return hbl_src
-        _hsrc = _hbl_source(handball_name(e["home"]))
-        _asrc = _hbl_source(handball_name(e["away"]))
         if _hsrc == _asrc:
             model["notes"].append(f"Official 2026/27 handball standings used for both sides ({_hsrc}).")
         else:
             model["notes"].append(f"Official handball tables used: home side from {_hsrc}, away side from {_asrc}.")
     elif e["sport"] == "Snooker" and official_name(e["home"]) in snk_tbl and official_name(e["away"]) in snk_tbl:
         hr, ar = snk_tbl[official_name(e["home"])], snk_tbl[official_name(e["away"])]
-        p_home = 1.0 / (1.0 + math.exp(-0.21 * math.log(ar["seed"] / hr["seed"])))
+        p_home = 1.0 / (1.0 + math.exp(-0.35 * math.log(ar["seed"] / hr["seed"])))
         margin = 1.4 * ND.inv_cdf(min(0.85, max(0.15, p_home)))
         total = 5.0
         probs = {"home": p_home, "away": 1.0 - p_home}
@@ -500,8 +501,8 @@ for e in events:
         hr, ar = vol_tbl[official_name(e["home"])], vol_tbl[official_name(e["away"])]
         h_sets = max(1, hr["sw"] + hr["sl"])
         a_sets = max(1, ar["sw"] + ar["sl"])
-        exp_h_ps = (hr["pf"] / h_sets + ar["pa"] / a_sets) / 2.0 + 1.1
-        exp_a_ps = (ar["pf"] / a_sets + hr["pa"] / h_sets) / 2.0
+        exp_h_ps = ((hr["pf"] + 23.5 * 6.0) / (h_sets + 6.0) + (ar["pa"] + 23.5 * 6.0) / (a_sets + 6.0)) / 2.0 + 1.0
+        exp_a_ps = ((ar["pf"] + 23.5 * 6.0) / (a_sets + 6.0) + (hr["pa"] + 23.5 * 6.0) / (h_sets + 6.0)) / 2.0
         ps_diff = exp_h_ps - exp_a_ps
         p_home = 1.0 - normal_cdf(-ps_diff / 6.8)
         margin = 1.6 * ND.inv_cdf(min(0.85, max(0.15, p_home)))

@@ -119,18 +119,18 @@ def main() -> None:
     sources = [(harvest, fmt, fetched_at, run_day, None)]
     prev = meta.get("previous_harvest") or {}
     if prev.get("file"):
-        p_day = date.fromisoformat((prev.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
+        p_day = date.fromisoformat(prev.get("olbg_locale_date") or (prev.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
         sources.append((DATA / prev["file"], prev.get("format", "v1"), prev.get("harvest_completed_utc", ""), p_day,
-                        f"carried from the {prev.get('harvest_completed_utc', '')[:16]} harvest: live 2026-10-22 page showed 'No tips found'"))
+                        f"carried from the {prev.get('harvest_completed_utc', '')[:16]} harvest: fixture started or rotated off OLBG listing prior to {fetched_at[:16]}Z"))
     for extra in meta.get("previous_harvests_extra", []):
         if extra.get("file"):
-            e_day = date.fromisoformat((extra.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
+            e_day = date.fromisoformat(extra.get("olbg_locale_date") or (extra.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
             sources.append((DATA / extra["file"], extra.get("format", "v1"), extra.get("harvest_completed_utc", ""), e_day,
-                            f"carried from the {extra.get('harvest_completed_utc', '')[:16]} harvest: live 2026-10-22 page showed 'No tips found'"))
+                            f"carried from the {extra.get('harvest_completed_utc', '')[:16]} harvest: fixture started or rotated off OLBG listing prior to {fetched_at[:16]}Z"))
 
     rows = []
     missing_url_parts = []
-    primary_sports: set[str] = set()
+    seen_eids: set[str] = set()
     for harvest, fmt, fetched_at, src_day, carry_note in sources:
         for line in harvest.read_text().splitlines():
             if not line.strip() or line.startswith("#"):
@@ -152,11 +152,10 @@ def main() -> None:
             if sport_id is None:
                 missing_url_parts.append(line)
                 continue
-            if carry_note is None:
-                primary_sports.add(sport)
-            elif sport in primary_sports:
-                continue  # the primary harvest covered this sport; its listing is authoritative
-            else:
+            if eid in seen_eids:
+                continue  # primary harvest already supplied the fresher live listing row for this event_id
+            seen_eids.add(eid)
+            if carry_note is not None:
                 note = (note + "; " if note else "") + carry_note
             url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
             event_name = slug.replace("_", " ")

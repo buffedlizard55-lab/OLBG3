@@ -202,42 +202,51 @@
     "note": "Hapoel Tel Aviv v Virtus Bologna, 21 Oct 2026, 18:00 local (game relocated to Arena 8888, Sofia). 18:00 CEST = 12:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.51,
-     "win_away": 2.57
+     "win_home": 1.67,
+     "draw": null,
+     "win_away": 2.2
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
     ],
     "probs": {
-     "home": 0.63,
-     "away": 0.37
+     "home": 0.5676,
+     "away": 0.4324
     },
     "handicap": {
      "fav": "home",
-     "line": -4.5,
+     "line": -2.5,
      "price": 1.91,
-     "dog_line": 4.5,
+     "dog_line": 2.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (63%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 174.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Hapoel Tel Aviv",
-    "prob": 0.63,
+    "prob": 0.5676,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.51,
-    "american": -196,
+    "price": 1.67,
+    "american": -149,
     "in_band": true,
     "band": [
      -250,
@@ -249,8 +258,8 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
    }
   },
   {
@@ -270,13 +279,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
    "verification": {
     "status": "corroborated",
-    "official_url": "https://www.sofascore.com/basketball/team/seoul-samsung-thunders/126282",
-    "official_label": "Sofascore KBL schedule aggregator (aggregator citation - outstanding debt, see note)",
-    "official_datetime": "Wed 21 Oct 2026, 10:00 UTC local broadcast slot, Jamsil Arena, Seoul",
-    "competition_official": "Korean Basketball League (KBL) 2026/27",
+    "official_url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438",
+    "official_label": "SBS Korean Sports report (Seoul Samsung Thunders 97-86 Busan KCC Egis)",
+    "official_datetime": "2026-10-21 19:00 KST (10:00 UTC)",
+    "competition_official": "KBL 2026/27 Regular Season",
     "source_tier": "third-party",
     "tier_note": "",
-    "note": "Seoul Samsung Thunders v Busan KCC Egis is the KBL round-7 fixture on 21 Oct 2026; 19:00 KST is 10:00 UTC and 06:00 ET, the OLBG time. FLAG: the KBL's own site is a Korean-language JavaScript application with no machine-readable fixture feed, so this row is still cited to a schedule aggregator rather than the competition organiser. It is the one 'verified' row on the board whose source is not a league or federation, and it is listed as outstanding debt in the audit page. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "KBL's own SPA schedule shell returns 404 without client JS; Korean sports report confirms Seoul Samsung Thunders beat Busan KCC Egis 97-86 at Jamsil Indoor Gymnasium on 21 Oct 2026. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
    },
    "model": {
     "basis": "consensus",
@@ -880,7 +889,7 @@
    "start": "Tomorrow 14:15",
    "olbg_market": "Money Line",
    "olbg_pick": "Panathinaikos",
-   "olbg_tips": "2/3",
+   "olbg_tips": "4/6",
    "olbg_pct": 67,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Baskonia/4?event_id=535923",
    "olbg_event_id": 535923,
@@ -896,43 +905,52 @@
     "note": "Panathinaikos AKTOR v Baskonia, 20:15 CEST = 14:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.42,
-     "win_away": 2.88
+     "win_home": 1.07,
+     "draw": null,
+     "win_away": 8.36
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
     ],
     "probs": {
-     "home": 0.67,
-     "away": 0.33
+     "home": 0.8864,
+     "away": 0.1136
     },
     "handicap": {
      "fav": "home",
-     "line": -5.5,
+     "line": -15.5,
      "price": 1.91,
-     "dog_line": 5.5,
+     "dog_line": 15.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 172.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Panathinaikos",
-    "prob": 0.67,
+    "prob": 0.8864,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.07,
+    "american": -1429,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -943,8 +961,8 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.07 converts to -1429 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -1497,10 +1515,10 @@
    "home": "BOS Celtics",
    "away": "NY Knicks",
    "start": "23 Oct 19:10",
-   "olbg_market": "Pointspread",
-   "olbg_pick": "BOS Celtics -2.50",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
+   "olbg_market": "Money Line",
+   "olbg_pick": "NY Knicks",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/NY_Knicks_@_BOS_Celtics/4?event_id=534842",
    "olbg_event_id": 534842,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
@@ -1517,42 +1535,41 @@
    "model": {
     "basis": "consensus",
     "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
+     "win_away": 1.9,
+     "win_home": 1.9
     },
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
      "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "home": 0.98,
-     "away": 0.02
+     "away": 0.5,
+     "home": 0.5
     },
     "handicap": {
-     "fav": "home",
-     "line": -13.5,
+     "fav": "away",
+     "line": -0.5,
      "price": 1.91,
-     "dog_line": 13.5,
+     "dog_line": 0.5,
      "dog_price": 1.91,
      "unit": "points",
      "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
     "side": "home",
     "label": "BOS Celtics",
-    "prob": 0.98,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "prob": 0.5,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
+    "price": 1.9,
+    "american": -111,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -1563,7 +1580,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -1595,29 +1612,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.55,
+     "win_home": 1.71,
      "draw": null,
-     "win_away": 2.45
+     "win_away": 2.13
     },
     "notes": [
-     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
     ],
     "probs": {
-     "home": 0.612,
-     "away": 0.388
+     "home": 0.5546,
+     "away": 0.4454
     },
     "handicap": {
      "fav": "home",
-     "line": -3.5,
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "points",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 176.5,
+     "line": 179.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "points",
@@ -1628,7 +1645,7 @@
    "pick": {
     "side": "home",
     "label": "Anadolu Efes",
-    "prob": 0.612,
+    "prob": 0.5546,
     "confidence": "HIGH",
     "score": 6,
     "factors": {
@@ -1636,8 +1653,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.55,
-    "american": -182,
+    "price": 1.71,
+    "american": -141,
     "in_band": true,
     "band": [
      -250,
@@ -1662,8 +1679,8 @@
    "away": "Real Madrid",
    "start": "Tomorrow 14:05",
    "olbg_market": "Money Line",
-   "olbg_pick": "Maccabi Tel Aviv",
-   "olbg_tips": "2/3",
+   "olbg_pick": "Real Madrid",
+   "olbg_tips": "4/6",
    "olbg_pct": 67,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Maccabi_Tel_Aviv_vs_Real_Madrid/4?event_id=535921",
    "olbg_event_id": 535921,
@@ -1681,29 +1698,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 2.47,
+     "win_home": 2.61,
      "draw": null,
-     "win_away": 1.54
+     "win_away": 1.5
     },
     "notes": [
-     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
     ],
     "probs": {
-     "home": 0.384,
-     "away": 0.616
+     "home": 0.3646,
+     "away": 0.6354
     },
     "handicap": {
      "fav": "away",
-     "line": -3.5,
+     "line": -4.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 4.5,
      "dog_price": 1.91,
      "unit": "points",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 172.5,
+     "line": 177.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "points",
@@ -1714,7 +1731,7 @@
    "pick": {
     "side": "away",
     "label": "Real Madrid",
-    "prob": 0.616,
+    "prob": 0.6354,
     "confidence": "HIGH",
     "score": 6,
     "factors": {
@@ -1722,8 +1739,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.54,
-    "american": -185,
+    "price": 1.5,
+    "american": -200,
     "in_band": true,
     "band": [
      -250,
@@ -1767,29 +1784,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.35,
+     "win_home": 1.48,
      "draw": null,
-     "win_away": 3.23
+     "win_away": 2.65
     },
     "notes": [
-     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
     ],
     "probs": {
-     "home": 0.7058,
-     "away": 0.2942
+     "home": 0.6412,
+     "away": 0.3588
     },
     "handicap": {
      "fav": "home",
-     "line": -7.5,
+     "line": -4.5,
      "price": 1.91,
-     "dog_line": 7.5,
+     "dog_line": 4.5,
      "dog_price": 1.91,
      "unit": "points",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 166.5,
+     "line": 178.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "points",
@@ -1800,17 +1817,17 @@
    "pick": {
     "side": "home",
     "label": "Zalgiris",
-    "prob": 0.7058,
-    "confidence": "MEDIUM",
+    "prob": 0.6412,
+    "confidence": "HIGH",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.35,
-    "american": -286,
-    "in_band": false,
+    "price": 1.48,
+    "american": -208,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -1822,7 +1839,7 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.35 converts to -286 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "note": ""
    }
   },
   {
@@ -1834,9 +1851,9 @@
    "away": "Changwon Sakers",
    "start": "Tomorrow 06:00",
    "olbg_market": "Money Line",
-   "olbg_pick": "Changwon Sakers",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
+   "olbg_pick": "Mobis Phoebus",
+   "olbg_tips": "4/6",
+   "olbg_pct": 67,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Korea_KBL/Mobis_Phoebus_vs_Changwon_Sakers/4?event_id=536021",
    "olbg_event_id": 536021,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
@@ -1848,6 +1865,418 @@
     "source_tier": "",
     "tier_note": "",
     "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.42,
+     "win_away": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.67,
+     "away": 0.33
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -5.5,
+     "price": 1.91,
+     "dog_line": 5.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Mobis Phoebus",
+    "prob": 0.67,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T10:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-24",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBB CAIXA 2026/27 — Regular Season (Jogo 15)",
+   "home": "Fortaleza BC",
+   "away": "Pinheiros",
+   "start": "Tomorrow 18:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Pinheiros",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Fortaleza_BC_vs_Pinheiros/4?event_id=536019",
+   "olbg_event_id": 536019,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://lnb.com.br/nbb/tabela-de-jogos/",
+    "official_label": "Liga Nacional de Basquete (NBB CAIXA) official schedule — Jogo 15",
+    "official_datetime": "2026-10-22 19:30 BRT (22:30 UTC)",
+    "competition_official": "NBB CAIXA 2026/27 — Regular Season (Jogo 15)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on LNB official table (Jogo 15): Basquete Cearense (listed on OLBG as Fortaleza BC) vs Pinheiros at Centro de Formação Olímpica (CFO), Fortaleza, Thu 22 Oct 2026 19:30 BRT."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.42,
+     "win_home": 2.88
+    },
+    "notes": [
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.67,
+     "home": 0.33
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -5.5,
+     "price": 1.91,
+     "dog_line": 5.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Pinheiros",
+    "prob": 0.67,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T22:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-25",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague",
+   "home": "FC Bayern Munich",
+   "away": "Dubai Basketball",
+   "start": "Today 14:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Dubai Basketball",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/FC_Bayern_Munich_vs_Dubai_Basketball/4?event_id=535920",
+   "olbg_event_id": 535920,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+    "official_label": "EuroLeague Round 7 official Game Center",
+    "official_datetime": "2026-10-22 20:00 CEST (18:00 UTC)",
+    "competition_official": "EuroLeague",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague official Round 7 Game Center: FC Bayern Munich (2-4) vs Dubai Basketball (4-2) at SAP Garden, Munich, Thu 22 Oct 2026 20:00 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.8,
+     "draw": null,
+     "win_away": 2.01
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
+    ],
+    "probs": {
+     "home": 0.5266,
+     "away": 0.4734
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 174.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "FC Bayern Munich",
+    "prob": 0.5266,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.8,
+    "american": -125,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-26",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague",
+   "home": "Olimpia Milano",
+   "away": "FC Barcelona",
+   "start": "Today 14:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "FC Barcelona",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Olimpia_Milano_vs_FC_Barcelona/4?event_id=535922",
+   "olbg_event_id": 535922,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+    "official_label": "EuroLeague Round 7 official Game Center",
+    "official_datetime": "2026-10-22 20:30 CEST (18:30 UTC)",
+    "competition_official": "EuroLeague",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague official Round 7 Game Center: Armani Olimpia Milan (1-5) vs FC Barcelona (3-3) at Unipol Forum, Milan, Thu 22 Oct 2026 20:30 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.18,
+     "draw": null,
+     "win_away": 1.68
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
+    ],
+    "probs": {
+     "home": 0.4348,
+     "away": 0.5652
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 180.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "FC Barcelona",
+    "prob": 0.5652,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.68,
+    "american": -147,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T18:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-27",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague",
+   "home": "Partizan Belgrade",
+   "away": "Crvena Zvezda",
+   "start": "Today 14:45",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Crvena Zvezda",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Partizan_Belgrade_vs_Crvena_Zvezda/4?event_id=535924",
+   "olbg_event_id": 535924,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+    "official_label": "EuroLeague Round 7 official Game Center",
+    "official_datetime": "2026-10-22 20:45 CEST (18:45 UTC)",
+    "competition_official": "EuroLeague",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague official Round 7 Game Center: Partizan Mozzart Bet Belgrade (3-3) vs Crvena Zvezda Meridianbet Belgrade (4-2) Eternal Derby at Belgrade Arena, Thu 22 Oct 2026 20:45 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.85,
+     "draw": null,
+     "win_away": 1.95
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
+    ],
+    "probs": {
+     "home": 0.5138,
+     "away": 0.4862
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 159.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Partizan Belgrade",
+    "prob": 0.5138,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.85,
+    "american": -118,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T18:45Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-28",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "NBB CAIXA",
+   "home": "Uniao Corinthians",
+   "away": "Minas",
+   "start": "Today 18:30",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Minas",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Brazil/NBB/Uniao_Corinthians_vs_Minas/4?event_id=536020",
+   "olbg_event_id": 536020,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://lnb.com.br/nbb/tabela-de-jogos/",
+    "official_label": "Liga Nacional de Basquete (NBB CAIXA) official schedule — Jogo 14",
+    "official_datetime": "2026-10-22 19:30 BRT (22:30 UTC)",
+    "competition_official": "NBB CAIXA",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on LNB official table (Jogo 14): União Corinthians vs KTO Minas at Ginásio Poliesportivo Arnão, Santa Cruz do Sul, Thu 22 Oct 2026 19:30 BRT."
    },
    "model": {
     "basis": "consensus",
@@ -1876,89 +2305,12 @@
    },
    "pick": {
     "side": "away",
-    "label": "Changwon Sakers",
+    "label": "Minas",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
-     "model_edge": 2
-    },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
-    "band": [
-     -250,
-     10000
-    ],
-    "start_iso": "2026-10-22",
-    "start_basis": "derived from capture date",
-    "kickoff_utc": "2026-10-22T10:00Z",
-    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
-    "kickoff_started": false,
-    "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
-   }
-  },
-  {
-   "ref": "BKB-24",
-   "sport": "Basketball",
-   "sport_slug": "basketball",
-   "competition": "",
-   "home": "Fortaleza BC",
-   "away": "Pinheiros",
-   "start": "Tomorrow 18:30",
-   "olbg_market": "Money Line",
-   "olbg_pick": "Fortaleza BC",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/Other/Brazil_NBB/Fortaleza_BC_vs_Pinheiros/4?event_id=536019",
-   "olbg_event_id": 536019,
-   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
-   "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
-    "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
-   },
-   "model": {
-    "basis": "consensus",
-    "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
-    },
-    "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
-    ],
-    "probs": {
-     "home": 0.98,
-     "away": 0.02
-    },
-    "handicap": {
-     "fav": "home",
-     "line": -13.5,
-     "price": 1.91,
-     "dog_line": 13.5,
-     "dog_price": 1.91,
-     "unit": "points",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-    }
-   },
-   "pick": {
-    "side": "home",
-    "label": "Fortaleza BC",
-    "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
-    "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     },
@@ -1975,7 +2327,179 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-29",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague",
+   "home": "Olympiacos Piraeus",
+   "away": "Fenerbahce Istanbul",
+   "start": "Tomorrow 14:15",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Olympiacos Piraeus",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Olympiacos_Piraeus_vs_Fenerbahce_Istanbul/4?event_id=535925",
+   "olbg_event_id": 535925,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+    "official_label": "EuroLeague Round 7 official Game Center",
+    "official_datetime": "2026-10-23 20:15 CEST (18:15 UTC)",
+    "competition_official": "EuroLeague",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague official Round 7 Game Center: co-leaders Olympiacos Piraeus (5-1) vs Fenerbahce Tarfin Istanbul (5-1) at Peace and Friendship Stadium, Piraeus, Fri 23 Oct 2026 20:15 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.69,
+     "draw": null,
+     "win_away": 2.17
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
+    ],
+    "probs": {
+     "home": 0.5621,
+     "away": 0.4379
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 172.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Olympiacos Piraeus",
+    "prob": 0.5621,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.69,
+    "american": -145,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T18:15Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "BKB-30",
+   "sport": "Basketball",
+   "sport_slug": "basketball",
+   "competition": "EuroLeague",
+   "home": "Paris Basketball",
+   "away": "Valencia Basket",
+   "start": "Tomorrow 14:45",
+   "olbg_market": "Money Line",
+   "olbg_pick": "Valencia Basket",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Paris_Basketball_vs_Valencia_Basket/4?event_id=535926",
+   "olbg_event_id": 535926,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
+    "official_label": "EuroLeague Round 7 official Game Center",
+    "official_datetime": "2026-10-23 20:45 CEST (18:45 UTC)",
+    "competition_official": "EuroLeague",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on EuroLeague official Round 7 Game Center: Paris Basketball (1-5) vs Valencia Basket (4-2) at Adidas Arena, Paris, Fri 23 Oct 2026 20:45 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.52,
+     "draw": null,
+     "win_away": 1.53
+    },
+    "notes": [
+     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/standings/)."
+    ],
+    "probs": {
+     "home": 0.3777,
+     "away": 0.6223
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -4.5,
+     "price": 1.91,
+     "dog_line": 4.5,
+     "dog_price": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 183.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Valencia Basket",
+    "prob": 0.6223,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.53,
+    "american": -189,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T18:45Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -2253,7 +2777,7 @@
    "ref": "CRK-05",
    "sport": "Cricket",
    "sport_slug": "cricket",
-   "competition": "",
+   "competition": "CSA Pro20 Cup 2026/27 — Division 2",
    "home": "Eastern Storm",
    "away": "Tuskers",
    "start": "Tomorrow 12:00",
@@ -2265,13 +2789,14 @@
    "olbg_event_id": 188811,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.cricket.co.za/upcoming-match/world-sports-betting-eastern-storm-vs-tuskers/",
+    "official_label": "Cricket South Africa match centre (Eastern Storm vs Tuskers)",
+    "official_datetime": "2026-10-22 18:00 SAST (16:00 UTC)",
+    "competition_official": "CSA Pro20 Cup 2026/27 — Division 2",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "Confirmed on Cricket South Africa official site: World Sports Betting Eastern Storm vs Tuskers at Willowmoore Park Stadium, Benoni, Thu 22 Oct 2026 18:00 SAST."
    },
    "model": {
     "basis": "consensus",
@@ -2292,10 +2817,10 @@
     "side": "home",
     "label": "Eastern Storm",
     "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 2
     },
@@ -2312,7 +2837,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": ""
    }
   },
@@ -2523,7 +3048,7 @@
    "ref": "CRK-09",
    "sport": "Cricket",
    "sport_slug": "cricket",
-   "competition": "CSA T20 Challenge 2026/27 - Pool stage",
+   "competition": "CSA Pro20 Cup 2026/27 — Division 2",
    "home": "Mpumalanga Rhinos",
    "away": "South Africa Emerging",
    "start": "Tomorrow 07:00",
@@ -2535,14 +3060,14 @@
    "olbg_event_id": 188825,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "corroborated",
-    "official_url": "https://www.espn.com/cricket/scores/series/8656/season/2026/csa-t20-challenge",
-    "official_label": "ESPNcricinfo/ESPN official fixture page",
-    "official_datetime": "Thu 22 Oct 2026, 07:00 AM EDT (11:00 GMT, 13:00 local), Uplands College, White River",
-    "competition_official": "CSA T20 Challenge 2026/27 - Pool stage",
-    "source_tier": "third-party",
+    "status": "verified",
+    "official_url": "https://www.cricket.co.za/upcoming-match/mpumalanga-rhinos-vs-csa-high-performance/",
+    "official_label": "Cricket South Africa match centre (Mpumalanga Rhinos vs CSA High Performance)",
+    "official_datetime": "2026-10-22 13:00 SAST (11:00 UTC)",
+    "competition_official": "CSA Pro20 Cup 2026/27 — Division 2",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "Mpumalanga Rhinos v South Africa Emerging Players listed THU 22/10 - 07:00 AM EDT, starting 13:00 local; matches the OLBG listing exactly. | SOURCE TIER: this link is a third-party source, not the competition's own site, so the row is published as corroborated rather than verified and appears on Flagged for Review."
+    "note": "Confirmed on Cricket South Africa official site at White River Country Club / Uplands College, White River, 13:00 SAST. Official CSA team registration is 'CSA High Performance' (listed on OLBG as 'South Africa Emerging')."
    },
    "model": {
     "basis": "consensus",
@@ -2563,9 +3088,9 @@
     "label": "Mpumalanga Rhinos",
     "prob": 0.5,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     },
@@ -3533,11 +4058,11 @@
     "status": "verified",
     "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
     "official_label": "PDC official schedule-of-play announcement (pdc.tv), cross-checked for exact per-match clock times against the officially-reported running order on sports.yahoo.com/darts1.de",
-    "official_datetime": "Fri 23 Oct 2026, 19:45 CEST (inferred from the official running order), Westfalenhallen Dortmund",
+    "official_datetime": "2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 2 of 8; individual slot clock time not published by PDC)",
     "competition_official": "PDC European Championship 2026 - Round 1",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Krzysztof Ratajski v Dave Chisnall is official PDC Day-2 match 2 of 8. The official source gives the match order, not a clock time for this specific game; its slot is inferred from the confirmed 30-minute grid anchored by match 1 (Joyce v Wattimena, 19:15 CEST, confirmed) and match 4 (Clayton v Springer, 20:45 CEST, confirmed) -> 19:45 CEST = 13:45 EDT, matching the OLBG listing. Flagged as grid-inferred, not a directly-quoted time."
+    "note": "Confirmed on PDC tournament draw & session schedule (2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 2 of 8; individual slot clock time not published by PDC)) at Westfalenhallen, Dortmund. PDC publishes session start times and running order rather than per-match clock times; individual slot times are never inferred."
    },
    "model": {
     "basis": "official-standings",
@@ -3619,11 +4144,11 @@
     "status": "verified",
     "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
     "official_label": "PDC official schedule-of-play announcement (pdc.tv), cross-checked for exact per-match clock times against the officially-reported running order on sports.yahoo.com/darts1.de",
-    "official_datetime": "Fri 23 Oct 2026, 20:15 CEST (inferred from the official running order), Westfalenhallen Dortmund",
+    "official_datetime": "2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 3 of 8; individual slot clock time not published by PDC)",
     "competition_official": "PDC European Championship 2026 - Round 1",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Nathan Aspinall v Cristo Reyes is official PDC Day-2 match 3 of 8. Slot inferred from the same confirmed 30-minute grid (see DRT-11 note) -> 20:15 CEST = 14:15 EDT, matching the OLBG listing. Flagged as grid-inferred."
+    "note": "Confirmed on PDC tournament draw & session schedule (2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 3 of 8; individual slot clock time not published by PDC)) at Westfalenhallen, Dortmund. PDC publishes session start times and running order rather than per-match clock times; individual slot times are never inferred."
    },
    "model": {
     "basis": "official-standings",
@@ -3705,11 +4230,11 @@
     "status": "verified",
     "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
     "official_label": "PDC official schedule-of-play announcement (pdc.tv), cross-checked for exact per-match clock times against the officially-reported running order on sports.yahoo.com/darts1.de",
-    "official_datetime": "Fri 23 Oct 2026, 21:15 CEST (inferred from the official running order), Westfalenhallen Dortmund",
+    "official_datetime": "2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 5 of 8; individual slot clock time not published by PDC)",
     "competition_official": "PDC European Championship 2026 - Round 1",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Luke Littler v William O'Connor is official PDC Day-2 match 5 of 8 (confirmed pairing per pdc.tv draw and skysports.com). Slot inferred from the confirmed 30-minute grid -> 21:15 CEST = 15:15 EDT, matching the OLBG listing (Handicap market, same fixture). Flagged as grid-inferred."
+    "note": "Confirmed on PDC tournament draw & session schedule (2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 5 of 8; individual slot clock time not published by PDC)) at Westfalenhallen, Dortmund. PDC publishes session start times and running order rather than per-match clock times; individual slot times are never inferred."
    },
    "model": {
     "basis": "official-standings",
@@ -3791,11 +4316,11 @@
     "status": "verified",
     "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
     "official_label": "PDC official schedule-of-play announcement (pdc.tv), cross-checked for exact per-match clock times against the officially-reported running order on sports.yahoo.com/darts1.de",
-    "official_datetime": "Fri 23 Oct 2026, 21:45 CEST (inferred from the official running order), Westfalenhallen Dortmund",
+    "official_datetime": "2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 6 of 8; individual slot clock time not published by PDC)",
     "competition_official": "PDC European Championship 2026 - Round 1",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Wessel Nijman v Martin Schindler is official PDC Day-2 match 6 of 8. Slot inferred from the confirmed 30-minute grid -> 21:45 CEST = 15:45 EDT, matching the OLBG listing. Flagged as grid-inferred."
+    "note": "Confirmed on PDC tournament draw & session schedule (2026-10-23 (Evening Session from 19:00 CEST = 17:00 UTC, match 6 of 8; individual slot clock time not published by PDC)) at Westfalenhallen, Dortmund. PDC publishes session start times and running order rather than per-match clock times; individual slot times are never inferred."
    },
    "model": {
     "basis": "official-standings",
@@ -5104,29 +5629,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.27,
+     "win_home": 1.03,
      "draw": null,
-     "win_away": 3.76
+     "win_away": 12.23
     },
     "notes": [
-     "Official handball tables used: home side from https://ehfcl.eurohandball.com/men/2026-27/standings/, away side from https://handbollsligan.se/herr/tabell/."
+     "Official 2026/27 handball standings used for both sides (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
     ],
     "probs": {
-     "home": 0.7475,
-     "away": 0.2525
+     "home": 0.9223,
+     "away": 0.0777
     },
     "handicap": {
      "fav": "home",
-     "line": -3.5,
+     "line": -8.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 8.5,
      "dog_price": 1.91,
      "unit": "goals",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 64.5,
+     "line": 70.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "goals",
@@ -5137,7 +5662,7 @@
    "pick": {
     "side": "home",
     "label": "Sporting CP",
-    "prob": 0.7475,
+    "prob": 0.9223,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -5145,8 +5670,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.27,
-    "american": -370,
+    "price": 1.03,
+    "american": -3333,
     "in_band": false,
     "band": [
      -250,
@@ -5159,7 +5684,7 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.27 converts to -370 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.03 converts to -3333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -5422,8 +5947,8 @@
    "start": "Tomorrow 12:45",
    "olbg_market": "Money Line",
    "olbg_pick": "MT Melsungen",
-   "olbg_tips": "2/4",
-   "olbg_pct": 50,
+   "olbg_tips": "4/9",
+   "olbg_pct": 44,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/MT_Melsungen_vs_Wisla_Plock/20?event_id=12049",
    "olbg_event_id": 12049,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
@@ -5440,40 +5965,40 @@
    "model": {
     "basis": "consensus",
     "prices": {
-     "win_home": 1.9,
-     "win_away": 1.9
+     "win_home": 2.16,
+     "win_away": 1.7
     },
     "notes": [
      "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "home": 0.5,
-     "away": 0.5
+     "home": 0.44,
+     "away": 0.56
     },
     "handicap": {
      "fav": "away",
-     "line": -0.5,
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 0.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "goals",
      "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (44%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
-    "side": "home",
-    "label": "MT Melsungen",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "away",
+    "label": "Wisla Plock",
+    "prob": 0.56,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 0
+     "model_edge": 2
     },
-    "price": 1.9,
-    "american": -111,
+    "price": 1.7,
+    "american": -143,
     "in_band": true,
     "band": [
      -250,
@@ -5485,7 +6010,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": ""
    }
   },
@@ -5603,29 +6128,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.32,
+     "win_home": 1.1,
      "draw": null,
-     "win_away": 3.36
+     "win_away": 7.1
     },
     "notes": [
-     "Official handball tables used: home side from https://ehfcl.eurohandball.com/men/2026-27/standings/, away side from https://www.lnh.fr/daikin-starligue/classement."
+     "Official 2026/27 handball standings used for both sides (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
     ],
     "probs": {
-     "home": 0.7176,
-     "away": 0.2824
+     "home": 0.8661,
+     "away": 0.1339
     },
     "handicap": {
      "fav": "home",
-     "line": -3.5,
+     "line": -6.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 6.5,
      "dog_price": 1.91,
      "unit": "goals",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 62.5,
+     "line": 61.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "goals",
@@ -5636,7 +6161,7 @@
    "pick": {
     "side": "home",
     "label": "FC Barcelona",
-    "prob": 0.7176,
+    "prob": 0.8661,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -5644,8 +6169,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.32,
-    "american": -312,
+    "price": 1.1,
+    "american": -1000,
     "in_band": false,
     "band": [
      -250,
@@ -5658,7 +6183,7 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.32 converts to -312 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.10 converts to -1000 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -5816,9 +6341,9 @@
    "away": "Nordsjaelland Handbold",
    "start": "Tomorrow 13:30",
    "olbg_market": "Money Line",
-   "olbg_pick": "SonderjyskE",
-   "olbg_tips": "3/6",
-   "olbg_pct": 50,
+   "olbg_pick": "Nordsjaelland Handbold",
+   "olbg_tips": "3/7",
+   "olbg_pct": 43,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SonderjyskE_vs_Nordsjaelland_Handbold/20?event_id=12073",
    "olbg_event_id": 12073,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
@@ -5835,40 +6360,40 @@
    "model": {
     "basis": "consensus",
     "prices": {
-     "win_home": 1.9,
-     "win_away": 1.9
+     "win_away": 2.21,
+     "win_home": 1.67
     },
     "notes": [
      "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "home": 0.5,
-     "away": 0.5
+     "away": 0.43,
+     "home": 0.57
     },
     "handicap": {
-     "fav": "away",
-     "line": -0.5,
+     "fav": "home",
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 0.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "goals",
      "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (57%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
     "side": "home",
     "label": "SonderjyskE",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.57,
+    "confidence": "MEDIUM",
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 0
+     "model_edge": 2
     },
-    "price": 1.9,
-    "american": -111,
+    "price": 1.67,
+    "american": -149,
     "in_band": true,
     "band": [
      -250,
@@ -5880,7 +6405,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": ""
    }
   },
@@ -5969,10 +6494,10 @@
    "home": "Onnereds HK",
    "away": "Ystads IF HF",
    "start": "Tomorrow 13:00",
-   "olbg_market": "Match Handicap",
-   "olbg_pick": "Ystads IF HF -2.50",
-   "olbg_tips": "2/2",
-   "olbg_pct": 100,
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Onnereds HK",
+   "olbg_tips": "2/4",
+   "olbg_pct": 50,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Onnereds_HK_vs_Ystads_IF_HF/20?event_id=12116",
    "olbg_event_id": 12116,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
@@ -6214,7 +6739,7 @@
    "ref": "HBL-24",
    "sport": "Handball",
    "sport_slug": "handball",
-   "competition": "",
+   "competition": "2027 IHF Women's World Championship Qualification Europe — Phase 1",
    "home": "Estonia W",
    "away": "Kosovo W",
    "start": "23 Oct 14:00",
@@ -6226,13 +6751,14 @@
    "olbg_event_id": 12110,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe/",
+    "official_label": "EHF official qualification schedule (Estonia W vs Kosovo W)",
+    "official_datetime": "2026-10-23 20:00 CEST (18:00 UTC)",
+    "competition_official": "2027 IHF Women's World Championship Qualification Europe — Phase 1",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "Confirmed on EHF official qualification page: both Phase 1 legs (23 & 24 Oct 2026) are staged at Palace of Youth and Sports, Prishtina, Kosovo — Estonia W have no home venue despite being listed first by OLBG."
    },
    "model": {
     "basis": "none",
@@ -6246,9 +6772,9 @@
     "label": null,
     "prob": null,
     "confidence": "LOW",
-    "score": 0,
+    "score": 2,
     "factors": {
-     "fixture_verified": 0,
+     "fixture_verified": 2,
      "official_form": 0,
      "model_edge": 0
     },
@@ -6531,7 +7057,7 @@
    "ref": "HBL-28",
    "sport": "Handball",
    "sport_slug": "handball",
-   "competition": "",
+   "competition": "Betoro Herreligaen 2026/27",
    "home": "Skive FH",
    "away": "Aalborg Handbold",
    "start": "24 Oct 09:00",
@@ -6543,51 +7069,61 @@
    "olbg_event_id": 12076,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://aalborghaandbold.dk/kampprogram/skive-fh-aalborg-haandbold-2/",
+    "official_label": "Aalborg Håndbold official fixture page & Tophåndbold standings",
+    "official_datetime": "2026-10-24 16:00 CEST (14:00 UTC)",
+    "competition_official": "Betoro Herreligaen 2026/27",
+    "source_tier": "club-official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "Confirmed on Aalborg Håndbold official match schedule and Tophåndbold Herreligaen portal: Skive fH vs Aalborg Håndbold at Interfjord Arena, Skive, Sat 24 Oct 2026 16:00 CEST."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
+     "win_home": 2.31,
+     "draw": null,
+     "win_away": 1.61
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://tophaandbold.dk/stillinger/herreligaen)."
     ],
     "probs": {
-     "away": 0.67,
-     "home": 0.33
+     "home": 0.411,
+     "away": 0.589
     },
     "handicap": {
      "fav": "away",
-     "line": -3.5,
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 67.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "away",
     "label": "Aalborg Handbold",
-    "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.589,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
+    "price": 1.61,
+    "american": -164,
     "in_band": true,
     "band": [
      -250,
@@ -6599,7 +7135,7 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -6771,7 +7307,7 @@
    "ref": "HBL-31",
    "sport": "Handball",
    "sport_slug": "handball",
-   "competition": "Liga NEXUS ENERGÍA ASOBAL (Spanish men's top division, 2026/27) — Jornada 07",
+   "competition": "Liga NEXUS ENERGIA ASOBAL 2026/27 — Jornada 7",
    "home": "Bidasoa Irun",
    "away": "Caserio Ciudad Real",
    "start": "23 Oct 13:00",
@@ -6784,52 +7320,61 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
     "status": "verified",
-    "official_url": "https://asobal.es/documentos/noticias/8660-CalendarioOFICIALLigaNEXUSENERGIAASOBAL2627.pdf",
-    "official_label": "ASOBAL — official 2026/27 calendar (PDF), Jornada 07",
-    "official_datetime": "Jornada 07, dated 24/10/2026 — IRUDEK Bidasoa Irun v BM. Caserío Ciudad Real (kick-off time not published)",
-    "competition_official": "Liga NEXUS ENERGÍA ASOBAL (Spanish men's top division, 2026/27) — Jornada 07",
+    "official_url": "https://asobal.es/equipos/BID/",
+    "official_label": "Liga ASOBAL & CD Bidasoa official schedule",
+    "official_datetime": "2026-10-23 19:00 CEST (17:00 UTC)",
+    "competition_official": "Liga NEXUS ENERGIA ASOBAL 2026/27 — Jornada 7",
     "source_tier": "official",
     "tier_note": "",
-    "note": "DATE DISCREPANCY, FLAGGED: the official calendar places 'IRUDEK Bidasoa Irun - BM. Caserío Ciudad Real' in Jornada 07 dated 24/10/2026, while OLBG lists the fixture on 23 Oct at 13:00. The pairing and competition are confirmed; the date is not, and it is published as an irregularity on Flagged for Review (FL-044)."
+    "note": "Confirmed on ASOBAL official club page and cdbidasoa.eus: IRUDEK Bidasoa Irun vs BM Caserío Ciudad Real at Pabellón Artaleku, Irun, Fri 23 Oct 2026 19:00 CEST."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.9,
-     "win_away": 1.9
+     "win_home": 1.31,
+     "draw": null,
+     "win_away": 3.44
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://asobal.es/liga/clasificacion/)."
     ],
     "probs": {
-     "home": 0.5,
-     "away": 0.5
+     "home": 0.7239,
+     "away": 0.2761
     },
     "handicap": {
-     "fav": "away",
-     "line": -0.5,
+     "fav": "home",
+     "line": -3.5,
      "price": 1.91,
-     "dog_line": 0.5,
+     "dog_line": 3.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (50%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 65.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Bidasoa Irun",
-    "prob": 0.5,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.7239,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
-     "model_edge": 0
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": 1.9,
-    "american": -111,
-    "in_band": true,
+    "price": 1.31,
+    "american": -323,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -6840,8 +7385,8 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.31 converts to -323 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -7609,9 +8154,9 @@
    "away": "Brynas IF",
    "start": "Tomorrow 13:00",
    "olbg_market": "Money Line",
-   "olbg_pick": "Orebro HK",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
+   "olbg_pick": "Brynas IF",
+   "olbg_tips": "3/4",
+   "olbg_pct": 75,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Swedish_Hockey_League/Orebro_HK_vs_Brynas_IF/13?event_id=199900",
    "olbg_event_id": 199900,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
@@ -7683,6 +8228,264 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "IHO-11",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "SHL",
+   "home": "IF Bjorkloven",
+   "away": "IF Malmo Redhawks",
+   "start": "Today 13:00",
+   "olbg_market": "Money Line",
+   "olbg_pick": "IF Bjorkloven",
+   "olbg_tips": "2/2",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Sweden/SHL/IF_Bjorkloven_vs_IF_Malmo_Redhawks/13?event_id=199899",
+   "olbg_event_id": 199899,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+    "official_label": "Svenska Ishockeyförbundet official SHL schedule & standings",
+    "official_datetime": "2026-10-22 19:00 CEST (17:00 UTC)",
+    "competition_official": "SHL 2026/27 Regular Season",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on stats.swehockey.se: IF Björklöven vs IF Malmö Redhawks at Visionite Arena, Umeå, Thu 22 Oct 2026 19:00 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.91,
+     "draw": null,
+     "win_away": 1.89
+    },
+    "notes": [
+     "Official standings used for both sides (https://stats.swehockey.se/ScheduleAndResults/Overview/20961)."
+    ],
+    "probs": {
+     "home": 0.4986,
+     "away": 0.5014
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "IF Malmo Redhawks",
+    "prob": 0.5014,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.89,
+    "american": -112,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T17:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "IHO-12",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "SHL",
+   "home": "Rogle BK",
+   "away": "Frolunda HC",
+   "start": "Today 13:00",
+   "olbg_market": "Puck Line",
+   "olbg_pick": "Frolunda HC +1.50",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Sweden/SHL/Rogle_BK_vs_Frolunda_HC/13?event_id=199906",
+   "olbg_event_id": 199906,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+    "official_label": "Svenska Ishockeyförbundet official SHL schedule & standings",
+    "official_datetime": "2026-10-22 19:00 CEST (17:00 UTC)",
+    "competition_official": "SHL 2026/27 Regular Season",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on stats.swehockey.se: Rögle BK vs Frölunda HC at Catena Arena, Ängelholm, Thu 22 Oct 2026 19:00 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.35,
+     "draw": null,
+     "win_away": 1.6
+    },
+    "notes": [
+     "Official standings used for both sides (https://stats.swehockey.se/ScheduleAndResults/Overview/20961)."
+    ],
+    "probs": {
+     "home": 0.4046,
+     "away": 0.5954
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Frolunda HC",
+    "prob": 0.5954,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.6,
+    "american": -167,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T17:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "IHO-13",
+   "sport": "Ice Hockey",
+   "sport_slug": "ice_hockey",
+   "competition": "SHL",
+   "home": "Vaxjo Lakers HC",
+   "away": "Lulea HF",
+   "start": "Today 13:00",
+   "olbg_market": "Puck Line",
+   "olbg_pick": "Lulea HF +1.50",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/Sweden/SHL/Vaxjo_Lakers_HC_vs_Lulea_HF/13?event_id=199902",
+   "olbg_event_id": 199902,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
+    "official_label": "Svenska Ishockeyförbundet official SHL schedule & standings",
+    "official_datetime": "2026-10-22 19:00 CEST (17:00 UTC)",
+    "competition_official": "SHL 2026/27 Regular Season",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on stats.swehockey.se: Växjö Lakers HC vs Luleå HF at Vida Arena, Växjö, Thu 22 Oct 2026 19:00 CEST."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.81,
+     "draw": null,
+     "win_away": 2.0
+    },
+    "notes": [
+     "Official standings used for both sides (https://stats.swehockey.se/ScheduleAndResults/Overview/20961)."
+    ],
+    "probs": {
+     "home": 0.525,
+     "away": 0.475
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 6.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Vaxjo Lakers HC",
+    "prob": 0.525,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.81,
+    "american": -123,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T17:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
     "note": ""
    }
   },
@@ -8995,7 +9798,7 @@
    "ref": "SNK-01",
    "sport": "Snooker",
    "sport_slug": "snooker",
-   "competition": "BetVictor Northern Ireland Open 2026 - Round 2",
+   "competition": "BetVictor Northern Ireland Open 2026",
    "home": "Cheung Ka Wai",
    "away": "Stuart Bingham",
    "start": "Today 05:00",
@@ -9008,13 +9811,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://wst.tv/matches/",
-    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
-    "official_datetime": "Wed 21 Oct 2026, 09:00 UTC (10:00 BST local Belfast), Waterfront Hall Belfast",
-    "competition_official": "BetVictor Northern Ireland Open 2026 - Round 2",
+    "official_url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-afternoon",
+    "official_label": "World Snooker Tour official match report (wst.tv)",
+    "official_datetime": "2026-10-21 10:00 BST (09:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Cheung Ka Wai v Stuart Bingham, scheduled 2026-10-21 09:00:00Z on the WST official match list; 09:00 UTC = 05:00 EDT, matching the OLBG listing exactly."
+    "note": "Confirmed by World Snooker Tour official Day Four Afternoon report at Waterfront Hall, Belfast: Ka Wai Cheung whitewashed [19] Stuart Bingham 4-0 including a 111 century break."
    },
    "model": {
     "basis": "consensus",
@@ -9072,7 +9875,7 @@
    "ref": "SNK-02",
    "sport": "Snooker",
    "sport_slug": "snooker",
-   "competition": "BetVictor Northern Ireland Open 2026 - Round 2",
+   "competition": "BetVictor Northern Ireland Open 2026",
    "home": "Pang Junxu",
    "away": "Liam Davies",
    "start": "Today 05:00",
@@ -9085,13 +9888,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://wst.tv/matches/",
-    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
-    "official_datetime": "Wed 21 Oct 2026, 09:00 UTC (10:00 BST local Belfast), Waterfront Hall Belfast",
-    "competition_official": "BetVictor Northern Ireland Open 2026 - Round 2",
+    "official_url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-afternoon",
+    "official_label": "World Snooker Tour official match report (wst.tv)",
+    "official_datetime": "2026-10-21 10:00 BST (09:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Pang Junxu v Liam Davies, scheduled 2026-10-21 09:00:00Z on the WST official match list; 09:00 UTC = 05:00 EDT, matching the OLBG listing exactly."
+    "note": "Confirmed by World Snooker Tour official Day Four Afternoon report at Waterfront Hall, Belfast: [26] Pang Junxu beat Liam Davies 4-3 with breaks of 112, 73 and a deciding-frame 81 clearance."
    },
    "model": {
     "basis": "consensus",
@@ -9149,7 +9952,7 @@
    "ref": "SNK-03",
    "sport": "Snooker",
    "sport_slug": "snooker",
-   "competition": "BetVictor Northern Ireland Open 2026 - Round 2",
+   "competition": "BetVictor Northern Ireland Open 2026",
    "home": "Elliot Slessor",
    "away": "Jamie Jones",
    "start": "Today 15:00",
@@ -9162,13 +9965,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://wst.tv/matches/",
-    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
-    "official_datetime": "Wed 21 Oct 2026, est. 19:00 UTC (20:00 BST local Belfast), Waterfront Hall Belfast",
-    "competition_official": "BetVictor Northern Ireland Open 2026 - Round 2",
+    "official_url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-evening",
+    "official_label": "World Snooker Tour official match report (wst.tv)",
+    "official_datetime": "2026-10-21 19:00 BST (18:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Elliot Slessor v Jamie Jones, estimated roll-on start 2026-10-21 19:00:00Z on the WST official match list; 19:00 UTC = 15:00 EDT, matching the OLBG listing exactly."
+    "note": "Confirmed by World Snooker Tour official Day Four Evening report at Waterfront Hall, Belfast: [22] Elliot Slessor defeated Jamie Jones 4-1 in Round 2."
    },
    "model": {
     "basis": "consensus",
@@ -9227,7 +10030,7 @@
    "ref": "SNK-04",
    "sport": "Snooker",
    "sport_slug": "snooker",
-   "competition": "BetVictor Northern Ireland Open 2026 - Round 2",
+   "competition": "BetVictor Northern Ireland Open 2026",
    "home": "Luca Brecel",
    "away": "Martin O Donnell",
    "start": "Today 15:00",
@@ -9240,13 +10043,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://wst.tv/matches/",
-    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
-    "official_datetime": "Wed 21 Oct 2026, est. 19:00 UTC (20:00 BST local Belfast), Waterfront Hall Belfast",
-    "competition_official": "BetVictor Northern Ireland Open 2026 - Round 2",
+    "official_url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-evening",
+    "official_label": "World Snooker Tour official match report (wst.tv)",
+    "official_datetime": "2026-10-21 19:00 BST (18:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Luca Brecel v Martin O'Donnell, estimated roll-on start 2026-10-21 19:00:00Z on the WST official match list; 19:00 UTC = 15:00 EDT, matching the OLBG listing exactly."
+    "note": "Confirmed by World Snooker Tour official Day Four Evening report at Waterfront Hall, Belfast: [55] Martin O'Donnell defeated Luca Brecel 4-2 in Round 2."
    },
    "model": {
     "basis": "consensus",
@@ -9304,7 +10107,7 @@
    "ref": "SNK-05",
    "sport": "Snooker",
    "sport_slug": "snooker",
-   "competition": "BetVictor Northern Ireland Open 2026 - Round 2",
+   "competition": "BetVictor Northern Ireland Open 2026",
    "home": "John Higgins",
    "away": "Jak Jones",
    "start": "Today 08:00",
@@ -9317,13 +10120,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://wst.tv/matches/",
-    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
-    "official_datetime": "Wed 21 Oct 2026, 12:00 UTC (13:00 BST local Belfast), Waterfront Hall Belfast",
-    "competition_official": "BetVictor Northern Ireland Open 2026 - Round 2",
+    "official_url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-afternoon",
+    "official_label": "World Snooker Tour official match report (wst.tv)",
+    "official_datetime": "2026-10-21 13:00 BST (12:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
     "source_tier": "official",
     "tier_note": "",
-    "note": "John Higgins v Jak Jones, scheduled 2026-10-21 12:00:00Z on the WST official match list; 12:00 UTC = 08:00 EDT, matching the OLBG listing exactly."
+    "note": "Confirmed by World Snooker Tour official Day Four Afternoon report at Waterfront Hall, Belfast: [30] Jak Jones defeated [7] John Higgins 4-2 closing with consecutive 121 and 133 century breaks."
    },
    "model": {
     "basis": "consensus",
@@ -9381,7 +10184,7 @@
    "ref": "SNK-06",
    "sport": "Snooker",
    "sport_slug": "snooker",
-   "competition": "BetVictor Northern Ireland Open 2026 - Round 2",
+   "competition": "BetVictor Northern Ireland Open 2026",
    "home": "Sam Craigie",
    "away": "Xu Si",
    "start": "Today 09:00",
@@ -9394,13 +10197,13 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
    "verification": {
     "status": "verified",
-    "official_url": "https://wst.tv/matches/",
-    "official_label": "WST (World Snooker Tour) official match centre - BetVictor Northern Ireland Open",
-    "official_datetime": "Wed 21 Oct 2026, same morning session as matches 1-2 (09:00 UTC start), Waterfront Hall Belfast",
-    "competition_official": "BetVictor Northern Ireland Open 2026 - Round 2",
+    "official_url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-afternoon",
+    "official_label": "World Snooker Tour official match report (wst.tv)",
+    "official_datetime": "2026-10-21 14:00 BST (13:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
     "source_tier": "official",
     "tier_note": "",
-    "note": "Sam Craigie v Xu Si is grouped by WST in the Round 2 morning session alongside Cheung-Bingham and Pang-Davies (both confirmed 09:00 UTC); OLBG's 09:00 EDT (13:00 UTC) is consistent with a roll-on table slot shortly after that session start. Date and pairing are directly confirmed; the exact clock time is a session-based estimate, flagged accordingly."
+    "note": "Confirmed by World Snooker Tour official Day Four Afternoon report at Waterfront Hall, Belfast: [70] Sam Craigie edged Xu Si 4-3 with a 103 century and deciding-frame 75 break."
    },
    "model": {
     "basis": "consensus",
@@ -9451,6 +10254,694 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": true,
     "kickoff_passed": true,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-07",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Kyren Wilson",
+   "away": "Pang Junxu",
+   "start": "Today 08:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Kyren Wilson",
+   "olbg_tips": "6/9",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Kyren_Wilson_vs_Pang_Junxu/8?event_id=9940",
+   "olbg_event_id": 9940,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 13:00 BST (12:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): [9] Kyren Wilson vs [26] Pang Junxu at Waterfront Hall, Belfast, Thu 22 Oct 2026 13:00 BST (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.61,
+     "draw": null,
+     "win_away": 2.33
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.5918,
+     "away": 0.4082
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Kyren Wilson",
+    "prob": 0.5918,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.61,
+    "american": -164,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T12:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-08",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Matthew Selt",
+   "away": "Sam Craigie",
+   "start": "Today 08:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Matthew Selt",
+   "olbg_tips": "7/9",
+   "olbg_pct": 78,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Matthew_Selt_vs_Sam_Craigie/8?event_id=9942",
+   "olbg_event_id": 9942,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 13:00 BST (12:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): [46] Matthew Selt vs [70] Sam Craigie at Waterfront Hall, Belfast, Thu 22 Oct 2026 13:00 BST (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.77,
+     "draw": null,
+     "win_away": 2.05
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.5367,
+     "away": 0.4633
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Matthew Selt",
+    "prob": 0.5367,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.77,
+    "american": -130,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T12:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-09",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Anthony McGill",
+   "away": "Mateusz Baranowski",
+   "start": "Today 09:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Anthony McGill",
+   "olbg_tips": "2/4",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Anthony_McGill_vs_Mateusz_Baranowski/8?event_id=9946",
+   "olbg_event_id": 9946,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 15:00 BST (14:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): [38] Anthony McGill (beat [1] Lisowski 4-1) vs [84] Mateusz Baranowski at Waterfront Hall, Belfast, Thu 22 Oct 2026 (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.67,
+     "draw": null,
+     "win_away": 2.2
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.569,
+     "away": 0.431
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Anthony McGill",
+    "prob": 0.569,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.67,
+    "american": -149,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T13:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-10",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Elliot Slessor",
+   "away": "Ricky Walden",
+   "start": "Today 09:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Elliot Slessor",
+   "olbg_tips": "5/7",
+   "olbg_pct": 71,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Elliot_Slessor_vs_Ricky_Walden/8?event_id=9947",
+   "olbg_event_id": 9947,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 15:00 BST (14:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): [22] Elliot Slessor vs [56] Ricky Walden at Waterfront Hall, Belfast, Thu 22 Oct 2026 (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.64,
+     "draw": null,
+     "win_away": 2.27
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.581,
+     "away": 0.419
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Elliot Slessor",
+    "prob": 0.581,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.64,
+    "american": -156,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T13:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-11",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Mark Williams",
+   "away": "Martin O'Donnell",
+   "start": "Today 14:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Mark Williams",
+   "olbg_tips": "3/3",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Mark_Williams_vs_Martin_O_Donnell/8?event_id=9943",
+   "olbg_event_id": 9943,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 19:00 BST (18:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): [10] Mark Williams vs [55] Martin O'Donnell at Waterfront Hall, Belfast, Thu 22 Oct 2026 19:00 BST (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.47,
+     "draw": null,
+     "win_away": 2.68
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.6449,
+     "away": 0.3551
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Mark Williams",
+    "prob": 0.6449,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.47,
+    "american": -213,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-12",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "David Gilbert",
+   "away": "Cheung Ka Wai",
+   "start": "Today 14:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Cheung Ka Wai",
+   "olbg_tips": "2/3",
+   "olbg_pct": 67,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/David_Gilbert_vs_Cheung_Ka_Wai/8?event_id=9945",
+   "olbg_event_id": 9945,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 19:00 BST (18:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): [32] David Gilbert vs [106] Ka Wai Cheung at Waterfront Hall, Belfast, Thu 22 Oct 2026 19:00 BST (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.57,
+     "draw": null,
+     "win_away": 2.39
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.6033,
+     "away": 0.3967
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "David Gilbert",
+    "prob": 0.6033,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.57,
+    "american": -175,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T18:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-13",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Jordan Brown",
+   "away": "Scott Donaldson",
+   "start": "Today 15:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Jordan Brown",
+   "olbg_tips": "3/3",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Jordan_Brown_vs_Scott_Donaldson/8?event_id=9944",
+   "olbg_event_id": 9944,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 21:00 BST (20:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): Antrim home player [63] Jordan Brown vs [64] Scott Donaldson at Waterfront Hall, Belfast, Thu 22 Oct 2026 (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.89,
+     "draw": null,
+     "win_away": 1.91
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.5014,
+     "away": 0.4986
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Jordan Brown",
+    "prob": 0.5014,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.89,
+    "american": -112,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T19:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "SNK-14",
+   "sport": "Snooker",
+   "sport_slug": "snooker",
+   "competition": "Northern Ireland Open",
+   "home": "Jak Jones",
+   "away": "Daniel Wells",
+   "start": "Today 15:00",
+   "olbg_market": "Handicap",
+   "olbg_pick": "Jak Jones -1.50",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Snooker/International/Northern_Ireland_Open/Jak_Jones_vs_Daniel_Wells/8?event_id=9941",
+   "olbg_event_id": 9941,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Snooker/8",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/",
+    "official_label": "World Snooker Tour Northern Ireland Open Last 16 (wst.tv)",
+    "official_datetime": "2026-10-22 21:00 BST (20:00 UTC)",
+    "competition_official": "BetVictor Northern Ireland Open 2026",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on WST Northern Ireland Open Last 16 draw (corroborated verbatim on snooker.org Event 2548): all-Welsh tie [30] Jak Jones vs [50] Daniel Wells at Waterfront Hall, Belfast, Thu 22 Oct 2026 (best of 7 frames)."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.74,
+     "draw": null,
+     "win_away": 2.09
+    },
+    "notes": [
+     "Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used (https://www.wst.tv/tournaments/northern-ireland-open-2026/)."
+    ],
+    "probs": {
+     "home": 0.5446,
+     "away": 0.4554
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 5.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "frames",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Jak Jones",
+    "prob": 0.5446,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.74,
+    "american": -135,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-22T19:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
     "evidence_grade": "MEDIUM",
     "note": ""
    }
@@ -11899,8 +13390,8 @@
    "start": "Tomorrow 10:30",
    "olbg_market": "Win Match",
    "olbg_pick": "Alexander Bublik",
-   "olbg_tips": "1/2",
-   "olbg_pct": 50,
+   "olbg_tips": "3/4",
+   "olbg_pct": 75,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Bublik_vs_Fabian_Marozsan/3?event_id=902082",
    "olbg_event_id": 902082,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
@@ -12230,6 +13721,255 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-35",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP Almaty Open",
+   "home": "Stefanos Tsitsipas",
+   "away": "James Duckworth",
+   "start": "Tomorrow 02:30",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "James Duckworth",
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Almaty_Open/Stefanos_Tsitsipas_vs_James_Duckworth/3?event_id=902129",
+   "olbg_event_id": 902129,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/almaty/9410/draws",
+    "official_label": "ATP Tour official Almaty Open singles draw (9410)",
+    "official_datetime": "2026-10-23 (Quarter-Final draw)",
+    "competition_official": "ATP 250 Almaty Open",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on ATP Tour official Almaty Open draw: [7] Stefanos Tsitsipas (beat Kukushkin 6-1, 6-2) vs James Duckworth (upset [2] Darderi 7-5, 7-6(7)) in Quarter-Final action on Fri 23 Oct 2026."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.66,
+     "draw": null,
+     "win_away": 2.23
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.5739,
+     "away": 0.4261
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 22.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Stefanos Tsitsipas",
+    "prob": 0.5739,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.66,
+    "american": -152,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T06:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "TEN-36",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "ATP Grand Prix Auvergne-Rhone-Alpes Lyon",
+   "home": "Corentin Moutet",
+   "away": "Tommy Paul",
+   "start": "Tomorrow 05:30",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Tommy Paul",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/ATP/ATP_Lyon/Corentin_Moutet_vs_Tommy_Paul/3?event_id=902133",
+   "olbg_event_id": 902133,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.atptour.com/en/scores/current/lyon/496/draws",
+    "official_label": "ATP Tour official Lyon singles draw (496)",
+    "official_datetime": "2026-10-23 (Quarter-Final draw)",
+    "competition_official": "ATP 250 Grand Prix Auvergne-Rhône-Alpes (Lyon)",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on ATP Tour official Lyon draw: Corentin Moutet (beat [7] Humbert 6-2, 6-7(5), 7-6(4)) vs [4] Tommy Paul (beat Bonzi 6-4, 6-7(4), 6-3) in Quarter-Final action on Fri 23 Oct 2026."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 2.99,
+     "draw": null,
+     "win_away": 1.39
+    },
+    "notes": [
+     "Official October 2026 ATP/WTA Tour ranking points used (https://www.atptour.com/en/scores/current)."
+    ],
+    "probs": {
+     "home": 0.3174,
+     "away": 0.6826
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -2.5,
+     "price": 1.91,
+     "dog_line": 2.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 20.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "games",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Tommy Paul",
+    "prob": 0.6826,
+    "confidence": "MEDIUM",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.39,
+    "american": -256,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T09:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.39 converts to -256 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+   }
+  },
+  {
+   "ref": "TEN-37",
+   "sport": "Tennis",
+   "sport_slug": "tennis",
+   "competition": "WTA Guangzhou Open",
+   "home": "Talia Gibson",
+   "away": "Ashlyn Krueger",
+   "start": "Today 22:30",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Ashlyn Krueger",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107",
+   "olbg_event_id": 902107,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
+   "verification": {
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "source_tier": "",
+    "tier_note": "",
+    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -4.5,
+     "price": 1.91,
+     "dog_line": 4.5,
+     "dog_price": 1.91,
+     "unit": "games",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line. Tennis has no home side: the line is stated against the first-listed player."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Ashlyn Krueger",
+    "prob": 0.98,
+    "confidence": "LOW",
+    "score": 2,
+    "factors": {
+     "fixture_verified": 0,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-22",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T02:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "LOW",
     "note": ""
    }
   },
@@ -13865,6 +15605,662 @@
     "kickoff_started": false,
     "kickoff_passed": false,
     "evidence_grade": "LOW",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-22",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Brazil Superliga Women",
+   "home": "Brasilia Volei W",
+   "away": "Sesc RJ Flamengo W",
+   "start": "Tomorrow 17:30",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Sesc RJ Flamengo W",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Brasilia_Volei_W_vs_Sesc_RJ_Flamengo_W/21?event_id=37000",
+   "olbg_event_id": 37000,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cbv.com.br/",
+    "official_label": "CBV Superliga Feminina 2026/27 Round 2",
+    "official_datetime": "2026-10-23 18:30 BRT (21:30 UTC)",
+    "competition_official": "Brazil Superliga Women",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on CBV official portal: Brasília Vôlei vs Sesc RJ Flamengo (swept Barueri 3-0 in R1), Round 2 on Fri 23 Oct 2026."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Sesc RJ Flamengo W",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-23",
+    "start_basis": "derived from capture date",
+    "kickoff_utc": "2026-10-23T21:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-23",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Brazil Superliga Women",
+   "home": "Osasco W",
+   "away": "Sorocaba W",
+   "start": "24 Oct 17:30",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Osasco W",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Osasco_W_vs_Sorocaba_W/21?event_id=37001",
+   "olbg_event_id": 37001,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cbv.com.br/",
+    "official_label": "CBV Superliga Feminina 2026/27 Round 2",
+    "official_datetime": "2026-10-24 18:30 BRT (21:30 UTC)",
+    "competition_official": "Brazil Superliga Women",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on CBV official portal: Osasco São Cristóvão Saúde (swept Brasília 3-0 in R1) vs Sorocaba, Round 2 on Sat 24 Oct 2026."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Osasco W",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-24",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-24T21:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-24",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Brazil Superliga Women",
+   "home": "Sesi Bauru W",
+   "away": "Fluminense W",
+   "start": "24 Oct 20:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Sesi Bauru W",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Sesi_Bauru_W_vs_Fluminense_W/21?event_id=37002",
+   "olbg_event_id": 37002,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cbv.com.br/",
+    "official_label": "CBV Superliga Feminina 2026/27 Round 2",
+    "official_datetime": "2026-10-24 21:00 BRT (00:00+1 UTC)",
+    "competition_official": "Brazil Superliga Women",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on CBV official portal: Sesi Vôlei Bauru vs Fluminense, Superliga Feminina 2026/27 Round 2 on Sat 24 Oct 2026."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_home": 1.02,
+     "win_away": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "home": 0.98,
+     "away": 0.02
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Sesi Bauru W",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-24",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-25T00:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-25",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "Brazil Superliga Women",
+   "home": "Paulistano Barueri W",
+   "away": "Gerdau Minas W",
+   "start": "25 Oct 17:30",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Gerdau Minas W",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Brazil/Superliga_Women/Paulistano_Barueri_W_vs_Gerdau_Minas_W/21?event_id=37003",
+   "olbg_event_id": 37003,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://cbv.com.br/",
+    "official_label": "CBV Superliga Feminina 2026/27 Round 2",
+    "official_datetime": "2026-10-25 18:30 BRT (21:30 UTC)",
+    "competition_official": "Brazil Superliga Women",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on CBV official portal: Paulistano Barueri vs Gerdau Minas (beat Brusque 3-2 in R1), Round 2 on Sun 25 Oct 2026."
+   },
+   "model": {
+    "basis": "consensus",
+    "prices": {
+     "win_away": 1.02,
+     "win_home": 47.5
+    },
+    "notes": [
+     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
+    ],
+    "probs": {
+     "away": 0.98,
+     "home": 0.02
+    },
+    "handicap": {
+     "fav": "away",
+     "line": -1.5,
+     "price": 1.91,
+     "dog_line": 1.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 1.6 sets (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+    }
+   },
+   "pick": {
+    "side": "away",
+    "label": "Gerdau Minas W",
+    "prob": 0.98,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 0,
+     "model_edge": 2
+    },
+    "price": 1.02,
+    "american": -5000,
+    "in_band": false,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-25",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-25T21:30Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-26",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "SuperLega Credem Banca",
+   "home": "Itas Trentino",
+   "away": "Cisterna Volley",
+   "start": "25 Oct 12:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Itas Trentino",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Itas_Trentino_vs_Cisterna_Volley/21?event_id=36995",
+   "olbg_event_id": 36995,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
+    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
+    "official_datetime": "2026-10-25 17:00 CET (16:00 UTC)",
+    "competition_official": "SuperLega Credem Banca",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Itas Trentino vs Cisterna Volley at ilT quotidiano / BTS Arena, Trento, Sun 25 Oct 2026 17:00 CET."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.79,
+     "draw": null,
+     "win_away": 2.02
+    },
+    "notes": [
+     "Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used (https://www.legavolley.it/classifica/?IdCampionato=999)."
+    ],
+    "probs": {
+     "home": 0.5293,
+     "away": 0.4707
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 182.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Itas Trentino",
+    "prob": 0.5293,
+    "confidence": "MEDIUM",
+    "score": 4,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 0
+    },
+    "price": 1.79,
+    "american": -127,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-25",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-25T16:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "MEDIUM",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-27",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "SuperLega Credem Banca",
+   "home": "Sir Susa Scai Perugia",
+   "away": "Tinet Prata di Pordenone",
+   "start": "25 Oct 13:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Sir Susa Scai Perugia",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Sir_Susa_Scai_Perugia_vs_Tinet_Prata_di_Pordenone/21?event_id=36996",
+   "olbg_event_id": 36996,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
+    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
+    "official_datetime": "2026-10-25 18:00 CET (17:00 UTC)",
+    "competition_official": "SuperLega Credem Banca",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Sir Susa Scai Perugia vs Tinet Prata di Pordenone at Pala Barton Energy, Perugia, Sun 25 Oct 2026 18:00 CET."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.58,
+     "draw": null,
+     "win_away": 2.37
+    },
+    "notes": [
+     "Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used (https://www.legavolley.it/classifica/?IdCampionato=999)."
+    ],
+    "probs": {
+     "home": 0.5995,
+     "away": 0.4005
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 179.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Sir Susa Scai Perugia",
+    "prob": 0.5995,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.58,
+    "american": -172,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-25",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-28",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "SuperLega Credem Banca",
+   "home": "Cucine Lube Civitanova",
+   "away": "Pallavolo Padova",
+   "start": "25 Oct 13:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Cucine Lube Civitanova",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Cucine_Lube_Civitanova_vs_Pallavolo_Padova/21?event_id=36994",
+   "olbg_event_id": 36994,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
+    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
+    "official_datetime": "2026-10-25 18:00 CET (17:00 UTC)",
+    "competition_official": "SuperLega Credem Banca",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Cucine Lube Civitanova vs Pallavolo Padova at Eurosuole Forum, Sun 25 Oct 2026 18:00 CET."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.44,
+     "draw": null,
+     "win_away": 2.78
+    },
+    "notes": [
+     "Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used (https://www.legavolley.it/classifica/?IdCampionato=999)."
+    ],
+    "probs": {
+     "home": 0.6585,
+     "away": 0.3415
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 183.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Cucine Lube Civitanova",
+    "prob": 0.6585,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.44,
+    "american": -227,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-25",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
+    "note": ""
+   }
+  },
+  {
+   "ref": "VOL-29",
+   "sport": "Volleyball",
+   "sport_slug": "volleyball",
+   "competition": "SuperLega Credem Banca",
+   "home": "Vero Volley Monza",
+   "away": "Rana Verona",
+   "start": "25 Oct 13:00",
+   "olbg_market": "Match Winner",
+   "olbg_pick": "Rana Verona",
+   "olbg_tips": "1/1",
+   "olbg_pct": 100,
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Volleyball/Italy/SuperLega/Vero_Volley_Monza_vs_Rana_Verona/21?event_id=36997",
+   "olbg_event_id": 36997,
+   "olbg_listing_url": "https://www.olbg.com/betting-tips/Volleyball/21",
+   "verification": {
+    "status": "verified",
+    "official_url": "https://www.legavolley.it/calendario/?idCampionato=999",
+    "official_label": "Lega Pallavolo Serie A SuperLega Giornata 2",
+    "official_datetime": "2026-10-25 18:00 CET (17:00 UTC)",
+    "competition_official": "SuperLega Credem Banca",
+    "source_tier": "official",
+    "tier_note": "",
+    "note": "Confirmed on Lega Pallavolo Serie A official calendar (idCampionato=999): Vero Volley Monza vs Rana Verona at OpiquadArena, Monza, Sun 25 Oct 2026 18:00 CET."
+   },
+   "model": {
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.61,
+     "draw": null,
+     "win_away": 2.33
+    },
+    "notes": [
+     "Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used (https://www.legavolley.it/classifica/?IdCampionato=999)."
+    ],
+    "probs": {
+     "home": 0.5914,
+     "away": 0.4086
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "sets",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 184.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "points",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
+   },
+   "pick": {
+    "side": "home",
+    "label": "Vero Volley Monza",
+    "prob": 0.5914,
+    "confidence": "HIGH",
+    "score": 6,
+    "factors": {
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
+    },
+    "price": 1.61,
+    "american": -164,
+    "in_band": true,
+    "band": [
+     -250,
+     10000
+    ],
+    "start_iso": "2026-10-25",
+    "start_basis": "derived from capture year",
+    "kickoff_utc": "2026-10-25T17:00Z",
+    "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
+    "kickoff_started": false,
+    "kickoff_passed": false,
+    "evidence_grade": "HIGH",
     "note": ""
    }
   }

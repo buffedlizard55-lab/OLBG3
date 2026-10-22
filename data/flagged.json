@@ -1023,7 +1023,7 @@
       "id": "FL-044",
       "severity": "medium",
       "title": "Three /olbg/ high-confidence picks were dated 21 October and have been archived",
-      "detail": "The /olbg/ track graded confidence without looking at the fixture date, so three rows whose listed start date was 2026-10-21 (BKB-534839 GS Warriors @ LA Lakers, BKB-535674 SAC Kings @ LA Clippers, TEN-902063 Ann Li vs Zeynep Sonmez) were published as live high-confidence picks on a 22 October build. A tip on a fixture that has already been played is not a prediction. All three are now graded medium with the flag kick_off_passed_archived, and their written pieces are kept on the predictions page under a clearly labelled 'Archived analysis' heading with the reason. A date gate in tools/originate.py and tools/check_site.py prevents a repeat. Live high-confidence count on /olbg/ therefore falls from 26 to 23.",
+      "detail": "An earlier /olbg/ pass graded confidence without checking kick-off timestamps, publishing three 2026-10-21 rows (BKB-534839 GS Warriors @ LA Lakers, BKB-535674 SAC Kings @ LA Clippers, TEN-902063 Ann Li vs Zeynep Sonmez) as high-confidence picks after they had started. All started or carried fixtures are now automatically gated to medium/low with kick_off_passed_archived or carried_from_prior_pass in tools/originate.py and verified by tools/check_site.py, keeping written notes clearly separated under Archived analysis.",
       "affected_rows": [
         "BKB-534839",
         "BKB-535674",
@@ -1295,6 +1295,175 @@
         {
           "label": "OLBG - All sports betting tips listing (source of the archived 'Today' rows)",
           "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-054",
+      "severity": "medium",
+      "title": "WTA Guangzhou Open QF (Talia Gibson v Ashlyn Krueger) left unverified — wtatennis.com draw requires client-side JS",
+      "detail": "wtatennis.com serves an empty client-rendered shell for current WTA 250 Guangzhou draw tables under static HTTP fetch. Per strict zero-inference policy, TEN-37 / TEN-902107 is retained verbatim from the 2026-10-22T07:25Z OLBG capture with unconfirmed official fields left blank and confidence capped below HIGH.",
+      "affected_rows": [
+        "TEN-902107",
+        "TEN-37"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Talia Gibson vs Ashlyn Krueger event page",
+          "url": "https://www.olbg.com/betting-tips/Tennis/WTA/WTA_Guangzhou_Open/Talia_Gibson_vs_Ashlyn_Krueger/3?event_id=902107"
+        }
+      ]
+    },
+    {
+      "id": "FL-055",
+      "severity": "medium",
+      "title": "Four 22 October morning UK Greyhound bags left unverified — GBGB racecard portal Cloudflare-challenged",
+      "detail": "Live /betting-tips/Greyhounds/28 at 2026-10-22T07:25Z listed four morning bags (11:14 Kinsley, 11:36 Sheffield, 12:03 Kinsley, 12:14 Nottingham). Direct gbgb.org.uk requests challenge non-browser clients; unconfirmed fields remain blank and confidence is capped at MEDIUM.",
+      "affected_rows": [
+        "GRY-689570",
+        "GRY-689576",
+        "GRY-689581",
+        "GRY-689584",
+        "GRY-08",
+        "GRY-09",
+        "GRY-10"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Greyhounds betting tips listing",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-056",
+      "severity": "low",
+      "title": "CSA Pro20 Cup naming mismatch: OLBG lists 'South Africa Emerging' whereas Cricket South Africa registers 'CSA High Performance'",
+      "detail": "Official Cricket South Africa match centre confirms the Division 2 fixture at White River Country Club / Uplands College (Thu 22 Oct 2026 13:00 SAST) as Mpumalanga Rhinos vs CSA High Performance.",
+      "affected_rows": [
+        "CRI-188835",
+        "CRK-09"
+      ],
+      "sources": [
+        {
+          "label": "Cricket South Africa match centre — Mpumalanga Rhinos vs CSA High Performance",
+          "url": "https://www.cricket.co.za/upcoming-match/mpumalanga-rhinos-vs-csa-high-performance/"
+        }
+      ]
+    },
+    {
+      "id": "FL-057",
+      "severity": "low",
+      "title": "Brazil NBB CAIXA naming note: OLBG lists 'Fortaleza BC' whereas LNB officially registers 'Basquete Cearense'",
+      "detail": "Official Liga Nacional de Basquete 2026/27 schedule (Jogo 15) confirms Basquete Cearense vs Pinheiros at Centro de Formação Olímpica (CFO), Fortaleza, Thu 22 Oct 2026 19:30 BRT.",
+      "affected_rows": [
+        "BKB-536019",
+        "BKB-24"
+      ],
+      "sources": [
+        {
+          "label": "LNB official NBB CAIXA schedule",
+          "url": "https://lnb.com.br/nbb/tabela-de-jogos/"
+        }
+      ]
+    },
+    {
+      "id": "FL-058",
+      "severity": "medium",
+      "title": "IHF Women's World Championship Qualification (Estonia W v Kosovo W): OLBG lists Estonia first, but both legs are hosted in Prishtina, Kosovo",
+      "detail": "European Handball Federation qualification schedule confirms both Phase 1 legs (23 & 24 Oct 2026) take place at Palace of Youth and Sports, Prishtina, Kosovo; Estonia W hold zero home-court advantage.",
+      "affected_rows": [
+        "HAN-12109",
+        "HBL-24"
+      ],
+      "sources": [
+        {
+          "label": "EHF Women's World Championship Qualification Europe",
+          "url": "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe/"
+        }
+      ]
+    },
+    {
+      "id": "FL-059",
+      "severity": "low",
+      "title": "EuroLeague Round 7 (Maccabi Tel Aviv v Real Madrid): staged behind neutral doors in Belgrade rather than Tel Aviv",
+      "detail": "Both pricing engines suppress home-court advantage to 0.0 for fixtures relocated to Aleksandar Nikolic Hall / Beogradska Arena in Belgrade.",
+      "affected_rows": [
+        "BKB-535919",
+        "BKB-21"
+      ],
+      "sources": [
+        {
+          "label": "EuroLeague official 2026-27 regular season printable calendar PDF",
+          "url": "https://ftpserver.euroleague.net/media/2026-27_EL_RS_CALENDAR_PRINTABLE.pdf"
+        }
+      ]
+    },
+    {
+      "id": "FL-060",
+      "severity": "low",
+      "title": "Staysure Legends Tour Sergio Melpignano Senior Italian Open runs 22–24 Oct 2026 under 54-hole Stableford scoring (25 Oct is Alliance Pro-Am)",
+      "detail": "Verified on the official Legends Tour tournament page at San Domenico Golf, Puglia; OLBG's 25 Oct timestamp reflects closing Pro-Am ceremonies.",
+      "affected_rows": [
+        "GOL-101909",
+        "GLF-06"
+      ],
+      "sources": [
+        {
+          "label": "Legends Tour — Sergio Melpignano Senior Italian Open 2026",
+          "url": "https://legendstour.com/tournament/sergio-melpignano-senior-italian-open-2026"
+        }
+      ]
+    },
+    {
+      "id": "FL-061",
+      "severity": "low",
+      "title": "Korean KBL (Seoul Samsung Thunders v Busan KCC Egis): kbl.or.kr SPA returns 404; corroborated via Korean press report (Samsung 97-86 KCC)",
+      "detail": "Marked corroborated (third-party tier) rather than governing-body primary because kbl.or.kr requires client-side JS routing.",
+      "affected_rows": [
+        "BKB-536017",
+        "BKB-03"
+      ],
+      "sources": [
+        {
+          "label": "SBS Korean Sports match report — Samsung 97-86 KCC",
+          "url": "https://news.sbs.co.kr/news/endPage.do?news_id=N1008301438"
+        }
+      ]
+    },
+    {
+      "id": "FL-062",
+      "severity": "documentation",
+      "title": "Zero-inference repair on PDC European Championship Evening Session (DRT-11..14) and full Last 16 WST Snooker verification (SNK-07..14)",
+      "detail": "Removed four estimated walk-on clock times from DRT-11..14 in data/official.json, recording only PDC's published Evening Session start (19:00 CEST) and official match order. Simultaneously verified all 8 Northern Ireland Open Last 16 ties (SNK-07..14) and upgraded SNK-01..06 to primary wst.tv Day Four reports.",
+      "affected_rows": [
+        "DRT-11",
+        "DRT-12",
+        "DRT-13",
+        "DRT-14",
+        "SNK-01",
+        "SNK-02",
+        "SNK-03",
+        "SNK-04",
+        "SNK-05",
+        "SNK-06",
+        "SNK-07",
+        "SNK-08",
+        "SNK-09",
+        "SNK-10",
+        "SNK-11",
+        "SNK-12",
+        "SNK-13",
+        "SNK-14"
+      ],
+      "sources": [
+        {
+          "label": "PDC European Championship draw & session schedule",
+          "url": "https://www.pdc.tv/news/2026/10/19/2026-machineseeker-european-championship-draw-schedule-confirmed"
+        },
+        {
+          "label": "WST Northern Ireland Open 2026",
+          "url": "https://www.wst.tv/tournaments/northern-ireland-open-2026/"
         }
       ]
     }
