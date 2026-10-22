@@ -46,7 +46,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-22-current-state-reconciliation` | Reconcile current README claims with tracked board data and checks; document snapshot freshness limits without changing facts or source records | `README.md`, `COORDINATION.md` | needs review | `session-dc0474d5` (branch `arena/dc0474d5-olbg3`) | README reconciled to current artifacts. Fresh OLBG capture remains outstanding; the dated snapshot limitation is already published as finding 11 on `flagged.html` with the OLBG listing link. Audit log below. |
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
-| `task-23-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
+| `task-25-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
 
 ---
 
@@ -810,7 +810,7 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
 
 ## Session log — `session-f58890e3` (branch `arena/f58890e3-olbg3` — price-band repair, 2026-10-22)
 
-- **Claimed 2026-10-22:** `task-23-price-band-rebuild-20261022`. At claim time `git branch -r` showed only
+- **Claimed 2026-10-22:** `task-25-price-band-rebuild-20261022`. At claim time `git branch -r` showed only
   `origin/main` and this session branch; no other active claim, so the scope is non-overlapping.
 - **Defect found:** all 15 HIGH picks on the 2026-10-21 build were priced between 1.07 and 1.46 decimal
   (-1429 to -217 US). None was inside the brief's -250..+10000 band. Cause: the grading rule required a 65%
@@ -858,3 +858,15 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
   their log and their corrected audit-track figures (189 rows) stay, and this task's price-band section, task row
   and warnings were merged in. Their task id was preserved; this task was renumbered to `task-23-...` to avoid the
   collision, and the open refresh task is `task-24-refresh-capture`. No commit from either session was dropped.
+
+- **Parallel-session scope note (2026-10-22):** two other sessions claimed overlapping file scope while this task was
+  building. `session-4f267387` claimed `task-23-live-harvest-20261022-and-verify` (harvest files) and
+  `task-24-originate-minus250-plus10000-predictions` (the `/olbg/` audit track: `tools/*`, `data/lines.json`,
+  `data/predictions-olbg.json`, `olbg-board/*`, `olbg/*`), which does not overlap this task's board-track files.
+  This task was therefore renumbered from `task-23` to `task-25` to keep ids unique; its scope is unchanged.
+  `session-8b151ab0` claimed `task-22-confidence-and-current-evidence-audit` over the *same* board-track files and
+  chose a different reading of the brief: keep HIGH at a >70% model probability and disclose that market-odds
+  evidence is absent. This task instead treats the -250..+10000 window as a hard gate and lowers the probability
+  floor to 55%, because with a 5% overround the two rules cannot both hold (0.95/0.70 = 1.36 = -280, already
+  shorter than -250). Both readings are recorded here for the integration session; nothing from that branch was
+  edited or discarded by this session, and its diff remains available at `arena/8b151ab0-olbg3`.
