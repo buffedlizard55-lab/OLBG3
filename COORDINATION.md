@@ -46,7 +46,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-22-current-state-reconciliation` | Reconcile current README claims with tracked board data and checks; document snapshot freshness limits without changing facts or source records | `README.md`, `COORDINATION.md` | needs review | `session-dc0474d5` (branch `arena/dc0474d5-olbg3`) | README reconciled to current artifacts. Fresh OLBG capture remains outstanding; the dated snapshot limitation is already published as finding 11 on `flagged.html` with the OLBG listing link. Audit log below. |
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
-| `task-23-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | in progress | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
+| `task-23-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
 
 ---
 
@@ -851,3 +851,10 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
   MLB run-total correction and the resolved URC venue note. The site's dashboard shows a "6/6 high-confidence
   picks inside -250..+10000" card and a price-band compliance table listing all 14 downgraded picks.
 
+
+- **Rebase conflict resolved (2026-10-22):** `origin/main` advanced to `989c60f` (PR #39, session `dc0474d5`)
+  while this task was building. The rebase conflicted on `COORDINATION.md` (two session logs appended at the same
+  point) and `README.md` (their documentation reconciliation vs this task's band section). Both sides were kept:
+  their log and their corrected audit-track figures (189 rows) stay, and this task's price-band section, task row
+  and warnings were merged in. Their task id was preserved; this task was renumbered to `task-23-...` to avoid the
+  collision, and the open refresh task is `task-24-refresh-capture`. No commit from either session was dropped.

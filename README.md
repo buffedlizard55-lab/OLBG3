@@ -52,8 +52,10 @@ each with the ambiguity recorded on the Flagged for Review page.
    * one-selection model (`scripts/build_gap_sports.py`): `p = (wins + a) / (total + k)` with a
      `Beta(a, b)` prior whose mean is `1/N` (N = the field size) and strength `k`, then `odds = 0.95 / p`.
      N and k are disclosed assumptions and are written into every row.
-3. **Grading** — HIGH / MEDIUM / LOW from three scored factors: fixture verified (+2), official form for
-   both sides (+2), model probability ≥65% (+2) or ≥55% (+1). HIGH ≥ 6, MEDIUM 3–5, LOW ≤ 2.
+3. **Grading** — three evidence factors scored 0–6: fixture verified (+2), official form for both sides
+   (+2), model probability ≥55% (+2). A row is HIGH only when the score is 6 **and** its price is inside the
+   requested -250 to +10000 band **and** its kick-off has not passed; a score-6 row that fails either test is
+   MEDIUM with the reason published. MEDIUM 3–5, LOW ≤ 2.
 4. **Predictions** — written for HIGH picks, at least 30 words, non-repetitive prose naming current form,
    recent match history and an unmistakable betting selection, with every factual claim attached to an
    official source. Currently **6 high-confidence predictions**, one per HIGH row: four Pro D2 fixtures
@@ -125,10 +127,10 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 * Five fixtures have no originated moneyline because OLBG's captured leading selection was a total or a tie;
   the code explicitly refuses to infer a win probability from those selections. The board does not enumerate
   every available OLBG market.
-* The HIGH grade uses the published fixture/form/probability score and a 65% model-probability threshold. It
-  does **not** select matches using bookmaker market prices, does not establish a >70% market-implied chance,
-  and does not apply the requested American-odds window (-250 to +10000). Do not treat the current HIGH picks as
-  satisfying those additional criteria.
+* The HIGH grade now applies the requested American-odds window (-250 to +10000) as a hard gate, and every
+  published HIGH pick sits inside it. It does **not** select matches using bookmaker prices — the prices are
+  ours — and it does not establish a >70% market-implied chance. Because a 5% overround caps an in-band pick at
+  ~68%, "high confidence" here means 55%+ model probability plus verified evidence, not a 70% market read.
 * OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
 * OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
   start time is derived from them.
