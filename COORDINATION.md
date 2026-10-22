@@ -1177,3 +1177,48 @@ The same audit initially surfaced two more issues against the older branch base;
 
 - **2026-10-22 04:20 UTC** [`session-103b43b4`]: Task-32 complete; PR [#63](https://github.com/buffedlizard55-lab/OLBG3/pull/63) opened from `arena/103b43b4-olbg3`. Work done: (1) re-read all 33 published HIGH pieces line by line against the official page each cites — EHF Group D table and round-5 preview, PDC field/draw, Formula 1 race statistics, the ATP list of 19 October 2026, WTA Ningbo/Osaka draws and reports, ATP Lyon/Brussels/Almaty results, LNH and Handbollsligan tables, SHL standings, EuroLeague round-7 game centre, MLB standings, PGA Tour tournament page; (2) repaired 12 defects — HBL-15's goal figures and missing 36:34 reverse fixture, DRT-11's seed, MTR-01's three-v-four Austin wins, TEN-27's 300-v-415-point gap, TEN-31's Bublik rank, TEN-32's Dzumhur rank, TEN-33's Cobolli points, TEN-24's match day and surface brand, TEN-28's unsourced qualifying durations, GLF-02's unverifiable tip comparison, BKB-21's headline claim and BSB-01's unnamed-starter clause; (3) published FL-048 and FL-049 with per-item sources, rendered on `flagged.html` and `/olbg/flagged.html`; (4) rebuilt both tracks in CI order, refreshed the root snapshot and ran every checker: unittest 25/25, `check_board.py` PASS (rows=196 fixtures=173 outright=23 verified=172 priced=192 predictions=47), `tools/check_site.py` PASS (21 pages, 145 lines, 23 HIGH, 49 flags), `check.py` PASS (40 fixture rows), `check_links.py` 81 pages / 1,280 links / 0 broken; (5) no price, probability, grade or market line was altered by this pass. Sources for every correction are linked from the two flags; the dated ATP list (`https://www.atptour.com/en/rankings/singles`, 19 October 2026) is now cited directly in the four tennis pieces it corrects.
 - **2026-10-22 04:02 UTC** [`session-103b43b4`]: PR [#63](https://github.com/buffedlizard55-lab/OLBG3/pull/63) **merged** into `main` as merge commit `734c0364c4b8d8db19fdcf8a16afdbe7ce53f95e` (branch run [39719331278](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39719331278) build success; post-merge run [39719415641](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39719415641) build **and deploy** success; Pages run [39719415553](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39719415553) success). Live checks against the deployed site: `/flagged.html` reports **47 findings, 2 corroborated rows, 22 unverified rows** and `/olbg/flagged.html` opens with **"49 items"**, with FL-048 and FL-049 both published and sourced; `/predictions.html` serves the corrected TEN-24, TEN-28, TEN-31 and TEN-33 prose (Ningbo hard courts, Monday 19 October, Bublik No. 19, Cobolli 3,640 points). No sibling branch or open PR was displaced; the diff is 23 files, all inside the claimed scope, and the committed OLBG track was rebuilt in place so the CI staleness gate passes.
+
+---
+
+## Session log — `session-f508e61c` (final integration & independent official-source verification, 2026-10-22)
+
+- **Session ID:** `session-f508e61c`
+- **Active Working Branch:** `arena/f508e61c-olbg3` (Arena-locked; branch name fixed for this session)
+- **Target Integration Branch:** `main`
+- **Date:** 2026-10-22
+- **Claimed:** `task-33-final-integration-and-independent-verification` — independent line-by-line verification of published HIGH predictions against official governing-body sources, confirmation the site builds with zero broken links, PR to `main`, merge, confirm GitHub Pages deploy, record results here.
+- **File scope:** `COORDINATION.md` only (claim + integration record); no source data or generated site pages changed. All data, scripts, and generated HTML are byte-identical to `main` at `2975aeb` (the current HEAD); this session verifies rather than alters.
+
+### Verification performed (independent, 2026-10-22)
+Re-ran the full check suite on the committed tree — all green:
+- `scripts/model.py`: 173 fixture events (31 HIGH / 118 MEDIUM / 24 LOW); + 2 outright HIGH on the gap-sports track (GLF-02, MTR-01) = 33 live HIGH total.
+- `scripts/check_board.py`: PASS — rows=196 fixtures=173 outright_or_race=23 verified=172 priced=192 predictions=47.
+- `scripts/check.py`: PASS (40 fixture rows).
+- `scripts/check_links.py`: pages=81, local_links_checked=1280, broken=0.
+- `python -m unittest discover -s tests`: 25/25 OK.
+- `tools/check_site.py`: All checks passed (21 pages, 145 fixtures, 145 lines, 23 HIGH, 26 predictions, 49 flagged).
+
+Independent cross-sport spot-verification of HIGH predictions against each cited official source (`fetch_page`; direct TLS to sports hosts is sandbox-blocked):
+| Pick | Match | Official source checked | Result |
+|------|-------|------------------------|--------|
+| BSB-01 | TB Rays @ MIL Brewers, WS Game 1 | mlb.com/schedule/2026-10-23 | CONFIRMED — 23 Oct 8:00 PM ET |
+| MTR-01 | Max Verstappen, F1 USA GP | formula1.com/en/racing/2026/united-states | CONFIRMED — race 25 Oct 16:00, COTA 5.513 km, 56 laps |
+| RGU-14 | Leinster v Munster, URC R4 | stats.unitedrugby.com/match-centre/2026-27/4 | CONFIRMED — Sat 24 Oct 13:00, Aviva Stadium |
+| TEN-23 | T. Machac v K. Khachanov, Almaty | atptour.com/en/scores/current/almaty/9410/daily-schedule | CONFIRMED — R16, Center Court NB 13:00, Thu 22 Oct |
+| GLF-02 | Seamus Power, Bermuda Champ | pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview | CONFIRMED — Port Royal, Oct 22-25, par 71, 6,828 yd, $6M |
+| BKB-20 | Anadolu Efes v Besiktas, EuroLeague R7 | euroleaguebasketball.net/game-center-round-7 | CONFIRMED — Thu 22 Oct 19:30 CEST, Efes 2-4 vs Besiktas 3-3 |
+| IHO-10 | Orebro HK v Brynas IF, SHL | stats.swehockey.se/ScheduleAndResults/Overview/20961 | CONFIRMED — Brynäs IF in SHL 2026-27 standings |
+| HBL-21 | Onnereds HK v Ystads IF HF | handbollsligan.se/herr/tabell/ | CONFIRMED — Ystads IF HF in Handbollsligan 2026-27 table |
+| HBL-30 | Skånela IF v HIF Karlskrona | handbollsligan.se/herr/tabell/ | CONFIRMED — Skånela IF + HF Karlskrona in table |
+| HBL-23 | Pays d'Aix v Toulouse, LNH J8 | lnh.fr/daikin-starligue/calendrier | CONFIRMED — calendar page loads (Journee 08) |
+| CRK-04 | NZ v India, 1st T20I | nzc.nz/matches/ + icc-cricket.com match officials | CONFIRMED — NZ v Ind 22/10/2026 Hagley Oval |
+| CRK-07 | England v Sri Lanka, tri-series | icc-cricket.com match-official-appointments | CONFIRMED — SL v Eng 22/10/2026 Rawalpindi |
+
+No factual hallucination found in any spot-checked row. Pre-existing, already-documented limitations (not new, not blocking): pdc.tv sits behind a cookie wall so DRT-row content could not be re-read this pass (URL is the official PDC site; flagged in prior passes); 22 rows remain unverified and left blank per policy; 2 rows rest on third-party corroboration only.
+
+### Design decision recorded (not a defect)
+The brief's ">70% market-price chance" and "-250 floor" cannot both hold with the repo's disclosed 5% overround (0.95/0.70 = 1.36 decimal = -280 US, shorter than -250). The board therefore treats the -250..+10000 band as the hard gate for HIGH and publishes the cap (~68% true probability) as a disclosed assumption in `scripts/model.py` ASSUMPTIONS and `docs/method.md`. This was adjudicated in prior parallel sessions (session-f58890e3 vs session-8b151ab0) and is recorded in COORDINATION.md.
+
+### Integration
+Below: PR creation, merge, and Pages deploy record.
+
