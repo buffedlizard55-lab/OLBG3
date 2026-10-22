@@ -942,10 +942,28 @@ IRREGULARITY_EXTRA.append((
     "MTR-913 (USA Grand Prix 'Win Race') was mapped to the match-winner family; with no home/away side it hit the 0.52 fallback and was "
     "published at 1.83 / -120, contradicting its +235 / 3.35 prediction and the root outright model. Reclassifying the 'Win Race' label as an "
     "outright restores the disclosed 22-car field prior (p=0.284) and a 3.35 / +235 line that matches the prose exactly. No probability input, "
-    "grade or other row changed. The same independent audit re-checked HIGH-prediction facts against official sources across ten sports "
-    "(Formula 1, PGA Tour, MLB, NBA, ATP, URC, PDC, EuroLeague, ICC cricket) and found every sampled score, seed, standing, date and injury "
-    "corroborated, with no factual hallucination.",
+    "grade or other row changed. That session's sampled cross-check of scores, standings, dates and injuries found nothing contradicted, but it "
+    "did not test every numeric claim in the prose; the later line-by-line read that produced FL-048 did find seven stale or wrong figures.",
     "https://www.formula1.com/en/racing/2026/united-states"))
+IRREGULARITY_EXTRA.append((
+    "Seven HIGH write-ups carried stale or wrong figures (FL-048, fixed 2026-10-22)",
+    "A line-by-line re-read of all 33 published HIGH pieces against the official pages they cite found stale or wrong figures in seven: "
+    "HBL-15 published Szeged 124 / GOG 132 goals conceded when the EHF Group D table says 139:136 and 145:139 (and GOG won the reverse fixture 36:34, which the piece omitted); "
+    "DRT-11 called Krzysztof Ratajski the 19th seed when the PDC draw lists him third; "
+    "MTR-01's headline called Max Verstappen a three-time Austin winner when Formula 1 lists four COTA wins (2021, 2022, 2023, 2025); "
+    "and four tennis figures were stale or wrong against the ATP list of 19 October 2026 - Bublik No. 22 (actually 19), Dzumhur No. 103 (actually 83), "
+    "Cobolli 1,650 ranking points (actually 3,640) and a '300-point' Vacherot-Van Assche gap (actually 415 points, 1,480 v 1,065). "
+    "Every value was replaced with the official one and the dated ATP page was added to the source list. A BSB-01 clause saying Tampa Bay had not named a "
+    "Game 1 starter was removed because MLB.com's probable-pitchers page says TBD while multiple reports name Drew Rasmussen. "
+    "No price, probability or grade changed, and every corrected pick remains inside the -250..+10000 band.",
+    "https://ehfcl.eurohandball.com/men/2026-27/standings/"))
+IRREGULARITY_EXTRA.append((
+    "Four more HIGH write-ups corrected: a wrong match day, an unsourced surface brand and two comparisons the sources do not support (FL-049)",
+    "TEN-24 dated Alexandra Eala's win over Diane Parry to Tuesday when the WTA draw and report put it on Monday 19 October, and named an acrylic surface brand the WTA does not publish; "
+    "TEN-28 described Gojo's two qualifying wins as 'three-hour battles' although the ATP scorelines do not support a duration; GLF-02 ranked Seamus Power 'ahead of' Ben James in OLBG tips when today's capture "
+    "publishes Power's 5/22 but not James's count (and James is the market favourite); and BKB-21's headline called Maccabi's home record in the fixture 'perfect' when the EuroLeague says only that the home team "
+    "won each of the last five meetings, the most recent of which was in Madrid. Each sentence now states only what its source states. No price, grade or market line changed.",
+    "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"))
 irregularities = IRREGULARITY_EXTRA + irregularities
 
 def _src(u):
