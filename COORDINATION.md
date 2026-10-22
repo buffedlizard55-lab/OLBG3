@@ -1775,7 +1775,7 @@ themselves and published, so the gap cannot hide.
 `tools/originate.py` → `tools/build_site.py` → `tools/check_site.py` → `--snapshot` → `check.py` → `check_links.py` → `unittest`.
 Results: `check_board.py` **PASS** (265 rows = 217 fixtures + 48 outright/race; 237 verified; 242 priced; 73 pieces; 20 live in-band HIGH);
 `tools/check_site.py` **PASS** (298 lines; 24 high; 53 pieces; 101 register items); `check.py` **PASS** (40 feed rows); `check_links.py`
-**PASS** (89 pages, 2,015 local links, 0 broken); `81/81` unit tests **OK**; consecutive rebuilds byte-identical (clean `git status` after a
+**PASS** (110 pages, 2,450 local links, 0 broken); `87/87` unit tests **OK**; consecutive rebuilds byte-identical (clean `git status` after a
 second run). Internal cross-checks also run this pass and recorded for review: every OLBG event URL slug still matches its row's home/away
 names (0 mismatches), no duplicate OLBG event ids across the 265 root rows, every `verified` row's `official_url` host is a governing-body,
 league or club domain, every HIGH write-up names its selection, and the 0.95/p price and band arithmetic is enforced by the checker.

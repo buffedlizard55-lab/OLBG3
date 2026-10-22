@@ -90,7 +90,7 @@ high-confidence picks for every covered sport?* — and the honest answer, publi
 - **Verification performed this pass (and its boundary):** every count above is derived from committed data, and the whole pipeline was rebuilt
   from a clean tree: `check_board.py` PASS (265 rows = 217 fixtures + 48 outright/race, 237 verified, 242 priced, 73 pieces, 20 live in-band
   HIGH), `tools/check_site.py` PASS (298 lines, 24 high, 53 pieces, 101 register items), `check.py` PASS (40 feed rows), `check_links.py`
-  PASS (89 pages, 2,015 links, 0 broken), 81/81 unit tests, two consecutive builds byte-identical. **No official source and no OLBG page was
+  PASS (110 pages, 2,450 links, 0 broken, using the stricter checker merged in PR #99), 87/87 unit tests, two consecutive builds byte-identical. **No official source and no OLBG page was
   fetched**: this sandbox's outbound allowlist covers GitHub and package registries only (`www.olbg.com`, `api-web.nhle.com` and `www.mlb.com`
   all return HTTP 000), so no `checked_at`, quote or verification label was renewed and nothing previously unverified is now claimed as
   verified. That limitation is `FL-077`.
@@ -264,7 +264,7 @@ python3 tools/check_site.py           # enforce host allowlist, links, -250..+10
 python3 scripts/build_site.py --snapshot
 python3 scripts/check.py              # official-feed invariants
 python3 scripts/check_links.py        # 0 broken local links across combined site
-python3 -m unittest discover -s tests # 81 unit, clock, band, release & brief-coverage tests
+python3 -m unittest discover -s tests # 87 unit, clock, band, release, link & brief-coverage tests
 ```
 
 ## Current repository audit (2026-10-22 12:04 UTC)
@@ -292,7 +292,7 @@ Earlier audit sections below describe prior sessions, not work independently rep
 | `/olbg/` written pieces | 53 | Includes analysis; current release eligibility depends on time |
 | Flag register | 101 | Includes resolved historical items and open review items |
 
-Current validation: 81 unit tests; both track validators; brief-coverage recompute; full build and local link scan (89 pages, 2,015 local links, 0 broken).
+Current validation: 87 unit tests; both track validators; brief-coverage recompute; full build and local link scan (110 pages, 2,450 local links, 0 broken).
 These checks establish schema, price-band and release-policy consistency, not factual accuracy,
 calibrated confidence, exhaustive market coverage, or a profitable betting edge.
 
