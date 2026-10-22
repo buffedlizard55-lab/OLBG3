@@ -4,6 +4,15 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ## Session Information
 
+### COMPLETED — `session-1cdf1d14` (EuroLeague model inputs restored behind the published FL-069 resolution; two Basketball picks priced from official form, 2026-10-22T21:35Z)
+
+- **Session ID:** `session-1cdf1d14` — **Branch:** `arena/1cdf1d14-olbg3` (Arena-locked; the branch name is fixed for this session, so the `session-<id>/<task>` convention is satisfied by this branch and only the claimed files are edited).
+- **Claimed:** `task-44-evening-official-reverification-euroleague-conflict-and-integration-20261022` at `2026-10-22T20:55Z`. Originally claimed as `task-43-...` on `main` `13f31f4`; **renumbered to `task-44`** after `session-cab97f19` merged a different `task-43` (evening re-validation), so the board carries no duplicate task number.
+- **Pre-claim check (`20:53Z`):** `git fetch origin --prune` + `gh pr list --state all` → newest `main` `13f31f4` (PR #98), **no open PR**, no branch ahead of `origin/main`. Baseline `69/69` unit tests `OK`.
+- **File scope:** `COORDINATION.md`, `README.md`, `data/official.json`, `data/predictions.json`, `data/flagged.json`, `scripts/release.py`, `docs/audit-1cdf1d14.md`, `docs/harvest-20261022-2055z.tsv`, `tests/**`, and the regenerated outputs of the documented pipeline. `scripts/release.py` was added to scope mid-pass; its previous owner (`session-d4c3db6c`) records that task done, so the file was unclaimed.
+- **Two collision handlings (the important part).** While this session worked, `session-cab97f19` merged PRs #104/#106 and then `session-784afe97` merged PRs #109/#110, both overlapping this pass and the first using the same flag numbers `FL-099`..`FL-104` for different findings. **Both `git pull --rebase` conflicts were aborted rather than forced**; `main` was then compared item by item against this session's work and only the non-duplicative remainder was re-applied on the new base (`594a577`) with this session's flags renumbered to **`FL-127`/`FL-128`**. Nothing from a sibling session was deleted or reworded. Dropped as already done on `main`: the NHL `gameDate` quote defect, the frozen `12:40Z` clock, the darts Round 3 consensus moves, the European Championship outright leader change, four further consensus counts (where a sibling read a later count — PHI `11/17`, OKC `11/16` — this session's earlier read was dropped as the weaker evidence) and the five-per-sport accounting (`scripts/brief_coverage.py`).
+- **Result:** done. Details in `docs/audit-1cdf1d14.md`; verification and the merge/Pages record at the bottom of this file.
+
 ### COMPLETED — `session-784afe97` (evening live 15-sport re-harvest, two official-source holds resolved, HIGH-pick expansion toward five per sport, merge + integration, 2026-10-22T20:55–22:40Z)
 - **Session ID:** `session-784afe97` — **Branch:** `arena/784afe97-olbg3` (Arena-locked; the branch name is fixed for this session, so it is used and only claimed files are edited).
 - **Claimed:** `task-44-evening-live-harvest-highpick-expansion-and-integration-20261022` at 2026-10-22 20:55 UTC. **Pre-claim check:** `git fetch origin --prune` showed only `origin/main`; `gh pr list --state open` was empty; every earlier session record on this board was `COMPLETED`/`CLOSED`. No sibling scope was at risk, so this session owned the whole repo for the task. **Task id renumbered to `task-44` at merge time**: sibling sessions `cab97f19` and `c038b7f4` had already claimed `task-43` on `main` while this session was re-harvesting; nothing of theirs was discarded.
@@ -230,6 +239,7 @@ Baseline on this branch was `f55593f`; the branch was rebased onto `main` `29241
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
+| `task-44-evening-official-reverification-euroleague-conflict-and-integration-20261022` | Evening official re-verification: re-read the OLBG ice-hockey/basketball/baseball/darts/snooker listings and the NHL schedule + EuroLeague standings/game-centre pages at `20:58Z`–`21:45Z`, put the official 20-club standings table behind the `FL-069` resolution the release records already published, price `BKB-29`/`BKB-30` from official form, repair the `sync_predictions` downgrade reason, rebuild both tracks, PR + merge + Pages confirmation | `COORDINATION.md`, `README.md`, `data/official.json`, `data/predictions.json`, `data/flagged.json`, `scripts/release.py`, `docs/audit-1cdf1d14.md`, `docs/harvest-20261022-2055z.tsv`, `tests/**`, regenerated root `*.html` + `sports/**` + `olbg/**` + `olbg-board/**` | done (merge & Pages record below) | `session-1cdf1d14` (branch `arena/1cdf1d14-olbg3`) | Claimed `2026-10-22T20:55Z` atop `main` `13f31f4`; renumbered from `task-43` and rebased onto `main` `594a577` after two sibling sessions merged overlapping evening work with colliding flag numbers. Flags `FL-127`/`FL-128`, `FL-069` resolved. Basketball `1 → 3` live in-band `HIGH`; root board `15 → 17`, `/olbg/` unchanged at `23`. |
 | `task-39-midday-live-refresh-highpick-expansion-and-final-integration-20261022` | Parallel midday live 15-sport re-harvest (12:15Z–12:36Z), dual-track integration, official-source HIGH re-verification (NHL API, pdc.tv), Humphries-withdrawal handling, stale PR #76/#77 closure, PR + merge + Pages confirmation | whole-repo (regenerated via documented pipeline only) | closed as superseded | `session-bb34505f` (branch `arena/bb34505f-olbg3`) | PRs #76/#77 closed with handoff comments; integration PR [#96](https://github.com/buffedlizard55-lab/OLBG3/pull/96) closed UNMERGED after pre-merge cross-check found `main` @ `a9c01ec` already carried the equivalent sibling work (PRs #83–#95) and caught a mis-keyed NHL verification map in this branch; reusable evidence (corrected NHL eid↔game-id table, pdc.tv verbatim clocks) recorded in the session section above; record PR [#97](https://github.com/buffedlizard55-lab/OLBG3/pull/97) merged as `e8f4a59`, Pages deploy runs 39785718244 + 39785718233 success, live site confirmed 13:40Z |
 | `task-40-midday-live-harvest-official-audit-a0a7003c` | Non-overlapping Phase 1 live 15-sport `12:15Z` OLBG.com harvest (excluding soccer, boxing, ufc, mma, football, american football, hurling, horse racing, cycling, specials), line-by-line official governing-body verification of matches, clocks, form & `HIGH` prose, and regression tests; followed by rebased Phase 2 (`task-41`) final integration, PR, merge & live GitHub Pages confirmation | Phase 1: `COORDINATION.md`, `docs/audit-a0a7003c.md`, `docs/harvest-20261022-1215z.tsv`, `docs/verifications-a0a7003c.json`, `tests/test_audit_a0a7003c.py` (Phase 2 integration after rebase on `origin/main`) | in progress | `session-a0a7003c` (branch `arena/a0a7003c-olbg3`) | Claimed `2026-10-22T12:08Z` atop `main` `f55593f`; non-overlapping Phase 1 scope explicitly respects concurrent `12:04Z–12:05Z` sibling branches (`adeebd4c`, `7da75ec9`, `b6cb43c5`, `3921f0d3`, `15487122`) |
 | `task-36-linebyline-reverification-inband-high-expansion-and-final-integration-20261022` | Sole-active-session final pass: baseline the documented pipeline, re-read every `HIGH` write-up against its cited official page, repair unsupported claims (blank + flag where unconfirmable), confirm every `HIGH` sits strictly inside `-250..+10000`, confirm excluded sports publish 0 rows, rebuild both tracks, run the full check suite, PR to `main`, merge, confirm Pages | `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `docs/**`, `olbg/**`, `olbg-board/**` | done | `session-08885c97` (branch `arena/08885c97-olbg3`) | 3 defects repaired (FL-063 dead WST source URL on 21 links, FL-064 SHL overtime/shootout wording, FL-065 joint-best home record); no price/probability/grade changed. Checks: unittest 29/29, `check_board.py` PASS (228 rows / 210 verified / 224 priced / 62 pieces), `tools/check_site.py` PASS (21 pages / 270 lines / 35 HIGH / 65 flags), `check.py` PASS, `check_links.py` 81 pages / 1,280 links / 0 broken. Source-by-source record: `docs/source-health-20261022.md` |
@@ -1809,3 +1819,42 @@ edited; the `/olbg/` pages changed only because the shared register grew.
 - **Final task status:** `task-44` **done**. Residual `needs review` items (not blocking): `FL-102` (five-per-sport shortfall, sibling),
   `FL-105` (cross-track disagreements), `FL-106` (hosts outside the recorded official set), `FL-077` (shell cannot reach sports sites).
 
+### Result — `session-1cdf1d14` (`task-44`: EuroLeague model inputs restored, two Basketball picks priced from official form, 2026-10-22T21:35Z)
+
+**Sources actually read this pass** (verbatim values in `docs/audit-1cdf1d14.md`):
+
+| Read at | Source |
+|---|---|
+| 20:58Z | `https://www.olbg.com/betting-tips/Ice_Hockey/13`, `https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13` |
+| 21:00Z | `https://www.olbg.com/betting-tips/Basketball/4`, `/Baseball/12`, `/Darts/15`, `/Snooker/8` |
+| 21:20Z–21:45Z | `https://api-web.nhle.com/v1/schedule/2026-10-22` (all 12 games) |
+| 21:35Z | `https://www.euroleaguebasketball.net/en/euroleague/standings/` (all 20 clubs) |
+| 21:40Z | `https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/` |
+
+Tennis, Cricket, Volleyball, Handball, Rugby Union, Rugby League, Golf, Motor Racing, Gaelic Football and Greyhounds
+were **not** re-read; `docs/harvest-20261022-2055z.tsv` is labelled partial on its face and was deliberately **not**
+promoted to `data/meta.json["harvest_file"]`.
+
+**Changes published:**
+
+| Flag | Finding | Repair |
+|---|---|---|
+| `FL-127` (completes `FL-069`) | `session-784afe97` released the holds on `535925`/`535926` and wrote on both release records that "the official EuroLeague standings … are used for form", but the committed model table still carried the pre-Round-7 numbers (Panathinaikos `6/5/1, 528-438`) and still withheld Olympiacos Piraeus and Valencia Basket as "not model inputs". With neither club in the table, `BKB-29` fell back to a single OLBG tip capped at 98% and priced `1.02 (-5000)` — **outside the requested `-250..+10000` band** — while `BKB-30` priced `1.90 (-111)` from a `1/2` split | The official standings table was re-read at `21:35Z` after the Thursday Round 7 games and all twenty clubs are now published verbatim, including Olympiacos Piraeus `GP 6 / W 5 / L 1 / 564-524 / +40` (home 1-0, away 4-1) and Valencia Basket `GP 6 / W 4 / L 2 / 583-537 / +46` (home 2-2, away 2-0). `BKB-29` Olympiacos `1.69 (-145)` at 56.2% and `BKB-30` Valencia `1.53 (-189)` at 62.2% now price from official form with new sourced write-ups: Basketball `1 → 3` live in-band `HIGH`, root board `15 → 17`. Three already-started EuroLeague rows re-priced off the newer table (`BKB-20` `1.59/-169`, `BKB-21` `1.41/-244`, `BKB-26` `1.65/-154`) with their write-ups re-worded to the current price and record; they stay `analysis` because their start has passed |
+| `FL-128` | `scripts/release.py:sync_predictions` published the release gate's "start is ahead of this build" sentence as the reason a piece was withheld even when the release gate was satisfied and only the model/band gate had failed | The function now publishes that sentence only when the release gate is the actual blocker; rows whose start genuinely passed keep the release sentence. Regression test drives both branches plus the `HIGH`-cleared case |
+
+**Deliberately not changed.** The NHL `gameDate` quote defect, the frozen `12:40Z` clock, the darts Round 3 consensus
+moves, the European Championship outright leader change, four further consensus counts and the five-per-sport
+accounting were already repaired or published on `main`; where a sibling read a later count (PHI `11/17`, OKC `11/16`)
+this session's earlier read (`10/16`, `10/15`) was dropped as the weaker evidence. This session's independent
+`21:20Z`–`21:45Z` re-read of `api-web.nhle.com/v1/schedule/2026-10-22` returned identical `startTimeUTC` values for all
+twelve games (`23:00Z` ×5, `23:30Z`, `00:00Z` ×2, `01:00Z` ×2, `02:00Z` ×2), corroborating the committed clocks;
+corroboration alone is not a reason to rewrite another session's evidence, so no NHL record was touched.
+
+**Verification at this snapshot:** `103/103` unit tests **OK**; `check_board.py` **PASS** (`265` rows = `217` fixtures +
+`48` outright/race, `237` verified, `245` priced, `73` pieces, brief-coverage accounting recomputes, no duplicate
+write-ups); `tools/check_site.py` **PASS** (`338` fixtures, `338` lines, `23` live `high`, `67` pieces, `120` register
+items); `check.py` **PASS** (`40` feed rows); `check_links.py` **PASS** (`110` pages, `2,426` links, `0` broken);
+two consecutive full rebuilds byte-identical; `0` excluded-sport rows. Live in-band `HIGH`: root **17** (was `15`),
+`/olbg/` **23** (unchanged). `scripts/update.py` and `scripts/discovery.py` were **not** run locally — this sandbox has
+no outbound route to `cdn.nba.com`, `api-web.nhle.com` or `olbg.com` over plain HTTPS (`curl` returns
+`SSL_ERROR_SYSCALL`); CI runs both and the deployed feed pages are the authority for them.
