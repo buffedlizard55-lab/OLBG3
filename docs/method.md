@@ -41,8 +41,7 @@ The tier register lives in `data/official.json` → `source_tiers`, and `scripts
 row's status disagrees with its tier (an official host may not be labelled corroborated, a third-party host may not
 be labelled verified, and a corroborated row may not be graded HIGH).
 
-Current state: **105 verified** (98 official + 6 club-official + 1 outright row), **9 corroborated**,
-**23 unverified** (22 outright/race marker positions and CRK-05).
+Current state from the 2026-10-21 captured board: **115 verified** (109 fixtures plus 6 outright/race events), **4 corroborated fixtures**, and **18 unverified** (17 outright/race rows and one fixture). Counts are recalculated by `scripts/check_board.py`; none means the source was refreshed on 2026-10-22.
 
 ## 4. Originate lines — `scripts/model.py`, `scripts/build_gap_sports.py`
 
@@ -72,21 +71,19 @@ Pick = the highest model probability. Confidence is a 3-factor score:
 |---|---|
 | Fixture verified against an official source (tier official or club-official) | +2 |
 | Official current-form data for **both** sides | +2 |
-| Model probability of the pick ≥ 65% | +2 (or +1 if ≥ 55%) |
+| Model probability of the pick strictly > 70% | +2 (or +1 if ≥ 55%) |
 
 HIGH ≥ 6 · MEDIUM 3–5 · LOW ≤ 2. A row whose only input is a public tip share therefore cannot reach HIGH, and a
 row that loses its official source can drop a grade — which is what happened to IHO-01 and IHO-03 in the
 source-tier audit.
 
-Current split: HIGH 12 · MEDIUM 48 · LOW 54 (114 fixtures), plus the 23 outright rows graded on their own basis.
+Current fixture split is generated from `data/events.json` and the 23 outright/race rows from `data/gap_sports.json`; this is a dated capture, not a live odds feed. Current row counts and confidence grades are shown on the dashboard. At the 2026-10-22 audit, 13 fixture picks remained HIGH after applying the strict >70% probability rule.
 
 ## 6. Predictions
 
 Written only for HIGH picks. Each is at least 30 words, names the selection unambiguously (money line, handicap or
 total), gives the team or player, current form and recent results, and links the official source for every factual
-claim. Twelve predictions are currently counted as high-confidence. Two more (IHO-01, IHO-03) are published
-separately under "kept after the source-tier audit": their fixtures lost official status, so they are no longer
-counted, but the prose is not hidden.
+claim. Thirteen predictions remain, one for each current HIGH row. Two prior picks (IHO-06 at 65.13% and RGU-14 at 66.85%) were downgraded to MEDIUM and their predictions removed from the HIGH-only list when the threshold was raised from 65% to strictly above 70%.
 
 ## 7. Build and check
 
@@ -103,5 +100,4 @@ python3 -m unittest discover -s tests
 
 `check_board.py` enforces: an OLBG source link with an event id on every row; status/tier agreement; no official
 value on an unverified row; decimal prices that recompute; every HIGH row carries a 30+ word sourced prediction;
-no merge-conflict markers in any data file. At the last build: 137 rows, 69 verified, 131 priced, 83 handicaps,
-22 totals, 14 predictions, 30 pages, 0 broken links.
+no merge-conflict markers in any data file. The latest local checks are run during this audit and recorded in `COORDINATION.md`; the committed source capture itself is dated 2026-10-21. No build can certify that captured OLBG rows are still current without re-fetching their source pages.

@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-10-21T07:55:00Z",
-  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id').",
+  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available.",
   "items": [
     {
       "id": "FL-001",
@@ -927,6 +927,29 @@
       ],
       "raised_by": "session-af0789e6 (06:50Z pass)",
       "original_id": "FL-017"
+    },
+    {
+      "id": "FL-040",
+      "severity": "high",
+      "title": "Five former HIGH predictions relied on an artificial 65% probability floor",
+      "detail": "The prior OLBG audit-track model raised predictions to a 65% probability floor based on the prediction existing, rather than the underlying model. Recalculation shows selected-side model estimates of 61% (BKB-535923), 60% (RGU-609562), 60% (RGU-609567), 40% (TEN-902048) and 60% (ICH-199896). All five predictions have been removed from that track; none qualifies as >70% HIGH. The main board has its own 13 qualifying model-based HIGH picks. Neither track includes bookmaker-market odds, so the requested American odds range remains unverified.",
+      "affected_rows": [
+        "BKB-535923",
+        "RGU-609562",
+        "RGU-609567",
+        "TEN-902048",
+        "ICH-199896"
+      ],
+      "sources": [
+        {
+          "label": "Model origination and prior floor behavior (repository review)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py"
+        },
+        {
+          "label": "OLBG source listings (historical capture; check current event pages)",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
     }
   ]
 }

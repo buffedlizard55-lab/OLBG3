@@ -62,6 +62,9 @@ each with the ambiguity recorded on the Flagged for Review page.
    (Agen, Soyaux-Angouleme, Valence Romans, Grenoble), Leinster v Munster in the URC, and MLB World Series Game 1.
    Another **14 medium-confidence analysis notes** are published separately and labelled as such; they were
    written for picks that are now too short-priced to meet the band.
+   A parallel 2026-10-22 audit kept the >70% rule and instead removed the two 65–67% picks; because
+   0.95/0.70 = 1.36 is shorter than -250, that rule cannot satisfy the requested band. Both readings are
+   recorded in `COORDINATION.md`; the band rule is the one enforced by `check_board.py` here.
 5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
    competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
    A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says

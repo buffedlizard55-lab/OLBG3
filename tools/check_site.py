@@ -154,6 +154,12 @@ def main() -> int:
         if it["id"] not in flag_html:
             errors.append(f"flagged.html missing {it['id']}")
 
+    # HIGH must meet the requested strict >70% model-probability gate; a written prediction
+    # may not override or floor the model probability.
+    for line in lines.values():
+        if line["confidence"] == "high" and (line.get("our_pick_probability") is None or line["our_pick_probability"] <= 0.70):
+            errors.append(f"{line['match_id']} is HIGH without model probability strictly above 70%")
+
     # 5 predictions
     for p in preds:
         wc = len(p["text"].split())
