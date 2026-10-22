@@ -35,3 +35,16 @@ class AdditionalParsers(unittest.TestCase):
         g={'gameId':'123','awayTeam':team('Away','Club'),'homeTeam':team('Home','Club'),'gameDateTimeUTC':'2026-10-21T19:00:00Z','gameStatus':1}
         r=parse('Basketball','NBA',{'leagueSchedule':{'gameDates':[{'games':[g]}]}},'https://cdn.nba.com')[0]
         self.assertEqual(r['home'],'Home Club')
+
+    def test_zero_inferred_official_timestamps_and_unique_high_prose(self):
+        import json
+        root = Path(__file__).resolve().parents[1]
+        off = json.loads((root / 'data/official.json').read_text(encoding='utf-8'))
+        for ref, fc in off['fixture_confirmations'].items():
+            self.assertNotIn('(inferred', fc.get('official', ''), f'{ref} still carries inferred official field')
+        preds = json.loads((root / 'data/predictions.json').read_text(encoding='utf-8'))['predictions']
+        high_bodies = [p['body'].strip() for p in preds if p.get('status') == 'high']
+        self.assertEqual(len(high_bodies), len(set(high_bodies)), 'Duplicate HIGH prediction prose detected')
+        for b in high_bodies:
+            self.assertGreaterEqual(len(b.split()), 30, 'HIGH prediction shorter than 30 words')
+

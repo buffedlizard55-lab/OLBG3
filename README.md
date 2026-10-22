@@ -4,20 +4,28 @@ A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/bett
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
-**Latest live OLBG harvest:** **2026-10-22 01:26–01:32 UTC** (`data/meta.json` run `S-20261022-A`, `data/raw/olbg-harvest-20261022.tsv`), refreshing all 15 allowed OLBG sport pages plus multi-market event pages while retaining 70 passed 2026-10-21 rows on the root board explicitly tagged *archive* and excluded from `HIGH` confidence.
+**Latest live OLBG harvest:** **2026-10-22 07:21–07:26 UTC** (`data/meta.json` run `S-20261022-B`, `data/raw/olbg-harvest-20261022T0725Z.tsv`), refreshing all **15 allowed OLBG sport pages** (including all 8 WST Northern Ireland Open Last 16 ties on `/Snooker/8` and all 4 live UK morning bags on `/Greyhounds/28`) while chaining all prior harvests untouched for audit provenance and gating every started or passed fixture out of active `HIGH` confidence.
 
 | Page | What it is |
 |---|---|
-| `index.html` | Main dashboard: coverage across all 15 sports, 33 live in-band `HIGH` picks across 10 sports, filterable 196-row table |
-| `predictions.html` | Written human predictions: **33 live `HIGH` picks** across 10 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **14 `analysis` notes** on short chalk / archived rows |
-| `lines.html` | Multi-market originated lines: Money Line / Win Match (`192` priced), Handicap / Spread (`158`), Match Totals Over/Under (`75`), Outrights (`23`) |
-| `verification.html` | Line-by-line official governing-body verification table (`172` official/club-verified, `2` third-party corroborated, `22` unverified left blank) |
+| `index.html` | Main dashboard: coverage across all 15 sports, **45 live in-band `HIGH` picks across 12 sports**, filterable 228-row table |
+| `predictions.html` | Written human predictions: **45 live `HIGH` picks** across 12 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **17 `analysis` notes** on short chalk / started / archived rows |
+| `lines.html` | Multi-market originated lines: Money Line / Win Match (`224` priced), Handicap / Spread (`186`), Match Totals Over/Under (`99`), Outrights & Races (`27`) |
+| `verification.html` | Line-by-line official governing-body verification table (`210` official/club-verified, `1` third-party corroborated, `17` unverified left blank) |
 | `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
-| `flagged.html` | **Flagged for Review**: every audit finding + the 51-item `/olbg/` register with direct official & OLBG source links |
+| `flagged.html` | **Flagged for Review**: every audit finding + the **62-item** register (`FL-001`..`FL-062`) with direct official & OLBG source links |
 | `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
 | `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
-| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `23` in-band `HIGH` predictions across 10 sports, `53` flagged items) |
+| `/olbg/` | Unified `2026-10-22T07:25Z` OLBG multi-market lines & audit track (**21 pages**: `270` chained rows across all 15 sports, `35` live in-band `HIGH` predictions across **12 sports**, `62` flagged items) |
+
+## Latest audit & live morning refresh — `session-5cef1e25`, 2026-10-22 07:25 UTC
+
+Full re-harvest of all **15 allowed OLBG sport pages** (`2026-10-22T07:21Z–07:26Z`), primary governing-body verification across 15 sports, zero-inference repair, deterministic snapshot clock architecture, and complete root + `/olbg/` dual-track synchronization (`FL-054`..`FL-062`; full logs in `docs/harvest-20261022-0725z.tsv`, `docs/verifications-5cef1e25.json`, and `docs/audit-5cef1e25.md`).
+
+- **Zero live sport gaps across all 15 allowed sports:** Captured all **8** newly posted BetVictor Northern Ireland Open Last 16 ties (`SNK-07..14` / `SNO-9940..9947`), **4** UK morning Greyhound bags (`GRY-07..10`), **6** EuroLeague Round 7 & NBB fixtures (`BKB-25..30`), **3** Swedish SHL games (`IHO-11..13`), **3** ATP/WTA quarter-finals (`TEN-35..37`), **8** Italian SuperLega & Brazilian Superliga Feminina fixtures (`VOL-22..29`), and **11** consensus flips across Handball, Basketball, Tennis, and Ice Hockey.
+- **Line-by-line primary verification & zero-inference enforcement:** Upgraded `SNK-01..06` to official `wst.tv` Day Four reports, verified `CRK-05`/`CRK-09` (`cricket.co.za`), `BKB-24`/`BKB-28` (`lnb.com.br`), `HBL-24`/`HBL-28`/`HBL-31` (`eurohandball.com`, `aalborghaandbold.dk`, `tophaandbold.dk`, `asobal.es`), `VOL-22..29` (`cbv.com.br`, `legavolley.it`), `GLF-03`/`GLF-06`/`GLF-08` (`golf.com.au`, `legendstour.com`, `asiantour.com`), `MTR-02`/`MTR-03` (`formula1.com`), and `RGL-03` (`nrl.com`). Removed 4 previously inferred walk-on clock times from `DRT-11..14` (`FL-062`), left `TEN-37` (`wtatennis.com` client JS) and `GRY-07..10` (`gbgb.org.uk` Cloudflare) transparently `unverified` (`FL-054`, `FL-055`), and suppressed home-court edge on neutral Belgrade (`BKB-21`) and Prishtina (`HBL-24`) venues (`FL-058`, `FL-059`).
+- **Deterministic CI snapshot + live browser `started` badges:** Anchored tracked JSON to `SNAPSHOT_UTC = 2026-10-22T07:35Z` while `assets/app.js` updates `<span class="tag">started</span>` live in the reader's browser (`data-kickoff`), guaranteeing clean `git status --porcelain` across hourly GitHub Actions runs alongside accurate live in-play indicators.
 
 ## Latest audit — `session-e689d84a`, 2026-10-22 09:05 UTC
 

@@ -112,6 +112,21 @@ ALLOWED_HOSTS = {
     "mestaruusliiga.fi",
     "www.volleybal.nl",
     "www.legavolleyfemminile.it",
+    # Official governing-body & club hosts verified in session-5cef1e25's 2026-10-22 07:25Z audit.
+    "wst.tv",
+    "aalborghaandbold.dk",
+    "tophaandbold.dk",
+    "lnb.com.br",
+    "www.legavolley.it",
+    "cbv.com.br",
+    "www.cdbidasoa.eus",
+    "asobal.es",
+    "www.asiantour.com",
+    "legendstour.com",
+    "www.legendstour.com",
+    "golf.com.au",
+    "www.cricket.co.za",
+    "biz.chosun.com",
 }
 
 errors: list[str] = []

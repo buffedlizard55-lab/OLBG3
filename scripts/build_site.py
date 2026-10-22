@@ -51,11 +51,11 @@ for _sport, _meta in SPORT_META.items():
 SPORT_META["Rugby League"] = {"slug": "rugby_league", "listing": "https://www.olbg.com/betting-tips/Rugby_League/10",
     "note": "The Rugby League listing shows ONLY outright tournament markets (State of Origin 2027, Super League 2027 Grand Final, NRL 2027 Grand Final) and no dated match fixture, so the sport contributes three outright rows and no match rows. The series/grand-final prices are ours, built from the tip split plus a disclosed field-size prior.", "id": 10}
 SPORT_META["Golf"] = {"slug": "golf", "listing": "https://www.olbg.com/betting-tips/Golf/5",
-    "note": "Ten tournament winner markets. OLBG publishes no field size and no stroke-play line, so a handicap or a 72-hole total would be invented; we originate only the win price, using a disclosed 156-player field prior. OLBG's date/time on these rows is the listing's own label and is not the tournament's start date.", "id": 5}
+    "note": "Ten tournament winner markets verified across the PGA Tour, DP World Tour, LPGA Tour, Ladies European Tour, Legends Tour, Asian Tour and PGA Tour of Australasia. OLBG publishes no field size and no stroke-play line, so a handicap or a 72-hole total would be invented; we originate only the win price, using a disclosed field prior.", "id": 5}
 SPORT_META["Motor Racing"] = {"slug": "motor_racing", "listing": "https://www.olbg.com/betting-tips/Motor_Racing/14",
-    "note": "One Formula 1 race (United States Grand Prix, 25 Oct 2026) plus two season-long drivers' championship markets. The race start is confirmed against formula1.com; the championship markets cannot be verified before the season ends and are published unverified.", "id": 14}
+    "note": "One Formula 1 race (United States Grand Prix, 25 Oct 2026) plus two 2026 championship outright markets. The race schedule and official 2026 F1 Drivers' Standings are verified on formula1.com; the top-point-scorer sub-market has no separate FIA table and stays unverified.", "id": 14}
 SPORT_META["Greyhounds"] = {"slug": "greyhounds", "listing": "https://www.olbg.com/betting-tips/Greyhounds/28",
-    "note": "Six same-day UK races. Each row is a single race with one tipped dog; the race name carries the UK clock time while OLBG's own label is about five hours earlier, so no start time is derived from either. No official GBGB racecard was retrieved, so every row is unverified.", "id": 28}
+    "note": f"{sum(1 for x in GAP_ROWS if x['sport'] == 'Greyhounds')} UK race-winner rows across Kinsley, Sheffield, Nottingham, Monmore, Hove and Newcastle. Each row is a single race with one tipped dog; GBGB racecards sit behind Cloudflare anti-bot challenge on static HTTP fetch, so unconfirmed fields stay blank and every row is published on Flagged for Review.", "id": 28}
 
 NOT_CAPTURED = ["Esports (no listing surfaced on the OLBG tips index at capture time)"]
 FORMERLY_NOT_CAPTURED = ["Golf - now captured as 10 outright rows (data/raw/gap_sports_capture_20261021.json)",
@@ -213,7 +213,7 @@ def row_html(r):
 <td class="comp">{e(r['competition']) or '<span class="dim" title="OLBG does not state the competition for this fixture">not stated</span>'}</td>
 <td class="match">{match_label(r)}</td>
 <td class="market">{market_label(r)}</td>
-<td class="when">{e(r['start'])}{(' <span class="dim small">= ' + e(p['kickoff_utc']) + '</span>') if p.get('kickoff_utc') else ''}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}{' <span class="tag">started</span>' if p.get('kickoff_started') else ''}</td>
+<td class="when" data-kickoff-utc="{e(p.get('kickoff_utc') or '')}">{e(r['start'])}{(' <span class="dim small">= ' + e(p['kickoff_utc']) + '</span>') if p.get('kickoff_utc') else ''}{' <span class="tag">archive</span>' if p.get('kickoff_passed') else ''}{' <span class="tag">started</span>' if p.get('kickoff_started') else ''}</td>
 {price_cell(r)}
 <td class="pick">{pick} {prob}</td>
 <td class="num odds">{usd(p.get('price'))} {band_badge(r)}</td>

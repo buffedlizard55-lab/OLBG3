@@ -29,7 +29,8 @@ from urllib.parse import urlparse
 
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from board_dates import resolve_start, resolve_kickoff_utc, started, american, in_band, AS_OF
+from board_dates import (CAPTURE_DATE, resolve_start, resolve_kickoff_utc, started,
+                         snapshot_utc, american, in_band, AS_OF)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -164,12 +165,16 @@ def main() -> None:
             field,
             total or 0,
         )
-        start_iso, start_basis = resolve_start(e["start"])
-        kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"])
-        clock_started = started(e["start"])
+        ev_capture = (
+            __import__("datetime").date.fromisoformat(e["captured"])
+            if e.get("captured") else CAPTURE_DATE
+        )
+        start_iso, start_basis = resolve_start(e["start"], capture=ev_capture)
+        kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"], capture=ev_capture)
+        clock_started = started(e["start"], now_utc=snapshot_utc(), capture=ev_capture)
         kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
         band_ok = in_band(odds)
-        if conf == "HIGH" and (kickoff_passed or not band_ok):
+        if conf == "HIGH" and (kickoff_passed or bool(clock_started) or not band_ok):
             conf = "MEDIUM"
 
         rows.append({

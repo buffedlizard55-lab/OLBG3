@@ -1,5 +1,19 @@
-// Minimal, dependency-free table filtering for the OLBG3 board.
+// Minimal, dependency-free live UTC clock badging + table filtering for the OLBG3 board.
 (function () {
+  var nowMs = Date.now();
+  Array.prototype.slice.call(document.querySelectorAll('td.when[data-kickoff-utc]')).forEach(function (cell) {
+    var iso = cell.getAttribute('data-kickoff-utc');
+    if (!iso) return;
+    var koMs = Date.parse(iso);
+    if (!isNaN(koMs) && koMs <= nowMs && cell.textContent.indexOf('started') === -1) {
+      var tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.textContent = 'started';
+      cell.appendChild(document.createTextNode(' '));
+      cell.appendChild(tag);
+    }
+  });
+
   var q = document.getElementById('q');
   var fs = document.getElementById('fsport');
   var fc = document.getElementById('fconf');
