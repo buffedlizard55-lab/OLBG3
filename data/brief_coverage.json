@@ -33,13 +33,13 @@
   "sports_listed": 15,
   "sports_with_rows": 15,
   "sports_meeting_target": 3,
-  "live_high_root": 17,
+  "live_high_root": 21,
   "live_high_olbg": 23,
-  "live_high_union": 24,
+  "live_high_union": 28,
   "root_rows": 265,
   "olbg_rows": 338,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 51
+  "shortfall_to_target": 47
  },
  "sports": [
   {
@@ -64,14 +64,14 @@
    "blocking": {
     "no_official_form": 21,
     "high_evidence_out_of_band": 6,
-    "start_or_source_gate": 40,
+    "start_or_source_gate": 39,
     "unpriced": 6,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "21 of 40 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "6 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "40 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "39 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "6 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced."
    ],
    "live_picks": []
@@ -309,27 +309,27 @@
    "root_outright": 1,
    "root_handicap": 15,
    "root_total": 15,
-   "root_high": 1,
+   "root_high": 4,
    "olbg_rows": 18,
    "olbg_priced_win": 18,
    "olbg_handicap": 17,
    "olbg_total": 17,
    "olbg_high": 5,
-   "live_high_union": 5,
+   "live_high_union": 8,
    "target": 5,
    "shortfall": 0,
    "meets_target": true,
    "blocking": {
     "no_official_form": 1,
     "high_evidence_out_of_band": 8,
-    "start_or_source_gate": 12,
+    "start_or_source_gate": 6,
     "unpriced": 0,
     "unverified_or_corroborated": 1
    },
    "reasons": [
     "1 of 16 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "8 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "12 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "6 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "1 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
    "live_picks": [
@@ -380,6 +380,42 @@
      "selection": "DHL Stormers",
      "price": 1.58,
      "american": "-172"
+    },
+    {
+     "event_id": "609558",
+     "sport": "Rugby Union",
+     "tracks": [
+      "root"
+     ],
+     "root_ref": "RGU-02",
+     "olbg_ref": null,
+     "selection": "Agen",
+     "price": 1.51,
+     "american": -196
+    },
+    {
+     "event_id": "609563",
+     "sport": "Rugby Union",
+     "tracks": [
+      "root"
+     ],
+     "root_ref": "RGU-03",
+     "olbg_ref": null,
+     "selection": "Soyaux Angouleme",
+     "price": 1.46,
+     "american": -217
+    },
+    {
+     "event_id": "609561",
+     "sport": "Rugby Union",
+     "tracks": [
+      "root"
+     ],
+     "root_ref": "RGU-09",
+     "olbg_ref": null,
+     "selection": "Grenoble",
+     "price": 1.56,
+     "american": -179
     },
     {
      "event_id": "609578",
@@ -628,29 +664,41 @@
    "root_outright": 2,
    "root_handicap": 15,
    "root_total": 14,
-   "root_high": 1,
+   "root_high": 2,
    "olbg_rows": 17,
    "olbg_priced_win": 17,
    "olbg_handicap": 13,
    "olbg_total": 15,
    "olbg_high": 1,
-   "live_high_union": 1,
+   "live_high_union": 2,
    "target": 5,
-   "shortfall": 4,
+   "shortfall": 3,
    "meets_target": false,
    "blocking": {
     "no_official_form": 1,
     "high_evidence_out_of_band": 9,
-    "start_or_source_gate": 15,
+    "start_or_source_gate": 13,
     "unpriced": 0,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "1 of 17 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "9 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "15 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
+    "13 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
    ],
    "live_picks": [
+    {
+     "event_id": "32336",
+     "sport": "Darts",
+     "tracks": [
+      "root"
+     ],
+     "root_ref": "DRT-15",
+     "olbg_ref": null,
+     "selection": "Josh Rock",
+     "price": 1.43,
+     "american": -233
+    },
     {
      "event_id": "26023",
      "sport": "Darts",
@@ -688,14 +736,14 @@
    "blocking": {
     "no_official_form": 16,
     "high_evidence_out_of_band": 8,
-    "start_or_source_gate": 31,
+    "start_or_source_gate": 29,
     "unpriced": 5,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "16 of 31 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "8 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "31 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "29 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "5 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced."
    ],
    "live_picks": []
@@ -722,13 +770,13 @@
    "blocking": {
     "no_official_form": 25,
     "high_evidence_out_of_band": 0,
-    "start_or_source_gate": 26,
+    "start_or_source_gate": 23,
     "unpriced": 4,
     "unverified_or_corroborated": 0
    },
    "reasons": [
     "25 of 30 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
-    "26 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "23 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "4 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced."
    ],
    "live_picks": [
@@ -857,7 +905,7 @@
  "prose_evidence": {
   "root": {
    "pieces": 73,
-   "high": 17,
+   "high": 21,
    "words_min": 59,
    "words_median": 78,
    "words_max": 147,
@@ -1222,7 +1270,7 @@
     "root_american": -128,
     "root_prob": 0.5332,
     "root_confidence": "MEDIUM",
-    "root_start_status": "unverified_start",
+    "root_start_status": "upcoming",
     "olbg_ref": "RGU-609554",
     "olbg_selection": "La Rochelle",
     "olbg_price": 1.46,
@@ -1241,8 +1289,8 @@
     "root_price": 1.46,
     "root_american": -217,
     "root_prob": 0.6497,
-    "root_confidence": "MEDIUM",
-    "root_start_status": "unverified_start",
+    "root_confidence": "HIGH",
+    "root_start_status": "upcoming",
     "olbg_ref": "RGU-609563",
     "olbg_selection": "Dax",
     "olbg_price": 1.66,
@@ -1342,7 +1390,7 @@
     "root_american": -5000,
     "root_prob": 0.98,
     "root_confidence": "MEDIUM",
-    "root_start_status": "unverified_start",
+    "root_start_status": "upcoming",
     "olbg_ref": "TEN-902117",
     "olbg_selection": "Marie Bouzkova",
     "olbg_price": 1.69,
@@ -1402,7 +1450,7 @@
     "root_american": -5000,
     "root_prob": 0.98,
     "root_confidence": "MEDIUM",
-    "root_start_status": "unverified_start",
+    "root_start_status": "upcoming",
     "olbg_ref": "VOL-37003",
     "olbg_selection": "Abel-Moda Brusque W",
     "olbg_price": 1.71,

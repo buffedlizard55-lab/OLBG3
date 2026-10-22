@@ -1858,3 +1858,18 @@ two consecutive full rebuilds byte-identical; `0` excluded-sport rows. Live in-b
 `/olbg/` **23** (unchanged). `scripts/update.py` and `scripts/discovery.py` were **not** run locally — this sandbox has
 no outbound route to `cdn.nba.com`, `api-web.nhle.com` or `olbg.com` over plain HTTPS (`curl` returns
 `SSL_ERROR_SYSCALL`); CI runs both and the deployed feed pages are the authority for them.
+
+#### `session-1cdf1d14` merge, CI and Pages record
+
+- **PR [#113](https://github.com/buffedlizard55-lab/OLBG3/pull/113) MERGED** to `main` as `4d60974`
+  (`2026-10-22T21:26Z`). Branch check `build` passed before the merge (run `39857045097`, 13s).
+- **Post-merge defect found and fixed.** PR #111 (`session-a1e5112b`, `d3ed893`) merged into `main` between this
+  branch's last rebase and the merge, so the merge commit combined #111's `/olbg/` prediction set (94 pieces) with this
+  branch's regeneration of the same file from the older base. Rebuilding on the merge commit applies the `FL-128`
+  downgrade-reason repair to 14 of those pieces, so the committed `data/predictions-olbg.json`,
+  `olbg-board/predictions.html` and `olbg/predictions.html` were stale and the workflow step *"Fail if the committed
+  OLBG track is stale"* correctly failed: run [`39857270400`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39857270400)
+  `build` **failure**, `deploy` **skipped**. No prediction text, price, probability or grade was affected — the 14
+  changed lines are only the `downgrade_reason` strings, and the piece set is identical (94 before, 94 after, 0 added,
+  0 removed, 0 texts changed).
+- **Repair:** the three regenerated files are committed in the follow-up PR below; nothing from PR #111 was reverted.
