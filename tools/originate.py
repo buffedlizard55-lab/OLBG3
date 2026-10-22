@@ -277,7 +277,10 @@ def main() -> None:
     _live = {m["id"] for m in matches}
     preds_doc["predictions"] = [p for p in preds_doc.get("predictions", [])
                                 if p["match_id"] not in _retired and p["match_id"] in _live]
-    high_verified_ids = {p["match_id"] for p in preds_doc.get("predictions", [])}
+    # Only a piece explicitly published as HIGH certifies a HIGH row. A piece relabelled
+    # "analysis" (for example after the source's consensus moved) must not keep the row HIGH.
+    high_verified_ids = {p["match_id"] for p in preds_doc.get("predictions", [])
+                         if str(p.get("confidence") or p.get("status") or "").lower() == "high"}
     if _retired or len(preds_doc["predictions"]) != len(json.loads((DATA / "predictions-olbg.json").read_text())["predictions"]):
         # Persist the prune before sync_predictions re-reads the file.
         (DATA / "predictions-olbg.json").write_text(json.dumps(preds_doc, indent=2, ensure_ascii=False) + "\n")

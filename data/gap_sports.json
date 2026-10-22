@@ -3,12 +3,20 @@
  "source_capture": "data/raw/gap_sports_capture_20261021.json",
  "live_overrides": {
   "path": "data/live_overrides.json",
-  "captured_at": "2026-10-22T12:45:00Z",
+  "captured_at": "2026-10-22T21:19:00Z",
   "source": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
   "retired_refs": [
    "DRT-05"
   ],
   "updated_refs": [
+   "DRT-09",
+   "DRT-10",
+   "DRT-11",
+   "DRT-12",
+   "DRT-13",
+   "DRT-14",
+   "DRT-15",
+   "DRT-16",
    "DRT-17",
    "GLF-05"
   ]
@@ -2507,9 +2515,9 @@
    "start": "Today 15:00",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Gerwyn Price",
-   "olbg_tips": "3/12",
-   "olbg_pct": 25,
+   "olbg_pick": "Gian van Veen",
+   "olbg_tips": "3/16",
+   "olbg_pct": 19,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
    "olbg_event_id": 32338,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
@@ -2526,10 +2534,10 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 7.19
+     "single": 8.29
     },
     "probs": {
-     "single": 0.1322
+     "single": 0.1146
     },
     "prior": {
      "field": 32,
@@ -2545,8 +2553,8 @@
    },
    "pick": {
     "side": "single",
-    "label": "Gerwyn Price",
-    "prob": 0.1322,
+    "label": "Gian van Veen",
+    "prob": 0.1146,
     "confidence": "MEDIUM",
     "score": 5,
     "factors": {
@@ -2554,8 +2562,8 @@
      "official_form": 2,
      "model_edge": 1
     },
-    "price": 7.19,
-    "american": 619,
+    "price": 8.29,
+    "american": 729,
     "in_band": true,
     "band": [
      -250,
@@ -2584,7 +2592,7 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Re-read 2026-10-22T12:45Z after Luke Humphries withdrew (gastroenteritis, PDC 22 Oct). OLBG's European Championship page now carries 12 win tips: Gerwyn Price 3/12 (25%, most popular), Luke Littler 2, Gian van Veen 2, Josh Rock 2, Wessel Nijman 1, Dirk van Duijvenbode 1, Rob Cross 1. Humphries is no longer listed and Kim Huybrechts appears at 0/12. The 08:30Z harvest still carried the pre-withdrawal 16/91 Humphries row.",
+   "row_notes": "Re-read 2026-10-22T21:19Z on the live OLBG darts listing. The European Championship outright consensus has moved again since the 12:45Z re-read: the page now carries 16 win tips and Gian van Veen is the most popular at 3/16 (19%), with Gerwyn Price no longer the top selection. The 12:45Z reading (Price 3/12, 25%) is retained in this file as history, not overwritten. Because the market's leading selection changed twice in one day and Luke Humphries' withdrawal left the field unsettled, no HIGH release is carried on this market: the row is repriced as analysis only.",
    "captured_at": "2026-10-21T07:05:00Z"
   },
   {

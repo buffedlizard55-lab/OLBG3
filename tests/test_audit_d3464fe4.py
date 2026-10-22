@@ -170,8 +170,11 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
                 self.assertIsNotNone(r["pick"]["price"], ref)
             self.assertNotIn("689613", r["olbg_event_url"])
         self.assertEqual(by_gap["DRT-17"]["pick"]["confidence"], "MEDIUM")
-        self.assertEqual(by_gap["DRT-17"]["pick"]["label"], "Gerwyn Price")
-        self.assertEqual(by_gap["DRT-17"]["olbg_tips"], "3/12")
+        # DRT-17's source state moved twice on 2026-10-22: the dated capture carries Humphries,
+        # the 12:45Z re-read had Price 3/12, and the 21:19Z re-read has Gian van Veen 3/16 after
+        # Humphries withdrew. The board follows the latest recorded observation (FL-107).
+        self.assertEqual(by_gap["DRT-17"]["pick"]["label"], "Gian van Veen")
+        self.assertEqual(by_gap["DRT-17"]["olbg_tips"], "3/16")
         self.assertGreaterEqual(by_gap["DRT-17"]["pick"]["price"], 1.40)
         self.assertLessEqual(by_gap["DRT-17"]["pick"]["price"], 101.00)
 

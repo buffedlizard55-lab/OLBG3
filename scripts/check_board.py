@@ -174,6 +174,22 @@ def check_predictions(preds, refs, rows_by_ref):
                     errors.append(f"{ref}: selection quotes {q_us} but the row's US odds are {us}")
                 if price is not None and abs(float(q_dec) - price) > 0.005:
                     errors.append(f"{ref}: selection quotes {q_dec} but the row's decimal price is {price}")
+            # The selection label can quote the price too ("Team to win at 1.42 (-238)",
+            # "money line 1.52 / -192"), which the "+732 / 7.32" pattern above does not catch.
+            # Same rule, same build failure. 1.91 is our fixed two-way handicap/total quote and
+            # is exempt when the selection names a handicap or total, because that is a different
+            # market from the win price.
+            _sel = p.get("selection", "")
+            for q_dec, q_us_s in re.findall(
+                    r"(?:money line|\bat\b|\bPriced\b)\s*(?:an?\s+)?(\d\.\d{2})\s*(?:/|\()\s*([+-]\d{2,5})",
+                    _sel):
+                if float(q_dec) == 1.91 and re.search(r"handicap|total", _sel, re.I):
+                    continue
+                if price is not None and BAND_LOW_DEC <= float(q_dec) <= BAND_HIGH_DEC \
+                        and abs(float(q_dec) - price) > 0.005:
+                    errors.append(f"{ref}: selection prose quotes decimal {q_dec} but the row's price is {price}")
+                if us is not None and int(q_us_s) != us:
+                    errors.append(f"{ref}: selection prose quotes {q_us_s} US but the row's US odds are {us}")
             # prices quoted inline in the prose, e.g. "at 1.67" / "Priced at +241 (3.41)"
             for q_dec in re.findall(r"(?:\bat\b|\bPriced\b)\s*(?:an?\s+)?(\d\.\d{2})\b", body):
                 if price is not None and BAND_LOW_DEC <= float(q_dec) <= BAND_HIGH_DEC \
