@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-22T23:00:00Z",
+ "generated_at": "2026-10-22T21:55:00Z",
  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose.",
  "items": [
   {
@@ -2463,6 +2463,176 @@
     {
      "label": "WST official matches page (snooker results used in the write-ups)",
      "url": "https://www.wst.tv/matches/"
+    }
+   ]
+  },
+  {
+   "id": "FL-117",
+   "severity": "medium",
+   "status": "fixed",
+   "sport": "Motor Racing",
+   "title": "Formula 1 United States Grand Prix start time: the stored hold is resolved against the live official page",
+   "summary": "The 2026 US Grand Prix start is 2026-10-25T20:00:00Z; formula1.com renders its session list in the reader clock, which the same page pins as EDT.",
+   "detail": "The earlier hold read the official page's '25Oct Race 16:00' as Austin local time and refused to certify a start. Re-reading the page on 2026-10-22T21:40Z shows a Rolex widget that puts St. Louis (UTC-5 in October) one hour behind the reader clock, so the listed 16:00 is 16:00 EDT = 20:00 UTC, and the page's own race payload records startDate 2026-10-25T20:00:00.000Z. Both official figures now agree, the hold on event 913 is lifted, the race price re-derives from the live 12/34 tip count, and MTR-913 / MTR-01 publish as live HIGH picks.",
+   "sources": [
+    {
+     "label": "Formula 1 — official United States Grand Prix 2026 race page",
+     "url": "https://www.formula1.com/en/racing/2026/united-states"
+    }
+   ]
+  },
+  {
+   "id": "FL-118",
+   "severity": "medium",
+   "status": "fixed",
+   "sport": "Basketball",
+   "title": "EuroLeague round-seven preview vs the official standings is a staleness artefact, not a contradiction",
+   "summary": "The 21 October round-seven game-centre article quotes pre-round-seven records; the official table read on 22 October is used for form.",
+   "detail": "The conflict was raised as FL-069: the preview listed Olympiacos at 98.2 points per game and Valencia at 5-1 and 98.3, while the official table showed 564 points in six games for Olympiacos and 4-2 with 583 points for Valencia. The preview is dated 21 October 2026 and describes games played on 22 October, so its figures are a pre-round-seven snapshot. The official standings re-read at 2026-10-22T21:55Z give Olympiacos 5-1 (564:524, +40), Fenerbahce 5-1 (501:447, +54) and Valencia 4-2 (583:537, +46, 2-0 away), and the holds on events 535925 and 535926 are lifted with the standings used for form.",
+   "sources": [
+    {
+     "label": "EuroLeague Basketball — official 2026/27 regular-season standings",
+     "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+    },
+    {
+     "label": "EuroLeague Basketball — official Round 7 game centre",
+     "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+    }
+   ]
+  },
+  {
+   "id": "FL-119",
+   "severity": "medium",
+   "status": "fixed",
+   "sport": "Rugby Union",
+   "title": "Two cited United Rugby Championship URLs now return 404 and were repointed",
+   "summary": "The URC table lives at stats.unitedrugby.com/match-centre/table/2026-27, and the season fixture list at unitedrugby.com/latest/news/2026-27-fixtures-in-full/.",
+   "detail": "The written piece for the Leinster v Munster derby cited https://www.unitedrugby.com/fixtures-results and the board cited https://stats.unitedrugby.com/table/2026-27. Both were re-read on 2026-10-22 and now return 404 pages. The replacements were read in the same pass: the season fixture list gives Round 4 with 'KO 18.00 IRE & UK' for the derby, and the league table is served at stats.unitedrugby.com/match-centre/table/2026-27. Every citation was repointed and the URC domain was added to the reviewed official-clock host list, where it is used only for clocks the URC itself labels 'IRE & UK'.",
+   "sources": [
+    {
+     "label": "United Rugby Championship — official 2026/27 fixtures in full",
+     "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+    },
+    {
+     "label": "United Rugby Championship — official 2026/27 league table",
+     "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+    }
+   ]
+  },
+  {
+   "id": "FL-120",
+   "severity": "medium",
+   "status": "open",
+   "sport": "All",
+   "title": "OLBG renders a bare local clock whose zone differs by endpoint and changed between the midday and evening captures",
+   "summary": "Every OLBG clock label is published verbatim and never converted; only explicitly zone-labelled official clocks certify a UTC start.",
+   "detail": "On 2026-10-22 the same listing read 12:00 on the midday capture and 16:00 on the evening capture for St Finbarrs v Nemo Rangers, whose official start is 16:00Z, and the NBA page read 'Today 19:10' at midday and 'Tomorrow 00:10' in the evening for the same game, an exact one-hour shift, while the all-sports page kept the 19:10 rendering. The render basis is therefore endpoint-dependent and not stable between passes. The evening harvest records each raw label with the capture time and no conversion is applied, so the derived date can differ from the true UTC date for a handful of rows; the authoritative UTC start comes only from the governing body.",
+   "sources": [
+    {
+     "label": "OLBG — betting tips listing",
+     "url": "https://www.olbg.com/betting-tips"
+    }
+   ]
+  },
+  {
+   "id": "FL-121",
+   "severity": "medium",
+   "status": "open",
+   "sport": "Tennis",
+   "title": "ATP and WTA order-of-play PDFs print session times without a timezone label",
+   "summary": "Five tennis quarter-finals are written up from the official order of play but published as analysis rather than live picks.",
+   "detail": "The official ATP order of play for Almaty (Friday 23 October) prints 'Starts At 11:30', 'Not Before 13:00', 'Followed By' and 'Not Before 18:30', and the official WTA order of play for Osaka prints 'Starting at 11:30 AM' with 'Followed by' for the following matches. Neither document labels a timezone, so no exact UTC start can be certified and the release gate keeps rows 902135, 902107, 902138, 902119 and 902145 in analysis. The written pieces are published in full and state the limitation.",
+   "sources": [
+    {
+     "label": "ATP Tour — official order of play, Almaty, Friday 23 October 2026",
+     "url": "https://www.protennislive.com/posting/2026/9410/op.pdf"
+    },
+    {
+     "label": "WTA Tour — official order of play, Kinoshita Group Japan Open (Osaka), Friday 23 October 2026",
+     "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf"
+    }
+   ]
+  },
+  {
+   "id": "FL-122",
+   "severity": "medium",
+   "status": "open",
+   "sport": "Handball",
+   "title": "The ASOBAL and EHF calendars print local kick-off times without a timezone label",
+   "summary": "The two handball rows with verified official form facts are published as analysis rather than live picks.",
+   "detail": "The ASOBAL club page states the Friday match in Irun as '19h' and the EHF live-scores calendar lists the European qualifier as 'WCh 2027 - W 20:00'; neither states a zone, so the release check for rows 12101 and 12110 records the date and the official quote but no timezone. The clock is left uncertified rather than assumed to be CEST, which keeps both rows out of the live HIGH set.",
+   "sources": [
+    {
+     "label": "Liga NEXUS ENERGIA ASOBAL — official Bidasoa Irun club page",
+     "url": "https://asobal.es/equipos/BID/"
+    },
+    {
+     "label": "EHF — official 2027 IHF Women's World Championship Qualification Europe",
+     "url": "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe/"
+    }
+   ]
+  },
+  {
+   "id": "FL-123",
+   "severity": "low",
+   "status": "open",
+   "sport": "Snooker, Greyhounds",
+   "title": "Snooker AND Greyhounds listings returned \"No tips found.\" at 21:00Z on 22 October (extends FL-100 to the greyhound listing)",
+   "summary": "No new snooker or greyhound market existed to capture at 21:00Z, so both sports carry dated rows only and publish no current pick.",
+   "detail": "At 2026-10-22T21:00Z both https://www.olbg.com/betting-tips/Snooker/8 and https://www.olbg.com/betting-tips/Greyhounds/28 served 'No tips found.' server-side: the BetVictor Northern Ireland Open had finished and the UK greyhound cards for the day had run off. Their audited rows are carried from the dated captures with an explicit carry note and are excluded from the live HIGH set, so the board publishes no current snooker or greyhound pick rather than reusing an expired market.",
+   "sources": [
+    {
+     "label": "OLBG — snooker betting tips listing",
+     "url": "https://www.olbg.com/betting-tips/Snooker/8"
+    },
+    {
+     "label": "OLBG — greyhound racing betting tips listing",
+     "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+    }
+   ]
+  },
+  {
+   "id": "FL-124",
+   "severity": "medium",
+   "status": "open",
+   "sport": "Darts",
+   "title": "The darts listing page and the event page disagree on which outright selection is the most popular",
+   "summary": "The event page shows a three-way tie at 3/16 and names Luke Littler in both its Most Popular Tip and Best Tipster's Tip panels.",
+   "detail": "The 20:55Z listing for the 2026 Machineseeker European Championship showed Gian van Veen, while the event page read at 21:20Z shows 16 outright win tips with Luke Littler, Gerwyn Price and Gian van Veen tied at three apiece, and the page's own Most Popular Tip and Best Tipster's Tip panels both naming Littler. The model follows the event page's own designation and the row's note discloses the tie. The tournament is already under way, so the row is graded MEDIUM analysis rather than a live pick.",
+   "sources": [
+    {
+     "label": "OLBG — European Championship outright market (event page)",
+     "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338"
+    }
+   ]
+  },
+  {
+   "id": "FL-125",
+   "severity": "medium",
+   "status": "fixed",
+   "sport": "Handball",
+   "title": "OLBG side labels carrying a bracketed qualifier could not be mapped to a team",
+   "summary": "The model now normalises labels such as \"Kosovo (W)\" before matching, instead of falling back to an unjustified home-side prior.",
+   "detail": "For the 2027 IHF Women's World Championship European qualifier the OLBG selection reads 'Kosovo (W)' while the verification records the team names as 'Estonia W' and 'Kosovo W', so the old comparison failed and the model fell back to a generic 0.52 home prior and priced the listed home side. The side matcher now also compares with brackets removed, which maps the selection to Kosovo W and restores a tip-derived probability. No price, probability or grade was changed for any other row.",
+   "sources": [
+    {
+     "label": "OLBG — handball betting tips listing",
+     "url": "https://www.olbg.com/betting-tips/Handball/20"
+    }
+   ]
+  },
+  {
+   "id": "FL-126",
+   "severity": "low",
+   "status": "open",
+   "sport": "All",
+   "title": "The evening harvest adds rows to the /olbg/ track that the curated root dataset does not yet carry",
+   "summary": "The two boards publish different fixture counts by design and the gap is disclosed rather than back-filled.",
+   "detail": "The 2026-10-22T20:55Z harvest adds 128 live listing rows, including new tennis, cricket, rugby union, volleyball and handball events. The root board at / is built from the curated data/sports/*.json capture and data/gap_sports.json, and only 68 of its rows were re-synced to the live tip counts in this pass; the new fixtures are published on the /olbg/ track with their own verification records. The root board's selection counts therefore differ from the /olbg/ track's, and both counts are printed on the pages.",
+   "sources": [
+    {
+     "label": "OLBG — betting tips listing",
+     "url": "https://www.olbg.com/betting-tips"
     }
    ]
   }
