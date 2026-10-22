@@ -1807,6 +1807,25 @@
           "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
         }
       ]
+    },
+    {
+      "id": "FL-077",
+      "severity": "warning",
+      "status": "needs review",
+      "sport": "All sports",
+      "title": "Fresh independent official-source verification blocked in 12:04 UTC audit",
+      "summary": "Structural checks passed; inherited source assertions were not freshly verified in this session.",
+      "detail": "The 2026-10-22 12:04 UTC audit environment permits outbound access only to GitHub and package registries, not OLBG or official sports websites. A direct PDC HTTPS request failed with curl exit 35. Existing quotes, fixture confirmations and checked_at timestamps are inherited evidence, not newly verified facts. Completeness, current form, match history, bookmaker prices and prediction accuracy cannot be independently confirmed by this audit. No new predictions, source observations or fixture confirmations were invented. Consult the linked official sources and source-health page; structural validators do not prove factual correctness.",
+      "sources": [
+        {
+          "label": "PDC official website (retrieval failed in this audit)",
+          "url": "https://www.pdc.tv/"
+        },
+        {
+          "label": "MLB official schedule (not retrieved in this audit)",
+          "url": "https://www.mlb.com/schedule/2026-10-23"
+        }
+      ]
     }
   ]
 }
