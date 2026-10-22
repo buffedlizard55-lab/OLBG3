@@ -9,7 +9,7 @@ Task `task-45-evening-live-refresh-reverify-predict-integrate-20261022` (renumbe
 > net-new contributions: the 21:30Z harvest as the newest chained capture, the 30 new root
 > fixtures (siblings had added their evening events to `/olbg/` only — their FL-126), nine
 > governing-body fixture confirmations, the 22:10Z release re-observations (NHL ×4, MLB,
-> SuperLega ×3), five new root pieces, and two register items renumbered **FL-127/FL-128**.
+> SuperLega ×3), five new root pieces, and two register items renumbered **FL-129/FL-130**.
 > Overlapping items were dropped in favour of the siblings' versions: the DRT-17 tie handling
 > (their FL-107/FL-124 went further and withdrew the selection), the five-per-sport shortfall
 > (their FL-102), and the SSR-truncation note (covered by their FL-100/FL-120/FL-123/FL-126).
@@ -82,7 +82,7 @@ Task `task-45-evening-live-refresh-reverify-predict-integrate-20261022` (renumbe
 8. **Flags drafted** — 5-per-sport shortfall, SSR truncation, EuroLeague 404, 32338 tie,
    21 unverified evening rows. At merge, the first three topics were already owned by sibling
    items (FL-102, FL-100/FL-120/FL-123/FL-126, FL-107/FL-124) and were dropped; the EuroLeague
-   404 and the 21 root rows landed as **FL-127** and **FL-128**. Register: 120 items.
+   404 and the 21 root rows landed as **FL-129** and **FL-130**. Register: 120 items.
 
 ## Verification performed
 

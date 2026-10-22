@@ -50,7 +50,7 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
         for ref in NEW_UNVERIFIED:
             self.assertEqual(self.events[ref]["verification"]["status"], "unverified", ref)
             self.assertNotEqual(self.events[ref]["pick"]["confidence"], "HIGH", ref)
-        self.assertIn("FL-128", self.flagged)
+        self.assertIn("FL-130", self.flagged)
 
     def test_no_excluded_sport_rows_added(self):
         excluded = {"soccer", "football", "american football", "boxing", "ufc", "mma",

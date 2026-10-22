@@ -155,7 +155,7 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
         # 1. Root two-sided fixtures verified on primary official/club-official hosts, except the
         #    21 fixtures added by the 2026-10-22T21:30Z evening harvest (session-4b642f84) for which
         #    no official source could be read that evening; they publish unverified with blank
-        #    official fields as FL-128. Any other unverified row fails here.
+        #    official fields as FL-130. Any other unverified row fails here.
         EVENING_UNVERIFIED = {
             "BKB-31", "BKB-32", "CRK-18",
             "HBL-32", "HBL-33", "HBL-34", "HBL-35", "HBL-36", "HBL-37", "HBL-38",
