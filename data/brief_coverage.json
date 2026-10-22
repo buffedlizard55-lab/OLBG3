@@ -860,6 +860,57 @@
    "live_picks": []
   }
  ],
+ "prose_evidence": {
+  "root": {
+   "pieces": 73,
+   "high": 20,
+   "words_min": 59,
+   "words_median": 75,
+   "words_max": 143,
+   "under_30_words": 0,
+   "citing_an_official_host": 70,
+   "citing_only_hosts_outside_official_set": 3,
+   "hosts_outside_official_set": {
+    "lnv-web.dataproject.com": 1,
+    "tophaandbold.dk": 1,
+    "www.bbc.co.uk": 1,
+    "www.bbc.com": 2,
+    "www.ecb.co.uk": 1,
+    "www.eliteprospects.com": 2,
+    "www.ice.hockey": 2,
+    "www.laola1.at": 1,
+    "www.legavolley.it": 6,
+    "www.lequipe.fr": 2,
+    "www.planetrugby.com": 1,
+    "www.rugbyrama.fr": 1,
+    "www.sports.fr": 1,
+    "www.sudouest.fr": 1
+   },
+   "duplicate_bodies": 0,
+   "withheld_bodies": 0
+  },
+  "olbg": {
+   "pieces": 53,
+   "high": 24,
+   "words_min": 46,
+   "words_median": 80,
+   "words_max": 105,
+   "under_30_words": 0,
+   "citing_an_official_host": 52,
+   "citing_only_hosts_outside_official_set": 1,
+   "hosts_outside_official_set": {
+    "lnv-web.dataproject.com": 1,
+    "tophaandbold.dk": 1,
+    "www.ecb.co.uk": 1,
+    "www.legavolley.it": 1,
+    "www.unitedrugby.com": 1
+   },
+   "duplicate_bodies": 0,
+   "withheld_bodies": 0
+  },
+  "official_host_count": 73,
+  "note": "Counted from each piece's own sources list. \"Official host\" means a host already recorded in this repository as a governing-body, league or club source; every other host is listed as third-party and is NOT treated as verification. No page was fetched while producing these counts, so a third-party citation is unverified here and is published on the review register instead of being called confirmed."
+ },
  "cross_track": {
   "description": "Fixtures captured on both tracks are priced by two independent models. Where they disagree on the selection, both versions are published and listed here for review. A disagreement is not evidence that either side is wrong, and neither is a bookmaker price.",
   "paired_fixtures": 217,

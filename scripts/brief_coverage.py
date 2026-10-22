@@ -17,8 +17,12 @@ Output:
   data/brief_coverage.json  consumed by scripts/build_site.py, validated by scripts/check_board.py
 """
 import json
+import statistics
 from collections import Counter
 from pathlib import Path
+from urllib.parse import urlparse
+
+from release import OFFICIAL_CLOCK_HOSTS
 
 ROOT = Path(__file__).resolve().parents[1]
 D = ROOT / 'data'
@@ -29,6 +33,75 @@ BAND = '-250 to +10000 US (decimal 1.40 to 101.00)'
 
 def load(name):
     return json.loads((D / name).read_text())
+
+
+def host(url):
+    try:
+        return (urlparse(url).hostname or '').lower()
+    except (TypeError, ValueError):
+        return ''
+
+
+def official_hosts(root_rows, verifications):
+    """Hosts already recorded in this repo as governing-body / club-official sources.
+
+    This is a provenance boundary, not a claim that a page still says what it said: nothing is
+    fetched here. It only separates 'the competition's own site' from 'a media report'.
+    """
+    hosts = set(OFFICIAL_CLOCK_HOSTS)
+    for r in root_rows:
+        v = r.get('verification') or {}
+        if v.get('status') in ('verified', 'corroborated'):
+            h = host(v.get('official_url'))
+            if h:
+                hosts.add(h)
+    for entry in (verifications.get('event_verifications') or {}).values():
+        for key in ('official_url', 'source', 'url'):
+            h = host(entry.get(key) if isinstance(entry, dict) else None)
+            if h:
+                hosts.add(h)
+    return hosts
+
+
+def prose_evidence(preds, off_hosts):
+    """Count how the written pieces are evidenced, from their own `sources` lists."""
+    if not preds:
+        return {'pieces': 0, 'high': 0, 'words_min': None, 'words_median': None,
+                'words_max': None, 'under_30_words': 0, 'citing_an_official_host': 0,
+                'citing_only_hosts_outside_official_set': 0, 'hosts_outside_official_set': {}, 'duplicate_bodies': 0,
+                'withheld_bodies': 0}
+    words, third, cite, only_third, seen, dup, withheld = [], Counter(), 0, 0, set(), 0, 0
+    for p in preds:
+        body = p.get('text') or p.get('body') or ''
+        if not body.strip():
+            withheld += 1
+            continue
+        words.append(len(body.split()))
+        norm = ' '.join(body.split()).lower()
+        if norm in seen:
+            dup += 1
+        seen.add(norm)
+        hostlist = [host(s.get('url')) for s in p.get('sources', []) if s.get('url')]
+        if any(h in off_hosts for h in hostlist):
+            cite += 1
+        elif hostlist:
+            only_third += 1
+        for h in hostlist:
+            if h and h not in off_hosts and h != 'www.olbg.com':
+                third[h] += 1
+    return {
+        'pieces': len(preds),
+        'high': sum(1 for p in preds if p.get('status') in ('high',)),
+        'words_min': min(words) if words else None,
+        'words_median': (statistics.median(words) if words else None),
+        'words_max': max(words) if words else None,
+        'under_30_words': sum(1 for w in words if w < 30),
+        'citing_an_official_host': cite,
+        'citing_only_hosts_outside_official_set': only_third,
+        'hosts_outside_official_set': dict(sorted(third.items())),
+        'duplicate_bodies': dup,
+        'withheld_bodies': withheld,
+    }
 
 
 def markets(model):
@@ -231,6 +304,18 @@ def build():
             'olbg_url': line.get('olbg_url'),
         })
 
+    off_hosts = official_hosts(events + gap, load('verifications.json'))
+    evidence = {
+        'root': prose_evidence(load('predictions.json')['predictions'], off_hosts),
+        'olbg': prose_evidence(load('predictions-olbg.json')['predictions'], off_hosts),
+        'official_host_count': len(off_hosts),
+        'note': ('Counted from each piece\'s own sources list. "Official host" means a host already '
+                 'recorded in this repository as a governing-body, league or club source; every other '
+                 'host is listed as third-party and is NOT treated as verification. No page was '
+                 'fetched while producing these counts, so a third-party citation is unverified '
+                 'here and is published on the review register instead of being called confirmed.'),
+    }
+
     doc = {
         'description': (
             'What the brief asks for versus what is published. Counts are recomputed from the '
@@ -269,6 +354,7 @@ def build():
             'shortfall_to_target': max(0, len(sports) * TARGET_PER_SPORT - sum(s['live_high_union'] for s in sports)),
         },
         'sports': sports,
+        'prose_evidence': evidence,
         'cross_track': {
             'description': (
                 'Fixtures captured on both tracks are priced by two independent models. Where they '
@@ -298,6 +384,10 @@ def main():
           f"shortfall={t['shortfall_to_target']}")
     print(f"cross-track paired={xt['paired_fixtures']} agree={xt['same_selection']} "
           f"differ={xt['different_selection']} withheld={xt['withheld_by_one_track']}")
+    ev = doc['prose_evidence']
+    print(f"prose root={ev['root']['pieces']} (HIGH {ev['root']['high']}, min {ev['root']['words_min']}w, "
+          f"third-party hosts {len(ev['root']['hosts_outside_official_set'])}) "
+          f"olbg={ev['olbg']['pieces']} (HIGH {ev['olbg']['high']}, min {ev['olbg']['words_min']}w)")
 
 
 if __name__ == '__main__':

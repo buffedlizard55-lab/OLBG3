@@ -259,6 +259,7 @@ TOTAL_GAP = ("Not originated: we captured no official scoring baseline for this 
 # is re-checked by scripts/check_board.py, so these numbers cannot drift away from the board.
 BRIEF = json.load(open(os.path.join(ROOT, "data/brief_coverage.json")))
 BT = BRIEF["totals"]
+PE = BRIEF["prose_evidence"]
 
 
 def pct(n, d):
@@ -405,6 +406,28 @@ unverified fixture. Rows can fail more than one test, so the counts overlap and 
 <thead><tr><th>Sport</th><th>Root ref</th><th>/olbg/ ref</th><th>Selection</th><th class="num">Decimal</th>
 <th class="num">US</th><th>Tracks publishing it</th></tr></thead>
 <tbody>{live_pick_rows}</tbody></table></div>
+
+<h2>How the write-ups are evidenced</h2>
+<p class="legend">Counted from each piece&rsquo;s own <code>sources</code> list. <em>Recorded official host</em> means a host this repository
+already records as a governing body, league or club source. A host outside that set is listed individually below &mdash; being cited is
+not the same as being verified, and some of them are league sites used as official elsewhere on the board.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Track</th><th class="num">Pieces</th><th class="num">Currently HIGH</th><th class="num">Words min / median / max</th>
+<th class="num">Under 30 words</th><th class="num">Citing a recorded official host</th><th class="num">Citing only hosts outside that set</th><th class="num">Duplicate bodies</th></tr></thead>
+<tbody>
+<tr><td>Root board</td><td class="num">{PE['root']['pieces']}</td><td class="num">{PE['root']['high']}</td>
+<td class="num">{PE['root']['words_min']} / {PE['root']['words_median']:.0f} / {PE['root']['words_max']}</td>
+<td class="num">{PE['root']['under_30_words']}</td><td class="num">{PE['root']['citing_an_official_host']}</td>
+<td class="num">{PE['root']['citing_only_hosts_outside_official_set']}</td><td class="num">{PE['root']['duplicate_bodies']}</td></tr>
+<tr><td>/olbg/ audit track</td><td class="num">{PE['olbg']['pieces']}</td><td class="num">{PE['olbg']['high']}</td>
+<td class="num">{PE['olbg']['words_min']} / {PE['olbg']['words_median']:.0f} / {PE['olbg']['words_max']}</td>
+<td class="num">{PE['olbg']['under_30_words']}</td><td class="num">{PE['olbg']['citing_an_official_host']}</td>
+<td class="num">{PE['olbg']['citing_only_hosts_outside_official_set']}</td><td class="num">{PE['olbg']['duplicate_bodies']}</td></tr>
+</tbody></table></div>
+<p class="small"><strong>Hosts outside the recorded official set, by number of citations:</strong>
+{", ".join(f"{e(h)} ({c})" for h, c in PE['root']['hosts_outside_official_set'].items())}.
+These citations are <strong>not</strong> re-read in this pass and are therefore not treated as verification anywhere on the board; the
+review item is <a href="flagged.html#FL-101">FL-101</a>.</p>
 
 <h2>What would raise the count</h2>
 <div class="panel"><p>Only two things can, and neither can be done by relabelling a row:</p>
