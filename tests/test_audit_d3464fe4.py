@@ -4,13 +4,14 @@ Verifies both Phase 1 standalone audit artifacts AND (once Phase 2 integration h
 all cross-board invariants across root `/` and `/olbg/`:
   - 15 covered OLBG sports and strictly 0 excluded sports across every dataset & page
   - 202/202 (100%) two-sided root fixtures verified on primary official/club-official hosts
-  - 28/28 (100%) gap-sport rows priced (including DRT-17 Luke Humphries 6.07 / +507 HIGH)
-  - Exact 11-sport live non-chalk HIGH alignment across `/` (16 HIGH) and `/olbg/` (17 HIGH)
+  - 28/28 (100%) gap-sport rows priced (DRT-17 re-priced onto Gerwyn Price 7.46 / +646 MEDIUM after the
+    official PDC Humphries withdrawal, FL-078, session-bb34505f midday re-harvest)
+  - Exact live non-chalk HIGH sport alignment across `/` (9 sports, 15 HIGH) and `/olbg/` (11 sports, 20 HIGH)
   - Every HIGH pick strictly inside -250..+10000 (1.40..101.00), <70% probability, live kick-off,
     and unique >=30-word human prediction citing verified teams/players & match history
   - Un-crossed Italian SuperLega IDs (36994..36997), CBV home/away order on VOL-37000,
     WTA Osaka tournament correction on TEN-37 / TEN-902107, non-winner consensus exclusion,
-    and zero soft-404 OLBG URLs across all 230 `/` rows and 275 `/olbg/` rows.
+    and zero soft-404 OLBG URLs across all 230 `/` rows and 303 `/olbg/` rows.
 """
 from __future__ import annotations
 
@@ -53,21 +54,24 @@ EXPECTED_15_SPORTS = {
     "Greyhounds",
 }
 
-EXPECTED_11_ROOT_HIGH_SPORTS = {
+# Session-bb34505f (2026-10-22 midday integration): Darts left the root HIGH set when DRT-17 was
+# demoted HIGH->MEDIUM after the official PDC Humphries withdrawal (FL-078: no directly retrievable
+# official form page for the new consensus leader Gerwyn Price), and Golf left it when GLF-02 (Bermuda,
+# in play since 10:35Z) hit the start-window release gate and GLF-05 (Stifel, flipped to Cink) has no
+# verified exact start. Darts stays HIGH on `/olbg/` via DAR-32324 and the rewritten DAR-32338 Price piece.
+EXPECTED_ROOT_HIGH_SPORTS = {
     "Baseball",
     "Basketball",
     "Cricket",
     "Ice Hockey",
-    "Darts",
     "Handball",
     "Volleyball",
     "Rugby Union",
-    "Golf",
     "Motor Racing",
     "Gaelic Football",
 }
 
-EXPECTED_12_OLBG_HIGH_SPORTS = EXPECTED_11_ROOT_HIGH_SPORTS | {"Rugby League"}
+EXPECTED_OLBG_HIGH_SPORTS = EXPECTED_ROOT_HIGH_SPORTS | {"Rugby League", "Darts"}
 
 NON_WINNER_MARKETS = {
     "Set Score",
@@ -156,22 +160,25 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
             self.assertEqual(ev["verification"]["status"], "verified", ev["ref"])
             self.assertIn(ev["verification"]["source_tier"], {"official", "club-official"}, ev["ref"])
 
-        # 2. All 28 gap-sport rows priced (including DRT-17 Luke Humphries) and zero closed 689613
+        # 2. All 28 gap-sport rows priced and zero closed 689613. DRT-17 since 2026-10-22 midday:
+        #    Humphries withdrawn (pdc.tv, FL-078) -> consensus flipped to Gerwyn Price 3/13 -> row
+        #    re-graded MEDIUM (7.46 / +646) because Price's form evidence is third-party-cited only.
         self.assertEqual(len(self.gap), 28)
         by_gap = {r["ref"]: r for r in self.gap}
         for ref, r in by_gap.items():
             self.assertIsNotNone(r["pick"]["price"], ref)
             self.assertNotIn("689613", r["olbg_event_url"])
-        self.assertEqual(by_gap["DRT-17"]["pick"]["confidence"], "HIGH")
-        self.assertEqual(by_gap["DRT-17"]["pick"]["label"], "Luke Humphries")
+        self.assertEqual(by_gap["DRT-17"]["pick"]["confidence"], "MEDIUM")
+        self.assertEqual(by_gap["DRT-17"]["pick"]["label"], "Gerwyn Price")
+        self.assertEqual(self.preds_root["DRT-17"]["status"], "analysis")
         self.assertGreaterEqual(by_gap["DRT-17"]["pick"]["price"], 1.40)
         self.assertLessEqual(by_gap["DRT-17"]["pick"]["price"], 101.00)
 
         # 3. 11 live in-band HIGH sports on root `/` (100% organic score==6) and 12 on `/olbg/`
         root_high = [r for r in (self.events + self.gap) if r["pick"]["confidence"] == "HIGH"]
         olbg_high = [r for r in self.lines if r["confidence"] == "high"]
-        self.assertEqual({r["sport"] for r in root_high}, EXPECTED_11_ROOT_HIGH_SPORTS)
-        self.assertEqual({r["sport"] for r in olbg_high}, EXPECTED_12_OLBG_HIGH_SPORTS)
+        self.assertEqual({r["sport"] for r in root_high}, EXPECTED_ROOT_HIGH_SPORTS)
+        self.assertEqual({r["sport"] for r in olbg_high}, EXPECTED_OLBG_HIGH_SPORTS)
 
         for r in root_high:
             ref = r["ref"]

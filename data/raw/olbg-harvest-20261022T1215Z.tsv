@@ -1,0 +1,171 @@
+# OLBG3 live midday harvest — 2026-10-22T12:16Z..12:36Z across all 15 allowed sports (session-bb34505f)
+# Format v2: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
+# Locale at harvest: olbg_locale_date = 2026-10-22. Clock labels recorded VERBATIM, zero conversion (FL-067 policy).
+# Rendering note: labels on different pages did not share one viewer zone this pass — tennis/NHL/NBA/MLB/greyhound labels
+#   match a US Eastern (UTC-4) rendering checked against organiser clocks (Bublik v Marozsan NB 19:30 Almaty = Today 10:30;
+#   1:31pm UK bag = Today 08:31), while rugby union + Gaelic football labels match a UK/Irish (UTC+1) rendering of the same
+#   official clocks (Narbonne v Brive Pro D2 J8 19:00 CEST = Tomorrow 18:00; Galway SFC Final 18:00 UTC = 24 Oct 19:00,
+#   identical absolute time to the 08:30Z ET label 14:00). No zone is assumed anywhere downstream; only scripts/release.py
+#   normalises explicitly timezone-qualified official clocks. See flag FL-077.
+# Verified verbatim from live https://www.olbg.com/betting-tips/<Sport>/<id> fetches; zero inferred paths or slugs.
+# Expired at capture: greyhound 1:31 Sheffield (689604) printed an Expired marker at 12:36Z and is omitted (carried rows keep it via the chain).
+# Absent from the default listing vs 08:30Z (rotated off / started / market moved): darts 32337 Humphries R1 tie, motor 911 Fastest Qualifier,
+#   golf 101904 Bermuda Championship, tennis 902069/902073/902100/902103/902104/902110, snooker 9940/9942, cricket 188825,
+#   basketball 536021/535966, handball 12077-series morning rows, rugby union 609577.
+Tennis||Tennis/All_Tennis/All_Events|Pierre_Hugues_Herbert_vs_Taylor_Fritz|902087|Today|09:30|Win Match|Taylor Fritz|7/11|64%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|David_Goffin_vs_Alex_Michelsen|902131|Today|09:00|Win Match|David Goffin|5/7|71%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Alexander_Bublik_vs_Fabian_Marozsan|902082|Today|10:30|Win Match|Alexander Bublik|4/6|67%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Flavio_Cobolli_vs_Stan_Wawrinka|902126|Today|13:00|Win Match|Stan Wawrinka|3/5|60%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Damir_Dzumhur_vs_Zizou_Bergs|902120|Today|11:00|Win Match|Damir Dzumhur|2/3|67%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Kyrian_Jacquet_vs_Brandon_Nakashima|902105|Today|14:30|Win Match|Kyrian Jacquet|2/3|67%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Stefanos_Tsitsipas_vs_James_Duckworth|902129|Tomorrow|04:00|Win Match|Stefanos Tsitsipas|2/3|67%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Ann_Li_vs_Lilli_Tagger|902135|Today|22:30|Win Match|Ann Li|1/1|100%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Talia_Gibson_vs_Ashlyn_Krueger|902107|Tomorrow|00:00|Win Match|Ashlyn Krueger|1/1|100%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Sara_Bejlek_vs_Marie_Bouzkova|902117|Tomorrow|01:00|1st Set Winner|Sara Bejlek|1/1|100%; featured market changed from Win Match/Bouzkova at 08:30Z
+Tennis||Tennis/All_Tennis/All_Events|Katie_Boulter_vs_Antonia_Ruzic|902134|Tomorrow|03:00|Games Won|Antonia Ruzic +3.50|1/1|100%; midday 12:16Z live listing
+Tennis||Tennis/All_Tennis/All_Events|Corentin_Moutet_vs_Tommy_Paul|902133|Tomorrow|05:30|Win Match|Tommy Paul|1/1|100%; midday 12:16Z live listing
+Basketball|NBA|Basketball/NBA/NBA|DEN_Nuggets_@_OKC_Thunder|534843|Today|21:40|Money Line|OKC Thunder|7/7|100%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Panathinaikos_vs_Baskonia|535923|Today|14:15|Money Line|Panathinaikos|6/8|75%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Maccabi_Tel_Aviv_vs_Real_Madrid|535921|Today|14:05|Money Line|Real Madrid|5/8|63%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Anadolu_Efes_vs_Besiktas|535918|Today|13:30|Money Line|Anadolu Efes|4/5|80%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Bayern_Munich_vs_BC_Dubai|535920|Today|14:00|Money Line|BC Dubai|3/6|50%; midday 12:17Z live listing
+Basketball|NBA|Basketball/NBA/NBA|CLE_Cavaliers_@_PHI_76ers|534845|Today|19:10|Money Line|PHI 76ers|3/4|75%; midday 12:17Z live listing
+Basketball|NBA|Basketball/NBA/NBA|HOU_Rockets_@_SA_Spurs|534841|Tomorrow|21:40|Money Line|SA Spurs|3/3|100%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Milano_vs_Barcelona|535922|Today|14:30|Money Line|Barcelona|2/2|100%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Partizan_vs_Crvena_Zvezda|535924|Today|14:45|Money Line|Crvena Zvezda|2/4|50%; midday 12:17Z live listing
+Basketball|Brazil NBB|Basketball/Other/Brazil_NBB|Fortaleza_BC_vs_Pinheiros|536019|Today|18:30|Money Line|Pinheiros|2/3|67%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Zalgiris_vs_Asvel_Lyon_Villeurbanne|535928|Tomorrow|13:00|Money Line|Zalgiris|2/3|67%; midday 12:17Z live listing
+Basketball|Brazil NBB|Basketball/Other/Brazil_NBB|Uniao_Corinthians_vs_Minas|536020|Today|18:30|Money Line|Minas|1/2|50%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Olympiacos_vs_Fenerbahce|535925|Tomorrow|14:15|Money Line|Olympiacos|1/1|100%; midday 12:17Z live listing
+Basketball|Euroleague|Basketball/European/Euroleague|Paris_vs_Valencia|535926|Tomorrow|14:45|Money Line|Paris|1/2|50%; midday 12:17Z live listing
+Basketball|NBA|Basketball/NBA/NBA|NY_Knicks_@_BOS_Celtics|534842|Tomorrow|19:10|Money Line|NY Knicks|1/2|50%; midday 12:17Z live listing
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Skelleftea_AIK_vs_Djurgardens_IF|199905|Today|13:00|Money Line|Skelleftea AIK|7/7|100%; midday 12:18Z live listing
+Ice_Hockey|Finland SM Liiga|Ice_Hockey/Other/Finland_SM_Liiga|Jyp_vs_HPK|199912|Today|11:30|Money Line|Jyp|6/9|67%; midday 12:18Z live listing
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Timra_IK_vs_Farjestad_BK|199901|Today|13:00|Money Line|Farjestad BK|5/7|71%; midday 12:18Z live listing
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Orebro_HK_vs_Brynas_IF|199900|Today|13:00|Money Line|Brynas IF|5/7|71%; midday 12:18Z live listing
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|IF_Bjorkloven_vs_IF_Malmo_Redhawks|199899|Today|13:00|Money Line|IF Bjorkloven|3/4|75%; was 2/2 at 08:30Z; listed by OLBG under Swedish Hockey League label
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Rogle_BK_vs_Frolunda_HC|199906|Today|13:00|Money Line|Frolunda HC|3/5|60%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|SJ_Sharks_@_OTT_Senators|199942|Today|19:07|Money Line|OTT Senators|3/3|100%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|DET_Red_Wings_@_VAN_Canucks|199933|Today|22:07|Money Line|DET Red Wings|3/3|100%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|UTA_Mammoth_@_SEA_Kraken|199939|Today|22:07|Money Line|UTA Mammoth|3/3|100%; midday 12:18Z live listing
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Vaxjo_Lakers_HC_vs_Lulea_HF|199902|Today|13:00|Puck Line|Lulea HF +1.50|2/3|67%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|NSH_Predators_@_BOS_Bruins|199936|Today|19:07|Money Line|BOS Bruins|2/2|100%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|FLA_Panthers_@_PIT_Penguins|199934|Today|19:07|Money Line|FLA Panthers|2/3|67%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|LA_Kings_@_NY_Islanders|199938|Today|19:37|Money Line|LA Kings|2/2|100%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|WPG_Jets_@_DAL_Stars|199941|Today|20:07|Money Line|DAL Stars|2/2|100%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|MIN_Wild_@_CGY_Flames|199935|Today|21:07|Money Line|MIN Wild|2/2|100%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|CAR_Hurricanes_@_EDM_Oilers|199931|Today|21:07|Money Line|CAR Hurricanes|2/3|67%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|ANA_Ducks_@_NJ_Devils|199932|Today|19:07|Money Line|NJ Devils|1/2|50%; midday 12:18Z live listing
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|NY_Rangers_@_TOR_Maple_Leafs|199937|Today|19:07|Game Totals|Over 6.50|1/1|100%; featured market changed from Money Line/TOR Maple Leafs at 08:30Z
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|VGS_Golden_Knights_@_STL_Blues|199940|Today|20:07|Money Line|STL Blues|1/2|50%; midday 12:18Z live listing
+Baseball|MLB|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|Tomorrow|20:00|Money Line|MIL Brewers|14/17|82%; World Series Game 1; unchanged from 08:30Z at midday 12:19Z listing
+Cricket||Cricket/All_Cricket/All_Events|Eastern_Storm_vs_Tuskers_T20|188811|Today|12:00|Win Match|Eastern Storm|10/11|91%; midday 12:20Z live listing
+Cricket||Cricket/All_Cricket/All_Events|Afghanistan_vs_Zimbabwe_One_Day_Match|188831|Tomorrow|07:30|Win Match|Afghanistan|1/1|100%; midday 12:20Z live listing
+Cricket||Cricket/All_Cricket/All_Events|World_Cup_2027|182606|21 Nov 2027|05:00|Outright Winner|India|6/12|50%; midday 12:20Z live listing
+Cricket||Cricket/All_Cricket/All_Events|Big_Bash_Women_2026|187184|05 Dec|03:10|Outright Winner|Sydney Sixers W|2/3|67%; midday 12:20Z live listing
+Cricket||Cricket/All_Cricket/All_Events|India_W_vs_Zimbabwe_W_1st_ODI|188830|Tomorrow|04:30|Man Of The Match|S Mandhana|1/1|100%; NEW at 12:20Z; Man Of The Match market recorded verbatim
+Cricket||Cricket/All_Cricket/All_Events|T20_Big_Bash_2026-27|187503|12 Dec|03:15|Outright Winner|Adelaide Strikers|1/2|50%; midday 12:20Z live listing
+Cricket||Cricket/All_Cricket/All_Events|SA20_2026-27|187504|24 Jan 2027|11:30|Outright Winner|Pretoria Capitals|1/1|100%; midday 12:20Z live listing
+Cricket||Cricket/All_Cricket/All_Events|T20_Blast_2027|188350|18 Jul 2027|11:00|Outright Winner|Sussex||no tip count printed on the 12:20Z listing; selection label Sussex shown verbatim
+Darts||Darts/All_Darts/All_Events|Gerwyn_Price_vs_Rob_Cross|32325|Today|14:45|Win Match 2-way|Gerwyn Price|18/25|72%; PDC European Championship R1 Dortmund; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Niels_Zonneveld_vs_Cameron_Menzies|32334|Today|14:15|Win Match 2-way|Niels Zonneveld|17/25|68%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Luke_Woodhouse_vs_Dirk_van_Duijvenbode|32324|Today|13:15|Win Match 2-way|Dirk van Duijvenbode|16/21|76%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|James_Wade_vs_Damon_Heta|32322|Today|15:15|Win Match 2-way|James Wade|14/21|67%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Gian_van_Veen_vs_Andrew_Gilding|32323|Today|16:15|Win Match 2-way|Gian van Veen|14/20|70%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Danny_Noppert_vs_Stephen_Bunting|32330|Today|13:45|Win Match 2-way|Danny Noppert|12/19|63%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Ross_Smith_vs_Karel_Sedlacek|32329|Today|16:45|Win Match 2-way|Ross Smith|10/17|59%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|Tomorrow|13:15|Win Match 2-way|Ryan Joyce|8/10|80%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|Tomorrow|14:45|Win Match 2-way|Jonny Clayton|7/10|70%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|Tomorrow|13:45|Win Match 2-way|Dave Chisnall|5/8|63%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Josh_Rock_vs_Chris_Dobey|32336|Tomorrow|16:45|Win Match 2-way|Josh Rock|5/7|71%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|Tomorrow|14:15|Win Match 2-way|Cristo Reyes|4/7|57%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|Tomorrow|15:45|Win Match 2-way|Wessel Nijman|4/8|50%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|Tomorrow|15:15|Win Match 2-way|William OConnor|3/5|60%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|Kevin_Doets_vs_Michael_van_Gerwen|32331|Tomorrow|16:15|Win Match 2-way|Michael van Gerwen|3/4|75%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|PDC_World_Championship_2027|26023|03 Jan 2027|12:00|Win Tournament|Luke Littler|23/37|62%; midday 12:21Z live listing
+Darts||Darts/All_Darts/All_Events|European_Championship|32338|25 Oct|14:00|Win Tournament|Gerwyn Price|3/13|23%; consensus flipped from Luke Humphries at 08:30Z
+Snooker||Snooker/All_Snooker/All_Events|Elliot_Slessor_v_Ricky_Walden|9947|Today|09:00|Win Match|Elliot Slessor|9/11|82%; BetVictor Northern Ireland Open Last 16; midday 12:23Z live listing
+Snooker||Snooker/All_Snooker/All_Events|Mark_Williams_v_Martin_O_Donnell|9943|Today|14:00|Win Match|Mark Williams|6/9|67%; midday 12:23Z live listing
+Snooker||Snooker/All_Snooker/All_Events|Anthony_McGill_v_Mateusz_Baranowski|9946|Today|09:00|Handicap Betting|Mateusz Baranowski +1.50|4/6|67%; featured market now Handicap Betting at 12:23Z
+Snooker||Snooker/All_Snooker/All_Events|David_Gilbert_v_Cheung_Ka_Wai|9945|Today|14:00|Handicap Betting|Cheung Ka Wai +1.50|3/4|75%; featured market now Handicap Betting at 12:23Z
+Snooker||Snooker/All_Snooker/All_Events|Jak_Jones_v_Daniel_Wells|9941|Today|15:00|Win Match|Daniel Wells|3/4|75%; midday 12:23Z live listing
+Snooker||Snooker/All_Snooker/All_Events|Jordan_Brown_v_Scott_Donaldson|9944|Today|15:00|Handicap Betting|Jordan Brown -0.50|2/2|100%; featured market now Handicap Betting at 12:23Z
+Handball||Handball/All_Handball/All_Events|FC_Barcelona_vs_Montpellier|12046|Today|14:45|Money Line|FC Barcelona|9/15|60%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Bulgaria_W_vs_Italy_W|12109|Today|12:00|Money Line|Italy (W)|7/9|78%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|TVB_Stuttgart_vs_SG_BBM_Bietigheim|12094|Today|13:00|Money Line|TVB Stuttgart|7/11|64%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Sporting_CP_vs_IFK_Kristianstad|12054|Today|14:45|Money Line|Sporting CP|7/15|47%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Kolstad_vs_SC_Magdeburg|12048|Today|14:45|Money Line|Tie|6/13|46%; 3-way money line; consensus selection is the tie; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|BM_Granollers_vs_Ciudad_Encantada|12100|Today|14:00|Money Line|BM Granollers|5/9|56%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|MT_Melsungen_vs_Wisla_Plock|12049|Today|12:45|Money Line|MT Melsungen|4/9|44%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Pick_Szeged_vs_GOG|12051|Today|12:45|Money Line|GOG|4/10|40%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|SonderjyskE_vs_Nordsjaelland_Handbold|12073|Today|13:30|Money Line|Nordsjaelland Handbold|4/9|44%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|KIF_Kolding_vs_Fredericia_HK|12074|Today|14:00|Money Line|Fredericia HK|4/8|50%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Estonia_W_vs_Kosovo_W|12110|Tomorrow|14:00|Money Line|Kosovo (W)|3/4|75%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Skive_FH_vs_Aalborg_Handbold|12076|24 Oct|09:00|Money Line|Aalborg Handbold|3/4|75%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Skanela_IF_vs_HIF_Karlskrona|12117|Today|12:30|Money Line|Tie|2/6|33%; 3-way money line; consensus selection is the tie; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Onnereds_HK_vs_Ystads_IF_HF|12116|Today|13:00|Money Line|Onnereds HK|2/4|50%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Frisch_Auf_Goppingen_vs_ThSV_Eisenach|12088|Tomorrow|14:00|Money Line|ThSV Eisenach|2/3|67%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Pays_dAix_UC_vs_Toulouse|12083|Tomorrow|14:00|Money Line|Toulouse|2/3|67%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Limoges_87_vs_Dunkerque|12080|Tomorrow|14:00|Money Line|Dunkerque|2/4|50%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Selestat_Alsace_vs_Caen|12085|Tomorrow|14:30|Money Line|Caen|2/3|67%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Villa_De_Aranda_vs_Puerto_Sagunto|12107|24 Oct|13:00|Money Line|Puerto Sagunto|2/2|100%; midday 12:24Z live listing
+Handball||Handball/All_Handball/All_Events|Bidasoa_Irun_vs_Caserio_Ciudad_Real|12101|Tomorrow|13:00|Money Line|Bidasoa Irun|1/2|50%; midday 12:24Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Radomka_Radom_W_vs_Mielec_W|36988|Today|11:30|Win Match|Radomka Radom W|9/13|69%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Brno_vs_Odolena_Voda|36989|Today|12:00|Win Match|Brno|8/10|80%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Ceske_Budejovice_vs_Beskydy|36990|Today|12:00|Win Match|Ceske Budejovice|6/9|67%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Ostrava_vs_Kladno|36992|Today|12:00|Win Match|Ostrava|6/10|60%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Usti_Nad_Labem_vs_Zlin|36993|Today|12:00|Win Match|Zlin|5/9|56%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Liberec_vs_Benatky_nad_Jizerou|36991|Today|12:00|Win Match|Liberec|3/5|60%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Sete_vs_Chaumont|37005|Today|14:00|Win Match|Chaumont|3/3|100%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Slepsk_Suwalki_vs_GKS_Katowice|36963|Tomorrow|11:30|Win Match|Slepsk Suwalki|2/3|67%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Brasilia_W_vs_Sesc_RJ_Flamengo_W|37001|Tomorrow|17:30|Win Match|Brasilia W|2/2|100%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|PGE_Skra_Belchatow_vs_Projekt_Warszawa|36964|24 Oct|12:00|Win Match|Projekt Warszawa|2/3|67%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|CHKS_Chelm_vs_Resovia_Rzeszow|36965|25 Oct|13:00|Win Match|Resovia Rzeszow|2/3|67%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|VC_Deya_Sport_vs_Neftohimic_2010|37008|Today|12:00|Win Match|VC Deya Sport|1/1|100%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Paulistano-Barueri_W_vs_Minas_W|37000|Tomorrow|17:30|Set Score|Paulistano/Barueri W to win 3-1|1/1|100%; featured market Set Score at 12:26Z
+Volleyball||Volleyball/All_Volleyball/All_Events|Mackenzie_W_vs_Osasco_W|37002|24 Oct|15:00|Set Score|Mackenzie W to win 3-1|1/1|100%; featured market Set Score at 12:26Z
+Volleyball||Volleyball/All_Volleyball/All_Events|Abel-Moda_Brusque_W_vs_Praia_Clube_W|37003|24 Oct|20:00|Win Match|Abel/Moda Brusque W|1/1|100%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Trentino_vs_Cisterna|36994|25 Oct|12:00|Win Match|Cisterna|1/1|100%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Perugia_vs_Pordenone|36997|25 Oct|13:00|Set Score|Pordenone to win 3-1|1/1|100%; featured market Set Score at 12:26Z
+Volleyball||Volleyball/All_Volleyball/All_Events|Monza_vs_Verona|36996|25 Oct|13:00|Win Match|Monza|1/1|100%; midday 12:26Z live listing
+Volleyball||Volleyball/All_Volleyball/All_Events|Civitanova_vs_Padova|36995|25 Oct|13:00|Win Match|Padova|1/1|100%; midday 12:26Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Montauban_v_Oyonnax|609556|Today|20:00|To Win|Oyonnax|16/23|70%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Aurillac_v_Nevers|609560|Tomorrow|18:30|To Win|Aurillac|5/7|71%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Narbonne_v_Brive|609557|Tomorrow|18:00|To Win|Brive|4/6|67%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Agen_v_Nissa|609558|Tomorrow|18:30|To Win|Nissa|3/6|50%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Soyaux_Angouleme_v_Dax|609563|Tomorrow|18:30|To Win|Dax|3/3|100%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Grenoble_v_Biarritz|609561|Tomorrow|20:00|To Win|Grenoble|2/3|67%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bulls_v_Ulster|609576|24 Oct|12:45|Handicap|Ulster +18.50|2/2|100%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Leinster_v_Munster|609578|24 Oct|18:00|To Win|Leinster|2/2|100%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Valence_Romans_v_Colomiers|609559|Tomorrow|18:30|To Win|Colomiers|1/1|100%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Provence_v_Beziers|609562|Tomorrow|20:00|To Win|Provence|1/2|50%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Stormers_v_Scarlets|609580|24 Oct|15:00|To Win|Stormers|1/2|50%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Toulouse_v_Perpignan|609567|24 Oct|15:35|To Win|Toulouse|1/2|50%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bayonne_v_Lyon|609564|24 Oct|15:35|To Win|Lyon|1/1|100%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|La_Rochelle_v_Bordeaux|609554|25 Oct|20:05|To Win|La Rochelle|1/1|100%; midday 12:28Z live listing
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Six_Nations_2027|609013|14 Mar 2027|20:00|Win Tournament|Ireland|3/9|33%; midday 12:28Z live listing
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|State_of_Origin_2027|2695857|27 May 2027|06:00|Win Tournament|New South Wales|9/12|75%; midday 12:30Z live listing
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|Super_League_2027|2801554|02 Oct 2027|13:00|Grand Final Winner|Leeds Rhinos|1/3|33%; midday 12:30Z live listing
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|NRL_2027|2801600|03 Oct 2027|04:30|Grand Final Winner|Penrith Panthers|1/2|50%; midday 12:30Z live listing
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|St_Finbarrs_v_Nemo_Rangers|3530|25 Oct|16:00|Handicap|Nemo Rangers +1.50|10/12|83%; market label not captured in the 12:31Z listing extraction; carried verbatim from the 08:30Z capture of the same listing; gaacork.ie official start 2026-10-25T16:00:00Z; clock label 12:00->16:00 vs 08:30Z (rendering differs; see flag)
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Moycullen_v_Salthill-Knocknacarra|3532|24 Oct|19:00|Handicap|SalthillKnocknacarra +3.50|9/18|50%; market label carried verbatim from the 08:30Z capture; 2026 Galway SFC Final; clock label 14:00->19:00 vs 08:30Z (same absolute 18:00 UTC under ET vs UK/Irish rendering; see flag)
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Kanturk_v_Eire_Og_Cor|3531|01 Nov|14:00|To Win|Kanturk|4/5|80%; market label carried verbatim from the 08:30Z capture; 2026 Cork Senior A FC Final; clock label 09:00->14:00 vs 08:30Z (see flag)
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Rathgormack_v_The_Nire|3536|01 Nov|15:30|Handicap|Rathgormack -2.50|2/2|100%; market label carried verbatim from the 08:30Z capture; DATE DRIFT FLAG STANDS (FL-041): OLBG shows 01 Nov; Munster GAA calendar confirms Sun 25 Oct 2026 14:30 at Fraher Field Dungarvan; clock label 10:30->15:30 vs 08:30Z
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Fr_Caseys_v_Kildimo_Pallaskenry|3537|01 Nov|15:30|Handicap|Fr Caseys -3.50|2/2|100%; market label carried verbatim from the 08:30Z capture; 2026 Limerick SFC Final; clock label 10:30->15:30 vs 08:30Z
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|All_Ireland_Football_Championship_2027|3327|25 Jul 2027|15:30|Win Tournament|Kerry|5/7|71%; market label carried verbatim from the 08:30Z capture; OLBG date label changed 26 Jul 2027 -> 25 Jul 2027 since 08:30Z; still UNVERIFIED (2027 GAA Master Fixtures unpublished)
+Golf||Golf/All_Golf/All_Events|Stifel_Charity_Classic|101903|25 Oct|17:45|Win Tournament|Stewart Cink|3/13|23%; consensus flipped from Steven Alker 2/11 at 08:30Z; PGA Tour Champions; midday 12:33Z live listing; Bermuda Championship 101904 no longer on the default listing at 12:33Z (tournament in progress)
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|913|25 Oct|16:00|Win Race|Max Verstappen|12/33|36%; 3 experts; midday 12:34Z live listing
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026|828|06 Dec|08:00|Win Tournament|Max Verstappen|9/33|27%; midday 12:34Z live listing
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli|912|06 Dec|08:00|Win Tournament|Max Verstappen|4/7|57%; midday 12:34Z live listing; 911 Fastest Qualifier no longer on the default listing at 12:34Z
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|4:53_Central_Park|689643|Today|11:53|Daily Races|Barnfield Lola|2/2|100%; midday 12:36Z live listing; slug is the UK race time, clock label verbatim
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|2:41_Central_Park|689614|Today|09:41|Daily Races|Greatdown Lad|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|3:19_Central_Park|689623|Today|10:19|Daily Races|Footfield Betsy|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|3:32_Towcester|689626|Today|10:32|Daily Races|Railwayclub Bob|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|3:38_Central_Park|689627|Today|10:38|Daily Races|Hollyoak Maggie|1/2|50%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|3:57_Central_Park|689632|Today|10:57|Daily Races|Coonough View|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|4:16_Central_Park|689636|Today|11:16|Daily Races|Princess Pipsie|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|4:34_Central_Park|689637|Today|11:34|Daily Races|Tommys Tibet|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:06_Towcester|689646|Today|12:06|Daily Races|Savana Kommeno|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:24_Towcester|689650|Today|12:24|Daily Races|Swift Aim|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:31_Central_Park|689656|Today|12:31|Daily Races|Harlequin Upbeat|1/1|100%; midday 12:36Z live listing
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:19_Newcastle|689696|Today|15:19|Daily Races|Droopys Bookem|1/1|100%; midday 12:36Z live listing

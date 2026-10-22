@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-21T07:05:00Z",
- "source_capture": "data/raw/gap_sports_capture_20261021.json",
+ "generated_at": "2026-10-22T12:50:00Z",
+ "source_capture": "data/raw/gap_sports_capture_20261022T1250Z.json",
  "listing_pages": {
   "Golf": "https://www.olbg.com/betting-tips/Golf/5",
   "Motor Racing": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -111,7 +111,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -124,7 +124,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Earlier passes read this row as 5/18 (30%). The listing showed 6/20 at this capture; OLBG recount as tips arrive, so the share is a timestamped snapshot.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-02",
@@ -133,12 +133,12 @@
    "competition": "PGA Tour FedExCup Fall \u2014 2026 Butterfield Bermuda Championship",
    "home": "Bermuda Championship",
    "away": "",
-   "start": "25 Oct 17:45",
+   "start": "Today 14:10",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Seamus Power",
-   "olbg_tips": "5/22",
-   "olbg_pct": 23,
+   "olbg_tips": "6/24",
+   "olbg_pct": 25,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
    "olbg_event_id": 101904,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -148,16 +148,18 @@
     "official_url": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview",
     "official_label": "PGA Tour official tournament overview + 'facts and figures' article (Oct 22-25, 2026, Port Royal GC, par 71, 6,828 yd, $6M, Seamus Power 2022 champion)",
     "official_datetime": "Oct 22 - 25, 2026, Port Royal Golf Course, Southampton, Bermuda (Par 71, 6,828 yds, $6M)",
-    "note": "Official pgatour.com pages confirmed the dates (Oct 22-25, 2026), the venue (Port Royal Golf Course, Southampton, par 71, 6,828 yards), the $6M purse and that Seamus Power won here in 2022. The official pages retrieved do NOT state a field size; 120 is taken from the tournament field listing as reported by multiple independent golf outlets and is used as a disclosed model input, not as an official fact.",
+    "note": "PGA Tour confirms the 22-25 October 2026 tournament at Port Royal and Power's 2022 title. A separate official player profile confirms current 2026 form: 3 top-10s, 7 top-25s, 14/21 cuts made and 11th in SG: Putting. Neither the overview nor the profile states a 120-player field; 120 remains a model input.",
+    "official_form_url": "https://www.pgatour.com/player/28252/seamus-power",
+    "official_form_label": "PGA Tour official Seamus Power profile \u2014 2026 form and season statistics",
     "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 8.4
+     "single": 7.35
     },
     "probs": {
-     "single": 0.113
+     "single": 0.1292
     },
     "prior": {
      "field": 120,
@@ -174,46 +176,46 @@
    "pick": {
     "side": "single",
     "label": "Seamus Power",
-    "prob": 0.113,
-    "confidence": "HIGH",
+    "prob": 0.1292,
+    "confidence": "MEDIUM",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 8.4,
-    "american": 740,
+    "price": 7.35,
+    "american": 635,
     "in_band": true,
     "band": [
      -250,
      10000
     ],
-    "start_iso": "2026-10-25",
+    "start_iso": "2026-10-22",
     "kickoff_utc": "2026-10-22T10:35:00Z",
     "clock_basis": "UTC conversion of cited official clock",
-    "kickoff_started": false,
-    "start_basis": "derived from capture year",
+    "kickoff_started": true,
+    "start_basis": "derived from capture date",
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "",
+    "note": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick.",
     "release": {
-     "status": "upcoming",
-     "eligible": true,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "status": "start_window_reached",
+     "eligible": false,
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": "2026-10-22T10:35:00Z",
      "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times",
      "expires_at": "2026-10-22T10:35:00Z",
-     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+     "reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     }
    },
    "flags": [
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: past Bermuda champion Seamus Power leads at 5/22 win tips (23%) across the confirmed 120-player Port Royal field (Ben James leads 1st Round Leader at 5/11).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "OLBG Win Tournament support updated to Seamus Power 6/24 (25%) at 08:29Z. The 120-player value is a disclosed model input; the official field page exists but no exact count was established. By the 12:15Z harvest the Bermuda Championship outright had rotated OFF the OLBG golf listing (round 1 under way since 10:35 UTC per the PGA Tour schedule); this row is retained as the pre-tournament record (Seamus Power 6/24 at 08:29Z) and settles with the final round on 25 Oct.",
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-03",
@@ -290,7 +292,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -304,7 +306,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Two tips only: a 100% share from a sample of two is not evidence.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-04",
@@ -328,7 +330,7 @@
     "official_url": "https://www.lpga.com/tournaments/bmw-lpga-championship/overview",
     "official_label": "LPGA Tour official tournament overview (Oct 22-25, 2026, Pine Beach Golf Links, par 72, 6,784 yd, $2.35M)",
     "official_datetime": "Oct 22 - 25, 2026, Pine Beach Golf Links, Haenam-gun (Par 72, 6,784 yds, $2.35M)",
-    "note": "Official lpga.com overview confirmed the dates (Oct 22-25, 2026), the venue (Pine Beach Golf Links, Haenam-gun), par 72, 6,784 yards, the $2.35M purse and Sei Young Kim as 2025 winner. The official page retrieved does NOT state a field size; 78 is a disclosed model input taken from the published entry list rather than a figure stated on the overview page.",
+    "note": "Official LPGA overview confirms dates, venue, par, yardage, purse and Sei Young Kim as the 2025 winner. It does not state a field size. The 78 value used by the model is an explicit model input, not an official field count.",
     "source_tier": "official"
    },
    "model": {
@@ -380,7 +382,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -393,7 +395,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-05",
@@ -405,9 +407,9 @@
    "start": "25 Oct 17:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Steven Alker",
-   "olbg_tips": "2/7",
-   "olbg_pct": 29,
+   "olbg_pick": "Stewart Cink",
+   "olbg_tips": "3/13",
+   "olbg_pct": 23,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
    "olbg_event_id": 101903,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -423,10 +425,10 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 13.67
+     "single": 11.15
     },
     "probs": {
-     "single": 0.0695
+     "single": 0.0852
     },
     "prior": {
      "field": 156,
@@ -442,17 +444,17 @@
    },
    "pick": {
     "side": "single",
-    "label": "Steven Alker",
-    "prob": 0.0695,
-    "confidence": "LOW",
-    "score": 2,
+    "label": "Stewart Cink",
+    "prob": 0.0852,
+    "confidence": "MEDIUM",
+    "score": 3,
     "factors": {
      "fixture_verified": 2,
      "official_form": 0,
-     "model_edge": 0
+     "model_edge": 1
     },
-    "price": 13.67,
-    "american": 1267,
+    "price": 11.15,
+    "american": 1015,
     "in_band": true,
     "band": [
      -250,
@@ -464,12 +466,12 @@
     "kickoff_started": false,
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -481,8 +483,8 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "Midday re-read (12:15Z harvest): Stewart Cink 3/13, flipped from Alker at the 07:25Z capture. Round 1 tee times began 17:50 UTC on 22 Oct per the PGA Tour Champions schedule, so the event is in play while this outright row remains listed; the row is retained as a dated record and the final-round label (25 Oct) governs the release gate.",
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-06",
@@ -494,9 +496,9 @@
    "start": "24 Oct 11:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Mikael Lundberg",
-   "olbg_tips": "1/2",
-   "olbg_pct": 50,
+   "olbg_pick": "Peter Baker",
+   "olbg_tips": "2/6",
+   "olbg_pct": 33,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Senior_Italian_Open/5?event_id=101911",
    "olbg_event_id": 101911,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
@@ -513,10 +515,10 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.41
+     "single": 13.23
     },
     "probs": {
-     "single": 0.0444
+     "single": 0.0718
     },
     "prior": {
      "field": 156,
@@ -532,8 +534,8 @@
    },
    "pick": {
     "side": "single",
-    "label": "Mikael Lundberg",
-    "prob": 0.0444,
+    "label": "Peter Baker",
+    "prob": 0.0718,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -541,8 +543,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 21.41,
-    "american": 2041,
+    "price": 13.23,
+    "american": 1223,
     "in_band": true,
     "band": [
      -250,
@@ -559,7 +561,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -568,18 +570,17 @@
     }
    },
    "flags": [
-    "small_sample_lt5_tips",
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-07",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "JGTO \u2014 Fortinet Players Cup 2026",
    "home": "Fortinet Players Cup",
    "away": "",
    "start": "25 Oct 02:45",
@@ -591,30 +592,31 @@
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Fortinet_Players_Cup/5?event_id=101908",
    "olbg_event_id": 101908,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Narita Hills Country Club, Chiba, Japan",
    "verification": {
     "status": "corroborated",
-    "official_url": "https://www.jgto.org/en/",
-    "official_label": "Japan Golf Tour Organization (JGTO) official tournament schedule \u2014 FORTINET PLAYERS CUP 2026",
-    "official_datetime": "29 Oct - 1 Nov 2026, Narita Hills Country Club, Chiba",
-    "competition_official": "FORTINET PLAYERS CUP 2026 (JGTO)",
-    "note": "Confirmed on official JGTO schedule (Narita Hills CC, Oct 29 - Nov 1, 2026; 96-player field). | SOURCE TIER: third-party link, published as corroborated rather than verified.",
+    "official_url": "https://www.jgto.org/en/tournament/3048",
+    "official_label": "JGTO official Fortinet Players Cup 2026 tournament summary and Round 1 leaderboard",
+    "official_datetime": "22-25 October 2026, Narita Hills Country Club, Chiba; official Round 1 scoring live",
+    "note": "JGTO confirms tournament identity, dates, venue, \u00a5150,000,000 prize fund and Field 96. The linked official field page states Confirmed:96 / Planned:96 and includes Ryosuke KINOSHITA. Fixture, entrant and field-size verification are recorded separately from current-form verification, which remains false. | SOURCE TIER: third-party link, published as corroborated rather than verified.",
+    "official_field_url": "https://www.jgto.org/en/tournament/3048/player",
+    "official_field_label": "JGTO official field \u2014 Confirmed 96 / Planned 96; Ryosuke Kinoshita entered",
     "source_tier": "unclassified"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.41
+     "single": 19.76
     },
     "probs": {
-     "single": 0.0444
+     "single": 0.0481
     },
     "prior": {
-     "field": 156,
+     "field": 96,
      "strength_k": 24,
-     "a": 0.1538,
-     "b": 23.8462,
-     "basis": "Assumed 156-player field for a 72-hole tour event. OLBG does not publish the field size and the official tournament pages retrieved did not expose an entry list, so this is a disclosed model assumption, not a fact."
+     "a": 0.25,
+     "b": 23.75,
+     "basis": "Field size 96, not the generic 156 assumption used when a field is not published: the official competition source recorded for this row states a 96-strong field, so the prior mean is 1/96. See this row's official source for the field statement."
     },
     "notes": [
      "Probability = (wins + a) / (total + k): the OLBG tip share shrunk toward a 1/N field prior.",
@@ -624,7 +626,7 @@
    "pick": {
     "side": "single",
     "label": "Ryosuke Kinoshita",
-    "prob": 0.0444,
+    "prob": 0.0481,
     "confidence": "LOW",
     "score": 0,
     "factors": {
@@ -632,8 +634,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 21.41,
-    "american": 2041,
+    "price": 19.76,
+    "american": 1876,
     "in_band": true,
     "band": [
      -250,
@@ -650,7 +652,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -663,8 +665,8 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "JGTO officially confirms a 96-player field and lists Ryosuke Kinoshita. OLBG consensus remains the carried 1/2 snapshot; the tournament is in Round 1 on the official site, so this is not fresh current-form evidence.",
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-08",
@@ -741,7 +743,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -755,41 +757,40 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-09",
    "sport": "Golf",
    "sport_slug": "golf",
-   "competition": "",
+   "competition": "Sunshine Tour \u2014 Stella Artois Players Championship 2026",
    "home": "Stella Artois Players Championship",
    "away": "",
    "start": "25 Oct 10:45",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Daniel van Tonder",
-   "olbg_tips": "1/2",
-   "olbg_pct": 50,
+   "olbg_tips": "2/8",
+   "olbg_pct": 25,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stella_Artois_Players_Championship/5?event_id=101912",
    "olbg_event_id": 101912,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Golf/5",
-   "venue": "",
+   "venue": "Glendower Golf Club, Johannesburg, South Africa",
    "verification": {
     "status": "verified",
-    "official_url": "https://sunshinetour.com/schedule?code=RWAO&id=226S",
-    "official_label": "Sunshine Tour official 2026/27 schedule \u2014 Stella Artois Players Championship",
-    "official_datetime": "5 - 8 Nov 2026, Randpark Golf Club, Johannesburg",
-    "competition_official": "Stella Artois Players Championship (Sunshine Tour)",
-    "note": "Confirmed on official Sunshine Tour 2026/27 schedule.",
+    "official_url": "https://sunshinetour.com/tournament?id=226S&code=SAPC",
+    "official_label": "Sunshine Tour official Stella Artois Players Championship tournament page and live scoring",
+    "official_datetime": "22-25 October 2026, Glendower Golf Club; four rounds; Round 1 scoring live",
+    "note": "Official Sunshine Tour page confirms tournament identity, dates, Glendower, four rounds, par 72 / 7,542 yards and defending champion JC Ritchie. It provides entries and live Round 1 scoring links. No exact field count was established, so the model keeps its disclosed generic field assumption.",
     "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 21.41
+     "single": 14.11
     },
     "probs": {
-     "single": 0.0444
+     "single": 0.0673
     },
     "prior": {
      "field": 156,
@@ -806,7 +807,7 @@
    "pick": {
     "side": "single",
     "label": "Daniel van Tonder",
-    "prob": 0.0444,
+    "prob": 0.0673,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -814,8 +815,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 21.41,
-    "american": 2041,
+    "price": 14.11,
+    "american": 1311,
     "in_band": true,
     "band": [
      -250,
@@ -832,7 +833,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -841,12 +842,11 @@
     }
    },
    "flags": [
-    "small_sample_lt5_tips",
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "Sunshine Tour confirms the 22-25 October four-round event at Glendower and exposes live Round 1 scoring. OLBG Win Tournament support updated to Daniel van Tonder 2/8; field size remains the generic model assumption.",
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GLF-10",
@@ -922,7 +922,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -936,7 +936,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "The listing shows the selection but no tip count, so no probability and no price can be originated.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "MTR-01",
@@ -1012,7 +1012,7 @@
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": "2026-10-25T20:00:00Z",
      "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.formula1.com/en/racing/2026/united-states",
@@ -1024,7 +1024,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Updated from live 2026-10-22T01:28Z OLBG harvest: Max Verstappen leads USGP Win Race at 12/33 win tips (36%, 3 tracked experts) and Fastest Qualifier at 5/7.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "MTR-02",
@@ -1101,7 +1101,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1114,7 +1114,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "MTR-03",
@@ -1127,8 +1127,8 @@
    "market_type": "outright",
    "olbg_market": "Win Tournament",
    "olbg_pick": "Max Verstappen",
-   "olbg_tips": "4/6",
-   "olbg_pct": 67,
+   "olbg_tips": "4/7",
+   "olbg_pct": 57,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli/14?event_id=912",
    "olbg_event_id": 912,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -1136,19 +1136,19 @@
    "verification": {
     "status": "verified",
     "official_url": "https://www.formula1.com/en/results/2026/drivers",
-    "official_label": "Formula 1 official 2026 World Drivers' Championship standings",
-    "official_datetime": "2026 FIA Formula One World Championship (Round 19 of 24 upcoming)",
-    "competition_official": "2026 FIA Formula One World Drivers' Championship",
-    "note": "Confirmed on official Formula 1 standings portal ahead of Round 19 in Austin.",
+    "official_label": "Formula 1 official 2026 Drivers' Standings (formula1.com)",
+    "official_datetime": "2026 FIA Formula One World Championship (concludes 6 Dec 2026)",
+    "competition_official": "2026 FIA Formula One World Championship",
+    "note": "Confirmed against Formula1.com official 2026 Drivers' Standings excluding leader Kimi Antonelli (340 pts): George Russell 238 pts, Lewis Hamilton 229 pts, Max Verstappen 221 pts.",
     "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 3.74
+     "single": 3.95
     },
     "probs": {
-     "single": 0.254
+     "single": 0.2406
     },
     "prior": {
      "field": 21,
@@ -1165,7 +1165,7 @@
    "pick": {
     "side": "single",
     "label": "Max Verstappen",
-    "prob": 0.254,
+    "prob": 0.2406,
     "confidence": "LOW",
     "score": 2,
     "factors": {
@@ -1173,8 +1173,8 @@
      "official_form": 0,
      "model_edge": 0
     },
-    "price": 3.74,
-    "american": 274,
+    "price": 3.95,
+    "american": 295,
     "in_band": true,
     "band": [
      -250,
@@ -1191,7 +1191,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1203,8 +1203,8 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Our price is originated as if the field were 21 (the 22-car assumption minus the named runner), and is labelled accordingly.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "Our price uses 21 as an explicit model input for a without-Kimi-Antonelli market (22-car assumption minus one). It is not an official field-size statement. OLBG support updated to Max Verstappen 4/7.",
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-01",
@@ -1280,7 +1280,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1294,7 +1294,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Race name carries the UK clock time (11:14); OLBG's separate 'Today 06:14' label is ~5 hours earlier, which is why no start time is derived from either value (see FL-002).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-02",
@@ -1370,7 +1370,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1384,7 +1384,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-03",
@@ -1460,7 +1460,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1474,7 +1474,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-04",
@@ -1550,7 +1550,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1564,7 +1564,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-05",
@@ -1640,7 +1640,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1654,7 +1654,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-06",
@@ -1730,7 +1730,7 @@
     "release": {
      "status": "past_date",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1744,7 +1744,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "RGL-01",
@@ -1764,13 +1764,12 @@
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
    "venue": "",
    "verification": {
-    "status": "verified",
-    "official_url": "https://www.nrl.com/news/2026/08/18/auckland-2027-state-of-origin-date-confirmed-as-travel-packages-and-hospitality-go-on-sale/",
-    "official_label": "NRL official 2027 Ampol State of Origin Series announcement",
-    "official_datetime": "May - July 2027 (Game II Eden Park Auckland confirmed 23 Jun 2027)",
-    "competition_official": "2027 Ampol State of Origin Series",
-    "note": "Confirmed via official NRL 2027 State of Origin announcement.",
-    "source_tier": "official"
+    "status": "unverified",
+    "official_url": "",
+    "official_label": "",
+    "official_datetime": "",
+    "note": "No official 2027 series page retrieved; the 2027 series has not been published by the NRL at capture time.",
+    "source_tier": "unclassified"
    },
    "model": {
     "basis": "outright-prior",
@@ -1796,10 +1795,10 @@
     "side": "single",
     "label": "New South Wales",
     "prob": 0.6875,
-    "confidence": "MEDIUM",
-    "score": 3,
+    "confidence": "LOW",
+    "score": 1,
     "factors": {
-     "fixture_verified": 2,
+     "fixture_verified": 0,
      "official_form": 0,
      "model_edge": 1
     },
@@ -1816,12 +1815,12 @@
     "kickoff_started": false,
     "start_basis": "stated in label",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1831,10 +1830,11 @@
    },
    "flags": [
     "outright_no_opposing_side",
-    "field_size_prior_assumed"
+    "field_size_prior_assumed",
+    "official_source_not_retrieved"
    ],
    "row_notes": "A three-game series winner market, originated as a two-sided market (New South Wales v Queensland).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "RGL-02",
@@ -1910,7 +1910,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -1925,7 +1925,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Three tips only.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "RGL-03",
@@ -1938,28 +1938,28 @@
    "market_type": "outright",
    "olbg_market": "Grand Final Winner",
    "olbg_pick": "Penrith Panthers",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
+   "olbg_tips": "1/2",
+   "olbg_pct": 50,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/NRL_2027/10?event_id=2801600",
    "olbg_event_id": 2801600,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Rugby_League/10",
    "venue": "",
    "verification": {
     "status": "verified",
-    "official_url": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
-    "official_label": "NRL Telstra Premiership official 2026 Minor Premiership & Finals release",
-    "official_datetime": "2027 NRL Telstra Premiership season outright",
-    "competition_official": "2027 NRL Telstra Premiership",
-    "note": "Confirmed via official NRL Finals release: Penrith Panthers won the 2026 NRL Minor Premiership (fourth in seven years, after four straight titles in 2021-2024) led by Nathan Cleary (218 season pts) and Isaah Yeo.",
+    "official_url": "https://www.nrl.com/",
+    "official_label": "National Rugby League official portal (nrl.com)",
+    "official_datetime": "2027 NRL Telstra Premiership",
+    "competition_official": "NRL Telstra Premiership 2027",
+    "note": "Competition and defending/participating club Penrith Panthers confirmed on official NRL governing body portal (nrl.com); exact 2027 Grand Final kick-off time not yet published.",
     "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 4.92
+     "single": 5.62
     },
     "probs": {
-     "single": 0.1933
+     "single": 0.1691
     },
     "prior": {
      "field": 17,
@@ -1976,16 +1976,16 @@
    "pick": {
     "side": "single",
     "label": "Penrith Panthers",
-    "prob": 0.1933,
-    "confidence": "MEDIUM",
-    "score": 4,
+    "prob": 0.1691,
+    "confidence": "LOW",
+    "score": 2,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 2,
+     "official_form": 0,
      "model_edge": 0
     },
-    "price": 4.92,
-    "american": 392,
+    "price": 5.62,
+    "american": 462,
     "in_band": true,
     "band": [
      -250,
@@ -1997,12 +1997,12 @@
     "kickoff_started": false,
     "start_basis": "stated in label",
     "kickoff_passed": false,
-    "evidence_grade": "MEDIUM",
+    "evidence_grade": "LOW",
     "note": "",
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": "2027-03-04T09:00:00Z",
      "checked_at": "2026-10-22T09:10:00Z",
      "source": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
@@ -2016,7 +2016,7 @@
     "field_size_prior_assumed"
    ],
    "row_notes": "Single tip.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GFA-01",
@@ -2027,7 +2027,7 @@
    "away": "",
    "start": "25 Jul 2027 10:30",
    "market_type": "outright",
-   "olbg_market": "",
+   "olbg_market": "Win Tournament",
    "olbg_pick": "Kerry",
    "olbg_tips": "5/7",
    "olbg_pct": 71,
@@ -2092,7 +2092,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2106,7 +2106,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "OLBG shows no market name on this row (an OLBG listing quirk already logged as a finding) but the selection is a tournament winner, not a match bet.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-07",
@@ -2121,7 +2121,7 @@
    "olbg_pick": "Limited Blue",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:14_Kinsley/28?event_id=689570",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Kinsley/11_14_Kinsley/28?event_id=689570",
    "olbg_event_id": 689570,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
    "venue": "",
@@ -2183,7 +2183,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2197,7 +2197,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-08",
@@ -2212,7 +2212,7 @@
    "olbg_pick": "Drumdoit Pixie",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:36_Sheffield/28?event_id=689576",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Sheffield/11_36_Sheffield/28?event_id=689576",
    "olbg_event_id": 689576,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
    "venue": "",
@@ -2274,7 +2274,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2288,7 +2288,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-09",
@@ -2303,7 +2303,7 @@
    "olbg_pick": "Ballymac Alyssa",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/12:03_Kinsley/28?event_id=689581",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Kinsley/12_03_Kinsley/28?event_id=689581",
    "olbg_event_id": 689581,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
    "venue": "",
@@ -2365,7 +2365,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2379,7 +2379,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "GRY-10",
@@ -2394,7 +2394,7 @@
    "olbg_pick": "Ferryforth Mary",
    "olbg_tips": "1/1",
    "olbg_pct": 100,
-   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/12:14_Nottingham/28?event_id=689584",
+   "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Nottingham/12_14_Nottingham/28?event_id=689584",
    "olbg_event_id": 689584,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Greyhounds/28",
    "venue": "",
@@ -2456,7 +2456,7 @@
     "release": {
      "status": "unverified_start",
      "eligible": false,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": null,
      "checked_at": null,
      "source": null,
@@ -2470,7 +2470,7 @@
     "official_source_not_retrieved"
    ],
    "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock.",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "captured_at": "2026-10-22T12:50:00Z"
   },
   {
    "ref": "DRT-17",
@@ -2479,12 +2479,12 @@
    "competition": "2026 Machineseeker European Championship",
    "home": "European Championship 2026 Outright",
    "away": "",
-   "start": "Today 15:00",
+   "start": "Today 13:00",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Luke Humphries",
-   "olbg_tips": "16/91",
-   "olbg_pct": 18,
+   "olbg_pick": "Gerwyn Price",
+   "olbg_tips": "3/13",
+   "olbg_pct": 23,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
    "olbg_event_id": 32338,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
@@ -2495,16 +2495,16 @@
     "official_label": "PDC official 2026 Machineseeker European Championship schedule & 32-player draw",
     "official_datetime": "Thu 22 Oct 2026, 19:00 CEST \u2014 Sun 25 Oct 2026, Westfalenhalle, Dortmund",
     "competition_official": "2026 Machineseeker European Championship",
-    "note": "Confirmed on official PDC schedule: 32-player Premier event opening Thursday 22 Oct at 19:00 CEST.",
+    "note": "Confirmed on official PDC schedule: 32-player Premier event opening Thursday 22 Oct at 19:00 CEST. 2026-10-22 12:47Z: PDC official news confirms Luke Humphries WITHDRAWN through illness (gastroenteritis); Kim Huybrechts replaces him. OLBG outright consensus flipped from Humphries (16/91 on 21 Oct; 4/13 at 08:29Z) to Gerwyn Price 3/13 at the 12:15Z harvest.",
     "source_tier": "official"
    },
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 6.07
+     "single": 7.46
     },
     "probs": {
-     "single": 0.1565
+     "single": 0.1273
     },
     "prior": {
      "field": 32,
@@ -2520,17 +2520,17 @@
    },
    "pick": {
     "side": "single",
-    "label": "Luke Humphries",
-    "prob": 0.1565,
-    "confidence": "HIGH",
-    "score": 6,
+    "label": "Gerwyn Price",
+    "prob": 0.1273,
+    "confidence": "MEDIUM",
+    "score": 3,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 2,
-     "model_edge": 2
+     "official_form": 0,
+     "model_edge": 1
     },
-    "price": 6.07,
-    "american": 507,
+    "price": 7.46,
+    "american": 646,
     "in_band": true,
     "band": [
      -250,
@@ -2542,14 +2542,14 @@
     "kickoff_started": false,
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "HIGH",
+    "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
      "status": "upcoming",
      "eligible": true,
-     "as_of": "2026-10-22T09:10:00+00:00",
+     "as_of": "2026-10-22T12:50:00+00:00",
      "start_utc": "2026-10-22T17:00:00Z",
-     "checked_at": "2026-10-22T09:10:00Z",
+     "checked_at": "2026-10-22T12:50:00Z",
      "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
      "expires_at": "2026-10-22T17:00:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -2559,8 +2559,8 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Captured live on OLBG /Darts/15 (16/91 tips on world #2 Luke Humphries).",
-   "captured_at": "2026-10-21T07:05:00Z"
+   "row_notes": "Captured live on OLBG /Darts/15 on 21 Oct (16/91 tips on Luke Humphries). Re-read at the 12:15Z harvest on 22 Oct: consensus is Gerwyn Price 3/13 after Humphries' illness withdrawal (pdc.tv, official). official_form_verified is set false because Price's form evidence (PDC Form Guide top rating, 100.32 average over his last 200 legs; 2026 European Darts Grand Prix title; three 2026 major final losses - World Matchplay, World Series Finals, World Grand Prix) reaches us via dartsnews.com's citation of the official PDC Form Guide, not a directly retrieved PDC statistics page; the row is therefore graded on fixture verification plus consensus only.",
+   "captured_at": "2026-10-22T12:50:00Z"
   }
  ]
 }

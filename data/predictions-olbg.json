@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-22T07:35:00Z",
+  "generated_utc": "2026-10-22T12:58:00Z",
   "odds_window_policy": "Every high-confidence selection sits strictly inside -250 to +10000 American odds (1.40 to 101.00 decimal odds) with model fair probability < 70%, filtering out trivial >70% moneyline chalk.",
   "predictions": [
     {
@@ -338,7 +338,7 @@
       "match": "Orebro HK vs Brynas IF",
       "selection": "Brynas IF Money Line",
       "confidence": "high",
-      "text": "Here our SHL standings model directly overturns a thin 1/1 public tip on hosts Orebro HK at Behrn Arena. Official Swedish Ice Hockey Association tables through 10 games show fifth-placed Brynas IF carrying a +5 goal differential (28 scored, 23 allowed) anchored by veteran winger Jakob Silfverberg (8 points in 10 games), whereas ninth-placed Orebro sit at -9 (20 scored, 29 conceded) despite Patrik Karlkvist's 8 points and a 2-1 win at Rogle on October 17. Brynas IF on the Money Line at 1.50 (-200) is top-shelf value.",
+      "text": "Here our SHL standings model directly overturned a thin 1/1 public tip on hosts Orebro HK at the morning capture (by the 12:15Z midday harvest the OLBG consensus had moved to Brynas 5/7, 71%, in line with this model) at Behrn Arena. Official Swedish Ice Hockey Association tables through 10 games show fifth-placed Brynas IF carrying a +5 goal differential (28 scored, 23 allowed) anchored by veteran winger Jakob Silfverberg (8 points in 10 games), whereas ninth-placed Orebro sit at -9 (20 scored, 29 conceded) despite Patrik Karlkvist's 8 points and a 2-1 win at Rogle on October 17. Brynas IF on the Money Line at 1.50 (-200) is top-shelf value.",
       "sources": [
         {
           "label": "Swedish Ice Hockey Association — Official 2026-27 SHL Standings & Results",
@@ -414,17 +414,21 @@
       "match_id": "DAR-32337",
       "sport": "Darts",
       "match": "Luke Humphries vs Ryan Searle",
-      "selection": "Luke Humphries to Win Match",
+      "selection": "Void - Luke Humphries withdrew (was: Humphries to Win Match)",
       "confidence": "high",
-      "text": "World number two and 2025 Dortmund runner-up Luke Humphries returns to the Westfalenhalle after posting a 16-4 match record and a blistering 100.01 average across his 2026 European Tour appearances. Because Humphries skipped select continental stops, he sits artificially low as 12th seed — gifting bettors a rare playable price inside -250 against 21st seed Ryan Searle, who carries a sub-.500 European Tour record (12-14, 94.36 average). Back Luke Humphries to Win Match at 1.46 (-217).",
+      "text": "This listing is void as captured. The PDC confirmed officially on 22 October that Luke Humphries withdrew from the Machineseeker European Championship after a gastroenteritis diagnosis, hours before his first-round match at the Westfalenhalle. Under PDC rules he is replaced directly by Kim Huybrechts, the highest-ranked non-qualified player in the 2026 European Tour rankings, who faces Ryan Searle on Thursday evening; the winner meets Danny Noppert or Stephen Bunting on Saturday. Humphries had been our 1.46 selection in the tie on verified European Tour form (16-4 record, 100.01 average, 12th seed); with the withdrawal that pick is void and this piece is kept only as labelled analysis. No replacement price is originated - the amended tie had no settled OLBG consensus at the 12:15Z harvest and the row is carried with its official verification instead.",
       "sources": [
         {
-          "label": "PDC — 2026 Machineseeker European Championship Field & Draw Confirmed",
-          "url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+          "label": "PDC official news: Humphries withdraws (22 Oct 2026)",
+          "url": "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship/"
         },
         {
-          "label": "PDC — 2026 Machineseeker European Championship Schedule",
-          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+          "label": "PDC replacement statement quoted by sportbible (third-party): Huybrechts v Searle",
+          "url": "https://www.sportbible.com/darts/luke-humphries-pdc-european-championship-withdraws-replacement-114763-20261022"
+        },
+        {
+          "label": "OLBG darts listing, 12:15Z harvest (event 32337 absent)",
+          "url": "https://www.olbg.com/betting-tips/Darts/15"
         }
       ],
       "status": "analysis",
@@ -506,7 +510,8 @@
           "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "MTR-913",
@@ -864,7 +869,7 @@
       "match": "Luke Woodhouse v Dirk van Duijvenbode",
       "selection": "Dirk van Duijvenbode to Win Match (1.50 / -200)",
       "confidence": "high",
-      "text": "Dirk van Duijvenbode to win at 1.50 (-200) is our selection for Thursday evening's opening Round 1 stage match against Luke Woodhouse at Dortmund's Westfalenhalle (19:00 CEST / 17:00 UTC exact opening bell on pdc.tv). Backed by a 6-of-7 OLBG tipster majority and superior power-scoring 180 output across the 2026 PDC European Tour season, van Duijvenbode profiles strongly over best-of-11 legs.",
+      "text": "Dirk van Duijvenbode to win at 1.50 (-200) is our selection for Thursday evening's opening Round 1 stage match against Luke Woodhouse at Dortmund's Westfalenhalle (19:00 CEST / 17:00 UTC exact opening bell on pdc.tv). Backed by a 6-of-7 OLBG tipster majority at capture (16/21, 76%, by the 12:15Z midday harvest) and superior power-scoring 180 output across the 2026 PDC European Tour season, van Duijvenbode profiles strongly over best-of-11 legs.",
       "sources": [
         {
           "label": "PDC official European Championship schedule of play",
@@ -886,23 +891,36 @@
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "match_id": "DAR-32338",
       "sport": "Darts",
       "match": "European Championship",
-      "selection": "Luke Humphries Outright Winner (+478 / 5.78)",
+      "selection": "Gerwyn Price Outright Winner (+646 / 7.46)",
       "confidence": "high",
-      "text": "Luke Humphries to win the 2026 Machineseeker European Championship outright (+478 / 5.78) is our Darts tournament pick ahead of Thursday's 19:00 CEST opening match in Dortmund. Confirmed in the PDC's 32-player draw, world number two Humphries leads all OLBG outright selections (16/91 tips) and sits in the opposite quarter from Luke Littler and Michael van Gerwen.",
+      "text": "Gerwyn Price to win the 2026 Machineseeker European Championship outright - our price 7.46 (+646) - became the obvious Dortmund play the moment the PDC officially confirmed Luke Humphries' withdrawal through gastroenteritis on Thursday morning. The PDC Form Guide, compiled by PDC statistician Christopher Kempf and cited by dartsnews.com, rates Price the form player in the field: a 100.32 average across his last 200 legs, the top mark on tour. He arrives off the European Darts Grand Prix title - his tenth European Tour crown, beating Ross Smith 8-6 in the final - and three successive 2026 major-final defeats (World Matchplay to Littler, World Series Finals to Smith, World Grand Prix to Humphries) give him a point to prove in a 32-player draw where he opens against Rob Cross, the 13th seed meeting the 20th. OLBG's tipsters agree: Price took over the outright consensus at 3/13 within hours of the withdrawal news. Back Gerwyn Price to win the tournament.",
       "sources": [
         {
-          "label": "PDC official European Championship schedule & draw",
+          "label": "PDC official news: Humphries withdraws from Machineseeker European Championship (22 Oct 2026)",
+          "url": "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship/"
+        },
+        {
+          "label": "PDC official European Championship schedule & draw (session times 1900-2300 CEST; revised draw: (13) Price v (20) Cross)",
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+        },
+        {
+          "label": "dartsnews.com citing the official PDC Form Guide: Price 100.32 average, last 200 legs (third-party citation)",
+          "url": "https://dartsnews.com/pdc/gerwyn-price-senses-his-chance-at-the-european-championship-impressive-numbers-fuel-hopes-of-a-long-awaited-title-but-can-he-overcome-his-littler-trauma"
+        },
+        {
+          "label": "OLBG darts outright listing, 12:15Z harvest (Price 3/13)",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338"
         }
       ],
       "status": "high"
     }
   ],
-  "note": "22 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "20 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

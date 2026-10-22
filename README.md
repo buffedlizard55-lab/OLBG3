@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 228 root rows (201 fixtures + 27 outright/race) captured 21–22 Oct 2026, plus the chained 270-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 230 root rows (202 fixtures + 28 outright/race) captured 21–22 Oct 2026, plus the chained 303-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
 - **Honest provenance.** `HIGH` is an uncalibrated model grade, not a demonstrated win rate or betting edge. Fields that no retrieved source states stay blank and are listed on **Flagged for Review** together with every correction. Row-level release evidence (source quotes, checked-at, expiry) is on **Source health** (`source-health.html`).
@@ -19,7 +19,16 @@ What the published numbers do and do not mean:
 | `discovery.html` | Latest robots-aware public OLBG discovery snapshot (partial by design, unverified rows stay blank) |
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
-| `/olbg/` | The separate OLBG lines audit track (21 pages, 270 chained rows) with the same release gate applied to its picks |
+| `/olbg/` | The separate OLBG lines audit track (21 pages, 303 chained rows) with the same release gate applied to its picks |
+
+## Midday integration — `session-bb34505f`, 2026-10-22 12:15–13:00 UTC
+
+Full midday re-harvest of all **15 allowed OLBG sport pages** (`data/raw/olbg-harvest-20261022T1215Z.tsv`, 157 rows incl. 12 fresh greyhound bags), chained onto the `/olbg/` board (**303 matches / 303 lines: 20 HIGH, 110 MEDIUM, 173 LOW**; `check_site` all green) and merged into the root board by dated capture (`data/raw/gap_sports_capture_20261022T1250Z.json`, now the `build_gap_sports.py` input). Root board: **230 rows, 15 live in-band HIGH picks across 9 sports** (`check_board` PASS), 67 written pieces (15 HIGH + 52 labelled analysis), snapshot clock advanced to `2026-10-22T12:50Z`.
+
+- **Official-source verification this pass:** the whole 12-game NHL slate for 22 Oct (OLBG events `199931`–`199942`, incl. tonight's `NYR@TOR` 23:00Z) verified game-by-game against the [official NHL schedule API](https://api-web.nhle.com/v1/schedule/2026-10-22) with UTC start times, venues and game ids — 11 new `verified` rows on `/olbg/`; the PDC European Championship schedule re-read on [pdc.tv](https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/) (session clocks 1900-2300 CEST verbatim).
+- **Luke Humphries withdrawal (`FL-078`):** [PDC officially confirmed](https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship/) that the world No. 2 withdrew through gastroenteritis hours before the first bell; Kim Huybrechts replaces him v Ryan Searle (PDC statement). This explains OLBG event `32337` rotating off and the `32338` outright flipping to **Gerwyn Price** — the `/olbg/` HIGH piece was rewritten onto Price (7.46 / +646, form corroborated via dartsnews.com's citation of the official PDC Form Guide: 100.32 average, last 200 legs), while root `DRT-17` was demoted to MEDIUM/analysis because no official PDC form page for Price was directly retrievable (article body cookie-walled).
+- **Mixed clock rendering (`FL-077`):** the 12:15Z harvest renders UK/Irish time on some pages/events (rugby union, Gaelic `3532`) and US Eastern on others (tennis, NHL, handball, greyhounds), and OLBG lists `CHI v MTL` (`199935`) under "Today" although the official start is `2026-10-24T00:00Z` (Fri 23 Oct, 19:00 CDT). Labels are recorded verbatim, never converted; published starts come only from official timezone-qualified sources. `IHO-10`'s stale "Tomorrow" label was corrected to "Today" against the official SHL schedule (Thu 22 Oct 19:00 CEST).
+- **Midday churn (`FL-079`):** 98 root rows re-read (consensus/market/tips refreshed verbatim), notable flips: darts `32327` Aspinall→C Reyes, basketball `535926` Valencia→Paris, handball `12054` Tie→Sporting CP and `12076` Skive→Aalborg, golf `101903` Alker→Cink, tennis `902105` Nakashima→Jacquet and `902129` Duckworth→Tsitsipas, ice hockey `199906` Puck Line→Money Line and `199937` featured market→Game Totals O6.5. `GLF-02` (Bermuda, in play since 10:35Z) was auto-held as pre-tournament analysis by the start-window release gate. Flags now **79** (`FL-001`..`FL-079`).
 
 ## Audit — `session-0570f99b`, 2026-10-22 (provenance, freshness & release gate)
 
@@ -176,11 +185,11 @@ python3 -m unittest discover -s tests # 28 unit, clock & band invariant tests
 | File | Contents | Track |
 |---|---|---|
 | `data/raw/olbg-harvest-20261022.tsv` | Live `2026-10-22` OLBG harvest across all active sports + multi-market notes | `/olbg/` & root |
-| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`172` verified, `192` priced) | root board |
-| `data/predictions.json` | **`47` written pieces**: **`33` live `HIGH` predictions** + `14` `analysis` notes | root board |
-| `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
-| `data/predictions-olbg.json` | **`23` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) plus `3` archived analysis pieces | `/olbg/` track |
-| `data/flagged.json` | **`53` flagged review items** with direct source links | both tracks |
+| `data/events.json` + `data/gap_sports.json` | `202` two-sided fixtures + `28` outright/race rows = **`230` rows** (`216` verified, `210` priced, `15` live in-band HIGH) | root board |
+| `data/predictions.json` | **`67` written pieces**: **`15` live `HIGH` predictions** + `52` `analysis` notes | root board |
+| `data/matches.json` + `data/lines.json` | **`303` fixtures & multi-market lines** across all 15 allowed sports (chained 07:25Z / 08:29Z / 12:15Z harvests) | `/olbg/` track |
+| `data/predictions-olbg.json` | **`20` live `HIGH` predictions** across 11 sports (all in-band, all `< 70%` prob) plus `27` analysis pieces | `/olbg/` track |
+| `data/flagged.json` | **`79` flagged review items** with direct source links | both tracks |
 
 ## Freshness and verification limitations (independent audit, 2026-10-22)
 

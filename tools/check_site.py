@@ -125,6 +125,11 @@ ALLOWED_HOSTS = {
     "tophaandbold.dk",
     "lnb.com.br",
     "www.legavolley.it", "www.sunshinetour.com", "shl.se", "www.sa20.co.za", "www.leinsterrugby.ie", "www.kbl.or.kr", "www.jgto.org", "sunshinetour.com", "sixnationsrugby.com", "sa20.co.za", "leinsterrugby.ie", "kbl.or.kr", "jgto.org", "en.volleyballworld.com",
+    # Third-party darts news hosts used ONLY as labelled corroborating citations for the official PDC
+    # withdrawal/form-guide facts in the 2026-10-22 midday integration (session-bb34505f, FL-078).
+    "dartsnews.com",
+    "www.sportbible.com",
+    "www.skysports.com",
     "cbv.com.br",
     "www.cdbidasoa.eus",
     "asobal.es",

@@ -68,7 +68,7 @@ def graded_verification(v):
                        "than verified.").strip()
     return out
 
-SRC = os.path.join(ROOT, "data/raw/gap_sports_capture_20261021.json")
+SRC = os.path.join(ROOT, "data/raw/gap_sports_capture_20261022T1250Z.json")
 OUT = os.path.join(ROOT, "data/gap_sports.json")
 
 OVERROUND = 0.05
