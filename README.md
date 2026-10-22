@@ -1,10 +1,16 @@
 # OLBG3 — reverse-engineered multi-sport board, our own lines, our own picks
 
-A static dashboard built by reverse-engineering [OLBG.com](https://www.olbg.com/betting-tips): every in-scope
-sport's rows, a betting line **we** originate for each row, a pick with a confidence grade, written
-predictions for the high-confidence picks, and a verification log that links every check to an official source.
+A static dashboard built from a captured [OLBG.com](https://www.olbg.com/betting-tips) listing: in-scope rows,
+our originated lines where the captured market inputs support them, confidence grades, written predictions for
+HIGH picks, and a verification log linking checks to official sources. It is a dated snapshot, not a live feed.
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
+
+**Freshness warning:** The latest OLBG capture in this repository completed **2026-10-21 07:05 UTC**
+(`data/meta.json`, `data/raw/olbg-harvest-20261021T0650Z.tsv`). This work session is dated 2026-10-22; no new
+OLBG capture was made here. Relative start labels such as “Tomorrow” were captured verbatim and must not be
+interpreted as today's schedule. The official-feed updater does not refresh this OLBG capture. Treat match times,
+tip counts and featured-market selections as stale until a new source capture is verified.
 
 | Page | What it is |
 |---|---|
@@ -56,9 +62,10 @@ each with the ambiguity recorded on the Flagged for Review page.
 5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
    competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
    A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
-   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified
-   (103 official + 6 club-official fixtures + 6 official tour/race events) / 4 corroborated / 18 unverified**
-   (132 priced, 83 handicaps, 25 official-baseline totals), checked row by row as status against source tier.
+   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified (109 official + 6 club-official) / 4 corroborated / 18 unverified**. There are
+   originated prices on **132/137** rows, 83 handicaps, and 25 totals. Five fixtures have no winner price: their
+   captured OLBG leading selections are non-winner markets (one total and four ties), so the model refuses to
+   turn those into match-winner probabilities. This board is not a complete market-by-market inventory.
 
 ## Build and checks
 
@@ -90,17 +97,25 @@ Pages is currently published from the branch root (`main`, `/`), so the root HTM
 | `data/events.json` | 114 two-sided fixtures | board |
 | `data/gap_sports.json` | 23 outright/race rows (generated) | board |
 | `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 14 predictions, one per HIGH row | board |
-| `data/matches.json`, `data/lines.json` | 137 captured rows + 137 model lines | `/olbg/` audit track |
+| `data/predictions.json` | 15 predictions, one per HIGH row | board |
+| `data/matches.json`, `data/lines.json` | 189 captured rows + 189 model lines | `/olbg/` audit track |
 | `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
-| `data/flagged.json`, `data/flagged_review.json` | findings | documentation |
+| `data/flagged.json` | findings for the `/olbg/` audit track | documentation |
 
 ## Known limitations (also on the site)
 
-* 23 of 137 rows have no confirmation at all and 9 more rest on a third-party listing only. Both groups are
-  published and labelled, not quietly dropped.
-* Handicaps exist for 83 rows; totals for 22 (rugby union and ice hockey only, the two sports with an official
+* 18 of 137 rows are unverified and 4 more are corroborated only by a third-party listing. Both groups are
+  published and labelled, not quietly dropped. The latest source capture is 2026-10-21 07:05 UTC; this is not a
+  current live slate, and OLBG's relative date labels can now be stale.
+* Handicaps exist for 83 rows; totals for 25 (rugby union and ice hockey only, where the model has an official
   scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.
+* Five fixtures have no originated moneyline because OLBG's captured leading selection was a total or a tie;
+  the code explicitly refuses to infer a win probability from those selections. The board does not enumerate
+  every available OLBG market.
+* The HIGH grade uses the published fixture/form/probability score and a 65% model-probability threshold. It
+  does **not** select matches using bookmaker market prices, does not establish a >70% market-implied chance,
+  and does not apply the requested American-odds window (-250 to +10000). Do not treat the current HIGH picks as
+  satisfying those additional criteria.
 * OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
 * OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
   start time is derived from them.
