@@ -61,7 +61,9 @@ each with the ambiguity recorded on the Flagged for Review page.
    official source. Currently **6 high-confidence predictions**, one per HIGH row: four Pro D2 fixtures
    (Agen, Soyaux-Angouleme, Valence Romans, Grenoble), Leinster v Munster in the URC, and MLB World Series Game 1.
    Another **14 medium-confidence analysis notes** are published separately and labelled as such; they were
-   written for picks that are now too short-priced to meet the band.
+   written for picks that are now too short-priced to meet the band. On 2026-10-22 all six HIGH fixtures were
+   re-read against the competition's own match sheet: two errors surfaced and were corrected (a wrong Pro D2
+   venue and a wrong points-difference rank). No price or grade moved as a result.
    A parallel 2026-10-22 audit kept the >70% rule and instead removed the two 65–67% picks; because
    0.95/0.70 = 1.36 is shorter than -250, that rule cannot satisfy the requested band. Both readings are
    recorded in `COORDINATION.md`; the band rule is the one enforced by `check_board.py` here.

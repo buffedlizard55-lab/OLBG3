@@ -28,6 +28,7 @@ This document serves as the shared task board coordinating parallel sessions and
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
+| `task-26-high-pick-reverification-20261022` | Re-verify every published HIGH pick line by line against the competition's own match sheet, correct any wrong stored value, rewrite the HIGH prose so no two pieces share a template, and keep the -250..+10000 band gate enforced | `data/official.json`, `data/predictions.json`, `scripts/build_site.py`, `assets/style.css`, `README.md`, `COORDINATION.md`, root HTML snapshot | done | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | `check_board.py` PASS (137 rows / 114 fixtures / 23 outright / 115 verified / 132 priced / 20 written pieces); 6 HIGH, all in band; 20 unit tests; two corrections published on the Flagged page |
 | `task-01-audit` | Initial repo audit, baseline structure, task board initialization | `COORDINATION.md`, `README.md` | done | `session-3f4d1682` | Session initialized on branch arena/3f4d1682-olbg3 |
 | `task-02-collect` | Reverse engineer OLBG sports data across all covered sports (excluding soccer, football, boxing, ufc, mma, american football, hurling, horse racing, cycling, specials) | `data/master_matches.json`, `data/sports/*.json` | done | `session-3f4d1682` | 12 sports collected: Basketball, Baseball, Tennis, Cricket, Ice Hockey, Darts, Snooker, Handball, Volleyball, Rugby Union, Golf, Motor Racing |
 | `task-03-originate` | Originate proprietary betting lines (Moneyline, Handicap/Spread, Totals), Match Winner selections, and Confidence Levels (Low, Medium, High) | `data/master_matches.json` | done | `session-3f4d1682` | Independent line originations with fair price probabilities |
@@ -894,3 +895,30 @@ They cannot both hold with a 5% overround (0.95/0.70 = 1.36 = -280, shorter than
 `session-8b151ab0`'s source-tier labelling, its two disclosures (no bookmaker quotes; 21 Oct snapshot) and its
 per-prediction tier warnings, but grades on the band rule, because that is the constraint stated explicitly in the
 brief. Both rule sets and their consequences are recorded here rather than one being silently deleted.
+
+## Follow-up log — `session-f58890e3` (2026-10-22, band repair + HIGH-pick re-verification)
+
+- **Merge with `main`:** `origin/main` advanced to `e3c0636` (PR #41, `session-8b151ab0`). The merge produced 32
+  conflicts. `scripts/model.py`, `scripts/check_board.py`, `scripts/build_site.py` and the data files were kept on
+  this branch's band-gated version; `README.md` and `COORDINATION.md` were reconciled by hand with the other
+  session's audit retained as a separate section and its source-tier work credited. Merge commit `a8c68b6`.
+- **Live re-verification of every HIGH pick (2026-10-22):** LNR match sheets
+  [12063](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12063-agen-nice),
+  [12065](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12065-angouleme-dax),
+  [12067](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12067-grenoble-biarritz),
+  [12070](https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers),
+  the [URC Round 4 match centre](https://stats.unitedrugby.com/match-centre/2026-27/4) and the
+  [MLB schedule](https://www.mlb.com/schedule/2026-10-23). Every date, home/away side and kick-off time matched
+  the stored row; the LNR sheets print local (CEST) times, which correspond to the captured OLBG labels.
+- **Corrections:** RGU-08's venue was stored as "Stade du Polygone"; the official sheet says **Stade Georges
+  Pompidou**. RGU-09's write-up said Grenoble's +37 differential "ranks fifth"; the LNR table ranks it **fourth**.
+  Both fixed in `data/official.json` / `data/predictions.json` and published on the Flagged for Review page.
+- **Prose rewrite:** the six HIGH bodies were rewritten (59-69 words each) so that no two share the old
+  "X to win in three-way match betting is the call" template. Each names the clubs, the current form figures, the
+  relevant recent results and the explicit selection with price.
+- **Final board:** 137 rows (114 fixtures + 23 outright), 6 HIGH / 86 MEDIUM / 22 LOW on the fixture track,
+  70 archive rows, 67 live rows, 6 predictions of status `high` and 14 labelled `analysis`.
+- **Checks:** `check_board.py` PASS; `check.py` PASS (40 feed rows); `check_links.py` 81 pages / 1,234 links /
+  0 broken; `python3 -m unittest discover -s tests` 20/20; `build_site.py --snapshot` root snapshot refreshed.
+- **Open items unchanged:** the OLBG capture is still 2026-10-21 (no new listing retrieval), no bookmaker odds
+  exist in the repo (prices are ours), and 18 rows remain unverified and 4 corroborated-only.

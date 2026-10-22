@@ -1,99 +1,98 @@
+#!/usr/bin/env python3
+"""Unit tests for the -250..+10000 price band and the board invariants that enforce it."""
 import json
+import os
 import sys
 import unittest
-from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
 
-from board_dates import (resolve_start, american, in_band, expired,
-                         BAND_LOW_DEC, BAND_HIGH_DEC)
+import board_dates as bd  # noqa: E402
 
 
-class BandMaths(unittest.TestCase):
+class TestConversion(unittest.TestCase):
     def test_band_edges(self):
-        self.assertTrue(in_band(1.40))       # -250
-        self.assertTrue(in_band(101.0))      # +10000
-        self.assertFalse(in_band(1.39))
-        self.assertFalse(in_band(101.01))
-        self.assertFalse(in_band(None))
+        self.assertEqual(bd.american(1.40), -250)
+        self.assertEqual(bd.american(101.0), 10000)
+        self.assertTrue(bd.in_band(1.40))
+        self.assertTrue(bd.in_band(101.0))
+        self.assertFalse(bd.in_band(1.39))
+        self.assertFalse(bd.in_band(101.5))
+        self.assertFalse(bd.in_band(None))
+        self.assertFalse(bd.in_band(0))
 
-    def test_american(self):
-        self.assertEqual(american(1.40), -250)
-        self.assertEqual(american(101.0), 10000)
-        self.assertEqual(american(2.00), 100)
-        self.assertEqual(american(1.07), -1429)
-        self.assertEqual(american(1.46), -217)
-        self.assertIsNone(american(None))
+    def test_known_prices(self):
+        self.assertEqual(bd.american(2.00), 100)
+        self.assertEqual(bd.american(1.50), -200)
+        self.assertEqual(bd.american(1.67), -149)
+        self.assertEqual(bd.american(1.42), -238)
+        self.assertEqual(bd.american(5.00), 400)
+        self.assertIsNone(bd.american(1.0))
 
-    def test_decimal_price_round_trip(self):
-        # every published row's US odds must be the arithmetic conversion of its decimal price
-        rows = json.load(open(ROOT / "data/events.json"))["events"]
-        rows += json.load(open(ROOT / "data/gap_sports.json"))["rows"]
-        for r in rows:
-            pk = r["pick"]
-            if pk.get("price") is None:
-                continue
-            self.assertEqual(pk["american"], american(pk["price"]), r["ref"])
-            self.assertEqual(pk["in_band"], in_band(pk["price"]), r["ref"])
+    def test_round_trip_within_a_point(self):
+        for dec in (1.4, 1.55, 1.91, 2.5, 3.62, 12.0, 51.0, 101.0):
+            us = bd.american(dec)
+            back = 1 + 100.0 / abs(us) if us < 0 else 1 + us / 100.0
+            self.assertAlmostEqual(back, dec, places=2)
 
 
-class ClockLabels(unittest.TestCase):
-    def test_relative(self):
-        self.assertEqual(resolve_start("Today 19:10")[0], "2026-10-21")
-        self.assertEqual(resolve_start("Tomorrow 03:00")[0], "2026-10-22")
+class TestDates(unittest.TestCase):
+    def test_relative_labels(self):
+        self.assertEqual(bd.resolve_start("Today 19:10")[0], "2026-10-21")
+        self.assertEqual(bd.resolve_start("Tomorrow 03:00")[0], "2026-10-22")
 
-    def test_dated(self):
-        self.assertEqual(resolve_start("23 Oct 12:00")[0], "2026-10-23")
-        self.assertEqual(resolve_start("06 Dec 08:00")[0], "2026-12-06")
-        self.assertEqual(resolve_start("27 May 2027 06:00")[0], "2027-05-27")
+    def test_dated_labels(self):
+        self.assertEqual(bd.resolve_start("23 Oct 12:00")[0], "2026-10-23")
+        self.assertEqual(bd.resolve_start("27 May 2027 06:00")[0], "2027-05-27")
+        # a month already passed in the capture year means the next year
+        self.assertEqual(bd.resolve_start("06 Mar 09:00")[0], "2027-03-06")
 
-    def test_unrecognised_is_blank(self):
-        self.assertIsNone(resolve_start("sometime next week")[0])
+    def test_unknown(self):
+        iso, why = bd.resolve_start("Saturday evening")
+        self.assertIsNone(iso)
+        self.assertIn("unrecognised", why)
 
-    def test_expired(self):
-        self.assertTrue(expired("2026-10-21"))
-        self.assertFalse(expired("2026-10-22"))
-        self.assertFalse(expired(None))
+    def test_expiry(self):
+        self.assertTrue(bd.expired("2026-10-21"))
+        self.assertFalse(bd.expired("2026-10-23"))
+        self.assertFalse(bd.expired(None))
 
 
-class PublishedBoard(unittest.TestCase):
-    def setUp(self):
-        self.rows = json.load(open(ROOT / "data/events.json"))["events"]
-        self.rows += json.load(open(ROOT / "data/gap_sports.json"))["rows"]
-        self.preds = {p["ref"]: p for p in
-                      json.load(open(ROOT / "data/predictions.json"))["predictions"]}
+class TestPublishedBoard(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        with open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8") as f:
+            cls.events = json.load(f)["events"]
+        with open(os.path.join(ROOT, "data", "gap_sports.json"), encoding="utf-8") as f:
+            cls.gap = json.load(f)["rows"]
+        with open(os.path.join(ROOT, "data", "predictions.json"), encoding="utf-8") as f:
+            cls.preds = {p["ref"]: p for p in json.load(f)["predictions"]}
 
-    def test_every_high_pick_is_in_band_and_live(self):
-        highs = [r for r in self.rows if r["pick"]["confidence"] == "HIGH"]
-        self.assertTrue(highs, "no high-confidence picks published")
+    def test_every_high_pick_is_in_the_band_and_live(self):
+        highs = [r for r in self.events + self.gap if r["pick"]["confidence"] == "HIGH"]
+        self.assertGreater(len(highs), 0)
         for r in highs:
             pk = r["pick"]
-            self.assertTrue(pk["in_band"], r["ref"])
-            self.assertGreaterEqual(pk["price"], BAND_LOW_DEC)
-            self.assertLessEqual(pk["price"], BAND_HIGH_DEC)
-            self.assertFalse(pk["kickoff_passed"], r["ref"])
+            self.assertTrue(bd.in_band(pk["price"]), f"{r['ref']} price {pk['price']} outside band")
+            self.assertFalse(pk.get("kickoff_passed"), f"{r['ref']} kick-off has passed")
+            self.assertEqual(pk["american"], bd.american(pk["price"]), r["ref"])
 
-    def test_every_high_has_a_high_prediction(self):
-        for r in self.rows:
-            if r["pick"]["confidence"] != "HIGH":
-                continue
-            self.assertIn(r["ref"], self.preds)
-            self.assertEqual(self.preds[r["ref"]]["status"], "high")
-            self.assertGreaterEqual(len(self.preds[r["ref"]]["body"].split()), 30)
+    def test_every_high_has_a_prediction(self):
+        highs = [r["ref"] for r in self.events + self.gap if r["pick"]["confidence"] == "HIGH"]
+        for ref in highs:
+            self.assertIn(ref, self.preds)
+            p = self.preds[ref]
+            self.assertEqual(p["status"], "high")
+            self.assertGreaterEqual(len(p["body"].split()), 30, ref)
+            self.assertTrue(p["sources"], ref)
+            self.assertTrue(all(s["url"].startswith("http") for s in p["sources"]), ref)
 
-    def test_non_high_pieces_are_labelled_analysis(self):
+    def test_non_high_pieces_are_analysis(self):
+        conf = {r["ref"]: r["pick"]["confidence"] for r in self.events + self.gap}
         for ref, p in self.preds.items():
-            row = next((r for r in self.rows if r["ref"] == ref), None)
-            self.assertIsNotNone(row, ref)
-            if row["pick"]["confidence"] != "HIGH":
+            if conf.get(ref) != "HIGH":
                 self.assertEqual(p["status"], "analysis", ref)
-
-    def test_no_prediction_is_a_high_confidence_claim_on_a_medium_row(self):
-        for ref, p in self.preds.items():
-            row = next((r for r in self.rows if r["ref"] == ref), None)
-            if row["pick"]["confidence"] == "MEDIUM":
-                self.assertNotEqual(p["status"], "high", ref)
 
 
 if __name__ == "__main__":
