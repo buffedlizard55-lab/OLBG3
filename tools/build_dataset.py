@@ -38,8 +38,14 @@ ID_PREFIX = {
 # Stripping it is pure string normalisation; the untouched name is kept in event_name.
 SUFFIX_RE = re.compile(r"\s+(One Day Match|1st T20 Match|2nd T20 Match|3rd T20 Match|T20|1st ODI|2nd ODI|3rd ODI)$")
 
-WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win", "Win Race"}
-OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races", "Outright Winner", "Fastest Qualifier"}
+# "Win Race" is a multi-runner outright field market, not a two-sided match. The only OLBG row
+# using it is MTR-913, the 22-driver Formula 1 USA Grand Prix (no home/away sides). It must be
+# priced through the field-prior branch in originate.py; keeping it in WIN_MARKETS routed it to
+# the two-way fallback (p_base=0.52 -> -120), contradicting its own +235/3.35 prediction.
+# Moved 2026-10-22 (session-f0f3be65); see FL-047.
+WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win"}
+OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races", "Outright Winner",
+                    "Fastest Qualifier", "Win Race"}
 OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
                  "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", ""}
 

@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">46 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">47 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -345,6 +345,13 @@
   <p>BKB-20 (Efes v Besiktas) credited the Kaunas road win to &#x27;Shane Larkin and Vincent Poirier&#x27;, and BKB-21 (Maccabi v Real Madrid) built its case on &#x27;Walter Tavares in the paint and Facundo Campazzo at point guard&#x27;. The official EuroLeague Round 7 Game Center, which is now cited on both pieces, instead attributes Efes&#x27;s backcourt to Cam Payne filling in for the injured Mike James, and Real Madrid&#x27;s guard step-forward to Theo Maledon. Both write-ups were rewritten to use only what that page states, and the official page was added to their source lists. BKB-21 also now discloses that the home side has won each of the last five meetings, which cuts against the pick. The same wording was present on the /olbg/ track (BKB-535918, BKB-535921) and has been rewritten there too; BKB-535921 also drops an unverified claim that the game is staged in Belgrade&#x27;s Aleksandar Nikolic Hall, which the official page does not state.</p>
   <p class="muted small">Affected rows: BKB-20, BKB-21, BKB-535918, BKB-535921</p>
   <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">EuroLeague — Round 7 Game Center (official)</a></li><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/the-2026-27-euroleague-schedule-is-official/" rel="noopener nofollow" target="_blank">EuroLeague — official 2026-27 schedule announcement</a></li></ul>
+</article>
+<article class="card flag" id="FL-047">
+  <div class="flag-head"><span class="tag">FL-047</span> <span class="sev sev-data">data quality</span></div>
+  <h2>F1 &#x27;Win Race&#x27; outright was mis-priced as a two-way coin flip (fixed 2026-10-22)</h2>
+  <p>MTR-913 (USA Grand Prix, Max Verstappen) is a 22-driver outright, but its OLBG market label &#x27;Win Race&#x27; was mapped to market_family=match_winner in tools/build_dataset.py. With no home/away side to resolve, tools/originate.py fell through to the non-win/tie fallback p_base=0.52 and published 1.83 / -120 (flag non_win_or_tie_consensus_mapped), contradicting both its written prediction (+235 / 3.35) and the parallel root-track outright model (MTR-01). Moving &#x27;Win Race&#x27; into OUTRIGHT_MARKETS routes the row through its disclosed 22-car field prior (OUTRIGHT_FIELDS override p=0.284), giving 3.35 / +235 which now matches the prose exactly. The row stays HIGH (verified, inside -250..+10000, probability 0.284 &lt; 0.70). &#x27;Win Race&#x27; is used by no other row, so MTR-913 is the only record that changed; the high/medium/low counts are unchanged. Raised and fixed by session-f0f3be65.</p>
+  <p class="muted small">Affected rows: MTR-913</p>
+  <ul class="srclist"><li><a href="https://www.formula1.com/en/racing/2026/united-states" rel="noopener nofollow" target="_blank">Formula 1 official: United States Grand Prix 2026 (Circuit of the Americas, race 25 Oct)</a></li><li><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913" rel="noopener nofollow" target="_blank">OLBG event page: USA Grand Prix Win Race (event_id 913)</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/build_dataset.py" rel="noopener nofollow" target="_blank">Fix: tools/build_dataset.py market classification (session-f0f3be65)</a></li></ul>
 </article>
 
 </main>

@@ -4304,27 +4304,27 @@
       "olbg_consensus_selection": "Max Verstappen",
       "olbg_tips": "12/33",
       "p_raw": 0.3636,
-      "p_shrunk": 0.3784,
-      "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+      "p_shrunk": 0.284,
+      "basis": "FIA Formula 1 22-car Austin COTA grid prior + 12/33 OLBG win tips (3 experts)"
     },
-    "our_match_probability": 0.52,
-    "our_home_probability": 0.48,
+    "our_match_probability": 0.284,
+    "our_home_probability": null,
     "our_pick": "Max Verstappen",
-    "our_pick_probability": 0.52,
-    "our_fair_odds": 1.92,
-    "our_price_pick": 1.83,
-    "our_us_odds_pick": "-120",
-    "our_price_other": 1.98,
+    "our_pick_probability": 0.284,
+    "our_fair_odds": 3.52,
+    "our_price_pick": 3.35,
+    "our_us_odds_pick": "+235",
+    "our_price_other": null,
     "our_handicap_line": null,
     "our_handicap_side": null,
     "our_handicap_unit": null,
     "our_total_line": null,
     "our_total_side": null,
     "our_total_unit": null,
-    "our_total_basis": "no total market originated",
+    "our_total_basis": "single-selection outright / multi-runner field",
     "confidence": "high",
     "flags": [
-      "non_win_or_tie_consensus_mapped"
+      "outright_field_prior"
     ]
   },
   {
