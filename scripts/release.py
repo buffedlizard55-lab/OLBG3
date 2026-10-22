@@ -39,6 +39,8 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     # Championship's own competition site publishes its Round 4 fixture list with an explicit
     # 'KO <time> IRE & UK' label, which is the only zone statement the URC gives.
     'www.unitedrugby.com',
+    # Session a1e5112b additions 2026-10-22: ATP, LNR, Liiga, ProTennisLive www-prefix variants
+    'www.atptour.com', 'prod2.lnr.fr', 'top14.lnr.fr', 'www.liiga.fi', 'www.protennislive.com',
     # Evening 2026-10-22: the league's own schedule page is the canonical source for NBA tip-off
     # times, which it states explicitly as 'ET'. Reviewed session-cab97f19; structural only.
     'www.nba.com',

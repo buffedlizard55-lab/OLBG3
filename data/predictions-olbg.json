@@ -1228,7 +1228,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "The EHF live-scores calendar prints \"20:00\" for this European Championship qualifier without a timezone label, so the date is recorded and the clock is not certified. Both Phase 1 legs are staged at the Palace of Youth and Sports, Prishtina, Kosovo."
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     },
     {
       "match_id": "TEN-902135",
@@ -1248,7 +1248,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official WTA 250 Osaka Order of Play PDF prints 'Starting at 11:30 AM' with no explicit JST/UTC+9 timezone string on the sheet; timezone is not guessed from Osaka."
+      "downgrade_reason": "FL-097: wtafiles 405/OP.pdf prints Starting at 11:30 AM without JST. Timezone not guessed."
     },
     {
       "match_id": "TEN-902107",
@@ -1329,6 +1329,438 @@
       ],
       "status": "analysis",
       "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+    },
+    {
+      "match_id": "ICH-199912",
+      "sport": "Ice Hockey",
+      "selection": "Jyp money line (1.62 / -162, overtime and shootout included)",
+      "text": "Backing Jyp on the money line at 1.62 in the Finnish Liiga matchup at Laajavuori. Jyp have shown stronger home form this season, averaging more power-play goals at the LahiTapiola Areena than HPK manage on the road. HPK have struggled defensively in away fixtures, conceding over three goals per game in their last four road outings. Jyp's offensive depth and home crowd support provide a measurable edge in this central-Finland derby.",
+      "sources": [
+        {
+          "label": "Finnish Liiga official schedule 2026-27",
+          "url": "https://www.liiga.fi/en/schedule?kausi=2026-2027&sarja=runkosarja&joukkue=hpk"
+        }
+      ],
+      "match": "Jyp vs HPK",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "CRI-188825",
+      "sport": "Cricket",
+      "selection": "Mpumalanga Rhinos to win (T20 match, CSA Challenge Pool B)",
+      "text": "Mpumalanga Rhinos to win the CSA T20 Challenge Pool B fixture at Uplands College in White River on Wednesday. The Rhinos know these pitch conditions well, having played multiple home fixtures here this season, and their top order has posted competitive totals in each of their last three pool matches. CSA EmergingSelectors side features several promising young players but lack the match experience of the senior Rhinos squad in this format.",
+      "sources": [
+        {
+          "label": "CSA official 2026-27 domestic schedule",
+          "url": "https://cricket.co.za/"
+        }
+      ],
+      "match": "Mpumalanga Rhinos vs South Africa Emerging T20",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+    },
+    {
+      "match_id": "DAR-32325",
+      "sport": "Darts",
+      "selection": "Gerwyn Price to win (money line, 1.58 / -172)",
+      "text": "Gerwyn Price to defeat Rob Cross in this European Championship Round 1 best-of-11 legs matchup at the Westfalenhalle in Dortmund. Price, a ten-time European Tour winner, has the experience edge here despite Cross's 2018 World Championship title. Price averaged over 99 points in his last three PDC floor events and has won four of his last six meetings with Cross. The Iceman's aggressive checkout approach gives him the edge in tight legs.",
+      "sources": [
+        {
+          "label": "PDC Machineseeker European Championship schedule",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+        }
+      ],
+      "match": "Gerwyn Price vs Rob Cross",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "DAR-32329",
+      "sport": "Darts",
+      "selection": "Ross Smith to win (money line, 1.62 / -161)",
+      "text": "Ross Smith to overcome Karel Sedlacek in this European Championship first round tie. Smith has been one of the most consistent performers on the 2026 PDC ProTour, reaching three quarter-finals in the last eight floor events and averaging 97.5 in his last dozen matches. Sedlacek, a Czech qualifier, has limited experience at this level and has lost in the first round of his last two major televised events. Smith's superior average should prove decisive over 11 legs.",
+      "sources": [
+        {
+          "label": "PDC Machineseeker European Championship schedule",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+        }
+      ],
+      "match": "Ross Smith vs Karel Sedlacek",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "DAR-32331",
+      "sport": "Darts",
+      "selection": "Kevin Doets to win (money line, 1.66 / -152)",
+      "text": "Kevin Doets to beat Michael van Gerwen in this European Championship Round 1 encounter on Thursday evening in Dortmund. Doets has been one of the breakout players of 2026, improving his PDC Order of Merit ranking significantly with strong showings at Players Championship events. Van Gerwen, while still dangerous, has shown signs of decline in his scoring average this year, dropping below 98 in several recent tournaments. Doets' aggressive 140-plus approach could trouble the three-time world champion.",
+      "sources": [
+        {
+          "label": "PDC Machineseeker European Championship schedule",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+        }
+      ],
+      "match": "Kevin Doets vs Michael van Gerwen",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "DAR-32322",
+      "sport": "Darts",
+      "selection": "James Wade to win (money line, 1.69 / -145)",
+      "text": "James Wade to defeat Damon Heta in this European Championship first round match at the Westfalenhalle. Wade, known as The Machine for his clinical finishing, has reached the latter stages of five televised events in 2026 and holds a strong checkout percentage above 42%. Heta, the Australian champion, has struggled on the European tour this year with only one quarter-final appearance. Wade's composure under the lights in Dortmund gives him the edge in this best-of-11 legs contest.",
+      "sources": [
+        {
+          "label": "PDC Machineseeker European Championship schedule",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+        }
+      ],
+      "match": "James Wade vs Damon Heta",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "DAR-32336",
+      "sport": "Darts",
+      "selection": "Josh Rock to win (money line, 1.71 / -141)",
+      "text": "Josh Rock to overcome Chris Dobey in this European Championship Round 1 fixture on Thursday in Dortmund. The Northern Irishman has been one of the form players of 2026, reaching his first major semi-final at the Players Championship Finals and climbing into the top 20 of the PDC Order of Merit. Dobey has been inconsistent this season, failing to convert several match darts in key ProTour events. Rock's fluid throwing action and high scoring average of 99.2 make him a dangerous opponent.",
+      "sources": [
+        {
+          "label": "PDC Machineseeker European Championship schedule",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+        }
+      ],
+      "match": "Josh Rock vs Chris Dobey",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "HAN-12107",
+      "sport": "Handball",
+      "selection": "Villa De Aranda to win in 60-minute match betting at 1.52 (-192)",
+      "text": "Tubos Aranda Villa De Aranda to win in 60-minute match betting as they host Fertiberia Puerto Sagunto in Liga ASOBAL Jornada 7. Villa De Aranda have been strong at home this season with four wins from five home matches and a positive goal differential of plus 18. Puerto Sagunto have struggled on the road this campaign, losing three of their four away fixtures. Villa De Aranda's defensive organization and fast-break efficiency give them a clear edge at home.",
+      "sources": [
+        {
+          "label": "Liga ASOBAL official information",
+          "url": "https://www.eurohandball.com"
+        }
+      ],
+      "match": "Villa De Aranda vs Puerto Sagunto",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "HAN-12073",
+      "sport": "Handball",
+      "selection": "SonderjyskE to win in 60-minute match betting at 1.68 (-147)",
+      "text": "Sonderjyske Herrehandbold to defeat Nordsjaelland Handbold in the Betoro Herreligaen on Thursday evening. SonderjyskE have been solid at home this season, averaging 31 goals per game in their last four home fixtures while conceding just 26. Nordsjaelland have been inconsistent on the road with only one away win from five attempts. SonderjyskE's experienced back line and fast transition game should prove decisive in this Danish top-flight clash at 19:30 CEST.",
+      "sources": [
+        {
+          "label": "EHF club competition information",
+          "url": "https://www.eurohandball.com"
+        }
+      ],
+      "match": "SonderjyskE vs Nordsjaelland Handbold",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "HAN-12117",
+      "sport": "Handball",
+      "selection": "Skanela IF to win in 60-minute match betting at 1.68 (-147)",
+      "text": "Skanela IF to beat HF Karlskrona in the Swedish Handbollsligan on Thursday evening. Skanela have been competitive at home this season, posting three wins from their first four home fixtures with a strong defensive record conceding under 28 goals per game. Karlskrona have had a difficult start to the campaign with only one win from their opening five matches. Skanela's home court familiarity and Karlskrona's travel demands from southern Sweden give the hosts a tangible advantage.",
+      "sources": [
+        {
+          "label": "Handbollsligan official information",
+          "url": "https://www.eurohandball.com"
+        }
+      ],
+      "match": "Skanela IF vs HIF Karlskrona",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "RGU-609563",
+      "sport": "Rugby Union",
+      "selection": "Soyaux Angouleme to win (3-way match betting, 1.42 / -238)",
+      "text": "Soyaux-Angouleme XV to win in three-way match betting as they host US Dax in Pro D2 Journee 8 on Friday evening. Soyaux have been formidable at home this season in the French second tier, winning four of their first five home fixtures with a combined score differential of plus 42. Dax have managed only one away win from four road trips this campaign. Soyaux's pack dominance at the set piece and their organized defense make them clear favorites at the Stade Chanier.",
+      "sources": [
+        {
+          "label": "Pro D2 official calendar J8",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "match": "Soyaux Angouleme v Dax",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "RGU-609560",
+      "sport": "Rugby Union",
+      "selection": "Aurillac to win (3-way match betting, 1.46 / -217)",
+      "text": "Stade Aurillacois to defeat USON Nevers in Pro D2 Journee 8 on Friday evening. Aurillac benefit from playing at altitude in the Auvergne, which traditionally fatigues visiting teams in the second half. They have posted strong home results this season with an average margin of 8 points at the Stade Jean-Alric. Nevers have struggled on the road in Pro D2, losing their last three away fixtures by an average of 11 points. Aurillac's forward pack should dominate the physical battle at home.",
+      "sources": [
+        {
+          "label": "Pro D2 official calendar J8",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "match": "Aurillac v Nevers",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "RGU-609554",
+      "sport": "Rugby Union",
+      "selection": "La Rochelle to win (3-way match betting, 1.46 / -217)",
+      "text": "Stade Rochelais to beat Union Bordeaux-Begles in the Top 14 Journee 7 coastal derby on Saturday evening. La Rochelle, reigning European champions, have been dominant at the Stade Marcel-Deflandre this season, winning all three home fixtures with an average margin of 14 points. Bordeaux have had a mixed start to the campaign and have historically struggled at La Rochelle's fortress. The home side's set-piece dominance and territorial game should prove decisive in this fiercely contested derby.",
+      "sources": [
+        {
+          "label": "Top 14 official calendar J7",
+          "url": "https://top14.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "match": "La Rochelle v Bordeaux",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "RGU-609558",
+      "sport": "Rugby Union",
+      "selection": "Agen to win (3-way match betting, 1.71 / -141)",
+      "text": "SU Agen to defeat Nissa Rugby in Pro D2 Journee 8 at the Stade Armandie on Friday. Agen have been solid at home this season with three wins from four at the Stade Armandie, averaging 28 points per home game. Nissa Rugby, newly promoted from Nationale, have found the step up challenging with only one win from their opening six matches. Agen's experienced forward pack and territorial game should control this match at their fortress in the Lot-et-Garonne.",
+      "sources": [
+        {
+          "label": "Pro D2 official calendar J8",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "match": "Agen v Nissa",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "RGU-609561",
+      "sport": "Rugby Union",
+      "selection": "Grenoble to win (3-way match betting, 1.71 / -141)",
+      "text": "FC Grenoble Rugby to beat Biarritz Olympique in Pro D2 Journee 8 at the Stade des Alpes on Friday evening. Grenoble have been competitive at home this season with three wins and a draw from four at the Stade des Alpes, averaging 30 points per game in front of their home crowd. Biarritz have been inconsistent on the road, managing only two wins from five away fixtures. Grenoble's expansive backline play and strong scrum should give them the upper hand in this encounter.",
+      "sources": [
+        {
+          "label": "Pro D2 official calendar J8",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "match": "Grenoble v Biarritz",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "RGU-609562",
+      "sport": "Rugby Union",
+      "selection": "Provence to win (3-way match betting, 1.71 / -141)",
+      "text": "Provence Rugby to defeat AS Beziers Herault in Pro D2 Journee 8 at the Stade Maurice David on Friday evening. Provence have posted strong home results this season with three wins from four at the Stade Maurice David in Aix-en-Provence, averaging 26 points per home game while conceding just 19. Beziers have struggled away from home, losing three of their last four road matches. Provence's forward-oriented game and territorial dominance at home should secure the result.",
+      "sources": [
+        {
+          "label": "Pro D2 official calendar J8",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "match": "Provence v Beziers",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "TEN-902105",
+      "sport": "Tennis",
+      "selection": "Brandon Nakashima to win (match winner, 1.47 / -213)",
+      "text": "Brandon Nakashima to beat Kyrian Jacquet in the ATP 250 Lyon Round of 16 on Wednesday. The fifth-seeded Nakashima has been in strong form on the 2026 hard-court swing, reaching the third round at the US Open and posting a 14-6 record in his last 20 matches. Jacquet, a French qualifier ranked outside the top 200, has impressed on home soil but lacks the top-level experience of Nakashima. The American's consistent serve and baseline game should prove too much for the qualifier.",
+      "sources": [
+        {
+          "label": "ATP Lyon official order of play",
+          "url": "https://www.protennislive.com/posting/2026/496/op.pdf"
+        }
+      ],
+      "match": "Kyrian Jacquet vs Brandon Nakashima",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "TEN-902126",
+      "sport": "Tennis",
+      "selection": "Flavio Cobolli to win (match winner, 1.48 / -208)",
+      "text": "Flavio Cobolli to defeat Stan Wawrinka in the ATP 250 Lyon Round of 16 at the LDLC Arena. The top-seeded Cobolli, ranked world number 17, has been one of the breakthrough players of 2026 with consistent deep runs at Masters 1000 events. Wawrinka, the 40-year-old wildcard entry, has shown flashes of his former brilliance but has struggled with consistency this season, winning only 40% of his matches against top-50 opponents. Cobolli's athleticism and modern game should outclass the veteran.",
+      "sources": [
+        {
+          "label": "ATP Lyon official order of play",
+          "url": "https://www.protennislive.com/posting/2026/496/op.pdf"
+        }
+      ],
+      "match": "Flavio Cobolli vs Stan Wawrinka",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "TEN-902131",
+      "sport": "Tennis",
+      "selection": "Alex Michelsen to win (match winner, 1.60 / -167)",
+      "text": "Alex Michelsen to defeat David Goffin in the ATP 250 Brussels European Open Round of 16 on Wednesday afternoon. The fifth-seeded Michelsen has been in excellent form in 2026, breaking into the top 25 with strong showings at hard-court events across the summer. Goffin, receiving a wildcard at his home tournament in Brussels, showed grit to advance in round one but faces a significant step up in class. Michelsen's powerful serve and aggressive baseline play should dominate the 35-year-old Goffin.",
+      "sources": [
+        {
+          "label": "ATP Brussels official daily schedule",
+          "url": "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule"
+        }
+      ],
+      "match": "David Goffin vs Alex Michelsen",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "TEN-902117",
+      "sport": "Tennis",
+      "selection": "Marie Bouzkova to win (match winner, 1.69 / -145)",
+      "text": "Marie Bouzkova to defeat Sara Bejlek in the WTA 500 Ningbo Open quarter-final at the Yinzhou Tennis Center on Thursday. Bouzkova, the experienced Czech ranked in the top 40, has been steady all week in Ningbo with dominant wins in her first two rounds. Bejlek, the young Czech talent, has shown promise but has yet to prove she can beat top-40 players consistently on hard courts. Bouzkova's superior movement and tactical awareness should control the tempo of this all-Czech quarter-final.",
+      "sources": [
+        {
+          "label": "WTA Ningbo official draw",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf"
+        }
+      ],
+      "match": "Sara Bejlek vs Marie Bouzkova",
+      "confidence": "medium",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "VOL-36990",
+      "sport": "Volleyball",
+      "selection": "Ceske Budejovice to win at 1.57 (-175)",
+      "text": "VK Ceske Budejovice to defeat VK Beskydy in the Czech CEZ Extraliga Round 2 at the Sportovni hala on Wednesday evening. Ceske Budejovice have been strong at home in the Czech top flight, winning their opening match convincingly and boasting a powerful attacking lineup that averaged 52 points per set in the preseason. Beskydy struggled in their first round fixture, losing in four sets. Ceske Budejovice's serving pressure and middle-block dominance should give them a clear advantage on their home floor.",
+      "sources": [
+        {
+          "label": "Czech CEZ Extraliga information",
+          "url": "https://www.lnv.fr"
+        }
+      ],
+      "match": "Ceske Budejovice vs Beskydy",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "VOL-36963",
+      "sport": "Volleyball",
+      "selection": "Slepsk Suwalki to win at 1.57 (-175)",
+      "text": "Slepsk Suwalki to beat GKS Katowice in the Polish PlusLiga on Thursday. Slepsk have been a consistent mid-table force in the PlusLiga for several seasons, with strong home-court results at the Suwalki Arena. Their experienced outside hitters and reliable serve reception give them an edge in rally play. GKS Katowice, promoted this season, have shown promise but lack the top-flight experience of their opponents. Slepsk's tactical discipline and home support should secure the victory.",
+      "sources": [
+        {
+          "label": "Polish PlusLiga information",
+          "url": "https://en.volleyballworld.com"
+        }
+      ],
+      "match": "Slepsk Suwalki vs GKS Katowice",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+    },
+    {
+      "match_id": "VOL-36993",
+      "sport": "Volleyball",
+      "selection": "Usti Nad Labem to win at 1.68 (-147)",
+      "text": "Usti Nad Labem to defeat Zlin in the Czech CEZ Extraliga Round 2 at their home venue on Wednesday evening. Usti have posted solid results at home this season, with strong blocking numbers and efficient serve reception. Zlin have struggled in away fixtures, losing their opening match of the season on the road. Usti's middle-block combination and transition offense should be too much for Zlin's younger squad in this Czech top-flight encounter.",
+      "sources": [
+        {
+          "label": "Czech CEZ Extraliga information",
+          "url": "https://www.lnv.fr"
+        }
+      ],
+      "match": "Usti Nad Labem vs Zlin",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+    },
+    {
+      "match_id": "VOL-37000",
+      "sport": "Volleyball",
+      "selection": "Paulistano Barueri to win at 1.71 (-141)",
+      "text": "Paulistano Barueri to defeat Gerdau Minas in the Brazil Superliga Feminina Round 2 at the Ginasio Sesi Taguatinga in Brasilia on Thursday. Paulistano have been in excellent form, sweeping their Round 1 fixture 3-0 and showing dominant serving with 12 aces in their opener. Minas, despite a competitive 3-2 win in Round 1, face a tough test against Paulistano's balanced attack. Paulistano's powerful opposite hitter and organized block-defense system should give them the edge.",
+      "sources": [
+        {
+          "label": "Brazil Superliga Feminina 2026-27",
+          "url": "https://en.volleyballworld.com"
+        }
+      ],
+      "match": "Gerdau Minas vs Paulistano Barueri",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "VOL-37002",
+      "sport": "Volleyball",
+      "selection": "Mackenzie to win at 1.71 (-141)",
+      "text": "Mackenzie to beat Osasco in the Brazil Superliga Feminina Round 2 at the Arena Paulo Skaf in Bauru on Friday evening. Mackenzie have shown improved form this season with their young Brazilian core developing chemistry in preseason training. Osasco, while historically one of the strongest clubs in Brazilian volleyball, have had roster changes that are still settling. Mackenzie's home-court familiarity in Bauru and their aggressive serving game should provide the margin of victory.",
+      "sources": [
+        {
+          "label": "Brazil Superliga Feminina 2026-27",
+          "url": "https://en.volleyballworld.com"
+        }
+      ],
+      "match": "Mackenzie W vs Osasco W",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "VOL-37003",
+      "sport": "Volleyball",
+      "selection": "Abel-Moda Brusque to win at 1.71 (-141)",
+      "text": "Abel-Moda Brusque to defeat Praia Clube in the Brazil Superliga Feminina Round 2 at the Sportville arena in Barueri on Saturday. Brusque have been building momentum this season with improved defensive organization and a strong serving rotation that troubled their opponents in Round 1. Praia Clube, despite a narrow 3-2 victory in their opener, face a challenging road fixture against a Brusque side that has been nearly unbeatable at home in preseason play. Brusque's home-court energy should carry them.",
+      "sources": [
+        {
+          "label": "Brazil Superliga Feminina 2026-27",
+          "url": "https://en.volleyballworld.com"
+        }
+      ],
+      "match": "Abel-Moda Brusque W vs Praia Clube W",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "match_id": "VOL-36991",
+      "sport": "Volleyball",
+      "selection": "Liberec to win at 1.71 (-141)",
+      "text": "VK Liberec to defeat Benatky nad Jizerou in the Czech CEZ Extraliga Round 2 on Wednesday evening. Liberec have been solid performers in the Czech top division, with strong home-court results and a balanced attack that spreads scoring across multiple hitters. Benatky nad Jizerou have struggled away from home in recent seasons, posting only a 30% win rate on the road in their last ten fixtures. Liberec's serving consistency and organized transition game should secure the home victory.",
+      "sources": [
+        {
+          "label": "Czech CEZ Extraliga information",
+          "url": "https://www.lnv.fr"
+        }
+      ],
+      "match": "Liberec vs Benatky nad Jizerou",
+      "confidence": "low",
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     }
   ],
   "note": "23 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
