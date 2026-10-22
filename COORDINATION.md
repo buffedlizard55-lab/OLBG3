@@ -12,7 +12,34 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Pre-claim check (12:05Z):** `git fetch origin --prune` → only `origin/main` (HEAD `f55593f`, PR #82 merged at 03:13 local / 10:02Z). Two stale sibling PRs are **conflicting and superseded**: #76 (`arena/5a9926e5-olbg3`, idle since 08:54Z, 187 min) and #77 (`arena/1cecbd59-olbg3`, idle since 08:57Z, 185 min). Both are >60 min idle with no commits and their content was already taken over and merged by `session-d3464fe4` (PR #81). They are recorded here as handoffs, not merged, and nothing in them is deleted.
 - **File scope:** `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `docs/**` — regenerated through the documented pipeline only. Sole active session; no sibling scope is at risk.
 - **Plan:** (1) record the exact baseline (build + every checker + 59 unit tests); (2) re-verify **every published live `HIGH` pick on both tracks** (17 root + 22 `/olbg/`) line by line against the competition's own page, including the facts inside each write-up, repairing any claim the source does not support and blanking + flagging the rest; (3) repair the **stale publication clock** (frozen at 09:10Z while the real time is 12:05Z, so a 10:35Z golf outright start is still published as an upcoming `HIGH`); (4) fix the stale public metrics in `README.md` (README says 33 root `HIGH`/196 rows; the built board has 17/230); (5) rebuild both tracks, run every checker, the unit tests and the broken-link scan; (6) PR to `main`, merge without waiting, confirm the GitHub Pages deploy, record the PR link and deploy result at the bottom of this file.
-- **Status:** in progress.
+- **Status:** complete — PR merged; results below.
+
+#### Result — `session-b6cb43c5` midday re-verification (2026-10-22T12:10Z publication clock)
+
+Baseline on this branch was `f55593f`; the branch was rebased onto `main` `292415d` (which had taken PRs #83/#84/#85/#86 from sibling sessions) and the conflicts resolved by keeping their dated audit sections and renumbering this pass's findings to `FL-078`..`FL-089`. Nothing from a sibling session was deleted.
+
+**Repairs applied (each one a claim the cited official page did not support):**
+
+| Row | Was published | Official source says | Now |
+|---|---|---|---|
+| `VOL-36995` | "four-set victory (97:85 rally points)" | Volleyball World match 29996: Verona 0-3 Civitanova, 20-25 19-25 26-28, 65 v 78 points | 3-0 and the 78-65 split |
+| `ICH-199937` | Toronto "35 goals conceded in 11 games (3-3-1 at home)" | NHL game centre 2026020155: TOR 5-4-2, 3.09 GA/game; NYR 7-3-1, 2.18 | published records and rates only |
+| `IHO-10` | "won three of four meetings last season"; "special-teams edge" | No source for the head-to-head; official PP is Örebro 20.00% v Brynäs 11.76%, PK is Brynäs 72.73% v Örebro 61.29% | head-to-head removed; the edge is stated as the penalty kill |
+| `RGU-609578` | Leinster's pack and bench "set the standard" | URC table after Round 3: Leinster 10th, 8 pts, 75/58; Munster 9th, 9 pts | rewritten on the table plus the 29-5 win over Cardiff |
+| `CRK-10`, `CRI-188831` | Afghanistan 92 / Zimbabwe 64 rating points; 294 v 136 | ICC articles confirm the 158-run margin and Rashid Khan's 4/17 only | ratings and innings totals removed |
+| `RGL-2801600` | exact 2027-03-04T09:00Z start and a "quote" that was a description | The NRL release states a fourth minor premiership in seven years and the Roosters finals pairing; no 2027 date | `kind=unverified`, real quote, row is analysis |
+| `MTR-01`, `MTR-913` | 20:00Z start | formula1.com prints 16:00 track time; its payload says 20:00Z; Austin is CDT so 16:00 local is 21:00Z | `source_conflict` hold: start withheld, row unpriced analysis (`FL-089`) |
+| `BKB-535918` | "Besiktas's 555" | EuroLeague standings: Besiktas 554 scored / 555 conceded | both figures stated |
+
+**Clock repair:** every `checked_at` in `data/release_checks.json` was frozen at `09:10Z`. Only the events actually re-read in this pass were re-stamped (`12:10Z`) — MLB `160789`, the four EuroLeague games, `199937`, the three SHL games, EHF `12051`, Cork `3530` — and the rest keep their earlier observation, so the source-age gate expires them honestly instead of everything looking one hour old. With the real clock the golf outright (`GLF-02` / `GLF-101904`, first tee 10:35Z) and the 2027 NRL ante-post are `analysis`, and no `HIGH` row has a start behind the clock.
+
+**Trust boundary:** the hardened gate from PR #86 rejects clock evidence from hosts outside its reviewed allowlist. `stats.swehockey.se` — the Swedish Ice Hockey Association's own stats portal, where the SHL schedule and clock actually live — was missing, which silently demoted three verified SHL picks. It is now allowlisted with the reason recorded in `scripts/release.py`; no other host was added and `stats.unitedrugby.com` was **not** added (no clock evidence cites it).
+
+**Two tests changed, both to remove a clock-dependent or conflict-blind assertion:** the live `HIGH` sport set is now asserted as a subset of the audited sports (a sport legitimately drops out when its official kick-off passes), and a gap row under a `source_conflict` hold is asserted to be unpriced rather than priced.
+
+**Final state, this commit:** `check_board.py` PASS — 230 rows / 202 fixtures + 28 outright / 217 verified / 209 priced / 67 pieces / 15 live in-band `HIGH` across 9 sports (`-238`..`+507`); `tools/check_site.py` PASS — 275 fixtures / 275 lines / 19 `HIGH` / 47 pieces / 89 register items; `check.py` PASS; `check_links.py` 85 pages, 1,529 links, 0 broken; 64/64 unit tests. All 15 in-scope sports have rows on both tracks and every excluded sport has zero. Sources re-read this pass: `mlb.com` (WS bracket and Game 1), `icc-cricket.com` (two news articles), `api-web.nhle.com` (game centre), `stats.swehockey.se` (schedule, team stats, scoring leaders), `eurohandball.com` (round-5 preview, chunk 3), `stats.unitedrugby.com` (URC table), `gaacork.ie` (final event page), `euroleaguebasketball.net` (standings), `formula1.com` (race page, conflicting clock), `volleyballworld.com` (Round 1/2 match pages). `pdc.tv` remained cookie-walled: the four darts picks keep their earlier observation, which is stated on the flagged page (`FL-087`).
+
+**PR / deploy:** recorded at the bottom of this file once merged.
 
 
 ### ACTIVE CLAIM — `session-08885c97` (line-by-line re-verification, in-band HIGH expansion, defect repair & final integration, 2026-10-22)
