@@ -59,6 +59,7 @@ EXPECTED_ROOT_HIGH_SPORTS = {
     "Basketball",
     "Cricket",
     "Ice Hockey",
+    "Darts",
     "Handball",
     "Volleyball",
     "Rugby Union",

@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">95 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">98 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -689,11 +689,32 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG Greyhound Racing Tips (/Greyhounds/28)</a></li></ul>
 </article>
+<article class="card flag" id="FL-096">
+  <div class="flag-head"><span class="tag">FL-096</span> <span class="sev sev-medium">medium</span></div>
+  <h2>French LNV Journée 3 Sète vs Chaumont (VOL-30 / VOL-37005) venue-guessed CEST clock and paraphrased quote repaired</h2>
+  <p>PR #92 recorded a paraphrased quote and timezone=&#x27;CEST&#x27; for event 37005. Re-reading the official LNV TV schedule and LNV DataProject match list confirms neither page states an explicit CET/CEST timezone string (only &#x27;20h&#x27; / &#x27;20:00&#x27;). Under the shared release gate, timezones are never inferred from a French venue.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.lnv.fr/actualites/2026-10-12/programmation-tv-alterna-volstar-x-bein-sports-j1-j8" rel="noopener nofollow" target="_blank">LNV — Programmation TV Alterna VOLSTAR x beIN SPORTS (J1-J8)</a></li></ul>
+</article>
+<article class="card flag" id="FL-097">
+  <div class="flag-head"><span class="tag">FL-097</span> <span class="sev sev-medium">medium</span></div>
+  <h2>WTA 250 Osaka QF Ann Li vs Lilli Tagger (TEN-38 / TEN-902135) venue-guessed JST timezone removed &amp; Guangzhou slug noted</h2>
+  <p>wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf confirms Friday 23 October 2026 Center Court match 1 is [1] Ann Li vs Lilli Tagger (&#x27;Starting at 11:30 AM&#x27;), but prints no explicit timezone label on the sheet, so JST is not inferred from Osaka. OLBG also mislabels Osaka QFs 902134 &amp; 902135 under WTA_Guangzhou.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf" rel="noopener nofollow" target="_blank">WTA — Kinoshita Group Japan Open (Osaka) Official Order of Play PDF</a></li></ul>
+</article>
+<article class="card flag" id="FL-098">
+  <div class="flag-head"><span class="tag">FL-098</span> <span class="sev sev-low">low</span></div>
+  <h2>PDC World Championship 2027 (DRT-18 / DAR-26023) verified on pdc.tv/WCFAQ (+130 HIGH) &amp; 11 root parity rows + 18 consensus tip counts synced</h2>
+  <p>Root `/` now includes WTA Ningbo QF 902117 (TEN-40), PDC World Championship 2027 (DRT-18), F1 Qualifying 911 (MTR-04), Six Nations 613137 (RGU-16), 5 cricket ante-posts (CRK-12..16), and 3 Sheffield greyhound cards (GRY-20..22), plus updated 12:15Z OLBG tip counts across 18 Baseball, Snooker, Basketball, Handball, and Volleyball rows.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.pdc.tv/WCFAQ" rel="noopener nofollow" target="_blank">PDC — Official 2026/27 World Darts Championship Schedule &amp; Ballot FAQ</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T12:25:00Z; publication clock 2026-10-22T12:25:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-22T12:25:00Z; publication clock 2026-10-22T12:40:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
