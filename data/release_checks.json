@@ -1,7 +1,7 @@
 {
   "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label.",
-  "session": "session-784afe97",
-  "checked_at": "2026-10-22T21:55:00Z",
+  "session": "session-784afe97 + session-4b642f84 (22:10Z re-observations)",
+  "checked_at": "2026-10-22T22:10:00Z",
   "events": {
     "160789": {
       "date": "2026-10-23",
@@ -10,7 +10,7 @@
       "kind": "exact",
       "source": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
       "quote": "WORLD SERIES — Friday, Oct. 23 — Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes) — All times ET",
-      "checked_at": "2026-10-22T12:10:00Z"
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "535918": {
       "date": "2026-10-22",
@@ -201,8 +201,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
-      "quote": "Match #30005 — Cucine Lube Civitanova vs Pallavolo Padova — Sunday 25 Oct, 2026 — 17:00 (UTC) / 18:00 (Local Time)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "quote": "Cucine Lube Civitanova vs Pallavolo Padova — Sunday 25 Oct, 2026 — 17:00 (UTC), 18:00 (Local Time) — Men #10 (listed on the SuperLega schedule page 30002 Upcoming Matches)",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "36996": {
       "date": "2026-10-25",
@@ -210,8 +210,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
-      "quote": "Match #30007 — Vero Volley Monza vs Rana Verona — Sunday 25 Oct, 2026 — 17:00 (UTC) / 18:00 (Local Time)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "quote": "Vero Volley Monza vs Rana Verona — Sunday 25 Oct, 2026 — 17:00 (UTC), 18:00 (Local Time) — Men #12 (listed on the SuperLega schedule page 30002 Upcoming Matches)",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "36997": {
       "date": "2026-10-25",
@@ -219,8 +219,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
-      "quote": "Match #30002 — Sir Susa Scai Perugia vs Tinet Prata di Pordenone — Sunday 25 Oct, 2026 — 17:00 (UTC) / 18:00 (Local Time)",
-      "checked_at": "2026-10-22T09:10:00Z"
+      "quote": "Sir Susa Scai Perugia-Tinet Prata di Pordenone Men Superlega 2026/27 25.10.2026 — Upcoming — Sun, 25 Oct 2026 — 17:00 (UTC), 18:00 (Local Time)",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "188831": {
       "date": "2026-10-23",
@@ -294,8 +294,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
-      "quote": "NHL schedule 2026-10-22: game 2026020155 NYR at TOR at Scotiabank Arena, startTimeUTC 2026-10-22T23:00:00Z.",
-      "checked_at": "2026-10-22T21:20:00Z"
+      "quote": "{\"id\":2026020155,\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"venue\":{\"default\":\"Scotiabank Arena\"},\"awayTeam\":{\"abbrev\":\"NYR\"},\"homeTeam\":{\"abbrev\":\"TOR\"}}",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "101904": {
       "date": "2026-10-22",
@@ -554,8 +554,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
-      "quote": "NHL schedule 2026-10-22: game 2026020157 ANA at NJD at Prudential Center, startTimeUTC 2026-10-22T23:00:00Z.",
-      "checked_at": "2026-10-22T21:20:00Z"
+      "quote": "{\"id\":2026020157,\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"venue\":{\"default\":\"Prudential Center\"},\"awayTeam\":{\"abbrev\":\"ANA\"},\"homeTeam\":{\"abbrev\":\"NJD\"}}",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "199933": {
       "date": "2026-10-23",
@@ -590,8 +590,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
-      "quote": "NHL schedule 2026-10-22: game 2026020154 NSH at BOS at TD Garden, startTimeUTC 2026-10-22T23:00:00Z.",
-      "checked_at": "2026-10-22T21:20:00Z"
+      "quote": "{\"id\":2026020154,\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"venue\":{\"default\":\"TD Garden\"},\"awayTeam\":{\"abbrev\":\"NSH\"},\"homeTeam\":{\"abbrev\":\"BOS\"}}",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "199938": {
       "date": "2026-10-22",
@@ -635,8 +635,8 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://api-web.nhle.com/v1/schedule/2026-10-22",
-      "quote": "NHL schedule 2026-10-22: game 2026020156 SJS at OTT at Canadian Tire Centre, startTimeUTC 2026-10-22T23:00:00Z.",
-      "checked_at": "2026-10-22T21:20:00Z"
+      "quote": "{\"id\":2026020156,\"startTimeUTC\":\"2026-10-22T23:00:00Z\",\"venue\":{\"default\":\"Canadian Tire Centre\"},\"awayTeam\":{\"abbrev\":\"SJS\"},\"homeTeam\":{\"abbrev\":\"OTT\"}}",
+      "checked_at": "2026-10-22T22:10:00Z"
     },
     "902135": {
       "kind": "date_only",
@@ -1002,6 +1002,46 @@
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://en.volleyballworld.com",
       "quote": "Paulistano Barueri vs Gerdau Minas, Superliga Feminina R2, 25 Oct 18:30 BRT"
+    },
+    "902118": {
+      "date": "2026-10-23",
+      "time": null,
+      "timezone": null,
+      "kind": "followed_by",
+      "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER COURT — Followed by — QF — Leylah FERNANDEZ CAN VS Ekaterina ALEXANDROVA",
+      "checked_at": "2026-10-22T22:10:00Z",
+      "note": "Official WTA Ningbo Order of Play lists the quarter-final as Followed by with no timezone printed; no exact start is certified."
+    },
+    "902140": {
+      "date": "2026-10-23",
+      "time": "16:00",
+      "timezone": null,
+      "kind": "not_before",
+      "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER COURT — Not before 4:00 PM — QF — [4] Iva JOVIC USA VS [6] Diana SHNAIDER",
+      "checked_at": "2026-10-22T22:10:00Z",
+      "note": "Not-before court time only; the PDF prints no timezone, so no exact UTC start is certified."
+    },
+    "902143": {
+      "date": "2026-10-23",
+      "time": "19:00",
+      "timezone": null,
+      "kind": "not_before",
+      "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER COURT — Not before 7:00 PM — QF — [1] Elena RYBAKINA KAZ VS [Q] Katarzyna KAWA POL",
+      "checked_at": "2026-10-22T22:10:00Z",
+      "note": "Not-before court time only; the PDF prints no timezone, so no exact UTC start is certified."
+    },
+    "902138": {
+      "date": "2026-10-23",
+      "time": null,
+      "timezone": null,
+      "kind": "followed_by",
+      "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER — Followed by — QF — [Q] Mary STOIANA USA VS Katerina SINIAKOVA CZE",
+      "checked_at": "2026-10-22T22:10:00Z",
+      "note": "Official WTA Osaka Order of Play (released 22 Oct 2026 4:20 PM) lists the quarter-final as the third CENTER match with no timezone printed; no exact start is certified."
     }
   }
 }

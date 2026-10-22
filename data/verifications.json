@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-10-22T21:55:00Z",
+  "retrieved_at": "2026-10-22T21:35:00Z",
   "retrieved_at_previous": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
   "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate). Where two sessions verified the same event, both sets of facts and sources are kept and the status is the highest one an official/primary-class source supports (merge note on the record).",
   "sources": [
@@ -1444,6 +1444,30 @@
       "name": "EuroLeague Basketball — official 2026/27 regular-season standings",
       "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
       "class": "official"
+    },
+    {
+      "id": "4b642f84-wta-ningbo-op",
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "name": "WTA 500 BNB Ningbo Open official Order of Play PDF — Friday 23 October 2026 (2092/OP.pdf)",
+      "class": "primary"
+    },
+    {
+      "id": "4b642f84-atp-lyon-sched",
+      "url": "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule",
+      "name": "ATP Tour official Lyon Daily Schedule, Day 6, Fri 23 October 2026 (496)",
+      "class": "primary"
+    },
+    {
+      "id": "4b642f84-atp-brussels-sched",
+      "url": "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+      "name": "ATP Tour official Brussels Daily Schedule, Day 7, Fri 23 October 2026 (7485)",
+      "class": "primary"
+    },
+    {
+      "id": "4b642f84-icc-271647",
+      "url": "https://www.icc-cricket.com/matches/271647/new-zealand-vs-india",
+      "name": "ICC official Match Centre — Match #271647 (New Zealand vs India, IND in NZ 5 T20Is 2026)",
+      "class": "primary"
     }
   ],
   "event_verifications": {
@@ -5278,9 +5302,70 @@
         "Official ATP order of play for Friday 23 October 2026 places [1] Daniil Medvedev v Terence Atmane on Center Court immediately after the 'Not Before 13:00' Tsitsipas v Duckworth match.",
         "The order of play prints no timezone label, so the kick-off clock is not certified and this row is published as analysis rather than a live pick."
       ]
+    },
+    "902118": {
+      "status": "verified",
+      "competition": "WTA 500 BNB Ningbo Open — Quarterfinal",
+      "sources": [
+        "4b642f84-wta-ningbo-op"
+      ],
+      "facts": [
+        "Friday 23 Oct 2026 Center Court, Followed by: Leylah FERNANDEZ (CAN) vs Ekaterina ALEXANDROVA (official WTA Order of Play PDF; no timezone printed)."
+      ]
+    },
+    "902140": {
+      "status": "verified",
+      "competition": "WTA 500 BNB Ningbo Open — Quarterfinal",
+      "sources": [
+        "4b642f84-wta-ningbo-op"
+      ],
+      "facts": [
+        "Friday 23 Oct 2026 Center Court, Not before 4:00 PM: [4] Iva JOVIC (USA) vs [6] Diana SHNAIDER (official WTA Order of Play PDF; no timezone printed)."
+      ]
+    },
+    "902143": {
+      "status": "verified",
+      "competition": "WTA 500 BNB Ningbo Open — Quarterfinal",
+      "sources": [
+        "4b642f84-wta-ningbo-op"
+      ],
+      "facts": [
+        "Friday 23 Oct 2026 Center Court, Not before 7:00 PM: [1] Elena RYBAKINA (KAZ) vs [Q] Katarzyna KAWA (POL) (official WTA Order of Play PDF; no timezone printed)."
+      ]
+    },
+    "902152": {
+      "status": "verified",
+      "competition": "ATP 250 Grand Prix Auvergne-Rhone-Alpes Lyon — Quarterfinal",
+      "sources": [
+        "4b642f84-atp-lyon-sched"
+      ],
+      "facts": [
+        "Fri 23 Oct 2026 (Day 6), Court Central Followed By: D. Altmaier vs T. Fritz (2), QF (ATP Tour official daily schedule)."
+      ]
+    },
+    "902144": {
+      "status": "verified",
+      "competition": "ATP 250 BNP Paribas Fortis European Open Brussels — Quarterfinal",
+      "sources": [
+        "4b642f84-atp-brussels-sched"
+      ],
+      "facts": [
+        "Fri 23 Oct 2026 (Day 7), Centre Court Not Before 16:00: T. Griekspoor vs J. Lehecka (2), QF (ATP Tour official daily schedule)."
+      ]
+    },
+    "188832": {
+      "status": "verified",
+      "competition": "",
+      "sources": [
+        "4b642f84-icc-271647"
+      ],
+      "facts": [
+        "ICC official match page titled \"New Zealand vs. India | IND in NZ, 5 T20Is, 2026\"; ICC fixtures strip lists the T20 as UPCOMING. No date/clock rendered in the retrieved match-centre body, so no start is certified."
+      ]
     }
   },
   "retrieved_at_previous_2": "2026-10-21T06:50:00Z to 2026-10-21T07:40:00Z (session-af0789e6 re-verification pass; earlier entries retained where re-confirmed)",
   "retrieved_at_previous_3": "2026-10-21T05:40:00Z",
-  "session": "session-784afe97"
+  "session": "session-784afe97",
+  "retrieved_at_previous_4": "2026-10-22T21:55:00Z"
 }
