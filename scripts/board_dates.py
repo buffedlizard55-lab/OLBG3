@@ -20,9 +20,24 @@ inverse of the standard conversion so the band can be checked arithmetically.
 """
 import datetime as dt
 import re
+import os
 
 CAPTURE_DATE = dt.date(2026, 10, 21)   # data/events.json -> "generated"
-AS_OF = dt.date(2026, 10, 22)          # this session's build date; fixed for reproducibility
+def build_date():
+    """Use UTC today; an explicit ISO override reproduces an archived build.
+
+    The capture date must never double as the expiry clock. Invalid overrides
+    fail closed instead of silently publishing picks against the wrong date.
+    """
+    override = os.environ.get("OLBG_AS_OF")
+    if override is not None:
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", override):
+            raise ValueError("OLBG_AS_OF must be an ISO date (YYYY-MM-DD)")
+        return dt.date.fromisoformat(override)
+    return dt.datetime.now(dt.timezone.utc).date()
+
+
+AS_OF = build_date()
 BAND_LOW_DEC = 1.40                    # -250 American: 1 + 100/250
 BAND_HIGH_DEC = 101.0                  # +10000 American: 1 + 10000/100
 BAND_LOW_US = -250
@@ -39,6 +54,8 @@ def resolve_start(label, capture=CAPTURE_DATE):
     label = (label or "").strip()
     m = _LABEL.match(label)
     if m:
+        if int(m.group(2)) > 23 or int(m.group(3)) > 59:
+            return None, "invalid clock in label"
         day = capture if m.group(1) == "Today" else capture + dt.timedelta(days=1)
         return day.isoformat(), "derived from capture date"
     m = _DATED.match(label)
@@ -47,12 +64,14 @@ def resolve_start(label, capture=CAPTURE_DATE):
         month = _MONTHS.get(mon)
         if not month:
             return None, f"unrecognised month {mon!r}"
-        if year:
-            return dt.date(int(year), month, int(day)).isoformat(), "stated in label"
-        y = capture.year
-        if month < capture.month:
-            y += 1
-        return dt.date(y, month, int(day)).isoformat(), "derived from capture year"
+        if int(_h) > 23 or int(_mi) > 59:
+            return None, "invalid clock in label"
+        y = int(year) if year else capture.year + (month < capture.month)
+        try:
+            resolved = dt.date(y, month, int(day))
+        except ValueError:
+            return None, "invalid calendar date in label"
+        return resolved.isoformat(), "stated in label" if year else "derived from capture year"
     return None, f"unrecognised label {label!r}"
 
 

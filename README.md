@@ -67,3 +67,19 @@ python3 -m unittest discover -s tests # 20 unit & band invariant tests
 | `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
 | `data/predictions-olbg.json` | **`26` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) | `/olbg/` track |
 | `data/flagged.json` | **`43` flagged review items** (plus `37` root `flagged.html` findings) with direct source links | both tracks |
+
+## Freshness and verification limitations (independent audit, 2026-10-22)
+
+The captured board is **not a complete live fixture feed**. Hourly rebuilding does not re-fetch
+all OLBG listings or independently re-check the official-source assertions stored in JSON.
+The root board now expires past fixture dates against the actual UTC build date, rather than a
+frozen session date. For an explicit historical reproduction, set `OLBG_AS_OF=2026-10-22`.
+This override does not change capture dates or source verification timestamps.
+Same-day fixtures can already have started: the OLBG clock labels lack a confirmed timezone.
+`HIGH` is a model evidence grade, not an empirically calibrated probability or proven betting edge;
+matching the requested price band alone does not establish value. The `/olbg/` track uses separate logic.
+Automated URL/schema checks establish structural consistency, **not that a source supports a claim**.
+
+This session re-read the [official MLB standings](https://www.mlb.com/standings/2026):
+Tampa Bay 98–64, 736 RS / 650 RA; Milwaukee 103–59, 832 RS / 618 RA match the stored figures.
+This targeted check must not be treated as independent re-verification of every row or prediction.

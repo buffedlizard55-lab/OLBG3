@@ -124,6 +124,10 @@ FOOT = f"""
 <footer>
   <p><strong>Captured {GEN} &middot; rebuilt {BUILT}.</strong> Data captured from OLBG.com event pages and checked against official competition sources where stated.
   Prices, handicaps and totals are <strong>our own model output</strong>, not bookmaker prices and not facts.</p>
+  <p><strong>Snapshot, not a complete live fixture feed.</strong> Rebuilding does not refresh the captured OLBG listings or
+  reverify official sources. HIGH is an evidence-based model grade, not a calibrated win rate or a demonstrated betting edge.
+  Same-day start times have no confirmed timezone; a date-only expiry check cannot establish that a match is still upcoming.
+  See <a href="{{P}}flagged.html">Flagged for Review</a> for limitations.</p>
   <p>18+. If gambling is causing you harm, contact <a href="https://www.gamcare.org.uk/" rel="noopener">GamCare</a> or
   <a href="https://www.gambleaware.org/" rel="noopener">GambleAware</a>. No bet is ever a certainty.</p>
 </footer>
@@ -896,6 +900,13 @@ IRREGULARITY_EXTRA = [
   "and a change of featured market were not. The captured labels are published unchanged as a snapshot, and no start time is derived from them.",
   "https://www.olbg.com/betting-tips/Baseball/12"),
 ]
+IRREGULARITY_EXTRA.append((
+    "Freshness clock repaired; source freshness remains a separate limitation",
+    "The board previously compared dates against a frozen 22 October 2026 build date. It now uses the actual UTC build date "
+    "(or an explicit OLBG_AS_OF archive override). This prevents past dates retaining a live label on future builds. "
+    "It does not refresh OLBG captures, verify same-day kick-offs, or independently validate previously stored source claims. "
+    "Structural validation of URLs and arithmetic is not source-content verification. The separate /olbg/ track retains its own confidence logic.",
+    "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/board_dates.py"))
 irregularities = IRREGULARITY_EXTRA + irregularities
 
 def _src(u):

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Unit tests for the -250..+10000 price band and the board invariants that enforce it."""
 import json
+import datetime as dt
 import os
 import sys
 import unittest
@@ -54,8 +55,8 @@ class TestDates(unittest.TestCase):
         self.assertIn("unrecognised", why)
 
     def test_expiry(self):
-        self.assertTrue(bd.expired("2026-10-21"))
-        self.assertFalse(bd.expired("2026-10-23"))
+        self.assertTrue(bd.expired("2026-10-21", dt.date(2026, 10, 22)))
+        self.assertFalse(bd.expired("2026-10-23", dt.date(2026, 10, 22)))
         self.assertFalse(bd.expired(None))
 
 
