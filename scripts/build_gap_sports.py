@@ -76,6 +76,7 @@ OVERROUND = 0.05
 # k = prior strength (how many "virtual tips" of the field-size prior we add).
 # Chosen so that a single tip on a 156-player golf field cannot imply a 60% chance.
 STRENGTH = {
+    "pdc_euro_champ_32": 14,
     "golf_field_156": 24,
     "f1_grid_22": 12,
     "greyhound_six_dog": 6,

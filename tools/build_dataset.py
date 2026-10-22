@@ -160,12 +160,14 @@ def main() -> None:
             url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
             event_name = slug.replace("_", " ")
             # The slug is lossy for "@" events; prefer the human name from the page where known.
-            display = event_name
-            home, away = split_teams(display)
-            if away:
-                away = SUFFIX_RE.sub("", away)
-            won, total = parse_tips(tips)
             ev = ver["event_verifications"].get(eid, {})
+            source_home, source_away = split_teams(event_name)
+            if source_away:
+                source_away = SUFFIX_RE.sub("", source_away)
+            display = ev.get("fixture_name") or event_name
+            home = ev.get("home") or source_home
+            away = ev.get("away") or source_away
+            won, total = parse_tips(tips)
             if market in WIN_MARKETS:
                 family = "match_winner"
             elif market in OUTRIGHT_MARKETS:
@@ -182,6 +184,7 @@ def main() -> None:
                 "venue": ev.get("venue") or None,
                 "verified_start": ev.get("start_local") or None,
                 "event_name": display,
+                **({"olbg_event_name": event_name} if display != event_name else {}),
                 "home": home,
                 "away": away,
                 "olbg_date_label": date_label,

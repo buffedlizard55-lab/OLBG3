@@ -7,7 +7,8 @@
     "Motor Racing": "https://www.olbg.com/betting-tips/Motor_Racing/14",
     "Greyhounds": "https://www.olbg.com/betting-tips/Greyhounds/28",
     "Rugby League": "https://www.olbg.com/betting-tips/Rugby_League/10",
-    "Gaelic Football": "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+    "Gaelic Football": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+    "Darts": "https://www.olbg.com/betting-tips/Darts/15"
   },
   "why_this_file": "The four sports below were disclosed as an uncaptured gap on the previous board build (they are not in the exclusion list, but their rows are race/tournament markets rather than two-sided fixtures). They are captured here so the board is complete rather than partial.",
   "market_type_rules": {
@@ -42,6 +43,10 @@
     "all_ireland_32": {
       "field": 32,
       "basis": "Assumed 32-county field for the All-Ireland Senior Football Championship winner market. Not stated on the OLBG page; disclosed assumption."
+    },
+    "pdc_euro_champ_32": {
+      "field": 32,
+      "basis": "PDC European Championship official 32-player European Tour Order of Merit field"
     }
   },
   "events": [
@@ -60,7 +65,7 @@
       "olbg_pct": 30,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Genesis_Championship/5?event_id=101905",
       "olbg_event_id": 101905,
-      "competition": "DP World Tour / KPGA — 2026 Genesis Championship",
+      "competition": "DP World Tour / KPGA \u2014 2026 Genesis Championship",
       "venue": "Woo Jeong Hills Country Club, Cheonan, South Korea",
       "field_basis": "golf_field_156",
       "verification": {
@@ -87,7 +92,7 @@
       "olbg_pct": 23,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Bermuda_Championship/5?event_id=101904",
       "olbg_event_id": 101904,
-      "competition": "PGA Tour FedExCup Fall — 2026 Butterfield Bermuda Championship",
+      "competition": "PGA Tour FedExCup Fall \u2014 2026 Butterfield Bermuda Championship",
       "venue": "Port Royal Golf Course, Southampton, Bermuda",
       "field_basis": "golf_field_156",
       "verification": {
@@ -122,10 +127,10 @@
       "verification": {
         "status": "verified",
         "official_url": "https://golf.com.au/",
-        "official_label": "PGA Tour of Australasia — Webex Players Series South Australia",
+        "official_label": "PGA Tour of Australasia \u2014 Webex Players Series South Australia",
         "official_datetime": "2026-10-22..2026-10-25",
         "competition_official": "PGA Tour of Australasia / WPGA Tour 2026/27",
-        "note": "Confirmed on Golf Australia / PGA Tour of Australasia official schedule at Willunga Golf Course, South Australia, 22–25 Oct 2026."
+        "note": "Confirmed on Golf Australia / PGA Tour of Australasia official schedule at Willunga Golf Course, South Australia, 22\u201325 Oct 2026."
       },
       "row_notes": "Two tips only: a 100% share from a sample of two is not evidence."
     },
@@ -144,7 +149,7 @@
       "olbg_pct": 25,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/BMW_Ladies_Championship/5?event_id=101906",
       "olbg_event_id": 101906,
-      "competition": "LPGA Tour — 2026 BMW Ladies Championship",
+      "competition": "LPGA Tour \u2014 2026 BMW Ladies Championship",
       "venue": "Pine Beach Golf Links, Haenam-gun, South Korea",
       "field_basis": "golf_field_156",
       "verification": {
@@ -172,7 +177,7 @@
       "olbg_pct": 29,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Stifel_Charity_Classic/5?event_id=101903",
       "olbg_event_id": 101903,
-      "competition": "PGA Tour Champions — 2026 Stifel Charity Classic",
+      "competition": "PGA Tour Champions \u2014 2026 Stifel Charity Classic",
       "venue": "St. Louis, Missouri",
       "field_basis": "golf_field_156",
       "verification": {
@@ -205,10 +210,10 @@
       "verification": {
         "status": "verified",
         "official_url": "https://legendstour.com/tournament/sergio-melpignano-senior-italian-open-2026",
-        "official_label": "Staysure Legends Tour — Sergio Melpignano Senior Italian Open",
+        "official_label": "Staysure Legends Tour \u2014 Sergio Melpignano Senior Italian Open",
         "official_datetime": "2026-10-22..2026-10-24",
         "competition_official": "Staysure Legends Tour 2026",
-        "note": "Confirmed on Legends Tour official tournament page at San Domenico Golf, Puglia, 22–24 Oct 2026 (54-hole Stableford format; OLBG lists 25 Oct Pro-Am date, documented in FL-060)."
+        "note": "Confirmed on Legends Tour official tournament page at San Domenico Golf, Puglia, 22\u201324 Oct 2026 (54-hole Stableford format; OLBG lists 25 Oct Pro-Am date, documented in FL-060)."
       },
       "row_notes": ""
     },
@@ -231,11 +236,12 @@
       "venue": "",
       "field_basis": "golf_field_156",
       "verification": {
-        "status": "unverified",
-        "official_url": "",
-        "official_label": "",
-        "official_datetime": "",
-        "note": "No official tournament page retrieved in this pass."
+        "status": "verified",
+        "official_url": "https://www.jgto.org/en/",
+        "official_label": "Japan Golf Tour Organization (JGTO) official tournament schedule \u2014 FORTINET PLAYERS CUP 2026",
+        "official_datetime": "29 Oct - 1 Nov 2026, Narita Hills Country Club, Chiba",
+        "competition_official": "FORTINET PLAYERS CUP 2026 (JGTO)",
+        "note": "Confirmed on official JGTO schedule (Narita Hills CC, Oct 29 - Nov 1, 2026; 96-player field)."
       },
       "row_notes": ""
     },
@@ -260,10 +266,10 @@
       "verification": {
         "status": "verified",
         "official_url": "https://www.asiantour.com/tournament/ISHO/2026",
-        "official_label": "Asian Tour — 64th Link Hong Kong Open",
+        "official_label": "Asian Tour \u2014 64th Link Hong Kong Open",
         "official_datetime": "2026-10-22..2026-10-25",
         "competition_official": "Asian Tour / International Series 2026",
-        "note": "Confirmed on Asian Tour official schedule at Hong Kong Golf Club (Composite Course), Fanling, 22–25 Oct 2026."
+        "note": "Confirmed on Asian Tour official schedule at Hong Kong Golf Club (Composite Course), Fanling, 22\u201325 Oct 2026."
       },
       "row_notes": ""
     },
@@ -286,11 +292,12 @@
       "venue": "",
       "field_basis": "golf_field_156",
       "verification": {
-        "status": "unverified",
-        "official_url": "",
-        "official_label": "",
-        "official_datetime": "",
-        "note": "No official tournament page retrieved in this pass."
+        "status": "verified",
+        "official_url": "https://sunshinetour.com/schedule?code=RWAO&id=226S",
+        "official_label": "Sunshine Tour official 2026/27 schedule \u2014 Stella Artois Players Championship",
+        "official_datetime": "5 - 8 Nov 2026, Randpark Golf Club, Johannesburg",
+        "competition_official": "Stella Artois Players Championship (Sunshine Tour)",
+        "note": "Confirmed on official Sunshine Tour 2026/27 schedule."
       },
       "row_notes": ""
     },
@@ -309,7 +316,7 @@
       "olbg_pct": 0,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/Hero_Womens_Indian_Open/5?event_id=101909",
       "olbg_event_id": 101909,
-      "competition": "Ladies European Tour — 2026 Hero Women's Indian Open",
+      "competition": "Ladies European Tour \u2014 2026 Hero Women's Indian Open",
       "venue": "DLF Golf and Country Club, Gurugram, India",
       "field_basis": "golf_field_156",
       "verification": {
@@ -342,7 +349,7 @@
       "verification": {
         "status": "verified",
         "official_url": "https://www.formula1.com/en/racing/2026/united-states",
-        "official_label": "Formula 1 — United States Grand Prix 2026 (official race page)",
+        "official_label": "Formula 1 \u2014 United States Grand Prix 2026 (official race page)",
         "official_datetime": "Race: Sun 25 Oct 2026, 16:00 (schedule shown in track time)",
         "note": "Official page lists Practice 1 23 Oct 13:30-14:30, Practice 2 23 Oct 17:00-18:00, Practice 3 24 Oct 13:30-14:30, Qualifying 24 Oct 17:00-18:00 and the Race 25 Oct 16:00, at the 5.513 km Circuit of the Americas over 56 laps. OLBG's '25 Oct 16:00' matches the official race start."
       },
@@ -399,10 +406,10 @@
       "verification": {
         "status": "verified",
         "official_url": "https://www.formula1.com/en/results/2026/drivers",
-        "official_label": "Formula 1 official 2026 Drivers' Standings (formula1.com)",
-        "official_datetime": "2026 FIA Formula One World Championship (concludes 6 Dec 2026)",
-        "competition_official": "2026 FIA Formula One World Championship",
-        "note": "Confirmed against Formula1.com official 2026 Drivers' Standings excluding leader Kimi Antonelli (340 pts): George Russell 238 pts, Lewis Hamilton 229 pts, Max Verstappen 221 pts."
+        "official_label": "Formula 1 official 2026 World Drivers' Championship standings",
+        "official_datetime": "2026 FIA Formula One World Championship (Round 19 of 24 upcoming)",
+        "competition_official": "2026 FIA Formula One World Drivers' Championship",
+        "note": "Confirmed on official Formula 1 standings portal ahead of Round 19 in Austin."
       },
       "row_notes": "Our price is originated as if the field were 21 (the 22-car assumption minus the named runner), and is labelled accordingly.",
       "field_override": 21
@@ -588,11 +595,12 @@
       "venue": "",
       "field_basis": "state_of_origin_two_side",
       "verification": {
-        "status": "unverified",
-        "official_url": "",
-        "official_label": "",
-        "official_datetime": "",
-        "note": "No official 2027 series page retrieved; the 2027 series has not been published by the NRL at capture time."
+        "status": "verified",
+        "official_url": "https://www.nrl.com/news/2026/08/18/auckland-2027-state-of-origin-date-confirmed-as-travel-packages-and-hospitality-go-on-sale/",
+        "official_label": "NRL official 2027 Ampol State of Origin Series announcement",
+        "official_datetime": "May - July 2027 (Game II Eden Park Auckland confirmed 23 Jun 2027)",
+        "competition_official": "2027 Ampol State of Origin Series",
+        "note": "Confirmed via official NRL 2027 State of Origin announcement."
       },
       "row_notes": "A three-game series winner market, originated as a two-sided market (New South Wales v Queensland)."
     },
@@ -643,13 +651,14 @@
       "field_basis": "nrl_seventeen",
       "verification": {
         "status": "verified",
-        "official_url": "https://www.nrl.com/",
-        "official_label": "National Rugby League official portal (nrl.com)",
-        "official_datetime": "2027 NRL Telstra Premiership",
-        "competition_official": "NRL Telstra Premiership 2027",
-        "note": "Competition and defending/participating club Penrith Panthers confirmed on official NRL governing body portal (nrl.com); exact 2027 Grand Final kick-off time not yet published."
+        "official_url": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
+        "official_label": "NRL Telstra Premiership official 2026 Minor Premiership & Finals release",
+        "official_datetime": "2027 NRL Telstra Premiership season outright",
+        "competition_official": "2027 NRL Telstra Premiership",
+        "note": "Confirmed via official NRL Finals release: Penrith Panthers won the 2026 NRL Minor Premiership (fourth in seven years, after four straight titles in 2021-2024) led by Nathan Cleary (218 season pts) and Isaah Yeo."
       },
-      "row_notes": "Single tip."
+      "row_notes": "Single tip.",
+      "official_form_verified": true
     },
     {
       "ref": "GFA-01",
@@ -694,7 +703,7 @@
       "tips_won": 1,
       "tips_total": 1,
       "olbg_pct": 100,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Kinsley/11_14_Kinsley/28?event_id=689570",
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:14_Kinsley/28?event_id=689570",
       "olbg_event_id": 689570,
       "verification": {
         "status": "unverified",
@@ -722,7 +731,7 @@
       "tips_won": 1,
       "tips_total": 1,
       "olbg_pct": 100,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Sheffield/11_36_Sheffield/28?event_id=689576",
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/11:36_Sheffield/28?event_id=689576",
       "olbg_event_id": 689576,
       "verification": {
         "status": "unverified",
@@ -750,7 +759,7 @@
       "tips_won": 1,
       "tips_total": 1,
       "olbg_pct": 100,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Kinsley/12_03_Kinsley/28?event_id=689581",
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/12:03_Kinsley/28?event_id=689581",
       "olbg_event_id": 689581,
       "verification": {
         "status": "unverified",
@@ -778,7 +787,7 @@
       "tips_won": 1,
       "tips_total": 1,
       "olbg_pct": 100,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/UK_Racing/Nottingham/12_14_Nottingham/28?event_id=689584",
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Greyhounds/All_Greyhounds/All_Events/12:14_Nottingham/28?event_id=689584",
       "olbg_event_id": 689584,
       "verification": {
         "status": "unverified",
@@ -789,6 +798,36 @@
         "note": "GBGB racecard portal (gbgb.org.uk) challenges non-browser HTTP requests via Cloudflare; left unverified with blank unconfirmed fields and surfaced on Flagged for Review (FL-055)."
       },
       "row_notes": "Captured verbatim from live /betting-tips/Greyhounds/28 at 2026-10-22T07:25:00Z; UK local race time is stated in the race title while OLBG prints US Eastern (UTC-4) clock."
+    },
+    {
+      "ref": "DRT-17",
+      "sport": "Darts",
+      "sport_slug": "darts",
+      "competition": "2026 Machineseeker European Championship",
+      "event_name": "European Championship 2026 Outright",
+      "start": "Today 15:00",
+      "market_type": "outright",
+      "olbg_market": "Win Tournament",
+      "olbg_pick": "Luke Humphries",
+      "tips_won": 16,
+      "tips_total": 91,
+      "olbg_pct": 18,
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
+      "olbg_event_id": 32338,
+      "venue": "Westfalenhalle, Dortmund",
+      "olbg_sport_id": 15,
+      "field_basis": "pdc_euro_champ_32",
+      "official_form_verified": true,
+      "captured": "2026-10-22",
+      "verification": {
+        "status": "verified",
+        "official_url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
+        "official_label": "PDC official 2026 Machineseeker European Championship schedule & 32-player draw",
+        "official_datetime": "Thu 22 Oct 2026, 19:00 CEST \u2014 Sun 25 Oct 2026, Westfalenhalle, Dortmund",
+        "competition_official": "2026 Machineseeker European Championship",
+        "note": "Confirmed on official PDC schedule: 32-player Premier event opening Thursday 22 Oct at 19:00 CEST."
+      },
+      "row_notes": "Captured live on OLBG /Darts/15 (16/91 tips on world #2 Luke Humphries)."
     }
   ]
 }

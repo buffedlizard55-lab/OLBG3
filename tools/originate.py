@@ -168,15 +168,19 @@ EDITORIAL_STRENGTH = {
     "SNO-9941": ("Jak Jones", 0.5446, 5.5, "Over", "Editorial Northern Ireland Open strength prior (official seed ranks unverified): Jak Jones vs Daniel Wells"),
     "TEN-902129": ("Stefanos Tsitsipas", 0.5739, 22.5, "Over", "ATP Almaty QF: #39 [7] Stefanos Tsitsipas (beat Kukushkin 6-1, 6-2) vs #73 James Duckworth"),
     "TEN-902133": ("Tommy Paul", 0.725, 21.5, "Under", "ATP Lyon QF: #15 [4] Tommy Paul (2575 pts) vs #94 Corentin Moutet (640 pts; >70% favorite -> medium)"),
-    "VOL-36995": ("Itas Trentino", 0.5293, 182.5, "Over", "SuperLega Giornata 2 clash of 3-0 winners: Itas Trentino vs Cisterna Volley"),
-    "VOL-36996": ("Sir Susa Scai Perugia", 0.5995, 179.5, "Over", "SuperLega Giornata 2: Sir Susa Scai Perugia (3-2, 114:95 pts) home vs Prata di Pordenone (3-1, 94:91)"),
-    "VOL-36994": ("Cucine Lube Civitanova", 0.6585, 183.5, "Under", "SuperLega Giornata 2: Cucine Lube Civitanova (3-0, 78:65) home vs Pallavolo Padova (0-3, 56:75)"),
-    "VOL-36997": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2: Vero Volley Monza (91:94 at Prata) home vs Rana Verona (0-3, 65:78)"),
+    "VOL-36994": ("Itas Trentino", 0.5293, 185.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30003): Itas Trentino vs Cisterna Volley"),
+    "VOL-36995": ("Cucine Lube Civitanova", 0.6585, 181.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30005): Cucine Lube Civitanova (3-1, 97:85) vs Pallavolo Padova"),
+    "VOL-36996": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30007): Vero Volley Monza (91:94 at Prata) vs Rana Verona"),
+    "VOL-36997": ("Sir Susa Scai Perugia", 0.5995, 183.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30002): Sir Susa Scai Perugia (3-2 at Cuneo, 113:103) vs Tinet Prata di Pordenone"),
+    "ICH-199937": ("NY Rangers", 0.5682, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): NY Rangers 7-3-1 (11 GP, 15 pts, 33 GF / 24 GA) at TOR Maple Leafs 5-4-2 (11 GP, 12 pts, 38 GF / 35 GA)"),
+    "GFA-3530": ("St Finbarrs", 0.5864, 37.5, "Over", "Cork GAA 2026 Premier SFC complete 5-game championship record (gaacork.ie): St Finbarrs 3-2 (116 PF / 85 PA, +31) vs Nemo Rangers 4-1 (98 PF / 79 PA, +19) at neutral Pairc Ui Chaoimh"),
+    "TEN-902117": ("Marie Bouzkova", 0.5620, 22.5, "Over", "WTA 500 Ningbo QF official draw (wtatennis.com MDS.pdf): Marie Bouzkova vs Sara Bejlek + OLBG 1/1"),
 }
 
 # Verified outright field-size priors (Dirichlet shrinkage toward 1/F)
 OUTRIGHT_FIELDS = {
     "GLF-101904": (120, 20, "Seamus Power", 0.125, "PGA Tour Butterfield Bermuda Championship official 120-man Port Royal field + OLBG 5/22 tips"),
+    "GLF-101908": (96, 24, None, None, "JGTO official Fortinet Players Cup 96-player field prior"),
     "GLF-101911": (72, 16, None, None, "Senior tour 72-player field prior"),
     "GLF-101912": (120, 20, None, None, "Sunshine Tour 120-player field prior"),
     "GLF-101903": (78, 16, None, None, "PGA Tour Champions 78-player field prior"),
@@ -371,12 +375,14 @@ def main() -> None:
             pick, p_pick, tot_override, tot_side_override, basis = EDITORIAL_STRENGTH[mid]
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
         else:
-            side = resolve_team_side(m["olbg_consensus_selection"], home, away)
+            _non_win = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
+                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner"}
+            side = None if (m.get("olbg_market") in _non_win) else resolve_team_side(m["olbg_consensus_selection"], home, away)
             if side is None:
                 # e.g. Handball "Tie" consensus or totals-only listing -> lean home edge
                 side = home or m["olbg_consensus_selection"]
                 p_base = 0.52
-                flags.append("non_win_or_tie_consensus_mapped")
+                flags.extend(["non_win_or_tie_consensus_mapped", "non_win_consensus_excluded_from_winner_probability"] if m.get("olbg_market") in _non_win else ["non_win_or_tie_consensus_mapped"])
             else:
                 p_base = p_shrunk
             logit = math.log(p_base / (1.0 - p_base))
@@ -394,7 +400,7 @@ def main() -> None:
                 p_pick = round(1.0 - p_side, 4)
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
             tot_override, tot_side_override = None, None
-            basis = "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+            basis = ("Sport home-court baseline (non-winner OLBG consensus excluded)" if m.get("olbg_market") in _non_win else "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment")
 
         if mid in EDITORIAL_STRENGTH:
             basis = "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): " + basis
