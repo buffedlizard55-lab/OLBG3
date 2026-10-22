@@ -1003,3 +1003,16 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   - Full CI chain re-run end-to-end (update.py → unittest → build.py → build_gap_sports.py → model.py → build_site.py → check_board → tools/* → snapshot → check → check_links) all green.
 - **Independent JSON audit:** 30 root HIGH + 26 /olbg/ HIGH, all prices inside -250..+10000 (1.44–7.60 decimal); 44 written pieces unique; min length >=30 words; 0 excluded-sport rows; 32 root rows remain blank+flagged (non-blocking).
 - **PR:** to be recorded after creation.
+## Session `session-1bc4ae9a` — freshness safety and independent audit
+
+- Claimed 2026-10-22: `task-27-freshness-safety`, **in progress**.
+- Fixed Arena branch: `arena/1bc4ae9a-olbg3` (cannot use a session-* branch).
+- Scope: `scripts/board_dates.py`, `tests/test_freshness.py`, `scripts/build_site.py`, generated root board HTML, `README.md`, `COORDINATION.md`.
+- Prior integration #43/#44 is merged; task-23/24 table entries remain stale but their completion log records completion. No active sibling claim is being taken over.
+- Observed defect: AS_OF is hardcoded to 2026-10-22, so future hourly builds can keep expired picks HIGH indefinitely. Plan: use actual UTC build date with explicit reproducibility override, reject malformed dates safely, disclose static captures and distinguish structural checks from new source verification.
+- This is not a claim to have independently reverified all historical source assertions.
+- Scope clarification: `tests/test_band.py` also changed to pin historical expiry assertions to an explicit historical date; all other tests use UTC clock or an explicit override.
+- Checks: 25 unit tests PASS; root build + snapshot PASS; check_board PASS (196 rows, 162 historically marked verified, 191 priced, 44 written pieces); full deterministic tools rebuild/check PASS (145 fixtures, 26 HIGH); check.py PASS (40 feed rows); check_links PASS (81 pages, 1,278 local links, zero broken). No source-data values or confidence outputs changed in this session.
+- Source spot-check: https://www.mlb.com/standings/2026 (redirects to /standings/) re-read via fetch tool on 2026-10-22. Tampa Bay 98–64, RS 736 / RA 650; Milwaukee 103–59, RS 832 / RA 618; table links next game to https://www.mlb.com/gameday/849805. OLBG index also retrieved; no claim of complete recapture.
+- Detected concurrent sessions after claim: f198e83e and e8f8c0f5 merged coordination-only audits as #45/#47. Their logs will be preserved when rebasing; no competing code edits observed.
+- Rebase conflict 2026-10-22: additive end-of-file COORDINATION conflict with #45/#47 resolved by retaining both complete session logs and this claim; no sibling content discarded. Unique task key is `task-27-freshness-safety` (distinct from f198e83e's task-27-final-reverification).
