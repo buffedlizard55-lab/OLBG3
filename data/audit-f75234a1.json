@@ -1,0 +1,35 @@
+{
+ "session": "session-f75234a1",
+ "date_utc": "2026-10-22T02:52:00Z",
+ "task": "task-28-fresh-verification-integration",
+ "checks": {
+  "unittest": "20/20 OK",
+  "check_board": "PASS 196 rows/162 verified/191 priced",
+  "check_site_olbg": "PASS 21 pages/145 fixtures/26 HIGH",
+  "check_py": "PASS (after build_site)",
+  "check_links": "30 pages/481 local links/0 broken (site/ build)"
+ },
+ "invariants": {
+  "root_rows": 196,
+  "root_high": 30,
+  "root_high_band_us": "-238..+740 (all inside -250..+10000)",
+  "root_high_min_words": 59,
+  "root_bodies_unique": "44/44",
+  "olbg_high": 26,
+  "olbg_high_min_words": 76,
+  "excluded_sport_rows": 0,
+  "olbg_rows_missing_url": 0,
+  "root_unverified_blank_flagged": 32
+ },
+ "live_spot_checks": [
+  {
+   "source": "https://www.olbg.com/betting-tips/Tennis/3",
+   "result": "Stored event IDs live: 902110 Machac v Khachanov, 902071 Linette v Siniakova, 902072 Eala v Shnaider"
+  },
+  {
+   "source": "https://www.mlb.com/schedule/2026-10-23",
+   "result": "BSB-01 confirmed verbatim: World Series Game 1 TB @ MIL, Fri 23 Oct 2026 8:00 PM ET FOX, probable Jacob Misiorowski"
+  }
+ ],
+ "irregularities": "None new. Existing FL-041/042/043 + 32 unverified rows remain on flagged.html (non-blocking). Sandbox curl to github.io blocked (000); Pages API status=building at check time \u2014 re-verified post-merge via gh api."
+}
