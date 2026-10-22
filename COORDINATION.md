@@ -936,3 +936,19 @@ brief. Both rule sets and their consequences are recorded here rather than one b
   Munster 9 (72/74). Those are the only two sources the RGU-14 write-up uses.
 - **Flagged page:** 36 findings are now published, including the venue correction, the rank correction and the
   MLB run-total correction. Nothing was hidden or silently overwritten.
+
+## Merge record — PR #40 (session-f58890e3)
+
+- **PR:** https://github.com/buffedlizard55-lab/OLBG3/pull/40 — "Price-band repair: 6 HIGH picks, all inside
+  -250..+10000, each re-verified live (2 corrections)".
+- **Branch:** `arena/f58890e3-olbg3`, head `7efef6f`. **Merge commit:** `b530399b0a1985f1ef32368dee5f6e0c9d54b831`,
+  merged 2026-10-22T01:44:07Z into `main` with no approval step.
+- **CI:** branch build run `39707311664` — build **pass** (14s), deploy skipped for PR branches. Post-merge
+  `pages build and deployment` run `39707391943` — **success** (4m59s). The `Verify and publish dashboard`
+  run `39707392762` was still queued when this record was written; the legacy Pages publisher had already
+  refreshed the site from the repository root.
+- **Live check (2026-10-22):** `https://buffedlizard55-lab.github.io/OLBG3/predictions.html` served
+  "Written predictions — high-confidence picks inside the band", 6 HIGH pieces, the corrected
+  "Stade Georges Pompidou, Valence" line for RGU-08 and "ranks fourth" for RGU-09.
+- **Irregularities carried forward (not blocking, all published):** 21 Oct OLBG capture; no bookmaker odds in the
+  repo; 18 unverified and 4 corroborated-only rows; the 70 archive rows; the three data corrections above.
