@@ -2090,6 +2090,97 @@
           "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/15"
         }
       ]
+    },
+    {
+      "id": "FL-091",
+      "severity": "high",
+      "status": "resolved",
+      "sport": "Ice Hockey",
+      "title": "ICH-199937 (NY Rangers @ TOR Maple Leafs) road home-ice sign bug fixed: 0.5682 HIGH -> 0.5306 MEDIUM",
+      "summary": "tools/originate.py previously hardcoded p_NYR = 0.5682 by adding +0.15 home-ice log-odds to road NY Rangers instead of home Toronto Maple Leafs at Scotiabank Arena.",
+      "detail": "NHL Official API Game #2026020155 lists NYR as awayTeam (7-3-1, 33 GF / 24 GA in 11 GP) and TOR as homeTeam (5-4-2, 38 GF / 35 GA in 11 GP) at Scotiabank Arena (23:00Z). Applying +0.15 home-ice goals to Toronto yields p_NYR = 0.5306 (1.79 / -127), matching IHO-14 on the root board and sitting below our 55% HIGH probability floor. ICH-199937 is now graded MEDIUM analysis across both tracks.",
+      "sources": [
+        {
+          "label": "NHL official schedule API (2026-10-22, Game 2026020155)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ]
+    },
+    {
+      "id": "FL-092",
+      "severity": "medium",
+      "status": "resolved",
+      "sport": "All Sports",
+      "title": "OLBG server-rendered HTML mixes UK BST (UTC+1) and US EDT (UTC-4) clocks across category endpoints",
+      "summary": "During the 2026-10-22T12:10Z-12:25Z live harvest, OLBG emitted BST clocks on /Ice_Hockey/NHL/13, /Basketball/4, /Baseball/12 and /Greyhounds/28 while emitting EDT clocks on /Tennis/3, /Cricket/7 and /Volleyball/21.",
+      "detail": "For example, SJ Sharks @ OTT Senators (official 23:00Z) rendered 'Tomorrow 00:07' (BST) on /Ice_Hockey/NHL/13 while Sete vs Chaumont (official 18:00Z) rendered 'Today 14:00' (EDT) on /Volleyball/21. Both tracks never convert bare OLBG clocks; UTC starts come exclusively from dated governing-body evidence in data/release_checks.json and data/verifications.json.",
+      "sources": [
+        {
+          "label": "OLBG NHL Betting Tips (/Ice_Hockey/NHL/13)",
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13"
+        },
+        {
+          "label": "OLBG Volleyball Betting Tips (/Volleyball/21)",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        }
+      ]
+    },
+    {
+      "id": "FL-093",
+      "severity": "medium",
+      "status": "resolved",
+      "sport": "Cricket",
+      "title": "India W vs Zimbabwe W 1st ODI (188830) lists 'Man Of The Match' (S Mandhana 1/1) as OLBG's headline market",
+      "summary": "Player-award consensus cannot be reused as a team match-winner probability; 'Man Of The Match' is now explicitly guarded in scripts/model.py, tools/build_dataset.py, and tools/originate.py.",
+      "detail": "BCCI's official match centre confirms the 1st Women's ODI at BCA Stadium, Vadodara on Friday 23 Oct 2026 at 14:00 IST (08:30Z). Because OLBG's only tipped market on event 188830 is 'Man Of The Match' (Smriti Mandhana 1/1), CRK-11 leaves team win prices blank on the root board and CRI-188830 excludes the player tip from team win probability on /olbg/.",
+      "sources": [
+        {
+          "label": "BCCI Official Match Centre — India Women vs Zimbabwe Women",
+          "url": "https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women"
+        },
+        {
+          "label": "OLBG India W vs Zimbabwe W 1st ODI (event 188830)",
+          "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/India_W_vs_Zimbabwe_W_1st_ODI/7?event_id=188830"
+        }
+      ]
+    },
+    {
+      "id": "FL-094",
+      "severity": "low",
+      "status": "resolved",
+      "sport": "Golf",
+      "title": "JGTO Fortinet Players Cup (GLF-07 / GLF-101908) official dates corrected to Oct 22-25, 2026; Stifel Charity Classic (GLF-05 / GLF-101903) consensus updated to Stewart Cink 3/13",
+      "summary": "Prior metadata listed Oct 29 - Nov 1 for Fortinet Players Cup; JGTO's live schedule confirms Oct 22-25, 2026 (Round 1 completed Oct 22 15:59 JST). Stifel Charity Classic updated via live_overrides.json to Stewart Cink 3/13 across the 72-player Norwood Hills field.",
+      "detail": "Both tournaments remain graded below HIGH (GLF-07 Round 1 already underway in Chiba; GLF-05 carries 13 open tips below our 20-tip outright sample floor).",
+      "sources": [
+        {
+          "label": "JGTO Official Schedule (jgto.org/en/)",
+          "url": "https://www.jgto.org/en/"
+        },
+        {
+          "label": "PGA Tour Champions — 2026 Stifel Charity Classic Overview",
+          "url": "https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026625/overview"
+        }
+      ]
+    },
+    {
+      "id": "FL-095",
+      "severity": "low",
+      "status": "open",
+      "sport": "Greyhounds",
+      "title": "Nine afternoon/evening UK greyhound races added at 12:15Z (Central Park 14:41-17:31 BST + Newcastle 20:19 BST) remain unverified",
+      "summary": "Events 689614, 689623, 689627, 689632, 689636, 689637, 689643, 689656 and 689696 are published as unverified LOW rows with blank official venue/competition fields per FL-055.",
+      "detail": "GBGB's racecard portal challenges automated non-browser fetches via Cloudflare, so no official per-race static URL was retrieved. Unconfirmed fields remain blank rather than inferred from OLBG's race titles.",
+      "sources": [
+        {
+          "label": "OLBG Greyhound Racing Tips (/Greyhounds/28)",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
     }
   ]
 }

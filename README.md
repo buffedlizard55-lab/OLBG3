@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 229 root rows (202 fixtures + 27 outright/race) captured 21–22 Oct 2026, plus the chained 274-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 253 root rows (216 fixtures + 37 outright/race) captured 21–22 Oct 2026 (through `12:25Z`), plus the chained 298-row `/olbg/` audit track and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
   These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
@@ -20,7 +20,15 @@ What the published numbers do and do not mean:
 | `discovery.html` | Latest robots-aware public OLBG discovery snapshot (partial by design, unverified rows stay blank) |
 | `lines.html`, `verification.html`, `audit.html`, `flagged.html`, `method.html`, `sports/<sport>.html` | Originated markets, verification log, audit trail, review register, method, and category subpages |
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
-| `/olbg/` | The separate OLBG lines audit track (21 pages, 274 chained rows) with the same release gate applied to its picks |
+| `/olbg/` | The separate OLBG lines audit track (21 pages, 298 chained rows) with the same release gate applied to its picks |
+
+## Midday live harvest & official-source integration — `session-a0a7003c`, 2026-10-22T12:25Z
+
+Live re-harvest of all 15 allowed OLBG sport and sub-league endpoints (`data/raw/olbg-harvest-20261022T1215Z.tsv`, `docs/audit-a0a7003c.md`, `docs/verifications-a0a7003c.json`, `FL-091`..`FL-095`):
+
+- **24 newly posted midday OLBG events captured & verified:** all 11 remaining Thu 22 Oct NHL regular-season games (`199931`–`199936`, `199938`–`199942` against verbatim `api-web.nhle.com/v1/{schedule,standings}/2026-10-22`), 2 WTA 250 Osaka quarterfinals (`902135` `Ann Li vs Lilli Tagger`, `902134` `Katie Boulter vs Antonia Ruzic` against `wtafiles.wtatennis.com`), 1 ICC Women's Championship ODI (`188830` `India W vs Zimbabwe W 1st ODI` against `bcci.tv`, guarding OLBG's `"Man Of The Match"` player market from team win pricing), 1 French Ligue A Masculine / Alterna VOLSTAR J3 fixture (`37005` `Sete vs Chaumont` against `lnv.fr` & `lnv-web.dataproject.com`), and 9 UK afternoon/evening greyhound races (`689614`..`689696`, left honestly `unverified` per `FL-055`/`FL-095`).
+- **Model & cross-track alignment fixes:** fixed road home-ice sign bug on `ICH-199937` (`NY Rangers @ TOR Maple Leafs` `0.5682` `HIGH` -> `0.5306` / `1.79` `-127` `MEDIUM`, matching `IHO-14`), cross-synced 27 official/club-official verifications onto `/olbg/`, updated `GLF-05`/`GLF-101903` Stifel Charity Classic (`Stewart Cink 3/13` across 72-player Norwood Hills field) and `GLF-07`/`GLF-101908` JGTO dates (`Oct 22–25, 2026`), and added 6 unique sourced in-band (`-250..+10000`, `<70%`) `HIGH` predictions (`IHO-15`/`ICH-199931`, `IHO-16`/`ICH-199932`, `IHO-17`/`ICH-199933`, `IHO-23`/`ICH-199940`, `IHO-24`/`ICH-199941`, `VOL-30`/`VOL-37005`).
+- **Committed `12:25Z` snapshot state (the live dashboard remains authoritative as hourly builds run):** `check_board.py` **PASS** (`253 rows / 216 fixtures [100% verified] + 37 outright/race / 231 verified / 230 priced / 72 pieces / 20 live in-band HIGH`), `tools/check_site.py` **PASS** (`298 fixtures / 298 lines / 24 HIGH / 52 pieces / 95 register items`), `check.py` **PASS** (`40` feed rows), `check_links.py` **PASS** (`85` pages, `1,529` links, `0` broken), `67/67` unit tests **OK**, `0` excluded-sport rows.
 
 ## Independent verification — `session-7da75ec9`, 2026-10-22T12:00Z (this branch, no data change)
 

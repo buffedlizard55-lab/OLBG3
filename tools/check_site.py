@@ -135,6 +135,20 @@ ALLOWED_HOSTS = {
     "golf.com.au",
     "www.cricket.co.za",
     "biz.chosun.com",
+    # Official governing-body & club hosts verified/synced in session-a0a7003c's 2026-10-22T12:25Z audit.
+    "wtafiles.wtatennis.com",
+    "protennislive.com",
+    "www.bcci.tv",
+    "www.lnv.fr",
+    "lnv-web.dataproject.com",
+    "soenderjyskehh.dk",
+    "www.danskhaandbold.dk",
+    "www.lnh.fr",
+    "www.eurohandball.com",
+    "www.maighcuilinn.com",
+    "gaacork.ie",
+    "sedziowie.pzps.pl",
+    "stats.swehockey.se",
 }
 
 errors: list[str] = []

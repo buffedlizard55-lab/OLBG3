@@ -74,7 +74,7 @@ NO_HANDICAP_REASON = {
     "Cricket": ("OLBG does not state the format (T20 / ODI / Test) uniformly and a runs handicap differs by an order of "
                 "magnitude between formats, so any line would be invented"),
 }
-NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner"}
+NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner", "Man Of The Match"}
 MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
 
 # ---------- source tiers ----------
@@ -115,6 +115,26 @@ ALIASES = {
     "OTT Senators": "Ottawa Senators",
     "TOR Maple Leafs": "Toronto Maple Leafs",
     "NY Rangers": "New York Rangers",
+    "CAR Hurricanes": "Carolina Hurricanes",
+    "EDM Oilers": "Edmonton Oilers",
+    "ANA Ducks": "Anaheim Ducks",
+    "NJ Devils": "New Jersey Devils",
+    "DET Red Wings": "Detroit Red Wings",
+    "VAN Canucks": "Vancouver Canucks",
+    "PIT Penguins": "Pittsburgh Penguins",
+    "MIN Wild": "Minnesota Wild",
+    "CGY Flames": "Calgary Flames",
+    "NSH Predators": "Nashville Predators",
+    "BOS Bruins": "Boston Bruins",
+    "LA Kings": "Los Angeles Kings",
+    "NY Islanders": "New York Islanders",
+    "UTA Mammoth": "Utah Mammoth",
+    "SEA Kraken": "Seattle Kraken",
+    "VGS Golden Knights": "Vegas Golden Knights",
+    "STL Blues": "St. Louis Blues",
+    "WPG Jets": "Winnipeg Jets",
+    "DAL Stars": "Dallas Stars",
+    "SJ Sharks": "San Jose Sharks",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -282,9 +302,9 @@ for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
 off = json.load(open(os.path.join(ROOT, "data/official.json")))
 conf = off["fixture_confirmations"]
 urc = off["form_data"]["URC_2026_27_table"]["teams"]
-nhl = off["form_data"]["NHL_standings_2026_10_20"]["teams"]
+nhl = off["form_data"].get("NHL_standings_2026_10_22", off["form_data"]["NHL_standings_2026_10_20"])["teams"]
 urc_src = off["form_data"]["URC_2026_27_table"]["source"]
-nhl_src = off["form_data"]["NHL_standings_2026_10_20"]["source"]
+nhl_src = off["form_data"].get("NHL_standings_2026_10_22", off["form_data"]["NHL_standings_2026_10_20"])["source"]
 
 # Additional official league tables gathered in later passes. Each rugby union
 # table uses an identical schema (pts/pl/w/d/l/bp/pf/pa/diff/form) so they can
@@ -340,8 +360,14 @@ handball_tables.update(hbl_tbl)
 
 snk_tbl = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("players", {})
 snk_src = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("source", "")
-vol_tbl = off["form_data"].get("SuperLega_2026_27_table", {}).get("teams", {})
-vol_src = off["form_data"].get("SuperLega_2026_27_table", {}).get("source", "")
+vol_superlega_tbl = off["form_data"].get("SuperLega_2026_27_table", {}).get("teams", {})
+vol_superlega_src = off["form_data"].get("SuperLega_2026_27_table", {}).get("source", "")
+vol_lnv_tbl = off["form_data"].get("LNV_Alterna_Volstar_2026_27_table", {}).get("teams", {})
+vol_lnv_src = off["form_data"].get("LNV_Alterna_Volstar_2026_27_table", {}).get("source", "")
+vol_tbl = {}
+vol_tbl.update(vol_superlega_tbl)
+vol_tbl.update(vol_lnv_tbl)
+vol_src = vol_superlega_src
 gaa_tbl = off["form_data"].get("Cork_PSFC_2026_table", {}).get("teams", {})
 gaa_src = off["form_data"].get("Cork_PSFC_2026_table", {}).get("source", "")
 
@@ -542,12 +568,15 @@ for e in events:
         total = (exp_h_ps + exp_a_ps) * 3.85
         probs = {"home": p_home, "away": 1.0 - p_home}
         basis = "official-standings"
-        model["notes"].append(f"Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used ({vol_src}).")
+        if official_name(e["home"]) in vol_lnv_tbl and official_name(e["away"]) in vol_lnv_tbl:
+            model["notes"].append(f"Official LNV Alterna VOLSTAR 2026/27 table & rally points per set used ({vol_lnv_src}).")
+        else:
+            model["notes"].append(f"Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used ({vol_src}).")
 
     side, kind = side_of_pick(e)
     _NON_WIN_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way",
                         "Match Handicap", "Pointspread", "Puck Line", "Total Legs",
-                        "Game Totals", "Games Won", "1st Set Winner"}
+                        "Game Totals", "Games Won", "1st Set Winner", "Man Of The Match"}
     if probs is None:
         if e.get("market") in _NON_WIN_MARKETS or e.get("olbg_market") in _NON_WIN_MARKETS:
             basis = "none"

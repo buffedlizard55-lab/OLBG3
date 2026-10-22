@@ -47,7 +47,7 @@ WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win"}
 OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races", "Outright Winner",
                     "Fastest Qualifier", "Win Race"}
 OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
-                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", ""}
+                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", "Man Of The Match", ""}
 
 
 def competition_status(ev: dict) -> str:
