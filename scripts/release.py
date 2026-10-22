@@ -17,7 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 UTC = dt.timezone.utc
 MAX_SOURCE_AGE = dt.timedelta(hours=24)
 FIXED_ZONES = {'UTC': 0, 'GMT': 0, 'CEST': 2, 'CET': 1, 'EEST': 3,
-               'EET': 2, 'CAT': 2, 'SAST': 2, 'TRT': 3, 'PKT': 5}
+               'EET': 2, 'CAT': 2, 'SAST': 2, 'TRT': 3, 'PKT': 5,
+               'IST': 5.5, 'JST': 9, 'ALMT': 5, 'CST': 8}
 
 
 # Explicitly reviewed clock-source domains in the committed release evidence.
@@ -31,6 +32,9 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     # The Swedish Ice Hockey Association publishes the SHL schedule and its clock on its own
     # stats portal (stats.swehockey.se), not on shl.se. Federation domain, reviewed 2026-10-22.
     'stats.swehockey.se',
+    # Midday 2026-10-22 governing-body domains reviewed in session-a0a7003c:
+    # WTA/ATP official Order of Play PDFs, BCCI official match centre, JGTO, and Ligue Nationale de Volley.
+    'wtafiles.wtatennis.com', 'protennislive.com', 'www.bcci.tv', 'www.jgto.org', 'www.lnv.fr',
 })
 
 

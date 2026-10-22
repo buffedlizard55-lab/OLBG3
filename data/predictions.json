@@ -1,5 +1,5 @@
 {
-  "note": "14 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "20 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -1274,6 +1274,108 @@
       ],
       "status": "analysis",
       "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+    },
+    {
+      "ref": "IHO-15",
+      "selection": "EDM Oilers money line (-145 / 1.69, overtime/shootout included)",
+      "headline": "Edmonton's 41-goal attack and nine-game pace back home stand against Carolina",
+      "body": "Back EDM Oilers on the 2-way money line (-145 / 1.69), fading the two-of-three OLBG tips siding with visiting Carolina at Rogers Place (Friday 23 October, 01:00 UTC, NHL Game 2026020163). Official NHL standings on 22 October show Edmonton 7-1-1 through nine games (15 points, 41 goals scored, 27 conceded, riding a two-game winning streak), outscoring Carolina's per-game rate (8-2-1 across 11 games, 42 goals scored, 27 conceded). With our +0.15-goal home-ice term giving Edmonton 56.1% win probability, our originated line of 1.69 (-145) sits squarely inside the -250 to +10000 window.",
+      "sources": [
+        {
+          "label": "NHL official schedule API (Game 2026020163)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "IHO-16",
+      "selection": "NJ Devils money line (-147 / 1.68, overtime/shootout included)",
+      "headline": "Prudential Center home record and Anaheim's four-game slide favour New Jersey",
+      "body": "Select NJ Devils on the 2-way money line (-147 / 1.68) when Anaheim visits Prudential Center on Thursday 22 October, 23:00 UTC (NHL Game 2026020157). Official NHL standings retrieved on 22 October list New Jersey 5-4-0 across nine games (10 points, 29 goals for, 30 against) with a 4-2-0 record on home ice and a W1 bounce-back win, whereas the Ducks arrive 4-5-0 through nine games (8 points, 26 goals for, 29 against) on a four-game losing streak (L4). Our goal-rate model assigns New Jersey 56.5% win probability, pricing the home money line at 1.68 (-147).",
+      "sources": [
+        {
+          "label": "NHL official schedule API (Game 2026020157)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "IHO-17",
+      "selection": "DET Red Wings money line (-169 / 1.59, overtime/shootout included)",
+      "headline": "Vancouver's league-worst 51 goals conceded in 11 games gives Detroit clear road value",
+      "body": "Take DET Red Wings on the 2-way money line (-169 / 1.59) in Vancouver on Friday 23 October, 02:00 UTC at Rogers Arena (NHL Game 2026020165), aligning with all three OLBG money-line tips (3/3). Official NHL standings on 22 October show the Canucks struggling at 2-8-1 through 11 games (5 points, 1-3-0 on home ice, two straight losses) while surrendering an NHL-high 51 goals against 33 scored. Detroit enters 3-3-3 in nine games (9 points, 23 goals for, 28 against), and that defensive gulf lifts the Red Wings to 59.6% in our model at 1.59 (-169).",
+      "sources": [
+        {
+          "label": "NHL official schedule API (Game 2026020165)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "IHO-23",
+      "selection": "VGS Golden Knights money line (-189 / 1.53, overtime/shootout included)",
+      "headline": "Vegas's four-goal-per-game offense and 3-1-0 road mark outclass even-goal-differential Blues",
+      "body": "Back VGS Golden Knights on the 2-way money line (-189 / 1.53) visiting Enterprise Center on Friday 23 October, 00:00 UTC (NHL Game 2026020160), where OLBG tipsters are split 1/2. Official NHL standings on 22 October place Vegas 8-3-0 across 11 games (16 points, 3-1-0 on the road) with 44 goals scored against 30 allowed (+14 goal differential), facing a St. Louis Blues club sitting 4-4-1 through nine games (9 points, 29 goals scored, 29 conceded). Even after St. Louis's +0.15 home-ice adjustment, Vegas projects to 61.9% and prices cleanly inside band at 1.53 (-189).",
+      "sources": [
+        {
+          "label": "NHL official schedule API (Game 2026020160)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "IHO-24",
+      "selection": "DAL Stars money line (-238 / 1.42, overtime/shootout included)",
+      "headline": "Dallas's league-best 15 goals allowed in nine games anchors Central Division clash with Winnipeg",
+      "body": "Play DAL Stars on the 2-way money line (-238 / 1.42) hosting Winnipeg at American Airlines Center on Friday 23 October, 00:00 UTC (NHL Game 2026020161), supported by 2/2 OLBG win tips. Official NHL standings on 22 October credit Dallas with an NHL-low 15 goals conceded across nine games (5-3-1, 11 points, 23 goals scored, three straight wins W3), whereas the Jets arrive 4-3-2 through nine games (10 points, 24 goals scored, 26 allowed) on a two-game skid (L2). Dallas grades 66.9% in our goal-expectancy model and clears the -250 floor at 1.42 (-238).",
+      "sources": [
+        {
+          "label": "NHL official schedule API (Game 2026020161)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-22"
+        },
+        {
+          "label": "NHL official standings API (2026-10-22)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "ref": "VOL-30",
+      "selection": "Chaumont to win (-149 / 1.67)",
+      "headline": "Unbeaten Chaumont's 6:1 set start and +27 rally differential travel to winless Sète",
+      "body": "Back Chaumont to win the match (-149 / 1.67) in Thursday's LNV Alterna VOLSTAR Journée 3 televised fixture in Salle Louis Marty (22 October, 20:00 CEST / 18:00 UTC), matching 3/3 OLBG win tips including an expert pick. Official LNV DataProject standings after two rounds place Chaumont second on a maximum 6 points (2-0, 6:1 sets, 173 rally points won to 146 lost after beating Plessis-Robinson and sweeping Toulouse 3-0), while Arago de Sète sit 13th on 0 points (0-2, 1:6 sets, 165 rally points won to 194 lost). Our rally-points model gives Chaumont 56.7% and prices the away win at 1.67 (-149).",
+      "sources": [
+        {
+          "label": "LNV official Alterna VOLSTAR J1-J8 calendar (J3 Sète vs Chaumont)",
+          "url": "https://www.lnv.fr/actualites/2026-10-12/programmation-tv-alterna-volstar-x-bein-sports-j1-j8"
+        },
+        {
+          "label": "LNV DataProject official 2026/27 Alterna VOLSTAR standings",
+          "url": "https://lnv-web.dataproject.com/CompetitionStandings.aspx?ID=137&PID=192"
+        }
+      ],
+      "status": "high"
     }
   ]
 }

@@ -172,7 +172,19 @@ EDITORIAL_STRENGTH = {
     "VOL-36995": ("Cucine Lube Civitanova", 0.6585, 181.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30005): Cucine Lube Civitanova (3-1, 97:85) vs Pallavolo Padova"),
     "VOL-36996": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30007): Vero Volley Monza (91:94 at Prata) vs Rana Verona"),
     "VOL-36997": ("Sir Susa Scai Perugia", 0.5995, 183.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30002): Sir Susa Scai Perugia (3-2 at Cuneo, 113:103) vs Tinet Prata di Pordenone"),
-    "ICH-199937": ("NY Rangers", 0.5682, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): NY Rangers 7-3-1 (11 GP, 15 pts, 33 GF / 24 GA) at TOR Maple Leafs 5-4-2 (11 GP, 12 pts, 38 GF / 35 GA)"),
+    "VOL-37005": ("Chaumont", 0.5674, 182.5, "Over", "LNV Alterna VOLSTAR J3 (lnv-web.dataproject.com): #2 Chaumont (2-0, 6 pts, sets 6:1, rally 173:146) at #13 Sete (0-2, 0 pts, sets 1:6, rally 165:194)"),
+    "ICH-199931": ("EDM Oilers", 0.5612, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): EDM Oilers 7-1-1 (9 GP, 15 pts, 41 GF / 27 GA) home vs CAR Hurricanes 8-2-1 (11 GP, 17 pts, 42 GF / 27 GA)"),
+    "ICH-199932": ("NJ Devils", 0.5649, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): NJ Devils 5-4-0 (9 GP, 10 pts, 29 GF / 30 GA) home vs ANA Ducks 4-5-0 (9 GP, 8 pts, 26 GF / 29 GA, L4)"),
+    "ICH-199933": ("DET Red Wings", 0.5964, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): DET Red Wings 3-3-3 (9 GP, 9 pts, 23 GF / 28 GA) at VAN Canucks 2-8-1 (11 GP, 5 pts, 33 GF / 51 GA)"),
+    "ICH-199934": ("FLA Panthers", 0.5374, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): FLA Panthers 5-3-2 (10 GP, 12 pts, 31 GF / 30 GA) at PIT Penguins 3-6-1 (10 GP, 7 pts, 33 GF / 38 GA)"),
+    "ICH-199935": ("MIN Wild", 0.8022, 6.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): MIN Wild 6-2-2 (10 GP, 14 pts, 31 GF / 25 GA) at CGY Flames 2-6-0 (8 GP, 4 pts, 17 GF / 37 GA; >70% chalk -> medium)"),
+    "ICH-199936": ("BOS Bruins", 0.7135, 5.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): BOS Bruins 7-2-1 (10 GP, 15 pts, 36 GF / 22 GA) home vs NSH Predators 3-2-3 (8 GP, 9 pts, 23 GF / 24 GA; >70% chalk -> medium)"),
+    "ICH-199937": ("NY Rangers", 0.5306, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): NY Rangers 7-3-1 (11 GP, 15 pts, 33 GF / 24 GA) road at TOR Maple Leafs 5-4-2 (11 GP, 12 pts, 38 GF / 35 GA; road home-ice sign fixed -> <55% medium)"),
+    "ICH-199938": ("NY Islanders", 0.6831, 6.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): NY Islanders 5-3-1 (9 GP, 11 pts, 27 GF / 20 GA) home vs LA Kings 1-4-2 (7 GP, 4 pts, 17 GF / 27 GA; 1.39/-256 outside -250 floor -> medium)"),
+    "ICH-199939": ("SEA Kraken", 0.5125, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): SEA Kraken 6-3-1 (10 GP, 13 pts, 39 GF / 34 GA) home vs UTA Mammoth 7-3-0 (10 GP, 14 pts, 38 GF / 31 GA)"),
+    "ICH-199940": ("VGS Golden Knights", 0.6192, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): VGS Golden Knights 8-3-0 (11 GP, 16 pts, 44 GF / 30 GA) at STL Blues 4-4-1 (9 GP, 9 pts, 29 GF / 29 GA)"),
+    "ICH-199941": ("DAL Stars", 0.6694, 5.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): DAL Stars 5-3-1 (9 GP, 11 pts, 23 GF / 15 GA, W3) home vs WPG Jets 4-3-2 (9 GP, 10 pts, 24 GF / 26 GA, L2)"),
+    "ICH-199942": ("OTT Senators", 0.6900, 5.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): OTT Senators 7-3-0 (10 GP, 14 pts, 29 GF / 24 GA) home vs SJ Sharks 5-4-1 (10 GP, 11 pts, 27 GF / 35 GA; 1.38/-263 outside -250 floor -> medium)"),
     "GFA-3530": ("St Finbarrs", 0.5864, 37.5, "Over", "Cork GAA 2026 Premier SFC complete 5-game championship record (gaacork.ie): St Finbarrs 3-2 (116 PF / 85 PA, +31) vs Nemo Rangers 4-1 (98 PF / 79 PA, +19) at neutral Pairc Ui Chaoimh"),
     "TEN-902117": ("Marie Bouzkova", 0.5620, 22.5, "Over", "WTA 500 Ningbo QF official draw (wtatennis.com MDS.pdf): Marie Bouzkova vs Sara Bejlek + OLBG 1/1"),
 }
@@ -183,7 +195,7 @@ OUTRIGHT_FIELDS = {
     "GLF-101908": (96, 24, None, None, "JGTO official Fortinet Players Cup 96-player field prior"),
     "GLF-101911": (72, 16, None, None, "Senior tour 72-player field prior"),
     "GLF-101912": (120, 20, None, None, "Sunshine Tour 120-player field prior"),
-    "GLF-101903": (78, 16, None, None, "PGA Tour Champions 78-player field prior"),
+    "GLF-101903": (72, 16, None, None, "PGA Tour Champions Stifel Charity Classic 72-player Schwab Cup Playoffs field prior"),
     "MTR-913": (22, 12, "Max Verstappen", 0.284, "FIA Formula 1 22-car Austin COTA grid prior + 12/33 OLBG win tips (3 experts)"),
     "MTR-911": (22, 12, None, None, "FIA Formula 1 22-car Austin Qualifying grid prior + 5/7 OLBG tips"),
     "MTR-828": (22, 12, None, None, "FIA Formula 1 2026 Drivers Championship prior + 9/33 OLBG tips"),
@@ -387,7 +399,7 @@ def main() -> None:
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
         else:
             _non_win = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
-                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner"}
+                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner", "Man Of The Match"}
             side = None if (m.get("olbg_market") in _non_win) else resolve_team_side(m["olbg_consensus_selection"], home, away)
             if side is None:
                 # e.g. Handball "Tie" consensus or totals-only listing -> lean home edge
@@ -465,7 +477,7 @@ def main() -> None:
             # selection: publishing it as one would mean tipping a match that has been played.
             flags.append("kick_off_passed_archived")
         if (mid in high_verified_ids and m["competition_status"] == "verified"
-                and not carried and in_window and not ko_passed):
+                and not carried and in_window and not ko_passed and p_pick >= 0.55):
             conf = "high"
         elif carried:
             conf = "medium" if (m["competition_status"] == "verified" and (tot or 0) >= 5) else "low"

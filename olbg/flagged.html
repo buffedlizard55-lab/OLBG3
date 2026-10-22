@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">90 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">95 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -654,11 +654,46 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship" rel="noopener nofollow" target="_blank">PDC — Humphries withdraws from 2026 Machineseeker European Championship</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338" rel="noopener nofollow" target="_blank">OLBG — European Championship tips (12 win tips, Price 3/12, no Humphries)</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/15" rel="noopener nofollow" target="_blank">OLBG — All Darts listing (event 32337 absent; No tips found for Humphries vs Searle)</a></li></ul>
 </article>
+<article class="card flag" id="FL-091">
+  <div class="flag-head"><span class="tag">FL-091</span> <span class="sev sev-high">high</span></div>
+  <h2>ICH-199937 (NY Rangers @ TOR Maple Leafs) road home-ice sign bug fixed: 0.5682 HIGH -&gt; 0.5306 MEDIUM</h2>
+  <p>NHL Official API Game #2026020155 lists NYR as awayTeam (7-3-1, 33 GF / 24 GA in 11 GP) and TOR as homeTeam (5-4-2, 38 GF / 35 GA in 11 GP) at Scotiabank Arena (23:00Z). Applying +0.15 home-ice goals to Toronto yields p_NYR = 0.5306 (1.79 / -127), matching IHO-14 on the root board and sitting below our 55% HIGH probability floor. ICH-199937 is now graded MEDIUM analysis across both tracks.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-22" rel="noopener nofollow" target="_blank">NHL official schedule API (2026-10-22, Game 2026020155)</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-22" rel="noopener nofollow" target="_blank">NHL official standings API (2026-10-22)</a></li></ul>
+</article>
+<article class="card flag" id="FL-092">
+  <div class="flag-head"><span class="tag">FL-092</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG server-rendered HTML mixes UK BST (UTC+1) and US EDT (UTC-4) clocks across category endpoints</h2>
+  <p>For example, SJ Sharks @ OTT Senators (official 23:00Z) rendered &#x27;Tomorrow 00:07&#x27; (BST) on /Ice_Hockey/NHL/13 while Sete vs Chaumont (official 18:00Z) rendered &#x27;Today 14:00&#x27; (EDT) on /Volleyball/21. Both tracks never convert bare OLBG clocks; UTC starts come exclusively from dated governing-body evidence in data/release_checks.json and data/verifications.json.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13" rel="noopener nofollow" target="_blank">OLBG NHL Betting Tips (/Ice_Hockey/NHL/13)</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball Betting Tips (/Volleyball/21)</a></li></ul>
+</article>
+<article class="card flag" id="FL-093">
+  <div class="flag-head"><span class="tag">FL-093</span> <span class="sev sev-medium">medium</span></div>
+  <h2>India W vs Zimbabwe W 1st ODI (188830) lists &#x27;Man Of The Match&#x27; (S Mandhana 1/1) as OLBG&#x27;s headline market</h2>
+  <p>BCCI&#x27;s official match centre confirms the 1st Women&#x27;s ODI at BCA Stadium, Vadodara on Friday 23 Oct 2026 at 14:00 IST (08:30Z). Because OLBG&#x27;s only tipped market on event 188830 is &#x27;Man Of The Match&#x27; (Smriti Mandhana 1/1), CRK-11 leaves team win prices blank on the root board and CRI-188830 excludes the player tip from team win probability on /olbg/.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women" rel="noopener nofollow" target="_blank">BCCI Official Match Centre — India Women vs Zimbabwe Women</a></li><li><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/India_W_vs_Zimbabwe_W_1st_ODI/7?event_id=188830" rel="noopener nofollow" target="_blank">OLBG India W vs Zimbabwe W 1st ODI (event 188830)</a></li></ul>
+</article>
+<article class="card flag" id="FL-094">
+  <div class="flag-head"><span class="tag">FL-094</span> <span class="sev sev-low">low</span></div>
+  <h2>JGTO Fortinet Players Cup (GLF-07 / GLF-101908) official dates corrected to Oct 22-25, 2026; Stifel Charity Classic (GLF-05 / GLF-101903) consensus updated to Stewart Cink 3/13</h2>
+  <p>Both tournaments remain graded below HIGH (GLF-07 Round 1 already underway in Chiba; GLF-05 carries 13 open tips below our 20-tip outright sample floor).</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.jgto.org/en/" rel="noopener nofollow" target="_blank">JGTO Official Schedule (jgto.org/en/)</a></li><li><a href="https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026625/overview" rel="noopener nofollow" target="_blank">PGA Tour Champions — 2026 Stifel Charity Classic Overview</a></li></ul>
+</article>
+<article class="card flag" id="FL-095">
+  <div class="flag-head"><span class="tag">FL-095</span> <span class="sev sev-low">low</span></div>
+  <h2>Nine afternoon/evening UK greyhound races added at 12:15Z (Central Park 14:41-17:31 BST + Newcastle 20:19 BST) remain unverified</h2>
+  <p>GBGB&#x27;s racecard portal challenges automated non-browser fetches via Cloudflare, so no official per-race static URL was retrieved. Unconfirmed fields remain blank rather than inferred from OLBG&#x27;s race titles.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG Greyhound Racing Tips (/Greyhounds/28)</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T08:58:00Z; publication clock 2026-10-22T12:10:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-22T12:25:00Z; publication clock 2026-10-22T12:25:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
