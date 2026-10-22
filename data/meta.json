@@ -1,9 +1,9 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261022-A",
-  "run_started_utc": "2026-10-22T01:26:00Z",
-  "harvest_completed_utc": "2026-10-22T01:32:00Z",
-  "olbg_locale_date": "2026-10-21",
+  "run_id": "S-20261022-B",
+  "run_started_utc": "2026-10-22T07:21:00Z",
+  "harvest_completed_utc": "2026-10-22T07:26:00Z",
+  "olbg_locale_date": "2026-10-22",
   "excluded_sports_verbatim": [
     "soccer",
     "boxing",
@@ -70,22 +70,31 @@
     "granularity": "All server-rendered events on each allowed sport page as of 2026-10-22T01:26-01:32Z (130 live events across 13 active sports + 11 explicitly tagged carried rows across Snooker & Greyhounds = 141 fixtures across all 15 allowed sports).",
     "values_inferred": "none - blank when not stated by an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261022.tsv",
+  "harvest_file": "raw/olbg-harvest-20261022T0725Z.tsv",
   "harvest_format": "v2",
-  "harvest_timezone_note": "At 2026-10-22T01:26Z, the fetcher locale is US Eastern Daylight Time (UTC-4, 2026-10-21 21:26 EDT), so OLBG's 'Today' = 2026-10-21 EDT and 'Tomorrow' = 2026-10-22 EDT (verified against ATP Almaty/Brussels/Lyon, NBA, PDC Dortmund, SHL, Liiga, ICC, and EHF official schedules; Note: Rugby Union renders UK BST dates for European matches). Official UTC is recorded in verifications.json wherever confirmed.",
+  "harvest_timezone_note": "At 2026-10-22T07:25Z (03:25 EDT), OLBG renders relative dates in US Eastern Daylight Time (UTC-4), so 'Today' = 2026-10-22 and 'Tomorrow' = 2026-10-23 across all 15 allowed sports. Prior harvests retain their exact capture olbg_locale_date per source file.",
   "previous_harvest": {
-    "file": "raw/olbg-harvest-20261021T0650Z.tsv",
+    "file": "raw/olbg-harvest-20261022.tsv",
     "format": "v2",
-    "harvest_completed_utc": "2026-10-21T07:05:00Z",
-    "note": "Retained unchanged for audit; supplies Belfast Northern Ireland Open Snooker rows when /Snooker/8 showed 'No tips found.' overnight at 2026-10-22T01:28Z."
+    "olbg_locale_date": "2026-10-21",
+    "harvest_completed_utc": "2026-10-22T01:32:00Z",
+    "note": "Retained byte-for-byte unchanged for audit; supplies completed 21 Oct and pre-07:25Z early-morning 22 Oct fixtures."
   },
   "previous_harvests_extra": [
     {
+      "file": "raw/olbg-harvest-20261021T0650Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-21",
+      "harvest_completed_utc": "2026-10-21T07:05:00Z",
+      "note": "Retained byte-for-byte unchanged for audit; supplies completed Day Four Northern Ireland Open Round 2 fixtures."
+    },
+    {
       "file": "raw/olbg-harvest-20261021.tsv",
       "format": "v1",
+      "olbg_locale_date": "2026-10-21",
       "harvest_completed_utc": "2026-10-21T05:20:00Z",
-      "note": "Retained unchanged for audit; supplies UK Greyhound card rows when /Greyhounds/28 showed 'No tips found.' overnight at 2026-10-22T01:28Z."
+      "note": "Retained byte-for-byte unchanged for audit; supplies completed 21 Oct UK Greyhound race rows."
     }
   ],
-  "session": "session-4f267387"
+  "session": "session-5cef1e25"
 }
