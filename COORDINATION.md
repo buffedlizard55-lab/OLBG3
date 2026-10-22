@@ -1036,3 +1036,9 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **Live spot-verification:** OLBG Tennis live 02:50Z matches stored IDs 902110/902071/902072; MLB official schedule confirms BSB-01 verbatim (WS Game 1 TB@MIL 23 Oct 8pm ET, Jacob Misiorowski probable).
 - **Irregularities:** none new; FL-041..043 + 32 unverified remain on Flagged for Review (non-blocking). PR + merge + Pages verification recorded below on completion.
 - **PR/Merge/Pages (task-27):** PR https://github.com/buffedlizard55-lab/OLBG3/pull/45 merged to `main`; post-merge runs 39713303612 (Verify & publish) and 39713303567 (pages-build-deployment) both `success`; live predictions.html confirmed serving 30 HIGH picks.
+
+### task-27-freshness-safety integration result — session-1bc4ae9a
+- **Code and regression tests: done.** PR https://github.com/buffedlizard55-lab/OLBG3/pull/48 merged at 2026-10-22T02:50:58Z, merge commit `5ed523f4b084001a8ee62bbd15539a4896546f35`.
+- Branch CI https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39713569609 passed (build 13s). Local 25 tests and both deterministic pipelines passed; zero broken internal links.
+- Post-merge runs 39713621626 / 39713622166 were **cancelled**, not failed, while concurrent #49 advanced main. #49 preserves this code. Deployment confirmation will use the newest main run; cancellation must not be represented as successful deployment.
+- Remaining items are **needs review**, not verified: full current all-sports coverage, all historical official-source assertions, same-day timezone/start status, calibrated confidence, bookmaker-vs-model price comparison, separate /olbg/ expiry behavior. Published in root Flagged for Review and footer; no new odds or source values were invented.
