@@ -202,51 +202,42 @@
     "note": "Hapoel Tel Aviv v Virtus Bologna, 21 Oct 2026, 18:00 local (game relocated to Arena 8888, Sofia). 18:00 CEST = 12:00 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "official-standings",
+    "basis": "consensus",
     "prices": {
-     "win_home": 1.78,
-     "draw": null,
-     "win_away": 2.04
+     "win_home": 1.51,
+     "win_away": 2.57
     },
     "notes": [
-     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "home": 0.5332,
-     "away": 0.4668
+     "home": 0.63,
+     "away": 0.37
     },
     "handicap": {
      "fav": "home",
-     "line": -1.5,
+     "line": -4.5,
      "price": 1.91,
-     "dog_line": 1.5,
+     "dog_line": 4.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "official-form",
-     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
-    },
-    "total": {
-     "line": 175.5,
-     "over": 1.91,
-     "under": 1.91,
-     "unit": "points",
-     "basis": "official-form",
-     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (63%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
     "side": "home",
     "label": "Hapoel Tel Aviv",
-    "prob": 0.5332,
+    "prob": 0.63,
     "confidence": "MEDIUM",
     "score": 4,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 2,
-     "model_edge": 0
+     "official_form": 0,
+     "model_edge": 2
     },
-    "price": 1.78,
-    "american": -128,
+    "price": 1.51,
+    "american": -196,
     "in_band": true,
     "band": [
      -250,
@@ -905,52 +896,43 @@
     "note": "Panathinaikos AKTOR v Baskonia, 20:15 CEST = 14:15 EDT, matching the OLBG listing exactly."
    },
    "model": {
-    "basis": "official-standings",
+    "basis": "consensus",
     "prices": {
-     "win_home": 1.07,
-     "draw": null,
-     "win_away": 8.36
+     "win_home": 1.42,
+     "win_away": 2.88
     },
     "notes": [
-     "Official EuroLeague 2026/27 standings used for both clubs (https://www.euroleaguebasketball.net/en/euroleague/news/tae2627-rs7-game-facts-pan-bas/)."
+     "Probability equals the OLBG consensus tip share; the draw is not priced."
     ],
     "probs": {
-     "home": 0.8864,
-     "away": 0.1136
+     "home": 0.67,
+     "away": 0.33
     },
     "handicap": {
      "fav": "home",
-     "line": -15.5,
+     "line": -5.5,
      "price": 1.91,
-     "dog_line": 15.5,
+     "dog_line": 5.5,
      "dog_price": 1.91,
      "unit": "points",
-     "basis": "official-form",
-     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
-    },
-    "total": {
-     "line": 172.5,
-     "over": 1.91,
-     "under": 1.91,
-     "unit": "points",
-     "basis": "official-form",
-     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+     "basis": "consensus-scaled",
+     "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
     }
    },
    "pick": {
     "side": "home",
     "label": "Panathinaikos",
-    "prob": 0.8864,
+    "prob": 0.67,
     "confidence": "MEDIUM",
-    "score": 6,
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 2,
+     "official_form": 0,
      "model_edge": 2
     },
-    "price": 1.07,
-    "american": -1429,
-    "in_band": false,
+    "price": 1.42,
+    "american": -238,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -961,8 +943,8 @@
     "clock_basis": "OLBG clock read as US Eastern (UTC-4)",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.07 converts to -1429 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "evidence_grade": "MEDIUM",
+    "note": ""
    }
   },
   {
@@ -2243,7 +2225,7 @@
     "side": "away",
     "label": "India",
     "prob": 0.6067,
-    "confidence": "HIGH",
+    "confidence": "MEDIUM",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -2264,7 +2246,7 @@
     "kickoff_started": true,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": ""
+    "note": "The derived UTC start 2026-10-22T07:00Z passed prior to the 2026-10-22T07:35Z morning harvest snapshot, so the pick is archived as MEDIUM analysis rather than a live selection."
    }
   },
   {
@@ -10803,7 +10785,7 @@
     "kickoff_started": true,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.37 converts to -270 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.37 converts to -270 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The derived UTC start 2026-10-22T06:30Z passed prior to the 2026-10-22T07:35Z morning harvest snapshot, so the pick is archived as MEDIUM analysis rather than a live selection."
    }
   },
   {
@@ -11040,7 +11022,7 @@
     "side": "home",
     "label": "Iva Jovic",
     "prob": 0.5953,
-    "confidence": "HIGH",
+    "confidence": "MEDIUM",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -11061,7 +11043,7 @@
     "kickoff_started": true,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": ""
+    "note": "The derived UTC start 2026-10-22T05:00Z passed prior to the 2026-10-22T07:35Z morning harvest snapshot, so the pick is archived as MEDIUM analysis rather than a live selection."
    }
   },
   {
@@ -11126,7 +11108,7 @@
     "side": "away",
     "label": "Katerina Siniakova",
     "prob": 0.5668,
-    "confidence": "HIGH",
+    "confidence": "MEDIUM",
     "score": 6,
     "factors": {
      "fixture_verified": 2,
@@ -11147,7 +11129,7 @@
     "kickoff_started": true,
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": ""
+    "note": "The derived UTC start 2026-10-22T05:30Z passed prior to the 2026-10-22T07:35Z morning harvest snapshot, so the pick is archived as MEDIUM analysis rather than a live selection."
    }
   },
   {

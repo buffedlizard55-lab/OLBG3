@@ -20,7 +20,7 @@ from statistics import NormalDist
 from urllib.parse import urlparse
 
 from board_dates import (CAPTURE_DATE, AS_OF, resolve_start, resolve_kickoff_utc, started,
-                         american, in_band,
+                         snapshot_utc, american, in_band,
                          BAND_LOW_US, BAND_HIGH_US)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -148,12 +148,44 @@ ALIASES = {
     "Djurgardens IF": "Djurgårdens IF",
     "Orebro HK": "Örebro HK",
     "Brynas IF": "Brynäs IF",
-    # EuroLeague (official 2026-27 calendar names)
+    "IF Bjorkloven": "IF Björklöven",
+    "IF Malmo Redhawks": "IF Malmö Redhawks",
+    "Rogle BK": "Rögle BK",
+    "Frolunda HC": "Frölunda HC",
+    "Vaxjo Lakers HC": "Växjö Lakers HC",
+    "Lulea HF": "Luleå HF",
+    "HV71": "HV 71",
+    "Linkoping HC": "Linköping HC",
+    # EuroLeague (official 2026-27 calendar & standings names)
     "Anadolu Efes": "Anadolu Efes Istanbul",
     "Besiktas": "Besiktas Istanbul",
     "Maccabi Tel Aviv": "Maccabi Rapyd Tel Aviv",
     "Zalgiris": "Zalgiris Kaunas",
     "Asvel Lyon Villeurbanne": "LDLC ASVEL Villeurbanne",
+    "Panathinaikos": "Panathinaikos AKTOR Athens",
+    "Hapoel Tel Aviv": "Hapoel IBI Tel Aviv",
+    "Baskonia": "Kosner Baskonia Vitoria-Gasteiz",
+    "Bayern Munich": "FC Bayern Munich",
+    "Olimpia Milano": "Armani Olimpia Milan",
+    "EA7 Emporio Armani Milan": "Armani Olimpia Milan",
+    "Partizan": "Partizan Mozzart Bet Belgrade",
+    "Partizan Belgrade": "Partizan Mozzart Bet Belgrade",
+    "Crvena Zvezda": "Crvena Zvezda Meridianbet Belgrade",
+    "Olympiacos": "Olympiacos Piraeus",
+    "Fenerbahce": "Fenerbahce Tarfin Istanbul",
+    "Paris": "Paris Basketball",
+    "Valencia": "Valencia Basket",
+    # Italian Men's SuperLega Credem Banca (Lega Pallavolo Serie A official club names)
+    "Civitanova": "Cucine Lube Civitanova",
+    "Padova": "Pallavolo Padova",
+    "Monza": "Vero Volley Monza",
+    "Verona": "Rana Verona",
+    "Piacenza": "Gas Sales Bluenergy Piacenza",
+    "Modena": "Valsa Group Modena",
+    "Trentino": "Itas Trentino",
+    "Cisterna": "Cisterna Volley",
+    # World Snooker Tour official player order
+    "Cheung Ka Wai": "Ka Wai Cheung",
 }
 
 def verification_for(ref, conf):
@@ -279,12 +311,26 @@ hbl_fr_src = hbl_fr.get("source", "")
 hbl_se = off["form_data"].get("Handball_Sweden_Handbollsligan_2026_27", {})
 hbl_se_tbl = hbl_se.get("teams", {})
 hbl_se_src = hbl_se.get("source", "")
+# Danish Betoro Herreligaen & Spanish Liga NEXUS ENERGIA ASOBAL official tables.
+hbl_dk = off["form_data"].get("Handball_Denmark_Herreligaen_2026_27", {})
+hbl_dk_tbl = hbl_dk.get("teams", {})
+hbl_dk_src = hbl_dk.get("source", "")
+hbl_es = off["form_data"].get("Handball_Spain_ASOBAL_2026_27", {})
+hbl_es_tbl = hbl_es.get("teams", {})
+hbl_es_src = hbl_es.get("source", "")
 handball_tables = {}
 handball_tables.update(hbl_tbl)
 handball_tables.update(hbl_fr_tbl)
 handball_tables.update(hbl_se_tbl)
+handball_tables.update(hbl_dk_tbl)
+handball_tables.update(hbl_es_tbl)
 
-# OLBG club names -> the exact club names printed by the LNH table. Name normalisation only.
+snk_tbl = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("players", {})
+snk_src = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("source", "")
+vol_tbl = off["form_data"].get("SuperLega_2026_27_table", {}).get("teams", {})
+vol_src = off["form_data"].get("SuperLega_2026_27_table", {}).get("source", "")
+
+# OLBG club names -> the exact club names printed by the official tables. Name normalisation only.
 HANDBALL_ALIASES = {
     "Pays dAix UC": "Aix",
     "Limoges 87": "Limoges",
@@ -295,6 +341,11 @@ HANDBALL_ALIASES = {
     "HIF Karlskrona": "HF Karlskrona",
     "IK Savehof": "IK Sävehof",
     "Alingsas HK": "Alingsås HK",
+    # Betoro Herreligaen & Liga NEXUS ENERGIA ASOBAL
+    "Skive FH": "Skive fH",
+    "Aalborg Handbold": "Aalborg Håndbold",
+    "Bidasoa Irun": "IRUDEK Bidasoa Irun",
+    "Caserio Ciudad Real": "BM Caserío Ciudad Real",
 }
 
 
@@ -426,6 +477,10 @@ for e in events:
                 return hbl_fr_src
             if name in hbl_se_tbl:
                 return hbl_se_src
+            if name in hbl_dk_tbl:
+                return hbl_dk_src
+            if name in hbl_es_tbl:
+                return hbl_es_src
             return hbl_src
         _hsrc = _hbl_source(handball_name(e["home"]))
         _asrc = _hbl_source(handball_name(e["away"]))
@@ -433,6 +488,27 @@ for e in events:
             model["notes"].append(f"Official 2026/27 handball standings used for both sides ({_hsrc}).")
         else:
             model["notes"].append(f"Official handball tables used: home side from {_hsrc}, away side from {_asrc}.")
+    elif e["sport"] == "Snooker" and official_name(e["home"]) in snk_tbl and official_name(e["away"]) in snk_tbl:
+        hr, ar = snk_tbl[official_name(e["home"])], snk_tbl[official_name(e["away"])]
+        p_home = 1.0 / (1.0 + math.exp(-0.21 * math.log(ar["seed"] / hr["seed"])))
+        margin = 1.4 * ND.inv_cdf(min(0.85, max(0.15, p_home)))
+        total = 5.0
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official WST Northern Ireland Open 2026 event seedings & best-of-7 Last 16 format used ({snk_src}).")
+    elif e["sport"] == "Volleyball" and official_name(e["home"]) in vol_tbl and official_name(e["away"]) in vol_tbl:
+        hr, ar = vol_tbl[official_name(e["home"])], vol_tbl[official_name(e["away"])]
+        h_sets = max(1, hr["sw"] + hr["sl"])
+        a_sets = max(1, ar["sw"] + ar["sl"])
+        exp_h_ps = (hr["pf"] / h_sets + ar["pa"] / a_sets) / 2.0 + 1.1
+        exp_a_ps = (ar["pf"] / a_sets + hr["pa"] / h_sets) / 2.0
+        ps_diff = exp_h_ps - exp_a_ps
+        p_home = 1.0 - normal_cdf(-ps_diff / 6.8)
+        margin = 1.6 * ND.inv_cdf(min(0.85, max(0.15, p_home)))
+        total = (exp_h_ps + exp_a_ps) * 3.85
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official Lega Pallavolo Serie A 2026/27 SuperLega table & rally points per set used ({vol_src}).")
 
     side, kind = side_of_pick(e)
     if probs is None:
@@ -484,7 +560,8 @@ for e in events:
                 line += 0.5
             line = max(line, 0.5)
             unit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs",
-                    "Tennis": "games", "Darts": "legs", "Handball": "goals"}.get(e["sport"], "goals")
+                    "Tennis": "games", "Darts": "legs", "Handball": "goals",
+                    "Snooker": "frames", "Volleyball": "sets"}.get(e["sport"], "goals")
             model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line,
                                  "dog_price": 1.91, "unit": unit, "basis": "official-form",
                                  "note": ("Line derived from the projected margin built on official league data; "
@@ -517,7 +594,8 @@ for e in events:
     if margin is not None and total is not None:
         tline = math.floor(total) + 0.5  # always a half-point line
         tunit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs",
-                 "Tennis": "games", "Darts": "legs", "Handball": "goals"}.get(e["sport"], "goals")
+                 "Tennis": "games", "Darts": "legs", "Handball": "goals",
+                 "Snooker": "frames", "Volleyball": "points"}.get(e["sport"], "goals")
         model["total"] = {"line": tline, "over": 1.91, "under": 1.91, "unit": tunit,
                           "basis": "official-form",
                           "note": ("Line = projected combined score from official league scoring rates, rounded to a "
@@ -550,11 +628,15 @@ for e in events:
     if model.get("prices"):
         pick_price = model["prices"].get("win_" + pick_side) if pick_side else None
     band_ok = in_band(pick_price)
-    start_iso, start_basis = resolve_start(e["start"])
+    ev_capture = (
+        __import__("datetime").date.fromisoformat(e["captured"])
+        if e.get("captured") else CAPTURE_DATE
+    )
+    snap_utc = snapshot_utc()
+    start_iso, start_basis = resolve_start(e["start"], capture=ev_capture)
     kickoff_passed = bool(start_iso) and start_iso < AS_OF.isoformat()
-    # derived clock only - never changes the grade (see board_dates.EASTERN_OFFSET_HOURS)
-    kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"])
-    clock_started = started(e["start"])
+    kickoff_utc, clock_basis = resolve_kickoff_utc(e["start"], capture=ev_capture)
+    clock_started = started(e["start"], now_utc=snap_utc, capture=ev_capture)
 
     reasons = []
     if not band_ok and pick_price:
@@ -562,6 +644,8 @@ for e in events:
                        f"-250..+10000 band")
     if kickoff_passed:
         reasons.append(f"kick-off date {start_iso} has passed (build date {AS_OF.isoformat()})")
+    elif clock_started:
+        reasons.append(f"derived kick-off {kickoff_utc} had already started prior to snapshot {snap_utc.strftime('%Y-%m-%dT%H:%MZ')}")
     if evidence_conf == "HIGH" and reasons:
         conf_label = "MEDIUM"
     elif evidence_conf == "HIGH":
@@ -577,6 +661,10 @@ for e in events:
         band_note = (band_note + " " if band_note else "") + (
             f"The listed kick-off date {start_iso} has passed at the {AS_OF.isoformat()} build, so the pick is "
             f"archived rather than presented as a live high-confidence selection.")
+    elif evidence_conf == "HIGH" and clock_started:
+        band_note = (band_note + " " if band_note else "") + (
+            f"The derived UTC start {kickoff_utc} passed prior to the {snap_utc.strftime('%Y-%m-%dT%H:%MZ')} "
+            f"morning harvest snapshot, so the pick is archived as MEDIUM analysis rather than a live selection.")
 
     # OLBG leaves the competition blank for most sports. When the official source we verified the
     # fixture against names the competition, that name is published instead - it is quoted from the

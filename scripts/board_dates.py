@@ -23,6 +23,19 @@ import re
 import os
 
 CAPTURE_DATE = dt.date(2026, 10, 21)   # data/events.json -> "generated"
+SNAPSHOT_UTC = dt.datetime(2026, 10, 22, 7, 35, tzinfo=dt.timezone.utc)
+
+
+def snapshot_utc():
+    """Deterministic UTC reference clock for committed snapshot builds (`OLBG_NOW_UTC` overrides)."""
+    override = os.environ.get("OLBG_NOW_UTC")
+    if override is not None:
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z", override):
+            raise ValueError("OLBG_NOW_UTC must be YYYY-MM-DDTHH:MMZ")
+        return dt.datetime.strptime(override, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
+    return SNAPSHOT_UTC
+
+
 def build_date():
     """Use UTC today; an explicit ISO override reproduces an archived build.
 
