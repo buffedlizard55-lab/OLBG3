@@ -1469,6 +1469,105 @@
     },
     {
       "id": "FL-063",
+      "severity": "high",
+      "title": "Cited WST tournament page for the BetVictor Northern Ireland Open returned HTTP 404 (21 published links); replaced with the live WST match centre",
+      "detail": "Every snooker row on both tracks pointed at https://www.wst.tv/tournaments/northern-ireland-open-2026/ as its official confirmation. Re-checked on 2026-10-22 08:40 UTC: that URL serves a World Snooker Tour '404 error' page, and so does the year-less variant /tournaments/northern-ireland-open/. A dead link cannot support a 'verified' label, so all 21 occurrences were repointed to the live WST match centre https://www.wst.tv/matches/, which serves the 'BetVictor Northern Ireland Open 2026' match list and is the page used to re-confirm the fixtures. The seed numerals quoted in the write-ups ([9] Wilson, [26] Pang, [38] McGill, [55] O'Donnell, [84] Baranowski, [106] Cheung) come from the printed draw, which this pass could not re-read because the draw tab renders client-side; they remain corroborated on snooker.org Event 2548 exactly as each row note already discloses, and were NOT altered. WST's own Day Four reports were re-read verbatim and agree with the published prose: Cheung Ka Wai 4-0 Stuart Bingham with breaks of 56, 54 and 111, and Jak Jones 4-2 John Higgins.",
+      "affected_rows": [
+        "SNK-01",
+        "SNK-02",
+        "SNK-03",
+        "SNK-04",
+        "SNK-05",
+        "SNK-06",
+        "SNK-07",
+        "SNK-08",
+        "SNK-09",
+        "SNK-10",
+        "SNK-11",
+        "SNK-12",
+        "SNK-13",
+        "SNK-14",
+        "SNO-9929",
+        "SNO-9930",
+        "SNO-9931",
+        "SNO-9932",
+        "SNO-9933",
+        "SNO-9934",
+        "SNO-9935",
+        "SNO-9936",
+        "SNO-9937",
+        "SNO-9940",
+        "SNO-9941",
+        "SNO-9942",
+        "SNO-9943",
+        "SNO-9944",
+        "SNO-9945",
+        "SNO-9946",
+        "SNO-9947"
+      ],
+      "sources": [
+        {
+          "label": "WST live match centre (replacement link; serves the Northern Ireland Open 2026 match list)",
+          "url": "https://www.wst.tv/matches/"
+        },
+        {
+          "label": "WST Day Four Afternoon report (Cheung 4-0 Bingham, breaks 56/54/111; Jones 4-2 Higgins)",
+          "url": "https://www.wst.tv/news/2026/october/21/betvictor-northern-ireland-open-2026-day-four-afternoon"
+        },
+        {
+          "label": "snooker.org Event 2548 - corroboration of the draw and seed numerals",
+          "url": "https://www.snooker.org/res/index.asp?event=2548"
+        },
+        {
+          "label": "BBC Sport - Lisowski beaten 4-1 by McGill",
+          "url": "https://www.bbc.com/sport/snooker/articles/cwkg5k7873kxo"
+        }
+      ]
+    },
+    {
+      "id": "FL-064",
+      "severity": "medium",
+      "title": "IHO-03 misdescribed two shootout decisions as overtime wins/losses; corrected against the Swedish Ice Hockey Association table",
+      "detail": "The Farjestad BK write-up said the club was 'unbeaten in regulation across 10 games (eight regulation wins, one overtime win, one overtime loss for 27 points)'. The official SHL table on stats.swehockey.se prints Farjestad 10 GP, 8 W, 2 T, 0 L, 40:11, 27 TP with OTW 0, OTL 0, GWSW 1 and GWSL 1 - eight regulation wins plus one shootout win and one shootout loss, and no overtime decisions at all. The prose now states the shootout split. The pick, price (1.42 / -238), probability and HIGH grade are unchanged. Sibling figures were re-read on the same page and agree: Frolunda 2nd on 25 points from 11 games (38:24), Rogle 6th on 14 points from 10 (23:21).",
+      "affected_rows": [
+        "IHO-03"
+      ],
+      "sources": [
+        {
+          "label": "Svenska Ishockeyforbundet official SHL table and schedule (Farjestad 10 GP 8-2-0, 40:11, 27 TP, GWSW 1, GWSL 1)",
+          "url": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
+        },
+        {
+          "label": "EuroLeague official standings (Panathinaikos 5-1, 528:438, +90) - re-read in the same pass",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        },
+        {
+          "label": "ICC official Men's ODI team rankings, 21 Oct 2026 (England 6, Sri Lanka 7, Ireland 12/51, Namibia 16/32)",
+          "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+        },
+        {
+          "label": "Tophaandbold Betoro Herreligaen table (Skive 10 GP 328:366, 2 pts; Aalborg 10 GP 323:306, 15 pts)",
+          "url": "https://tophaandbold.dk/stillinger/herreligaen"
+        }
+      ]
+    },
+    {
+      "id": "FL-065",
+      "severity": "medium",
+      "title": "BSB-160789 claimed Milwaukee held 'MLB's premier home record'; the Rays matched it exactly at 55-26",
+      "detail": "The World Series Game 1 write-up on the /olbg/ track said Milwaukee carried \"MLB's premier home record at 55-26 (.679)\". The official MLB standings for the completed 2026 regular season print Milwaukee 103-59 with a 55-26 home mark AND Tampa Bay 98-64 with a 55-26 home mark, both .679, so the record is joint-best rather than Milwaukee's alone - a meaningful distinction in a piece arguing a home-field edge. The sentence now reads 'a 55-26 (.679) home record, level with Tampa Bay's own home mark as the joint-best in MLB'. Every other figure in the piece was re-read on the same page and stands: Brewers 103-59, 832 RS / 618 RA (+214), Rays 98-64, 736 / 650, Rays 43-38 on the road, and the 23 Oct series opener. No price, probability or grade changed.",
+      "affected_rows": [
+        "BSB-160789"
+      ],
+      "sources": [
+        {
+          "label": "MLB.com official 2026 standings (Brewers 103-59, 55-26 home, 832/618, +214; Rays 98-64, 55-26 home, 43-38 away, 736/650; next game Oct 23 vs TB)",
+          "url": "https://www.mlb.com/standings/2026"
+        }
+      ]
+    },
+    {
+      "id": "FL-066",
       "severity": "fixed; cache needs review",
       "status": "needs review",
       "session": "session-0570f99b",
@@ -1491,7 +1590,7 @@
       ]
     },
     {
-      "id": "FL-064",
+      "id": "FL-067",
       "severity": "fixed; missing source clocks need review",
       "status": "done",
       "session": "session-0570f99b",
@@ -1514,7 +1613,7 @@
       ]
     },
     {
-      "id": "FL-065",
+      "id": "FL-068",
       "severity": "needs review",
       "status": "needs review",
       "session": "session-0570f99b",
@@ -1546,7 +1645,7 @@
       ]
     },
     {
-      "id": "FL-066",
+      "id": "FL-069",
       "severity": "needs review; held and unpriced",
       "status": "needs review",
       "session": "session-0570f99b",
@@ -1570,7 +1669,7 @@
       ]
     },
     {
-      "id": "FL-067",
+      "id": "FL-070",
       "severity": "fixed; starting pitchers unverified",
       "status": "done",
       "session": "session-0570f99b",
@@ -1604,7 +1703,7 @@
       ]
     },
     {
-      "id": "FL-068",
+      "id": "FL-071",
       "severity": "needs review; partial coverage",
       "status": "needs review",
       "session": "session-0570f99b",
@@ -1627,7 +1726,7 @@
       ]
     },
     {
-      "id": "FL-069",
+      "id": "FL-072",
       "severity": "documentation corrected; model calibration needs review",
       "status": "needs review",
       "session": "session-0570f99b",
