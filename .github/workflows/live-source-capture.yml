@@ -1,0 +1,23 @@
+name: Capture public source HTML
+on:
+  push:
+    branches: [arena/5a9926e5-olbg3]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Fetch OLBG listing source HTML without changing tracked data
+        run: python scripts/fetch_live_sources.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-source-html-${{ github.run_number }}
+          path: live-capture/
+          retention-days: 7
