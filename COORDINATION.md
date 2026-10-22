@@ -1401,5 +1401,15 @@ WST Day Four reports and [BBC Sport](https://www.bbc.com/sport/snooker/articles/
 - `scripts/check_board.py`: **PASS** (`rows=230`, `fixtures=202` [**`202/202` `100%` verified** on `official`/`club-official`], `outright_or_race=28` [**`28/28` `100%` priced**], **`17` live in-band `HIGH` picks across 11 sports**, `67` written pieces).
 - `tools/check_site.py`: **All checks passed** (`pages=21`, `fixtures=275`, `lines=275`, **`22` live in-band `high` picks across 12 sports**, `predictions=47`, `flagged=76`).
 - `scripts/check.py` & `scripts/check_links.py`: **PASS** (`pages=85`, `local_links_checked=1529`, **`broken=0`**), deterministic double-rebuild zero-drift (`git status --porcelain` empty).
-- **Status:** PR & merge record to be appended immediately upon CI completion and live GitHub Pages confirmation.
+
+### Publication & live deployment record (`session-d3464fe4`)
+- **PR:** [#81](https://github.com/buffedlizard55-lab/OLBG3/pull/81) (`arena/d3464fe4-olbg3` -> `main`) — **MERGED** at `2026-10-22T10:02:39Z` as commit `a56eabf174df9e9e60832b632171df2eed865b95`.
+- **CI check suite before merge:** workflow run [39759559057](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39759559057) completed **`SUCCESS`** (`build` passed all 20 verification steps including `update.py`, `discovery.py`, both track rebuilds, committed-track staleness check, `59/59` unit tests, `check_board.py`, `tools/check_site.py`, `check.py`, and `check_links.py` `0` broken).
+- **Live GitHub Pages deployment verified:** run `39760094081` / `GET /repos/buffedlizard55-lab/OLBG3/pages/builds/latest` reached **`status: "built"`** for commit `a56eabf174df9e9e60832b632171df2eed865b95` at `2026-10-22T10:10:05Z`. Verified live HTTP responses across:
+  - `https://buffedlizard55-lab.github.io/OLBG3/` (`15` sports, `230` records, `210` prices, **`17` current HIGH research picks** across **11** sports, `217` official confirmations / `202/202` two-sided fixtures verified)
+  - `https://buffedlizard55-lab.github.io/OLBG3/predictions.html` (`17` live in-band `-250..+10000` `HIGH` predictions, `0` started)
+  - `https://buffedlizard55-lab.github.io/OLBG3/flagged.html` (`FL-073..FL-076` live with official source citations)
+  - `https://buffedlizard55-lab.github.io/OLBG3/olbg/predictions.html` (**`22` live in-band `high` predictions** across **12** sports, `275` originated lines).
+- **Tasks `task-37-morning-audit-d3464fe4` & `task-38`: DONE.**
+
 
