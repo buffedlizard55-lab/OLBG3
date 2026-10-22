@@ -1478,6 +1478,13 @@ Re-read each HIGH body against its cited official URLs; checked word count, expl
 
 **Irregularities (already published, not blocking):** FL-066 (feed success-hash), FL-067 (bare-clock no-TZ rule), FL-068 (WST 404 → /matches/), FL-069 (EuroLeague standings/preview conflict on Valencia 5-1/4-2 98.3/97.2 and Olympiacos 98.2/94.0 — held unpriced LOW), FL-070 (Zalgiris/ASVEL 2-4 correction), FL-071 (discovery limits), FL-072 (overround wording), FL-073–FL-076 (handicap/total provenance, market-family classification), plus legacy 76-item register. Latest audit log `docs/source-health-20261022.md` and `docs/verifications-d3464fe4.json` list every URL opened.
 
+### Publication & live deployment record (`session-7da75ec9`)
+- **PR:** [#83](https://github.com/buffedlizard55-lab/OLBG3/pull/83) (`arena/7da75ec9-olbg3` → `main`) — **MERGED** at `2026-10-22T12:06:03Z` as commit `bf51918de886d987ab05789339c984476dcfc884` (no approval wait, per brief).
+- **Branch CI before merge:** workflow run [39775551467](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39775551467) **SUCCESS** (build passed all 20 steps including `update.py`, `discovery.py`, both track rebuilds, `59/59` unit tests, `check_board.py`, `tools/check_site.py`, `check.py`, `check_links.py` 0 broken; staleness gate clean).
+- **Post-merge on `main`:** run [39775623446](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39775623446) **SUCCESS** (build + deploy), `pages build and deployment` run [39775621640](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39775621640) **SUCCESS**; `GET /repos/…/pages/builds/latest` → `status: "built"` for `bf51918` at `2026-10-22T12:06Z`.
+- **Live confirmation (200 OK):** `https://buffedlizard55-lab.github.io/OLBG3/` (230 rows / 15 sports / 217 verified / 210 priced / 17 HIGH in-band), `…/predictions.html` (17 HIGH, 0 started, each with official UTC start + source + price), `…/flagged.html` (76 items), `…/olbg/predictions.html` (22 HIGH / 275 lines). No broken links (85 pages / 1,529 links).
+- **Task `task-39-final-verification-integration-7da75ec9`: DONE.** No data changed this pass; verification only. Flagged items remain on the Flagged for Review page with source links, per brief.
+
 
 
 
