@@ -46,6 +46,7 @@ This document serves as the shared task board coordinating parallel sessions and
 | `task-22-current-state-reconciliation` | Reconcile current README claims with tracked board data and checks; document snapshot freshness limits without changing facts or source records | `README.md`, `COORDINATION.md` | needs review | `session-dc0474d5` (branch `arena/dc0474d5-olbg3`) | README reconciled to current artifacts. Fresh OLBG capture remains outstanding; the dated snapshot limitation is already published as finding 11 on `flagged.html` with the OLBG listing link. Audit log below. |
 
 | `task-13-verify-remaining` | Verify the 43 board rows still marked unverified (Tennis 14, Volleyball 15, Handball domestic 8, Gaelic Football 4, Baseball 1, Cricket 1) against official competition sources; write predictions for any pick that becomes HIGH; reconcile stale counts in README/COORDINATION; independent repo audit of the published board | `data/official.json`, `data/predictions.json`, `data/events.json`, `scripts/model.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | done | `session-cd4a0bb6` (branch `arena/cd4a0bb6-olbg3`) | Claimed 2026-10-21 07:15 UTC; no other remote session branch exists at claim time |
+| `task-23-price-band-rebuild-20261022` | Fix the price-band defect: every published HIGH pick was shorter than -250; re-grade HIGH on the -250..+10000 band, add live in-band predictions, mark passed kick-offs as archive, regenerate data + site | `scripts/board_dates.py`, `scripts/model.py`, `scripts/build_gap_sports.py`, `scripts/build_site.py`, `scripts/check_board.py`, `data/predictions.json`, `data/events.json`, `data/gap_sports.json`, `tests/test_band.py`, `README.md`, `COORDINATION.md`, generated root pages via `scripts/build_site.py --snapshot` | in progress | `session-f58890e3` (branch `arena/f58890e3-olbg3`) | Claimed 2026-10-22; scope excludes `olbg/`, `olbg-board/`, `tools/*` (OLBG lines-audit track) and the official-feed pages (`build.py` track). No other remote session branch exists at claim time. |
 
 ---
 
@@ -804,3 +805,32 @@ predictions=14` PASS; `check.py` PASS; `check_links.py` `pages=81 local_links_ch
 - **Important non-claims / review items:** No sporting fixture or prediction fact was newly re-verified against an external official source in this documentation-only task. No new OLBG harvest was made. Relative time labels are stale risks; the 137-row board is not a live or complete all-market listing; and the current model does not screen bookmaker prices for -250 to +10000. These are not presented as completed user requirements. Finding 11 already appears on `flagged.html` with the OLBG source; a new harvest and source-level re-verification remain necessary for true freshness.
 - **Verification:** `scripts/build.py`, `scripts/build_gap_sports.py`, `scripts/model.py`, `scripts/build_site.py`, `scripts/check_board.py`, `tools/build_dataset.py`, `tools/originate.py`, `tools/build_site.py`, `tools/check_site.py`, `scripts/build_site.py --snapshot`, `scripts/check.py`, `scripts/check_links.py`, and `python -m unittest discover -s tests -v` all passed in workflow order. Results: `rows=137 fixtures=114 outright_or_race=23 verified=115 priced=132 predictions=15`; 83 handicaps / 25 totals; OLBG lines track 189 rows/lines, 5 predictions, 39 flags, 66 blank competition fields; combined internal links `pages=81 local_links_checked=1234 broken=0`; 10/10 unit tests passed. Builds produced no unrelated tracked output changes. `check.py` was rerun after `scripts/build.py` created the required `site/data.json`.
 - **Task state:** `needs review` because freshness, complete market coverage and market-price probability/odds screening remain open; the source snapshot gap is disclosed, not silently represented as verified.
+
+---
+
+## Session log — `session-f58890e3` (branch `arena/f58890e3-olbg3` — price-band repair, 2026-10-22)
+
+- **Claimed 2026-10-22:** `task-23-price-band-rebuild-20261022`. At claim time `git branch -r` showed only
+  `origin/main` and this session branch; no other active claim, so the scope is non-overlapping.
+- **Defect found:** all 15 HIGH picks on the 2026-10-21 build were priced between 1.07 and 1.46 decimal
+  (-1429 to -217 US). None was inside the brief's -250..+10000 band. Cause: the grading rule required a 65%
+  model probability, and with a 5% overround 0.95/0.65 = 1.46, so a HIGH price could never reach the -250 floor.
+- **Fix:** `scripts/board_dates.py` converts decimal to US odds and resolves OLBG's relative clock labels
+  (Today/Tomorrow/dated) against the capture date. HIGH now requires: verified fixture + official form + model
+  probability >= 55% + price inside 1.40..101.00 + kick-off not passed. Result: 6 HIGH, all in band; 13
+  short-priced favourites and 1 passed kick-off (IHO-06) are MEDIUM with the reason in the row.
+- **New predictions (5):** BSB-01 (MIL Brewers, 1.67 = -149), RGU-02 (Agen, 1.51 = -196), RGU-03
+  (Soyaux-Angouleme, 1.46 = -217), RGU-08 (Valence Romans, 1.72 = -139), RGU-09 (Grenoble, 1.56 = -179).
+  RGU-14 (Leinster, 1.42 = -238) was rewritten to drop third-party player detail and now rests only on the
+  official URC table. The 14 former HIGH write-ups are kept as labelled medium-confidence analysis.
+- **Live official re-reads (2026-10-22):** prod2.lnr.fr/classement (full J7 table incl. Agen 15 pts,
+  Nissa 11, Soyaux 17, Dax 19, Valence Romans 13, Colomiers 12, Grenoble 22, Biarritz 20, and the J8 ids
+  12063/12065/12067/12070); mlb.com/schedule/2026-10-23 and mlb.com/postseason (World Series Game 1, TB @ MIL,
+  23 Oct 8:00 PM ET; Misiorowski listed for MIL); mlb.com/brewers/standings values already stored in
+  `data/official.json` (MIL 103-59, 832/618; TB 98-64, 755/645).
+- **Correction to the record:** the previous `COORDINATION.md` entry said the board carried 14 predictions,
+  one per HIGH row. After this pass it carries 20 written pieces: 6 high-confidence predictions and 14
+  medium-confidence analysis notes.
+- **Open item:** 70 of 137 rows carry a 21 Oct kick-off and are now archived; the board is still the 21 Oct
+  capture. A fresh OLBG listing capture plus official re-verification is the next task (`task-24-refresh-capture`).
+
