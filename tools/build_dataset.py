@@ -219,6 +219,35 @@ def main() -> None:
         seen[key] = r
     matches = list(seen.values())
 
+    # Live corrections sit on top of the dated harvest files, which are never edited:
+    # data/live_overrides.json records what the source says now and why the captured row moved.
+    ov_path = DATA / "live_overrides.json"
+    ov = json.loads(ov_path.read_text()) if ov_path.exists() else {"withdrawn": [], "updates": []}
+    retired = {str(w.get("match_id") or w.get("olbg_event_id")) for w in ov.get("withdrawn", [])}
+    if retired:
+        before = len(matches)
+        matches = [m for m in matches if m["id"] not in retired]
+        print(f"retracted: {before - len(matches)} row(s) removed by data/live_overrides.json")
+    by_id = {u["match_id"]: u for u in ov.get("updates", []) if u.get("match_id")}
+    applied = 0
+    for m in matches:
+        u = by_id.get(m["id"])
+        if not u:
+            continue
+        if u.get("olbg_consensus_selection"):
+            m["olbg_consensus_selection"] = u["olbg_consensus_selection"]
+        if u.get("olbg_tips"):
+            m["olbg_tips"] = u["olbg_tips"]
+            won, total = parse_tips(u["olbg_tips"])
+            m["olbg_tips_won"], m["olbg_tips_total"] = won, total
+        if u.get("olbg_confidence_pct") is not None:
+            m["olbg_confidence_pct"] = u["olbg_confidence_pct"]
+        if u.get("row_notes"):
+            m["row_notes"] = u["row_notes"]
+        applied += 1
+    if applied:
+        print(f"live overrides applied: {applied}")
+
     (DATA / "matches.json").write_text(json.dumps(matches, indent=2) + "\n")
     print(f"matches: {len(matches)}  (skipped {len(missing_url_parts)} rows without a sport id)")
 

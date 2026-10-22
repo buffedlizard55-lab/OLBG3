@@ -257,7 +257,18 @@ def resolve_team_side(selection: str | None, home: str | None, away: str | None)
 def main() -> None:
     matches = json.loads((DATA / "matches.json").read_text())
     preds_doc = json.loads((DATA / "predictions-olbg.json").read_text()) if (DATA / "predictions-olbg.json").exists() else {"predictions": []}
+    # Retractions recorded in data/live_overrides.json also remove the written piece, so a
+    # withdrawn fixture cannot keep a HIGH write-up after its row leaves the board.
+    _ov_path = DATA / "live_overrides.json"
+    _ov = json.loads(_ov_path.read_text()) if _ov_path.exists() else {"withdrawn": []}
+    _retired = {str(w.get("match_id") or w.get("olbg_event_id")) for w in _ov.get("withdrawn", [])}
+    _live = {m["id"] for m in matches}
+    preds_doc["predictions"] = [p for p in preds_doc.get("predictions", [])
+                                if p["match_id"] not in _retired and p["match_id"] in _live]
     high_verified_ids = {p["match_id"] for p in preds_doc.get("predictions", [])}
+    if _retired or len(preds_doc["predictions"]) != len(json.loads((DATA / "predictions-olbg.json").read_text())["predictions"]):
+        # Persist the prune before sync_predictions re-reads the file.
+        (DATA / "predictions-olbg.json").write_text(json.dumps(preds_doc, indent=2, ensure_ascii=False) + "\n")
 
     out = []
     for m in matches:

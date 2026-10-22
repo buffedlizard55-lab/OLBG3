@@ -1,6 +1,17 @@
 {
  "generated_at": "2026-10-21T07:05:00Z",
  "source_capture": "data/raw/gap_sports_capture_20261021.json",
+ "live_overrides": {
+  "path": "data/live_overrides.json",
+  "captured_at": "2026-10-22T12:45:00Z",
+  "source": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
+  "retired_refs": [
+   "DRT-05"
+  ],
+  "updated_refs": [
+   "DRT-17"
+  ]
+ },
  "listing_pages": {
   "Golf": "https://www.olbg.com/betting-tips/Golf/5",
   "Motor Racing": "https://www.olbg.com/betting-tips/Motor_Racing/14",
@@ -2481,9 +2492,9 @@
    "start": "Today 15:00",
    "market_type": "outright",
    "olbg_market": "Win Tournament",
-   "olbg_pick": "Luke Humphries",
-   "olbg_tips": "16/91",
-   "olbg_pct": 18,
+   "olbg_pick": "Gerwyn Price",
+   "olbg_tips": "3/12",
+   "olbg_pct": 25,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
    "olbg_event_id": 32338,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Darts/15",
@@ -2500,10 +2511,10 @@
    "model": {
     "basis": "outright-prior",
     "prices": {
-     "single": 6.07
+     "single": 7.19
     },
     "probs": {
-     "single": 0.1565
+     "single": 0.1322
     },
     "prior": {
      "field": 32,
@@ -2519,17 +2530,17 @@
    },
    "pick": {
     "side": "single",
-    "label": "Luke Humphries",
-    "prob": 0.1565,
-    "confidence": "HIGH",
-    "score": 6,
+    "label": "Gerwyn Price",
+    "prob": 0.1322,
+    "confidence": "MEDIUM",
+    "score": 5,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
-     "model_edge": 2
+     "model_edge": 1
     },
-    "price": 6.07,
-    "american": 507,
+    "price": 7.19,
+    "american": 619,
     "in_band": true,
     "band": [
      -250,
@@ -2541,7 +2552,7 @@
     "kickoff_started": false,
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "HIGH",
+    "evidence_grade": "MEDIUM",
     "note": "",
     "release": {
      "status": "upcoming",
@@ -2558,7 +2569,7 @@
     "outright_no_opposing_side",
     "field_size_prior_assumed"
    ],
-   "row_notes": "Captured live on OLBG /Darts/15 (16/91 tips on world #2 Luke Humphries).",
+   "row_notes": "Re-read 2026-10-22T12:45Z after Luke Humphries withdrew (gastroenteritis, PDC 22 Oct). OLBG's European Championship page now carries 12 win tips: Gerwyn Price 3/12 (25%, most popular), Luke Littler 2, Gian van Veen 2, Josh Rock 2, Wessel Nijman 1, Dirk van Duijvenbode 1, Rob Cross 1. Humphries is no longer listed and Kim Huybrechts appears at 0/12. The 08:30Z harvest still carried the pre-withdrawal 16/91 Humphries row.",
    "captured_at": "2026-10-21T07:05:00Z"
   }
  ]

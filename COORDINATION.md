@@ -1554,3 +1554,34 @@ Re-read each HIGH body against its cited official URLs; checked word count, expl
 - Release gate now rejects non-HTTPS/unknown or spoofed hosts, credentials, unsupported ports, blank/nontext quotes, and embedded clock offsets. Explicit allowlist matches the inherited release-evidence hosts only; it is not factual verification.
 - 64/64 unit tests pass (four new regressions). Full root and secondary build pipelines pass, check_board/check_site/check pass. 85 pages / 1,529 local links / zero broken targets. Regenerated tracked outputs unchanged; no fixture or prediction edits.
 - Sources and limitations recorded in `docs/audit-d4c3db6c.md`, linked from README. FL-077 already publicly tracks blocked fresh official verification; no duplicate flag added. Task structural work done; official-source re-verification remains needs review.
+
+---
+
+## `session-3921f0d3` — Darts repair inside `task-39` (DONE)
+
+**Branch:** `arena/3921f0d3-olbg3`. Built on `main` `35f6129` (after PRs #83–#87).
+
+**Defect found while re-reading every published HIGH pick:** Luke Humphries withdrew from the
+Machineseeker European Championship on 22 October (gastroenteritis) and Kim Huybrechts replaced him
+against Ryan Searle. The committed `08:30Z` harvest predates the 12:15 UK announcement, so the board
+published three Humphries rows.
+
+**Source state at 12:45Z:** OLBG's European Championship page carries **12** win tips — Gerwyn Price
+3/12 (25%, most popular), Littler 2, van Veen 2, Rock 2, Nijman 1, van Duijvenbode 1, Cross 1 — with
+Huybrechts at 0/12 and **no Humphries**; the All Darts listing returns “No tips found for Luke
+Humphries vs Ryan Searle” and no longer serves event id 32337.
+
+**Fix**
+- `data/live_overrides.json` records the withdrawal and the re-read; dated captures are not edited.
+- **DRT-05 / DAR-32337** retired, not re-pointed: OLBG carries no replacement market for Huybrechts v
+  Searle, so there is nothing to price.
+- **DRT-17 / DAR-32338** re-derived from the 12-tip page: Price, p = (3 + 14/32) / (12 + 14) = 0.1322,
+  price **7.19 (+619)**, in band, `MEDIUM` on `/` (score 5) and `high` on `/olbg/`.
+- Applied by `scripts/build_gap_sports.py`, `tools/build_dataset.py` and `tools/originate.py`; a
+  retracted match cannot keep a written piece.
+- Recorded as **FL-090**, a new audit-page check, and corrected docs.
+
+**Result:** 229 root rows (201 fixtures + 28 gap), 216 verified, 208 priced, **14 HIGH across 8
+sports**, 66 pieces; `/olbg/` 274 lines, **19 high**, 46 predictions, 90 flags. `64/64` unit tests,
+`check_board.py`, `tools/check_site.py`, `check.py`, `check_links.py` (85 pages, 1,529 links, 0
+broken) all pass; two consecutive rebuilds are byte-identical.

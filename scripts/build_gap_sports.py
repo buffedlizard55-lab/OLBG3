@@ -71,6 +71,13 @@ def graded_verification(v):
 SRC = os.path.join(ROOT, "data/raw/gap_sports_capture_20261021.json")
 OUT = os.path.join(ROOT, "data/gap_sports.json")
 
+# Dated captures are immutable evidence, so a row that moved after the capture is corrected here:
+# data/live_overrides.json records what the source says now, when it was read, and why.
+OVERRIDES_PATH = os.path.join(ROOT, "data/live_overrides.json")
+OVERRIDES = json.load(open(OVERRIDES_PATH)) if os.path.exists(OVERRIDES_PATH) else {"withdrawn": [], "updates": []}
+RETIRED = {w["ref"] for w in OVERRIDES.get("withdrawn", []) if w.get("ref")}
+LIVE = {u["ref"]: u for u in OVERRIDES.get("updates", []) if u.get("ref")}
+
 OVERROUND = 0.05
 
 # k = prior strength (how many "virtual tips" of the field-size prior we add).
@@ -115,6 +122,16 @@ def main() -> None:
     rows = []
 
     for e in cap["events"]:
+        if e["ref"] in RETIRED:
+            continue
+        live = LIVE.get(e["ref"])
+        if live:
+            e["olbg_pick"] = live.get("olbg_pick", e["olbg_pick"])
+            e["tips_won"] = live.get("olbg_tips_won", e["tips_won"])
+            e["tips_total"] = live.get("olbg_tips_total", e["tips_total"])
+            e["olbg_pct"] = live.get("olbg_confidence_pct", e["olbg_pct"])
+            if live.get("row_notes"):
+                e["row_notes"] = live["row_notes"]
         basis = e["field_basis"]
         if basis not in basis_table:
             raise SystemExit(f"unknown field basis {basis} on {e['ref']}")
@@ -240,6 +257,12 @@ def main() -> None:
     payload = {
         "generated_at": cap["captured_at"],
         "source_capture": os.path.relpath(SRC, ROOT),
+        "live_overrides": ({"path": os.path.relpath(OVERRIDES_PATH, ROOT),
+                            "captured_at": OVERRIDES.get("captured_at"),
+                            "source": OVERRIDES.get("source"),
+                            "retired_refs": sorted(RETIRED),
+                            "updated_refs": sorted(LIVE)}
+                           if OVERRIDES.get("updates") or OVERRIDES.get("withdrawn") else None),
         "listing_pages": cap["listing_pages"],
         "model": {
             "what": "Our own prices for OLBG outright and race-winner markets.",

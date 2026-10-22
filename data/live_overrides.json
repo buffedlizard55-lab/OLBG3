@@ -1,0 +1,48 @@
+{
+ "captured_at": "2026-10-22T12:45:00Z",
+ "purpose": "Live re-reads applied on top of dated, immutable harvest captures. The capture files are never edited: each entry here records what the source says now, when it was read, and why the captured row no longer matches.",
+ "source": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
+ "withdrawn": [
+  {
+   "match_id": "DAR-32337",
+   "olbg_event_id": "32337",
+   "sport": "Darts",
+   "event_name": "Luke Humphries vs Ryan Searle",
+   "reason": "Luke Humphries withdrew from the 2026 Machineseeker European Championship on 22 October 2026 with gastroenteritis, and Kim Huybrechts took his place against Ryan Searle. OLBG no longer serves the Humphries vs Searle page: the All Darts listing now runs event ids 32322-32336 plus the outright (32338) and returns 'No tips found for Luke Humphries vs Ryan Searle'. The 08:30Z harvest predates the withdrawal, so its row is retained only as evidence and is not published.",
+   "sources": [
+    "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship",
+    "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/15"
+   ]
+  },
+  {
+   "ref": "DRT-05",
+   "olbg_event_id": "32337",
+   "sport": "Darts",
+   "event_name": "Luke Humphries vs Ryan Searle",
+   "reason": "Same withdrawal as DAR-32337. The fixture as published no longer exists on the card, and OLBG carries no replacement market for Kim Huybrechts vs Ryan Searle, so no price can be derived. The row and its written piece are retired rather than re-pointed at a player the source does not price.",
+   "sources": [
+    "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship",
+    "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/15"
+   ]
+  }
+ ],
+ "updates": [
+  {
+   "ref": "DRT-17",
+   "match_id": "DAR-32338",
+   "olbg_event_id": "32338",
+   "sport": "Darts",
+   "olbg_consensus_selection": "Gerwyn Price",
+   "olbg_pick": "Gerwyn Price",
+   "olbg_tips": "3/12",
+   "olbg_tips_won": 3,
+   "olbg_tips_total": 12,
+   "olbg_confidence_pct": 25,
+   "row_notes": "Re-read 2026-10-22T12:45Z after Luke Humphries withdrew (gastroenteritis, PDC 22 Oct). OLBG's European Championship page now carries 12 win tips: Gerwyn Price 3/12 (25%, most popular), Luke Littler 2, Gian van Veen 2, Josh Rock 2, Wessel Nijman 1, Dirk van Duijvenbode 1, Rob Cross 1. Humphries is no longer listed and Kim Huybrechts appears at 0/12. The 08:30Z harvest still carried the pre-withdrawal 16/91 Humphries row.",
+   "sources": [
+    "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338",
+    "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship"
+   ]
+  }
+ ]
+}

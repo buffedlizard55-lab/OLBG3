@@ -2067,6 +2067,29 @@
           "url": "https://www.formula1.com/en/latest/article/need-to-know-the-most-important-facts-stats-and-trivia-ahead-of-the-2026-united-states-grand-prix.3yCUtnzlXLwOvhVtmsdVRK"
         }
       ]
+    },
+    {
+      "id": "FL-090",
+      "severity": "high",
+      "status": "resolved",
+      "sport": "Darts",
+      "title": "Luke Humphries withdrew from the European Championship after the 08:30Z harvest; three Humphries rows retired or re-derived",
+      "summary": "PDC announced on 22 October that Humphries had withdrawn with gastroenteritis and Kim Huybrechts would face Ryan Searle. OLBG had already removed the match page and re-cut the outright market to 12 tips with Gerwyn Price at 3/12.",
+      "detail": "The 08:30Z harvest predates the 12:15 UK announcement, so it still carried Humphries 16/91 on the outright (DRT-17/DAR-32338) and 10/13 on the match (DAR-32337; 5/7 on the root listing, DRT-05). Fresh reads of olbg.com on 2026-10-22 confirm: the All Darts listing returns 'No tips found for Luke Humphries vs Ryan Searle' and no longer serves event id 32337, and the European Championship page carries 12 win tips - Price 3/12 (25%), Littler 2, van Veen 2, Rock 2, Nijman 1, van Duijvenbode 1, Cross 1 - with Huybrechts listed at 0/12 and Humphries absent. DRT-05 and DAR-32337 are retired rather than re-pointed, because OLBG lists no replacement market for Huybrechts v Searle. DRT-17 and DAR-32338 are re-derived from the 12-tip page: Price, p=(3+14/32)/(12+14)=0.1322, price 7.19 (+619), which grades MEDIUM (score 5) on the root board. No price was carried forward and no Humphries row remains published.",
+      "sources": [
+        {
+          "label": "PDC — Humphries withdraws from 2026 Machineseeker European Championship",
+          "url": "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship"
+        },
+        {
+          "label": "OLBG — European Championship tips (12 win tips, Price 3/12, no Humphries)",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338"
+        },
+        {
+          "label": "OLBG — All Darts listing (event 32337 absent; No tips found for Humphries vs Searle)",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/15"
+        }
+      ]
     }
   ]
 }
