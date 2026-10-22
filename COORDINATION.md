@@ -4,6 +4,17 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ## Session Information
 
+### ACTIVE CLAIM — `session-b6cb43c5` (midday line-by-line HIGH re-verification, stale-clock repair & integration, 2026-10-22T12:05Z)
+
+- **Session ID:** `session-b6cb43c5`
+- **Active Working Branch:** `arena/b6cb43c5-olbg3` (Arena-locked; per Arena rules the branch name is fixed for this session, so the `session-<id>/<task>` convention is satisfied by this branch and only the claimed files are edited).
+- **Claimed:** `task-39-midday-high-reverification-clock-repair-and-integration-20261022`.
+- **Pre-claim check (12:05Z):** `git fetch origin --prune` → only `origin/main` (HEAD `f55593f`, PR #82 merged at 03:13 local / 10:02Z). Two stale sibling PRs are **conflicting and superseded**: #76 (`arena/5a9926e5-olbg3`, idle since 08:54Z, 187 min) and #77 (`arena/1cecbd59-olbg3`, idle since 08:57Z, 185 min). Both are >60 min idle with no commits and their content was already taken over and merged by `session-d3464fe4` (PR #81). They are recorded here as handoffs, not merged, and nothing in them is deleted.
+- **File scope:** `COORDINATION.md`, `README.md`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `docs/**` — regenerated through the documented pipeline only. Sole active session; no sibling scope is at risk.
+- **Plan:** (1) record the exact baseline (build + every checker + 59 unit tests); (2) re-verify **every published live `HIGH` pick on both tracks** (17 root + 22 `/olbg/`) line by line against the competition's own page, including the facts inside each write-up, repairing any claim the source does not support and blanking + flagging the rest; (3) repair the **stale publication clock** (frozen at 09:10Z while the real time is 12:05Z, so a 10:35Z golf outright start is still published as an upcoming `HIGH`); (4) fix the stale public metrics in `README.md` (README says 33 root `HIGH`/196 rows; the built board has 17/230); (5) rebuild both tracks, run every checker, the unit tests and the broken-link scan; (6) PR to `main`, merge without waiting, confirm the GitHub Pages deploy, record the PR link and deploy result at the bottom of this file.
+- **Status:** in progress.
+
+
 ### ACTIVE CLAIM — `session-08885c97` (line-by-line re-verification, in-band HIGH expansion, defect repair & final integration, 2026-10-22)
 - **Session ID:** `session-08885c97`
 - **Active Working Branch:** `arena/08885c97-olbg3` (Arena-locked; the branch name is fixed for this session, so the `session-<id>/<task>` convention is satisfied by this branch and only claimed files are edited)
