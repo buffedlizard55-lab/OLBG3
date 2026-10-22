@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">40 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">43 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -304,11 +304,32 @@
   <p class="muted small">Affected rows: BKB-535923, RGU-609562, RGU-609567, TEN-902048, ICH-199896</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py" rel="noopener nofollow" target="_blank">Model origination and prior floor behavior (repository review)</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG source listings (historical capture; check current event pages)</a></li></ul>
 </article>
+<article class="card flag" id="FL-041">
+  <div class="flag-head"><span class="tag">FL-041</span> <span class="sev sev-high">high</span></div>
+  <h2>Waterford GAA Senior Football Final misdated by 7 days on OLBG (01 Nov vs official Sun 25 Oct)</h2>
+  <p>Live 2026-10-22 harvest of /betting-tips/Gaelic_Football/25 lists &#x27;Rathgormack v The Nire&#x27; (event_id=3536) as &#x27;01 Nov 10:30&#x27;. Line-by-line cross-checking against the official Munster GAA Events Calendar proves the 2026 Waterford Senior Football Championship Final is scheduled a full week earlier on Sunday 25 October 2026 at 14:30 IST at Cappoquin Logistics Fraher Field, Dungarvan.</p>
+  <p class="muted small">Affected rows: GFA-3536</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Rathgormack_v_The_Nire/25?event_id=3536" rel="noopener nofollow" target="_blank">OLBG — Rathgormack v The Nire listing (&#x27;01 Nov 10:30&#x27;)</a></li><li><a href="https://munster.gaa.ie/fixtures/events-calendar/" rel="noopener nofollow" target="_blank">Munster GAA — Official Events Calendar (Sun 25 Oct 2026 @ 2:30pm, Fraher Field)</a></li></ul>
+</article>
+<article class="card flag" id="FL-042">
+  <div class="flag-head"><span class="tag">FL-042</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Overnight &#x27;No tips found.&#x27; state on Snooker (/Snooker/8), NHL (/Ice_Hockey/NHL/13) and Greyhounds (/Greyhounds/28)</h2>
+  <p>At 2026-10-22 01:28 UTC (between Wednesday night Round 2 completion and Thursday Round 3 posting at the Belfast Northern Ireland Open, and prior to morning UK GBGB racecards), OLBG&#x27;s server-rendered Snooker, NHL and Greyhounds pages returned &#x27;No tips found.&#x27;. Audited 2026-10-21 rows are retained with explicit carry/archive labels and excluded from live HIGH confidence.</p>
+  <p class="muted small">Affected rows: SNO-9934, GRY-689390, IHO-06, IHO-07</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener nofollow" target="_blank">OLBG — Snooker tips page</a></li><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG — Greyhound racing tips page</a></li></ul>
+</article>
+<article class="card flag" id="FL-043">
+  <div class="flag-head"><span class="tag">FL-043</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Top-level OLBG sport card hides stronger multi-market consensus inside individual event pages</h2>
+  <p>On 2026-10-22, OLBG&#x27;s Basketball listing card shows &#x27;Panathinaikos vs Baskonia&#x27; split 2/4 (50%) on Money Line while the underlying event page (?event_id=535923) carries 2/3 (67%) on Pointspread Panathinaikos -15.50 and Game Totals 171.50; similarly &#x27;TB Rays @ MIL Brewers&#x27; (?event_id=160789) carries 7/8 on Run Line -1.50 and 8/8 (100%) on Over 6.50 runs, and &#x27;Danny Noppert vs Stephen Bunting&#x27; (?event_id=32330) carries 5/5 (100%) on Over 9.50 legs.</p>
+  <p class="muted small">Affected rows: BKB-535923, BSB-160789, DAR-32330, BKB-534839, BKB-535674</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Panathinaikos_vs_Baskonia/4?event_id=535923" rel="noopener nofollow" target="_blank">OLBG — Panathinaikos vs Baskonia Event Page</a></li><li><a href="https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789" rel="noopener nofollow" target="_blank">OLBG — TB Rays @ MIL Brewers Event Page</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Danny_Noppert_vs_Stephen_Bunting/15?event_id=32330" rel="noopener nofollow" target="_blank">OLBG — Danny Noppert vs Stephen Bunting Event Page</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Data as harvested 2026-10-21T07:05:00Z.</strong> Every OLBG field is transcribed from the linked OLBG page; our lines are model output, not market prices. 18+ · Betting involves risk.</p>
+    <p><strong>Data as harvested 2026-10-22T01:32:00Z.</strong> Every OLBG field is transcribed from the linked OLBG page; our lines are model output, not market prices. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

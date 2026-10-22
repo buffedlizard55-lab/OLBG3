@@ -1,8 +1,9 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261021-B",
-  "run_started_utc": "2026-10-21T06:45:00Z",
-  "harvest_completed_utc": "2026-10-21T07:05:00Z",
+  "run_id": "S-20261022-A",
+  "run_started_utc": "2026-10-22T01:26:00Z",
+  "harvest_completed_utc": "2026-10-22T01:32:00Z",
+  "olbg_locale_date": "2026-10-21",
   "excluded_sports_verbatim": [
     "soccer",
     "boxing",
@@ -16,11 +17,11 @@
     "specials"
   ],
   "exclusion_policy": {
-    "soccer/football": "OLBG sport Football (id 1) excluded; includes all association football competitions incl. Champions League / Premier League rows seen on the All Sports page.",
-    "american_football": "OLBG sport American_Football (id 11) excluded.",
+    "soccer/football": "OLBG sport Football (id 1) excluded; includes all association football competitions incl. Premier League, Europa League and Conference League rows seen on the All Sports page.",
+    "american_football": "OLBG sport American_Football (id 11) excluded (incl. NFL NE Patriots @ CHI Bears seen on the All Sports page).",
     "boxing_ufc_mma": "OLBG sport Boxing (id 16) is the page OLBG uses for boxing and UFC/MMA fight cards; excluded.",
     "hurling": "OLBG sport Hurling (id 26) excluded.",
-    "horse_racing": "OLBG sport Horse_Racing (id 2) excluded.",
+    "horse_racing": "OLBG sport Horse_Racing (id 2) excluded (incl. Carlisle and Ffos Las rows seen on the All Sports page).",
     "cycling": "OLBG sport Cycling (id 17) excluded.",
     "specials": "OLBG 'Specials' / non-fixture specials markets excluded."
   },
@@ -44,34 +45,47 @@
   "ambiguities": [
     {
       "item": "Gaelic Football",
-      "issue": "The exclusion list bans 'football' and 'hurling' but does not name Gaelic football. Read literally, Gaelic football is not excluded. It is treated as INCLUDED but every row is tagged ambiguous_exclusion=true so it can be removed with one filter.",
+      "issue": "The exclusion list bans 'football' and 'hurling' but does not name Gaelic football. Read literally, Gaelic football is not excluded. It is treated as INCLUDED (6 live club & championship rows on 2026-10-22) and tagged ambiguous_exclusion=true so it can be filtered cleanly.",
       "resolution": "included, flagged"
     },
     {
       "item": "Motor racing",
-      "issue": "Cycling is excluded but motor racing is a different sport and is not named in the exclusion list.",
+      "issue": "Cycling is excluded; Formula 1 motor racing is distinct and not named in the exclusion list.",
       "resolution": "included"
     },
     {
       "item": "Greyhound racing",
-      "issue": "Horse racing is excluded; greyhound racing is not named in the exclusion list.",
+      "issue": "Horse racing is excluded; greyhound racing is distinct and not named in the exclusion list.",
       "resolution": "included"
+    },
+    {
+      "item": "Snooker & Greyhounds overnight empty listing ('No tips found.')",
+      "issue": "At 2026-10-22T01:28Z, /betting-tips/Snooker/8 (between Round 2 and Round 3 of the Belfast Northern Ireland Open) and /betting-tips/Greyhounds/28 (before UK morning cards post) returned 'No tips found.' server-side. Their audited 2026-10-21 rows are carried forward via previous_harvests with explicit per-row carry notes and excluded from active HIGH confidence.",
+      "resolution": "carried from 2026-10-21 pass with explicit disclosure"
     }
   ],
   "harvest_method": {
-    "tool": "agent page-retrieval (sandbox HTTP client cannot reach olbg.com; curl returns OpenSSL SSL_ERROR_SYSCALL / exit 35 - verified)",
-    "pages": "https://www.olbg.com/betting-tips plus one page per allowed OLBG sport id",
-    "granularity": "Rows are exactly what the OLBG listing rendered on first page at retrieval time. OLBG paginates ('Load More Tips'); rows beyond the first page were NOT captured and are flagged.",
-    "values_inferred": "none - blank when not stated by the source"
+    "tool": "agent page-retrieval across all 15 allowed OLBG sport pages plus multi-market individual event pages",
+    "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus multi-market event pages",
+    "granularity": "All server-rendered events on each allowed sport page as of 2026-10-22T01:26-01:32Z (130 live events across 13 active sports + 11 explicitly tagged carried rows across Snooker & Greyhounds = 141 fixtures across all 15 allowed sports).",
+    "values_inferred": "none - blank when not stated by an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261021T0650Z.tsv",
+  "harvest_file": "raw/olbg-harvest-20261022.tsv",
   "harvest_format": "v2",
-  "harvest_timezone_note": "OLBG renders listing times in the viewer locale; for this fetcher that is US Eastern Daylight Time (UTC-4), checked against NHL and NBA official start times. Official UTC is stored in verifications.json where confirmed.",
+  "harvest_timezone_note": "At 2026-10-22T01:26Z, the fetcher locale is US Eastern Daylight Time (UTC-4, 2026-10-21 21:26 EDT), so OLBG's 'Today' = 2026-10-21 EDT and 'Tomorrow' = 2026-10-22 EDT (verified against ATP Almaty/Brussels/Lyon, NBA, PDC Dortmund, SHL, Liiga, ICC, and EHF official schedules; Note: Rugby Union renders UK BST dates for European matches). Official UTC is recorded in verifications.json wherever confirmed.",
   "previous_harvest": {
-    "file": "raw/olbg-harvest-20261021.tsv",
-    "format": "v1",
-    "harvest_completed_utc": "2026-10-21T05:20:00Z",
-    "note": "05:20Z pass, retained unchanged for audit. Sports it covers that the 06:50Z pass did not re-list (Gaelic Football, Greyhounds) are carried from it, tagged per row."
+    "file": "raw/olbg-harvest-20261021T0650Z.tsv",
+    "format": "v2",
+    "harvest_completed_utc": "2026-10-21T07:05:00Z",
+    "note": "Retained unchanged for audit; supplies Belfast Northern Ireland Open Snooker rows when /Snooker/8 showed 'No tips found.' overnight at 2026-10-22T01:28Z."
   },
-  "session": "session-af0789e6"
+  "previous_harvests_extra": [
+    {
+      "file": "raw/olbg-harvest-20261021.tsv",
+      "format": "v1",
+      "harvest_completed_utc": "2026-10-21T05:20:00Z",
+      "note": "Retained unchanged for audit; supplies UK Greyhound card rows when /Greyhounds/28 showed 'No tips found.' overnight at 2026-10-22T01:28Z."
+    }
+  ],
+  "session": "session-4f267387"
 }

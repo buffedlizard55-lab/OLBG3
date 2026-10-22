@@ -1,0 +1,144 @@
+# Raw OLBG harvest — 2026-10-22 live pass — pipe-delimited, one row per OLBG event.
+# Retrieved 2026-10-22 01:26–01:32 UTC by session-4f267387 via the agent page-retrieval tool.
+# TIME ZONE NOTE: At 2026-10-22T01:26Z, the fetcher's locale is US Eastern Daylight Time (UTC-4, local 2026-10-21 21:26 EDT).
+# Accordingly, OLBG's server-rendered "Today" = 2026-10-21 EDT and "Tomorrow" = 2026-10-22 EDT (verified against ATP Almaty/Brussels/Lyon,
+# NBA, PDC European Championship Dortmund, SHL Sweden, Liiga Finland, ICC Cricket, and EHF Champions League official schedules).
+# Pages read live on 2026-10-22: /betting-tips, /betting-tips/Tennis/3, /betting-tips/Basketball/4, /betting-tips/Basketball/NBA/4,
+#   /betting-tips/Basketball/European/4, /betting-tips/Baseball/12, /betting-tips/Cricket/7, /betting-tips/Snooker/8 ("No tips found."),
+#   /betting-tips/Darts/15, /betting-tips/Rugby_Union/9, /betting-tips/Rugby_League/10, /betting-tips/Ice_Hockey/13,
+#   /betting-tips/Ice_Hockey/NHL/13 ("No tips found."), /betting-tips/Ice_Hockey/Other/13, /betting-tips/Handball/20,
+#   /betting-tips/Volleyball/21, /betting-tips/Golf/5, /betting-tips/Motor_Racing/14, /betting-tips/Gaelic_Football/25,
+#   /betting-tips/Greyhounds/28 ("No tips found."), plus individual event pages (?event_id=534839, 535674, 534843, 535923, 160789,
+#   902110, 32330, 188814, 609577) to audit multi-market Handicap / Spread / Run Line / Total lines directly on OLBG.
+# Columns (v2):
+# sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
+Tennis||Tennis/All_Tennis/All_Events|Ann_Li_vs_Zeynep_Sonmez|902063|Today|22:30|Win Match|Ann Li|8/10|WTA 250 Osaka R16
+Tennis||Tennis/All_Tennis/All_Events|Mary_Stoiana_vs_Moyuka_Uchijima|902067|Tomorrow|00:00|Win Match|Mary Stoiana|6/9|WTA 250 Osaka R16
+Tennis||Tennis/All_Tennis/All_Events|Katarzyna_Kawa_vs_Belinda_Bencic|902093|Tomorrow|02:30|Win Match|Belinda Bencic|6/7|WTA 500 Ningbo R16
+Tennis||Tennis/All_Tennis/All_Events|Elena_Rybakina_vs_Polina_Kudermetova|902073|Tomorrow|07:00|Win Match|Elena Rybakina|6/8|WTA 500 Ningbo R16
+Tennis||Tennis/All_Tennis/All_Events|Daniil_Medvedev_vs_Sho_Shimabukuro|902069|Tomorrow|05:30|Win Match|Daniil Medvedev|5/6|ATP 250 Almaty R16
+Tennis||Tennis/All_Tennis/All_Events|Iva_Jovic_vs_Jasmine_Paolini|902075|Tomorrow|01:00|Win Match|Iva Jovic|4/7|WTA 500 Ningbo R16
+Tennis||Tennis/All_Tennis/All_Events|Magda_Linette_vs_Katerina_Siniakova|902071|Tomorrow|01:30|Win Match|Katerina Siniakova|4/6|WTA 250 Osaka R16
+Tennis||Tennis/All_Tennis/All_Events|Antonia_Ruzic_vs_Kayla_Day|902066|Today|22:30|Win Match|Antonia Ruzic|3/6|WTA 250 Osaka R16; tips split 3-3
+Tennis||Tennis/All_Tennis/All_Events|Tomas_Machac_vs_Karen_Khachanov|902110|Tomorrow|04:00|Win Match|Karen Khachanov|3/5|ATP 250 Almaty R16; event page also lists Games Won Machac +3.50 (1/1) & Total Games 22.50
+Tennis||Tennis/All_Tennis/All_Events|Alexandra_Eala_vs_Diana_Shnaider|902072|Tomorrow|04:00|Win Match|Diana Shnaider|3/4|WTA 500 Ningbo R16
+Tennis||Tennis/All_Tennis/All_Events|Raphael_Collignon_vs_Jiri_Lehecka|902104|Tomorrow|07:30|Win Match|Jiri Lehecka|3/5|ATP 250 Brussels R16
+Tennis||Tennis/All_Tennis/All_Events|Pierre_Hugues_Herbert_vs_Taylor_Fritz|902087|Tomorrow|09:30|Win Match|Taylor Fritz|3/5|ATP 250 Lyon R16
+Tennis||Tennis/All_Tennis/All_Events|Valentin_Vacherot_vs_Luca_Van_Assche|902103|Tomorrow|08:00|Win Match|Valentin Vacherot|2/2|ATP 250 Lyon R16
+Tennis||Tennis/All_Tennis/All_Events|Borna_Gojo_vs_Daniel_Altmaier|902100|Tomorrow|08:00|Win Match|Borna Gojo|2/4|ATP 250 Lyon R16; tips split 2-2
+Tennis||Tennis/All_Tennis/All_Events|Terence_Atmane_vs_Mattia_Bellucci|902109|Tomorrow|02:30|1st Set Winner|Mattia Bellucci|1/1|ATP 250 Almaty R16
+Tennis||Tennis/All_Tennis/All_Events|David_Goffin_vs_Alex_Michelsen|902131|Tomorrow|09:00|Set Betting|David Goffin to win 2 - 1|1/1|ATP 250 Brussels R16
+Tennis||Tennis/All_Tennis/All_Events|Alexander_Bublik_vs_Fabian_Marozsan|902082|Tomorrow|10:30|Win Match|Alexander Bublik|1/2|ATP 250 Almaty R16; tips split 1-1
+Tennis||Tennis/All_Tennis/All_Events|Damir_Dzumhur_vs_Zizou_Bergs|902120|Tomorrow|11:00|Win Match|Damir Dzumhur|1/1|ATP 250 Brussels R16
+Tennis||Tennis/All_Tennis/All_Events|Flavio_Cobolli_vs_Stan_Wawrinka|902126|Tomorrow|13:00|Set Betting|Stan Wawrinka to win 2 - 1|1/1|ATP 250 Lyon R16
+Tennis||Tennis/All_Tennis/All_Events|Kyrian_Jacquet_vs_Brandon_Nakashima|902105|Tomorrow|14:30|Win Match|Brandon Nakashima|1/1|ATP 250 Lyon R16
+Basketball|NBA|Basketball/NBA/NBA|GS_Warriors_@_LA_Lakers|534839|Today|22:10|Money Line|LA Lakers|11/17|event page also lists Pointspread LA Lakers -6.50 (4/8) & Game Totals Over 233.50 (4/5)
+Basketball|NBA|Basketball/NBA/NBA|SAC_Kings_@_LA_Clippers|535674|Today|22:40|Money Line|LA Clippers|10/11|1 expert; event page also lists Pointspread LA Clippers -5.50 (4/5) & Game Totals Under 226.50 (5/8)
+Basketball|NBA|Basketball/NBA/NBA|PHX_Suns_@_POR_Trail_Blazers|534893|Today|22:10|Money Line|POR Trail Blazers|7/12|
+Basketball|NBA|Basketball/NBA/NBA|DEN_Nuggets_@_OKC_Thunder|534843|Tomorrow|21:40|Money Line|OKC Thunder|3/3|event page also lists Pointspread OKC Thunder -8.50 & Game Totals 235.50
+Basketball|NBA|Basketball/NBA/NBA|HOU_Rockets_@_SA_Spurs|534841|23 Oct|21:40|Money Line|SA Spurs|2/2|
+Basketball|NBA|Basketball/NBA/NBA|CLE_Cavaliers_@_PHI_76ers|534845|Tomorrow|19:10|Money Line|PHI 76ers|1/1|
+Basketball|NBA|Basketball/NBA/NBA|NY_Knicks_@_BOS_Celtics|534842|23 Oct|19:10|Pointspread|BOS Celtics -2.50|1/1|
+Basketball|Euroleague|Basketball/European/Euroleague|Anadolu_Efes_vs_Besiktas|535918|Tomorrow|13:30|Money Line|Anadolu Efes|2/3|OLBG labels Euroleague; fixture is EuroCup / Turkish BSL verify check
+Basketball|Euroleague|Basketball/European/Euroleague|Maccabi_Tel_Aviv_vs_Real_Madrid|535921|Tomorrow|14:05|Money Line|Maccabi Tel Aviv|2/3|EuroLeague Round 6/7 neutral Belgrade
+Basketball|Euroleague|Basketball/European/Euroleague|Panathinaikos_vs_Baskonia|535923|Tomorrow|14:15|Money Line|Baskonia|2/4|tips split 2-2 on ML; event page lists Pointspread Panathinaikos -15.50 (2/3) & Game Totals 171.50
+Basketball|Euroleague|Basketball/European/Euroleague|Zalgiris_vs_Asvel_Lyon_Villeurbanne|535928|23 Oct|13:00|Money Line|Zalgiris|1/1|
+Basketball|Korea KBL|Basketball/Other/Korea_KBL|Mobis_Phoebus_vs_Changwon_Sakers|536021|Tomorrow|06:00|Money Line|Changwon Sakers|1/1|
+Basketball|Brazil NBB|Basketball/Other/Brazil_NBB|Fortaleza_BC_vs_Pinheiros|536019|Tomorrow|18:30|Money Line|Fortaleza BC|1/1|
+Baseball|MLB|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|23 Oct|20:00|Money Line|MIL Brewers|12/15|World Series Game 1; event page also lists Run Line MIL Brewers -1.50 (7/8) & Game Totals Over 6.50 (8/8)
+Cricket||Cricket/All_Cricket/All_Events|New_Zealand_vs_India_1st_T20_Match|188814|Tomorrow|03:00|Win Match|India|12/16|2 experts; Hagley Oval Christchurch
+Cricket||Cricket/All_Cricket/All_Events|England_vs_Sri_Lanka_One_Day_Match|188829|Tomorrow|04:00|Win Match|England|8/10|Pakistan ODI Tri-Series Match 3, Rawalpindi
+Cricket||Cricket/All_Cricket/All_Events|Namibia_vs_Ireland_1st_ODI|188828|Tomorrow|04:00|Win Match|Ireland|7/11|2 experts; Namibia Cricket Ground, Windhoek
+Cricket||Cricket/All_Cricket/All_Events|Australia_W_vs_New_Zealand_W_3rd_T20_Match|188826|Tomorrow|04:15|Win Match|Australia W|7/9|2 experts; North Sydney Oval
+Cricket||Cricket/All_Cricket/All_Events|Eastern_Storm_vs_Tuskers_T20|188811|Tomorrow|12:00|Win Match|Eastern Storm|7/8|CSA T20 Knockout, Willowmoore Park Benoni
+Cricket||Cricket/All_Cricket/All_Events|Mpumalanga_Rhinos_vs_South_Africa_Emerging_T20|188825|Tomorrow|07:00|Win Match|Mpumalanga Rhinos|5/8|CSA T20 Knockout, Uplands College White River
+Cricket||Cricket/All_Cricket/All_Events|Afghanistan_vs_Zimbabwe_One_Day_Match|188831|23 Oct|07:30|Win Match|Afghanistan|1/1|UAE ODI Tri-Series Final, Sharjah Cricket Stadium
+Cricket||Cricket/All_Cricket/All_Events|World_Cup_2027|182606|21 Nov 2027|05:00|Outright Winner|India|6/12|
+Cricket||Cricket/All_Cricket/All_Events|Big_Bash_Women_2026|187184|05 Dec|03:10|Outright Winner|Sydney Sixers W|2/3|
+Cricket||Cricket/All_Cricket/All_Events|T20_Big_Bash_2026-27|187503|12 Dec|03:15|Outright Winner|Adelaide Strikers|1/2|
+Cricket||Cricket/All_Cricket/All_Events|SA20_2026-27|187504|24 Jan 2027|11:30|Outright Winner|Pretoria Capitals|1/1|
+Cricket||Cricket/All_Cricket/All_Events|T20_Blast_2027|188350|18 Jul 2027|11:00|Outright Winner|Sussex||OLBG renders selection name with 0/0 win tips blank
+Darts||Darts/All_Darts/All_Events|Luke_Woodhouse_vs_Dirk_van_Duijvenbode|32324|Tomorrow|13:15|Win Match 2-way|Dirk van Duijvenbode|11/13|1 expert; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Niels_Zonneveld_vs_Cameron_Menzies|32334|Tomorrow|14:15|Win Match 2-way|Niels Zonneveld|11/14|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Gerwyn_Price_vs_Rob_Cross|32325|Tomorrow|14:45|Win Match 2-way|Gerwyn Price|10/13|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Luke_Humphries_vs_Ryan_Searle|32337|Tomorrow|15:45|Win Match 2-way|Luke Humphries|10/13|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Danny_Noppert_vs_Stephen_Bunting|32330|Tomorrow|13:45|Win Match 2-way|Danny Noppert|9/13|event page also lists Handicap Noppert -1.50 (2/3) & Total Legs Over 9.50 (5/5)
+Darts||Darts/All_Darts/All_Events|James_Wade_vs_Damon_Heta|32322|Tomorrow|15:15|Win Match 2-way|James Wade|9/14|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Gian_van_Veen_vs_Andrew_Gilding|32323|Tomorrow|16:15|Win Match 2-way|Gian van Veen|9/14|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Ross_Smith_vs_Karel_Sedlacek|32329|Tomorrow|16:45|Win Match 2-way|Ross Smith|7/13|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|23 Oct|14:45|Win Match 2-way|Jonny Clayton|7/9|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|23 Oct|13:15|Win Match 2-way|Ryan Joyce|6/8|1 expert; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|23 Oct|13:45|Win Match 2-way|Dave Chisnall|4/7|1 expert; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|23 Oct|15:45|Win Match 2-way|Wessel Nijman|4/7|PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|23 Oct|14:15|Win Match 2-way|Nathan Aspinall|3/6|tips split 3-3; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Josh_Rock_vs_Chris_Dobey|32336|23 Oct|16:45|Win Match 2-way|Josh Rock|3/5|1 expert; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|23 Oct|15:15|Handicap 2-way|William OConnor +3.50|2/2|1 expert; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|Kevin_Doets_vs_Michael_van_Gerwen|32331|23 Oct|16:15|Win Match 2-way|Michael van Gerwen|2/3|1 expert; PDC European Championship R1 Dortmund
+Darts||Darts/All_Darts/All_Events|PDC_World_Championship_2027|26023|03 Jan 2027|12:00|Win Tournament|Luke Littler|23/36|
+Darts||Darts/All_Darts/All_Events|European_Championship|32338|25 Oct|14:00|Win Tournament|Luke Humphries|4/13|1 expert; Westfalenhallen Dortmund
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Montauban_v_Oyonnax|609556|Today|20:00|To Win|Oyonnax|10/15|Pro D2 J8; OLBG page renders UK BST time on Rugby Union
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Aurillac_v_Nevers|609560|Tomorrow|18:30|To Win|Aurillac|4/6|Pro D2 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Connacht_v_Zebre_Parma|609577|Tomorrow|19:45|To Win|Connacht|4/6|URC Round 6; event page also lists Handicap Connacht -18.50 (2/3)
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Narbonne_v_Brive|609557|Tomorrow|18:00|To Win|Brive|3/5|Pro D2 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Agen_v_Nissa|609558|Tomorrow|18:30|To Win|Nissa|3/6|Pro D2 J8; tips split 3-3
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Soyaux_Angouleme_v_Dax|609563|Tomorrow|18:30|To Win|Dax|3/3|Pro D2 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bulls_v_Ulster|609576|24 Oct|12:45|Handicap|Ulster +18.50|2/2|URC Round 6, Loftus Versfeld Pretoria
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Leinster_v_Munster|609578|24 Oct|18:00|To Win|Leinster|2/2|URC Round 6, Dublin
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Valence_Romans_v_Colomiers|609559|Tomorrow|18:30|To Win|Colomiers|1/1|Pro D2 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Grenoble_v_Biarritz|609561|Tomorrow|20:00|To Win|Grenoble|1/2|Pro D2 J8; tips split 1-1
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Provence_v_Beziers|609562|Tomorrow|20:00|To Win|Provence|1/2|Pro D2 J8; tips split 1-1
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Stormers_v_Scarlets|609580|24 Oct|15:00|To Win|Stormers|1/2|URC Round 6, Cape Town; tips split 1-1
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Toulouse_v_Perpignan|609567|24 Oct|15:35|Handicap|Perpignan +23.50|1/1|Top 14 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bayonne_v_Lyon|609564|24 Oct|15:35|To Win|Lyon|1/1|Top 14 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|La_Rochelle_v_Bordeaux|609554|25 Oct|20:05|To Win|La Rochelle|1/1|Top 14 J8
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Six_Nations_2027|609013|14 Mar 2027|20:00|Win Tournament|Ireland|3/9|
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|State_of_Origin_2027|2695857|27 May 2027|06:00|Win Tournament|New South Wales|9/12|
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|Super_League_2027|2801554|02 Oct 2027|13:00|Grand Final Winner|Leeds Rhinos|1/3|
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|NRL_2027|2801600|03 Oct 2027|04:30|Grand Final Winner|Penrith Panthers|1/2|
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Skelleftea_AIK_vs_Djurgardens_IF|199905|Tomorrow|13:00|Money Line|Skelleftea AIK|2/2|SHL Round 11, Skelleftea Kraft Arena
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Timra_IK_vs_Farjestad_BK|199901|Tomorrow|13:00|Money Line|Farjestad BK|2/2|2 experts; SHL Round 11, SCA Arena
+Ice_Hockey|Finland SM Liiga|Ice_Hockey/Other/Finland_SM_Liiga|Jyp_vs_HPK|199912|Tomorrow|11:30|Money Line|Jyp|1/1|Liiga Game Week 8, Jyvaskyla
+Ice_Hockey|Swedish Hockey League|Ice_Hockey/Other/Swedish_Hockey_League|Orebro_HK_vs_Brynas_IF|199900|Tomorrow|13:00|Money Line|Orebro HK|1/1|SHL Round 11, Behrn Arena
+Handball||Handball/All_Handball/All_Events|Sporting_CP_vs_IFK_Kristianstad|12054|Tomorrow|14:45|Money Line|Tie|5/10|EHF Champions League Men Group D Round 5
+Handball||Handball/All_Handball/All_Events|FC_Barcelona_vs_Montpellier|12046|Tomorrow|14:45|Money Line|FC Barcelona|5/10|EHF Champions League Men Group E Round 5
+Handball||Handball/All_Handball/All_Events|Kolstad_vs_SC_Magdeburg|12048|Tomorrow|14:45|Money Line|Tie|5/10|EHF Champions League Men Group F Round 5
+Handball||Handball/All_Handball/All_Events|Bulgaria_W_vs_Italy_W|12109|Tomorrow|12:00|Money Line|Italy (W)|4/4|Women's EHF EURO Qualifier, Kranevo
+Handball||Handball/All_Handball/All_Events|TVB_Stuttgart_vs_SG_BBM_Bietigheim|12094|Tomorrow|13:00|Money Line|TVB Stuttgart|4/7|DAIKIN Handball-Bundesliga Matchday 10, Porsche-Arena
+Handball||Handball/All_Handball/All_Events|Pick_Szeged_vs_GOG|12051|Tomorrow|12:45|Money Line|GOG|3/7|EHF Champions League Men Group D Round 5
+Handball||Handball/All_Handball/All_Events|SonderjyskE_vs_Nordsjaelland_Handbold|12073|Tomorrow|13:30|Money Line|SonderjyskE|3/6|
+Handball||Handball/All_Handball/All_Events|KIF_Kolding_vs_Fredericia_HK|12074|Tomorrow|14:00|Money Line|Fredericia HK|3/5|
+Handball||Handball/All_Handball/All_Events|MT_Melsungen_vs_Wisla_Plock|12049|Tomorrow|12:45|Money Line|Wisla Plock|2/6|EHF Champions League Men Group C Round 5
+Handball||Handball/All_Handball/All_Events|Onnereds_HK_vs_Ystads_IF_HF|12116|Tomorrow|13:00|Match Handicap|Ystads IF HF -2.50|2/2|
+Handball||Handball/All_Handball/All_Events|BM_Granollers_vs_Ciudad_Encantada|12100|Tomorrow|14:00|Money Line|BM Granollers|2/4|
+Handball||Handball/All_Handball/All_Events|Pays_dAix_UC_vs_Toulouse|12083|23 Oct|14:00|Money Line|Toulouse|2/3|
+Handball||Handball/All_Handball/All_Events|Estonia_W_vs_Kosovo_W|12110|23 Oct|14:00|Money Line|Kosovo (W)|2/2|
+Handball||Handball/All_Handball/All_Events|Frisch_Auf_Goppingen_vs_ThSV_Eisenach|12088|23 Oct|14:00|Money Line|ThSV Eisenach|2/3|DAIKIN Handball-Bundesliga Matchday 10
+Handball||Handball/All_Handball/All_Events|Limoges_87_vs_Dunkerque|12080|23 Oct|14:00|Money Line|Dunkerque|2/3|
+Handball||Handball/All_Handball/All_Events|Selestat_Alsace_vs_Caen|12085|23 Oct|14:30|Money Line|Caen|2/3|
+Handball||Handball/All_Handball/All_Events|Skive_FH_vs_Aalborg_Handbold|12076|24 Oct|09:00|Money Line|Aalborg Handbold|2/3|
+Handball||Handball/All_Handball/All_Events|Villa_De_Aranda_vs_Puerto_Sagunto|12107|24 Oct|13:00|Money Line|Puerto Sagunto|2/2|
+Handball||Handball/All_Handball/All_Events|Skanela_IF_vs_HIF_Karlskrona|12117|Tomorrow|12:30|Money Line|Tie|1/3|
+Handball||Handball/All_Handball/All_Events|Bidasoa_Irun_vs_Caserio_Ciudad_Real|12101|23 Oct|13:00|Money Line|Bidasoa Irun|1/2|tips split 1-1
+Volleyball||Volleyball/All_Volleyball/All_Events|Radomka_Radom_W_vs_Mielec_W|36988|Tomorrow|11:30|Win Match|Radomka Radom W|4/5|1 expert; Polish TAURON Liga Women
+Volleyball||Volleyball/All_Volleyball/All_Events|Ceske_Budejovice_vs_Beskydy|36990|Tomorrow|12:00|Win Match|Ceske Budejovice|2/3|1 expert; Czech CEZ Extraliga Men Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|Ostrava_vs_Kladno|36992|Tomorrow|12:00|Win Match|Ostrava|2/2|Czech CEZ Extraliga Men Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|Brno_vs_Odolena_Voda|36989|Tomorrow|12:00|Win Match|Brno|2/2|1 expert; Czech CEZ Extraliga Men Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|Slepsk_Suwalki_vs_GKS_Katowice|36963|23 Oct|11:30|Win Match|Slepsk Suwalki|2/3|Polish PlusLiga Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|PGE_Skra_Belchatow_vs_Projekt_Warszawa|36964|24 Oct|12:00|Win Match|Projekt Warszawa|2/3|Polish PlusLiga Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|CHKS_Chelm_vs_Resovia_Rzeszow|36965|25 Oct|13:00|Win Match|Resovia Rzeszow|2/3|Polish PlusLiga Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|Usti_Nad_Labem_vs_Zlin|36993|Tomorrow|12:00|Win Match|Zlin|1/1|Czech CEZ Extraliga Men Round 2
+Volleyball||Volleyball/All_Volleyball/All_Events|Liberec_vs_Benatky_nad_Jizerou|36991|Tomorrow|12:00|Set Score|Benatky nad Jizerou to win 3-0|1/2|Czech CEZ Extraliga Men Round 2
+Golf||Golf/All_Golf/All_Events|Bermuda_Championship|101904|Tomorrow|14:10|Win Tournament|Seamus Power|5/22|PGA Tour Butterfield Bermuda Championship; /betting-tips also shows 1st Round Leader Ben James (5/11)
+Golf||Golf/All_Golf/All_Events|Senior_Italian_Open|101911|24 Oct|11:45|Win Tournament|Peter Baker|2/6|Legends Tour / DP World Senior Italian Open
+Golf||Golf/All_Golf/All_Events|Stella_Artois_Players_Championship|101912|25 Oct|10:45|Win Tournament|Daniel van Tonder|2/8|Sunshine Tour
+Golf||Golf/All_Golf/All_Events|Stifel_Charity_Classic|101903|25 Oct|17:45|Win Tournament|Steven Alker|2/11|PGA Tour Champions
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|913|25 Oct|16:00|Win Race|Max Verstappen|12/33|3 experts; /betting-tips also shows Podium Finish Kimi Antonelli Yes (7/69)
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|911|24 Oct|22:00|Fastest Qualifier|Max Verstappen|5/7|1 expert; Formula 1 USGP Qualifying at COTA
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026|828|06 Dec|08:00|Win Tournament|Max Verstappen|9/33|
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli|912|06 Dec|08:00|Win Tournament|Max Verstappen|4/7|
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|St_Finbarrs_v_Nemo_Rangers|3530|25 Oct|12:00|Handicap|Nemo Rangers +1.50|10/12|2026 Cork Premier SFC Final, Pairc Ui Chaoimh
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Moycullen_v_Salthill-Knocknacarra|3532|24 Oct|14:00|Handicap|SalthillKnocknacarra +3.50|9/18|2026 Galway SFC Final
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Kanturk_v_Eire_Og_Cor|3531|01 Nov|09:00|To Win|Kanturk|4/5|Cork Senior A Football Championship Final; OLBG truncates Cork to 'Cor'
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Rathgormack_v_The_Nire|3536|01 Nov|10:30|Handicap|Rathgormack -2.50|2/2|DATE DRIFT FLAGGED: OLBG shows 01 Nov; Munster GAA official calendar confirms Sun 25 Oct 2026 14:30 at Fraher Field Dungarvan
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Fr_Caseys_v_Kildimo_Pallaskenry|3537|01 Nov|10:30|Handicap|Fr Caseys -3.50|2/2|Limerick SFC
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|All_Ireland_Football_Championship_2027|3327|25 Jul 2027|10:30|Win Tournament|Kerry|5/7|

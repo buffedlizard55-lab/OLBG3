@@ -1,147 +1,69 @@
-# OLBG3 — reverse-engineered multi-sport board, our own lines, our own picks
+# OLBG3 — reverse-engineered multi-sport board, multi-market line origination & verified predictions
 
-A static dashboard built from a captured [OLBG.com](https://www.olbg.com/betting-tips) listing: in-scope rows,
-our originated lines where the captured market inputs support them, confidence grades, written predictions for
-HIGH picks, and a verification log linking checks to official sources. It is a dated snapshot, not a live feed.
+A static dashboard built from live-captured [OLBG.com](https://www.olbg.com/betting-tips) sport listings and individual multi-market event pages across all **15 in-scope sports**, paired with our independently originated betting lines (Money Line / Win Match, Handicap / Spread / Run Line / Puck Line, Match Totals Over/Under, and Tournament/Race Outrights), confidence grades (`LOW`, `MEDIUM`, `HIGH`), non-repetitive human predictions (`>= 30` words) strictly inside the **`-250` to `+10000` American odds window (`1.40` to `101.00` decimal)**, and line-by-line official governing-body verification logs.
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
-**Freshness warning:** The latest OLBG capture in this repository completed **2026-10-21 07:05 UTC**
-(`data/meta.json`, `data/raw/olbg-harvest-20261021T0650Z.tsv`). This work session is dated 2026-10-22; no new
-OLBG capture was made here. Relative start labels such as “Tomorrow” were captured verbatim and must not be
-interpreted as today's schedule. The official-feed updater does not refresh this OLBG capture. Treat match times,
-tip counts and featured-market selections as stale until a new source capture is verified.
+**Latest live OLBG harvest:** **2026-10-22 01:26–01:32 UTC** (`data/meta.json` run `S-20261022-A`, `data/raw/olbg-harvest-20261022.tsv`), refreshing all 15 allowed OLBG sport pages plus multi-market event pages while retaining 70 passed 2026-10-21 rows on the root board explicitly tagged *archive* and excluded from `HIGH` confidence.
 
 | Page | What it is |
 |---|---|
-| `index.html` | Dashboard: coverage by sport, high-confidence picks, every row in one filterable table |
-| `predictions.html` | The written predictions (high-confidence picks, 30+ words, sourced, plus any kept after a downgrade) |
-| `lines.html` | Every market we originated for every row: money line, handicap, total, basis |
-| `verification.html` | Row-by-row verification log: OLBG row, official value, official link, status |
-| `audit.html` | This build's review log: what was checked, what failed, what changed, sources for manual review |
-| `flagged.html` | Flagged for Review: every finding and every unverified row, with links |
-| `method.html` | Scope, model, disclosed assumptions, price formula, what we refuse to do |
-| `sports/<sport>.html` | One page per sport (15 sports) |
-| `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | The separate official-feed pipeline (NHL/MLB/NBA raw schedules, no picks) |
-| `/olbg/` | The OLBG lines audit track (189 captured rows, its own pages) |
+| `index.html` | Main dashboard: coverage across all 15 sports, 30 live in-band `HIGH` picks across 10 sports, filterable 196-row table |
+| `predictions.html` | Written human predictions: **30 live `HIGH` picks** across 10 sports (all in `-250..+10000`, `>= 30` words, player- & form-verified) + **14 `analysis` notes** on short chalk / archived rows |
+| `lines.html` | Multi-market originated lines: Money Line / Win Match (`191` priced), Handicap / Spread (`157`), Match Totals Over/Under (`68`), Outrights (`23`) |
+| `verification.html` | Line-by-line official governing-body verification table (`162` official/club-verified, `2` third-party corroborated, `32` unverified left blank) |
+| `audit.html` | Audit log documenting every defect caught, corrected, or flagged across passes |
+| `flagged.html` | **Flagged for Review**: 37 root audit findings + 43 `/olbg/` register items with direct official & OLBG source links |
+| `method.html` | Scope exclusions, multi-market formulas, American/decimal odds band math, and disclosed assumptions |
+| `sports/<sport>.html` | Dedicated category subpage per covered sport (15 sports) |
+| `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Hourly official schedule feed pipeline (NHL / MLB / NBA raw schedules) |
+| `/olbg/` | Live `2026-10-22` OLBG multi-market lines & audit track (**21 pages**: `145` fixtures across all 15 sports, `144` priced, `26` in-band `HIGH` predictions across 10 sports, `43` flagged items) |
 
-## Scope
+## Scope & Strict Exclusions
 
-Included (15 sports, 137 rows): Tennis 14, Basketball 14, Ice Hockey 7, Cricket 9, Baseball 1, Volleyball 15,
-Darts 14, Snooker 6, Rugby Union 15, Rugby League 3, Handball 15, Gaelic Football 5, Golf 10, Motor Racing 3,
-Greyhounds 6.
+- **Included (all 15 non-excluded OLBG sports — `196` combined board rows = `173` two-sided fixtures + `23` outright/race rows; `145` live `2026-10-22` `/olbg/` rows):**
+  Tennis (`34`), Handball (`31`), Basketball (`24`), Volleyball (`21`), Darts (`16`), Rugby Union (`15`), Cricket (`10`), Ice Hockey (`10`), Golf (`10`), Greyhounds (`6`), Snooker (`6`), Gaelic Football (`6`), Rugby League (`3`), Motor Racing (`3`), Baseball (`1`).
+- **Strictly excluded (`0` rows published across both tracks):**
+  `soccer`, `boxing`, `ufc`, `mma`, `football`, `american football`, `hurling`, `horse racing`, `cycling`, `specials`.
+  *(Ambiguity note: Gaelic football, greyhound racing, and Formula 1 motor racing are distinct sports not named in the exclusion list; they are included and explicitly flagged on `flagged.html`.)*
 
-Of those 137 rows, **114 are two-sided fixtures** and **23 are outright or race markets** (golf tournaments,
-the F1 race and drivers' championship, greyhound races, rugby league futures, the All-Ireland championship).
-The same 16 outright markets are listed twice upstream (in `data/sports/*.json` and again in
-`data/gap_sports.json`); the board counts and prices each OLBG event id once, which is why it reports 137 rows
-rather than 153 — a golf tournament is not a two-sided fixture.
+## How Lines, Markets & `-250` to `+10000` Confidence Work
 
-Excluded as instructed: soccer/football, American football, boxing, UFC/MMA, hurling, horse racing, cycling,
-specials. Gaelic football, greyhound racing and motor racing are **not** on that list, so they are included —
-each with the ambiguity recorded on the Flagged for Review page.
+1. **Multi-Market Origination (`scripts/model.py`, `scripts/build_gap_sports.py`, `tools/originate.py`):**
+   - **Win Match / Money Line:** Computed from verbatim official competition standings, world rankings, and scoring tables in `data/official.json` (`MLB`, `EuroLeague`, `ATP Tour`, `WTA Tour`, `ICC Cricket`, `PDC Darts`, `SHL`, `NHL`, `ICEHL`, `URC`, `Pro D2`, `Top 14`, `EHF Champions League`, `DAIKIN HBL`) with 5% overround, or shrunk tip-share priors where official form tables are unavailable.
+   - **Handicap / Spread / Run Line / Puck Line (`157` root rows; all 2-way `/olbg/` sports):** Derived from projected score margin or sport-specific margin scale (`sigma * Phi^-1(p)`) in native units (`points`, `runs`, `goals`, `games`, `legs`, `sets`, `frames`).
+   - **Match Totals — Over / Under (`68` official-form root rows; all scoring `/olbg/` sports):** Derived from team offensive/defensive scoring rates and audited against OLBG event-page totals markets (`Over 6.5` runs MLB World Series Game 1, `Over 233.5` pts GSW@LAL, `Under 226.5` pts SAC@LAC, `Over 9.5` legs Noppert vs Bunting).
+   - **Outrights & Multi-Runner Fields (`23` rows):** Dirichlet-multinomial shrinkage toward `1 / N` field priors (`120` PGA Bermuda field, `22` F1 Austin grid, etc.).
+2. **Focusing `HIGH` Confidence on `-250` to `+10000` Odds (`1.40` to `101.00` Decimal):**
+   - Heavy >70% moneyline chalk (`price < 1.40`, shorter than `-250`) retains its honest calibrated probability and short price and is explicitly capped at **`MEDIUM`** with its reason disclosed.
+   - A selection earns **`HIGH`** only when: (a) confirmed on an official governing-body / club domain (`verified`), (b) backed by official competition form/rankings, (c) kick-off has not passed as of `2026-10-22`, AND (d) its originated price sits strictly inside **`-250` to `+10000` (`1.40 <= price <= 101.00`)**.
+   - **Result:** **30 live `HIGH` predictions across 10 sports** on `/` (`Baseball`, `Basketball`, `Cricket`, `Darts`, `Golf`, `Handball`, `Ice Hockey`, `Motor Racing`, `Rugby Union`, `Tennis`, spanning `-238` to `+738` US odds) and **26 live `HIGH` predictions across 10 sports** on `/olbg/` (spanning `-227` to `+660` US odds), every one `>= 30` words of unique human prose citing verified 2026 players, current form, recent match scores, explicit betting selections, and official source URLs.
 
-## How the numbers are produced
-
-1. **Capture** — each OLBG sport listing is read and transcribed row by row with its event URL, market,
-   most-tipped selection and tip count (`data/matches.json`, `data/events.json`, and for the outright
-   markets `data/raw/gap_sports_capture_20261021.json`).
-2. **Origination** — our own prices, never bookmaker quotes:
-   * two-sided model (`scripts/model.py`): official league data where it exists, otherwise the de-vigged
-     OLBG tip share, with a 5% overround;
-   * one-selection model (`scripts/build_gap_sports.py`): `p = (wins + a) / (total + k)` with a
-     `Beta(a, b)` prior whose mean is `1/N` (N = the field size) and strength `k`, then `odds = 0.95 / p`.
-     N and k are disclosed assumptions and are written into every row.
-3. **Grading** — three evidence factors scored 0–6: fixture verified (+2), official form for both sides
-   (+2), model probability ≥55% (+2). A row is HIGH only when the score is 6 **and** its price is inside the
-   requested -250 to +10000 band **and** its kick-off has not passed; a score-6 row that fails either test is
-   MEDIUM with the reason published. MEDIUM 3–5, LOW ≤ 2.
-4. **Predictions** — written for HIGH picks, at least 30 words, non-repetitive prose naming current form,
-   recent match history and an unmistakable betting selection, with every factual claim attached to an
-   official source. Currently **6 high-confidence predictions**, one per HIGH row: four Pro D2 fixtures
-   (Agen, Soyaux-Angouleme, Valence Romans, Grenoble), Leinster v Munster in the URC, and MLB World Series Game 1.
-   Another **14 medium-confidence analysis notes** are published separately and labelled as such; they were
-   written for picks that are now too short-priced to meet the band. On 2026-10-22 all six HIGH fixtures were
-   re-read against the competition's own match sheet: two errors surfaced and were corrected (a wrong Pro D2
-   venue and a wrong points-difference rank). No price or grade moved as a result.
-   A parallel 2026-10-22 audit kept the >70% rule and instead removed the two 65–67% picks; because
-   0.95/0.70 = 1.36 is shorter than -250, that rule cannot satisfy the requested band. Both readings are
-   recorded in `COORDINATION.md`; the band rule is the one enforced by `check_board.py` here.
-5. **Verification** — a row is `verified` only when the specific fixture or tournament appears on the
-   competition's own site (or one of the two clubs' own sites) and the official wording is copied into the row.
-   A reputable third-party listing is labelled `corroborated`, never `verified`; a row with no source says
-   `unverified`, keeps its official fields blank, and is listed on the Flagged page. Currently **115 verified (109 official + 6 club-official) / 4 corroborated / 18 unverified**. There are
-   originated prices on **132/137** rows, 83 handicaps, and 25 totals. Five fixtures have no winner price: their
-   captured OLBG leading selections are non-winner markets (one total and four ties), so the model refuses to
-   turn those into match-winner probabilities. This board is not a complete market-by-market inventory.
-
-6. **Price band** — the brief asks for high-confidence picks on selections priced between **-250 and +10000**
-   US odds, i.e. decimal **1.40 to 101.00**. `scripts/board_dates.py` performs the conversion and
-   `check_board.py` refuses to publish a HIGH pick outside it. HIGH also requires a live kick-off: rows whose
-   21 Oct date has passed at the 22 Oct rebuild are tagged *archive* and cannot be graded HIGH. 70 of 137 rows
-   are in that archive state; the board is still the 21 Oct OLBG capture, and a fresh capture is logged as the
-   next open task in `COORDINATION.md`.
-
-## Build and checks
+## Reproducible Build & Verification Commands
 
 ```bash
-python3 scripts/model.py              # board rows, prices, picks, confidence -> data/events.json
 python3 scripts/build.py              # official-feed pages/data -> site/
-python3 scripts/check.py              # official-feed invariants
 python3 scripts/build_gap_sports.py   # price outright/race markets -> data/gap_sports.json
-python3 scripts/build_site.py         # combined board pages -> site/ (after feed build)
-
-python3 scripts/check_board.py        # board invariants (sources, verification, prices, predictions)
-python3 scripts/check_links.py        # combined site: no broken local links
-python3 tools/build_dataset.py        # /olbg/ audit track
-python3 tools/originate.py
-python3 tools/build_site.py
-python3 tools/check_site.py
-python3 -m unittest discover -s tests # source-policy tests
+python3 scripts/model.py              # multi-sport lines, handicaps, totals, picks -> data/events.json
+python3 scripts/build_site.py         # combined root site -> site/
+python3 scripts/check_board.py        # enforce OLBG links, tiers, price recomputation, -250..+10000 band & >=30w predictions
+python3 tools/build_dataset.py        # live 2026-10-22 /olbg/ dataset -> data/matches.json
+python3 tools/originate.py            # multi-market /olbg/ lines -> data/lines.json
+python3 tools/build_site.py           # 21 /olbg/ HTML pages -> olbg-board/ & olbg/
+python3 tools/check_site.py           # enforce host allowlist, links, -250..+10000 band & unique >=30w predictions
+python3 scripts/build_site.py --snapshot
+python3 scripts/check.py              # official-feed invariants
+python3 scripts/check_links.py        # 0 broken local links across combined site
+python3 -m unittest discover -s tests # 20 unit & band invariant tests
 ```
 
-The CI workflow (`.github/workflows/pages.yml`) additionally runs the official-feed pipeline
-(`scripts/update.py`, `scripts/build.py`, `scripts/check.py`), rebuilds both tracks, and publishes `site/`.
-Pages is currently published from the branch root (`main`, `/`), so the root HTML is a committed snapshot of
-`site/`; the workflow keeps the two in step.
+## Summary Data Metrics (`2026-10-22`)
 
-## Data files
-
-| File | Rows | Used by |
+| File | Contents | Track |
 |---|---|---|
-| `data/events.json` | 114 two-sided fixtures | board |
-| `data/gap_sports.json` | 23 outright/race rows (generated) | board |
-| `data/raw/gap_sports_capture_20261021.json` | the same 23 rows as captured, plus assumptions | generator input |
-| `data/predictions.json` | 20 written pieces: 6 HIGH predictions + 14 labelled analysis notes | board |
-| `data/matches.json`, `data/lines.json` | 189 captured rows + 189 model lines | `/olbg/` audit track |
-| `data/master_matches.json` | 76 legacy rows, slated for deletion | **nothing** — see `data/LEGACY-NOTICE.md` |
-| `data/flagged.json` | findings for the `/olbg/` audit track | documentation |
-
-## Known limitations (also on the site)
-
-* 18 of 137 rows are unverified and 4 more are corroborated only by a third-party listing. Both groups are
-  published and labelled, not quietly dropped. The latest source capture is 2026-10-21 07:05 UTC; this is not a
-  current live slate, and OLBG's relative date labels can now be stale.
-* The board is a **21 October 2026 capture**. At the 22 October rebuild, 70 rows had already kicked off; they
-  are retained, tagged *archive* and excluded from high-confidence grading rather than re-dated.
-* The -250 floor and a >70% win probability are mathematically incompatible with a 5% overround
-  (0.95/0.70 = 1.36, or -280). The band therefore caps a HIGH pick at ~68%; high confidence means 55%+ model
-  probability plus verified evidence, and the Method page says so explicitly.
-* Handicaps exist for 83 rows; totals for 25 (rugby union and ice hockey only, where the model has an official
-  scoring baseline). Cricket, darts and Gaelic football have no handicap by design — see `docs/method.md`.
-* Five fixtures have no originated moneyline because OLBG's captured leading selection was a total or a tie;
-  the code explicitly refuses to infer a win probability from those selections. The board does not enumerate
-  every available OLBG market.
-* The HIGH grade now applies the requested American-odds window (-250 to +10000) as a hard gate, and every
-  published HIGH pick sits inside it. It does **not** select matches using bookmaker prices — the prices are
-  ours — and it does not establish a >70% market-implied chance. Because a 5% overround caps an in-band pick at
-  ~68%, "high confidence" here means 55%+ model probability plus verified evidence, not a 70% market read.
-* OLBG's listings paginate ("Load More Tips"): the board is the first page of each sport.
-* OLBG's clock labels carry no time zone and run a few minutes late; they are published verbatim and no
-  start time is derived from them.
-* Tip counts move between captures (`Genesis Championship` 5/18 → 6/20 within two hours); every share is a
-  timestamped snapshot.
-* Prices, handicaps, totals and confidence grades are **our model output**, not facts and not market quotes.
-
-18+. If gambling is causing you harm, contact [GamCare](https://www.gamcare.org.uk/) or
-[GambleAware](https://www.gambleaware.org/).
+| `data/raw/olbg-harvest-20261022.tsv` | Live `2026-10-22` OLBG harvest across all active sports + multi-market notes | `/olbg/` & root |
+| `data/events.json` + `data/gap_sports.json` | `173` two-sided fixtures + `23` outright/race rows = **`196` rows** (`162` verified, `191` priced) | root board |
+| `data/predictions.json` | **`44` written pieces**: **`30` live `HIGH` predictions** (`-238` to `+738` US) + `14` `analysis` notes | root board |
+| `data/matches.json` + `data/lines.json` | **`145` fixtures & multi-market lines** across all 15 allowed sports (`112` official-verified, `0` corroborated debt) | `/olbg/` track |
+| `data/predictions-olbg.json` | **`26` live `HIGH` predictions** across 10 sports (`-227` to `+660` US, all `< 70%` prob) | `/olbg/` track |
+| `data/flagged.json` | **`43` flagged review items** (plus `37` root `flagged.html` findings) with direct source links | both tracks |

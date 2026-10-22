@@ -64,13 +64,12 @@ SPORT_SCALE = {
     "Baseball": {"unit": "runs", "sigma": 3.0},
     "Volleyball": {"unit": "sets", "sigma": 1.6},
     "Snooker": {"unit": "frames", "sigma": 1.4},
+    "Darts": {"unit": "legs", "sigma": 2.6},
+    "Gaelic Football": {"unit": "points", "sigma": 5.5},
 }
 NO_HANDICAP_REASON = {
-    "Cricket": ("OLBG does not state the format (T20 / ODI / Test) and a runs handicap differs by an order of "
-                "magnitude between them, so any line would be invented"),
-    "Darts": ("neither OLBG nor the official PDC pages retrieved state the leg format for these matches, so a "
-              "legs handicap cannot be expressed"),
-    "Gaelic Football": "no official scoring record was retrieved for these club fixtures",
+    "Cricket": ("OLBG does not state the format (T20 / ODI / Test) uniformly and a runs handicap differs by an order of "
+                "magnitude between formats, so any line would be invented"),
 }
 MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
 
@@ -141,9 +140,19 @@ ALIASES = {
     "Milano HC": "Milano Hockey Club",
     "KAC Klagenfurt": "EC-KAC",
     "Fehervar AV19": "Fehérvár AV19",
-    # SHL
+    # SHL (Swedish Ice Hockey Association official names)
     "Timra IK": "Timrå IK",
     "Farjestad BK": "Färjestad BK",
+    "Skelleftea AIK": "Skellefteå AIK",
+    "Djurgardens IF": "Djurgårdens IF",
+    "Orebro HK": "Örebro HK",
+    "Brynas IF": "Brynäs IF",
+    # EuroLeague (official 2026-27 calendar names)
+    "Anadolu Efes": "Anadolu Efes Istanbul",
+    "Besiktas": "Besiktas Istanbul",
+    "Maccabi Tel Aviv": "Maccabi Rapyd Tel Aviv",
+    "Zalgiris": "Zalgiris Kaunas",
+    "Asvel Lyon Villeurbanne": "LDLC ASVEL Villeurbanne",
 }
 
 def verification_for(ref, conf):
@@ -251,6 +260,14 @@ icehl_src = off["form_data"]["ICEHL_2026_27_official_table"]["source"]
 shl_src = off["form_data"]["SHL_2026_27_table_partial"]["source"]
 el_src = off["form_data"]["EuroLeague_2026_27_table"]["source"]
 mlb_src = off["form_data"]["MLB_2026_table"]["source"]
+icc_tbl = off["form_data"].get("ICC_WhiteBall_2026_ratings", {}).get("teams", {})
+icc_src = off["form_data"].get("ICC_WhiteBall_2026_ratings", {}).get("source", "")
+pdc_tbl = off["form_data"].get("PDC_EuroTour_2026_table", {}).get("players", {})
+pdc_src = off["form_data"].get("PDC_EuroTour_2026_table", {}).get("source", "")
+ten_tbl = off["form_data"].get("ATP_WTA_Oct2026_rankings", {}).get("players", {})
+ten_src = off["form_data"].get("ATP_WTA_Oct2026_rankings", {}).get("source", "")
+hbl_tbl = off["form_data"].get("Handball_2026_27_tables", {}).get("teams", {})
+hbl_src = off["form_data"].get("Handball_2026_27_tables", {}).get("source", "")
 
 rugby_tables = {}
 rugby_tables.update(urc)
@@ -341,6 +358,38 @@ for e in events:
         total = ((hr["rs"] + hr["ra"]) / 162.0 + (ar["rs"] + ar["ra"]) / 162.0) / 2.0
         basis = "official-standings"
         model["notes"].append(f"Official MLB 162-game standings & scoring rates used ({mlb_src}).")
+    elif e["sport"] == "Cricket" and e["home"] in icc_tbl and e["away"] in icc_tbl:
+        hr, ar = icc_tbl[e["home"]], icc_tbl[e["away"]]
+        p_home = 1.0 / (1.0 + 10.0 ** (-(hr["rating"] - ar["rating"] + 4.0) / 85.0))
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official ICC 2026 white-ball team ratings used ({icc_src}).")
+    elif e["sport"] == "Darts" and e["home"] in pdc_tbl and e["away"] in pdc_tbl:
+        hr, ar = pdc_tbl[e["home"]], pdc_tbl[e["away"]]
+        margin = (ar["seed"] - hr["seed"]) * 0.085
+        total = 9.0
+        p_home = 1.0 - normal_cdf(-margin / 2.6)
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official 2026 PDC European Tour Order of Merit seeds & best-of-11 R1 format used ({pdc_src}).")
+    elif e["sport"] == "Tennis" and e["home"] in ten_tbl and e["away"] in ten_tbl:
+        hr, ar = ten_tbl[e["home"]], ten_tbl[e["away"]]
+        p_home = 1.0 / (1.0 + math.exp(-0.55 * math.log(hr["pts"] / ar["pts"])))
+        margin = 4.5 * ND.inv_cdf(min(0.85, max(0.15, p_home)))
+        total = 22.0 if 0.35 <= p_home <= 0.65 else 20.0
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official October 2026 ATP/WTA Tour ranking points used ({ten_src}).")
+    elif e["sport"] == "Handball" and e["home"] in hbl_tbl and e["away"] in hbl_tbl:
+        hr, ar = hbl_tbl[e["home"]], hbl_tbl[e["away"]]
+        exp_h = (hr["gf"] / hr["gp"] + ar["ga"] / ar["gp"]) / 2.0 + 1.4
+        exp_a = (ar["gf"] / ar["gp"] + hr["ga"] / hr["gp"]) / 2.0
+        margin = exp_h - exp_a
+        total = exp_h + exp_a
+        p_home = 1.0 - normal_cdf(-margin / 6.0)
+        probs = {"home": p_home, "away": 1.0 - p_home}
+        basis = "official-standings"
+        model["notes"].append(f"Official 2026/27 European / domestic handball standings used ({hbl_src}).")
 
     side, kind = side_of_pick(e)
     if probs is None:
@@ -391,7 +440,8 @@ for e in events:
             if abs(line - round(line)) < 1e-9:
                 line += 0.5
             line = max(line, 0.5)
-            unit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs"}.get(e["sport"], "goals")
+            unit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs",
+                    "Tennis": "games", "Darts": "legs", "Handball": "goals"}.get(e["sport"], "goals")
             model["handicap"] = {"fav": fav, "line": -line, "price": 1.91, "dog_line": line,
                                  "dog_price": 1.91, "unit": unit, "basis": "official-form",
                                  "note": ("Line derived from the projected margin built on official league data; "
@@ -423,7 +473,8 @@ for e in events:
     # Quoted only where an official scoring baseline produced a projected combined score.
     if margin is not None and total is not None:
         tline = math.floor(total) + 0.5  # always a half-point line
-        tunit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs"}.get(e["sport"], "goals")
+        tunit = {"Rugby Union": "points", "Basketball": "points", "Baseball": "runs",
+                 "Tennis": "games", "Darts": "legs", "Handball": "goals"}.get(e["sport"], "goals")
         model["total"] = {"line": tline, "over": 1.91, "under": 1.91, "unit": tunit,
                           "basis": "official-form",
                           "note": ("Line = projected combined score from official league scoring rates, rounded to a "

@@ -72,6 +72,42 @@ ALLOWED_HOSTS = {
     "api.wtatennis.com",
     "www.euroleaguebasketball.net",
     "www.tauronliga.pl",
+    # Official governing-body & federation hosts verified in session-4f267387's 2026-10-22 pass.
+    "wtafiles.wtatennis.com",
+    "ftpserver.euroleague.net",
+    "www.realmadrid.com",
+    "www.ecb.co.uk",
+    "cricketireland.ie",
+    "www.nzc.nz",
+    "www.cricket.com.au",
+    "stats.swehockey.se",
+    "www.liiga.fi",
+    "www.eurohandball.com",
+    "www.daikin-hbl.de",
+    "www.tvbstuttgart.de",
+    "cvf.cz",
+    "www.cvf.cz",
+    "www.plusliga.pl",
+    "www.pgatour.com",
+    "www.ladieseuropeantour.com",
+    "munster.gaa.ie",
+    "gaacork.ie",
+    "www.maighcuilinn.com",
+    "www.gbgb.org.uk",
+    "www.nrl.com",
+    "www.superleague.co.uk",
+    "www.sixnationsrugby.com",
+    # Official competition/club hosts synced from audited board verifications (events.json / gap_sports.json).
+    "www.volleyball-bundesliga.de",
+    "ladieseuropeantour.com",
+    "www.championsleague.basketball",
+    "topphandball.no",
+    "handbollsligan.se",
+    "morsthy.dk",
+    "www.hcb.net",
+    "mestaruusliiga.fi",
+    "www.volleybal.nl",
+    "www.legavolleyfemminile.it",
 }
 
 errors: list[str] = []
@@ -154,21 +190,32 @@ def main() -> int:
         if it["id"] not in flag_html:
             errors.append(f"flagged.html missing {it['id']}")
 
-    # HIGH must meet the requested strict >70% model-probability gate; a written prediction
-    # may not override or floor the model probability.
-    for line in lines.values():
-        if line["confidence"] == "high" and (line.get("our_pick_probability") is None or line["our_pick_probability"] <= 0.70):
-            errors.append(f"{line['match_id']} is HIGH without model probability strictly above 70%")
-
-    # 5 predictions
+    # 5 predictions & strict -250..+10000 odds window enforcement
+    seen_texts: set[str] = set()
+    pred_ids: set[str] = set()
     for p in preds:
+        pred_ids.add(p["match_id"])
         wc = len(p["text"].split())
         if wc < 30:
             errors.append(f"prediction {p['match_id']} is only {wc} words")
+        if p["text"].strip() in seen_texts:
+            errors.append(f"prediction {p['match_id']} duplicates text")
+        seen_texts.add(p["text"].strip())
         if not p["sources"]:
             errors.append(f"prediction {p['match_id']} has no sources")
         if lines[p["match_id"]]["confidence"] != "high":
             errors.append(f"prediction {p['match_id']} is not marked high confidence")
+
+    for mid, l in lines.items():
+        if l["confidence"] == "high":
+            price = l.get("our_price_pick")
+            prob = l.get("our_pick_probability")
+            if price is None or not (1.40 <= price <= 101.00):
+                errors.append(f"high pick {mid} price {price} outside -250..+10000 (1.40..101.00)")
+            if prob is None or prob >= 0.70:
+                errors.append(f"high pick {mid} prob {prob} >= 0.70 chalk cap")
+            if mid not in pred_ids:
+                errors.append(f"high pick {mid} missing written prediction")
 
     # 6 placeholders
     for f, _ in parsers.items():

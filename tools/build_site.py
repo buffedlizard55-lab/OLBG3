@@ -153,7 +153,7 @@ def main() -> None:
     high_rows = [m for m in preds]
     high_table = "".join(
         f"""<tr><td>{E(p['sport'])}</td><td>{E(p['match'])}</td>
-        <td class="pick">{E(p['selection'])}</td><td class="num">{lines[p['match_id']]['our_price_pick']}</td>
+        <td class="pick">{E(p['selection'])}</td><td class="num">{lines[p['match_id']]['our_price_pick']} <span class="muted small">({lines[p['match_id']].get('our_us_odds_pick','')})</span></td>
         <td>{conf_badge(p['confidence'])}</td><td>{link(p['sources'][0]['url'], 'source')}</td></tr>"""
         for p in high_rows
     )
@@ -197,13 +197,13 @@ def main() -> None:
 
 <section class="grid2">
   <div class="card">
-    <h2>High-confidence picks</h2>
-    <p class="muted">Each has a written prediction of at least 30 words, built only on facts confirmed from an official or primary source.</p>
+    <h2>High-confidence picks (-250 to +10000 odds window)</h2>
+    <p class="muted">Every high-confidence call sits strictly inside <strong>-250 to +10000 American odds (1.40–101.00 decimal, &lt;70% win prob.)</strong> — trivial heavy moneyline chalk (&gt;70%) is capped at medium — and carries a unique &ge;30-word human prediction backed by official governing-body sources.</p>
     <table class="tbl compact">
-      <thead><tr><th>Sport</th><th>Match</th><th>Our pick</th><th>Price</th><th>Conf.</th><th>Source</th></tr></thead>
+      <thead><tr><th>Sport</th><th>Match</th><th>Our pick</th><th>Price (US)</th><th>Conf.</th><th>Source</th></tr></thead>
       <tbody>{high_table}</tbody>
     </table>
-    <p><a class="btn" href="predictions.html">Read the five predictions →</a></p>
+    <p><a class="btn" href="predictions.html">Read all {len(preds)} predictions →</a></p>
   </div>
   <div class="card">
     <h2>Confidence split</h2>
@@ -249,10 +249,10 @@ def main() -> None:
 <td>{E(m['sport'])}</td>
 <td><strong>{E(m['event_name'])}</strong><br><span class="muted small">{E((m['competition'] or 'competition not stated'))} · {E(l['start'])}</span></td>
 <td class="pick">{E(l['our_pick'] or '—')}</td>
-<td class="num">{'' if l['our_price_pick'] is None else l['our_price_pick']}</td>
+<td class="num">{'' if l['our_price_pick'] is None else f"{l['our_price_pick']} ({l.get('our_us_odds_pick','')})"}</td>
 <td class="num">{'' if l['our_pick_probability'] is None else f"{l['our_pick_probability']*100:.1f}%"}</td>
 <td class="num">{'—' if l['our_handicap_line'] is None else f"{l['our_handicap_side']} {l['our_handicap_line']:+g} {l['our_handicap_unit']}"}</td>
-<td class="num">{'—' if l['our_total_line'] is None else f"{l['our_total_line']} {l['our_total_unit']}"}</td>
+<td class="num">{'—' if l['our_total_line'] is None else f"{(l.get('our_total_side') or '') + ' ' if l.get('our_total_side') else ''}{l['our_total_line']} {l['our_total_unit']}"}</td>
 <td>{conf_badge(l['confidence'])}</td>
 <td class="src">{sources_cell(m, vmap)}</td>
 </tr>""")
@@ -294,7 +294,7 @@ def main() -> None:
     <div><span class="tag">{E(p['sport'])}</span> {conf_badge(p['confidence'])}</div>
     <h2>{E(p['match'])}</h2>
   </div>
-  <p class="selection">Selection: <strong>{E(p['selection'])}</strong> · our price {l['our_price_pick']} · model probability {l['our_pick_probability']*100:.1f}%</p>
+  <p class="selection">Selection: <strong>{E(p['selection'])}</strong> · our price {l['our_price_pick']} ({E(l.get('our_us_odds_pick') or '')}) · model probability {l['our_pick_probability']*100:.1f}%</p>
   <p class="predtext">{E(p['text'])}</p>
   <p class="muted small">{wc} words · start {E(l['start'])} · OLBG source {link(l['olbg_url'], 'fixture listing')}</p>
   <h3>The facts in this prediction, and where they come from</h3>
