@@ -268,6 +268,37 @@ ten_tbl = off["form_data"].get("ATP_WTA_Oct2026_rankings", {}).get("players", {}
 ten_src = off["form_data"].get("ATP_WTA_Oct2026_rankings", {}).get("source", "")
 hbl_tbl = off["form_data"].get("Handball_2026_27_tables", {}).get("teams", {})
 hbl_src = off["form_data"].get("Handball_2026_27_tables", {}).get("source", "")
+# French Daikin StarLigue table (LNH's own standings). Same gp/gf/ga schema as the EHF
+# tables above, so the clubs are merged into one lookup for pricing and each club's
+# citation still names the exact official table it came from.
+hbl_fr = off["form_data"].get("Handball_France_Daikin_Starligue_2026_27", {})
+hbl_fr_tbl = hbl_fr.get("teams", {})
+hbl_fr_src = hbl_fr.get("source", "")
+# Swedish Handbollsligan table (the league's own site). Same gp/gf/ga schema.
+hbl_se = off["form_data"].get("Handball_Sweden_Handbollsligan_2026_27", {})
+hbl_se_tbl = hbl_se.get("teams", {})
+hbl_se_src = hbl_se.get("source", "")
+handball_tables = {}
+handball_tables.update(hbl_tbl)
+handball_tables.update(hbl_fr_tbl)
+handball_tables.update(hbl_se_tbl)
+
+# OLBG club names -> the exact club names printed by the LNH table. Name normalisation only.
+HANDBALL_ALIASES = {
+    "Pays dAix UC": "Aix",
+    "Limoges 87": "Limoges",
+    "Selestat Alsace": "Selestat",
+    # Handbollsligan (OLBG spelling -> the league's own spelling)
+    "Onnereds HK": "Önnereds HK",
+    "Skanela IF": "Skånela IF",
+    "HIF Karlskrona": "HF Karlskrona",
+    "IK Savehof": "IK Sävehof",
+    "Alingsas HK": "Alingsås HK",
+}
+
+
+def handball_name(n):
+    return HANDBALL_ALIASES.get(n, n)
 
 rugby_tables = {}
 rugby_tables.update(urc)
@@ -380,8 +411,8 @@ for e in events:
         probs = {"home": p_home, "away": 1.0 - p_home}
         basis = "official-standings"
         model["notes"].append(f"Official October 2026 ATP/WTA Tour ranking points used ({ten_src}).")
-    elif e["sport"] == "Handball" and e["home"] in hbl_tbl and e["away"] in hbl_tbl:
-        hr, ar = hbl_tbl[e["home"]], hbl_tbl[e["away"]]
+    elif e["sport"] == "Handball" and handball_name(e["home"]) in handball_tables and handball_name(e["away"]) in handball_tables:
+        hr, ar = handball_tables[handball_name(e["home"])], handball_tables[handball_name(e["away"])]
         exp_h = (hr["gf"] / hr["gp"] + ar["ga"] / ar["gp"]) / 2.0 + 1.4
         exp_a = (ar["gf"] / ar["gp"] + hr["ga"] / hr["gp"]) / 2.0
         margin = exp_h - exp_a
@@ -389,7 +420,18 @@ for e in events:
         p_home = 1.0 - normal_cdf(-margin / 6.0)
         probs = {"home": p_home, "away": 1.0 - p_home}
         basis = "official-standings"
-        model["notes"].append(f"Official 2026/27 European / domestic handball standings used ({hbl_src}).")
+        def _hbl_source(name):
+            if name in hbl_fr_tbl:
+                return hbl_fr_src
+            if name in hbl_se_tbl:
+                return hbl_se_src
+            return hbl_src
+        _hsrc = _hbl_source(handball_name(e["home"]))
+        _asrc = _hbl_source(handball_name(e["away"]))
+        if _hsrc == _asrc:
+            model["notes"].append(f"Official 2026/27 handball standings used for both sides ({_hsrc}).")
+        else:
+            model["notes"].append(f"Official handball tables used: home side from {_hsrc}, away side from {_asrc}.")
 
     side, kind = side_of_pick(e)
     if probs is None:

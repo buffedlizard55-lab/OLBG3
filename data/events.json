@@ -4849,7 +4849,7 @@
      "win_away": 1.09
     },
     "notes": [
-     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+     "Official 2026/27 handball standings used for both sides (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
     ],
     "probs": {
      "home": 0.1312,
@@ -4927,29 +4927,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.03,
+     "win_home": 1.27,
      "draw": null,
-     "win_away": 12.23
+     "win_away": 3.76
     },
     "notes": [
-     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+     "Official handball tables used: home side from https://ehfcl.eurohandball.com/men/2026-27/standings/, away side from https://handbollsligan.se/herr/tabell/."
     ],
     "probs": {
-     "home": 0.9223,
-     "away": 0.0777
+     "home": 0.7475,
+     "away": 0.2525
     },
     "handicap": {
      "fav": "home",
-     "line": -8.5,
+     "line": -3.5,
      "price": 1.91,
-     "dog_line": 8.5,
+     "dog_line": 3.5,
      "dog_price": 1.91,
      "unit": "goals",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 70.5,
+     "line": 64.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "goals",
@@ -4960,7 +4960,7 @@
    "pick": {
     "side": "home",
     "label": "Sporting CP",
-    "prob": 0.9223,
+    "prob": 0.7475,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -4968,8 +4968,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.03,
-    "american": -3333,
+    "price": 1.27,
+    "american": -370,
     "in_band": false,
     "band": [
      -250,
@@ -4979,7 +4979,7 @@
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.03 converts to -3333 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.27 converts to -370 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -5008,43 +5008,52 @@
     "note": "The league site lists Ons 21 OKT 19:00 IF Hallby HK v IK Savehof - the OLBG time exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
+     "win_home": 3.91,
+     "draw": null,
+     "win_away": 1.25
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://handbollsligan.se/herr/tabell/)."
     ],
     "probs": {
-     "away": 0.67,
-     "home": 0.33
+     "home": 0.2428,
+     "away": 0.7572
     },
     "handicap": {
      "fav": "away",
-     "line": -3.5,
+     "line": -4.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 4.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 60.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "away",
     "label": "IK Savehof",
-    "prob": 0.67,
+    "prob": 0.7572,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.25,
+    "american": -400,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -5052,8 +5061,8 @@
     "start_iso": "2026-10-21",
     "start_basis": "derived from capture date",
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.25 converts to -400 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
    }
   },
   {
@@ -5082,42 +5091,51 @@
     "note": "The league site lists Ons 21 OKT 19:00 Hammarby IF HF v Alingsas HK - the OLBG time exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.42,
-     "win_away": 2.88
+     "win_home": 1.59,
+     "draw": null,
+     "win_away": 2.36
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://handbollsligan.se/herr/tabell/)."
     ],
     "probs": {
-     "home": 0.67,
-     "away": 0.33
+     "home": 0.5976,
+     "away": 0.4024
     },
     "handicap": {
      "fav": "home",
-     "line": -3.5,
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (67%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 59.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "home",
     "label": "Hammarby IF HF",
-    "prob": 0.67,
+    "prob": 0.5976,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
+    "price": 1.59,
+    "american": -169,
     "in_band": true,
     "band": [
      -250,
@@ -5126,8 +5144,8 @@
     "start_iso": "2026-10-21",
     "start_basis": "derived from capture date",
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "The listed kick-off date 2026-10-21 has passed at the 2026-10-22 build, so the pick is archived rather than presented as a live high-confidence selection."
    }
   },
   {
@@ -5312,7 +5330,7 @@
      "win_away": 2.48
     },
     "notes": [
-     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+     "Official 2026/27 handball standings used for both sides (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
     ],
     "probs": {
      "home": 0.6163,
@@ -5390,29 +5408,29 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.1,
+     "win_home": 1.32,
      "draw": null,
-     "win_away": 7.1
+     "win_away": 3.36
     },
     "notes": [
-     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+     "Official handball tables used: home side from https://ehfcl.eurohandball.com/men/2026-27/standings/, away side from https://www.lnh.fr/daikin-starligue/classement."
     ],
     "probs": {
-     "home": 0.8661,
-     "away": 0.1339
+     "home": 0.7176,
+     "away": 0.2824
     },
     "handicap": {
      "fav": "home",
-     "line": -6.5,
+     "line": -3.5,
      "price": 1.91,
-     "dog_line": 6.5,
+     "dog_line": 3.5,
      "dog_price": 1.91,
      "unit": "goals",
      "basis": "official-form",
      "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
     },
     "total": {
-     "line": 61.5,
+     "line": 62.5,
      "over": 1.91,
      "under": 1.91,
      "unit": "goals",
@@ -5423,7 +5441,7 @@
    "pick": {
     "side": "home",
     "label": "FC Barcelona",
-    "prob": 0.8661,
+    "prob": 0.7176,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -5431,8 +5449,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.1,
-    "american": -1000,
+    "price": 1.32,
+    "american": -312,
     "in_band": false,
     "band": [
      -250,
@@ -5442,7 +5460,7 @@
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
     "evidence_grade": "HIGH",
-    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.10 converts to -1000 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.32 converts to -312 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -5535,7 +5553,7 @@
      "win_away": 3.26
     },
     "notes": [
-     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+     "Official 2026/27 handball standings used for both sides (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
     ],
     "probs": {
      "home": 0.7082,
@@ -5747,53 +5765,62 @@
    "olbg_event_id": 12116,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://handbollsligan.se/herr/",
+    "official_label": "Handbollsligan official fixture list (herr)",
+    "official_datetime": "Thu 22 Oct 2026, 19:00 CEST (13:00 US Eastern), Önnereds HK v Ystads IF HF",
+    "competition_official": "Handbollsligan 2026/27",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "The league's own fixture list shows 'Tor 22 OKT 19:00 Önnereds HK vs Ystads IF HF'. 19:00 CEST = 13:00 EDT, matching OLBG's 'Tomorrow 13:00' exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.02,
-     "win_home": 47.5
+     "win_home": 2.34,
+     "draw": null,
+     "win_away": 1.6
     },
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://handbollsligan.se/herr/tabell/)."
     ],
     "probs": {
-     "away": 0.98,
-     "home": 0.02
+     "home": 0.4061,
+     "away": 0.5939
     },
     "handicap": {
      "fav": "away",
-     "line": -7.5,
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 7.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 60.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
     "side": "away",
     "label": "Ystads IF HF",
-    "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.5939,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
+    "price": 1.6,
+    "american": -167,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -5801,7 +5828,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -5894,51 +5921,61 @@
    "olbg_event_id": 12083,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.lnh.fr/daikin-starligue/calendrier",
+    "official_label": "LNH official Daikin StarLigue 2026/27 calendar (Journee 08)",
+    "official_datetime": "Fri 23 Oct 2026, 20:00 CEST (14:00 US Eastern), Pays d'Aix Universite Club v Fenix Toulouse Handball, Journee 08",
+    "competition_official": "Daikin StarLigue 2026/27 - Journee 08",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "The LNH calendar lists 'ven. 23 oct. 20h00 Aix vs Toulouse'. 20:00 CEST = 14:00 EDT, matching OLBG's unlabelled '23 Oct 14:00' exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
+     "win_home": 1.52,
+     "draw": null,
+     "win_away": 2.53
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://www.lnh.fr/daikin-starligue/classement)."
     ],
     "probs": {
-     "away": 0.67,
-     "home": 0.33
+     "home": 0.6243,
+     "away": 0.3757
     },
     "handicap": {
-     "fav": "away",
-     "line": -3.5,
+     "fav": "home",
+     "line": -1.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 1.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 62.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Toulouse",
-    "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "home",
+    "label": "Pays dAix UC",
+    "prob": 0.6243,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
+    "price": 1.52,
+    "american": -192,
     "in_band": true,
     "band": [
      -250,
@@ -5947,7 +5984,7 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },
@@ -6040,7 +6077,7 @@
      "win_away": 2.09
     },
     "notes": [
-     "Official 2026/27 European / domestic handball standings used (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
+     "Official 2026/27 handball standings used for both sides (https://ehfcl.eurohandball.com/men/2026-27/standings/)."
     ],
     "probs": {
      "home": 0.545,
@@ -6106,52 +6143,62 @@
    "olbg_event_id": 12080,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.lnh.fr/daikin-starligue/calendrier",
+    "official_label": "LNH official Daikin StarLigue 2026/27 calendar (Journee 08)",
+    "official_datetime": "Fri 23 Oct 2026, 20:00 CEST (14:00 US Eastern), Limoges Handball v Dunkerque Handball Grand Littoral, Journee 08",
+    "competition_official": "Daikin StarLigue 2026/27 - Journee 08",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "The LNH calendar lists 'ven. 23 oct. 20h00 Limoges vs Dunkerque'. 20:00 CEST = 14:00 EDT, matching OLBG's '23 Oct 14:00' exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
+     "win_home": 1.24,
+     "draw": null,
+     "win_away": 4.04
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://www.lnh.fr/daikin-starligue/classement)."
     ],
     "probs": {
-     "away": 0.67,
-     "home": 0.33
+     "home": 0.7647,
+     "away": 0.2353
     },
     "handicap": {
-     "fav": "away",
-     "line": -3.5,
+     "fav": "home",
+     "line": -4.5,
      "price": 1.91,
-     "dog_line": 3.5,
+     "dog_line": 4.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 59.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Dunkerque",
-    "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "home",
+    "label": "Limoges 87",
+    "prob": 0.7647,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.24,
+    "american": -417,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -6159,8 +6206,8 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.24 converts to -417 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -6179,52 +6226,62 @@
    "olbg_event_id": 12085,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.lnh.fr/daikin-starligue/calendrier",
+    "official_label": "LNH official Daikin StarLigue 2026/27 calendar (Journee 08)",
+    "official_datetime": "Fri 23 Oct 2026, 20:30 CEST (14:30 US Eastern), Selestat Alsace Handball v Caen Handball, Journee 08",
+    "competition_official": "Daikin StarLigue 2026/27 - Journee 08",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "The LNH calendar lists 'ven. 23 oct. 20h30 Selestat vs Caen' (the league's STARMATCH slot). 20:30 CEST = 14:30 EDT, matching OLBG's '23 Oct 14:30' exactly."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_away": 1.42,
-     "win_home": 2.88
+     "win_home": 1.33,
+     "draw": null,
+     "win_away": 3.33
     },
     "notes": [
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official 2026/27 handball standings used for both sides (https://www.lnh.fr/daikin-starligue/classement)."
     ],
     "probs": {
-     "away": 0.67,
-     "home": 0.33
+     "home": 0.7145,
+     "away": 0.2855
     },
     "handicap": {
-     "fav": "away",
+     "fav": "home",
      "line": -3.5,
      "price": 1.91,
      "dog_line": 3.5,
      "dog_price": 1.91,
      "unit": "goals",
-     "basis": "consensus-scaled",
-     "note": "Probability-implied line: sigma 7.0 goals (disclosed assumption) times the normal quantile of our win probability (33%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 62.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
     }
    },
    "pick": {
-    "side": "away",
-    "label": "Caen",
-    "prob": 0.67,
-    "confidence": "LOW",
-    "score": 2,
+    "side": "home",
+    "label": "Selestat Alsace",
+    "prob": 0.7145,
+    "confidence": "MEDIUM",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.42,
-    "american": -238,
-    "in_band": true,
+    "price": 1.33,
+    "american": -303,
+    "in_band": false,
     "band": [
      -250,
      10000
@@ -6232,8 +6289,8 @@
     "start_iso": "2026-10-23",
     "start_basis": "derived from capture year",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
-    "note": ""
+    "evidence_grade": "HIGH",
+    "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.33 converts to -303 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page."
    }
   },
   {
@@ -6399,35 +6456,62 @@
    "olbg_event_id": 12117,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Handball/20",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://handbollsligan.se/herr/",
+    "official_label": "Handbollsligan official fixture list (herr)",
+    "official_datetime": "Thu 22 Oct 2026, 18:30 CEST (12:30 US Eastern), Skånela IF v HF Karlskrona",
+    "competition_official": "Handbollsligan 2026/27",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "The league's own fixture list shows 'Tor 22 OKT 18:30 Skånela IF vs HF Karlskrona'. 18:30 CEST = 12:30 EDT, matching OLBG's 'Tomorrow 12:30' exactly. OLBG abbreviates the away club as 'HIF Karlskrona'; the league prints 'HF Karlskrona'."
    },
    "model": {
-    "basis": "none",
-    "prices": {},
+    "basis": "official-standings",
+    "prices": {
+     "win_home": 1.7,
+     "draw": null,
+     "win_away": 2.16
+    },
     "notes": [
-     "OLBG's leading selection is not a win-market selection, so no win probability can be derived."
-    ]
+     "Official 2026/27 handball standings used for both sides (https://handbollsligan.se/herr/tabell/)."
+    ],
+    "probs": {
+     "home": 0.5596,
+     "away": 0.4404
+    },
+    "handicap": {
+     "fav": "home",
+     "line": -0.5,
+     "price": 1.91,
+     "dog_line": 0.5,
+     "dog_price": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+    },
+    "total": {
+     "line": 63.5,
+     "over": 1.91,
+     "under": 1.91,
+     "unit": "goals",
+     "basis": "official-form",
+     "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+    }
    },
    "pick": {
-    "side": null,
-    "label": null,
-    "prob": null,
-    "confidence": "LOW",
-    "score": 0,
+    "side": "home",
+    "label": "Skanela IF",
+    "prob": 0.5596,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
-     "model_edge": 0
+     "fixture_verified": 2,
+     "official_form": 2,
+     "model_edge": 2
     },
-    "price": null,
-    "american": null,
-    "in_band": false,
+    "price": 1.7,
+    "american": -143,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -6435,7 +6519,7 @@
     "start_iso": "2026-10-22",
     "start_basis": "derived from capture date",
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": ""
    }
   },

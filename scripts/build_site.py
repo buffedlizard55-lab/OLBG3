@@ -718,6 +718,19 @@ AUDIT_CHECKS += [
   "confirms the date and the pairing, so it is verified again at club-official tier and its prediction is restored; the kick-off time is still not "
   "readable from that page and is disclosed as an OLBG-derived value.",
   "fixed", "https://www.ice.hockey/saison/spielplan"),
+ ("Five handball rows were priced off tipster consensus and are now priced off league tables",
+  "The French Daikin StarLigue and Swedish Handbollsligan tables were read today (lnh.fr/daikin-starligue/classement, "
+  "handbollsligan.se/herr/tabell/) and transcribed into data/official.json with every column preserved. "
+  "HBL-23 (Aix v Toulouse) was 1.42 = -238 on a capped 100% tip share and is now 1.52 = -192 from the two clubs' own goal rates; "
+  "HBL-21 (Onnereds v Ystads) and HBL-30 (Skanela v Karlskrona) were unpriced-by-consensus rows and now carry 1.60 and 1.70. "
+  "All three verify against the leagues' own fixture lists, sit inside -250..+10000 and carry a written prediction. "
+  "HBL-26 (Limoges 1.24) and HBL-27 (Selestat 1.33) are strong on the same evidence but shorter than the band floor, so they are graded MEDIUM with the reason in the row.",
+  "fixed", "https://www.lnh.fr/daikin-starligue/classement"),
+ ("Karlskrona naming: OLBG abbreviates a club the league prints differently",
+  "OLBG lists the Swedish fixture as &lsquo;Skanela IF vs HIF Karlskrona&rsquo;. The Handbollsligan table and fixture list print "
+  "&lsquo;HF Karlskrona&rsquo; (the club renamed from HIF to HF). The row keeps OLBG&rsquo;s spelling as the source value and the model uses the "
+  "league&rsquo;s name for the table lookup through an explicit alias; no value was changed by inference.",
+  "irregularity", "https://handbollsligan.se/herr/tabell/"),
  ("A live OLBG listing no longer matches the captured row",
   "The baseball listing was re-read today for event 160789 (TB Rays @ MIL Brewers). It now renders '24 Oct 01:00' with the featured market "
   "'Over 5.50, Game Totals, 4/4', and its money line shows MIL Brewers 4/7 (57%) and TB Rays 3/7 (43%). The captured row records "
