@@ -212,3 +212,10 @@ Automated URL/schema checks establish structural consistency, **not that a sourc
 This session re-read the [official MLB standings](https://www.mlb.com/standings/2026):
 Tampa Bay 98–64, 736 RS / 650 RA; Milwaukee 103–59, 832 RS / 618 RA match the stored figures.
 This targeted check must not be treated as independent re-verification of every row or prediction.
+
+### Release-evidence hardening (2026-10-22)
+
+The [independent structural audit](docs/audit-d4c3db6c.md) adds fail-closed official-clock
+URL and clock-format checks with four regression tests (64 tests total). Both site pipelines
+and 1,529 local links pass; generated data is unchanged. This does not upgrade any factual
+verification label: complete fresh official-source verification remains **FL-077, needs review**.
