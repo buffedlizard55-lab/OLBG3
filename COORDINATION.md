@@ -1072,3 +1072,15 @@ brief. Both rule sets and their consequences are recorded here rather than one b
 - **PR & merge:** [#51](https://github.com/buffedlizard55-lab/OLBG3/pull/51) — CI run [39714451109](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39714451109) `success`; merged as `37a618b` at 2026-10-22T03:03:12Z. Post-merge `Verify and publish dashboard` run [39714728900](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39714728900) `success` (the legacy `pages-build-deployment` run 39714728298 was cancelled by that deploy, as in earlier passes).
 - **Live confirmation:** `https://buffedlizard55-lab.github.io/OLBG3/predictions.html` served "33 picks clear the high-confidence bar" with the new handball pieces and their official links.
 - **Flagged / unverified (non-blocking):** 27 rows still have no official fixture source and stay blank on the flagged page; OLBG prints `HIF Karlskrona` where the league prints `HF Karlskrona` (published as an irregularity, no value inferred); 42 rows remain priced only from OLBG's published tip share; no bookmaker prices exist in any retrieved page.
+
+## Publication record — `session-8c24595c` (2026-10-22)
+
+| PR | What it did | Merge |
+|---|---|---|
+| [#53](https://github.com/buffedlizard55-lab/OLBG3/pull/53) | Price-drift fix + new `check_board` price rule; `/olbg/` kick-off gate (FL-044); field-size claim correction (FL-045); EuroLeague prose correction (FL-046); per-row prior basis; conflict-marker cleanup | `f07f93d` |
+| [#55](https://github.com/buffedlizard55-lab/OLBG3/pull/55) | Applied the FL-046 correction to the `/olbg/` write-ups (`BKB-535918`, `BKB-535921`) too | `209e202` |
+| [#58](https://github.com/buffedlizard55-lab/OLBG3/pull/58) | Publishes the full 46-item flagged register on the main `flagged.html`, not only `/olbg/flagged.html` | `87ee9ed` |
+
+- **CI:** every session-branch `Verify and publish dashboard` run was green before merge; each post-merge run on `main` built and deployed with both smoke-test steps passing (deploy run for #58: `39715067314`, success).
+- **Live check after deploy:** `/olbg/predictions.html` serves "23 live fixtures qualified", the corrected Efes/Besiktas and Maccabi/Real Madrid text and the official Game Center link; `/flagged.html` serves "The itemised register (46)" including FL-044/045/046 with their sources. (The first read after deploy returned a CDN-cached copy; re-reading with a query string showed the new content.)
+- **Merge conflicts:** `origin/main` advanced repeatedly during this session (#46, #47, #48, #49, #57 and follow-ups). Every rebase was resolved additively — sibling session logs kept verbatim, this session's log appended, generated HTML taken from this branch and regenerated. No other session's work was discarded.
