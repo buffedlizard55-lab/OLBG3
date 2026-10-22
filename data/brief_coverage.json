@@ -33,7 +33,7 @@
   "sports_listed": 15,
   "sports_with_rows": 15,
   "sports_meeting_target": 3,
-  "live_high_root": 15,
+  "live_high_root": 17,
   "live_high_olbg": 23,
   "live_high_union": 24,
   "root_rows": 265,
@@ -84,8 +84,8 @@
    "root_priced_win": 30,
    "root_outright": 0,
    "root_handicap": 30,
-   "root_total": 8,
-   "root_high": 1,
+   "root_total": 10,
+   "root_high": 3,
    "olbg_rows": 46,
    "olbg_priced_win": 46,
    "olbg_handicap": 46,
@@ -96,14 +96,14 @@
    "shortfall": 0,
    "meets_target": true,
    "blocking": {
-    "no_official_form": 22,
+    "no_official_form": 20,
     "high_evidence_out_of_band": 1,
     "start_or_source_gate": 23,
     "unpriced": 0,
     "unverified_or_corroborated": 0
    },
    "reasons": [
-    "22 of 30 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
+    "20 of 30 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "1 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
     "23 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
    ],
@@ -133,30 +133,6 @@
      "american": "-154"
     },
     {
-     "event_id": "535925",
-     "sport": "Basketball",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "BKB-535925",
-     "selection": "Olympiacos Piraeus",
-     "price": 1.69,
-     "american": "-145"
-    },
-    {
-     "event_id": "535926",
-     "sport": "Basketball",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "BKB-535926",
-     "selection": "Valencia Basket",
-     "price": 1.58,
-     "american": "-172"
-    },
-    {
      "event_id": "535928",
      "sport": "Basketball",
      "tracks": [
@@ -168,6 +144,32 @@
      "selection": "Zalgiris",
      "price": 1.48,
      "american": -208
+    },
+    {
+     "event_id": "535925",
+     "sport": "Basketball",
+     "tracks": [
+      "root",
+      "olbg"
+     ],
+     "root_ref": "BKB-29",
+     "olbg_ref": "BKB-535925",
+     "selection": "Olympiacos Piraeus",
+     "price": 1.69,
+     "american": -145
+    },
+    {
+     "event_id": "535926",
+     "sport": "Basketball",
+     "tracks": [
+      "root",
+      "olbg"
+     ],
+     "root_ref": "BKB-30",
+     "olbg_ref": "BKB-535926",
+     "selection": "Valencia Basket",
+     "price": 1.53,
+     "american": -189
     }
    ]
   },
@@ -855,10 +857,10 @@
  "prose_evidence": {
   "root": {
    "pieces": 73,
-   "high": 15,
+   "high": 17,
    "words_min": 59,
-   "words_median": 76,
-   "words_max": 176,
+   "words_median": 78,
+   "words_max": 147,
    "under_30_words": 0,
    "citing_an_official_host": 70,
    "citing_only_hosts_outside_official_set": 3,
@@ -906,8 +908,8 @@
  "cross_track": {
   "description": "Fixtures captured on both tracks are priced by two independent models. Where they disagree on the selection, both versions are published and listed here for review. A disagreement is not evidence that either side is wrong, and neither is a bookmaker price.",
   "paired_fixtures": 217,
-  "same_selection": 170,
-  "different_selection": 27,
+  "same_selection": 172,
+  "different_selection": 25,
   "withheld_by_one_track": 20,
   "rows": [
    {
@@ -951,26 +953,6 @@
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/PHX_Suns_@_POR_Trail_Blazers/4?event_id=534893"
    },
    {
-    "event_id": "535920",
-    "sport": "Basketball",
-    "match": "FC Bayern Munich v Dubai Basketball",
-    "root_ref": "BKB-25",
-    "root_selection": "FC Bayern Munich",
-    "root_price": 1.8,
-    "root_american": -125,
-    "root_prob": 0.5266,
-    "root_confidence": "MEDIUM",
-    "root_start_status": "start_window_reached",
-    "olbg_ref": "BKB-535920",
-    "olbg_selection": "Dubai Basketball",
-    "olbg_price": 1.74,
-    "olbg_american": "-135",
-    "olbg_prob": 0.545,
-    "olbg_confidence": "low",
-    "olbg_start_status": "start_window_reached",
-    "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/FC_Bayern_Munich_vs_Dubai_Basketball/4?event_id=535920"
-   },
-   {
     "event_id": "535924",
     "sport": "Basketball",
     "match": "Partizan Belgrade v Crvena Zvezda",
@@ -989,26 +971,6 @@
     "olbg_confidence": "low",
     "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Partizan_Belgrade_vs_Crvena_Zvezda/4?event_id=535924"
-   },
-   {
-    "event_id": "535926",
-    "sport": "Basketball",
-    "match": "Paris Basketball v Valencia Basket",
-    "root_ref": "BKB-30",
-    "root_selection": "Paris Basketball",
-    "root_price": 1.9,
-    "root_american": -111,
-    "root_prob": 0.5,
-    "root_confidence": "LOW",
-    "root_start_status": "upcoming",
-    "olbg_ref": "BKB-535926",
-    "olbg_selection": "Valencia Basket",
-    "olbg_price": 1.58,
-    "olbg_american": "-172",
-    "olbg_prob": 0.6,
-    "olbg_confidence": "high",
-    "olbg_start_status": "upcoming",
-    "olbg_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Paris_vs_Valencia/4?event_id=535926"
    },
    {
     "event_id": "535966",

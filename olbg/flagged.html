@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">118 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">120 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -849,6 +849,20 @@
   <p>The 2026-10-22T20:55Z harvest adds 128 live listing rows, including new tennis, cricket, rugby union, volleyball and handball events. The root board at / is built from the curated data/sports/*.json capture and data/gap_sports.json, and only 68 of its rows were re-synced to the live tip counts in this pass; the new fixtures are published on the /olbg/ track with their own verification records. The root board&#x27;s selection counts therefore differ from the /olbg/ track&#x27;s, and both counts are printed on the pages.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-127">
+  <div class="flag-head"><span class="tag">FL-127</span> <span class="sev sev-fixed">fixed</span></div>
+  <h2>The FL-069 resolution was published on the release records but the model table still withheld both clubs</h2>
+  <p>After session-784afe97 released the holds on events 535925 and 535926, the release records stated that &#x27;the official EuroLeague standings read at 2026-10-22T21:55Z are used for form&#x27;. The committed model table did not match that sentence: it still carried the pre-Round-7 numbers (Panathinaikos 6/5/1 on 528-438) and still withheld Olympiacos Piraeus and Valencia Basket as &#x27;not model inputs&#x27;. Because neither club was in the table, BKB-29 fell back to the OLBG tip share - one tip, capped at 98% - and priced 1.02 (-5000), outside the requested -250..+10000 band, while BKB-30 priced 1.90 (-111) from a 1/2 split. Repair: the official standings table was re-read at 2026-10-22T21:35Z, after the Thursday Round 7 games, and all twenty clubs are now published verbatim, including Olympiacos Piraeus GP 6 / W 5 / L 1 / PTS+ 564 / PTS- 524 / +40 (home 1-0, away 4-1) and Valencia Basket GP 6 / W 4 / L 2 / PTS+ 583 / PTS- 537 / +46 (home 2-2, away 2-0). Both rows are now priced from official form: BKB-29 Olympiacos Piraeus 1.69 (-145) at 56.2% and BKB-30 Valencia Basket 1.53 (-189) at 62.2%, each with a sourced write-up. Basketball moves from 1 to 3 live in-band HIGH picks. Knock-on: three already-started EuroLeague rows re-priced off the newer table (BKB-20 1.59 / -169, BKB-21 1.41 / -244, BKB-26 1.65 / -154); their write-ups were re-worded to quote the current price and the current official record and they stay labelled analysis because their official start has passed. The Round 7 preview page was also re-read at 21:40Z and is now a results report: Anadolu Efes 89-80 Besiktas Istanbul (both 3-4) and FC Bayern Munich 91-107 Dubai Basketball (Dubai 5-2, Bayern 2-5), matching the table.</p>
+  <p class="muted small">Affected rows: BKB-29, BKB-30, BKB-20, BKB-21, BKB-26, BKB-535925, BKB-535926</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/standings/" rel="noopener nofollow" target="_blank">EuroLeague official standings (20 clubs), read 2026-10-22T21:35Z</a></li><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">EuroLeague official Round 7 game centre, re-read 2026-10-22T21:40Z (now a results report)</a></li></ul>
+</article>
+<article class="card flag" id="FL-128">
+  <div class="flag-head"><span class="tag">FL-128</span> <span class="sev sev-fixed">fixed</span></div>
+  <h2>A withheld prediction quoted the release gate&#x27;s &#x27;upcoming&#x27; text as the reason it was withheld</h2>
+  <p>scripts/release.py:sync_predictions copied the release reason onto every non-HIGH piece. For a row whose official start is still ahead (release status &#x27;upcoming&#x27;, eligible) but whose model grade or price band did not reach HIGH, the published reason read &#x27;Official scheduled start is ahead of this build&#x27;, which states the opposite of a downgrade. The function now publishes that sentence only when the release gate is the actual blocker; otherwise the reason says the model grade or price-band gate was not satisfied. Rows whose start has genuinely passed keep the release sentence. No price, probability or confidence grade changed. Regression test: tests/test_evening_1cdf1d14.py.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/release.py" rel="noopener nofollow" target="_blank">scripts/release.py - sync_predictions (this repository)</a></li></ul>
 </article>
 
 </main>

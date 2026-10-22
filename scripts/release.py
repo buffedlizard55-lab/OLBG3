@@ -198,7 +198,15 @@ def sync_predictions(path, by_id, id_key, confidence):
         prediction['status'] = 'high' if high else 'analysis'
         if not high:
             release = row.get('release') or (row.get('pick') or {}).get('release') or {}
-            prediction['downgrade_reason'] = release.get('reason') or 'Model grade or price-band gate not satisfied.'
+            # Only publish the release text when the release gate is what blocked the piece. An
+            # 'upcoming' (eligible) row that is not HIGH was stopped by the model/band gate, and
+            # quoting the "start is ahead of this build" sentence as the downgrade reason reads as a
+            # contradiction on the page. FL-128.
+            if release.get('eligible'):
+                prediction['downgrade_reason'] = ('Model grade or price-band gate not satisfied; the official '
+                                                  'start gate itself is not the blocker for this row.')
+            else:
+                prediction['downgrade_reason'] = release.get('reason') or 'Model grade or price-band gate not satisfied.'
         else:
             prediction.pop('downgrade_reason', None)
     high_count = sum(p.get('status') == 'high' for p in doc['predictions'])

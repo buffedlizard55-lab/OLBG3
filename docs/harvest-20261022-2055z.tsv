@@ -1,0 +1,60 @@
+# OLBG3 evening partial re-harvest - read 2026-10-22T20:55Z..21:05Z (session-1cdf1d14)
+# Format v2: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
+# PARTIAL BY DESIGN, AND NOT THE CAPTURE OF RECORD. The parallel session-cab97f19 pass committed a
+# fuller 21:00Z capture (data/raw/olbg-harvest-20261022T2100Z.tsv, docs/harvest-20261022-2100z.tsv)
+# chained through meta.supplementary_harvests; that remains the /olbg/ track's input. This file is
+# session-1cdf1d14's own read, kept as provenance for the EuroLeague standings work recorded as
+# FL-127 and for the NHL clock corroboration in docs/audit-1cdf1d14.md. Four consensus movements it
+# captured (World Series Game 1 16/20, Zalgiris 2/3, PHI 76ers, OKC Thunder) were independently read
+# and applied by session-784afe97, so nothing here is a second source of truth for them. This file
+# is deliberately NOT promoted to data/meta.json["harvest_file"].
+# Exactly five OLBG category endpoints were re-read in this pass:
+#   https://www.olbg.com/betting-tips/Ice_Hockey/13   (+ https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13)
+#   https://www.olbg.com/betting-tips/Basketball/4
+#   https://www.olbg.com/betting-tips/Baseball/12
+#   https://www.olbg.com/betting-tips/Darts/15
+#   https://www.olbg.com/betting-tips/Snooker/8
+# Tennis, Cricket, Volleyball, Handball, Rugby Union, Rugby League, Golf, Motor Racing, Gaelic
+# Football and Greyhounds were NOT re-read here.
+# Date/time labels are copied verbatim. OLBG states no time zone, so no clock here is converted to
+# UTC; only governing-body clocks in data/release_checks.json certify a UTC start.
+# Zero excluded sports were opened (soccer/football, boxing, ufc, mma, american football, hurling,
+# horse racing, cycling, specials).
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|NSH_Predators_@_BOS_Bruins|199936|Today|19:07|Money Line|BOS Bruins|7/8|88%, 3 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|SJ_Sharks_@_OTT_Senators|199942|Today|19:07|Money Line|OTT Senators|7/9|78%, 2 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|FLA_Panthers_@_PIT_Penguins|199934|Today|19:07|Money Line|FLA Panthers|5/8|63%, 3 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|VGS_Golden_Knights_@_STL_Blues|199940|Today|20:07|Money Line|VGS Golden Knights|5/8|63%, 3 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|CAR_Hurricanes_@_EDM_Oilers|199931|Today|21:07|Money Line|CAR Hurricanes|5/9|56%
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|DET_Red_Wings_@_VAN_Canucks|199933|Today|22:07|Money Line|DET Red Wings|5/7|71%, 2 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|WPG_Jets_@_DAL_Stars|199941|Today|20:07|Money Line|DAL Stars|4/7|57%, 2 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|MIN_Wild_@_CGY_Flames|199935|Today|21:07|Money Line|MIN Wild|4/7|57%, 2 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|ANA_Ducks_@_NJ_Devils|199932|Today|19:07|Money Line|ANA Ducks|3/6|50%, 1 comment
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|LA_Kings_@_NY_Islanders|199938|Today|19:37|Money Line|LA Kings|3/5|60%, 2 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|UTA_Mammoth_@_SEA_Kraken|199939|Today|22:07|Money Line|UTA Mammoth|3/5|60%, 1 comment
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|NY_Rangers_@_TOR_Maple_Leafs|199937|Today|19:07|Game Totals|Over 6.50|2/2|100%, 1 comment; headline market on /NHL/13 is the total, the money line is split
+Ice_Hockey|Danish Metal Ligaen|Ice_Hockey/Other/Danish_Metal_Ligaen|Esbjerg_Energy_vs_Herning_Blue_Fox|199946|Tomorrow|13:00|Money Line|Herning Blue Fox|1/1|100%, 1 comment; newly posted for 23 Oct
+Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|HK_Olimpija_Ljubljana_vs_Fehervar_AV19|199969|Tomorrow|13:15|Puck Line|HK Olimpija Ljubljana -1.50|1/1|100%, 1 comment; newly posted for 23 Oct
+Ice_Hockey|Danish Metal Ligaen|Ice_Hockey/Other/Danish_Metal_Ligaen|Rodovre_Mighty_Bulls_vs_Herlev_Eagles|199947|Tomorrow|13:30|Money Line|Herlev Eagles|1/1|100%, 1 comment; newly posted for 23 Oct
+Basketball|NBA|Basketball/NBA/NBA|CLE_Cavaliers_@_PHI_76ers|534845|Tomorrow|00:10|Money Line|PHI 76ers|10/16|63%, 6 comments, 1 expert; consensus moved 1/2 -> 10/16 (main later read 11/17)
+Basketball|NBA|Basketball/NBA/NBA|DEN_Nuggets_@_OKC_Thunder|534843|Tomorrow|02:40|Money Line|OKC Thunder|10/15|67%, 4 comments; consensus moved 4/4 -> 10/15 (main later read 11/16)
+Basketball|Brazil NBB|Basketball/Other/Brazil_NBB|Fortaleza_BC_vs_Pinheiros|536019|Today|23:30|Money Line|Fortaleza BC|4/6|67%, 1 expert
+Basketball|Brazil NBB|Basketball/Other/Brazil_NBB|Uniao_Corinthians_vs_Minas|536020|Today|23:30|Money Line|Uniao Corinthians|3/4|75%, 1 expert
+Basketball|NBA|Basketball/NBA/NBA|HOU_Rockets_@_SA_Spurs|534841|24 Oct|02:40|Money Line|SA Spurs|3/3|100%
+Basketball|Brazil NBB|Basketball/Other/Brazil_NBB|Brasilia_vs_Corinthians|536052|Tomorrow|00:15|Money Line|Corinthians|2/2|100%, 1 expert; newly posted
+Basketball|Euroleague|Basketball/European/Euroleague|Zalgiris_vs_Asvel_Lyon_Villeurbanne|535928|Tomorrow|18:00|Money Line|Zalgiris|2/3|67%; consensus moved 1/1 -> 2/3 (already applied on main)
+Basketball|NBA|Basketball/NBA/NBA|CHI_Bulls_@_MIL_Bucks|536041|Tomorrow|21:10|Money Line|MIL Bucks|2/2|100%, 1 comment; newly posted
+Basketball|Euroleague|Basketball/European/Euroleague|Olympiacos_vs_Fenerbahce|535925|Tomorrow|19:15|Money Line|Olympiacos|1/1|100%; hold released on main; priced from official form by FL-127
+Basketball|Euroleague|Basketball/European/Euroleague|Paris_vs_Valencia|535926|Tomorrow|19:45|Money Line|Paris|1/2|50%; hold released on main; priced from official form by FL-127
+Basketball|NBA|Basketball/NBA/NBA|NY_Knicks_@_BOS_Celtics|534842|24 Oct|00:10|Pointspread|BOS Celtics -2.50|1/1|100%
+Baseball|MLB|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|Tomorrow|20:00|Money Line|MIL Brewers|16/20|80%, 7 comments; consensus moved 14/17 -> 16/20 (already applied on main)
+Darts|All Darts|Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|Tomorrow|13:15|Win Match 2-way|Ryan Joyce|9/11|82%, 1 expert
+Darts|All Darts|Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|Tomorrow|14:45|Win Match 2-way|Jonny Clayton|8/11|73%
+Darts|All Darts|Darts/All_Darts/All_Events|Josh_Rock_vs_Chris_Dobey|32336|Tomorrow|16:45|Win Match 2-way|Josh Rock|7/9|78%, 1 expert
+Darts|All Darts|Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|Tomorrow|13:45|Win Match 2-way|Dave Chisnall|5/9|56%, 1 expert; most-tipped side flipped from Ratajski
+Darts|All Darts|Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|Tomorrow|14:15|Win Match 2-way|Cristo Reyes|5/8|63%, 1 expert
+Darts|All Darts|Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|Tomorrow|15:45|Win Match 2-way|Wessel Nijman|5/9|56%; most-tipped side flipped from Schindler
+Darts|All Darts|Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|Tomorrow|15:15|Win Match 2-way|William OConnor|3/6|50%, 1 comment; market label was Handicap 2-way (+3.50) at the 12:15Z read
+Darts|All Darts|Darts/All_Darts/All_Events|Kevin_Doets_vs_Michael_van_Gerwen|32331|Tomorrow|16:15|Win Match 2-way|Michael van Gerwen|3/5|60%, 1 expert
+Darts|All Darts|Darts/All_Darts/All_Events|PDC_World_Championship_2027|26023|03 Jan 2027|12:00|Win Tournament|Luke Littler|23/37|62%, 8 comments
+Darts|All Darts|Darts/All_Darts/All_Events|European_Championship|32338|25 Oct|14:00|Win Tournament|Gian van Veen|3/16|19%, 3 comments; leader moved from Gerwyn Price 3/12 (already applied on main as FL-107)
+Snooker|All Snooker|Snooker/8|(listing empty)|||||"No tips found."|0/0|The Snooker category page returned no rows at 21:00Z. Already tracked on main as FL-100.

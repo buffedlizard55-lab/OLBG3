@@ -1,5 +1,5 @@
 {
-  "note": "15 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "17 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -41,7 +41,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
     },
     {
       "ref": "RGU-07",
@@ -64,7 +64,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
     },
     {
       "ref": "RGU-11",
@@ -87,7 +87,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
     },
     {
       "ref": "RGU-14",
@@ -455,9 +455,9 @@
     },
     {
       "ref": "BKB-20",
-      "selection": "Anadolu Efes to win on the money line at 1.71 (-141)",
+      "selection": "Anadolu Efes to win on the money line at 1.59 (-169)",
       "headline": "Efes’s defensive case meets Besiktas’s scoring threat",
-      "body": "Anadolu Efes to win is our money-line preference, but this Istanbul derby has a clear counterargument: Besiktas enter 3–3 and average 92.3 points, while Efes are 2–4. The official preview notes Efes’s road win in Kaunas and Cam Payne’s work with Mike James injured; Besiktas arrive after beating Bayern. Efes have conceded 510 points in six games against Besiktas’s 555. That defensive comparison supports the model lean, rather than any verified claim of betting value.",
+      "body": "Anadolu Efes to win was our money-line preference in this Istanbul derby before the standings were re-read; the row now prices 1.59 (-169). Besiktas entered the round 3-3 averaging 92.3 points against Efes' 2-4, and the official preview noted Efes' road win in Kaunas with Cam Payne filling in for the injured Mike James. The standings read at 2026-10-22T21:35Z put both clubs on 3-4 after this game, Efes 581-590 and Besiktas 634-644, and the official game centre records Anadolu Efes 89-80 Besiktas Istanbul. The row is published as analysis because its official start has passed, not as a live pick.",
       "sources": [
         {
           "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
@@ -473,9 +473,9 @@
     },
     {
       "ref": "BKB-21",
-      "selection": "Real Madrid to win on the money line at 1.50 (-200)",
+      "selection": "Real Madrid to win on the money line at 1.41 (-244)",
       "headline": "Madrid’s scoring differential faces a live Maccabi backcourt",
-      "body": "Real Madrid to win is the money-line selection for the game at Aleksandar Nikolic Hall. Madrid stand 3–3 with 554 points scored and 531 allowed; Maccabi are 2–4 at 509–540. The official preview highlights Theo Maledon’s progress and Yam Madar’s strong start, while noting the home-listed team has won the last five meetings. That history is a meaningful warning against treating Madrid’s statistical advantage as certainty.",
+      "body": "Real Madrid to win is the money-line selection for the game at Aleksandar Nikolic Hall, now priced 1.41 (-244) after the standings were re-read. Madrid stood 3-3 with 554 points scored and 531 allowed against Maccabi's 2-4 at 509-540 when the call was made; the official table read at 2026-10-22T21:35Z has Madrid 4-3 on 667-630 and Maccabi 2-5 on 608-653. The official preview highlighted Theo Maledon's progress and Yam Madar's start while noting the home-listed team had won the last five meetings, which is why the price is graded rather than treated as certainty. Its official start has passed, so the row is analysis.",
       "sources": [
         {
           "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
@@ -969,9 +969,9 @@
     },
     {
       "ref": "BKB-26",
-      "selection": "FC Barcelona to win on the money line at 1.68 (-147)",
+      "selection": "FC Barcelona to win on the money line at 1.65 (-154)",
       "headline": "Barcelona’s steadier start tests Milan’s response",
-      "body": "FC Barcelona to win is our money-line selection against an Armani Olimpia Milan side on a four-game losing streak. Barcelona arrive 3–3 after splitting two tight home games, while Milan are 1–5. The official preview points to Moses Wright against Josh Nebo in the middle and says both meetings last season were decided by a single possession. Those close precedents temper the call: Barcelona are the model preference, not a risk-free favorite.",
+      "body": "FC Barcelona to win is our money-line selection against an Armani Olimpia Milan side on a losing streak, now priced 1.65 (-154) on the re-read table. Barcelona were 3-3 after splitting two tight home games and Milan 1-5 when the call was made; the official standings read at 2026-10-22T21:35Z have Barcelona 4-3 on 623-606 and Milan 1-6 on 585-648. The official preview pointed to Moses Wright against Josh Nebo in the middle and said both meetings last season were decided by a single possession, which tempers the call. Its official start has passed, so the row is published as analysis.",
       "sources": [
         {
           "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
@@ -987,39 +987,37 @@
     },
     {
       "ref": "BKB-29",
-      "selection": "Olympiacos Piraeus to win on the money line at 1.02 (-5000)",
-      "headline": "Olympiacos–Fenerbahce: a model lean held for a source discrepancy",
-      "body": "Olympiacos Piraeus is the root board's money-line selection for Friday's EuroLeague Regular Season Round 8 meeting with Fenerbahce Tarfin Istanbul at the Peace and Friendship Stadium in Piraeus, kicking off 20:15 CEST. The official EuroLeague standings read on 22 October list Olympiacos third on 5-1 from six games with 564 points scored and 524 conceded for a +40 differential, and Fenerbahce second on the same 5-1 mark with 501 scored and 447 conceded for +54. The split that separates them is home and away: Olympiacos are 1-0 at home and 4-1 away, while Fenerbahce are 5-0 at home and 0-1 away. OLBG's money-line market is unanimous at 1/1 for Olympiacos, a 100% tip share that this board cannot treat as a probability, so it is capped at 98% and the row's own price prints as 1.02 (-5000); that is a capped consensus, not a tradable price, and the pick is published as analysis only. The separate OLBG lines track prices the same fixture from the same official standings and publishes it as a live in-band selection.",
+      "selection": "Olympiacos Piraeus to win on the money line at 1.69 (-145)",
+      "headline": "Olympiacos' road-heavy 5-1 start is the edge over Fenerbahce in Piraeus",
+      "body": "Olympiacos Piraeus take on Fenerbahce Tarfin Istanbul in EuroLeague Round 8 on 23 October (20:15 CEST), and our originated money line is Olympiacos at 1.69 (-145). Both clubs are 5-1 through six rounds on the official standings, so the split that matters is venue: Olympiacos have won four of five away and one of one at home, while Fenerbahce's five wins are all in Istanbul and they are 0-1 on the road, outscoring opponents 501-447 overall against Olympiacos' 564-524. Our model reads that as a 56.2% Olympiacos win probability, replacing the single-tip consensus the row was priced from before. Selection: Olympiacos Piraeus to win the match.",
       "sources": [
         {
-          "label": "EuroLeague Basketball — official 2026/27 regular-season standings",
+          "label": "EuroLeague official standings, read 2026-10-22T21:35Z (Olympiacos 5-1, 564-524, 1-0 home / 4-1 away; Fenerbahce 5-1, 501-447, 5-0 home / 0-1 away)",
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         },
         {
-          "label": "EuroLeague Basketball — official Round 7 game centre (Round 8 fixture and clock)",
+          "label": "EuroLeague official Round 7/8 game centre (Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul, 20:15 CEST)",
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+      "status": "high"
     },
     {
       "ref": "BKB-30",
-      "selection": "Valencia Basket to win on the money line at 1.90 (-111)",
-      "headline": "Paris–Valencia: do not resolve conflicting official records by guesswork",
-      "body": "Valencia Basket is the root board's money-line selection for Friday's EuroLeague Regular Season Round 8 trip to the Adidas Arena in Paris, kicking off 20:45 CEST. The official EuroLeague standings read on 22 October show Valencia sixth on 4-2 from six games with 583 points scored and 537 conceded for a +46 differential, and 2-0 on the road, against a Paris Basketball side the same table lists 12th on 1-5 with 504 scored and 545 conceded for a -41 differential. OLBG's money-line tips split only 1/2 and lean towards Paris, so this is a fade of the crowd on the strength of the standings, and the model prices Valencia from that 50/50 split at 1.90 (-111). The pick is published as analysis, not as a live high-confidence selection, because the OLBG consensus for this game moved during the evening and the market has no settled favourite.",
+      "selection": "Valencia Basket to win on the money line at 1.53 (-189)",
+      "headline": "Paris' 1-5 start and -41 scoring gap make Valencia the clear Round 8 lean",
+      "body": "Paris Basketball host Valencia Basket in EuroLeague Round 8 on 23 October (20:45 CEST) and our originated money line takes the visitors, Valencia at 1.53 (-189). The official standings read at 21:35Z on 22 October have Valencia 4-2 with 583 points for and 537 against and two wins from two on the road, while Paris are 1-5, 504-545, with three of those five losses at home and a 1-5 last-ten record. That gap gives Valencia a 62.2% win probability in our model. Selection: Valencia Basket to win the match.",
       "sources": [
         {
-          "label": "EuroLeague Basketball — official 2026/27 regular-season standings",
+          "label": "EuroLeague official standings, read 2026-10-22T21:35Z (Valencia 4-2, 583-537, 2-0 away; Paris 1-5, 504-545, 1-3 home)",
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         },
         {
-          "label": "EuroLeague Basketball — official Round 7 game centre (Round 8 fixture and clock)",
+          "label": "EuroLeague official Round 7/8 game centre (Paris Basketball vs. Valencia Basket, 20:45 CEST)",
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+      "status": "high"
     },
     {
       "ref": "HBL-28",
@@ -1208,7 +1206,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
     },
     {
       "ref": "RGL-03",
