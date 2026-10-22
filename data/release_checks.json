@@ -1,7 +1,7 @@
 {
-  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds.",
-  "session": "session-cab97f19 (evening re-validation: NHL 2026-10-22 slate + NBA 22/23 Oct slate re-read at 21:20Z)",
-  "checked_at": "2026-10-22T21:20:00Z",
+  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved.",
+  "session": "session-784afe97",
+  "checked_at": "2026-10-22T21:55:00Z",
   "events": {
     "160789": {
       "date": "2026-10-23",
@@ -9,7 +9,7 @@
       "timezone": "ET",
       "kind": "exact",
       "source": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
-      "quote": "WORLD SERIES \u2014 Friday, Oct. 23 \u2014 Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes) \u2014 All times ET",
+      "quote": "WORLD SERIES — Friday, Oct. 23 — Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes) — All times ET",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "535918": {
@@ -18,7 +18,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 22, 2026 \u2014 Anadolu Efes Istanbul vs. Besiktas Istanbul (19:30 CEST)",
+      "quote": "October 22, 2026 — Anadolu Efes Istanbul vs. Besiktas Istanbul (19:30 CEST)",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "535920": {
@@ -27,7 +27,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 22, 2026 \u2014 FC Bayern Munich vs. Dubai Basketball (20:00 CEST)",
+      "quote": "October 22, 2026 — FC Bayern Munich vs. Dubai Basketball (20:00 CEST)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "535921": {
@@ -36,7 +36,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 22, 2026 \u2014 Maccabi Rapyd Tel Aviv vs. Real Madrid (20:05 CEST)",
+      "quote": "October 22, 2026 — Maccabi Rapyd Tel Aviv vs. Real Madrid (20:05 CEST)",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "535923": {
@@ -45,7 +45,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 22, 2026 \u2014 Panathinaikos AKTOR Athens vs. Kosner Baskonia Vitoria-Gasteiz (20:15 CEST)",
+      "quote": "October 22, 2026 — Panathinaikos AKTOR Athens vs. Kosner Baskonia Vitoria-Gasteiz (20:15 CEST)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "535922": {
@@ -54,7 +54,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 22, 2026 \u2014 Armani Olimpia Milan vs. FC Barcelona (20:30 CEST)",
+      "quote": "October 22, 2026 — Armani Olimpia Milan vs. FC Barcelona (20:30 CEST)",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "535924": {
@@ -63,7 +63,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 22, 2026 \u2014 Partizan Mozzart Bet Belgrade vs. Crvena Zvezda Meridianbet Belgrade (20:45 CEST)",
+      "quote": "October 22, 2026 — Partizan Mozzart Bet Belgrade vs. Crvena Zvezda Meridianbet Belgrade (20:45 CEST)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "535928": {
@@ -72,7 +72,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 23, 2026 \u2014 Zalgiris Kaunas vs. LDLC ASVEL Villeurbanne (19:00 CEST)",
+      "quote": "October 23, 2026 — Zalgiris Kaunas vs. LDLC ASVEL Villeurbanne (19:00 CEST)",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "535925": {
@@ -81,10 +81,10 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 23, 2026 \u2014 Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul (20:15 CEST)",
+      "quote": "October 23, 2026 — Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul (20:15 CEST)",
       "checked_at": "2026-10-22T09:10:00Z",
-      "hold": "Official-source conflict: round-7 preview says Olympiacos score 98.2 ppg, while official standings show 564 points in 6 games (94.0). Conflicting scoring input withheld; no HIGH release.",
-      "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+      "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
+      "resolution": "FL-069 resolved by session-784afe97: the round-seven game-centre article is dated 21 October 2026 and describes games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot, not a contradiction of the official table. The official EuroLeague standings read at 2026-10-22T21:55Z are used for form; the game-centre article is retained only for the fixture and its timezone-qualified clock."
     },
     "535926": {
       "date": "2026-10-23",
@@ -92,10 +92,10 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-      "quote": "October 23, 2026 \u2014 Paris Basketball vs. Valencia Basket (20:45 CEST)",
+      "quote": "October 23, 2026 — Paris Basketball vs. Valencia Basket (20:45 CEST)",
       "checked_at": "2026-10-22T09:10:00Z",
-      "hold": "Official-source conflict: round-7 preview lists Valencia 5-1 and 98.3 ppg, while official standings list 4-2 and 583 points in 6 games. Conflicting form input withheld; no HIGH release.",
-      "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+      "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
+      "resolution": "FL-069 resolved by session-784afe97: the round-seven game-centre article is dated 21 October 2026 and describes games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot, not a contradiction of the official table. The official EuroLeague standings read at 2026-10-22T21:55Z are used for form; the game-centre article is retained only for the fixture and its timezone-qualified clock."
     },
     "12051": {
       "date": "2026-10-22",
@@ -103,7 +103,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
-      "quote": "OTP Bank - PICK Szeged (HUN) vs GOG (DEN) \u2014 Thursday 22 October, 18:45 CEST",
+      "quote": "OTP Bank - PICK Szeged (HUN) vs GOG (DEN) — Thursday 22 October, 18:45 CEST",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "9940": {
@@ -112,7 +112,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Kyren Wilson vs Pang Junxu",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Kyren Wilson vs Pang Junxu",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -122,7 +122,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Matthew Selt vs Sam Craigie",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Matthew Selt vs Sam Craigie",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -132,7 +132,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Anthony McGill vs Mateusz Baranowski",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Anthony McGill vs Mateusz Baranowski",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -142,7 +142,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Elliot Slessor vs Ricky Walden",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Elliot Slessor vs Ricky Walden",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -152,7 +152,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Mark Williams vs Martin O'Donnell",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Mark Williams vs Martin O'Donnell",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -162,7 +162,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 David Gilbert vs Ka Wai Cheung",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — David Gilbert vs Ka Wai Cheung",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -172,7 +172,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Jordan Brown vs Scott Donaldson",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Jordan Brown vs Scott Donaldson",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -182,7 +182,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.wst.tv/matches/",
-      "quote": "BetVictor Northern Ireland Open 2026 \u2014 Scheduled Round 3 \u2014 Thu 22 Oct \u2014 Jak Jones vs Daniel Wells",
+      "quote": "BetVictor Northern Ireland Open 2026 — Scheduled Round 3 — Thu 22 Oct — Jak Jones vs Daniel Wells",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
     },
@@ -192,7 +192,7 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
-      "quote": "Match #30003 \u2014 Itas Trentino vs Cisterna Volley \u2014 25 Oct 2026 \u2014 16:00 (UTC) / 17:00 (Local Time)",
+      "quote": "Match #30003 — Itas Trentino vs Cisterna Volley — 25 Oct 2026 — 16:00 (UTC) / 17:00 (Local Time)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "36995": {
@@ -201,7 +201,7 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
-      "quote": "Match #30005 \u2014 Cucine Lube Civitanova vs Pallavolo Padova \u2014 Sunday 25 Oct, 2026 \u2014 17:00 (UTC) / 18:00 (Local Time)",
+      "quote": "Match #30005 — Cucine Lube Civitanova vs Pallavolo Padova — Sunday 25 Oct, 2026 — 17:00 (UTC) / 18:00 (Local Time)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "36996": {
@@ -210,7 +210,7 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
-      "quote": "Match #30007 \u2014 Vero Volley Monza vs Rana Verona \u2014 Sunday 25 Oct, 2026 \u2014 17:00 (UTC) / 18:00 (Local Time)",
+      "quote": "Match #30007 — Vero Volley Monza vs Rana Verona — Sunday 25 Oct, 2026 — 17:00 (UTC) / 18:00 (Local Time)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "36997": {
@@ -219,7 +219,7 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
-      "quote": "Match #30002 \u2014 Sir Susa Scai Perugia vs Tinet Prata di Pordenone \u2014 Sunday 25 Oct, 2026 \u2014 17:00 (UTC) / 18:00 (Local Time)",
+      "quote": "Match #30002 — Sir Susa Scai Perugia vs Tinet Prata di Pordenone — Sunday 25 Oct, 2026 — 17:00 (UTC) / 18:00 (Local Time)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "188831": {
@@ -237,7 +237,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.shl.se/game-center/enj9v4cm5s/qa98unlbd6/?state=pre-game",
-      "quote": "MATCH F\u00d6R MATCH \u2014 Torsdag 22 oktober \u2014 19.00 Bj\u00f6rkl\u00f6ven \u2013 Malm\u00f6 (Visionite Arena)",
+      "quote": "MATCH FÖR MATCH — Torsdag 22 oktober — 19.00 Björklöven – Malmö (Visionite Arena)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "199901": {
@@ -246,7 +246,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
-      "quote": "2026-10-22 19:00 \u2014 Timr\u00e5 IK - F\u00e4rjestad BK \u2014 SCA Arena",
+      "quote": "2026-10-22 19:00 — Timrå IK - Färjestad BK — SCA Arena",
       "checked_at": "2026-10-22T12:10:00Z",
       "note": "Local time exactly as printed by the Swedish Ice Hockey Association; Sweden is on CEST (UTC+2) on 22 October 2026."
     },
@@ -256,7 +256,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
-      "quote": "2026-10-22 19:00 \u2014 R\u00f6gle BK - Fr\u00f6lunda HC \u2014 Catena Arena",
+      "quote": "2026-10-22 19:00 — Rögle BK - Frölunda HC — Catena Arena",
       "checked_at": "2026-10-22T12:10:00Z",
       "note": "Local time exactly as printed by the Swedish Ice Hockey Association; Sweden is on CEST (UTC+2) on 22 October 2026."
     },
@@ -266,7 +266,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.shl.se/game-center/nuf5t434fs/qa98unlbd6/?state=pre-game",
-      "quote": "MATCH F\u00d6R MATCH \u2014 Torsdag 22 oktober \u2014 19.00 Skellefte\u00e5 \u2013 Djurg\u00e5rden (Skellefte\u00e5 Kraft Arena)",
+      "quote": "MATCH FÖR MATCH — Torsdag 22 oktober — 19.00 Skellefteå – Djurgården (Skellefteå Kraft Arena)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "199900": {
@@ -275,7 +275,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://stats.swehockey.se/ScheduleAndResults/Overview/20961",
-      "quote": "2026-10-22 19:00 \u2014 \u00d6rebro HK - Bryn\u00e4s IF \u2014 Behrn Arena",
+      "quote": "2026-10-22 19:00 — Örebro HK - Brynäs IF — Behrn Arena",
       "checked_at": "2026-10-22T12:10:00Z",
       "note": "Local time exactly as printed by the Swedish Ice Hockey Association; Sweden is on CEST (UTC+2) on 22 October 2026."
     },
@@ -285,7 +285,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.shl.se/game-center/xfqs8keoej/qa98unlbd6/?state=pre-game",
-      "quote": "MATCH F\u00d6R MATCH \u2014 Torsdag 22 oktober \u2014 19.00 V\u00e4xj\u00f6 \u2013 Lule\u00e5 (Vida Arena)",
+      "quote": "MATCH FÖR MATCH — Torsdag 22 oktober — 19.00 Växjö – Luleå (Vida Arena)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "199937": {
@@ -303,7 +303,7 @@
       "timezone": "ET",
       "kind": "exact",
       "source": "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/tee-times",
-      "quote": "Butterfield Bermuda Championship \u2014 Round 1 \u2014 Thursday, October 22, 2026 \u2014 First Tee 6:35 AM EDT",
+      "quote": "Butterfield Bermuda Championship — Round 1 — Thursday, October 22, 2026 — First Tee 6:35 AM EDT",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "913": {
@@ -312,9 +312,9 @@
       "timezone": "UTC",
       "kind": "exact",
       "source": "https://www.formula1.com/en/racing/2026/united-states",
-      "quote": "{\"name\":\"Race - United States Grand Prix\",\"startDate\":\"2026-10-25T20:00:00.000Z\"}",
+      "quote": "{\"name\":\"Race - United States Grand Prix\",\"startDate\":\"2026-10-25T20:00:00.000Z\"} | the page schedule list renders \"25Oct Race 16:00\" in the reader clock, which the same page pins as one hour ahead of St. Louis (Rolex widget: \"St. Louis 03:58 PM / Your Time 04:58 PM\"), i.e. 16:00 EDT = 20:00 UTC",
       "checked_at": "2026-10-22T12:10:00Z",
-      "hold": "formula1.com's own race page prints the 2026 United States Grand Prix at 16:00 track time on 25 October, while the stored payload for the same page gives a 20:00Z start. Austin is on CDT (UTC-5) on that date, so 16:00 local is 21:00Z and neither official figure agrees with the other. The start is withheld rather than guessed, and the pick is not released as a current HIGH selection."
+      "resolution": "FL-099 (session-784afe97): the earlier hold read formula1.com's '25Oct Race 16:00' as Austin local time. The same official page carries a Rolex widget that pins St. Louis at UTC-5 and the reader's clock one hour ahead (EDT), and its own race payload gives startDate 2026-10-25T20:00:00.000Z. 16:00 EDT is 20:00 UTC, so both official figures agree."
     },
     "609578": {
       "date": "2026-10-24",
@@ -322,7 +322,7 @@
       "timezone": "Irish time",
       "kind": "exact",
       "source": "https://www.leinsterrugby.ie/fixtures-rugby/",
-      "quote": "Leinster Rugby v Munster Rugby \u2014 SATURDAY, 24 OCTOBER 2026 \u2014 BKT United Rugby Championship \u2014 Aviva Stadium \u2014 KO: 6pm *all kick offs are in Irish time",
+      "quote": "Leinster Rugby v Munster Rugby — SATURDAY, 24 OCTOBER 2026 — BKT United Rugby Championship — Aviva Stadium — KO: 6pm *all kick offs are in Irish time",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "3530": {
@@ -331,7 +331,7 @@
       "timezone": "Irish time",
       "kind": "exact",
       "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-      "quote": "Match Details \u2014 McCarthy Insurance Group Premier Senior Football Championship Final \u2014 Sunday, October 25 \u2014 4.00pm \u2014 SuperValu P\u00e1irc U\u00ed Chaoimh",
+      "quote": "Match Details — McCarthy Insurance Group Premier Senior Football Championship Final — Sunday, October 25 — 4.00pm — SuperValu Páirc Uí Chaoimh",
       "checked_at": "2026-10-22T12:10:00Z"
     },
     "12049": {
@@ -340,7 +340,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
-      "quote": "MT Melsungen (GER) vs Orlen Wisla Plock (POL) \u2014 Thursday 22 October, 18:45 CEST, live on EHFTV",
+      "quote": "MT Melsungen (GER) vs Orlen Wisla Plock (POL) — Thursday 22 October, 18:45 CEST, live on EHFTV",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "12054": {
@@ -349,7 +349,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
-      "quote": "Sporting Clube de Portugal (POR) vs IFK Kristianstad (SWE) \u2014 Thursday 22 October, 20:45 CEST, live on EHFTV",
+      "quote": "Sporting Clube de Portugal (POR) vs IFK Kristianstad (SWE) — Thursday 22 October, 20:45 CEST, live on EHFTV",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "12046": {
@@ -358,7 +358,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
-      "quote": "Barca (ESP) vs Montpellier Handball (FRA) \u2014 Thursday 22 October, 20:45 CEST, live on EHFTV",
+      "quote": "Barca (ESP) vs Montpellier Handball (FRA) — Thursday 22 October, 20:45 CEST, live on EHFTV",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "12048": {
@@ -367,7 +367,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins",
-      "quote": "Kolstad Handball (NOR) vs SC Magdeburg (GER) \u2014 Thursday 22 October, 20:45 CEST, live on EHFTV",
+      "quote": "Kolstad Handball (NOR) vs SC Magdeburg (GER) — Thursday 22 October, 20:45 CEST, live on EHFTV",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "32324": {
@@ -376,7 +376,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Schedule of Play \u2014 Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8: 1. Luke Woodhouse v Dirk van Duijvenbode",
+      "quote": "Schedule of Play — Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8: 1. Luke Woodhouse v Dirk van Duijvenbode",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "32332": {
@@ -385,7 +385,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Schedule of Play \u2014 Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8: 1. Ryan Joyce v Jermaine Wattimena",
+      "quote": "Schedule of Play — Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8: 1. Ryan Joyce v Jermaine Wattimena",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "2801600": {
@@ -401,7 +401,7 @@
       "timezone": "CEST",
       "kind": "exact",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "2026 Machineseeker European Championship \u2014 Schedule of Play \u2014 Opening Session Thursday October 22 (1900-2300 CEST, 1800-2200 BST)",
+      "quote": "2026 Machineseeker European Championship — Schedule of Play — Opening Session Thursday October 22 (1900-2300 CEST, 1800-2200 BST)",
       "checked_at": "2026-10-22T09:10:00Z"
     },
     "32330": {
@@ -410,7 +410,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Danny Noppert v Stephen Bunting [Thu Match 2]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Danny Noppert v Stephen Bunting [Thu Match 2]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -420,7 +420,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Niels Zonneveld v Cameron Menzies [Thu Match 3]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Niels Zonneveld v Cameron Menzies [Thu Match 3]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -430,7 +430,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Gerwyn Price v Rob Cross [Thu Match 4]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Gerwyn Price v Rob Cross [Thu Match 4]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -440,7 +440,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 James Wade v Damon Heta [Thu Match 5]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — James Wade v Damon Heta [Thu Match 5]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -450,7 +450,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Luke Humphries v Ryan Searle [Thu Match 6]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Luke Humphries v Ryan Searle [Thu Match 6]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -460,7 +460,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Gian van Veen v Andrew Gilding [Thu Match 7]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Gian van Veen v Andrew Gilding [Thu Match 7]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -470,7 +470,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Ross Smith v Karel Sedlacek [Thu Match 8]",
+      "quote": "Thursday October 22 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Ross Smith v Karel Sedlacek [Thu Match 8]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -480,7 +480,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Krzysztof Ratajski v Dave Chisnall [Fri Match 2]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Krzysztof Ratajski v Dave Chisnall [Fri Match 2]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -490,7 +490,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Nathan Aspinall v Cristo Reyes [Fri Match 3]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Nathan Aspinall v Cristo Reyes [Fri Match 3]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -500,7 +500,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Jonny Clayton v Niko Springer [Fri Match 4]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Jonny Clayton v Niko Springer [Fri Match 4]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -510,7 +510,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Luke Littler v William O'Connor [Fri Match 5]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Luke Littler v William O'Connor [Fri Match 5]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -520,7 +520,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Wessel Nijman v Martin Schindler [Fri Match 6]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Wessel Nijman v Martin Schindler [Fri Match 6]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -530,7 +530,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Kevin Doets v Michael van Gerwen [Fri Match 7]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Kevin Doets v Michael van Gerwen [Fri Match 7]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -540,7 +540,7 @@
       "timezone": "CEST",
       "kind": "session",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
-      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 \u2014 Josh Rock v Chris Dobey [Fri Match 8]",
+      "quote": "Friday October 23 (1900-2300 CEST, 1800-2200 BST) Round One x8 — Josh Rock v Chris Dobey [Fri Match 8]",
       "checked_at": "2026-10-22T09:10:00Z",
       "note": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
@@ -649,7 +649,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
-      "quote": "FRIDAY, OCTOBER 23, 2026 \u2014 CENTER COURT Starting at 11:30 AM \u2014 [1] Ann LI (USA) vs Lilli TAGGER (AUT)",
+      "quote": "FRIDAY, OCTOBER 23, 2026 — CENTER COURT Starting at 11:30 AM — [1] Ann LI (USA) vs Lilli TAGGER (AUT)",
       "checked_at": "2026-10-22T12:40:00Z",
       "note": "Official WTA 250 Osaka Order of Play PDF prints 'Starting at 11:30 AM' with no explicit JST/UTC+9 timezone string on the sheet; timezone is not guessed from Osaka."
     },
@@ -659,7 +659,7 @@
       "timezone": "JST",
       "kind": "followed_by",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
-      "quote": "FRIDAY, OCTOBER 23, 2026 \u2014 CENTER COURT \u2014 Followed By (4th match): [8] Katie BOULTER (GBR) vs Antonia RUZIC (CRO)",
+      "quote": "FRIDAY, OCTOBER 23, 2026 — CENTER COURT — Followed By (4th match): [8] Katie BOULTER (GBR) vs Antonia RUZIC (CRO)",
       "checked_at": "2026-10-22T12:25:00Z"
     },
     "902107": {
@@ -668,7 +668,7 @@
       "timezone": "JST",
       "kind": "followed_by",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
-      "quote": "FRIDAY, OCTOBER 23, 2026 \u2014 CENTER COURT \u2014 Followed By (2nd match after 11:30 AM): [4] Talia GIBSON (AUS) vs Ashlyn KRUEGER (USA)",
+      "quote": "FRIDAY, OCTOBER 23, 2026 — CENTER COURT — Followed By (2nd match after 11:30 AM): [4] Talia GIBSON (AUS) vs Ashlyn KRUEGER (USA)",
       "checked_at": "2026-10-22T12:25:00Z"
     },
     "902129": {
@@ -677,7 +677,7 @@
       "timezone": "ALMT",
       "kind": "not_before",
       "source": "https://www.protennislive.com/posting/2026/9410/op.pdf",
-      "quote": "FRIDAY, 23 OCTOBER 2026 \u2014 CENTER COURT \u2014 Not Before 1:00 PM: [7] Stefanos TSITSIPAS (GRE) vs [Q] James DUCKWORTH (AUS)",
+      "quote": "FRIDAY, 23 OCTOBER 2026 — CENTER COURT — Not Before 1:00 PM: [7] Stefanos TSITSIPAS (GRE) vs [Q] James DUCKWORTH (AUS)",
       "checked_at": "2026-10-22T12:25:00Z"
     },
     "188830": {
@@ -686,7 +686,7 @@
       "timezone": "IST",
       "kind": "exact",
       "source": "https://www.bcci.tv/matches/023cf7d3-6571-4932-997b-cac801ed0b4a/india-women-vs-zimbabwe-women",
-      "quote": "1st ODI \u2014 Zimbabwe Women Tour of India \u2014 Friday 23 Oct 2026, 14:00 IST (08:30 GMT) \u2014 BCA Stadium, Kotambi, Vadodara",
+      "quote": "1st ODI — Zimbabwe Women Tour of India — Friday 23 Oct 2026, 14:00 IST (08:30 GMT) — BCA Stadium, Kotambi, Vadodara",
       "checked_at": "2026-10-22T12:25:00Z"
     },
     "37005": {
@@ -695,7 +695,7 @@
       "timezone": null,
       "kind": "date_only",
       "source": "https://www.lnv.fr/actualites/2026-10-12/programmation-tv-alterna-volstar-x-bein-sports-j1-j8",
-      "quote": "J3 : Arago de S\u00e8te - Chaumont VB 52 : jeudi 22 octobre (20h)",
+      "quote": "J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)",
       "checked_at": "2026-10-22T12:40:00Z",
       "note": "Official LNV TV schedule prints 'jeudi 22 octobre (20h)' (and DataProject prints '22/10/2026 - 20:00') without an explicit CET/CEST timezone label; timezone is never inferred from a French venue."
     },
@@ -705,7 +705,7 @@
       "timezone": "JST",
       "kind": "exact",
       "source": "https://www.jgto.org/en/",
-      "quote": "FORTINET PLAYERS CUP \u2014 Oct 22 - 25, 2026, Narita Hills Country Club (Round 1 completed Oct 22 15:59 JST)",
+      "quote": "FORTINET PLAYERS CUP — Oct 22 - 25, 2026, Narita Hills Country Club (Round 1 completed Oct 22 15:59 JST)",
       "checked_at": "2026-10-22T12:25:00Z"
     },
     "26023": {
@@ -723,7 +723,7 @@
       "timezone": null,
       "kind": "not_before",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
-      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 \u2014 CENTER COURT Not Before 1:00 PM \u2014 Sara BEJLEK (CZE) vs Marie BOUZKOVA (CZE)",
+      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER COURT Not Before 1:00 PM — Sara BEJLEK (CZE) vs Marie BOUZKOVA (CZE)",
       "checked_at": "2026-10-22T12:40:00Z",
       "note": "WTA Ningbo OP.pdf states 'Not Before 1:00 PM' without an explicit timezone label; exact UTC start left blank."
     },
@@ -771,6 +771,74 @@
       "source": "https://www.nba.com/schedule?date=2026-10-22",
       "quote": "NBA.com schedule: CHI Bulls at MIL Bucks on 2026-10-23, 4:00 PM ET.",
       "checked_at": "2026-10-22T21:20:00Z"
+    },
+    "609577": {
+      "date": "2026-10-23",
+      "time": "19:45",
+      "timezone": "Irish time",
+      "kind": "exact",
+      "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "quote": "Connacht v Zebre Parma — Dexcom Stadium, Galway, KO 19.45 IRE & UK / 20.45 ITA & SA",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "Official URC 2026/27 fixtures list, Round 4 (Friday 23 October). 19:45 Irish time (UTC+1) = 18:45 UTC."
+    },
+    "609579": {
+      "date": "2026-10-23",
+      "time": "19:45",
+      "timezone": "Irish time",
+      "kind": "exact",
+      "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "quote": "Edinburgh v Lions — Hive Stadium, Edinburgh, KO 19.45 IRE & UK / 20.45 ITA & SA",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "Official URC 2026/27 fixtures list, Round 4 (Friday 23 October). 19:45 Irish time (UTC+1) = 18:45 UTC."
+    },
+    "609576": {
+      "date": "2026-10-24",
+      "time": "12:45",
+      "timezone": "Irish time",
+      "kind": "exact",
+      "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "quote": "Vodacom Bulls v Ulster — Loftus Versfeld, Pretoria, KO 12.45 IRE & UK / 13.45 ITA & SA",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "Official URC 2026/27 fixtures list, Round 4 (Saturday 24 October). 12:45 Irish time (UTC+1) = 11:45 UTC."
+    },
+    "609580": {
+      "date": "2026-10-24",
+      "time": "15:00",
+      "timezone": "Irish time",
+      "kind": "exact",
+      "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "quote": "DHL Stormers v Scarlets — DHL Stadium, Cape Town, KO 15.00 IRE & UK / 16.00 ITA & SA",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "Official URC 2026/27 fixtures list, Round 4 (Saturday 24 October). 15:00 Irish time (UTC+1) = 14:00 UTC."
+    },
+    "12110": {
+      "date": "2026-10-23",
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe/",
+      "quote": "Oct23 — WCh 2027 - W 20:00 Estonia Kosovo (match 202712030103001)",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "The EHF live-scores calendar prints \"20:00\" for this European Championship qualifier without a timezone label, so the date is recorded and the clock is not certified. Both Phase 1 legs are staged at the Palace of Youth and Sports, Prishtina, Kosovo."
+    },
+    "12101": {
+      "date": "2026-10-23",
+      "timezone": null,
+      "kind": "date_only",
+      "source": "https://asobal.es/equipos/BID/",
+      "quote": "Artaleku estrenará este viernes un nuevo capítulo de Liga NEXUS ENERGÍA ASOBAL con la disputa del séptimo \"Partido de la Jornada\" entre IRUDEK Bidasoa Irun y BM. Caserío Ciudad Real (19h, ASOBAL TV, RTVE Play, Eurosport y Siroko TV).",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "The ASOBAL club page prints the Friday kick-off as \"19h\" without a timezone label; the date is recorded and the clock is not certified."
+    },
+    "101903": {
+      "date": "2026-10-23",
+      "time": "11:00",
+      "timezone": "ET",
+      "kind": "exact",
+      "source": "https://www.pgatour.com/pgatour-champions/tournaments/2026/stifel-charity-classic/S2026625/tee-times",
+      "quote": "Round 1 — Time Zone EDT — 11:00 AM EDT | 1 | Steve Allan | Bo Van Pelt | Ángel Cabrera",
+      "checked_at": "2026-10-22T21:55:00Z",
+      "note": "PGA Tour Champions official tee-times page for the 2026 Stifel Charity Classic; the first round tees off at 11:00 EDT on Friday 23 October 2026, which is the tournament start."
     }
   }
 }

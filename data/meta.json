@@ -1,8 +1,8 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261022-C",
+  "run_id": "S-20261022-D",
   "run_started_utc": "2026-10-22T08:27:00Z",
-  "harvest_completed_utc": "2026-10-22T12:25:00Z",
+  "harvest_completed_utc": "2026-10-22T21:20:00Z",
   "olbg_locale_date": "2026-10-22",
   "excluded_sports_verbatim": [
     "soccer",
@@ -65,21 +65,36 @@
     }
   ],
   "harvest_method": {
-    "tool": "agent page-retrieval across the 15 allowed OLBG sport pages plus multi-market individual event pages; evening re-read 2026-10-22T20:53Z..21:12Z",
-    "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus multi-market event pages",
-    "granularity": "88 listing rows read live at 20:53Z..21:12Z on 2026-10-22 across Tennis, Basketball, Cricket, Darts, Rugby Union, Volleyball and Handball plus the 12 NHL games re-read through the official NHL schedule API; the 12:15Z capture and its predecessors are retained below and supply every row not re-listed tonight (Snooker returned 'No tips found.' at 21:07Z).",
+    "tool": "agent page-retrieval across all 15 allowed OLBG sport pages, the sub-league endpoints and the individual event pages needed to read a market the listing did not render",
+    "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus the event pages for OLBG event ids 32338, 609567 and 37018",
+    "granularity": "128 live listing rows captured at 2026-10-22T20:55Z-21:20Z across 13 of the 15 allowed sports; Snooker and Greyhounds returned 'No tips found.' server-side (the Northern Ireland Open and the UK greyhound cards had finished), so their dated rows are carried forward and are not graded HIGH.",
     "values_inferred": "none - blank when not stated by an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261022T1215Z.tsv",
+  "harvest_file": "raw/olbg-harvest-20261022T2055Z.tsv",
   "harvest_format": "v2",
-  "harvest_timezone_note": "At 21:00Z the Basketball/4 page rendered clocks one hour ahead of the EDT-rendered NHL page for the same tip-off (CLE@PHI printed 'Tomorrow 00:10' while NBA.com states 7:00 PM ET on 22 Oct, i.e. 23:00Z). OLBG states no zone, so no clock is converted; only explicitly labelled official clocks in data/release_checks.json certify a UTC start.",
+  "harvest_timezone_note": "At 2026-10-22T20:55Z-21:20Z OLBG rendered a bare local clock with no zone label, and the render basis differed between endpoints and changed relative to the midday capture (St Finbarrs v Nemo Rangers now reads 16:00 where the 12:15Z capture read 12:00; the NBA page now reads 'Tomorrow 00:10' where the 12:15Z capture read 'Today 19:10', while the all-sports page kept the 19:10 rendering). Every label in this capture is copied VERBATIM and is never converted. Only explicitly timezone-qualified governing-body clocks in release_checks.json certify a UTC start.",
   "previous_harvest": {
-    "file": "raw/olbg-harvest-20261022T0830Z.tsv",
+    "file": "raw/olbg-harvest-20261022T1215Z.tsv",
     "format": "v2",
     "olbg_locale_date": "2026-10-22",
-    "harvest_completed_utc": "2026-10-22T08:58:00Z"
+    "harvest_completed_utc": "2026-10-22T12:25:00Z",
+    "note": "Retained byte-for-byte unchanged for audit; supplies the midday fixtures that had rotated off the live listing by 21:00Z."
   },
   "previous_harvests_extra": [
+    {
+      "file": "raw/olbg-harvest-20261022T2100Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-22",
+      "harvest_completed_utc": "2026-10-22T21:00:00Z",
+      "note": "Sibling session-cab97f19's 21:00Z capture, retained byte-for-byte unchanged for audit; it is chained behind this session's 20:55Z capture."
+    },
+    {
+      "file": "raw/olbg-harvest-20261022T0830Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-22",
+      "harvest_completed_utc": "2026-10-22T08:58:00Z",
+      "note": "Retained byte-for-byte unchanged for audit; supplies early-morning 22 Oct fixtures."
+    },
     {
       "file": "raw/olbg-harvest-20261022T0725Z.tsv",
       "format": "v2",
@@ -99,7 +114,7 @@
       "format": "v2",
       "olbg_locale_date": "2026-10-21",
       "harvest_completed_utc": "2026-10-21T07:05:00Z",
-      "note": "Retained byte-for-byte unchanged for audit; supplies completed Day Four Northern Ireland Open Round 2 fixtures."
+      "note": "Retained byte-for-byte unchanged for audit; supplies completed 21 Oct UK Greyhound race rows."
     },
     {
       "file": "raw/olbg-harvest-20261021.tsv",
@@ -109,7 +124,7 @@
       "note": "Retained byte-for-byte unchanged for audit; supplies completed 21 Oct UK Greyhound race rows."
     }
   ],
-  "session": "session-cab97f19",
+  "session": "session-784afe97",
   "supplementary_harvests": [
     {
       "file": "raw/olbg-harvest-20261022T2100Z.tsv",

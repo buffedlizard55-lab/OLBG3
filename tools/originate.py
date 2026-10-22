@@ -160,7 +160,6 @@ EDITORIAL_STRENGTH = {
     "BKB-535922": ("FC Barcelona", 0.5652, 180.5, "Over", "EuroLeague R7: FC Barcelona (3-3, 534:525, +9) at Olimpia Milan (1-5, 504:559, -55)"),
     "BKB-535924": ("Crvena Zvezda", 0.542, 162.5, "Under", "EuroLeague R7 Belgrade Eternal Derby: Crvena Zvezda (4-2, +28) at Partizan (3-3, -5)"),
     "BKB-535925": ("Olympiacos Piraeus", 0.5621, 172.5, "Over", "EuroLeague R7 co-leaders clash at SEF: Olympiacos (5-1, 564:524) home vs Fenerbahce (5-1, 501:447)"),
-    "BKB-535926": ("Valencia Basket", 0.6223, 183.5, "Over", "EuroLeague R7: Valencia Basket (4-2, 583:537, 97.2 ppg) at Paris Basketball (1-5, 504:545)"),
     "HAN-12076": ("Aalborg Handbold", 0.589, 67.5, "Over", "Betoro Herreligaen: Aalborg Handbold (15 pts, 323:306) away at bottom Skive fH (2 pts, 328:366) — overrides 3/7 crowd lean"),
     "HAN-12101": ("Bidasoa Irun", 0.620, 61.5, "Over", "Official ASOBAL site (read 2026-10-22T21:55Z): Bidasoa Irun 'se mantiene en lo mas alto' of the Liga NEXUS ENERGIA ASOBAL table; Bidasoa 6 GP, 210:178, 12 pts v BM Caserio Ciudad Real 5 GP, 160:155, 7 pts; OLBG money line 1/3 Bidasoa"),
     "HAN-12110": ("Kosovo W", 0.580, 55.5, "Under", "Official EHF competition calendar (read 2026-10-22T21:55Z): both Phase 1 legs of the 2027 IHF Women's World Championship European qualifier are staged at the Palace of Youth and Sports, Prishtina, Kosovo, so the listed home side Estonia has no home edge; OLBG money line 3/5 Kosovo (W)"),
