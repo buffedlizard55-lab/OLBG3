@@ -1,7 +1,7 @@
 {
   "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds.",
   "session": "session-b6cb43c5 (midday re-verification)",
-  "checked_at": "2026-10-22T12:25:00Z",
+  "checked_at": "2026-10-22T12:40:00Z",
   "events": {
     "160789": {
       "date": "2026-10-23",
@@ -645,12 +645,13 @@
     },
     "902135": {
       "date": "2026-10-23",
-      "time": "11:30",
-      "timezone": "JST",
-      "kind": "exact",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
       "quote": "FRIDAY, OCTOBER 23, 2026 — CENTER COURT Starting at 11:30 AM — [1] Ann LI (USA) vs Lilli TAGGER (AUT)",
-      "checked_at": "2026-10-22T12:25:00Z"
+      "checked_at": "2026-10-22T12:40:00Z",
+      "note": "Official WTA 250 Osaka Order of Play PDF prints 'Starting at 11:30 AM' with no explicit JST/UTC+9 timezone string on the sheet; timezone is not guessed from Osaka."
     },
     "902134": {
       "date": "2026-10-23",
@@ -690,21 +691,41 @@
     },
     "37005": {
       "date": "2026-10-22",
-      "time": "20:00",
-      "timezone": "CEST",
-      "kind": "exact",
+      "time": null,
+      "timezone": null,
+      "kind": "date_only",
       "source": "https://www.lnv.fr/actualites/2026-10-12/programmation-tv-alterna-volstar-x-bein-sports-j1-j8",
-      "quote": "Journée 3 — Jeudi 22 octobre à 20h00 (beIN SPORTS) : Sète vs Chaumont",
+      "quote": "J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)",
+      "checked_at": "2026-10-22T12:40:00Z",
+      "note": "Official LNV TV schedule prints 'jeudi 22 octobre (20h)' (and DataProject prints '22/10/2026 - 20:00') without an explicit CET/CEST timezone label; timezone is never inferred from a French venue."
+    },
+    "101908": {
+      "date": "2026-10-22",
+      "time": "07:00",
+      "timezone": "JST",
+      "kind": "exact",
+      "source": "https://www.jgto.org/en/",
+      "quote": "FORTINET PLAYERS CUP — Oct 22 - 25, 2026, Narita Hills Country Club (Round 1 completed Oct 22 15:59 JST)",
       "checked_at": "2026-10-22T12:25:00Z"
     },
-  "101908": {
-    "date": "2026-10-22",
-    "time": "07:00",
-    "timezone": "JST",
-    "kind": "exact",
-    "source": "https://www.jgto.org/en/",
-    "quote": "FORTINET PLAYERS CUP — Oct 22 - 25, 2026, Narita Hills Country Club (Round 1 completed Oct 22 15:59 JST)",
-    "checked_at": "2026-10-22T12:25:00Z"
-  }
+    "26023": {
+      "date": "2026-12-11",
+      "time": "19:00",
+      "timezone": "GMT",
+      "kind": "exact",
+      "source": "https://www.pdc.tv/WCFAQ",
+      "quote": "2026/27 Paddy Power World Darts Championship Session Times & Schedule Friday December 11 (1900 GMT) Round One x4",
+      "checked_at": "2026-10-22T12:40:00Z"
+    },
+    "902117": {
+      "date": "2026-10-23",
+      "time": null,
+      "timezone": null,
+      "kind": "not_before",
+      "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER COURT Not Before 1:00 PM — Sara BEJLEK (CZE) vs Marie BOUZKOVA (CZE)",
+      "checked_at": "2026-10-22T12:40:00Z",
+      "note": "WTA Ningbo OP.pdf states 'Not Before 1:00 PM' without an explicit timezone label; exact UTC start left blank."
+    }
   }
 }

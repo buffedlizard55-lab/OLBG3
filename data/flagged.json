@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T08:49:13.587705+00:00",
+  "generated_at": "2026-10-22T12:40:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available.",
   "items": [
     {
@@ -2179,6 +2179,51 @@
         {
           "label": "OLBG Greyhound Racing Tips (/Greyhounds/28)",
           "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-096",
+      "severity": "medium",
+      "status": "fixed",
+      "sport": "Volleyball",
+      "title": "French LNV Journée 3 Sète vs Chaumont (VOL-30 / VOL-37005) venue-guessed CEST clock and paraphrased quote repaired",
+      "summary": "Official lnv.fr prints 'J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)' with no explicit CET/CEST label; downgraded release_checks['37005'] to date_only so VOL-30 / VOL-37005 publishes as MEDIUM analysis.",
+      "detail": "PR #92 recorded a paraphrased quote and timezone='CEST' for event 37005. Re-reading the official LNV TV schedule and LNV DataProject match list confirms neither page states an explicit CET/CEST timezone string (only '20h' / '20:00'). Under the shared release gate, timezones are never inferred from a French venue.",
+      "sources": [
+        {
+          "label": "LNV — Programmation TV Alterna VOLSTAR x beIN SPORTS (J1-J8)",
+          "url": "https://www.lnv.fr/actualites/2026-10-12/programmation-tv-alterna-volstar-x-bein-sports-j1-j8"
+        }
+      ]
+    },
+    {
+      "id": "FL-097",
+      "severity": "medium",
+      "status": "fixed",
+      "sport": "Tennis",
+      "title": "WTA 250 Osaka QF Ann Li vs Lilli Tagger (TEN-38 / TEN-902135) venue-guessed JST timezone removed & Guangzhou slug noted",
+      "summary": "Official WTA Osaka Order of Play PDF prints 'Starting at 11:30 AM' without an explicit JST/UTC+9 string; downgraded release_checks['902135'] to date_only.",
+      "detail": "wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf confirms Friday 23 October 2026 Center Court match 1 is [1] Ann Li vs Lilli Tagger ('Starting at 11:30 AM'), but prints no explicit timezone label on the sheet, so JST is not inferred from Osaka. OLBG also mislabels Osaka QFs 902134 & 902135 under WTA_Guangzhou.",
+      "sources": [
+        {
+          "label": "WTA — Kinoshita Group Japan Open (Osaka) Official Order of Play PDF",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf"
+        }
+      ]
+    },
+    {
+      "id": "FL-098",
+      "severity": "low",
+      "status": "fixed",
+      "sport": "Darts",
+      "title": "PDC World Championship 2027 (DRT-18 / DAR-26023) verified on pdc.tv/WCFAQ (+130 HIGH) & 11 root parity rows + 18 consensus tip counts synced",
+      "summary": "Verified Friday December 11 (1900 GMT) start and 128-player field on official pdc.tv/WCFAQ, originating Luke Littler (+130 / 2.30) as HIGH/high across both tracks and syncing missing root rows and 12:15Z tip counts.",
+      "detail": "Root `/` now includes WTA Ningbo QF 902117 (TEN-40), PDC World Championship 2027 (DRT-18), F1 Qualifying 911 (MTR-04), Six Nations 613137 (RGU-16), 5 cricket ante-posts (CRK-12..16), and 3 Sheffield greyhound cards (GRY-20..22), plus updated 12:15Z OLBG tip counts across 18 Baseball, Snooker, Basketball, Handball, and Volleyball rows.",
+      "sources": [
+        {
+          "label": "PDC — Official 2026/27 World Darts Championship Schedule & Ballot FAQ",
+          "url": "https://www.pdc.tv/WCFAQ"
         }
       ]
     }

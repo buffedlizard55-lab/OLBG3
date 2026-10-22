@@ -84,12 +84,18 @@ OVERROUND = 0.05
 # Chosen so that a single tip on a 156-player golf field cannot imply a 60% chance.
 STRENGTH = {
     "pdc_euro_champ_32": 14,
+    "pdc_world_champ_128": 20,
     "golf_field_156": 24,
     "f1_grid_22": 12,
     "greyhound_six_dog": 6,
     "state_of_origin_two_side": 4,
     "super_league_twelve": 6,
     "nrl_seventeen": 6,
+    "six_nations_6": 6,
+    "cwc_fourteen": 10,
+    "bbl_eight": 8,
+    "sa20_six": 6,
+    "vitality_blast_18": 10,
     "all_ireland_32": 10,
 }
 
