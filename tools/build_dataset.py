@@ -39,9 +39,9 @@ ID_PREFIX = {
 SUFFIX_RE = re.compile(r"\s+(One Day Match|1st T20 Match|2nd T20 Match|3rd T20 Match|T20|1st ODI|2nd ODI|3rd ODI)$")
 
 WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win", "Win Race"}
-OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races"}
+OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races", "Outright Winner", "Fastest Qualifier"}
 OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
-                 "Match Handicap", "Set Betting", "Set Score", "1st Set Winner", ""}
+                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", ""}
 
 
 def competition_status(ev: dict) -> str:
@@ -102,7 +102,7 @@ def resolve_date(label: str, run_day: date) -> str | None:
 def main() -> None:
     meta = json.loads((DATA / "meta.json").read_text())
     ver = json.loads((DATA / "verifications.json").read_text())
-    run_day = date.fromisoformat(meta["run_started_utc"][:10])
+    run_day = date.fromisoformat(meta.get("olbg_locale_date") or meta["run_started_utc"][:10])
 
     harvest = DATA / meta.get("harvest_file", "raw/olbg-harvest-20261021.tsv")
     fmt = meta.get("harvest_format", "v1")
@@ -110,16 +110,22 @@ def main() -> None:
 
     # Sports that the primary harvest did not cover keep their rows from the previous
     # harvest (same OLBG event ids), tagged so the reader can see the older fetch time.
-    sources = [(harvest, fmt, fetched_at, None)]
+    sources = [(harvest, fmt, fetched_at, run_day, None)]
     prev = meta.get("previous_harvest") or {}
     if prev.get("file"):
-        sources.append((DATA / prev["file"], prev.get("format", "v1"), prev.get("harvest_completed_utc", ""),
-                        f"carried from the {prev.get('harvest_completed_utc', '')[11:16]}Z harvest: sport not re-listed in the primary harvest"))
+        p_day = date.fromisoformat((prev.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
+        sources.append((DATA / prev["file"], prev.get("format", "v1"), prev.get("harvest_completed_utc", ""), p_day,
+                        f"carried from the {prev.get('harvest_completed_utc', '')[:16]} harvest: live 2026-10-22 page showed 'No tips found'"))
+    for extra in meta.get("previous_harvests_extra", []):
+        if extra.get("file"):
+            e_day = date.fromisoformat((extra.get("harvest_completed_utc") or meta["run_started_utc"])[:10])
+            sources.append((DATA / extra["file"], extra.get("format", "v1"), extra.get("harvest_completed_utc", ""), e_day,
+                            f"carried from the {extra.get('harvest_completed_utc', '')[:16]} harvest: live 2026-10-22 page showed 'No tips found'"))
 
     rows = []
     missing_url_parts = []
     primary_sports: set[str] = set()
-    for harvest, fmt, fetched_at, carry_note in sources:
+    for harvest, fmt, fetched_at, src_day, carry_note in sources:
         for line in harvest.read_text().splitlines():
             if not line.strip() or line.startswith("#"):
                 continue
@@ -135,6 +141,7 @@ def main() -> None:
                 (sport, prefix, slug, eid, date_label, time_label,
                  market, consensus, tips, pct, note) = parts[:11]
 
+            sport = sport.replace("_", " ").strip()
             sport_id = SPORT_IDS.get(sport)
             if sport_id is None:
                 missing_url_parts.append(line)
@@ -174,7 +181,7 @@ def main() -> None:
                 "away": away,
                 "olbg_date_label": date_label,
                 "olbg_time_label": time_label,
-                "date_iso": resolve_date(date_label, run_day),
+                "date_iso": resolve_date(date_label, src_day),
                 "olbg_market": market or None,
                 "market_family": family,
                 "olbg_consensus_selection": consensus or None,

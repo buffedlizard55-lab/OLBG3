@@ -1,138 +1,29 @@
-# How our own lines are originated
+# Multi-Market Line Origination & Confidence Grading Specification (`OLBG3` — 2026-10-22)
 
-Everything on the site under "our line", "our pick", "our price", "handicap" and "total"
-is a **model output**, not a published market price. No bookmaker odds appear anywhere in
-the retrieved OLBG pages, so nothing is copied. This file documents the model precisely
-enough to reproduce every number in `data/lines.json` with `python3 tools/originate.py`.
+## 1. Scope & Harvest Coverage
+- **Live harvest pass (`data/raw/olbg-harvest-20261022.tsv`):** Retrieved `2026-10-22 01:26–01:32 UTC` across all **15 in-scope sports** on `OLBG.com`: Tennis, Basketball, Baseball, Cricket, Snooker, Darts, Rugby Union, Rugby League, Ice Hockey, Volleyball, Handball, Golf, Motor Racing, Gaelic Football, and Greyhounds (`145` fixtures in scope).
+- **Strict exclusions enforced (`0` rows included):** `soccer`, `football`, `boxing`, `ufc`, `mma`, `american football`, `hurling`, `horse racing`, `cycling`, `specials`.
+- **Multi-market inspection:** In addition to top-level sport listings, individual OLBG event pages (`?event_id=...`) were audited across Basketball, Baseball, Tennis, Cricket, Darts, and Rugby Union to inspect server-rendered **Money Line / Win Match**, **Handicap / Pointspread / Run Line / Games Won**, **Game Totals / Total Legs / Total Games**, and **Tournament / Race Outrights**.
 
-## Inputs (facts, from the harvest)
+## 2. Independent Line Origination Across Markets
+1. **Win Match / Money Line (`our_price_pick`, `our_us_odds_pick`, `our_price_other`):**
+   - **Official Standings / Rankings / Tournament Strength Layer (`OFFICIAL_STRENGTH`):** Where governing-body standings, world rankings, and recent 2026 results are verified (`MLB`, `NBA`, `EuroLeague`, `ATP Tour`, `WTA Tour`, `ICC Cricket`, `PDC Darts`, `SHL`, `Liiga`, `URC`, `Pro D2`, `Top 14`, `EHF Champions League`, `DAIKIN HBL`), fair win probabilities `p` integrate official competition performance with Beta-shrunk tipster & tracked-expert evidence. Where official form contradicts thin `1/1` or `2/3` public splits (e.g. **5th-placed Brynäs IF at 9th-placed Örebro HK in SHL**, **Real Madrid vs Maccabi in neutral Belgrade**, **#6 seed Zizou Bergs indoors in Brussels**), our originated line overrides the crowd split.
+   - **Beta-Binomial Shrinkage Fallback:** On remaining head-to-head fixtures, `p_shrunk = (k + 2) / (n + 4)` with sport-specific home-court logit shift `HOME_LOGIT[sport]`.
+   - **Multi-Runner Outrights (`OUTRIGHT_FIELDS`):** Uses Dirichlet shrinkage toward `1 / F` (`F` = verified field size: `120` PGA Bermuda Championship, `22` Formula 1 Austin grid, `32` PDC European Championship, etc.) rather than two-way `Beta(2,2)`.
+   - **Bookmaker Margin & American Odds Conversion:** `our_price = round((1 - 0.05) / p, 2)` (`5%` hold). American odds follow exact standard conversion: `-(100 / (d - 1))` for `d < 2.00` and `+((d - 1) * 100)` for `d >= 2.00`.
+2. **Handicap / Pointspread / Run Line / Puck Line (`our_handicap_line`, `our_handicap_side`):**
+   - Mapped via `margin = sigma_sport * Phi^-1(p_pick)` rounded to half-units (`-1.5` Run Line / Puck Line in Baseball & Ice Hockey; normal-margin spreads in Basketball, Rugby Union, Handball, Tennis games, Darts legs, Volleyball sets, Snooker frames, and Gaelic Football points).
+3. **Match Totals — Over / Under (`our_total_line`, `our_total_side`):**
+   - Originated across all scoring sports using verified team offensive/defensive rates plus audited OLBG event-page totals lines (`Over 6.5` runs MLB World Series Game 1, `Over 233.5` pts GSW@LAL, `Under 226.5` pts SAC@LAC, `Over 9.5` legs Noppert vs Bunting, etc.).
 
-| Input | Source | Notes |
-|---|---|---|
-| Tip split (`wins/total`) | OLBG listing, stored in `data/matches.json` | Copied verbatim; never recomputed. |
-| Consensus selection | OLBG listing | Copied verbatim, including "Tie", "Over 9.50" and handicap selections. |
-| Home / away | OLBG fixture name, split on ` vs `, ` v ` or ` @` | Purely mechanical. `A @ B` means A away, B home. |
-| Sport | OLBG sport page the row came from | 15 included sports; see exclusions. |
-
-## Step 1 — probability from the tip split
-
-For fixtures where OLBG's most-tipped market is a winner/money-line market:
-
-```
-p_raw    = wins / total
-p_shrunk = (wins + 2) / (total + 4)          # Beta(2,2) prior, strength 4
-```
-
-The prior pulls small samples toward even money: 1/1 becomes 0.60, 3/6 stays 0.50,
-9/11 becomes 0.667, 7/7 becomes 0.818.
-
-## Step 2 — home-field shift
-
-```
-p_model = sigmoid( logit(p_shrunk) + h )
-```
-
-`h` is applied positively when the consensus selection is the home side, negatively when
-it is the away side, and is zero for neutral-venue sports. `h` values are our assumptions:
-
-| Sport | h (logit) | implied home edge at even money |
-|---|---|---|
-| Rugby Union | 0.18 | 54.5% |
-| Rugby League | 0.18 | 54.5% |
-| Basketball | 0.16 | 54.0% |
-| Ice Hockey | 0.13 | 53.2% |
-| Handball | 0.12 | 53.0% |
-| Volleyball | 0.12 | 53.0% |
-| Gaelic Football | 0.10 | 52.5% |
-| Baseball | 0.10 | 52.5% |
-| Cricket | 0.05 | 51.2% |
-| Tennis, Snooker, Darts, Golf, Motor Racing, Greyhounds | 0.00 | 50.0% |
-
-## Step 3 — prices
-
-```
-fair odds      = 1 / p
-our quoted price = 1 / (p × 1.05)     # 5% theoretical hold, rounded to 2dp
-```
-
-Both sides of the money line are quoted, so the pair overrounds to about 105%.
-
-## Step 4 — handicap line
-
-```
-z  = Φ⁻¹(max(p_favourite, 1-p_favourite))     capped at 0.995
-hc = -round_to_nearest_half(sigma × z)          (favourite gives the start)
-```
-
-`sigma` is our assumed standard deviation of the winning margin in the sport's own unit.
-These are modelling assumptions, not measurements:
-
-| Sport | unit | sigma |
-|---|---|---|
-| Cricket | runs | 25.0 |
-| Basketball | points | 11.5 |
-| Rugby League | points | 16.0 |
-| Rugby Union | points | 13.5 |
-| Handball | goals | 7.5 |
-| Tennis | games | 4.0 |
-| Darts | legs | 3.0 |
-| Snooker | frames | 2.3 |
-| Baseball | runs | 2.0 |
-| Ice Hockey | goals | 1.8 |
-| Volleyball | sets | 1.25 |
-| Golf, Motor Racing, Greyhounds, Gaelic Football | — | no handicap line |
-
-A 0 handicap is published as `0.0` (pick'em).
-
-## Step 5 — total line
-
-Totals are anchored to a sport baseline rather than to per-match scoring data, because we
-could not verify per-match scoring rates, team pace, weather or injuries from official
-sources for every fixture. Baselines: NBA 228.5 points, European basketball 165.5, ice
-hockey 5.5 goals, baseball 8.5 runs, handball 58.5 goals, volleyball 4.5 sets, tennis 22.5
-games, snooker 5.5 frames (best of seven), darts 10.5 legs (best of eleven), rugby union
-48.5 points, T20 cricket 320.5 runs, ODI/one-day cricket 290.5 runs. Golf, motor racing,
-greyhounds and Gaelic football get no total line.
-
-## Step 6 — pick and confidence
-
-* Pick = the side our model favours. When the OLBG row is not a winner market, we have no
-  split for the money line, so the pick comes from the home edge alone and is flagged
-  `no_split_on_winner_market`. **Side rule (added 2026-10-21T07Z):** on such rows the
-  side we price is the side named in OLBG's own selection text (e.g. "Baskonia +4.5" →
-  Baskonia); if neither side is named, the home side is priced. Nothing is inferred
-  beyond that string match.
-* A written prediction may identify the selection, but it never changes, floors or inflates
-  the selected-side probability. HIGH is not assigned from prose or source quality alone.
-  The model probability must be **strictly above 0.70**, and the pick must also meet the
-  board's verification and official-form evidence rules. Any older 65% floor outputs are
-  superseded and must not be presented as current HIGH picks.
-* Both `our_match_probability` (probability of the side the branch computed, kept for
-  reproducibility) and `our_home_probability` (always the home side) are written; the
-  board reads the latter.
-* Outright markets (tournaments, championships, races) get **no** price, probability,
-  handicap or total, because field size is not published on the retrieved pages and there
-  is no two-sided fixture. The OLBG consensus is shown for reference and flagged.
-
-| Label | Rule |
-|---|---|
-| **high** | Verified fixture, official form evidence, and selected-side model probability strictly above 0.70. A prediction is required, but cannot raise the probability. |
-| **medium** | Winner market, at least 5 tips, and `|p_model − 0.5| ≥ 0.08`, or verified and sufficiently supported under the board's documented score. |
-| **low** | Everything else: tiny samples, non-winner OLBG rows, outrights, rows with no tip data. |
-
-After reapplying the threshold to the 2026-10-21 captured dataset, the separate OLBG audit track has 0 high, 31 medium, and 158 low rows (189 total). The five previous written predictions used a 65% floor and are withdrawn from that track; none is evidence of a >70% chance.
-
-## What the model deliberately does not do
-
-* It does not invent a probability when OLBG published no split for the winner market.
-* It does not convert a handicap or total consensus into a match probability.
-* It does not read the display times as authoritative (see FL-002).
-* It does not use unverified form, injuries, weather, team news or travel.
-
-## Known limitations
-
-The single input with real information content is OLBG's tip distribution, which is a
-measure of crowd sentiment, not of team strength. The shrinkage and home-edge terms are
-priors. Consequently a "medium" here means "the crowd is lopsided and the sample is not
-trivial", not "we have an edge". A future version should replace the crowd input with
-official results and scoring data, which this environment could not fetch at fixture level.
+## 3. Focusing `HIGH` Confidence Strictly on `-250` to `+10000` Odds
+- **Why trivial `>70%` chalk is excluded from `HIGH`:** A selection with fair win probability `>= 70%` prices at `<= 1.36` decimal (`-278` or shorter, e.g. `-455`, `-526`, `-667`), offering minimal actionable value and merely restating heavy market chalk.
+- **Exact Odds Window Gate:**
+  - `-250` American odds `= 1 + 100/250 = 1.40` decimal odds.
+  - `+10000` American odds `= 1 + 10000/100 = 101.00` decimal odds.
+  - Every `HIGH`-confidence pick MUST simultaneously satisfy:
+    1. `competition_status == "verified"` from an official governing body / tour / federation;
+    2. Live active fixture (not carried from a prior day's pass);
+    3. **`1.40 <= our_price_pick <= 101.00`** (`-250 <= our_us_odds_pick <= +10000`) **AND `our_pick_probability < 0.70`**;
+    4. Backed by a unique `>= 30`-word human analysis naming team, player, current 2026 form, recent match history, and explicit betting selection with official source links.
+  - Heavy >70% favorites (`Medvedev 1.14 / -714`, `Rybakina 1.18 / -556`, `Fritz 1.24 / -417`, `Panathinaikos ML 1.22 / -455`, `Barça 1.24 / -417`, `Magdeburg 1.23 / -435`) retain their honest calibrated probabilities and short prices and are explicitly capped at **`medium`**.
