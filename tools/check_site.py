@@ -179,6 +179,21 @@ class Collector(HTMLParser):
             self._row = None
 
 
+def captured_event_hrefs() -> dict[str, set[str]]:
+    """Every event href present in the committed raw OLBG captures, keyed by event id.
+
+    The captures are the evidence, so this reads them directly rather than trusting a derived
+    file. Nothing here is parsed into a claim: the hrefs are copied out of the served HTML.
+    """
+    hrefs: dict[str, set[str]] = {}
+    for html_file in sorted((DATA / "raw").glob("live-*/listings/*.html")):
+        text = html_file.read_text(errors="replace")
+        for url, eid in re.findall(
+                r'href="(https://www\.olbg\.com/betting-tips/[^"]*event_id=(\d+))"', text):
+            hrefs.setdefault(eid, set()).add(url)
+    return hrefs
+
+
 def main() -> int:
     matches = json.loads((DATA / "matches.json").read_text())
     lines = {x["match_id"]: x for x in json.loads((DATA / "lines.json").read_text())}
@@ -299,6 +314,25 @@ def main() -> int:
                 errors.append(f"high pick {mid} missing written prediction")
             if l.get("start") and l["start"] < BUILD_DATE.isoformat():
                 errors.append(f"high pick {mid} kick-off {l['start']} has already passed")
+
+    # 5b every published OLBG source link must be the href the server actually rendered
+    # The row URL used to be synthesised as {prefix}/{slug}/{sport_id}, which duplicated the final
+    # path segment on the v3 capture because its path_prefix already ends in the slug: 177 of the
+    # 180 published links returned 404 while reading as evidence. Anything that repeats the final
+    # segment is rejected here, and where the committed capture still holds the served href the
+    # two must be equal byte for byte. See FL-161.
+    captured = captured_event_hrefs()
+    for m in matches:
+        url = m.get("olbg_url") or ""
+        seg = re.search(r"/betting-tips/(.+)/\d+\?event_id=", url)
+        if seg:
+            parts = seg.group(1).split("/")
+            if len(parts) >= 2 and parts[-1] == parts[-2]:
+                errors.append(f"{m['id']}: OLBG source link repeats its final path segment ({url})")
+        eid = re.search(r"event_id=(\d+)", url)
+        if eid and eid.group(1) in captured and url not in captured[eid.group(1)]:
+            errors.append(f"{m['id']}: OLBG source link differs from the served href "
+                          f"({url} vs {sorted(captured[eid.group(1)])[0]})")
 
     # 6 placeholders
     for f, _ in parsers.items():
