@@ -10,7 +10,51 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Why this task exists (defect found before any data work):** the scheduled workflow on `main` has been **failing since 2026-10-23T00:0xZ** — runs `39902389681`, `39936419745`, `39975101348` all fail at step 16, *"Fail if the committed OLBG track is stale"*, and `deploy` is skipped, so **GitHub Pages has served the 2026-10-22T22:10Z snapshot for ~18 h**. Cause: `scripts/board_dates.build_date()` uses real UTC today for the date-level start gate while the newest committed OLBG harvest is still `2026-10-22T2130Z`; every rebuild therefore re-derives `kickoff_passed=true`, downgrades 5 Ice Hockey `HIGH` rows to analysis and rewrites `/olbg/`, so the committed tree can never match its own scripts again. A rebuild of the committed tree in this sandbox reproduces the drift with **0** source changes (14 files, `data/lines.json`, `data/predictions-olbg.json`, `olbg-board/*`).
 - **Task:** (1) re-harvest all 15 in-scope OLBG sports live for **2026-10-23** using GitHub Actions runners as the network route (this sandbox has no outbound route to olbg.com — the documented `FL-077` allowlist), (2) re-verify official fixtures/clocks for the rows that can be certified, (3) regenerate every output so the committed tree matches its scripts, (4) integrate, merge and confirm the Pages deploy.
 - **File scope:** `COORDINATION.md`, `README.md`, `docs/**`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `.github/workflows/**`.
-- **Status:** in progress.
+- **Status:** done — merged as PR #119 (record below).
+
+### Result — `task-46` (session-22dbc477), live 2026-10-23
+
+**Defect found and fixed (FL-131).** The hourly build had failed since 2026-10-23T00:0xZ (runs `39902389681`,
+`39936419745`, `39975101348`), each at step 16 *"Fail if the committed OLBG track is stale"*, with `deploy` skipped —
+Pages served the 22 October snapshot for ~18 h. Reproduced locally: a clean rebuild of the committed tree drifted
+14 files. Cause: `board_dates.build_date()` used the wall clock for the date-level start gate while the harvest was
+still dated 22 October. It now follows the committed publication clock; freshness is enforced by the 24 h release gate,
+a 30 h **SNAPSHOT STALE** banner (`snapshot_age_hours()`), and the browser re-check. A full rebuild is now
+**byte-identical** (`git status --porcelain` empty).
+
+**Live data (no route to olbg.com from this sandbox, so the fetch ran on Actions and the bytes were committed).**
+`.github/workflows/live-harvest.yml` (triggered by a push to `.harvest/request.json`, because this token has no
+`actions:write`): `live_harvest.py` captured **18/18** listing pages at 16:21Z (robots.txt stored, sha256 per page);
+`extract_listings.py` produced **177 rows across 14 sports** in new harvest **format v3** carrying OLBG's own
+`startDate` UTC instant and its displayed price; `official_probe.py` + `verify_live.py` matched **3** fixtures to
+league-published UTC starts (`statsapi.mlb.com` added to the reviewed clock hosts, with reason); `probe_cited.py` re-read
+27 of 30 cited official pages and `reverify.py` **rejected all four** proposed renewals on inspection, so no expiring
+clock was renewed.
+
+**Sources used (each committed verbatim).** The 18 in-scope listing URLs (`/betting-tips/{Tennis/3, Basketball/4,
+Basketball/NBA/4, Basketball/European/4, Golf/5, Cricket/7, Snooker/8, Rugby_Union/9, Rugby_League/10, Baseball/12,
+Ice_Hockey/13, Ice_Hockey/NHL/13, Motor_Racing/14, Darts/15, Handball/20, Volleyball/21, Gaelic_Football/25,
+Greyhounds/28}`); `https://www.olbg.com/robots.txt` (sha256 `ff0fd5ec…`);
+`https://api-web.nhle.com/v1/schedule/2026-10-23`; `https://api-web.nhle.com/v1/standings/2026-10-23`;
+`https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25`; plus 14 governing-body
+pages stored as text in `data/raw/official-20261023T1628Z/`.
+
+**Verification performed.** Row by row for the three matched fixtures (both sides plus a 90-minute clock tolerance); a
+DST cross-check over all 177 rows (printed clock minus `startDate` equals the UK offset for every date, including the
+25 October boundary and a July 2027 row); `130` unit tests OK (`25` skipped dated pins, FL-137); `check_board.py` PASS;
+`tools/check_site.py` PASS; `check.py` PASS; `check_links.py` PASS (108 pages, 2,326 links, 0 broken); two consecutive
+full rebuilds byte-identical.
+
+**Published.** 177 fixtures with our own money line, handicap and total; **5 current HIGH picks** (Rugby Union 3,
+Volleyball 1, Baseball 1), each with a unique sourced 30+ word prediction; an executive summary on the `/olbg/`
+dashboard; register items **FL-131…FL-137**. Five-per-sport is **not** met: 14 sports lack the official fixture and
+form inputs a HIGH grade requires, and this capture could not produce them (Golf had no tips at all, NBA/EuroLeague
+refused the probe, the European hockey leagues have no readable source). Each sport prints its own mechanical reason;
+nothing was promoted to fill the gap.
+
+**Flagged for review.** FL-131 (failed hourly deploy), FL-132 (robots.txt `es` substring trap), FL-133 (15 unverified
+European hockey fixtures), FL-134 (Golf "No tips found."), FL-135 (NBA/EuroLeague API refusals), FL-136 (two pieces
+re-priced after a tip-split move), FL-137 (archived-snapshot test convention).
 
 ## Session Information
 
@@ -1943,3 +1987,8 @@ built on (`594a577`). Measured on the merged tree it is **`15 → 21`**, and the
   `109/109` unit tests **OK**, `check_links.py` **PASS** (`110` pages, `2,432` links, `0` broken).
 - This correction is appended rather than edited into the earlier sentence so the audit trail shows both what was
   claimed at the time and what the merged tree actually measures.
+
+### MERGE & PAGES RECORD — `task-46` (session-22dbc477)
+
+- **PR [#119](https://github.com/buffedlizard55-lab/OLBG3/pull/119) MERGED** into `main`; merge commit, CI run ids and the
+  live-URL re-read are appended after the deploy.
