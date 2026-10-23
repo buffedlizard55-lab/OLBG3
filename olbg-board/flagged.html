@@ -17,9 +17,10 @@
 <main class="wrap">
 
 
+
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">122 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">128 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -878,11 +879,53 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
 </article>
+<article class="card flag" id="FL-131">
+  <div class="flag-head"><span class="tag">FL-131</span> <span class="sev sev-high">high</span></div>
+  <h2>The scheduled build failed every hour from 2026-10-23T00:00Z and Pages stopped deploying</h2>
+  <p>build_date() now follows the committed publication clock (the newest source observation) instead of the wall clock, so a rebuild is byte-reproducible; freshness is enforced by the 24-hour release gate, by the new stale-snapshot banner when the capture is 30+ hours old, and by the browser re-check in assets/release.js. Pinned by tests/test_freshness.py.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39975101348" rel="noopener nofollow" target="_blank">GitHub Actions — scheduled build failure that skipped deploy</a></li></ul>
+</article>
+<article class="card flag" id="FL-132">
+  <div class="flag-head"><span class="tag">FL-132</span> <span class="sev sev-medium">medium</span></div>
+  <h2>A robots.txt substring rule silently denied every OLBG listing to this project&#x27;s crawler</h2>
+  <p>The collector now uses the token OLBG3Audit and records, per URL, which robots.txt group governed the decision (robots_matched_agent / robots_allowance). The same path is allowed for the wildcard group. No request is made for a URL the governing group disallows.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/robots.txt" rel="noopener nofollow" target="_blank">OLBG robots.txt (served copy, sha256 ff0fd5ec…)</a></li></ul>
+</article>
+<article class="card flag" id="FL-133">
+  <div class="flag-head"><span class="tag">FL-133</span> <span class="sev sev-unverified">unverified</span></div>
+  <h2>15 of 17 ice-hockey fixtures are European club games with no official source read</h2>
+  <p>Published unverified with the reason on each row; no clock or competition name was inferred.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener nofollow" target="_blank">NHL official schedule payload, 2026-10-23</a></li></ul>
+</article>
+<article class="card flag" id="FL-134">
+  <div class="flag-head"><span class="tag">FL-134</span> <span class="sev sev-unverified">unverified</span></div>
+  <h2>Golf/5 returned &quot;No tips found.&quot; on 2026-10-23, so the sport has no row in this build</h2>
+  <p>Golf reports zero rows in the coverage table rather than inheriting 22 October rows.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing — returned &quot;No tips found.&quot;</a></li></ul>
+</article>
+<article class="card flag" id="FL-135">
+  <div class="flag-head"><span class="tag">FL-135</span> <span class="sev sev-medium">medium</span></div>
+  <h2>NBA and EuroLeague official endpoints refused this project&#x27;s probes</h2>
+  <p>Rows published as analysis with the reason recorded; nothing upgraded. The 22 October observations are retained in release_checks.json and expire on their own.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule" rel="noopener nofollow" target="_blank">NBA official schedule page — HTTP 403 at probe</a></li></ul>
+</article>
+<article class="card flag" id="FL-136">
+  <div class="flag-head"><span class="tag">FL-136</span> <span class="sev sev-low">low</span></div>
+  <h2>Two written pieces quoted prices from the previous capture after a re-price</h2>
+  <p>The price inside each piece was updated to the current row and recorded in a price_revised field naming the old value, the new value and the reason. No analytical claim was added or removed, and both pieces remain labelled analysis.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG Tennis/Handball listings, 2026-10-23T16:21Z capture</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing, 2026-10-23T16:21Z capture</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-22T21:35:00Z; publication clock 2026-10-22T22:10:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T16:28:04+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

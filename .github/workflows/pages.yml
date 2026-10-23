@@ -44,6 +44,10 @@ jobs:
       # and the shared flag register (data/flagged.json).
       - name: Rebuild the OLBG lines track
         run: |
+          # Extract the newest committed live capture and re-certify whichever fixtures the newest
+          # official probe can actually match. Both steps are deterministic: a re-run of the same
+          # capture rewrites byte-identical files, which is what the staleness check below relies on.
+          python3 scripts/live_refresh.py
           python3 tools/build_dataset.py
           python3 tools/originate.py
           python3 tools/build_site.py

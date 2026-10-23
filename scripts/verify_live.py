@@ -225,9 +225,13 @@ def main() -> int:
         }
     rc['checked_at'] = max([rc.get('checked_at') or '', checked_at])
     rc['session'] = 'session-22dbc477 (live 2026-10-23 probe)'
-    rc['policy'] = (rc.get('policy', '') + ' | 2026-10-23: exact UTC starts read directly from the '
-                    'league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). '
-                    'Both payloads state the start in UTC, so no zone is inferred.').strip(' |')
+    # Idempotent: a re-run must produce a byte-identical file, so this note is a fixed key rather
+    # than a sentence appended to the policy on every pass.
+    rc['policy_20261023'] = ('Exact UTC starts read directly from the league schedule payloads '
+                             '(api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state '
+                             'the start in UTC, so no zone is inferred.')
+    if rc.get('policy', '').find(' 2026-10-23: exact UTC starts') != -1:
+        rc['policy'] = rc['policy'].split(' | 2026-10-23: exact UTC starts')[0]
     rpath.write_text(json.dumps(rc, indent=1) + '\n')
     print(f"release_checks.json: {len(verified)} exact-clock record(s) added/updated")
     return 0

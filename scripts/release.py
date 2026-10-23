@@ -41,6 +41,11 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     'www.unitedrugby.com',
     # Session a1e5112b additions 2026-10-22: ATP, LNR, Liiga, ProTennisLive www-prefix variants
     'www.atptour.com', 'prod2.lnr.fr', 'top14.lnr.fr', 'www.liiga.fi', 'www.protennislive.com',
+    # 2026-10-23 (session-22dbc477): the MLB schedule endpoint is the league's own data service,
+    # the same class of source as api-web.nhle.com. It states gameDate as an explicit UTC instant
+    # ("2026-10-24T00:00:00Z"), so no zone is inferred here. Added because the World Series rows
+    # were otherwise stuck at unverified_start while their start was demonstrably quoted from MLB.
+    'statsapi.mlb.com',
     # Evening 2026-10-22: the league's own schedule page is the canonical source for NBA tip-off
     # times, which it states explicitly as 'ET'. Reviewed session-cab97f19; structural only.
     'www.nba.com',

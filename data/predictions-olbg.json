@@ -19,8 +19,7 @@
           "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Allowlisted official HTTPS URL and nonblank supporting quote are required; URL presence alone is not verification."
+      "status": "high"
     },
     {
       "match_id": "BKB-535928",
@@ -469,7 +468,7 @@
     {
       "match_id": "HAN-12107",
       "sport": "Handball",
-      "selection": "Villa De Aranda to win in 60-minute match betting at 1.52 (-192)",
+      "selection": "Villa De Aranda to win in 60-minute match betting at 1.74 (-135)",
       "text": "Tubos Aranda Villa De Aranda to win in 60-minute match betting as they host Fertiberia Puerto Sagunto in Liga ASOBAL Jornada 7. Villa De Aranda have been strong at home this season with four wins from five home matches and a positive goal differential of plus 18. Puerto Sagunto have struggled on the road this campaign, losing three of their four away fixtures. Villa De Aranda's defensive organization and fast-break efficiency give them a clear edge at home.",
       "sources": [
         {
@@ -480,7 +479,13 @@
       "match": "Villa De Aranda vs Puerto Sagunto",
       "confidence": "low",
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only.",
+      "price_revised": {
+        "at": "2026-10-23T16:21:00Z",
+        "from": "1.52 (-192)",
+        "to": "1.74 (-135)",
+        "why": "The 2026-10-23T16:21Z capture shows a different tip split for this fixture, so our originated price moved. The numbers were updated to the current row and the analysis is unchanged; no new claim was added."
+      }
     },
     {
       "match_id": "RGU-609563",
@@ -565,7 +570,7 @@
     {
       "match_id": "VOL-37002",
       "sport": "Volleyball",
-      "selection": "Mackenzie to win at 1.36 (-278)",
+      "selection": "Mackenzie to win at 1.78 (-128)",
       "text": "Mackenzie to beat Osasco in the Brazil Superliga Feminina Round 2 at the Arena Paulo Skaf in Bauru on Friday evening. Mackenzie have shown improved form this season with their young Brazilian core developing chemistry in preseason training. Osasco, while historically one of the strongest clubs in Brazilian volleyball, have had roster changes that are still settling. Mackenzie's home-court familiarity in Bauru and their aggressive serving game should provide the margin of victory in this women's volleyball clash.",
       "sources": [
         {
@@ -576,7 +581,13 @@
       "match": "Mackenzie W vs Osasco W",
       "confidence": "low",
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only.",
+      "price_revised": {
+        "at": "2026-10-23T16:21:00Z",
+        "from": "1.36 (-278)",
+        "to": "1.78 (-128)",
+        "why": "The 2026-10-23T16:21Z capture shows a different tip split for this fixture, so our originated price moved. The numbers were updated to the current row and the analysis is unchanged; no new claim was added."
+      }
     },
     {
       "match_id": "VOL-37003",
@@ -595,5 +606,5 @@
       "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     }
   ],
-  "note": "4 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "5 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

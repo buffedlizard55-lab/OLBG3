@@ -1,5 +1,5 @@
 {
-  "note": "21 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "4 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -18,7 +18,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "RGU-04",
@@ -87,7 +87,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "RGU-14",
@@ -104,7 +104,8 @@
           "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "IHO-06",
@@ -150,7 +151,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "RGU-05",
@@ -196,7 +197,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "RGU-10",
@@ -219,7 +220,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "RGU-13",
@@ -288,7 +289,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-05",
@@ -376,7 +377,8 @@
         }
       ],
       "ref": "RGU-02",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "selection": "Soyaux-Angouleme to win (3-way match betting, 1.46 / -217)",
@@ -401,7 +403,8 @@
         }
       ],
       "ref": "RGU-03",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "selection": "Valence Romans to win (3-way match betting, 1.72 / -139)",
@@ -448,7 +451,8 @@
         }
       ],
       "ref": "RGU-09",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "BKB-20",
@@ -466,7 +470,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "BKB-21",
@@ -488,7 +492,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "India to win Match (1st T20I)",
@@ -507,7 +511,7 @@
       "ref": "CRK-04",
       "status": "analysis",
       "archived_reason": "Derived UTC start passed prior to the 2026-10-22T07:35Z morning snapshot; preserved verbatim as labelled analysis.",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Ireland to win 1st ODI",
@@ -525,7 +529,7 @@
       ],
       "ref": "CRK-06",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "England to win Match (Pakistan ODI Tri-Series)",
@@ -543,7 +547,7 @@
       ],
       "ref": "CRK-07",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Gerwyn Price to win Match (Best of 11 legs)",
@@ -561,7 +565,7 @@
       ],
       "ref": "DRT-03",
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Krzysztof Ratajski to win Match (Best of 11 legs)",
@@ -596,7 +600,8 @@
         }
       ],
       "ref": "DRT-15",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "selection": "Pick Szeged to win in 60-minute match betting",
@@ -610,7 +615,7 @@
       ],
       "ref": "HBL-15",
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-10",
@@ -624,7 +629,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Iva Jovic to win Match",
@@ -643,7 +648,7 @@
       "ref": "TEN-20",
       "status": "analysis",
       "archived_reason": "Derived UTC start passed prior to the 2026-10-22T07:35Z morning snapshot; preserved verbatim as labelled analysis.",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Katerina Siniakova to win Match",
@@ -666,7 +671,7 @@
       "ref": "TEN-21",
       "status": "analysis",
       "archived_reason": "Derived UTC start passed prior to the 2026-10-22T07:35Z morning snapshot; preserved verbatim as labelled analysis.",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Karen Khachanov to win Match",
@@ -684,7 +689,7 @@
       ],
       "ref": "TEN-23",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Diana Shnaider to win Match",
@@ -706,7 +711,7 @@
       ],
       "ref": "TEN-24",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Valentin Vacherot to win Match",
@@ -728,7 +733,7 @@
       ],
       "ref": "TEN-27",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Daniel Altmaier to win Match",
@@ -746,7 +751,7 @@
       ],
       "ref": "TEN-28",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Alex Michelsen to win Match",
@@ -764,7 +769,7 @@
       ],
       "ref": "TEN-30",
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Alexander Bublik to win Match",
@@ -786,7 +791,7 @@
       ],
       "ref": "TEN-31",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Zizou Bergs to win Match",
@@ -808,7 +813,7 @@
       ],
       "ref": "TEN-32",
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Flavio Cobolli to win Match",
@@ -830,7 +835,7 @@
       ],
       "ref": "TEN-33",
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Brandon Nakashima to win Match",
@@ -848,7 +853,7 @@
       ],
       "ref": "TEN-34",
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Seamus Power to win Tournament (+740 / 8.40)",
@@ -866,7 +871,7 @@
       ],
       "ref": "GLF-02",
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Max Verstappen to win Race (+248 / 3.48)",
@@ -887,7 +892,8 @@
         }
       ],
       "ref": "MTR-01",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "HBL-23",
@@ -925,7 +931,7 @@
       ],
       "status": "analysis",
       "row_confidence": "HIGH",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "HBL-30",
@@ -944,7 +950,7 @@
       ],
       "status": "analysis",
       "row_confidence": "HIGH",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "BKB-22",
@@ -961,7 +967,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "BKB-26",
@@ -979,7 +986,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "BKB-29",
@@ -996,7 +1003,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "BKB-30",
@@ -1013,7 +1021,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "HBL-28",
@@ -1045,7 +1054,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "SNK-07",
@@ -1059,7 +1068,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "SNK-09",
@@ -1073,7 +1082,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "SNK-10",
@@ -1087,7 +1096,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "SNK-11",
@@ -1101,7 +1110,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "SNK-12",
@@ -1115,7 +1124,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Pair and date confirmed by WST Matches; returned clock is not timezone-qualified. Official UTC start left blank."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "TEN-35",
@@ -1202,7 +1211,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "RGL-03",
@@ -1233,7 +1242,8 @@
           "url": "https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "GAF-01",
@@ -1250,7 +1260,8 @@
           "url": "https://gaacork.ie/results/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "DRT-17",
@@ -1272,7 +1283,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred.",
       "row_confidence": "MEDIUM"
     },
     {
@@ -1290,7 +1301,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-16",
@@ -1307,7 +1319,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-17",
@@ -1324,7 +1337,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-23",
@@ -1341,7 +1355,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-24",
@@ -1358,7 +1373,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "VOL-30",
@@ -1376,7 +1392,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official LNV TV schedule prints 'jeudi 22 octobre (20h)' (and DataProject prints '22/10/2026 - 20:00') without an explicit CET/CEST timezone label; timezone is never inferred from a French venue."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "DRT-18",
@@ -1393,7 +1409,8 @@
           "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "TEN-47",
@@ -1465,7 +1482,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "DRT-09",

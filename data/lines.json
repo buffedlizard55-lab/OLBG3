@@ -31,19 +31,17 @@
     "our_total_side": "Over",
     "our_total_unit": "runs",
     "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
-    "confidence": "medium",
-    "flags": [
-      "release_unverified_start"
-    ],
+    "confidence": "high",
+    "flags": [],
     "release": {
-      "status": "unverified_start",
-      "eligible": false,
+      "status": "upcoming",
+      "eligible": true,
       "as_of": "2026-10-23T16:28:04+00:00",
-      "start_utc": null,
+      "start_utc": "2026-10-24T00:00:00Z",
       "checked_at": "2026-10-23T16:28:04Z",
       "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
-      "expires_at": null,
-      "reason": "Allowlisted official HTTPS URL and nonblank supporting quote are required; URL presence alone is not verification."
+      "expires_at": "2026-10-24T00:00:00Z",
+      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
   },
   {

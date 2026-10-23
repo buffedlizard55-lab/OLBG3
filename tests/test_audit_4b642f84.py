@@ -10,6 +10,7 @@ by the sibling register items FL-107/FL-124/FL-102 and are not duplicated.
 import json
 import unittest
 from pathlib import Path
+from archive_guard import pins  # noqa: E402
 
 DATA = Path(__file__).resolve().parents[1] / "data"
 
@@ -25,6 +26,7 @@ NEW_UNVERIFIED = {  # published blank-flagged as FL-103; nothing inferred
 }
 
 
+@pins('olbg-harvest-20261022T2130Z.tsv')
 class EveningHarvest4b642f84Test(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -4,11 +4,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 
+@pins('olbg-harvest-20261022T1215Z.tsv')
 class PostMidday15487122AuditTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
