@@ -46,6 +46,7 @@ ALLOWED_HOSTS = {
     "www.premrugby.com",
     "stats.unitedrugby.com",
     "ehfcl.eurohandball.com",
+    "ehfel.eurohandball.com",
     "buffedlizard55-lab.github.io",
     "github.com",
     # Hosts reviewed and accepted by session-074739aa's re-audit (2026-10-21).
@@ -196,6 +197,11 @@ def captured_event_hrefs() -> dict[str, set[str]]:
         for url, eid in re.findall(
                 r'href="(https://www\.olbg\.com/betting-tips/[^"]*event_id=(\d+))"', text):
             hrefs.setdefault(eid, set()).add(url)
+    for html_file in sorted((DATA / "raw").glob("svelte-*/listings/*.html")):
+        text = html_file.read_text(errors="replace")
+        for rel, eid in re.findall(
+                r'eventUrl:"(/betting-tips/[^"]*event_id=(\d+))"', text):
+            hrefs.setdefault(eid, set()).add("https://www.olbg.com" + rel)
     return hrefs
 
 

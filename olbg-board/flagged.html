@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">185 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">190 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1320,11 +1320,46 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/live-20261023T1700Z/extract-report.json" rel="noopener nofollow" target="_blank">Committed 17:00Z capture — same script, user agent and URL, 8 server-rendered tip cards</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/live-20261023T2135Z/extract-report.json" rel="noopener nofollow" target="_blank">Committed 21:35Z capture — 18 listings HTTP 200, 0 cards, parse_gaps empty</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG Tennis listing page as served (the URL both captures read)</a></li></ul>
 </article>
+<article class="card flag" id="FL-194">
+  <div class="flag-head"><span class="tag">FL-194</span> <span class="sev sev-high">high</span></div>
+  <h2>Evening OLBG listing responses switch from SSR tip cards to client-hydrated SvelteKit &lt;script&gt; payloads (expired:&quot;0&quot;), explaining the FL-180 / FL-185 / FL-193 zero-card captures</h2>
+  <p>Across all 18 in-scope listing pages captured at 2026-10-23T19:35Z, 21:33:06Z (data/raw/svelte-b322f52e-20261023T2133Z), and 21:35Z (FL-180 / FL-185 / FL-193), OLBG returned HTTP 200 with 290-350 KB HTML whose &lt;body&gt; prints &#x27;&lt;p&gt;No tips found.&lt;/p&gt;&#x27; and zero &#x27;&lt;div class=&quot;grd tip content-visibility-auto&quot;&gt;&#x27; cards, while embedding the full active listing inside the SvelteKit hydration &lt;script&gt; block (123 unique expired:&quot;0&quot; rows across 12 sports at 21:33:06Z, including 43 upcoming events absent from the 16:21Z/16:30Z captures). Numeric fields in the evening payload are serialized as JSON string literals (expired:&quot;0&quot;) rather than bare integers (expired:0).</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG Handball listing (SvelteKit hydration payload captured at 21:33:06Z)</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing (SvelteKit hydration payload captured at 21:33:06Z)</a></li></ul>
+</article>
+<article class="card flag" id="FL-195">
+  <div class="flag-head"><span class="tag">FL-195</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG&#x27;s startDate on RGU-609581 (Ospreys v Dragons) is 45 minutes earlier than the official URC Round 4 kick-off</h2>
+  <p>In data/raw/svelte-b322f52e-20261023T2133Z, OLBG event 609581 (Ospreys v Dragons) carries event_start_unix_timestamp 1792864800 -&gt; 2026-10-24T18:00:00.000Z (19:00 BST). The official United Rugby Championship 2026/27 fixture list prints &#x27;SATURDAY, OCTOBER 24 — Ospreys v Dragons, St. Helen&#x27;s, Swansea, KO 19.45 IRE &amp; UK / 20.45 ITA &amp; SA&#x27;, which is 2026-10-24T18:45:00Z.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship — 2026/27 fixtures in full</a></li><li><a href="https://www.olbg.com/betting-tips/Rugby_Union/International_Club/United_Rugby_Championship/Ospreys_v_Dragons/9?event_id=609581" rel="noopener nofollow" target="_blank">OLBG — Ospreys v Dragons event page</a></li></ul>
+</article>
+<article class="card flag" id="FL-196">
+  <div class="flag-head"><span class="tag">FL-196</span> <span class="sev sev-high">high</span></div>
+  <h2>Unclassified cricket player-prop market &#x27;Top Team1 Batsman&#x27; (CRI-188845) contains the home team name in parentheses and would leak into match-winner probability</h2>
+  <p>Event 188845 (Toronto Kings vs Vancouver Guardians T20) in the 21:33:06Z capture carries market &#x27;Top Team1 Batsman&#x27; with selection &#x27;RRS Cornwall (Toronto Kings)&#x27; (2/3 tips at 5.50). Because &#x27;Top Team1 Batsman&#x27; was not listed in OTHER_MARKETS / _non_win / NON_WIN_CONSENSUS_MARKETS, resolve_team_side() matched &#x27;(Toronto Kings)&#x27; to home side &#x27;Toronto Kings&#x27; and treated a 5.50 batsman prop split as a two-way match-winner consensus.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845" rel="noopener nofollow" target="_blank">OLBG — Toronto Kings vs Vancouver Guardians T20 event page</a></li></ul>
+</article>
+<article class="card flag" id="FL-197">
+  <div class="flag-head"><span class="tag">FL-197</span> <span class="sev sev-high">high</span></div>
+  <h2>SuperLega verifications for 36995 (Civitanova vs Padova) and 36996 (Monza vs Verona) carried wrong-city arenas and a contradicted Round 1 point tally</h2>
+  <p>In data/verifications.json, event 36995 (Cucine Lube Civitanova vs Pallavolo Padova) stored venue &#x27;BTS Arena, Trento&#x27;, start_local &#x27;2026-10-25 17:00 CET&#x27; (off by one hour from 17:00 UTC = 18:00 CET), and Round 1 rally points &#x27;97:85&#x27; whereas Volleyball World&#x27;s official SuperLega standings record Civitanova at 3-0 sets and 78:65 rally points. Event 36996 (Vero Volley Monza vs Rana Verona) stored venue &#x27;Pala Barton Energy, Perugia&#x27; — the exact swapped-venue defect that FL-154 had fixed on 36997.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #7 &amp; Round 2 schedule</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/standings/" rel="noopener nofollow" target="_blank">Volleyball World — official 2026/27 SuperLega standings</a></li></ul>
+</article>
+<article class="card flag" id="FL-198">
+  <div class="flag-head"><span class="tag">FL-198</span> <span class="sev sev-high">high</span></div>
+  <h2>tools/originate.py computed inverted our_home_probability on five EDITORIAL_STRENGTH rows where the full official club name differed from OLBG&#x27;s short home name</h2>
+  <p>Line 412 of tools/originate.py computed p_home = p_pick if pick == home else round(1.0 - p_pick, 4). Whenever EDITORIAL_STRENGTH used the official full club name (&#x27;Vodacom Bulls&#x27;, &#x27;DHL Stormers&#x27;, &#x27;Sir Susa Scai Perugia&#x27;, &#x27;Itas Trentino&#x27;, &#x27;Olympiacos Piraeus&#x27;) while matches.json held OLBG&#x27;s short home name (&#x27;Bulls&#x27;, &#x27;Stormers&#x27;, &#x27;Perugia&#x27;, &#x27;Trentino&#x27;, &#x27;Olympiacos&#x27;), pick == home evaluated to False and our_home_probability published 1 - p_pick (e.g. 0.38 on Vodacom Bulls, 0.40 on DHL Stormers, 0.4005 on Perugia) even though the home side was our selected favourite.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship — official 2026/27 table (Vodacom Bulls &amp; DHL Stormers)</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T22:06:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T22:08:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

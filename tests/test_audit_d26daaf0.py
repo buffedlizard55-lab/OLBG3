@@ -234,8 +234,10 @@ class LiveRefreshFallback(unittest.TestCase):
         meta = json.loads((ROOT / 'data' / 'meta.json').read_text(encoding='utf-8'))
         self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv')
         matches = json.loads((ROOT / 'data' / 'matches.json').read_text(encoding='utf-8'))
-        self.assertEqual(len(matches), 180,
-                         'an empty capture must not reduce the published /olbg/ row count')
+        # Same-day SvelteKit supplementary captures (session-b322f52e) may add rows above 180,
+        # never reduce below the 180-row primary + 16:30Z floor.
+        self.assertGreaterEqual(len(matches), 180,
+                                'an empty capture must not reduce the published /olbg/ row count')
 
     def test_live_primary_capture_maps_the_pinned_harvest_back_to_its_capture(self):
         self.assertEqual(live_refresh.live_primary_capture(), 'live-20261023T1700Z')
