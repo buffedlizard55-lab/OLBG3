@@ -21,6 +21,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from board_dates import build_date  # noqa: E402
+from release import high_release_errors  # noqa: E402
 
 BUILD_DATE = build_date()  # real UTC today, never a frozen constant
 DOCS = ROOT / "olbg-board"
@@ -286,6 +287,8 @@ def main() -> int:
 
     for mid, l in lines.items():
         if l["confidence"] == "high":
+            errors.extend(f"{mid}: {error}" for error in high_release_errors(
+                mid.split("-", 1)[1], l.get("release")))
             price = l.get("our_price_pick")
             prob = l.get("our_pick_probability")
             if price is None or not (1.40 <= price <= 101.00):

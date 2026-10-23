@@ -11,16 +11,15 @@ import board_dates as bd
 
 
 class Freshness(unittest.TestCase):
-    def test_snapshot_source_file_is_closed(self):
-        source = mock_open(read_data='{"checked_at":"2026-10-22T09:10:00Z","events":{}}')
+    def test_publication_clock_file_is_closed(self):
+        source = mock_open(read_data='{"publication_as_of":"2026-10-22T09:10:00Z"}')
         with patch.dict(os.environ, {}, clear=True), patch('builtins.open', source):
             self.assertEqual(bd.snapshot_utc().isoformat(), '2026-10-22T09:10:00+00:00')
         source().__exit__.assert_called_once()
 
     def test_default_date_is_the_publication_clock_not_the_wall_clock(self):
-        # FL-131: a wall-clock date made every build after midnight non-reproducible, which broke
-        # the deploy for 18 h. The default date must follow the committed observation clock.
-        source = mock_open(read_data='{"checked_at":"2026-10-22T09:10:00Z","events":{}}')
+        # The publication clock is committed once per build, independently of source checks.
+        source = mock_open(read_data='{"publication_as_of":"2026-10-22T09:10:00Z"}')
         with patch.dict(os.environ, {}, clear=True), patch('builtins.open', source):
             self.assertEqual(bd.build_date(), dt.date(2026, 10, 22))
 

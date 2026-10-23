@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Advance publication time (not source verification)
+        run: python scripts/publication_clock.py
       - run: python scripts/update.py
       # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
       - run: python scripts/discovery.py
@@ -35,15 +37,6 @@ jobs:
       # priced from the captured OLBG listings with a disclosed field-size prior.
       - run: python scripts/build_gap_sports.py
       - run: python scripts/model.py
-      # Brief-coverage accounting: per-sport counts against the brief's five-picks-per-sport target,
-      # recomputed from the rows above. check_board.py fails if the committed file is stale.
-      - run: python scripts/brief_coverage.py
-      # Board track: originated lines, picks, predictions, verification, audit + flagged pages.
-      # Runs after build.py so it can own the landing page and the shared navigation.
-      - run: python scripts/build_site.py
-      # Board invariants: every row needs an OLBG source link, verification must be all-or-nothing,
-      # prices must recompute, and every HIGH-confidence pick must carry a 30+ word sourced prediction.
-      - run: python scripts/check_board.py
       # OLBG lines track (/olbg): the 06:50Z harvest (189 rows incl. rows carried for sports not
       # re-listed) with per-row source URLs, our own shrink+home-edge model, sourced HIGH predictions
       # and the shared flag register (data/flagged.json).
@@ -55,6 +48,10 @@ jobs:
           python3 scripts/live_refresh.py
           python3 tools/build_dataset.py
           python3 tools/originate.py
+          # Accounting/rendering must follow BOTH tracks' repricing and release expiry.
+          python3 scripts/brief_coverage.py
+          python3 scripts/build_site.py
+          python3 scripts/check_board.py
           python3 tools/build_site.py
           python3 tools/check_site.py
       - name: Publish the OLBG lines track inside the shared artifact

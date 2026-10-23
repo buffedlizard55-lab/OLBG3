@@ -28,6 +28,7 @@ from urllib.parse import urlparse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from board_dates import in_band, american, BAND_LOW_DEC, BAND_HIGH_DEC
 from brief_coverage import build as build_brief_coverage
+from release import high_release_errors
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ALLOWED = {"Tennis", "Basketball", "Ice Hockey", "Cricket", "Baseball", "Volleyball", "Darts",
@@ -118,6 +119,8 @@ def check_rows(rows, preds):
         pk = r.get("pick") or {}
         price = pk.get("price")
         if pk.get("confidence") == "HIGH":
+            errors.extend(f"{ref}: {error}" for error in high_release_errors(
+                r.get("olbg_event_id"), pk.get("release")))
             if not price or not in_band(price):
                 errors.append(f"{ref}: HIGH confidence but its price {price!r} is outside the "
                               f"-250..+10000 band (decimal {BAND_LOW_DEC}..{BAND_HIGH_DEC})")
