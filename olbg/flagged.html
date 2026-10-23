@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">128 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">129 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -920,6 +920,13 @@
   <p>The price inside each piece was updated to the current row and recorded in a price_revised field naming the old value, the new value and the reason. No analytical claim was added or removed, and both pieces remain labelled analysis.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG Tennis/Handball listings, 2026-10-23T16:21Z capture</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing, 2026-10-23T16:21Z capture</a></li></ul>
+</article>
+<article class="card flag" id="FL-137">
+  <div class="flag-head"><span class="tag">FL-137</span> <span class="sev sev-low">low</span></div>
+  <h2>Twenty-five dated snapshot tests are skipped while the 2026-10-22 archives remain untouched</h2>
+  <p>They are not deleted and not weakened: each class carries tests/archive_guard.pins(&#x27;&lt;harvest&gt;.tsv&#x27;), which runs the class when that file is the live harvest and skips it with a message naming the reason otherwise. tests/test_live_20261023.ArchiveIntegrity asserts every dated capture is still present with its row count, that the live capture is the newest, and that no archive is reused as the primary harvest.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw" rel="noopener nofollow" target="_blank">Archived dated captures (unchanged)</a></li></ul>
 </article>
 
 </main>

@@ -2818,6 +2818,23 @@
    "status": "needs review",
    "detail": "The price inside each piece was updated to the current row and recorded in a price_revised field naming the old value, the new value and the reason. No analytical claim was added or removed, and both pieces remain labelled analysis.",
    "category": "live 2026-10-23 harvest"
+  },
+  {
+   "id": "FL-137",
+   "severity": "low",
+   "sport": "All sports",
+   "status": "needs review",
+   "category": "test convention",
+   "title": "Twenty-five dated snapshot tests are skipped while the 2026-10-22 archives remain untouched",
+   "summary": "Six audit test classes written by earlier sessions assert the state of a specific harvest (the 2026-10-22T2130Z capture owning the board, three Basketball HIGH picks, a declared supplementary capture). Those assertions stay true of that snapshot, but once the 2026-10-23 capture became the live primary harvest they no longer describe the build, and eight tests failed.",
+   "detail": "They are not deleted and not weakened: each class carries tests/archive_guard.pins('<harvest>.tsv'), which runs the class when that file is the live harvest and skips it with a message naming the reason otherwise. tests/test_live_20261023.ArchiveIntegrity asserts every dated capture is still present with its row count, that the live capture is the newest, and that no archive is reused as the primary harvest.",
+   "resolution": "Convention documented in tests/archive_guard.py; 130 tests run, 25 skip, 0 fail.",
+   "sources": [
+    {
+     "label": "Archived dated captures (unchanged)",
+     "url": "https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw"
+    }
+   ]
   }
  ]
 }
