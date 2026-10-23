@@ -3413,6 +3413,126 @@
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher"
         }
       ]
+    },
+    {
+      "id": "FL-163",
+      "severity": "high",
+      "status": "corrected",
+      "sport": "All (OLBG source links)",
+      "title": "177 of the 180 published OLBG event links were a synthesised path the server never served, and every one of them returned 404",
+      "summary": "tools/build_dataset.py appended the fixture slug to a path_prefix that already ended in that slug, so the published source link repeated its final segment on 177 of 180 rows. The href actually rendered in the committed capture resolves; the published URL does not.",
+      "detail": "The brief's verification rule - every table row must carry a source link - only means something if the link resolves to the page the row was read from, so this was checked against the evidence rather than against the shape of the string. The 17:00Z capture stores path_prefix as the event href's path up to the sport id, which already contains the slug (Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers), while build_dataset.py appended '/{slug}/' again. The result on 177 of 180 rows was .../TB_Rays_@_MIL_Brewers/TB_Rays_@_MIL_Brewers/12?event_id=160789. Re-fetched live on 2026-10-23: the served href https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789 renders the event page 'TB Rays @ MIL Brewers Tips', and the published URL returns '404 Not Found'. The three unaffected rows come from the v2 supplementary capture (TEN-902147, GRY-689803, GRY-689800), where path_prefix stops at the competition and the slug genuinely had to be appended; their links resolve, and one was re-read live to confirm it. Repair: event_url() in tools/build_dataset.py now appends the slug only when the prefix does not already end in it, and tools/check_site.py rejects any published link that repeats its final path segment or differs from an href present in the committed captures. tests/test_audit_e6a228f9.py pins all 177 rows to the exact href in the served HTML, so the next capture change breaks the build rather than the links. No fixture, price, grade or selection changed; the rows' probabilities and picks were untouched.",
+      "affected_rows": [
+        "177 of 180 /olbg rows"
+      ],
+      "sources": [
+        {
+          "label": "OLBG event page, served href (renders)",
+          "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789"
+        },
+        {
+          "label": "Same event, published URL before the repair (404)",
+          "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/TB_Rays_@_MIL_Brewers/12?event_id=160789"
+        },
+        {
+          "label": "Committed capture holding the served hrefs",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261023T1700Z/listings"
+        }
+      ]
+    },
+    {
+      "id": "FL-164",
+      "severity": "high",
+      "status": "corrected",
+      "sport": "Rugby Union",
+      "title": "A live HIGH write-up reversed both Round 3 results it cites, and the same two results are stated correctly in the root track",
+      "summary": "RGU-609580 (DHL Stormers v Scarlets) said the Stormers were 'beaten 39-22 at home by Hollywoodbets Sharks' and that Scarlets 'went down 27-26 at home to Benetton'. The official URC table shows the Stormers won 39-22 and the Scarlets won 27-26.",
+      "detail": "The URC's own Match Centre table page carries the Round 3 results strip: DHL Stadium, STO 39 - SHA 22, and Parc y Scarlets, SCA 27 - BEN 26, with both clubs showing W-L-W form. The piece therefore drew 'both clubs opened Round 3 badly' from two matches both clubs won, which also made its own argument incoherent: it tipped the Stormers on scoring margins while asserting they had just been beaten at home. The same defect had already been found and repaired on the root track, where RGU-11 now reads 'overpowered coastal rivals the Sharks 39-22 at this same Cape Town venue' and 'needed a single-point margin to edge Benetton 27-26 in Round 3' - so this is a cross-track inconsistency that survived the earlier repair rather than a new unknown. Repaired by restating both results from the table. The selection, price (1.58 / -172), probability and HIGH grade are unchanged, because the argument always rested on the season-long scoring margins, which the table confirms (Stormers 81-54, +27, fourth; Scarlets 68-85, -17, twelfth).",
+      "affected_rows": [
+        "RGU-609580",
+        "RGU-609580 (root equivalent RGU-11 already correct)"
+      ],
+      "sources": [
+        {
+          "label": "URC official league table 2026/27 (Round 3 results strip)",
+          "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        },
+        {
+          "label": "URC official Match Centre, Round 4",
+          "url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
+        },
+        {
+          "label": "URC official 2026/27 fixtures in full",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        }
+      ]
+    },
+    {
+      "id": "FL-165",
+      "severity": "medium",
+      "status": "corrected",
+      "sport": "Rugby Union",
+      "title": "A HIGH write-up placed the Lions at home in a match played at the Bulls' ground",
+      "summary": "RGU-609579 (Edinburgh v Lions) said the Lions 'were crushed 57-15 at home by the Vodacom Bulls'. The URC Match Centre records the 10 October fixture at Loftus Versfeld, Pretoria - the Bulls' home ground - so the Lions were away.",
+      "detail": "The venue is not cosmetic here: the piece's argument is that Edinburgh's home advantage is real because the Lions had just been beaten heavily away from home, so the sentence asserted the opposite of the claim it was supporting. Loftus Versfeld is also named as the Bulls' venue in the same session's RGU-609576 piece ('at Loftus Versfeld in Pretoria'), which makes the error internally detectable. Repaired to 'beaten 57-15 away by the Vodacom Bulls at Loftus Versfeld'. The scoreline, the 29-12 Edinburgh win at Zebre, the table figures and the price are unaffected.",
+      "affected_rows": [
+        "RGU-609579"
+      ],
+      "sources": [
+        {
+          "label": "URC official league table 2026/27 (Round 3 results strip: Loftus Versfeld, BUL 57 - LIO 15)",
+          "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        },
+        {
+          "label": "URC official Match Centre, Round 4",
+          "url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
+        }
+      ]
+    },
+    {
+      "id": "FL-166",
+      "severity": "medium",
+      "status": "corrected",
+      "sport": "Basketball",
+      "title": "Both NBA HIGH write-ups cited the previous day's schedule page for a Friday game",
+      "summary": "BKB-534842 and BKB-534841 cited https://www.nba.com/schedule?date=2026-10-22 for games confirmed on the 23 October schedule. The recorded official check that supplied their clocks quotes the 23 October page.",
+      "detail": "The two pieces are the Celtics and Spurs money-line picks, both for Friday 23 October. The clock each row carries came from an official NBA check whose stored quote reads 'Friday, October 23 - 12 Games - NY Knicks @ BOS Celtics - 7:00 PM ET (Prime Video)' and 'HOU Rockets @ SA Spurs - 9:30 PM ET, Moody Center, Austin' against source https://www.nba.com/schedule?date=2026-10-23 (data/release_checks.json, checked 2026-10-23T17:04Z). The published source links pointed one day earlier, at a page that lists Thursday's games and cannot carry the fixture, the tip-off or the venue the prose asserts. Repaired by correcting the schedule links to the date the evidence was actually read from. The standings links were left at 22 October because the claim they support is the pre-game record (BOS 0-1, NYK 0-1, HOU 1-0, SAS 0-1) and that page is the state before these games; this pass could not re-read NBA standings through its retrieval path (nba.com renders client-side), so those records are recorded as carried from the 22 October check rather than re-verified today. No price, selection or grade changed.",
+      "affected_rows": [
+        "BKB-534842",
+        "BKB-534841"
+      ],
+      "sources": [
+        {
+          "label": "NBA official schedule, 23 October 2026 (the page the clocks were read from)",
+          "url": "https://www.nba.com/schedule?date=2026-10-23"
+        },
+        {
+          "label": "NBA official schedule, 22 October 2026 (what the pieces cited)",
+          "url": "https://www.nba.com/schedule?date=2026-10-22"
+        }
+      ]
+    },
+    {
+      "id": "FL-167",
+      "severity": "medium",
+      "status": "corrected",
+      "sport": "Volleyball",
+      "title": "A HIGH write-up said the arena was 'confirmed verbatim' by a match page that names only the city, and carried two details that page does not support",
+      "summary": "VOL-36997 stated the match would be played 'at PalaBarton (confirmed verbatim on FIVB/Volleyball World Match #30002)'. That page states 'Perugia, Italy' and the start clocks, and no arena name; the project's own verification record for the fixture leaves venue blank.",
+      "detail": "Attributing a venue to a source 'verbatim' when the source does not contain it is worse than leaving the venue out, because it launders an assumption into evidence - the same defect class as FL-158 and FL-159. The piece also described the visitors as 'newly promoted' and cited Wout D'heer's 19 points against Monza; neither is on the match page, and this pass did not retrieve the Round 1 page that would carry them. The write-up was rebuilt on what the cited pages do state, all re-read live on 2026-10-23: Match #30002 lists Sir Susa Scai Perugia v Tinet Prata di Pordenone in Perugia on Sunday 25 October at 17:00 UTC / 18:00 local; Match #30000 shows Perugia winning 3-2 at Acqua Sant'Anna Cuneo on 18 October (25-18, 7-25, 15-25, 25-21, 23-25) with Ferre Reggers on 18 points and Kamil Semeniuk on 13, and Perugia with 7 block points. The arena, the promotion status and the D'heer detail were removed rather than re-sourced. Selection, price and HIGH grade unchanged.",
+      "affected_rows": [
+        "VOL-36997"
+      ],
+      "sources": [
+        {
+          "label": "Volleyball World official Match #30002 (venue city and clocks only)",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        },
+        {
+          "label": "Volleyball World official Match #30000 (Round 1 result and scorers)",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/"
+        }
+      ]
     }
   ]
 }
