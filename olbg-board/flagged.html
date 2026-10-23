@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">167 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">168 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1193,6 +1193,13 @@
   <p>The release gate expires an observation 24 hours after it is read. Re-reading the SuperLega schedule page today and recording the checked_at as 2026-10-23T20:45:00Z moves the expiry to 2026-10-24T20:45:00Z, so the three picks remain certifiable through Saturday. The value certified is unchanged: 17:00 UTC / 13:00 GMT-04:00 / 18:00 local on Sunday 25 October. Because the publication clock is the newest observation in release_checks.json, this re-read also advances the board clock; that correctly expires the two EuroLeague picks whose games tipped off at 18:15Z and 18:45Z today, which is why the live high-confidence count falls from 10 to 8 in the same build.</p>
   <p class="muted small">Affected rows: VOL-27, VOL-28, VOL-29, BKB-29, BKB-30</p>
   <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">SuperLega official schedule</a></li></ul>
+</article>
+<article class="card flag" id="FL-176">
+  <div class="flag-head"><span class="tag">FL-176</span> <span class="sev sev-medium">medium</span></div>
+  <h2>The landing page says every high-confidence row is &#x27;backed by official governing-body sources&#x27;, but three of the eight rows show a single fixture-list link that carries none of the facts quoted</h2>
+  <p>The High-confidence picks table on the /olbg landing page renders only sources[0] for each row. For Leinster v Munster, Stormers v Scarlets and Vodacom Bulls v Ulster that first source is https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/, under a sentence stating that every high-confidence call is &#x27;backed by official governing-body sources&#x27;. A fixture list settles opponent, round, venue and kick-off; it does not contain the league table, the Round 3 scorelines or the venue change that the write-ups quote. Those facts sit in the URC table page and the Round 4 Match Centre, which the row links do show but the landing page does not surface. Prices, probabilities and grades are unaffected.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship - 2026/27 fixtures in full</a></li><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship - table after Round 3</a></li><li><a href="https://stats.unitedrugby.com/match-centre/2026-27/4" rel="noopener nofollow" target="_blank">United Rugby Championship - Round 4 Match Centre (venues and local kick-off times)</a></li></ul>
 </article>
 
 </main>
