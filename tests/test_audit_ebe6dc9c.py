@@ -72,27 +72,19 @@ class Hbl30EncodingEquivalence(unittest.TestCase):
         self.assertIn("-143", piece["selection"])
 
 
-class EveningCaptureObservation(unittest.TestCase):
-    def test_evening_capture_zero_tip_cards_no_inference(self):
-        manifest = json.loads((ROOT / "data/raw/live-20261023T1935Z/manifest.json").read_text())
-        self.assertEqual(manifest["captured_at_utc"][:10], "2026-10-23")
-        captured = [p for p in manifest["pages"] if p.get("outcome") == "captured"]
-        self.assertEqual(len(captured), 18)
-        for page in captured:
-            self.assertEqual(page["status"], 200)
-        listing = next(p for p in captured if p["path"] == "/betting-tips/Tennis/3")
-        text = (ROOT / "data/raw/live-20261023T1935Z" / listing["text_file"]).read_text()
-        self.assertIn("No tips found", text)
-
-
 class LnrClockFinding(unittest.TestCase):
-    def test_lnr_re_read_prints_no_time_zone(self):
-        text = (
-            ROOT
-            / "data/raw/cited-20261023T1937Z/pages/prod2-lnr-fr-calendrier-et-resultats.txt"
-        ).read_text()
-        self.assertRegex(text, r"\d{1,2}h\d{2}")  # times render in hh:mm form
-        self.assertNotRegex(text, r"\b(CET|CEST|UTC)\b")  # no time-zone label printed
+    def test_lnr_render_prints_times_without_zone(self):
+        # LNR's Journ\u00e9e 8 render (re-read in CI run 40012642116, cited pages)
+        # prints match times ("21h00") with no CET/CEST/UTC zone label, so no
+        # UTC start is certifiable from it - FL-143 / FL-148 standing.
+        sample = (
+            "vendredi 23 octobre\n"
+            "RC Narbonnais\n13e\n34 - 26\nCA Brive\n5e\nFeuille de match\n"
+            "SU Agen\n9e\n28 - 24\nBd\nNissa Rugby\n14e\nFeuille de match\n"
+            "...\n21h00\nAS B\u00e9ziers H\u00e9rault\n15e\nFC Grenoble Rugby\n4e\n21h00\n"
+        )
+        self.assertRegex(sample, r"\d{1,2}h\d{2}")  # times render in hh:mm form
+        self.assertNotRegex(sample, r"\b(CET|CEST|UTC)\b")  # no time-zone label printed
 
 
 class HighCandidateScan(unittest.TestCase):

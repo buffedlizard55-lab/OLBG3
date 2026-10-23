@@ -6,7 +6,7 @@ Branch: `arena/ebe6dc9c-olbg3`, claimed against `origin/main` `7fb22d1`. This se
 
 | Item | Result |
 |------|--------|
-| Evening 15-sport OLBG listing capture | Committed by CI as `data/raw/live-20261023T1935Z/` (18 listings, all HTTP 200, robots.txt sha256 `ff0fd5ec…`, capture stamp 2026-10-23T19:35:56Z). Extraction returned **zero tip cards** on every listing (see finding A below). No fixture, clock, price or tip count was inferred from the empty pages. |
+| Evening 15-sport OLBG listing capture | Attempted by CI (run 40012642116, `live-harvest.yml`, request `session-ebe6dc9c` at 19:35Z): all 18 listings returned HTTP 200, but extraction returned **zero tip cards** on every listing and the Tennis listing renders "No tips found." The live primary harvest remains `olbg-harvest-20261023T1700Z.tsv` (177 rows) per `data/meta.json`; the empty evening render displaces nothing. No fixture, clock, price or tip count was inferred from the empty pages. |
 | Governing-body structured probes | `data/raw/official-20261023T1936Z/`: NHL schedule + standings, MLB schedule + standings, all captured HTTP 200 and stored verbatim with sha256. |
 | Cited-page re-reads | `data/raw/cited-20261023T1937Z/`: 28 cited official pages re-fetched (NHL/MLB schedules, URC fixtures, WTA/ATP order-of-play PDFs, WST matches, PDC, LNR Pro D2/Top 14, ICC, GAA, PGA Tour, EuroLeague, BCCI, F1, etc.). Every entry records status, final URL, bytes and sha256; failures are visible evidence, not silent gaps. |
 | Root-track prose/price alignment audit | All 85 root predictions compared against their rows: selection side, quoted decimal price and US odds. One genuine defect found and repaired: **SNK-12** (see below). `HBL-30` ("Skanela IF" row vs "Skånela IF" piece) is the same club rendered with/without å at the identical price 1.70/-143 — not a defect. |
@@ -20,7 +20,7 @@ Branch: `arena/ebe6dc9c-olbg3`, claimed against `origin/main` `7fb22d1`. This se
 
 ## 3. Findings (irregularities, non-blocking; published for review)
 
-**Finding A — evening 19:35Z capture carries no tip cards.** All 18 in-scope OLBG listings returned HTTP 200 at 19:35:56Z, but the v3 extractor found zero tip-card blocks on any page, and the Tennis listing renders "No tips found." No fixture, clock, price or tip field can be taken from this capture; nothing was inferred. The raw HTML is committed verbatim as evidence (`data/raw/live-20261023T1935Z/listings/*`). This is an observation about OLBG's evening rendering, not a board defect: the live primary harvest remains `olbg-harvest-20261023T1700Z.tsv` (177 rows) per `data/meta.json`.
+**Finding A — evening 19:35Z capture carries no tip cards.** CI run 40012642116 (`live-harvest.yml`, request `session-ebe6dc9c`, 2026-10-23T19:35Z) returned HTTP 200 for all 18 in-scope OLBG listings, but the v3 extractor found zero tip-card blocks on any page and the Tennis listing renders "No tips found." No fixture, clock, price or tip field can be taken from this capture; nothing was inferred. The raw HTML was stored as CI run evidence and is not part of the live board: the live primary harvest remains `olbg-harvest-20261023T1700Z.tsv` (177 rows) per `data/meta.json`. This is an observation about OLBG's evening rendering, not a board defect.
 
 **Finding B — LNR Pro D2/Top 14 rows keep no certified clock (FL-143 / FL-148 standing).** The re-read of https://prod2.lnr.fr/calendrier-et-resultats at 19:37Z prints match times (e.g. "19:30", "21:00") with **no time-zone label**, exactly as on 22 October. France was on CEST (UTC+2) on 23 October, so rows labelled CET would convert to the wrong UTC instant; per the FL-096 precedent a venue zone is never guessed. Rows 609558/609560/609563 stay recorded as claimed without a certifiable UTC start, and 609561/609562 remain on hold as analysis. Published on Flagged for Review; non-blocking.
 
@@ -37,10 +37,10 @@ Branch: `arena/ebe6dc9c-olbg3`, claimed against `origin/main` `7fb22d1`. This se
 
 ## 5. Sources used (official where claimed)
 
-- OLBG listings: https://www.olbg.com/betting-tips/{Tennis,Basketball,Golf,Cricket,Snooker,Rugby_Union,Rugby_League,Baseball,Ice_Hockey,Motor_Racing,Darts,Handball,Volleyball,Gaelic_Football,Greyhounds} + /robots.txt (captured 2026-10-23T19:35:56Z, verbatim HTML committed).
+- OLBG listings: https://www.olbg.com/betting-tips/{Tennis,Basketball,Golf,Cricket,Snooker,Rugby_Union,Rugby_League,Baseball,Ice_Hockey,Motor_Racing,Darts,Handball,Volleyball,Gaelic_Football,Greyhounds} + /robots.txt (CI run 40012642116, 2026-10-23T19:35:56Z, HTTP 200 on all 18 listings; zero tip cards rendered — verbatim HTML retained as CI run evidence, not in the live board).
 - WST official Matches: https://www.wst.tv/matches/ (re-read 2026-10-23T19:37Z; pair/date confirmed, no timezone inferred).
-- NHL official schedule: https://api-web.nhle.com/v1/schedule/2026-10-23 (official-probe payload committed at data/raw/official-20261023T1936Z/json/nhl_schedule.json).
-- MLB official schedule: https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher (World Series Game 1 Rays @ Brewers 2026-10-24T00:00Z, Game 2 2026-10-25T00:00Z; both already on the board as BSB-01).
+- NHL official schedule: https://api-web.nhle.com/v1/schedule/2026-10-23 (re-read in CI run 40012642116; Canadiens @ Blackhawks 2026-10-24T00:00Z and Lightning @ Avalanche 2026-10-24T01:00Z — both already on the board as IHO-199984 / IHO-199985).
+- MLB official schedule: https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher (re-read in CI run 40012642116; World Series Game 1 Rays @ Brewers 2026-10-24T00:00Z, Game 2 2026-10-25T00:00Z — Game 1 already on the board as BSB-01).
 - LNR Pro D2 calendar: https://prod2.lnr.fr/calendrier-et-resultats (re-read 2026-10-23T19:37Z; times printed, no zone label — Finding B).
 
 ## 6. Records added
