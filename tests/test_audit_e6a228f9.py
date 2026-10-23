@@ -1,4 +1,4 @@
-"""Pins the source-link repair of 2026-10-23 (FL-161).
+"""Pins the source-link repair of 2026-10-23 (FL-163).
 
 The defect
 ----------
@@ -141,7 +141,7 @@ class UrlBuilder(unittest.TestCase):
 #
 # Re-read live on 2026-10-23 against the URC Match Centre table, the MLB standings and playoff
 # schedule, the Cork GAA results hub and the Volleyball World match pages. The checks below encode
-# the four defects that re-read produced (FL-162..FL-165), each as a general rule rather than a
+# the four defects that re-read produced (FL-164..FL-167), each as a general rule rather than a
 # string pin where a general rule is available.
 # ---------------------------------------------------------------------------------------------
 
@@ -153,7 +153,7 @@ def olbg_pieces() -> dict[str, dict]:
 
 
 class UrcRoundThreeResultsAgreeAcrossTheTracks(unittest.TestCase):
-    """FL-162/FL-163: both tracks must describe the same official Round 3 results.
+    """FL-164/FL-165: both tracks must describe the same official Round 3 results.
 
     The URC table page (stats.unitedrugby.com/match-centre/table/2026-27) carries the Round 3 strip:
     Loftus Versfeld BUL 57 - LIO 15; DHL Stadium STO 39 - SHA 22; Parc y Scarlets SCA 27 - BEN 26.
@@ -188,7 +188,7 @@ class UrcRoundThreeResultsAgreeAcrossTheTracks(unittest.TestCase):
 
 
 class OfficialSourceDatesSupportTheirClaim(unittest.TestCase):
-    """FL-164: a schedule citation must be dated the day of the fixture it evidences."""
+    """FL-166: a schedule citation must be dated the day of the fixture it evidences."""
 
     @staticmethod
     def _game_day(row: dict) -> _dt.date | None:
@@ -224,7 +224,7 @@ class OfficialSourceDatesSupportTheirClaim(unittest.TestCase):
 
 
 class NoVenueIsAttributedToASourceThatDoesNotStateIt(unittest.TestCase):
-    """FL-165: 'confirmed verbatim' may only be claimed for a value the cited page carries."""
+    """FL-167: 'confirmed verbatim' may only be claimed for a value the cited page carries."""
 
     def test_a_blank_verified_venue_is_not_asserted_as_verbatim(self):
         ver = json.loads((ROOT / "data/verifications.json").read_text())["event_verifications"]

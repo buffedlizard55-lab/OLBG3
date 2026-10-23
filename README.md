@@ -4,6 +4,56 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Source-link integrity, and four HIGH write-ups repaired after re-reading their sources — `session-e6a228f9` (task-52)
+
+Full record: [`docs/audit-e6a228f9.md`](docs/audit-e6a228f9.md) · register: **FL-163** … **FL-167** on [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html) and the [`/olbg/` register](https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html)
+
+**The source link on 177 of the 180 published rows did not resolve.** `tools/build_dataset.py` built
+each OLBG event URL as `{path_prefix}/{slug}/{sport_id}?event_id=…`, which is right for a v2 capture
+row (its prefix stops at the competition) but wrong for every v3 row, whose `path_prefix` already ends
+in the slug. The result repeated the final path segment on 177 of 180 rows, and re-fetching one live
+proved the consequence: the href the server actually rendered returns the event page, the URL we
+published returns **404**. The repair reads the prefix rather than assuming its depth, and
+`tools/check_site.py` now fails the build on a repeated segment or on any row URL that differs from an
+href physically present in the committed capture. `tests/test_audit_e6a228f9.py` pins all 177 rows to
+the served href, so the next capture format change breaks the build instead of the links. No fixture,
+price, probability or grade moved.
+
+**Then the links were used.** Ten live HIGH pieces were re-read against the page each cites. Six were
+fully confirmed — the MLB Game 1 piece, for instance, matches the official standings (MIL 103-59,
+832/618, 55-26), the postseason results (MIL 4-0 with a 6-4 clincher on 15 Oct; TB winning the last
+three ALCS games for 4-2) and the Game 1 preview (1.80 ERA, eleven days, 24-9 in Martinez starts) —
+and the Cork GAA arithmetic reconciles exactly (St Finbarrs 116/85 = +31; Nemo 98/79 = +19). Four did
+not:
+
+- **FL-164 (high).** `RGU-609580` reversed both URC Round 3 results, saying the Stormers were beaten
+  39-22 by the Sharks and the Scarlets went down 27-26 to Benetton when the league's own table shows
+  both clubs won — and drew "both clubs opened Round 3 badly" from it. The root track's `RGU-11`
+  already had both right, so this was a cross-track inconsistency that survived an earlier repair.
+- **FL-165 (medium).** `RGU-609579` placed the Lions "at home" in a match played at Loftus Versfeld,
+  the Bulls' ground, in the very sentence used to argue Edinburgh's home edge.
+- **FL-166 (medium).** Both NBA pieces cited `nba.com/schedule?date=2026-10-22` for Friday games; the
+  official check behind their clocks quotes the 23 October page.
+- **FL-167 (medium).** `VOL-36997` called the venue "confirmed verbatim" on a match page that names
+  only "Perugia, Italy", alongside a "newly promoted" tag and a scorer line the page does not carry.
+
+Every repair restates only what the linked page says and leaves price, selection and grade untouched;
+where a detail could not be re-read, it was removed rather than re-sourced. Gates on the final tree:
+184 tests OK (25 skipped dated pins), `check_board.py` PASS (359 rows / 311 fixtures / 270 verified /
+310 priced), `tools/check_site.py` PASS (180 fixtures / 12 HIGH / 157 register items),
+`check.py` PASS, `check_links.py` 108 pages / 2 266 links / **0 broken**, and the `/olbg/` rebuild is
+byte-identical on a second run. `scripts/update.py` and `scripts/discovery.py` were deliberately not
+run here — both need live feeds this sandbox cannot reach, and `update.py` withholds every row when a
+fetch fails — so the 19:13Z official feed is untouched.
+
+### What this pass could not do
+
+No new OLBG listing was captured: the site is unreachable from the sandbox and its listings render
+client-side ("No tips found." for every sport), though individual event pages do render — which is
+what made the link audit possible. Five-per-sport remains unmet (12 live HIGH, shortfall 59), and no
+pick was manufactured to close it.
+
+
 ## Publication expiry repair — session-d6b030fc (2026-10-23)
 
 [Audit and claim-by-claim official links](docs/audit-d6b030fc.md). Hourly builds now advance a
