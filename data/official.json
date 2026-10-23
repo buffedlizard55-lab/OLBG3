@@ -5786,5 +5786,129 @@
       "news.sbs.co.kr",
       "biz.chosun.com"
     ]
+  },
+  "reread_20261023T2240": {
+    "session": "session-655b300a",
+    "observation_clock_utc": "2026-10-23T22:40:00Z",
+    "purpose": "Dated record of what the official pages printed during this pass. Stored outside form_data on purpose: these readings were not used to reprice any published selection, so the model inputs behind the live prices stay exactly as published.",
+    "fixtures": {
+      "BSB-01 / BSB-160789": {
+        "competition": "MLB 2026 World Series, Game 1",
+        "start_utc": "2026-10-24T00:00:00Z",
+        "venue": "American Family Field",
+        "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-30",
+        "facts": [
+          "gamePk 849805, Tampa Bay Rays @ Milwaukee Brewers, status Pre-Game",
+          "Brewers regular season 103-59, 832 runs scored, 618 allowed, differential 214",
+          "NLCS: Brewers beat the Dodgers in four games (2-1, 7-4, 6-2, 6-4; clincher on 15 October)",
+          "ALCS: Rays beat Cleveland 4-2 after losing Game 1 at home 3-7",
+          "Preview: Rays 24-9 in Martinez starts including playoffs; three runs over nine road innings; Misiorowski ERA 1.80, 252 strikeouts, 0.80 WHIP, 104.8 mph first pitch, 11 days off, 4 1/3 innings in NLCS Game 1"
+        ]
+      },
+      "IHO-199984": {
+        "competition": "NHL 2026/27 regular season",
+        "start_utc": "2026-10-24T00:00:00Z",
+        "venue": "United Center",
+        "source": "https://api-web.nhle.com/v1/standings/2026-10-23",
+        "facts": [
+          "MTL 4-3-2, 9 GP, 10 pts, 30 goals for, 34 against, home 3-2-1, road 1-1-1, streak OT1",
+          "CHI 3-6-0, 9 GP, 6 pts, 21 for, 36 against, home 3-2-0, streak L1"
+        ]
+      },
+      "IHO-199985": {
+        "competition": "NHL 2026/27 regular season",
+        "start_utc": "2026-10-24T01:00:00Z",
+        "venue": "Ball Arena",
+        "source": "https://api-web.nhle.com/v1/standings/2026-10-23",
+        "facts": [
+          "COL 5-4-1, 10 GP, 11 pts, 41 for, 31 against, home 3-1-1, streak L2",
+          "TBL 7-2-0, 9 GP, 14 pts, 31 for, 23 against, home 5-0-0, road 2-2-0, streak W3",
+          "Goals-for leaderboard as printed by the standings service: CAR 47, EDM 47, TOR 43, BOS 42"
+        ]
+      },
+      "RGU-14 / RGU-609578": {
+        "competition": "United Rugby Championship 2026/27, Round 4",
+        "start_utc": "2026-10-24T17:00:00Z",
+        "venue": "Dublin (competition fixture list prints 'TBC')",
+        "source": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "facts": [
+          "Leinster 11th, 8 pts, 3 played, 1W 0D 2L, 75 for, 58 against",
+          "Munster 10th, 9 pts, 3 played, 1W 1D 1L, 72 for, 74 against",
+          "Round 3: Leinster 29-5 Cardiff at Laya Arena; Ulster 26-26 Munster at Affidea Stadium"
+        ]
+      },
+      "RGU-609580": {
+        "competition": "United Rugby Championship 2026/27, Round 4",
+        "start_utc": "2026-10-24T14:00:00Z",
+        "venue": "DHL Stadium, Cape Town",
+        "source": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "facts": [
+          "DHL Stormers 5th, 11 pts, 3 played, 81 for, 54 against, +27",
+          "Scarlets 13th, 7 pts, 3 played, 68 for, 85 against, -17",
+          "Round 3: Stormers 39-22 Hollywoodbets Sharks; Scarlets 27-26 Benetton"
+        ]
+      },
+      "RGU-609576": {
+        "competition": "United Rugby Championship 2026/27, Round 4",
+        "start_utc": "2026-10-24T11:45:00Z",
+        "venue": "Loftus Versfeld, Pretoria",
+        "source": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "facts": [
+          "Vodacom Bulls 4th, 11 pts, 3 played, 126 for, 54 against, +72",
+          "Ulster 12th, 8 pts, 3 played, 0W 2D 1L, 88 for, 93 against",
+          "Round 3: Bulls 57-15 10bet Lions; Ulster 26-26 Munster"
+        ]
+      },
+      "VOL-27 / VOL-36997 / VOL-28 / VOL-29": {
+        "competition": "SuperLega Credem Banca 2026/27, Giornata 2",
+        "start_utc": "2026-10-25T17:00:00Z",
+        "venue": "Pala Barton Energy (Perugia), Eurosuole Forum (Civitanova), OpiquadArena (Monza)",
+        "source": "https://www.legavolley.it/risultati/?IdCampionato=999",
+        "facts": [
+          "Giornata 1: Cuneo 2-3 Perugia (25-18, 7-25, 15-25, 25-21, 23-25) — Perugia 114 rally points to Cuneo's 95",
+          "Giornata 1: Prata 3-1 Monza (25-22, 19-25, 25-21, 25-23) — Prata 94 to Monza's 91",
+          "Giornata 1: Verona 0-3 Civitanova (20-25, 19-25, 26-28) — Civitanova 78 to Verona's 65",
+          "Giornata 1: Padova 0-3 Piacenza (19-25, 21-25, 16-25) — Padova 56 to Piacenza's 75",
+          "Cross-grid: Perugia v Prata, Civitanova v Padova and Monza v Verona are all fixed for 25 October"
+        ]
+      },
+      "GAF-01 / GFA-3530": {
+        "competition": "Cork Premier Senior Football Championship Final",
+        "start_utc": "2026-10-25T16:00:00Z",
+        "venue": "SuperValu Páirc Uí Chaoimh",
+        "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+        "facts": [
+          "Throw-in 4.00pm, Sunday 25 October; Google Calendar entry 20261025T160000 with ctz=Europe/Dublin",
+          "Nemo Rangers 1-15 to 0-16 v Carrigaline (semi-final), 1-20 to 1-17 v Castlehaven (quarter-final)",
+          "St Finbarrs 2-12 to 0-16 v Clonakilty (semi-final); county board calls the Carbery quarter-final 'convincing'"
+        ]
+      },
+      "BKB-534842 / BKB-534841": {
+        "competition": "NBA 2026/27 regular season",
+        "source": "https://www.nba.com/schedule?date=2026-10-23",
+        "facts": [
+          "New York Knicks @ Boston Celtics, TD Garden, 7:00 PM ET = 23:00 UTC",
+          "Houston Rockets @ San Antonio Spurs, Moody Center Austin, 9:30 PM ET = 01:30 UTC on 24 October",
+          "Records, scoring lines and the OLBG tip split quoted in these two pieces were not re-verified in this pass; the NBA standings page was not re-read."
+        ]
+      }
+    },
+    "source_conflicts": [
+      {
+        "clubs": [
+          "Montréal Canadiens",
+          "Colorado Avalanche",
+          "Edmonton Oilers"
+        ],
+        "detail": "Standings service vs stats service disagree on season goal totals (MTL 30 v 28 goals for, COL 31 v 30 against, EDM 47 v 46 for).",
+        "a": "https://api-web.nhle.com/v1/standings/2026-10-23",
+        "b": "https://api.nhle.com/stats/rest/en/team/summary?cayenneExp=gameTypeId%3D2%20and%20seasonId%3D20262027",
+        "resolution": "No value changed. Each write-up stays quoted from the endpoint it cites; see FL-180."
+      }
+    ],
+    "urc_table_position_check": {
+      "detail": "Six clubs behind this project's rugby picks (Leinster, Munster, Bulls, Stormers, Scarlets, Ulster) have identical points, points-for and points-against in the stored 21 October table and the 23 October table; only their ordinal position moved, because Edinburgh, Cardiff, Connacht and Zebre played Round 4 on 23 October.",
+      "consequence": "The model inputs behind the published rugby probabilities are unchanged, so no price was repriced. The ordinals in the prose were still wrong and were corrected (FL-177)."
+    }
   }
 }

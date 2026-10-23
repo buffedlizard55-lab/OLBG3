@@ -4,6 +4,43 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Five league-table ranks had gone stale, and OLBG's listings stopped rendering — `session-655b300a` (task-54)
+
+Full record: [`docs/audit-655b300a.md`](docs/audit-655b300a.md) · register: **FL-177 … FL-182**
+
+**Every official page behind every live high-confidence pick was re-read at 22:40Z.** Six of the
+eight fixtures came back exactly as published — the Brewers' 103-59 record and 832/618 run line, the
+Rays' 4-2 ALCS comeback, Misiorowski's 1.80 ERA and eleven days off, the Canadiens' and Avalanche's
+full standings lines, all four SuperLega rally-point totals, and both Cork scorelines. The two
+basketball pieces had their fixtures and tip-off times confirmed; their season records were **not**
+re-read, and that gap is written down rather than glossed over.
+
+**What was wrong: five ordinals in four Rugby Union write-ups.** The URC table moved at about 21:00Z
+when the three Friday Round 4 matches finished, and the pieces still said Leinster were tenth (11th),
+Munster ninth (10th), the Stormers fourth (5th), the Scarlets twelfth (13th), the Bulls third (4th)
+and Ulster eleventh (12th). The points, points-for and points-against in the same sentences were all
+still right, and the six clubs behind the picks have byte-identical figures in the old and new
+tables — only their rank moved, because four *other* clubs played. So the prose was corrected, the
+prices were not repriced, and the reason is recorded in `data/official.json`.
+
+**Why no new fixtures were added.** OLBG's public listings now render their tables client-side:
+`/betting-tips`, `/Tennis/3` and `/Ice_Hockey/13` all return *"No tips found"* while the same site's
+event pages render in full. With no readable listing there is no honest way to add a row, so the
+blocker is published as `FL-178` instead of papered over with a fixture that cannot be pointed at.
+The five-a-day target is re-measured at the 22:45Z build clock: **0 of 15 sports, shortfall 63 of
+75, 12 unique live fixtures across 6 sports** (`FL-181`).
+
+**Three further irregularities, disclosed rather than "fixed".** OLBG labels tonight's
+Canadiens–Blackhawks markets *Expired* more than an hour before the NHL's own start (`FL-179`). The
+NHL's two official services disagree on season goal totals — Montréal 30 v 28, Colorado 31 v 30,
+Edmonton 47 v 46 — so the write-ups stay pinned to the endpoint each one cites rather than being
+harmonised into a third version (`FL-180`, and the over-correction lesson of `FL-171`). The retriever
+served the MLB Game 1 preview under the title "undefined" with a different canonical path; the facts
+were corroborated against MLB's own schedule and standings feeds before use (`FL-182`).
+
+**Verification:** 251 tests (20 new), board/site/official-feed/link checks all PASS, 108 pages and
+2,246 local links with **0 broken**, and no value filled in that a source does not print.
+
 ## Evening re-verification pass, and the shortfall that comes with an honest clock — `session-4636f368` (task-53)
 
 Full record: [`docs/audit-4636f368.md`](docs/audit-4636f368.md) · register: **FL-168 … FL-175**
