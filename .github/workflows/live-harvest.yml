@@ -10,6 +10,7 @@ name: Live OLBG listing capture
 
 on:
   push:
+    branches: ['arena/**']
     paths:
       - '.harvest/request.json'
 
