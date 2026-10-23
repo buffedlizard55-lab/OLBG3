@@ -2,6 +2,16 @@
 
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
+
+## ACTIVE CLAIM — `task-46`, session `22dbc477`: live 2026-10-23 re-harvest + build/deploy repair + integration
+
+- **Session ID:** `session-22dbc477` — **Branch:** `arena/22dbc477-olbg3` (Arena-locked, fixed name; only claimed files are edited).
+- **Claimed:** 2026-10-23T16:30Z against `main` `46d87165` (PR #118). Pre-claim check: `gh pr list --state all` shows #118 MERGED, **no open PR**; every earlier session record is `COMPLETED`/`CLOSED`; `origin/main` is not ahead of this branch's base. No sibling claim is live, so this session owns the repository for this task.
+- **Why this task exists (defect found before any data work):** the scheduled workflow on `main` has been **failing since 2026-10-23T00:0xZ** — runs `39902389681`, `39936419745`, `39975101348` all fail at step 16, *"Fail if the committed OLBG track is stale"*, and `deploy` is skipped, so **GitHub Pages has served the 2026-10-22T22:10Z snapshot for ~18 h**. Cause: `scripts/board_dates.build_date()` uses real UTC today for the date-level start gate while the newest committed OLBG harvest is still `2026-10-22T2130Z`; every rebuild therefore re-derives `kickoff_passed=true`, downgrades 5 Ice Hockey `HIGH` rows to analysis and rewrites `/olbg/`, so the committed tree can never match its own scripts again. A rebuild of the committed tree in this sandbox reproduces the drift with **0** source changes (14 files, `data/lines.json`, `data/predictions-olbg.json`, `olbg-board/*`).
+- **Task:** (1) re-harvest all 15 in-scope OLBG sports live for **2026-10-23** using GitHub Actions runners as the network route (this sandbox has no outbound route to olbg.com — the documented `FL-077` allowlist), (2) re-verify official fixtures/clocks for the rows that can be certified, (3) regenerate every output so the committed tree matches its scripts, (4) integrate, merge and confirm the Pages deploy.
+- **File scope:** `COORDINATION.md`, `README.md`, `docs/**`, `data/**`, `scripts/**`, `tools/**`, `tests/**`, `assets/**`, root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**`, `.github/workflows/**`.
+- **Status:** in progress.
+
 ## Session Information
 
 ### COMPLETED — `session-4b642f84` (parallel evening harvest re-applied through two `main` advances: 21:30Z capture chained newest, 30 new root fixtures, 22:10Z official re-observations, 5 new pieces, FL-129/FL-130, 2026-10-22T20:58Z–23:45Z)
