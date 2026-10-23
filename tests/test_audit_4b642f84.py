@@ -66,8 +66,13 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
             self.assertEqual(self.rc[eid]["kind"], "exact", eid)
             self.assertEqual(self.rc[eid]["checked_at"], "2026-10-22T22:10:00Z", eid)
             self.assertEqual(self.rc[eid]["source"], "https://api-web.nhle.com/v1/schedule/2026-10-22", eid)
-        # MLB World Series Game 1 re-read on mlb.com
-        self.assertEqual(self.rc["160789"]["checked_at"], "2026-10-22T22:10:00Z")
+        # MLB World Series Game 1 re-read on mlb.com on 22 Oct, then re-observed on the MLB schedule
+        # service at 2026-10-23T16:45Z, which states the UTC start directly.
+        self.assertEqual(self.rc["160789"]["checked_at"], "2026-10-23T16:45:00Z")
+        self.assertEqual(self.rc["160789"]["date"], "2026-10-24")
+        self.assertEqual(self.rc["160789"]["time"], "00:00")
+        self.assertEqual(self.rc["160789"]["timezone"], "UTC")
+        self.assertTrue(self.rc["160789"]["source"].startswith("https://statsapi.mlb.com/"))
         # SuperLega UTC clocks re-read on VolleyballWorld
         for eid in ("36997", "36995", "36996"):
             self.assertEqual(self.rc[eid]["checked_at"], "2026-10-22T22:10:00Z", eid)

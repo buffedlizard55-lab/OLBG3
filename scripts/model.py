@@ -135,6 +135,12 @@ ALIASES = {
     "WPG Jets": "Winnipeg Jets",
     "DAL Stars": "Dallas Stars",
     "SJ Sharks": "San Jose Sharks",
+    # NHL clubs from the 2026-10-23 capture (OLBG abbreviation -> NHL full name)
+    "MTL Canadiens": "Montreal Canadiens",
+    "CHI Blackhawks": "Chicago Blackhawks",
+    "TB Lightning": "Tampa Bay Lightning",
+    "TBL Lightning": "Tampa Bay Lightning",
+    "COL Avalanche": "Colorado Avalanche",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -771,7 +777,11 @@ picks = apply_board(picks, now=snapshot_utc())
 sync_predictions(Path(ROOT) / 'data/predictions.json', {r['ref']: r for r in picks},
                  'ref', lambda r: r['pick']['confidence'].lower())
 
-json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
+# "generated" is the newest listing-reading date actually present on the board: rows captured on
+# different days are resolved against their own reading date (the per-row "captured" field), so a
+# single global date would understate the board's freshness once a later capture is appended.
+_newest_capture = max((p.get("captured_at") or CAPTURE_DATE.isoformat()) for p in picks)
+json.dump({"generated": _newest_capture, "built": AS_OF.isoformat(),
            "publication_clock": snapshot_utc().isoformat(),
            "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)

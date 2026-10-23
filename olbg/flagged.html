@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">129 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">136 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -880,49 +880,98 @@
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
 </article>
 <article class="card flag" id="FL-131">
-  <div class="flag-head"><span class="tag">FL-131</span> <span class="sev sev-high">high</span></div>
+  <div class="flag-head"><span class="tag">FL-131</span> <span class="sev sev-freshness">freshness</span></div>
+  <h2>2026-10-23 clock: 22-Oct HIGH picks expired; no new 23-Oct OLBG harvest verified this session</h2>
+  <p>Session-c4cde934, 2026-10-23. Evidence: pre-rebuild `python3 tools/check_site.py` FAILED listing the five expired ICH ids above; post-rebuild it passes with high=17, all dated 2026-10-23 or later in data/lines.json. Remaining /olbg/ HIGH by sport: Basketball 5, Rugby Union 5, Baseball 1, Cricket 1, Darts 1, Gaelic Football 1, Golf 1, Motor Racing 1, Volleyball 1; Tennis, Snooker, Handball, Rugby League, Greyhounds and Ice Hockey have 0 current /olbg/ HIGH. Root-track measurement is an audit measurement only (OLBG_NOW_UTC override), not a committed root rebuild, because the committed root build is byte-reproducible against its stored observation clock by design (see FL-067/FL-099 history). OLBG&#x27;s own all-sports page was re-read this session and still rendered the 22-Oct slate labelled &#x27;Today&#x27;, which is itself inconsistent with the 2026-10-23 calendar clock; no fixture was re-dated from that label.</p>
+  <p class="muted small">Affected rows: ICH-199931, ICH-199932, ICH-199933, ICH-199940, ICH-199941</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG - all-sports betting tips (re-read 2026-10-23; labels not re-dated from)</a></li><li><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13" rel="noopener nofollow" target="_blank">OLBG - Ice Hockey tips</a></li></ul>
+</article>
+<article class="card flag" id="FL-132">
+  <div class="flag-head"><span class="tag">FL-132</span> <span class="sev sev-coverage">coverage</span></div>
+  <h2>Golf listing carried no live market at the 2026-10-23 capture</h2>
+  <p>The rows already on the board (GLF-101904 Bermuda Championship, GLF-101905 Genesis Championship and the other outright/race rows in data/gap_sports.json) are the 21-22 October capture and are carried as dated analysis. Re-reading the listing later in the day is the only way to add today&#x27;s golf markets; nothing was inferred from the tournament names.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-133">
+  <div class="flag-head"><span class="tag">FL-133</span> <span class="sev sev-coverage">coverage</span></div>
+  <h2>Rugby League listing again carries only 2027 outrights, no two-sided fixture</h2>
+  <p>This repeats the finding first recorded in FL-102 and is restated with today&#x27;s read so the shortfall accounting is dated rather than assumed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Rugby_League/10" rel="noopener nofollow" target="_blank">OLBG Rugby League listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-134">
+  <div class="flag-head"><span class="tag">FL-134</span> <span class="sev sev-source-conflict">source-conflict</span></div>
+  <h2>Greyhound race-card time and OLBG listing clock differ by about five hours</h2>
+  <p>It is not established which clock, if either, is local track time, so no start can be certified and no greyhound race is boarded as a pick. The two Romford rows (event ids 689846 and 689717) are recorded in data/raw/olbg-harvest-20261023T1620Z.json under a sport that is priced on the outright/race track.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG Greyhounds listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-135">
+  <div class="flag-head"><span class="tag">FL-135</span> <span class="sev sev-unverified">unverified</span></div>
+  <h2>49 fixtures captured on 2026-10-23 publish unverified (no official source read in this pass)</h2>
+  <p>Affected refs are pinned in tests/test_audit_d3464fe4.py (CAPTURE_20261023_UNVERIFIED) so the list cannot grow without a test change. Blank fields are intentional: no date, time, venue or competition was inferred from the team names. Rows that already existed on the board were not re-added, and no row was overwritten.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
+</article>
+<article class="card flag" id="FL-136">
+  <div class="flag-head"><span class="tag">FL-136</span> <span class="sev sev-model-input">model-input</span></div>
+  <h2>NBA games cannot be graded HIGH: no official NBA form table is in the model inputs</h2>
+  <p>The brief asks for five high-confidence picks per sport per day. For Basketball that is only reachable through EuroLeague/domestic-league rows whose official tables are already in the dataset; the NBA portion of OLBG&#x27;s basketball listing is published as analysis. Adding an NBA standings input is a separate, reviewable change (the NBA&#x27;s own site is a JS application, so the value would have to come from a documented JSON endpoint).</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Basketball/4" rel="noopener nofollow" target="_blank">OLBG Basketball listing</a></li><li><a href="https://www.euroleaguebasketball.net/en/euroleague/standings/" rel="noopener nofollow" target="_blank">EuroLeague official standings</a></li></ul>
+</article>
+<article class="card flag" id="FL-137">
+  <div class="flag-head"><span class="tag">FL-137</span> <span class="sev sev-editorial">editorial</span></div>
+  <h2>Published prediction prose still contains the words &#x27;model&#x27; and &#x27;verified&#x27;</h2>
+  <p>The wording is left in place rather than mass-rewritten in a data-only pass, because rewriting 78 hand-written pieces risks changing their meaning or their quoted prices. It is published here so the owner can decide whether to commission an editorial rewrite. No price, selection, source or grade is affected.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
+</article>
+<article class="card flag" id="FL-138">
+  <div class="flag-head"><span class="tag">FL-138</span> <span class="sev sev-high">high</span></div>
   <h2>The scheduled build failed every hour from 2026-10-23T00:00Z and Pages stopped deploying</h2>
   <p>build_date() now follows the committed publication clock (the newest source observation) instead of the wall clock, so a rebuild is byte-reproducible; freshness is enforced by the 24-hour release gate, by the new stale-snapshot banner when the capture is 30+ hours old, and by the browser re-check in assets/release.js. Pinned by tests/test_freshness.py.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39975101348" rel="noopener nofollow" target="_blank">GitHub Actions — scheduled build failure that skipped deploy</a></li></ul>
 </article>
-<article class="card flag" id="FL-132">
-  <div class="flag-head"><span class="tag">FL-132</span> <span class="sev sev-medium">medium</span></div>
+<article class="card flag" id="FL-139">
+  <div class="flag-head"><span class="tag">FL-139</span> <span class="sev sev-medium">medium</span></div>
   <h2>A robots.txt substring rule silently denied every OLBG listing to this project&#x27;s crawler</h2>
   <p>The collector now uses the token OLBG3Audit and records, per URL, which robots.txt group governed the decision (robots_matched_agent / robots_allowance). The same path is allowed for the wildcard group. No request is made for a URL the governing group disallows.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/robots.txt" rel="noopener nofollow" target="_blank">OLBG robots.txt (served copy, sha256 ff0fd5ec…)</a></li></ul>
 </article>
-<article class="card flag" id="FL-133">
-  <div class="flag-head"><span class="tag">FL-133</span> <span class="sev sev-unverified">unverified</span></div>
+<article class="card flag" id="FL-140">
+  <div class="flag-head"><span class="tag">FL-140</span> <span class="sev sev-unverified">unverified</span></div>
   <h2>15 of 17 ice-hockey fixtures are European club games with no official source read</h2>
   <p>Published unverified with the reason on each row; no clock or competition name was inferred.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-23" rel="noopener nofollow" target="_blank">NHL official schedule payload, 2026-10-23</a></li></ul>
 </article>
-<article class="card flag" id="FL-134">
-  <div class="flag-head"><span class="tag">FL-134</span> <span class="sev sev-unverified">unverified</span></div>
+<article class="card flag" id="FL-141">
+  <div class="flag-head"><span class="tag">FL-141</span> <span class="sev sev-unverified">unverified</span></div>
   <h2>Golf/5 returned &quot;No tips found.&quot; on 2026-10-23, so the sport has no row in this build</h2>
   <p>Golf reports zero rows in the coverage table rather than inheriting 22 October rows.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing — returned &quot;No tips found.&quot;</a></li></ul>
 </article>
-<article class="card flag" id="FL-135">
-  <div class="flag-head"><span class="tag">FL-135</span> <span class="sev sev-medium">medium</span></div>
+<article class="card flag" id="FL-142">
+  <div class="flag-head"><span class="tag">FL-142</span> <span class="sev sev-medium">medium</span></div>
   <h2>NBA and EuroLeague official endpoints refused this project&#x27;s probes</h2>
   <p>Rows published as analysis with the reason recorded; nothing upgraded. The 22 October observations are retained in release_checks.json and expire on their own.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.nba.com/schedule" rel="noopener nofollow" target="_blank">NBA official schedule page — HTTP 403 at probe</a></li></ul>
 </article>
-<article class="card flag" id="FL-136">
-  <div class="flag-head"><span class="tag">FL-136</span> <span class="sev sev-low">low</span></div>
+<article class="card flag" id="FL-143">
+  <div class="flag-head"><span class="tag">FL-143</span> <span class="sev sev-low">low</span></div>
   <h2>Two written pieces quoted prices from the previous capture after a re-price</h2>
   <p>The price inside each piece was updated to the current row and recorded in a price_revised field naming the old value, the new value and the reason. No analytical claim was added or removed, and both pieces remain labelled analysis.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG Tennis/Handball listings, 2026-10-23T16:21Z capture</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing, 2026-10-23T16:21Z capture</a></li></ul>
 </article>
-<article class="card flag" id="FL-137">
-  <div class="flag-head"><span class="tag">FL-137</span> <span class="sev sev-low">low</span></div>
+<article class="card flag" id="FL-144">
+  <div class="flag-head"><span class="tag">FL-144</span> <span class="sev sev-low">low</span></div>
   <h2>Twenty-five dated snapshot tests are skipped while the 2026-10-22 archives remain untouched</h2>
   <p>They are not deleted and not weakened: each class carries tests/archive_guard.pins(&#x27;&lt;harvest&gt;.tsv&#x27;), which runs the class when that file is the live harvest and skips it with a message naming the reason otherwise. tests/test_live_20261023.ArchiveIntegrity asserts every dated capture is still present with its row count, that the live capture is the newest, and that no archive is reused as the primary harvest.</p>
   <p class="muted small">Affected rows: —</p>
@@ -932,7 +981,7 @@
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T16:28:04+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T16:45:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

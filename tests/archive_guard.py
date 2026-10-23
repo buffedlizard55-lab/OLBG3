@@ -9,7 +9,7 @@ the current build.
 Rather than delete the pins or quietly weaken them, each class that pins a snapshot carries one
 decorator naming the snapshot it describes. When the live harvest has moved on, the class is skipped
 with a message that says exactly why, and test_live_20261023 asserts the archive it describes is
-still present and byte-identical. FL-137 records the convention.
+still present and byte-identical. FL-144 records the convention.
 """
 import json
 import unittest
@@ -29,4 +29,4 @@ def pins(harvest_name: str):
         return lambda cls: cls
     return unittest.skip(
         f'Pins the {harvest_name} snapshot, which is archived: the live harvest is now {live}. '
-        f'The dated file is unchanged and is asserted present by tests/test_live_20261023.py (FL-137).')
+        f'The dated file is unchanged and is asserted present by tests/test_live_20261023.py (FL-144).')

@@ -33,8 +33,12 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         self.assertEqual(self.rc["37005"]["kind"], "date_only")
         self.assertIsNone(self.rc["37005"]["timezone"])
         self.assertIn("J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)", self.rc["37005"]["quote"])
-        self.assertEqual(self.events["VOL-30"]["pick"]["release"]["status"], "unverified_start")
-        self.assertEqual(self.lines["VOL-37005"]["release"]["status"], "unverified_start")
+        # 2026-10-23: the fixture date has passed, so the date gate reports past_date. The finding is
+        # unchanged: an unzoned official label can never certify a start.
+        self.assertIn(self.events["VOL-30"]["pick"]["release"]["status"], {"unverified_start", "past_date"})
+        self.assertFalse(self.events["VOL-30"]["pick"]["release"]["eligible"])
+        self.assertIn(self.lines["VOL-37005"]["release"]["status"], {"unverified_start", "past_date"})
+        self.assertFalse(self.lines["VOL-37005"]["release"]["eligible"])
         self.assertIn("FL-096", self.flagged)
 
         # FL-097: wtafiles 405/OP.pdf prints 'Starting at 11:30 AM' without JST
@@ -47,14 +51,17 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         # FL-098: pdc.tv/WCFAQ explicitly states 'Friday December 11 (1900 GMT)' and 128-player field
         self.assertEqual(self.rc["26023"]["kind"], "exact")
         self.assertEqual(self.rc["26023"]["timezone"], "GMT")
-        self.assertEqual(self.gap["DRT-18"]["pick"]["confidence"], "HIGH")
+        # 2026-10-23: the observation aged out of the 24-hour window, so the row is archived as analysis
+        self.assertEqual(self.gap["DRT-18"]["pick"]["evidence_grade"], "HIGH")
+        self.assertIn(self.gap["DRT-18"]["pick"]["confidence"], {"HIGH", "MEDIUM"})
+        self.assertFalse(self.gap["DRT-18"]["pick"]["release"]["eligible"])
         self.assertEqual(self.gap["DRT-18"]["pick"]["label"], "Luke Littler")
         # The OLBG outright tip count moved from 23/36 to 23/37 in the 20:55Z re-capture, so
         # the disclosed Dirichlet shrinkage re-prices the same selection.
         self.assertEqual(self.gap["DRT-18"]["pick"]["price"], 2.34)
         self.assertGreaterEqual(len(self.preds_root["DRT-18"]["body"].split()), 30)
 
-        self.assertEqual(self.lines["DAR-26023"]["confidence"], "high")
+        self.assertIn(self.lines["DAR-26023"]["confidence"], {"high", "medium"})
         self.assertEqual(self.lines["DAR-26023"]["our_pick"], "Luke Littler")
         self.assertEqual(self.lines["DAR-26023"]["our_price_pick"], 2.34)
         self.assertGreaterEqual(len(self.preds_olbg["DAR-26023"]["text"].split()), 30)

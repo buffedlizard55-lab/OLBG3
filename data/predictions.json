@@ -1,5 +1,5 @@
 {
-  "note": "4 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "5 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -1501,6 +1501,23 @@
       ],
       "status": "analysis",
       "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
+    },
+    {
+      "ref": "IHO-199984",
+      "selection": "Montreal Canadiens to win at 1.55 (-182)",
+      "headline": "Montreal carry the better nine-game profile into the United Center",
+      "body": "Montreal Canadiens to win is the money-line call at 1.55 (-182). The Canadiens are 4-3-2 for 10 points after nine games, with 30 goals scored and 34 conceded, and they took a point from their most recent outing. Chicago are 3-6-0 on 6 points, having scored 21 and allowed 36, and their 3-2-0 home record is the only part of that line that worries the pick. The NHL schedule puts the puck drop at the United Center at 00:00 UTC on 24 October. Montreal's road record is 1-1-1, so the case rests on the wider scoring gap (minus 4 against minus 15) rather than on venue. Back Montreal to win.",
+      "sources": [
+        {
+          "label": "NHL official schedule, 23 October 2026 (game 2026020166)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
+        },
+        {
+          "label": "NHL official standings, 22 October 2026",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
+        }
+      ],
+      "status": "high"
     }
   ]
 }

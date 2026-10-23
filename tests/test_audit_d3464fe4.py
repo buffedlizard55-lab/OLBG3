@@ -164,9 +164,60 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
             "IHO-26", "IHO-27", "IHO-28", "IHO-29", "RGU-17", "RGU-18",
             "VOL-31", "VOL-32", "VOL-33", "VOL-34", "VOL-35",
         }
+        CAPTURE_20261023_UNVERIFIED = {
+            "BKB-536031",
+            "BKB-536034",
+            "BKB-536035",
+            "BKB-536036",
+            "BKB-536037",
+            "BKB-536038",
+            "BKB-536040",
+            "BKB-536042",
+            "BKB-536043",
+            "CRK-188838",
+            "CRK-188839",
+            "CRK-188840",
+            "CRK-188841",
+            "CRK-188842",
+            "CRK-188843",
+            "DRT-32383",
+            "DRT-32384",
+            "DRT-32385",
+            "DRT-32386",
+            "HBL-12120",
+            "HBL-12121",
+            "IHO-199908",
+            "IHO-199924",
+            "IHO-199925",
+            "IHO-199926",
+            "IHO-199927",
+            "IHO-199928",
+            "IHO-199930",
+            "IHO-199955",
+            "IHO-199965",
+            "RGU-609570",
+            "RGU-609575",
+            "RGU-609582",
+            "SNK-9950",
+            "SNK-9951",
+            "TEN-902147",
+            "TEN-902150",
+            "TEN-902153",
+            "TEN-902155",
+            "TEN-902157",
+            "TEN-902159",
+            "TEN-902160",
+            "TEN-902162",
+            "TEN-902163",
+            "VOL-37009",
+            "VOL-37022",
+            "VOL-37025",
+            "VOL-37026",
+            "VOL-37031",
+        }
         self.assertGreaterEqual(len(self.events), 201)
         for ev in self.events:
-            if ev["ref"] in EVENING_UNVERIFIED:
+            if ev["ref"] in EVENING_UNVERIFIED or ev["ref"] in CAPTURE_20261023_UNVERIFIED:
                 self.assertEqual(ev["verification"]["status"], "unverified", ev["ref"])
                 continue
             self.assertEqual(ev["verification"]["status"], "verified", ev["ref"])
@@ -242,7 +293,10 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
                          "HIGH" if by_ev["IHO-10"]["pick"]["release"]["eligible"] else "MEDIUM")
         self.assertEqual(by_ev["IHO-10"]["pick"]["label"], "Brynas IF")
         self.assertEqual(by_ev["IHO-14"]["pick"]["label"], "NY Rangers")
-        self.assertEqual(by_ev["GAF-01"]["pick"]["confidence"], "HIGH")
+        # 2026-10-23: the observation aged out of the 24-hour window, so the row is archived as
+        # analysis with its evidence grade intact (COORDINATION.md, task-47).
+        self.assertEqual(by_ev["GAF-01"]["pick"]["evidence_grade"], "HIGH")
+        self.assertIn(by_ev["GAF-01"]["pick"]["confidence"], {"HIGH", "MEDIUM"})
         for r in self.events:
             if r["olbg_market"] in NON_WINNER_MARKETS:
                 self.assertNotEqual(r["model"]["basis"], "consensus", r["ref"])

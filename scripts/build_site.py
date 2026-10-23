@@ -555,7 +555,7 @@ index = head("Dashboard") + f"""
   <p class="hero-actions"><a class="button" href="#research-board">Explore the board ↓</a>
   <a class="button secondary" href="predictions.html">Read the sourced predictions</a>
   <a class="button secondary" href="discovery.html">Latest public discovery →</a></p>
-  <p class="stamp">Build {CLOCK} · OLBG captures span 21–22 October 2026 · <a href="source-health.html">Check source age</a></p>
+  <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
 </section>
 
 <div class="notice clock-notice">

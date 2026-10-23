@@ -77,5 +77,25 @@
   "previous_harvests_extra": [],
   "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893)",
   "supplementary_harvests": [],
-  "archive_note": "This build publishes ONLY the 2026-10-23T16:21Z capture (177 rows, 14 sports). The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick."
+  "root_capture_20261023": {
+    "capture": "2026-10-23T16:20Z",
+    "file": "raw/olbg-harvest-20261023T1620Z.json",
+    "format": "v3-json (rows verbatim; every label copied, no clock converted)",
+    "session": "session-be917e0f",
+    "rows_captured": 107,
+    "appended_to_board": 50,
+    "already_on_board": 55,
+    "non_board_track": 2,
+    "excluded_sport_rows": 0,
+    "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
+    "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
+  },
+  "archive_note": "This build publishes ONLY the 2026-10-23T16:21Z capture (177 rows, 14 sports). The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick.",
+  "parallel_session_notes": [
+    {
+      "session": "be917e0f",
+      "what": "Independently captured 2026-10-23 listings into data/raw/olbg-harvest-20261023T1620Z.json and published FL-131..FL-137 of its own. That capture is retained unchanged in data/raw; this build uses the later, larger 16:21Z capture (177 rows, format v3) from data/raw/live-20261023T1700Z.",
+      "kept": "the file, its register items and every page it produced; nothing of it was deleted or reworded"
+    }
+  ]
 }

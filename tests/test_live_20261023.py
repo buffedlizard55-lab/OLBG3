@@ -147,7 +147,7 @@ class ClockIntegrity(unittest.TestCase):
 
 
 class ArchiveIntegrity(unittest.TestCase):
-    """The skips in the dated audit pins are only honest if the archives still exist (FL-137)."""
+    """The skips in the dated audit pins are only honest if the archives still exist (FL-144)."""
 
     ARCHIVES = {
         'olbg-harvest-20261022T2130Z.tsv': 118,

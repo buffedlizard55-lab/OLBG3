@@ -16,7 +16,7 @@ re-derived `kickoff_passed`, downgraded five Ice Hockey rows, rewrote `data/line
 `data/predictions-olbg.json` and the `/olbg/` pages, and the committed tree could never match its own
 scripts. 14 files drifted on a clean checkout.
 
-That is FL-131. The fix is in §4. The rest of this pass is the work the brief actually asks for: a
+That is FL-138. The fix is in §4. The rest of this pass is the work the brief actually asks for: a
 **live capture for 2026-10-23** across the 15 in-scope sports, verification against official sources,
 and predictions only where the evidence supports them.
 
@@ -43,7 +43,7 @@ The workflow triggers on a push that changes `.harvest/request.json` (this token
 
 Run [`39985922565`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39985922565):
 **18/18 listings captured**, 6.1 MB, 16:21Z. `Golf/5` returned HTTP 200 with **zero** tip cards and the
-page's own "No tips found." (FL-134); Snooker returned 2 rows, Greyhounds 34.
+page's own "No tips found." (FL-141); Snooker returned 2 rows, Greyhounds 34.
 
 * **177 rows across 14 sports**, 186 cards before de-duplication across the sub-league endpoints.
 * Every row carries `<time itemprop="startDate" datetime="…Z">` — **OLBG's own machine-readable UTC
@@ -71,8 +71,8 @@ within 90 minutes. Result — **3 of 17** ice-hockey/baseball fixtures:
 data service, it states `gameDate` as an explicit UTC instant, and without it the World Series row was
 stuck at `unverified_start` while its clock was demonstrably quoted from MLB. No other host was added.
 
-**Deliberately not verified:** the other 15 ice-hockey fixtures (European club leagues, FL-133); NBA and
-EuroLeague (HTTP 403 / 429, FL-135); every other sport, because the governing bodies publish fixture
+**Deliberately not verified:** the other 15 ice-hockey fixtures (European club leagues, FL-140); NBA and
+EuroLeague (HTTP 403 / 429, FL-142); every other sport, because the governing bodies publish fixture
 lists on JavaScript-rendered pages that the text probe cannot read. Those rows keep a blank official
 start, stay `unverified`, and cannot grade HIGH.
 
@@ -92,7 +92,7 @@ It produced **4 candidates and all four were wrong on inspection**:
 Nothing was applied. The 24-hour expiry is therefore doing its job: those rows stay analysis. Recorded
 here rather than quietly relaxing the gate.
 
-## 4. The build-reproducibility repair (FL-131)
+## 4. The build-reproducibility repair (FL-138)
 
 `board_dates.build_date()` now returns the **publication clock's date** (the newest committed source
 observation) instead of the wall clock. Reproducibility is restored; freshness is enforced by three
@@ -110,13 +110,13 @@ mechanisms that do not pretend data is new:
 
 | | Value |
 |---|---|
-| Live rows | **177** across **14** sports (Golf 0 — FL-134) |
+| Live rows | **177** across **14** sports (Golf 0 — FL-141) |
 | Fixtures with our own money line | 177 |
 | Handicap / total lines | see `picks.html` per row |
 | Competition verified from an official source | 3 fixtures + the rows whose 22 Oct official evidence is still inside 24 h |
 | **Current HIGH picks** | **5** — Rugby Union 3 (Edinburgh 1.42/-238, Connacht 1.44/-227, Bulls 1.53/-189), Volleyball 1 (Perugia 1.58/-158), Baseball 1 (Milwaukee Brewers 1.62/-161) |
 | Written pieces | 31, every one ≥30 words and sourced |
-| Review register | 128 items (FL-131…FL-136 added this pass) |
+| Review register | 128 items (FL-138…FL-143 added this pass) |
 
 Five HIGH picks is short of the brief's five **per sport**. That is a source-availability limit, not a
 modelling choice: a HIGH grade needs an official fixture **and** an official current-form input, and
@@ -127,7 +127,7 @@ falls short prints its own mechanical reason in the dashboard's coverage table a
 ## 6. Checks run on this commit
 
 ```
-130 unit tests OK (25 skipped: dated 2026-10-22 snapshot pins, see FL-137)
+130 unit tests OK (25 skipped: dated 2026-10-22 snapshot pins, see FL-144)
 scripts/check_board.py     PASS  (295 root rows, 78 pieces, brief-coverage recomputes)
 tools/check_site.py        PASS  (177 fixtures, 128 register items, no dup write-ups)
 scripts/check.py           PASS  (40 feed rows)
@@ -137,7 +137,7 @@ full documented rebuild twice -> git status --porcelain empty (byte-identical)
 
 ## 7. Irregularities published for review
 
-FL-131 failed hourly build / frozen Pages · FL-132 the robots.txt `es` substring trap · FL-133 15
-unverifiable European hockey fixtures · FL-134 Golf "No tips found." · FL-135 NBA/EuroLeague API
-refusals · FL-136 two pieces re-priced after a tip-split move · FL-137 the archived-snapshot test
+FL-138 failed hourly build / frozen Pages · FL-139 the robots.txt `es` substring trap · FL-140 15
+unverifiable European hockey fixtures · FL-141 Golf "No tips found." · FL-142 NBA/EuroLeague API
+refusals · FL-143 two pieces re-priced after a tip-split move · FL-144 the archived-snapshot test
 convention. Each carries its source links on `flagged.html`.

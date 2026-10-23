@@ -1,7 +1,7 @@
 {
  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label.",
  "session": "session-22dbc477 (live 2026-10-23 probe)",
- "checked_at": "2026-10-23T16:28:04Z",
+ "checked_at": "2026-10-23T16:45:00Z",
  "events": {
   "160789": {
    "date": "2026-10-24",
@@ -1062,5 +1062,6 @@
    "checked_at": "2026-10-23T16:28:04Z"
   }
  },
- "policy_20261023": "Exact UTC starts read directly from the league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state the start in UTC, so no zone is inferred."
+ "policy_20261023": "Exact UTC starts read directly from the league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state the start in UTC, so no zone is inferred.",
+ "parallel_merge_note": "session-be917e0f's 2026-10-23 observations were merged in without alteration; where both sessions observed the same event the later checked_at wins."
 }
