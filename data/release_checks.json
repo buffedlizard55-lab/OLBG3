@@ -1,7 +1,7 @@
 {
  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label. Daily refresh 2026-10-23T16:55Z-17:22Z (session-beb7787b): clocks re-observed on the competition's own pages (URC, NBA.com, MLB.com, EuroLeague news article with CEST clocks, LNR Top 14 (date-only: no zone printed), NHL API, WTA order-of-play PDFs (date-only / not-before: no zone printed), Cork GAA); pages that render clocks in the reader's zone without a label (WST matches, EuroLeague game-center, PREM Rugby) are recorded date-only; prior Pro D2 entries that labelled an unlabelled LNR clock as CET are held.",
  "session": "session-22dbc477 (live 2026-10-23 probe)",
- "checked_at": "2026-10-23T17:22:00Z",
+ "checked_at": "2026-10-23T20:45:00Z",
  "events": {
   "160789": {
    "date": "2026-10-24",
@@ -199,18 +199,20 @@
    "time": "17:00",
    "timezone": "UTC",
    "kind": "exact",
-   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
-   "quote": "Cucine Lube Civitanova vs Pallavolo Padova \u2014 Sunday 25 Oct, 2026 \u2014 17:00 (UTC), 18:00 (Local Time) \u2014 Men #10 (listed on the SuperLega schedule page 30002 Upcoming Matches)",
-   "checked_at": "2026-10-22T22:10:00Z"
+   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+   "quote": "Cucine Lube Civitanova vs Pallavolo Padova - SuperLega 2026/27, Round Robin - Preliminary Phase - Men #10 - Sunday 25 Oct 2026: 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time), Civitanova Marche, Italy.",
+   "checked_at": "2026-10-23T20:45:00Z",
+   "note": "Re-observed 2026-10-23T20:45Z on the SuperLega schedule page, which prints the same fixture in three zones (17:00 UTC / 13:00 GMT-04:00 / 18:00 local). The UTC value is quoted by the source, not converted here; the earlier observation at 22:10Z on 22 Oct is superseded by this read."
   },
   "36996": {
    "date": "2026-10-25",
    "time": "17:00",
    "timezone": "UTC",
    "kind": "exact",
-   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
-   "quote": "Vero Volley Monza vs Rana Verona \u2014 Sunday 25 Oct, 2026 \u2014 17:00 (UTC), 18:00 (Local Time) \u2014 Men #12 (listed on the SuperLega schedule page 30002 Upcoming Matches)",
-   "checked_at": "2026-10-22T22:10:00Z"
+   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+   "quote": "Vero Volley Monza vs Rana Verona - SuperLega 2026/27, Round Robin - Preliminary Phase - Men #12 - Sunday 25 Oct 2026: 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time), Monza, Italy.",
+   "checked_at": "2026-10-23T20:45:00Z",
+   "note": "Re-observed 2026-10-23T20:45Z on the SuperLega schedule page, which prints the same fixture in three zones (17:00 UTC / 13:00 GMT-04:00 / 18:00 local). The UTC value is quoted by the source, not converted here; the earlier observation at 22:10Z on 22 Oct is superseded by this read."
   },
   "36997": {
    "date": "2026-10-25",
@@ -218,8 +220,9 @@
    "timezone": "UTC",
    "kind": "exact",
    "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
-   "quote": "Sir Susa Scai Perugia-Tinet Prata di Pordenone Men Superlega 2026/27 25.10.2026 \u2014 Upcoming \u2014 Sun, 25 Oct 2026 \u2014 17:00 (UTC), 18:00 (Local Time)",
-   "checked_at": "2026-10-22T22:10:00Z"
+   "quote": "Sir Susa Scai Perugia-Tinet Prata di Pordenone - SuperLega 2026/27, Round Robin - Preliminary Phase - Men #7 - Sunday 25 Oct 2026: 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time), Perugia, Italy.",
+   "checked_at": "2026-10-23T20:45:00Z",
+   "note": "Re-observed 2026-10-23T20:45Z on the SuperLega schedule page, which prints the same fixture in three zones (17:00 UTC / 13:00 GMT-04:00 / 18:00 local). The UTC value is quoted by the source, not converted here; the earlier observation at 22:10Z on 22 Oct is superseded by this read."
   },
   "188831": {
    "date": "2026-10-23",
@@ -323,7 +326,7 @@
    "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
    "quote": "Leinster v Munster, TBC, Dublin, KO 18.00 IRE & UK / 19.00 ITA & SA",
    "checked_at": "2026-10-23T17:02:00Z",
-   "note": "Re-observed 23 Oct 17:02Z; agrees with Leinster Rugby fixtures page (6pm Irish time, Aviva Stadium) read 22 Oct. 18:00 Irish time = 17:00 UTC."
+   "note": "Re-observed 23 Oct 17:02Z; agrees with Leinster Rugby fixtures page (6pm Irish time, Aviva Stadium) read 22 Oct. 18:00 Irish time = 17:00 UTC. Corroborated 2026-10-23T20:30Z: the URC Match Centre Round 4 list renders Leinster v Munster at 13:00, which is the reader-zone (GMT-04:00) rendering of the 18:00 Irish time quoted here, and matches the same page's other Round 4 kick-offs. The Match Centre's own header states only 'All times shown are Local', so it is used as corroboration and not as the certifying source."
   },
   "3530": {
    "date": "2026-10-25",

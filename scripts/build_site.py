@@ -721,9 +721,31 @@ open(os.path.join(OUT, "predictions.html"), "w").write(predpage)
 
 # ---------- automated public OLBG discovery ----------
 from discovery import OFFICIAL_REFERENCES
-_discovery_path = os.path.join(ROOT, 'data/discovery.json')
-_discovery = json.load(open(_discovery_path)) if os.path.exists(_discovery_path) else {
-    'attempted_at': None, 'events': [], 'sources': [], 'robots': {'state':'not attempted'}}
+
+
+def load_discovery(root):
+    """The published discovery payload, reproducible from the committed tree.
+
+    ``data/discovery.json`` is a gitignored runtime artifact written only by
+    ``scripts/discovery.py`` (which needs a network route this build does not have). The
+    published page artifact ``discovery.json`` in the repo root *is* committed. A clean
+    checkout used to fall through to an empty scaffold here, so the next
+    ``build_site.py --snapshot`` copied that scaffold over the real published payload: a
+    rebuild without a discovery run silently replaced 15 sourced rows with "not attempted".
+    Prefer the fresh runtime capture, then the last committed payload, and only then an
+    explicitly empty document.
+    """
+    for candidate in (os.path.join(root, 'data', 'discovery.json'),
+                      os.path.join(root, 'discovery.json')):
+        if os.path.exists(candidate):
+            with open(candidate) as handle:
+                payload = json.load(handle)
+            if isinstance(payload, dict):
+                return payload
+    return {'attempted_at': None, 'events': [], 'sources': [], 'robots': {'state': 'not attempted'}}
+
+
+_discovery = load_discovery(ROOT)
 _discovery_rows = ''.join(
     f'<tr data-sport="{e(r["sport"])}"><td>{e(r["sport"])}</td><td><a href="{e(r["olbg_url"])}">{e(r["title"])}</a></td>'
     f'<td>{e(r["observed_at"])}</td><td></td><td></td><td>Unverified — discovery only; no inferred facts or prices</td>'
