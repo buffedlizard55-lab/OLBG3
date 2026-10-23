@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">145 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">147 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1039,6 +1039,20 @@
   <p></p>
   <p class="muted small">Affected rows: BKB-17</p>
   <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-23" rel="noopener nofollow" target="_blank">NBA.com official schedule — 2026-10-23</a></li></ul>
+</article>
+<article class="card flag" id="FL-154">
+  <div class="flag-head"><span class="tag">FL-154</span> <span class="sev sev-data">data quality</span></div>
+  <h2>SuperLega verification venue/clock fields were mixed between Sunday fixtures (36994, 36997)</h2>
+  <p>For 36997 (Perugia v Tinet Prata di Pordenone) the venue read &quot;OpiquadArena, Monza&quot; although Perugia is the home side and Monza was Prata&#x27;s previous opponent; the arena was not captured from match page #30002 in this pass, so the field is blanked rather than guessed. The 17:00 UTC start is unchanged. Found while reconciling a parallel 2026-10-23 pass (session-d0f5ca54) onto the merged main.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega match #30003</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega match #30002</a></li></ul>
+</article>
+<article class="card flag" id="FL-155">
+  <div class="flag-head"><span class="tag">FL-155</span> <span class="sev sev-data">data quality</span></div>
+  <h2>Parallel-pass leftovers completed: /olbg/ Round 8 labels, a BKB-30 factual slip, residual banned words, SAS venue</h2>
+  <p>Also landed in the same reconciliation: BSB-01/BSB-160789 now name the World Series Game 1 starters (Nick Martinez vs Jacob Misiorowski — 1.80 ERA, 252 K, eleven days&#x27; rest — from MLB.com&#x27;s Game 1 preview); BKB-534841 rewritten with the Game 1 scoring leaders (Durant 30, Castle 24) and today&#x27;s 4/6 tip split; a new analysis piece for TEN-902162 (Boulter, Osaka SF) from the WTA order of play. Session-d0f5ca54&#x27;s independent 16:30Z capture is kept as evidence at docs/harvest-20261023-1630z-d0f5ca54.tsv; its duplicate findings (its own FL-131..FL-140 numbering on the unmerged branch) were dropped in favour of the merged FL-141..FL-153.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">EuroLeague — Round 7 game centre (&quot;Three games close out Round 7 tonight&quot;)</a></li><li><a href="https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup" rel="noopener nofollow" target="_blank">MLB — World Series Game 1 preview (starters)</a></li><li><a href="https://www.nba.com/games" rel="noopener nofollow" target="_blank">NBA.com — games (Fri Oct 23 slate)</a></li></ul>
 </article>
 
 </main>

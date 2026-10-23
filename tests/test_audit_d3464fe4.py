@@ -163,6 +163,13 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
             "HBL-32", "HBL-33", "HBL-34", "HBL-35", "HBL-36", "HBL-37", "HBL-38",
             "IHO-26", "IHO-27", "IHO-28", "IHO-29", "RGU-17", "RGU-18",
             "VOL-31", "VOL-32", "VOL-33", "VOL-34", "VOL-35",
+            # Added 2026-10-23 (session-d0f5ca54, FL-139): ten rows from today's
+            # harvest for which no governing-body page could be read (ATP Almaty
+            # Saturday sheet unread; WST bare clocks; PDC consent wall FL-133;
+            # ICC/NZC fixture pages 404). They publish unverified, never HIGH.
+            "TEN-53", "SNK-15", "SNK-16",
+            "DRT-19", "DRT-20", "DRT-21", "DRT-22",
+            "CRK-19", "CRK-20", "CRK-21",
         }
         CAPTURE_20261023_UNVERIFIED = {
             "BKB-536031",
