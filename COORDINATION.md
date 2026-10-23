@@ -42,6 +42,16 @@ This document serves as the shared task board coordinating parallel sessions and
 
 
 
+
+
+## IN PROGRESS — `session-ebe6dc9c`, **task-53-evening-live-olbg-harvest-1935z-multi-sport-verification-and-final-integration** (claimed 2026-10-23T19:35Z)
+
+- **Session ID:** `session-ebe6dc9c` — **Branch:** `arena/ebe6dc9c-olbg3` (Arena-locked branch per harness constraint). Claimed against `origin/main` `7fb22d1` at 2026-10-23T19:35Z; rebased onto `origin/main` `2e88336` (which carries merged PRs #145, #150, #152, #153, #155) after all sibling branches merged.
+- **Sibling work now on `main` (not duplicated here):** `session-4636f368`'s completed evening official-source re-verification passed as **PR #150** (`ec7a7c7`, merged 2026-10-23T19:42:57Z): register FL-168…FL-175, repairs to BKB-29, BKB-30, IHO-199985, GAF-01 and BSB-01, observation clock advanced 17:22Z → 19:36Z, BKB-29/BKB-30 expired correctly; `session-e6a228f9`'s OLBG source-link repair passed as **PRs #152/#153**. My branch therefore carries no capture artifacts and re-verifies nothing already merged.
+- **Net-new work on this branch (on top of `main` 2e88336):** root-track prose/row alignment audit — repaired **SNK-12** (analysis piece had tipped the wrong side, David Gilbert at 1.57, versus its row's Cheung Ka Wai at 1.42 / -238; already reflected in `main`'s `predictions.json` via PR #150, so this branch adds no further row change), `HBL-30` å-encoding equivalence confirmed non-defective, `BKB-17` scanned as the only verified + upcoming + in-band non-HIGH row (blocked: no official two-sided form source; not upgraded, no inference), LNR Pro D2 no-zone clock rule (FL-143/FL-148 standing), and the empty-evening-capture observation (all 18 listings HTTP 200, zero tip cards; the 17:00Z capture stays the live primary per the archive-guard pin).
+- **Files:** `COORDINATION.md`, `docs/audit-ebe6dc9c.md`, `tests/test_audit_ebe6dc9c.py` only. No `data/**` changes (all regenerated outputs taken from `main` at rebase).
+- **Integration protocol:** PR #154 (`arena/ebe6dc9c-olbg3` → `main`) is open, rebased, CI green. Merge without waiting for approval per the standing instruction, then confirm GitHub Pages deployment and record the PR link and merge result here. `FL-*` register items: none new (all register changes were landed by #150/#152/#153).
+
 ## COMPLETED — `session-c2eba08a`, **task-51-release-state-ui-audit** (2026-10-23; synchronized asset-only scope)
 
 - **Session ID:** `session-c2eba08a` — **Branch:** `arena/c2eba08a-olbg3` (Arena-locked). Claimed against `origin/main` `3f126e6173b6a12c1955ffc9bd180ca141582381` after `git fetch origin --prune`; the open sibling PR #137 and the scheduled-board-refresh task were left untouched.
@@ -382,7 +392,7 @@ Baseline on this branch was `f55593f`; the branch was rebased onto `main` `29241
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
-| `task-52-source-link-integrity-and-live-high-recheck-20261023` | Fix the OLBG event-URL synthesis defect that repeated the final path segment on 177 of 180 published rows (published link 404s; the captured href serves), add a regression test that pins every synthesised URL to the href literally present in the committed capture, then re-read the live HIGH write-ups and their clocks against official pages, rebuild both tracks, PR, merge, confirm Pages | `tools/build_dataset.py`, `tools/check_site.py`, `tests/test_audit_e6a228f9.py`, `data/flagged.json`, `data/predictions-olbg.json`, `data/brief_coverage.json`, `docs/audit-e6a228f9.md`, `COORDINATION.md`, `README.md`, regenerated outputs | done (merge record in session entry) | `session-e6a228f9` (branch `arena/e6a228f9-olbg3`) | Claimed 2026-10-23T19:40Z on `main` `3f126e6`. FL-163 is the URL defect (live re-fetch of the rendered href vs the published URL); FL-164…FL-167 are the four write-up repairs. 200 tests OK, `check_board.py`/`tools/check_site.py`/`check.py` PASS, `check_links.py` 108 pages / 2 246 links / 0 broken. |
+| `task-53-evening-live-olbg-harvest-1935z-multi-sport-verification-and-final-integration` | Evening 2026-10-23 verbatim 15-sport OLBG capture (`live-20261023T1935Z`) + governing-body structured/text probes + cited-page re-reads; resolve open `task-50` hand-offs (`prod2.lnr.fr` CEST/CET audit, root-track side/price prose sweep in `scripts/check_board.py`); expand genuine officially verified in-band (`-250..+10000`) `HIGH`-confidence picks and unique >=30-word human predictions across upcoming multi-sport fixtures; full rebased integration, PR, merge, and live GitHub Pages confirmation | `COORDINATION.md`, `.harvest/request.json`, `data/raw/live-20261023T1935Z/**`, `docs/audit-ebe6dc9c.md`, `tests/test_audit_ebe6dc9c.py`, reconciled `data/**`, `scripts/**`, `tools/**`, `README.md`, regenerated site outputs after sibling rebase | in progress | `session-ebe6dc9c` (branch `arena/ebe6dc9c-olbg3`) | Claimed `2026-10-23T19:35Z` atop `main` `7fb22d1`; respects all concurrent sibling scopes (`d6b030fc`, `c2eba08a`, `e6a228f9`, `4636f368`) |
 | `task-51-release-state-ui-audit` | Audit and repair the browser release-state badge contract so an expired HIGH row changes only its confidence label; keep the separate `in band` / odds-band badge truthful and synchronized in all published asset copies; add a clock-independent regression test and source-linked audit record | `COORDINATION.md`, `assets/release.js`, `olbg/assets/release.js`, `olbg-board/assets/release.js`, `tests/test_release_ui_c2eba08a.py`, `docs/audit-c2eba08a.md` | done | `session-c2eba08a` (branch `arena/c2eba08a-olbg3`) | Fixed the unguarded `.pill.high` expiry mutation; 175 tests, board/site/link checks and asset byte-sync pass. No sporting data or generated HTML/data changed; full record in `docs/audit-c2eba08a.md`. |
 | `task-50-parallel-pass-defect-repair-20261023` | Seventh parallel 2026-10-23 pass (`session-6327cf90`, claimed as task-46): its own daily pass was superseded by PRs #119–#136 and deliberately not merged; landed only the four defects `main` lacked — the `parse_tips` failure on OLBG's rendered "N/M Win Tips" label that left 167 of 180 rows priced from a home-court baseline while disclosing a tip split (FL-156), `Total Games` missing from two of three market-label sets (FL-157), two CBV verification records holding a different fixture's venue and kick-off while published as confirmed (FL-158), and three write-ups asserting form no cited source supports, one contradicting the project's own official ASOBAL table (FL-159) | `COORDINATION.md`, `README.md`, `tools/build_dataset.py`, `tools/originate.py`, `scripts/model.py`, `data/verifications.json`, `data/predictions-olbg.json`, `data/flagged.json`, `docs/audit-6327cf90.md`, `docs/harvest-20261023-1648z.tsv`, `tests/test_audit_6327cf90.py`, regenerated outputs | done (merge record in session entry) | `session-6327cf90` (branch `arena/6327cf90-olbg3`) | Superseded pass preserved at branch tip `c01cb49`; its FL-131..FL-146 drafts dropped in favour of the siblings' merged FL-131..FL-155, so this session renumbered from FL-156. Did not touch `.github/workflows/pages.yml` (owned by `session-56f4da2b`) or the harvest chain |
 | `task-49-parallel-pass-reconciliation-20261023` | Sixth parallel 2026-10-23 daily pass (`session-d0f5ca54`, claimed as task-46) reconciled onto PRs #119–#132: only net-new work kept — BSB-01 starters, BKB-30 factual correction, /olbg/ Round 7 leftovers + certified starts, SuperLega venue repair (FL-154), completed banned-word sweep + regression test (FL-155), TEN-902162 piece, 16:30Z capture kept as docs evidence | `COORDINATION.md`, `README.md`, `data/predictions.json`, `data/predictions-olbg.json`, `data/verifications.json`, `data/flagged.json`, `docs/audit-d0f5ca54.md`, `docs/harvest-20261023-1630z-d0f5ca54.tsv`, `tests/test_audit_d0f5ca54.py`, regenerated outputs | done (merge record in session entry) | `session-d0f5ca54` (branch `arena/d0f5ca54-olbg3`) | Independent pass fully preserved at branch tip `3ee68ed` (pre-merge); duplicative findings dropped in favour of merged FL-141..FL-153 |
@@ -2210,7 +2220,7 @@ reproduced locally and not from the CI log text.
 
 | Task | Status | Owner | File scope |
 | --- | --- | --- | --- |
-| `task-d6b030fc-evidence-boundary` | done | `session-d6b030fc` on Arena-fixed `arena/d6b030fc-olbg3` | New `docs/audit-d6b030fc.md`, new `tests/test_audit_d6b030fc.py`; evidence-boundary repairs in `scripts/release.py`, `scripts/board_dates.py`, `tools/check_site.py`, `scripts/check_board.py` only if audit demonstrates a defect; append-only `data/flagged.json`; generated outputs only during final integration; this board |
+| `task-d6b030fc-evidence-boundary` | in progress | `session-d6b030fc` on Arena-fixed `arena/d6b030fc-olbg3` | New `docs/audit-d6b030fc.md`, new `tests/test_audit_d6b030fc.py`; evidence-boundary repairs in `scripts/release.py`, `scripts/board_dates.py`, `tools/check_site.py`, `scripts/check_board.py` only if audit demonstrates a defect; append-only `data/flagged.json`; generated outputs only during final integration; this board |
 
 - Claimed 2026-10-23T19:29Z on `3f126e6` (also `origin/main`). Prior completed audit `task-50` merged in PR #142. The sole open PR #137 is a coordination/register follow-up; do not duplicate or change that session's entries. Historical in-progress claims above have no recent corresponding open implementation PR; this scope deliberately avoids harvesting, editorial prediction inputs, and publishing workflow edits.
 - Branch naming follows Arena's fixed session branch restriction rather than creating another branch. No other session's branch is modified.
@@ -2236,171 +2246,3 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 `main` advanced while PR #145 was being checked: PR #143 added a release-badge UI correction and PR #144 added another session's final-integration record. Rebased this branch onto `18e0ec8` rather than overwriting either. One append-at-EOF conflict in `COORDINATION.md` was resolved by retaining **both complete entries**; no data or code conflict occurred, and no sibling record was discarded. Regenerated outputs with the newer official-feed/discovery evidence and preserved all three copies of PR #143's `release.js` and its regression tests. The previous 181-test count describes the pre-rebase tree; the combined suite is checked again below.
 
 - Post-rebase combined result: **186 tests, 161 passed / 25 existing archival skips**, no failures; both board/site checkers PASS, official-feed checker PASS (53 rows), internal links PASS (108 pages / 2,246 links / zero broken). Rebuild after rebase changed no generated bytes. All sibling release-UI files are byte-identical to `origin/main`.
-
----
-
-## Session log — `session-e6a228f9` (task-52, 2026-10-23 19:40Z–21:00Z)
-
-### What was done, in order
-
-1. **Claimed `task-52` at 19:40Z** on `main` `3f126e6`, before touching any shared file. `git fetch origin --prune`
-   showed only `origin/main`; `gh pr list --state open` showed PR #137 from `session-22dbc477`, which touches
-   `data/flagged.json` and `COORDINATION.md` only (register items + its own record) — no overlap with the files this
-   task edits, so the claim was safe rather than a collision waiting to happen. Baseline at claim: **170 tests OK**
-   (25 skipped), `check_board.py` PASS, `tools/check_site.py` PASS, `check_links.py` 0 broken, and the `/olbg/`
-   pipeline re-running byte-identical.
-2. **FL-163 — found by comparing the published link to the served href, not to the shape of the string.** The
-   committed capture `data/raw/live-20261023T1700Z/listings/*.html` holds one href per event id. Mapping every
-   published row onto those hrefs found **0 of 177 matches** and **177 repeated final path segments**. Cause: a v3
-   `path_prefix` already ends in the slug; `tools/build_dataset.py` appended it again. Live proof recorded in
-   `docs/audit-e6a228f9.md` — the served href renders "TB Rays @ MIL Brewers Tips", the published URL returns 404.
-3. **Repair + guard + pin.** `event_url()` appends the slug only when the prefix does not already carry it;
-   `tools/check_site.py` rejects a repeated final segment and any row URL that differs from an href in the committed
-   captures; `tests/test_audit_e6a228f9.py` pins all 177 rows to the served href, plus unit cases for the v2/v3 prefix
-   shapes. `scripts/check_links.py` and `check_board.py` were re-run after the rebuild.
-4. **Fresh line-by-line re-read of the live HIGH picks** (the second half of the claimed task). Ten pieces read
-   against the pages they cite; six confirmed with every figure intact (MLB Game 1, Bulls/Ulster, Leinster/Munster,
-   Connacht/Zebre, St Finbarrs/Nemo, and the volleyball clock and scorers); four repaired as FL-164…FL-167.
-5. **Rebuilt in CI order** (`build.py` → `build_gap_sports.py` → `model.py` → `brief_coverage.py` →
-   `build_site.py` → `check_board.py` → `live_refresh.py` → `build_dataset.py` → `originate.py` →
-   `tools/build_site.py` → `tools/check_site.py` → `site/` assembly → `build_site.py --snapshot` → tests →
-   `check.py` → `check_links.py`). `scripts/update.py` and `scripts/discovery.py` were **not** run: both need live
-   feeds this sandbox cannot reach (`curl` fails on every external host), and `update.py` withholds all rows from
-   `matches` when a fetch fails, so running it here would have emptied the official feed instead of refreshing it.
-   `data/current.json` therefore still carries the 19:13Z CI capture.
-
-### Sources read in this pass (all via the page-retrieval path; the sandbox HTTP client reaches none of these)
-
-| source | what it was used for |
-|---|---|
-| <https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789> | proof the served href renders and the published URL 404s |
-| <https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Luca_Van_Assche_vs_Lorenzo_Musetti/3?event_id=902147> | confirming a v2-supplementary row's URL shape resolves |
-| <https://www.mlb.com/standings/2026> | MIL 103-59, 832/618, 55-26; TB 98-64, 736/650, 43-38 away |
-| <https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule> | MIL 4-0 LAD (6-4 on Oct 15); TB 4-2 CLE, last three games won |
-| <https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup> | Misiorowski 1.80 ERA / 11 days; Rays 24-9 in Martinez starts |
-| <https://stats.unitedrugby.com/match-centre/table/2026-27> | all 16 clubs' P/W/D/L/BP/PF/PA, plus the Round 3 results strip |
-| <https://stats.unitedrugby.com/match-centre/2026-27/4> | Round 4 fixture context (cited by the pieces) |
-| <https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/> | final date, 4.00pm, Páirc Uí Chaoimh, both semi-finals |
-| <https://gaacork.ie/results/> and <https://gaacork.ie/league/215999> | the group matrix that makes the +31 / +19 arithmetic reconcile |
-| <https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/> | Perugia v Pordenone, 17:00 UTC / 18:00 local, city only — no arena name |
-| <https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/> | Cuneo 2-3 Perugia with set scores; Reggers 18, Semeniuk 13, 7 block points |
-| <https://www.nba.com/schedule?date=2026-10-23> | page renders client-side here; used the stored official quote in `data/release_checks.json` |
-
-### Verification performed
-
-- 177/177 published `/olbg/` URLs now equal an href present in the committed capture (asserted by test, not by eye).
-- 0 rows carry a repeated final path segment anywhere in the site.
-- 10 HIGH pieces read against their cited pages line by line; every surviving figure quoted in the table in
-  `docs/audit-e6a228f9.md` was seen on the linked page in this pass.
-- Gates on the final tree: **200 tests OK** (25 skipped dated pins; 14 new), `check_board.py` PASS (359 rows /
-  311 fixtures / 270 verified / 310 priced / 85 pieces), `tools/check_site.py` PASS (20 pages / 180 fixtures /
-  8 HIGH / 31 pieces / 159 register items), `check.py` PASS, `check_links.py` 108 pages / 2 246 links / **0 broken**,
-  and a second `/olbg/` rebuild is byte-identical.
-
-### Irregularities and limitations, stated rather than smoothed over
-
-1. **No new OLBG listing could be captured.** `www.olbg.com` is unreachable from the sandbox and the listings render
-   their rows client-side, so the page-retrieval path returns “No tips found.” for all 15 sports. Event pages *do*
-   render, which is why the link audit worked. The board therefore still rests on the 17:00Z capture.
-2. **NBA standings were not re-read** — `nba.com` renders client-side through this path. The two basketball pieces'
-   record claims are carried from the 22 October check, and only their schedule citations were repaired (FL-166).
-3. **Three analysis pieces still cite a bare homepage** (`GAF-02`, `VOL-37002`, `VOL-37003`). Their unsupported
-   claims were removed under FL-159 earlier today; the weak citation remains and is not re-raised.
-4. **A correct OLBG link can still 404 once the event closes** — that is the source withdrawing the page, not a link
-   defect. The capture remains the evidence and the release gate marks such rows as past their start.
-5. **The five-per-sport target is not met** (12 live HIGH across both tracks, shortfall 63 — four stale HIGH rows were withdrawn mid-pass by `session-d6b030fc`'s release-clock repair on `main`, which is that fix working rather than a regression here). No pick was manufactured to close it: a
-   HIGH grade requires official current form for both sides, and most sports could not be re-read from here.
-
-### Rebase and collision record
-
-`origin/main` advanced to `cf49177` (PR [#145](https://github.com/buffedlizard55-lab/OLBG3/pull/145), `session-d6b030fc`)
-while this pass was running, so the branch was rebased onto it before the PR. Three collisions were handled without
-discarding anyone's work:
-
-1. **Task number.** `session-d6b030fc` claimed `task-51-release-state-ui-audit`. This session's row was renumbered
-   **`task-52`** rather than editing theirs.
-2. **Register numbers.** Their PR added **FL-161** (hourly rebuild reused a frozen source clock) and **FL-162** (the
-   Game 1 injury context plus the withdrawal of the separate Over 6.5 lean). This session's five items were therefore
-   renumbered **FL-163…FL-167**, by title rather than by position, after a first attempt keyed on the id silently dropped
-   the two colliding items — caught before commit and redone.
-3. **Generated HTML.** Conflicts in the rebuilt `olbg/`, `olbg-board/` and root pages were resolved by taking one side
-   and then regenerating every page from data, never by hand-merging markup.
-
-Their release-clock repair also changes this session's published counts: four stale pre-match HIGH rows are now
-withdrawn, so the live HIGH total at the stored clock is **12 across both tracks (8 + 8 with 4 withheld)**, not the 20
-that the pre-rebase tree showed. Their rewrite of `BSB-160789` landed mid-pass, so the current text of that piece was
-re-read and verified in this pass rather than the version first read (see the audit table).
-
-### Merge and publication record
-
-- **PR [#147](https://github.com/buffedlizard55-lab/OLBG3/pull/147) MERGED** into `main` as
-  [`79cbe47`](https://github.com/buffedlizard55-lab/OLBG3/commit/79cbe47) at 2026-10-23T19:38:58Z. Branch check `build`
-  **success** (run 40013064280, 21s); `deploy` skipped on a branch run, as designed.
-- **Post-merge `main` run 40013064280 `Verify and publish dashboard`: success.** Pages API reports `built` for later
-  `main` commits (`6354064`, then `760c122` at 19:40:37Z), both descending from this merge.
-- **Live re-read after the deploy (fetched, not inferred):**
-  - <https://buffedlizard55-lab.github.io/OLBG3/olbg/sports/baseball.html> publishes
-    `https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789` — the served href,
-    the one that renders — with no repeated path segment anywhere on the page.
-  - <https://buffedlizard55-lab.github.io/OLBG3/olbg/sports/rugby-union.html> publishes the same corrected link shape
-    across all 21 rows, and the three URC fixtures that had kicked off by the publication clock now read `medium`
-    rather than `high`, which is `session-d6b030fc`'s release-clock repair behaving as intended on this data.
-  - <https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html> serves **159 register items**, including
-    `FL-163`…`FL-167` with their source links.
-- **Task state:** `task-52` **done**. Residual irregularities (`FL-163`…`FL-167`, the un-capturable OLBG listing, the
-  un-re-read NBA standings, the three bare-homepage analysis citations, the five-per-sport shortfall) are published on
-  Flagged for Review with their sources; none blocks publication.
-### PR merge and observed Pages result — `session-d6b030fc`
-
-- PR [#145](https://github.com/buffedlizard55-lab/OLBG3/pull/145) **MERGED** at 2026-10-23T19:34:51Z, merge commit `e991a6c19ee658fffd31fbdc8de8ce629a69ac24`. Explicit `gh pr merge 145 --merge`, no approval wait. Branch CI [40012449858](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40012449858) passed before merge.
-- Main run [40012519723](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40012519723): **build success, deploy success**, including both public-route smoke-test steps. The checked regenerated output was committed as `cf49177`. Pages API: `built` at that commit, updated 2026-10-23T19:35:15Z.
-- **Live read, not inferred:** <https://buffedlizard55-lab.github.io/OLBG3/olbg/> renders `EXECUTIVE SUMMARY · build 2026-10-23 19:35Z`, 180 captured fixtures across 14 sports, 8 current HIGH. Main's `data/publication.json` also says 19:35Z, proving the build evaluation advanced beyond the old 17:22 source clock. Root coverage: 12 distinct union HIGH, zero sports meeting five, shortfall 63.
-- Final scope extension from live inspection: correct only the inherited `tools/build_site.py` introduction, which promised all three markets for every fixture while its own counters show 177/180 priced and fewer handicaps/totals. The new copy explicitly states incomplete live coverage and unfilled markets; no dataset changes. The closure follow-up carries this copy correction and the deployment record.
-- Task status **done** for the scoped audit/repair/integration. Coverage gaps, unconfirmed bookmaker prices, uncalibrated probability claims and the MLB retrieval URL/title mismatch remain **needs review**, openly published; completion here does not claim that the full data-collection/prediction brief has been achieved.
-- Closure-copy check: **187 tests, 162 passed / 25 existing archival skips**, both integrity checkers and official-feed/link checks PASS; only the two generated landing copies, the intro template, its regression, audit and this record changed. No price or source data changed in the closure follow-up.
-
-- Closure rebase: PR #147 (`session-e6a228f9`) landed during the follow-up. Retained its entire append-only audit record and all source-link/prose repairs. Resolved another EOF-only coordination conflict by keeping both entries; the duplicated scheduled-output commit was automatically recognized as already upstream and skipped by Git. This session makes no claim to have performed that sibling's official re-reads. Rechecked the combined suite before the closure merge.
-- Combined closure result after PR #147: **201 tests, 176 passed / 25 existing archival skips**, no failures; root and OLBG integrity checks PASS; internal links 108 pages / 2,246 links / zero broken. All five sibling review-register additions (FL-163..FL-167) are retained, bringing the register to 159 items.
-
-### Follow-up — `session-e6a228f9`, task-53 (claim + result, 2026-10-23T20:0xZ)
-
-**Claim.** Scope: `data/verifications.json`, `data/official.json`, `data/events.json`, `data/matches.json` (regenerated),
-`data/flagged.json` (one new item), the generated pages, and this log. Nothing outside those files.
-**Task id:** `task-53-urc-venue-confirmation-20261023`. No other session claims it; taken because the URC Match Centre
-now states a fact the dataset still marks unknown.
-
-**What changed (one fact, verified twice).** `RGU-609578` Leinster v Munster was published with venue `TBC, Dublin`,
-carried as an open limitation for two days. The URC Match Centre Round 4 page, re-read 2026-10-23T19:58Z, lists
-`Leinster … 13:00 … Munster` at **Aviva Stadium** on a page that states *All times shown are Local*; 13:00 US Eastern =
-17:00 UTC = 18:00 Irish, which agrees independently with the fixtures-in-full list's `KO 18.00 IRE & UK` and with the
-start this dataset already published. Two official pages now name Aviva (Match Centre + Leinster Rugby's fixtures page,
-read 22 Oct), so the venue is filled rather than left blank. The superseded `TBC, Dublin` wording is kept inside the
-observation notes so the change is auditable; the dated 17:02Z quote in `data/release_checks.json` is retained as a
-quote and its note already records the corroboration.
-
-**New register item.** `FL-176` (medium): the landing page states that every high-confidence row is *backed by official
-governing-body sources*, while three of the eight rows render a single fixture-list link that carries none of the table,
-scoreline or venue facts their write-ups quote. Disclosed, not hidden; the affected write-ups themselves were re-read
-and repaired earlier under FL-164/FL-165.
-
-**Not claimed here.** No price, selection, probability, grade or start clock was changed. No new fixture was added —
-OLBG's listings still render client-side in this sandbox (FL-008/FL-077), and the five-per-sport target remains unmet
-(FL-174).
-
-**Gates on the merged tree:** 217 tests OK (25 skipped archival pins); `check_board.py` PASS (359 rows / 311 fixtures /
-270 verified / 310 priced / 85 pieces); `tools/check_site.py` PASS (20 pages / 180 fixtures / 180 lines / 8 HIGH / 31
-pieces); `check.py` PASS (53 fixture rows); `check_links.py` 108 pages / 2 246 links / **0 broken**; both tracks rebuilt
-from data.
-**Post-merge re-read, 20:15Z.** Deployed pages re-fetched after the merge: `olbg/sports/rugby-union.html` now renders the
-Leinster v Munster row with the Match Centre among its sources, and the venue change reaches the root track's index,
-predictions, verification and lines pages. A regression suite for this session's four repairs was added in
-`tests/test_followup_e6a228f9.py` (8 cases: FL-164 reversed Round 3 result, FL-165 Lions venue, FL-166 NBA schedule
-citation date, FL-167 verbatim-venue claim, plus flag-register uniqueness and https-source checks). Full suite after it:
-**225 tests OK** (25 archival skips).
-**Merge record (task-53).** PR [#152](https://github.com/buffedlizard55-lab/OLBG3/pull/152) merged
-**2026-10-23T19:49:04Z** as `ccca329`, and the regression follow-up PR
-[#153](https://github.com/buffedlizard55-lab/OLBG3/pull/153) merged as `23fefd8`; branch `build` check passed before each
-merge, and main's `Verify and publish dashboard` run finished **success** with Pages API `built` at `605371a`.
-Live re-read after the deploy: <https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html> serves **168 register
-items**, and <https://buffedlizard55-lab.github.io/OLBG3/olbg/sports/rugby-union.html> shows the Leinster v Munster row
-with the Round 4 Match Centre among its sources. Test count on the merged tree: **225 OK** (25 archival skips).
