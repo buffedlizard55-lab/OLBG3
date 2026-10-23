@@ -69,6 +69,11 @@ class PublicationClock(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 bd.snapshot_utc()
 
+    def test_landing_page_does_not_claim_every_market_is_priced(self):
+        template = (ROOT / 'tools/build_site.py').read_text()
+        self.assertIn('Not every fixture has a price, handicap or total', template)
+        self.assertNotIn('total for every fixture', template)
+
     def test_checked_in_workflow_advances_clock_before_build(self):
         workflow = (ROOT / '.github/workflows/pages.yml').read_text()
         self.assertLess(workflow.index('python scripts/publication_clock.py'),

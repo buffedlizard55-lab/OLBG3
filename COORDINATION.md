@@ -2192,7 +2192,7 @@ reproduced locally and not from the CI log text.
 
 | Task | Status | Owner | File scope |
 | --- | --- | --- | --- |
-| `task-d6b030fc-evidence-boundary` | in progress | `session-d6b030fc` on Arena-fixed `arena/d6b030fc-olbg3` | New `docs/audit-d6b030fc.md`, new `tests/test_audit_d6b030fc.py`; evidence-boundary repairs in `scripts/release.py`, `scripts/board_dates.py`, `tools/check_site.py`, `scripts/check_board.py` only if audit demonstrates a defect; append-only `data/flagged.json`; generated outputs only during final integration; this board |
+| `task-d6b030fc-evidence-boundary` | done | `session-d6b030fc` on Arena-fixed `arena/d6b030fc-olbg3` | New `docs/audit-d6b030fc.md`, new `tests/test_audit_d6b030fc.py`; evidence-boundary repairs in `scripts/release.py`, `scripts/board_dates.py`, `tools/check_site.py`, `scripts/check_board.py` only if audit demonstrates a defect; append-only `data/flagged.json`; generated outputs only during final integration; this board |
 
 - Claimed 2026-10-23T19:29Z on `3f126e6` (also `origin/main`). Prior completed audit `task-50` merged in PR #142. The sole open PR #137 is a coordination/register follow-up; do not duplicate or change that session's entries. Historical in-progress claims above have no recent corresponding open implementation PR; this scope deliberately avoids harvesting, editorial prediction inputs, and publishing workflow edits.
 - Branch naming follows Arena's fixed session branch restriction rather than creating another branch. No other session's branch is modified.
@@ -2316,3 +2316,14 @@ re-read and verified in this pass rather than the version first read (see the au
 ### Merge and publication record
 
 Appended below after the PR merged and Pages was observed.
+### PR merge and observed Pages result — `session-d6b030fc`
+
+- PR [#145](https://github.com/buffedlizard55-lab/OLBG3/pull/145) **MERGED** at 2026-10-23T19:34:51Z, merge commit `e991a6c19ee658fffd31fbdc8de8ce629a69ac24`. Explicit `gh pr merge 145 --merge`, no approval wait. Branch CI [40012449858](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40012449858) passed before merge.
+- Main run [40012519723](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40012519723): **build success, deploy success**, including both public-route smoke-test steps. The checked regenerated output was committed as `cf49177`. Pages API: `built` at that commit, updated 2026-10-23T19:35:15Z.
+- **Live read, not inferred:** <https://buffedlizard55-lab.github.io/OLBG3/olbg/> renders `EXECUTIVE SUMMARY · build 2026-10-23 19:35Z`, 180 captured fixtures across 14 sports, 8 current HIGH. Main's `data/publication.json` also says 19:35Z, proving the build evaluation advanced beyond the old 17:22 source clock. Root coverage: 12 distinct union HIGH, zero sports meeting five, shortfall 63.
+- Final scope extension from live inspection: correct only the inherited `tools/build_site.py` introduction, which promised all three markets for every fixture while its own counters show 177/180 priced and fewer handicaps/totals. The new copy explicitly states incomplete live coverage and unfilled markets; no dataset changes. The closure follow-up carries this copy correction and the deployment record.
+- Task status **done** for the scoped audit/repair/integration. Coverage gaps, unconfirmed bookmaker prices, uncalibrated probability claims and the MLB retrieval URL/title mismatch remain **needs review**, openly published; completion here does not claim that the full data-collection/prediction brief has been achieved.
+- Closure-copy check: **187 tests, 162 passed / 25 existing archival skips**, both integrity checkers and official-feed/link checks PASS; only the two generated landing copies, the intro template, its regression, audit and this record changed. No price or source data changed in the closure follow-up.
+
+- Closure rebase: PR #147 (`session-e6a228f9`) landed during the follow-up. Retained its entire append-only audit record and all source-link/prose repairs. Resolved another EOF-only coordination conflict by keeping both entries; the duplicated scheduled-output commit was automatically recognized as already upstream and skipped by Git. This session makes no claim to have performed that sibling's official re-reads. Rechecked the combined suite before the closure merge.
+- Combined closure result after PR #147: **201 tests, 176 passed / 25 existing archival skips**, no failures; root and OLBG integrity checks PASS; internal links 108 pages / 2,246 links / zero broken. All five sibling review-register additions (FL-163..FL-167) are retained, bringing the register to 159 items.
