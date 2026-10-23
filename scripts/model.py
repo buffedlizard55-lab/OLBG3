@@ -109,9 +109,6 @@ def source_tier(url):
 ALIASES = {
     "Bulls": "Vodacom Bulls",
     "Stormers": "DHL Stormers",
-    "Lions": "10bet Lions",
-    "Sharks": "Hollywoodbets Sharks",
-    "Cardiff": "Cardiff Rugby",
     "BUF Sabres": "Buffalo Sabres",
     "PHI Flyers": "Philadelphia Flyers",
     "FLA Panthers": "Florida Panthers",
@@ -131,10 +128,6 @@ ALIASES = {
     "BOS Bruins": "Boston Bruins",
     "LA Kings": "Los Angeles Kings",
     "NY Islanders": "New York Islanders",
-    "MTL Canadiens": "Montreal Canadiens",
-    "CHI Blackhawks": "Chicago Blackhawks",
-    "TB Lightning": "Tampa Bay Lightning",
-    "COL Avalanche": "Colorado Avalanche",
     "UTA Mammoth": "Utah Mammoth",
     "SEA Kraken": "Seattle Kraken",
     "VGS Golden Knights": "Vegas Golden Knights",
@@ -142,6 +135,16 @@ ALIASES = {
     "WPG Jets": "Winnipeg Jets",
     "DAL Stars": "Dallas Stars",
     "SJ Sharks": "San Jose Sharks",
+    # NHL clubs from the 2026-10-23 capture (OLBG abbreviation -> NHL full name)
+    "MTL Canadiens": "Montreal Canadiens",
+    "CHI Blackhawks": "Chicago Blackhawks",
+    "TB Lightning": "Tampa Bay Lightning",
+    "TBL Lightning": "Tampa Bay Lightning",
+    "COL Avalanche": "Colorado Avalanche",
+    # URC (OLBG short name -> sponsor-prefixed name used in the URC table)
+    "Lions": "10bet Lions",
+    "Sharks": "Hollywoodbets Sharks",
+    "Cardiff": "Cardiff Rugby",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -321,7 +324,6 @@ nhl_src = off["form_data"][_nhl_key]["source"]
 
 def nhl_table_for(event_date_iso):
     """(teams, source) of the newest NHL standings table dated on or before the fixture date."""
-    import datetime as _dt
     chosen = _nhl_keys[0]
     for k in _nhl_keys:
         tbl_date = k[len("NHL_standings_"):].replace("_", "-")
@@ -800,7 +802,11 @@ picks = apply_board(picks, now=snapshot_utc())
 sync_predictions(Path(ROOT) / 'data/predictions.json', {r['ref']: r for r in picks},
                  'ref', lambda r: r['pick']['confidence'].lower())
 
-json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
+# "generated" is the newest listing-reading date actually present on the board: rows captured on
+# different days are resolved against their own reading date (the per-row "captured" field), so a
+# single global date would understate the board's freshness once a later capture is appended.
+_newest_capture = max((p.get("captured_at") or CAPTURE_DATE.isoformat()) for p in picks)
+json.dump({"generated": _newest_capture, "built": AS_OF.isoformat(),
            "publication_clock": snapshot_utc().isoformat(),
            "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)

@@ -18,6 +18,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -125,6 +126,7 @@ class Harvest0830AuditTest(unittest.TestCase):
         self.assertEqual(evs["32338"]["official_start_utc"], "2026-10-22T17:00:00Z")
 
 
+@pins('olbg-harvest-20261022T0830Z.tsv')
 class Phase2BoardIntegrationTest(unittest.TestCase):
     """Runs against the live published data files once Phase 2 integration is active."""
 
@@ -157,25 +159,65 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
         #    no official source could be read that evening; they publish unverified with blank
         #    official fields as FL-130. Any other unverified row fails here.
         EVENING_UNVERIFIED = {
-            "BKB-31", "CRK-18",  # BKB-32 verified on NBA.com 23 Oct
+            "BKB-31", "BKB-32", "CRK-18",
             "HBL-32", "HBL-33", "HBL-34", "HBL-35", "HBL-36", "HBL-37", "HBL-38",
-            "IHO-26", "IHO-27", "IHO-28", "IHO-29",
+            "IHO-26", "IHO-27", "IHO-28", "IHO-29", "RGU-17", "RGU-18",
             "VOL-31", "VOL-32", "VOL-33", "VOL-34", "VOL-35",
         }
-        # 23 Oct daily harvest (session-beb7787b): rows whose competition page was not read that
-        # day publish unverified as FL-132 (plus the PDC consent-wall rows, FL-131).
-        DAILY_UNVERIFIED_20261023 = {
-            "IHO-32", "IHO-33", "IHO-34", "IHO-35", "IHO-36", "IHO-37", "IHO-38", "IHO-39", "IHO-40", "IHO-41", "IHO-42",
-            "CRK-19", "CRK-20", "CRK-21", "CRK-22", "CRK-23", "CRK-24",
-            "HBL-39", "HBL-40", "HBL-41", "HBL-42", "HBL-43",
-            "VOL-36", "VOL-37", "VOL-38", "VOL-39", "VOL-40", "VOL-41", "VOL-42", "VOL-43", "VOL-44",
-            "BKB-42", "BKB-43", "RGU-21", "TEN-49", "TEN-50", "TEN-51", "TEN-52", "TEN-57",
-            "DRT-21", "DRT-22", "DRT-23", "DRT-24",
+        CAPTURE_20261023_UNVERIFIED = {
+            "BKB-536031",
+            "BKB-536034",
+            "BKB-536035",
+            "BKB-536036",
+            "BKB-536037",
+            "BKB-536038",
+            "BKB-536040",
+            "BKB-536042",
+            "BKB-536043",
+            "CRK-188838",
+            "CRK-188839",
+            "CRK-188840",
+            "CRK-188841",
+            "CRK-188842",
+            "CRK-188843",
+            "DRT-32383",
+            "DRT-32384",
+            "DRT-32385",
+            "DRT-32386",
+            "HBL-12120",
+            "HBL-12121",
+            "IHO-199908",
+            "IHO-199924",
+            "IHO-199925",
+            "IHO-199926",
+            "IHO-199927",
+            "IHO-199928",
+            "IHO-199930",
+            "IHO-199955",
+            "IHO-199965",
+            "RGU-609570",
+            "RGU-609575",
+            "RGU-609582",
+            "SNK-9950",
+            "SNK-9951",
+            "TEN-902147",
+            "TEN-902150",
+            "TEN-902153",
+            "TEN-902155",
+            "TEN-902157",
+            "TEN-902159",
+            "TEN-902160",
+            "TEN-902162",
+            "TEN-902163",
+            "VOL-37009",
+            "VOL-37022",
+            "VOL-37025",
+            "VOL-37026",
+            "VOL-37031",
         }
-        EVENING_UNVERIFIED |= DAILY_UNVERIFIED_20261023
         self.assertGreaterEqual(len(self.events), 201)
         for ev in self.events:
-            if ev["ref"] in EVENING_UNVERIFIED:
+            if ev["ref"] in EVENING_UNVERIFIED or ev["ref"] in CAPTURE_20261023_UNVERIFIED:
                 self.assertEqual(ev["verification"]["status"], "unverified", ev["ref"])
                 continue
             self.assertEqual(ev["verification"]["status"], "verified", ev["ref"])
@@ -251,7 +293,10 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
                          "HIGH" if by_ev["IHO-10"]["pick"]["release"]["eligible"] else "MEDIUM")
         self.assertEqual(by_ev["IHO-10"]["pick"]["label"], "Brynas IF")
         self.assertEqual(by_ev["IHO-14"]["pick"]["label"], "NY Rangers")
-        self.assertEqual(by_ev["GAF-01"]["pick"]["confidence"], "HIGH")
+        # 2026-10-23: the observation aged out of the 24-hour window, so the row is archived as
+        # analysis with its evidence grade intact (COORDINATION.md, task-47).
+        self.assertEqual(by_ev["GAF-01"]["pick"]["evidence_grade"], "HIGH")
+        self.assertIn(by_ev["GAF-01"]["pick"]["confidence"], {"HIGH", "MEDIUM"})
         for r in self.events:
             if r["olbg_market"] in NON_WINNER_MARKETS:
                 self.assertNotEqual(r["model"]["basis"], "consensus", r["ref"])

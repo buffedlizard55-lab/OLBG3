@@ -93,8 +93,8 @@
           "eligible": true,
           "as_of": "2026-10-23T17:22:00+00:00",
           "start_utc": "2026-10-24T00:00:00Z",
-          "checked_at": "2026-10-23T17:05:00Z",
-          "source": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
+          "checked_at": "2026-10-23T16:28:04Z",
+          "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
           "expires_at": "2026-10-24T00:00:00Z",
           "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
         }
@@ -3025,12 +3025,12 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-33",
+      "ref": "BKB-536036",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "NBA",
-      "home": "MIN Timberwolves",
-      "away": "ORL Magic",
+      "home": "ORL Magic",
+      "away": "MIN Timberwolves",
       "start": "Today 19:10",
       "captured_at": "2026-10-23",
       "olbg_market": "Money Line",
@@ -3053,30 +3053,30 @@
       "model": {
         "basis": "consensus",
         "prices": {
-          "win_home": 1.02,
-          "win_away": 47.5
+          "win_away": 1.02,
+          "win_home": 47.5
         },
         "notes": [
           "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
           "Probability equals the OLBG consensus tip share; the draw is not priced."
         ],
         "probs": {
-          "home": 0.98,
-          "away": 0.02
+          "away": 0.98,
+          "home": 0.02
         },
         "handicap": {
-          "fav": "home",
+          "fav": "away",
           "line": -13.5,
           "price": 1.91,
           "dog_line": 13.5,
           "dog_price": 1.91,
           "unit": "points",
           "basis": "consensus-scaled",
-          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
         }
       },
       "pick": {
-        "side": "home",
+        "side": "away",
         "label": "MIN Timberwolves",
         "prob": 0.98,
         "confidence": "MEDIUM",
@@ -3115,12 +3115,12 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-34",
+      "ref": "BKB-536034",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "NBA",
-      "home": "TOR Raptors",
-      "away": "WAS Wizards",
+      "home": "WAS Wizards",
+      "away": "TOR Raptors",
       "start": "Today 19:10",
       "captured_at": "2026-10-23",
       "olbg_market": "Money Line",
@@ -3143,29 +3143,29 @@
       "model": {
         "basis": "consensus",
         "prices": {
-          "win_home": 1.27,
-          "win_away": 3.8
+          "win_away": 1.27,
+          "win_home": 3.8
         },
         "notes": [
           "Probability equals the OLBG consensus tip share; the draw is not priced."
         ],
         "probs": {
-          "home": 0.75,
-          "away": 0.25
+          "away": 0.75,
+          "home": 0.25
         },
         "handicap": {
-          "fav": "home",
+          "fav": "away",
           "line": -8.5,
           "price": 1.91,
           "dog_line": 8.5,
           "dog_price": 1.91,
           "unit": "points",
           "basis": "consensus-scaled",
-          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (75%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
+          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (25%). Price is our standard 1.91 two-way quote. This is our own line, not a market price."
         }
       },
       "pick": {
-        "side": "home",
+        "side": "away",
         "label": "TOR Raptors",
         "prob": 0.75,
         "confidence": "MEDIUM",
@@ -3204,12 +3204,12 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-35",
+      "ref": "BKB-536037",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "NBA",
-      "home": "DAL Mavericks",
-      "away": "IND Pacers",
+      "home": "IND Pacers",
+      "away": "DAL Mavericks",
       "start": "Today 19:10",
       "captured_at": "2026-10-23",
       "olbg_market": "Money Line",
@@ -3232,30 +3232,30 @@
       "model": {
         "basis": "consensus",
         "prices": {
-          "win_away": 1.02,
-          "win_home": 47.5
+          "win_home": 1.02,
+          "win_away": 47.5
         },
         "notes": [
           "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
           "Probability equals the OLBG consensus tip share; the draw is not priced."
         ],
         "probs": {
-          "away": 0.98,
-          "home": 0.02
+          "home": 0.98,
+          "away": 0.02
         },
         "handicap": {
-          "fav": "away",
+          "fav": "home",
           "line": -13.5,
           "price": 1.91,
           "dog_line": 13.5,
           "dog_price": 1.91,
           "unit": "points",
           "basis": "consensus-scaled",
-          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
         }
       },
       "pick": {
-        "side": "away",
+        "side": "home",
         "label": "IND Pacers",
         "prob": 0.98,
         "confidence": "MEDIUM",
@@ -3294,12 +3294,12 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-36",
+      "ref": "BKB-536038",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "NBA",
-      "home": "DET Pistons",
-      "away": "MIA Heat",
+      "home": "MIA Heat",
+      "away": "DET Pistons",
       "start": "Today 20:10",
       "captured_at": "2026-10-23",
       "olbg_market": "Money Line",
@@ -3322,30 +3322,30 @@
       "model": {
         "basis": "consensus",
         "prices": {
-          "win_home": 1.02,
-          "win_away": 47.5
+          "win_away": 1.02,
+          "win_home": 47.5
         },
         "notes": [
           "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
           "Probability equals the OLBG consensus tip share; the draw is not priced."
         ],
         "probs": {
-          "home": 0.98,
-          "away": 0.02
+          "away": 0.98,
+          "home": 0.02
         },
         "handicap": {
-          "fav": "home",
+          "fav": "away",
           "line": -13.5,
           "price": 1.91,
           "dog_line": 13.5,
           "dog_price": 1.91,
           "unit": "points",
           "basis": "consensus-scaled",
-          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
         }
       },
       "pick": {
-        "side": "home",
+        "side": "away",
         "label": "DET Pistons",
         "prob": 0.98,
         "confidence": "MEDIUM",
@@ -3384,12 +3384,12 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-37",
+      "ref": "BKB-536043",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "NBA",
-      "home": "POR Trail Blazers",
-      "away": "SAC Kings",
+      "home": "SAC Kings",
+      "away": "POR Trail Blazers",
       "start": "Today 22:10",
       "captured_at": "2026-10-23",
       "olbg_market": "Pointspread",
@@ -3456,313 +3456,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-38",
-      "sport": "Basketball",
-      "sport_slug": "basketball",
-      "competition": "NBA",
-      "home": "ATL Hawks",
-      "away": "CHA Hornets",
-      "start": "Today 19:10",
-      "captured_at": "2026-10-23",
-      "olbg_market": "Pointspread",
-      "olbg_pick": "ATL Hawks -2.50",
-      "olbg_tips": "2/2",
-      "olbg_pct": 100,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/ATL_Hawks_@_CHA_Hornets/4?event_id=536035",
-      "olbg_event_id": 536035,
-      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
-      "verification": {
-        "status": "verified",
-        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
-        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
-        "official_datetime": "Fri 23 Oct 2026, 7:00 PM ET",
-        "competition_official": "NBA 2026-27 regular season",
-        "source_tier": "official",
-        "tier_note": "",
-        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): ATL Hawks @ CHA Hornets — 7:00 PM ET."
-      },
-      "model": {
-        "basis": "none",
-        "prices": {},
-        "notes": [
-          "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
-        ]
-      },
-      "pick": {
-        "side": null,
-        "label": null,
-        "prob": null,
-        "confidence": "LOW",
-        "score": 2,
-        "factors": {
-          "fixture_verified": 2,
-          "official_form": 0,
-          "model_edge": 0
-        },
-        "price": null,
-        "american": null,
-        "in_band": false,
-        "band": [
-          -250,
-          10000
-        ],
-        "start_iso": "2026-10-23",
-        "start_basis": "derived from capture date",
-        "kickoff_utc": "2026-10-23T23:00:00Z",
-        "clock_basis": "UTC conversion of cited official clock",
-        "kickoff_started": false,
-        "kickoff_passed": false,
-        "evidence_grade": "LOW",
-        "note": "",
-        "release": {
-          "status": "upcoming",
-          "eligible": true,
-          "as_of": "2026-10-23T17:22:00+00:00",
-          "start_utc": "2026-10-23T23:00:00Z",
-          "checked_at": "2026-10-23T17:04:00Z",
-          "source": "https://www.nba.com/schedule?date=2026-10-23",
-          "expires_at": "2026-10-23T23:00:00Z",
-          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
-        }
-      },
-      "market_type": "fixture"
-    },
-    {
-      "ref": "BKB-39",
-      "sport": "Basketball",
-      "sport_slug": "basketball",
-      "competition": "NBA",
-      "home": "NO Pelicans",
-      "away": "UTA Jazz",
-      "start": "Today 21:40",
-      "captured_at": "2026-10-23",
-      "olbg_market": "Money Line",
-      "olbg_pick": "UTA Jazz",
-      "olbg_tips": "2/2",
-      "olbg_pct": 100,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/NO_Pelicans_@_UTA_Jazz/4?event_id=536040",
-      "olbg_event_id": 536040,
-      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
-      "verification": {
-        "status": "verified",
-        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
-        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
-        "official_datetime": "Fri 23 Oct 2026, 9:30 PM ET",
-        "competition_official": "NBA 2026-27 regular season",
-        "source_tier": "official",
-        "tier_note": "",
-        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): NO Pelicans @ UTA Jazz — 9:30 PM ET."
-      },
-      "model": {
-        "basis": "consensus",
-        "prices": {
-          "win_away": 1.02,
-          "win_home": 47.5
-        },
-        "notes": [
-          "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-          "Probability equals the OLBG consensus tip share; the draw is not priced."
-        ],
-        "probs": {
-          "away": 0.98,
-          "home": 0.02
-        },
-        "handicap": {
-          "fav": "away",
-          "line": -13.5,
-          "price": 1.91,
-          "dog_line": 13.5,
-          "dog_price": 1.91,
-          "unit": "points",
-          "basis": "consensus-scaled",
-          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (2%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
-        }
-      },
-      "pick": {
-        "side": "away",
-        "label": "UTA Jazz",
-        "prob": 0.98,
-        "confidence": "MEDIUM",
-        "score": 4,
-        "factors": {
-          "fixture_verified": 2,
-          "official_form": 0,
-          "model_edge": 2
-        },
-        "price": 1.02,
-        "american": -5000,
-        "in_band": false,
-        "band": [
-          -250,
-          10000
-        ],
-        "start_iso": "2026-10-23",
-        "start_basis": "derived from capture date",
-        "kickoff_utc": "2026-10-24T01:30:00Z",
-        "clock_basis": "UTC conversion of cited official clock",
-        "kickoff_started": false,
-        "kickoff_passed": false,
-        "evidence_grade": "MEDIUM",
-        "note": "",
-        "release": {
-          "status": "upcoming",
-          "eligible": true,
-          "as_of": "2026-10-23T17:22:00+00:00",
-          "start_utc": "2026-10-24T01:30:00Z",
-          "checked_at": "2026-10-23T17:04:00Z",
-          "source": "https://www.nba.com/schedule?date=2026-10-23",
-          "expires_at": "2026-10-24T01:30:00Z",
-          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
-        }
-      },
-      "market_type": "fixture"
-    },
-    {
-      "ref": "BKB-40",
-      "sport": "Basketball",
-      "sport_slug": "basketball",
-      "competition": "NBA",
-      "home": "LA Clippers",
-      "away": "LA Lakers",
-      "start": "Today 22:10",
-      "captured_at": "2026-10-23",
-      "olbg_market": "Pointspread",
-      "olbg_pick": "LA Clippers +9.50",
-      "olbg_tips": "2/3",
-      "olbg_pct": 67,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/LA_Clippers_@_LA_Lakers/4?event_id=536042",
-      "olbg_event_id": 536042,
-      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
-      "verification": {
-        "status": "verified",
-        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
-        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
-        "official_datetime": "Fri 23 Oct 2026, 10:00 PM ET",
-        "competition_official": "NBA 2026-27 regular season",
-        "source_tier": "official",
-        "tier_note": "",
-        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): LA Clippers @ LA Lakers — 10:00 PM ET."
-      },
-      "model": {
-        "basis": "none",
-        "prices": {},
-        "notes": [
-          "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
-        ]
-      },
-      "pick": {
-        "side": null,
-        "label": null,
-        "prob": null,
-        "confidence": "LOW",
-        "score": 2,
-        "factors": {
-          "fixture_verified": 2,
-          "official_form": 0,
-          "model_edge": 0
-        },
-        "price": null,
-        "american": null,
-        "in_band": false,
-        "band": [
-          -250,
-          10000
-        ],
-        "start_iso": "2026-10-23",
-        "start_basis": "derived from capture date",
-        "kickoff_utc": "2026-10-24T02:00:00Z",
-        "clock_basis": "UTC conversion of cited official clock",
-        "kickoff_started": false,
-        "kickoff_passed": false,
-        "evidence_grade": "LOW",
-        "note": "",
-        "release": {
-          "status": "upcoming",
-          "eligible": true,
-          "as_of": "2026-10-23T17:22:00+00:00",
-          "start_utc": "2026-10-24T02:00:00Z",
-          "checked_at": "2026-10-23T17:04:00Z",
-          "source": "https://www.nba.com/schedule?date=2026-10-23",
-          "expires_at": "2026-10-24T02:00:00Z",
-          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
-        }
-      },
-      "market_type": "fixture"
-    },
-    {
-      "ref": "BKB-41",
-      "sport": "Basketball",
-      "sport_slug": "basketball",
-      "competition": "NBA",
-      "home": "MEM Grizzlies",
-      "away": "GS Warriors",
-      "start": "Today 22:10",
-      "captured_at": "2026-10-23",
-      "olbg_market": "Pointspread",
-      "olbg_pick": "GS Warriors -4.50",
-      "olbg_tips": "2/3",
-      "olbg_pct": 67,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MEM_Grizzlies_@_GS_Warriors/4?event_id=536039",
-      "olbg_event_id": 536039,
-      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
-      "verification": {
-        "status": "verified",
-        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
-        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
-        "official_datetime": "Fri 23 Oct 2026, 10:00 PM ET",
-        "competition_official": "NBA 2026-27 regular season",
-        "source_tier": "official",
-        "tier_note": "",
-        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): MEM Grizzlies @ GS Warriors — 10:00 PM ET."
-      },
-      "model": {
-        "basis": "none",
-        "prices": {},
-        "notes": [
-          "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
-        ]
-      },
-      "pick": {
-        "side": null,
-        "label": null,
-        "prob": null,
-        "confidence": "LOW",
-        "score": 2,
-        "factors": {
-          "fixture_verified": 2,
-          "official_form": 0,
-          "model_edge": 0
-        },
-        "price": null,
-        "american": null,
-        "in_band": false,
-        "band": [
-          -250,
-          10000
-        ],
-        "start_iso": "2026-10-23",
-        "start_basis": "derived from capture date",
-        "kickoff_utc": "2026-10-24T02:00:00Z",
-        "clock_basis": "UTC conversion of cited official clock",
-        "kickoff_started": false,
-        "kickoff_passed": false,
-        "evidence_grade": "LOW",
-        "note": "",
-        "release": {
-          "status": "upcoming",
-          "eligible": true,
-          "as_of": "2026-10-23T17:22:00+00:00",
-          "start_utc": "2026-10-24T02:00:00Z",
-          "checked_at": "2026-10-23T17:04:00Z",
-          "source": "https://www.nba.com/schedule?date=2026-10-23",
-          "expires_at": "2026-10-24T02:00:00Z",
-          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
-        }
-      },
-      "market_type": "fixture"
-    },
-    {
-      "ref": "BKB-42",
+      "ref": "BKB-536031",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "Poland PLK",
@@ -3850,7 +3544,313 @@
       "market_type": "fixture"
     },
     {
-      "ref": "BKB-43",
+      "ref": "BKB-536035",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "competition": "NBA",
+      "home": "CHA Hornets",
+      "away": "ATL Hawks",
+      "start": "Today 19:10",
+      "captured_at": "2026-10-23",
+      "olbg_market": "Pointspread",
+      "olbg_pick": "ATL Hawks -2.50",
+      "olbg_tips": "2/2",
+      "olbg_pct": 100,
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/ATL_Hawks_@_CHA_Hornets/4?event_id=536035",
+      "olbg_event_id": 536035,
+      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "verification": {
+        "status": "verified",
+        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
+        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
+        "official_datetime": "Fri 23 Oct 2026, 7:00 PM ET",
+        "competition_official": "NBA 2026-27 regular season",
+        "source_tier": "official",
+        "tier_note": "",
+        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): ATL Hawks @ CHA Hornets — 7:00 PM ET."
+      },
+      "model": {
+        "basis": "none",
+        "prices": {},
+        "notes": [
+          "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+        ]
+      },
+      "pick": {
+        "side": null,
+        "label": null,
+        "prob": null,
+        "confidence": "LOW",
+        "score": 2,
+        "factors": {
+          "fixture_verified": 2,
+          "official_form": 0,
+          "model_edge": 0
+        },
+        "price": null,
+        "american": null,
+        "in_band": false,
+        "band": [
+          -250,
+          10000
+        ],
+        "start_iso": "2026-10-23",
+        "start_basis": "derived from capture date",
+        "kickoff_utc": "2026-10-23T23:00:00Z",
+        "clock_basis": "UTC conversion of cited official clock",
+        "kickoff_started": false,
+        "kickoff_passed": false,
+        "evidence_grade": "LOW",
+        "note": "",
+        "release": {
+          "status": "upcoming",
+          "eligible": true,
+          "as_of": "2026-10-23T17:22:00+00:00",
+          "start_utc": "2026-10-23T23:00:00Z",
+          "checked_at": "2026-10-23T17:04:00Z",
+          "source": "https://www.nba.com/schedule?date=2026-10-23",
+          "expires_at": "2026-10-23T23:00:00Z",
+          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+        }
+      },
+      "market_type": "fixture"
+    },
+    {
+      "ref": "BKB-536040",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "competition": "NBA",
+      "home": "UTA Jazz",
+      "away": "NO Pelicans",
+      "start": "Today 21:40",
+      "captured_at": "2026-10-23",
+      "olbg_market": "Money Line",
+      "olbg_pick": "UTA Jazz",
+      "olbg_tips": "2/2",
+      "olbg_pct": 100,
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/NO_Pelicans_@_UTA_Jazz/4?event_id=536040",
+      "olbg_event_id": 536040,
+      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "verification": {
+        "status": "verified",
+        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
+        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
+        "official_datetime": "Fri 23 Oct 2026, 9:30 PM ET",
+        "competition_official": "NBA 2026-27 regular season",
+        "source_tier": "official",
+        "tier_note": "",
+        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): NO Pelicans @ UTA Jazz — 9:30 PM ET."
+      },
+      "model": {
+        "basis": "consensus",
+        "prices": {
+          "win_home": 1.02,
+          "win_away": 47.5
+        },
+        "notes": [
+          "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
+          "Probability equals the OLBG consensus tip share; the draw is not priced."
+        ],
+        "probs": {
+          "home": 0.98,
+          "away": 0.02
+        },
+        "handicap": {
+          "fav": "home",
+          "line": -13.5,
+          "price": 1.91,
+          "dog_line": 13.5,
+          "dog_price": 1.91,
+          "unit": "points",
+          "basis": "consensus-scaled",
+          "note": "Probability-implied line: sigma 13.0 points (disclosed assumption) times the normal quantile of our win probability (98%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. The probability was capped at 85% for line purposes so a small tip sample cannot set an extreme line."
+        }
+      },
+      "pick": {
+        "side": "home",
+        "label": "UTA Jazz",
+        "prob": 0.98,
+        "confidence": "MEDIUM",
+        "score": 4,
+        "factors": {
+          "fixture_verified": 2,
+          "official_form": 0,
+          "model_edge": 2
+        },
+        "price": 1.02,
+        "american": -5000,
+        "in_band": false,
+        "band": [
+          -250,
+          10000
+        ],
+        "start_iso": "2026-10-23",
+        "start_basis": "derived from capture date",
+        "kickoff_utc": "2026-10-24T01:30:00Z",
+        "clock_basis": "UTC conversion of cited official clock",
+        "kickoff_started": false,
+        "kickoff_passed": false,
+        "evidence_grade": "MEDIUM",
+        "note": "",
+        "release": {
+          "status": "upcoming",
+          "eligible": true,
+          "as_of": "2026-10-23T17:22:00+00:00",
+          "start_utc": "2026-10-24T01:30:00Z",
+          "checked_at": "2026-10-23T17:04:00Z",
+          "source": "https://www.nba.com/schedule?date=2026-10-23",
+          "expires_at": "2026-10-24T01:30:00Z",
+          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+        }
+      },
+      "market_type": "fixture"
+    },
+    {
+      "ref": "BKB-536042",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "competition": "NBA",
+      "home": "LA Lakers",
+      "away": "LA Clippers",
+      "start": "Today 22:10",
+      "captured_at": "2026-10-23",
+      "olbg_market": "Pointspread",
+      "olbg_pick": "LA Clippers +9.50",
+      "olbg_tips": "2/3",
+      "olbg_pct": 67,
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/LA_Clippers_@_LA_Lakers/4?event_id=536042",
+      "olbg_event_id": 536042,
+      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "verification": {
+        "status": "verified",
+        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
+        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
+        "official_datetime": "Fri 23 Oct 2026, 10:00 PM ET",
+        "competition_official": "NBA 2026-27 regular season",
+        "source_tier": "official",
+        "tier_note": "",
+        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): LA Clippers @ LA Lakers — 10:00 PM ET."
+      },
+      "model": {
+        "basis": "none",
+        "prices": {},
+        "notes": [
+          "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+        ]
+      },
+      "pick": {
+        "side": null,
+        "label": null,
+        "prob": null,
+        "confidence": "LOW",
+        "score": 2,
+        "factors": {
+          "fixture_verified": 2,
+          "official_form": 0,
+          "model_edge": 0
+        },
+        "price": null,
+        "american": null,
+        "in_band": false,
+        "band": [
+          -250,
+          10000
+        ],
+        "start_iso": "2026-10-23",
+        "start_basis": "derived from capture date",
+        "kickoff_utc": "2026-10-24T02:00:00Z",
+        "clock_basis": "UTC conversion of cited official clock",
+        "kickoff_started": false,
+        "kickoff_passed": false,
+        "evidence_grade": "LOW",
+        "note": "",
+        "release": {
+          "status": "upcoming",
+          "eligible": true,
+          "as_of": "2026-10-23T17:22:00+00:00",
+          "start_utc": "2026-10-24T02:00:00Z",
+          "checked_at": "2026-10-23T17:04:00Z",
+          "source": "https://www.nba.com/schedule?date=2026-10-23",
+          "expires_at": "2026-10-24T02:00:00Z",
+          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+        }
+      },
+      "market_type": "fixture"
+    },
+    {
+      "ref": "BKB-536039",
+      "sport": "Basketball",
+      "sport_slug": "basketball",
+      "competition": "NBA",
+      "home": "GS Warriors",
+      "away": "MEM Grizzlies",
+      "start": "Today 22:10",
+      "captured_at": "2026-10-23",
+      "olbg_market": "Pointspread",
+      "olbg_pick": "GS Warriors -4.50",
+      "olbg_tips": "2/3",
+      "olbg_pct": 67,
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MEM_Grizzlies_@_GS_Warriors/4?event_id=536039",
+      "olbg_event_id": 536039,
+      "olbg_listing_url": "https://www.olbg.com/betting-tips/Basketball/4",
+      "verification": {
+        "status": "verified",
+        "official_url": "https://www.nba.com/schedule?date=2026-10-23",
+        "official_label": "NBA.com official schedule — Friday, October 23 (12 Games)",
+        "official_datetime": "Fri 23 Oct 2026, 10:00 PM ET",
+        "competition_official": "NBA 2026-27 regular season",
+        "source_tier": "official",
+        "tier_note": "",
+        "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): MEM Grizzlies @ GS Warriors — 10:00 PM ET."
+      },
+      "model": {
+        "basis": "none",
+        "prices": {},
+        "notes": [
+          "OLBG's listed market is not a straight match-winner market, so tip share is not reused as win probability."
+        ]
+      },
+      "pick": {
+        "side": null,
+        "label": null,
+        "prob": null,
+        "confidence": "LOW",
+        "score": 2,
+        "factors": {
+          "fixture_verified": 2,
+          "official_form": 0,
+          "model_edge": 0
+        },
+        "price": null,
+        "american": null,
+        "in_band": false,
+        "band": [
+          -250,
+          10000
+        ],
+        "start_iso": "2026-10-23",
+        "start_basis": "derived from capture date",
+        "kickoff_utc": "2026-10-24T02:00:00Z",
+        "clock_basis": "UTC conversion of cited official clock",
+        "kickoff_started": false,
+        "kickoff_passed": false,
+        "evidence_grade": "LOW",
+        "note": "",
+        "release": {
+          "status": "upcoming",
+          "eligible": true,
+          "as_of": "2026-10-23T17:22:00+00:00",
+          "start_utc": "2026-10-24T02:00:00Z",
+          "checked_at": "2026-10-23T17:04:00Z",
+          "source": "https://www.nba.com/schedule?date=2026-10-23",
+          "expires_at": "2026-10-24T02:00:00Z",
+          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+        }
+      },
+      "market_type": "fixture"
+    },
+    {
+      "ref": "BKB-536075",
       "sport": "Basketball",
       "sport_slug": "basketball",
       "competition": "Poland PLK",
@@ -4965,7 +4965,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "CRK-19",
+      "ref": "CRK-188839",
       "sport": "Cricket",
       "sport_slug": "cricket",
       "competition": "",
@@ -5043,7 +5043,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "CRK-20",
+      "ref": "CRK-188840",
       "sport": "Cricket",
       "sport_slug": "cricket",
       "competition": "",
@@ -5121,7 +5121,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "CRK-21",
+      "ref": "CRK-188841",
       "sport": "Cricket",
       "sport_slug": "cricket",
       "competition": "",
@@ -5200,7 +5200,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "CRK-22",
+      "ref": "CRK-188842",
       "sport": "Cricket",
       "sport_slug": "cricket",
       "competition": "",
@@ -5279,7 +5279,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "CRK-23",
+      "ref": "CRK-188843",
       "sport": "Cricket",
       "sport_slug": "cricket",
       "competition": "",
@@ -5358,7 +5358,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "CRK-24",
+      "ref": "CRK-188838",
       "sport": "Cricket",
       "sport_slug": "cricket",
       "competition": "",
@@ -6898,7 +6898,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "DRT-21",
+      "ref": "DRT-32384",
       "sport": "Darts",
       "sport_slug": "darts",
       "competition": "2026 PDC Machineseeker European Championship (Round 2)",
@@ -6986,7 +6986,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "DRT-22",
+      "ref": "DRT-32385",
       "sport": "Darts",
       "sport_slug": "darts",
       "competition": "2026 PDC Machineseeker European Championship (Round 2)",
@@ -7083,7 +7083,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "DRT-23",
+      "ref": "DRT-32386",
       "sport": "Darts",
       "sport_slug": "darts",
       "competition": "2026 PDC Machineseeker European Championship (Round 2)",
@@ -7180,7 +7180,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "DRT-24",
+      "ref": "DRT-32383",
       "sport": "Darts",
       "sport_slug": "darts",
       "competition": "2026 PDC Machineseeker European Championship (Round 2)",
@@ -11091,7 +11091,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "HBL-39",
+      "ref": "HBL-12120",
       "sport": "Handball",
       "sport_slug": "handball",
       "competition": "",
@@ -11162,7 +11162,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "HBL-40",
+      "ref": "HBL-12121",
       "sport": "Handball",
       "sport_slug": "handball",
       "competition": "",
@@ -11233,7 +11233,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "HBL-41",
+      "ref": "HBL-12103",
       "sport": "Handball",
       "sport_slug": "handball",
       "competition": "",
@@ -11321,7 +11321,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "HBL-42",
+      "ref": "HBL-12090",
       "sport": "Handball",
       "sport_slug": "handball",
       "competition": "",
@@ -11392,7 +11392,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "HBL-43",
+      "ref": "HBL-12106",
       "sport": "Handball",
       "sport_slug": "handball",
       "competition": "",
@@ -14239,12 +14239,12 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-30",
+      "ref": "IHO-199984",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "NHL",
-      "home": "MTL Canadiens",
-      "away": "CHI Blackhawks",
+      "home": "CHI Blackhawks",
+      "away": "MTL Canadiens",
       "start": "Today 20:07",
       "captured_at": "2026-10-23",
       "olbg_market": "Money Line",
@@ -14257,29 +14257,29 @@
       "verification": {
         "status": "verified",
         "official_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
-        "official_label": "NHL official schedule API — 2026-10-23",
-        "official_datetime": "Fri 23 Oct 2026, startTimeUTC 2026-10-24T00:00:00Z, United Center, Chicago",
-        "competition_official": "NHL 2026-27 regular season — game 2026020166",
+        "official_label": "NHL official schedule API, 23 Oct 2026 gameweek",
+        "official_datetime": "Sat 24 Oct 2026, 00:00 UTC (Fri 23 Oct, 20:00 ET), United Center, Chicago",
+        "competition_official": "NHL 2026-27 regular season",
         "source_tier": "official",
         "tier_note": "",
-        "note": "Observed 2026-10-23T16:55Z: game 2026020166 Montreal Canadiens at Chicago Blackhawks, venue United Center, \"startTimeUTC\": \"2026-10-24T00:00:00Z\"."
+        "note": "The NHL's own payload names both clubs (Montreal Canadiens at Chicago Blackhawks) and states startTimeUTC 2026-10-24T00:00:00Z. OLBG event 199984 prints the same fixture as 'Today 20:07'."
       },
       "model": {
         "basis": "official-standings",
         "prices": {
-          "win_home": 1.39,
+          "win_home": 2.46,
           "draw": null,
-          "win_away": 2.98
+          "win_away": 1.55
         },
         "notes": [
           "Official standings used for both sides (https://api-web.nhle.com/v1/standings/2026-10-23)."
         ],
         "probs": {
-          "home": 0.6816,
-          "away": 0.3184
+          "home": 0.3867,
+          "away": 0.6133
         },
         "handicap": {
-          "fav": "home",
+          "fav": "away",
           "line": -0.5,
           "price": 1.91,
           "dog_line": 0.5,
@@ -14298,19 +14298,19 @@
         }
       },
       "pick": {
-        "side": "home",
+        "side": "away",
         "label": "MTL Canadiens",
-        "prob": 0.6816,
-        "confidence": "MEDIUM",
+        "prob": 0.6133,
+        "confidence": "HIGH",
         "score": 6,
         "factors": {
           "fixture_verified": 2,
           "official_form": 2,
           "model_edge": 2
         },
-        "price": 1.39,
-        "american": -256,
-        "in_band": false,
+        "price": 1.55,
+        "american": -182,
+        "in_band": true,
         "band": [
           -250,
           10000
@@ -14322,13 +14322,13 @@
         "kickoff_started": false,
         "kickoff_passed": false,
         "evidence_grade": "HIGH",
-        "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.39 converts to -256 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page.",
+        "note": "",
         "release": {
           "status": "upcoming",
           "eligible": true,
           "as_of": "2026-10-23T17:22:00+00:00",
           "start_utc": "2026-10-24T00:00:00Z",
-          "checked_at": "2026-10-23T16:55:00Z",
+          "checked_at": "2026-10-23T16:28:04Z",
           "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
           "expires_at": "2026-10-24T00:00:00Z",
           "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -14337,105 +14337,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-31",
-      "sport": "Ice Hockey",
-      "sport_slug": "ice_hockey",
-      "competition": "NHL",
-      "home": "TB Lightning",
-      "away": "COL Avalanche",
-      "start": "Today 21:07",
-      "captured_at": "2026-10-23",
-      "olbg_market": "Puck Line",
-      "olbg_pick": "TB Lightning +1.50",
-      "olbg_tips": "1/2",
-      "olbg_pct": 50,
-      "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_COL_Avalanche/13?event_id=199985",
-      "olbg_event_id": 199985,
-      "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
-      "verification": {
-        "status": "verified",
-        "official_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
-        "official_label": "NHL official schedule API — 2026-10-23",
-        "official_datetime": "Fri 23 Oct 2026, startTimeUTC 2026-10-24T01:00:00Z, Ball Arena, Denver",
-        "competition_official": "NHL 2026-27 regular season — game 2026020167",
-        "source_tier": "official",
-        "tier_note": "",
-        "note": "Observed 2026-10-23T16:55Z: game 2026020167 Tampa Bay Lightning at Colorado Avalanche, venue Ball Arena, \"startTimeUTC\": \"2026-10-24T01:00:00Z\"."
-      },
-      "model": {
-        "basis": "official-standings",
-        "prices": {
-          "win_home": 1.81,
-          "draw": null,
-          "win_away": 1.99
-        },
-        "notes": [
-          "Official standings used for both sides (https://api-web.nhle.com/v1/standings/2026-10-23)."
-        ],
-        "probs": {
-          "home": 0.5236,
-          "away": 0.4764
-        },
-        "handicap": {
-          "fav": "home",
-          "line": -0.5,
-          "price": 1.91,
-          "dog_line": 0.5,
-          "dog_price": 1.91,
-          "unit": "goals",
-          "basis": "official-form",
-          "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
-        },
-        "total": {
-          "line": 6.5,
-          "over": 1.91,
-          "under": 1.91,
-          "unit": "goals",
-          "basis": "official-form",
-          "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
-        }
-      },
-      "pick": {
-        "side": "home",
-        "label": "TB Lightning",
-        "prob": 0.5236,
-        "confidence": "MEDIUM",
-        "score": 4,
-        "factors": {
-          "fixture_verified": 2,
-          "official_form": 2,
-          "model_edge": 0
-        },
-        "price": 1.81,
-        "american": -123,
-        "in_band": true,
-        "band": [
-          -250,
-          10000
-        ],
-        "start_iso": "2026-10-23",
-        "start_basis": "derived from capture date",
-        "kickoff_utc": "2026-10-24T01:00:00Z",
-        "clock_basis": "UTC conversion of cited official clock",
-        "kickoff_started": false,
-        "kickoff_passed": false,
-        "evidence_grade": "MEDIUM",
-        "note": "",
-        "release": {
-          "status": "upcoming",
-          "eligible": true,
-          "as_of": "2026-10-23T17:22:00+00:00",
-          "start_utc": "2026-10-24T01:00:00Z",
-          "checked_at": "2026-10-23T16:55:00Z",
-          "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
-          "expires_at": "2026-10-24T01:00:00Z",
-          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
-        }
-      },
-      "market_type": "fixture"
-    },
-    {
-      "ref": "IHO-32",
+      "ref": "IHO-199927",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Germany Eishockey Liga",
@@ -14514,7 +14416,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-33",
+      "ref": "IHO-199955",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Finland SM Liiga",
@@ -14585,7 +14487,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-34",
+      "ref": "IHO-199965",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Austria EHL",
@@ -14656,7 +14558,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-35",
+      "ref": "IHO-199926",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Germany Eishockey Liga",
@@ -14727,7 +14629,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-36",
+      "ref": "IHO-199925",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Germany Eishockey Liga",
@@ -14806,7 +14708,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-37",
+      "ref": "IHO-199928",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Germany Eishockey Liga",
@@ -14877,7 +14779,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-38",
+      "ref": "IHO-199924",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Germany Eishockey Liga",
@@ -14956,7 +14858,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-39",
+      "ref": "IHO-199930",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Germany Eishockey Liga",
@@ -15027,7 +14929,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-40",
+      "ref": "IHO-199908",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Switzerland NLA",
@@ -15106,7 +15008,105 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-41",
+      "ref": "IHO-199985",
+      "sport": "Ice Hockey",
+      "sport_slug": "ice_hockey",
+      "competition": "NHL",
+      "home": "COL Avalanche",
+      "away": "TB Lightning",
+      "start": "Today 21:07",
+      "captured_at": "2026-10-23",
+      "olbg_market": "Puck Line",
+      "olbg_pick": "TB Lightning +1.50",
+      "olbg_tips": "1/2",
+      "olbg_pct": 50,
+      "olbg_event_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_COL_Avalanche/13?event_id=199985",
+      "olbg_event_id": 199985,
+      "olbg_listing_url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "verification": {
+        "status": "verified",
+        "official_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "official_label": "NHL official schedule API — 2026-10-23",
+        "official_datetime": "Fri 23 Oct 2026, startTimeUTC 2026-10-24T01:00:00Z, Ball Arena, Denver",
+        "competition_official": "NHL 2026-27 regular season — game 2026020167",
+        "source_tier": "official",
+        "tier_note": "",
+        "note": "Observed 2026-10-23T16:55Z: game 2026020167 Tampa Bay Lightning at Colorado Avalanche, venue Ball Arena, \"startTimeUTC\": \"2026-10-24T01:00:00Z\"."
+      },
+      "model": {
+        "basis": "official-standings",
+        "prices": {
+          "win_home": 1.72,
+          "draw": null,
+          "win_away": 2.12
+        },
+        "notes": [
+          "Official standings used for both sides (https://api-web.nhle.com/v1/standings/2026-10-23)."
+        ],
+        "probs": {
+          "home": 0.5512,
+          "away": 0.4488
+        },
+        "handicap": {
+          "fav": "home",
+          "line": -0.5,
+          "price": 1.91,
+          "dog_line": 0.5,
+          "dog_price": 1.91,
+          "unit": "goals",
+          "basis": "official-form",
+          "note": "Line derived from the projected margin built on official league data; price is our standard 1.91 two-way quote."
+        },
+        "total": {
+          "line": 6.5,
+          "over": 1.91,
+          "under": 1.91,
+          "unit": "goals",
+          "basis": "official-form",
+          "note": "Line = projected combined score from official league scoring rates, rounded to a half point; price is our standard 1.91 two-way quote."
+        }
+      },
+      "pick": {
+        "side": "home",
+        "label": "COL Avalanche",
+        "prob": 0.5512,
+        "confidence": "HIGH",
+        "score": 6,
+        "factors": {
+          "fixture_verified": 2,
+          "official_form": 2,
+          "model_edge": 2
+        },
+        "price": 1.72,
+        "american": -139,
+        "in_band": true,
+        "band": [
+          -250,
+          10000
+        ],
+        "start_iso": "2026-10-23",
+        "start_basis": "derived from capture date",
+        "kickoff_utc": "2026-10-24T01:00:00Z",
+        "clock_basis": "UTC conversion of cited official clock",
+        "kickoff_started": false,
+        "kickoff_passed": false,
+        "evidence_grade": "HIGH",
+        "note": "",
+        "release": {
+          "status": "upcoming",
+          "eligible": true,
+          "as_of": "2026-10-23T17:22:00+00:00",
+          "start_utc": "2026-10-24T01:00:00Z",
+          "checked_at": "2026-10-23T16:28:04Z",
+          "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+          "expires_at": "2026-10-24T01:00:00Z",
+          "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
+        }
+      },
+      "market_type": "fixture"
+    },
+    {
+      "ref": "IHO-199909",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Switzerland NLA",
@@ -15185,7 +15185,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "IHO-42",
+      "ref": "IHO-199915",
       "sport": "Ice Hockey",
       "sport_slug": "ice_hockey",
       "competition": "Switzerland NLA",
@@ -16086,7 +16086,7 @@
         "prices": {},
         "notes": [
           "Official league table used for both sides (https://prod2.lnr.fr/classement).",
-          "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134."
+          "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
         ],
         "probs": {},
         "handicap": null,
@@ -16117,7 +16117,7 @@
         "kickoff_started": false,
         "kickoff_passed": false,
         "evidence_grade": "HIGH",
-        "note": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134.",
+        "note": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148.",
         "release": {
           "status": "source_conflict",
           "eligible": false,
@@ -16126,7 +16126,7 @@
           "checked_at": "2026-10-22T12:25:00Z",
           "source": "https://prod2.lnr.fr/calendrier-et-resultats",
           "expires_at": null,
-          "reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134."
+          "reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
         }
       },
       "market_type": "fixture"
@@ -16162,7 +16162,7 @@
         "prices": {},
         "notes": [
           "Official league table used for both sides (https://prod2.lnr.fr/classement).",
-          "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134."
+          "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
         ],
         "probs": {},
         "handicap": null,
@@ -16193,7 +16193,7 @@
         "kickoff_started": false,
         "kickoff_passed": false,
         "evidence_grade": "HIGH",
-        "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.11 converts to -909 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134.",
+        "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.11 converts to -909 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148.",
         "release": {
           "status": "source_conflict",
           "eligible": false,
@@ -16202,7 +16202,7 @@
           "checked_at": "2026-10-22T12:25:00Z",
           "source": "https://prod2.lnr.fr/calendrier-et-resultats",
           "expires_at": null,
-          "reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134."
+          "reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
         }
       },
       "market_type": "fixture"
@@ -16330,7 +16330,7 @@
         "competition_official": "Top 14 2026/27 — Journée 7",
         "source_tier": "official",
         "tier_note": "",
-        "note": "Re-observed 2026-10-23T17:11Z: \"samedi 24 octobre — Aviron Bayonnais (5e) v LOU Rugby (8e) 16h35\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-134)."
+        "note": "Re-observed 2026-10-23T17:11Z: \"samedi 24 octobre — Aviron Bayonnais (5e) v LOU Rugby (8e) 16h35\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-148)."
       },
       "model": {
         "basis": "official-league-table",
@@ -16400,7 +16400,7 @@
           "checked_at": "2026-10-23T17:11:00Z",
           "source": "https://top14.lnr.fr/calendrier-et-resultats",
           "expires_at": null,
-          "reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-134."
+          "reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
         }
       },
       "market_type": "fixture"
@@ -16490,7 +16490,7 @@
         "kickoff_started": false,
         "kickoff_passed": false,
         "evidence_grade": "HIGH",
-        "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.18 converts to -556 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-134.",
+        "note": "Strong on the evidence (score 6), but not published as a high-confidence pick: its price of 1.18 converts to -556 US odds, shorter than the -250 floor in the brief. Graded MEDIUM and listed on the Flagged page. LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148.",
         "release": {
           "status": "unverified_start",
           "eligible": false,
@@ -16499,7 +16499,7 @@
           "checked_at": "2026-10-23T17:11:00Z",
           "source": "https://top14.lnr.fr/calendrier-et-resultats",
           "expires_at": null,
-          "reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-134."
+          "reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
         }
       },
       "market_type": "fixture"
@@ -16627,7 +16627,7 @@
         "competition_official": "Top 14 2026/27 — Journée 7",
         "source_tier": "official",
         "tier_note": "",
-        "note": "Re-observed 2026-10-23T17:11Z: \"dimanche 25 octobre — Stade Rochelais (4e) v Union Bordeaux-Bègles (3e) 21h05\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-134)."
+        "note": "Re-observed 2026-10-23T17:11Z: \"dimanche 25 octobre — Stade Rochelais (4e) v Union Bordeaux-Bègles (3e) 21h05\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-148)."
       },
       "model": {
         "basis": "official-league-table",
@@ -16697,7 +16697,7 @@
           "checked_at": "2026-10-23T17:11:00Z",
           "source": "https://top14.lnr.fr/calendrier-et-resultats",
           "expires_at": null,
-          "reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-134."
+          "reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
         }
       },
       "market_type": "fixture"
@@ -16881,7 +16881,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "RGU-19",
+      "ref": "RGU-609570",
       "sport": "Rugby Union",
       "sport_slug": "rugby_union",
       "competition": "Gallagher PREM 2026/27 — Round 4",
@@ -16961,7 +16961,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "RGU-20",
+      "ref": "RGU-609575",
       "sport": "Rugby Union",
       "sport_slug": "rugby_union",
       "competition": "BKT United Rugby Championship 2026/27 — Round 4",
@@ -17060,7 +17060,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "RGU-21",
+      "ref": "RGU-609582",
       "sport": "Rugby Union",
       "sport_slug": "rugby_union",
       "competition": "",
@@ -17138,7 +17138,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "RGU-22",
+      "ref": "RGU-609572",
       "sport": "Rugby Union",
       "sport_slug": "rugby_union",
       "competition": "Gallagher PREM 2026/27 — Round 4",
@@ -17218,7 +17218,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "RGU-23",
+      "ref": "RGU-609569",
       "sport": "Rugby Union",
       "sport_slug": "rugby_union",
       "competition": "Gallagher PREM 2026/27 — Round 4",
@@ -18523,7 +18523,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "SNK-15",
+      "ref": "SNK-9951",
       "sport": "Snooker",
       "sport_slug": "snooker",
       "competition": "BetVictor Northern Ireland Open 2026 — Quarter Finals",
@@ -18612,7 +18612,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "SNK-16",
+      "ref": "SNK-9950",
       "sport": "Snooker",
       "sport_slug": "snooker",
       "competition": "BetVictor Northern Ireland Open 2026 — Quarter Finals",
@@ -23061,7 +23061,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-49",
+      "ref": "TEN-902150",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "",
@@ -23149,7 +23149,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-50",
+      "ref": "TEN-902155",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "",
@@ -23160,7 +23160,7 @@
       "olbg_market": "Win Match",
       "olbg_pick": "Flavio Cobolli",
       "olbg_tips": "5/8",
-      "olbg_pct": 62,
+      "olbg_pct": 63,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Flavio_Cobolli_vs_Brandon_Nakashima/3?event_id=902155",
       "olbg_event_id": 902155,
       "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
@@ -23246,7 +23246,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-51",
+      "ref": "TEN-902153",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "",
@@ -23257,7 +23257,7 @@
       "olbg_market": "Win Match",
       "olbg_pick": "Jan Lennard Struff",
       "olbg_tips": "5/8",
-      "olbg_pct": 62,
+      "olbg_pct": 63,
       "olbg_event_url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Jan_Lennard_Struff_vs_Zizou_Bergs/3?event_id=902153",
       "olbg_event_id": 902153,
       "olbg_listing_url": "https://www.olbg.com/betting-tips/Tennis/3",
@@ -23273,15 +23273,15 @@
       "model": {
         "basis": "consensus",
         "prices": {
-          "win_home": 1.53,
-          "win_away": 2.5
+          "win_home": 1.51,
+          "win_away": 2.57
         },
         "notes": [
           "Probability equals the OLBG consensus tip share; the draw is not priced."
         ],
         "probs": {
-          "home": 0.62,
-          "away": 0.38
+          "home": 0.63,
+          "away": 0.37
         },
         "handicap": {
           "fav": "home",
@@ -23291,13 +23291,13 @@
           "dog_price": 1.91,
           "unit": "games",
           "basis": "consensus-scaled",
-          "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (62%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
+          "note": "Probability-implied line: sigma 4.5 games (disclosed assumption) times the normal quantile of our win probability (63%). Price is our standard 1.91 two-way quote. This is our own line, not a market price. Tennis has no home side: the line is stated against the first-listed player."
         }
       },
       "pick": {
         "side": "home",
         "label": "Jan Lennard Struff",
-        "prob": 0.62,
+        "prob": 0.63,
         "confidence": "LOW",
         "score": 2,
         "factors": {
@@ -23305,8 +23305,8 @@
           "official_form": 0,
           "model_edge": 2
         },
-        "price": 1.53,
-        "american": -189,
+        "price": 1.51,
+        "american": -196,
         "in_band": true,
         "band": [
           -250,
@@ -23334,7 +23334,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-52",
+      "ref": "TEN-902147",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "",
@@ -23422,7 +23422,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-53",
+      "ref": "TEN-902157",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "WTA 250 Kinoshita Group Japan Open, Osaka (SF)",
@@ -23494,7 +23494,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-54",
+      "ref": "TEN-902162",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "WTA 250 Kinoshita Group Japan Open, Osaka (SF)",
@@ -23584,7 +23584,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-55",
+      "ref": "TEN-902160",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "WTA 500 BNB Ningbo Open (SF)",
@@ -23674,7 +23674,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-56",
+      "ref": "TEN-902163",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "WTA 500 BNB Ningbo Open (SF)",
@@ -23772,7 +23772,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "TEN-57",
+      "ref": "TEN-902159",
       "sport": "Tennis",
       "sport_slug": "tennis",
       "competition": "",
@@ -26876,7 +26876,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-36",
+      "ref": "VOL-37009",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -26964,7 +26964,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-37",
+      "ref": "VOL-37022",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27052,7 +27052,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-38",
+      "ref": "VOL-37025",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27140,7 +27140,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-39",
+      "ref": "VOL-37031",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27229,7 +27229,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-40",
+      "ref": "VOL-37026",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27300,7 +27300,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-41",
+      "ref": "VOL-37032",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27371,7 +27371,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-42",
+      "ref": "VOL-37018",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27459,7 +27459,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-43",
+      "ref": "VOL-37012",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",
@@ -27530,7 +27530,7 @@
       "market_type": "fixture"
     },
     {
-      "ref": "VOL-44",
+      "ref": "VOL-37013",
       "sport": "Volleyball",
       "sport_slug": "volleyball",
       "competition": "",

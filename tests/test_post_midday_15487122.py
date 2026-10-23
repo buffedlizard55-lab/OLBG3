@@ -4,11 +4,13 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
 
+@pins('olbg-harvest-20261022T1215Z.tsv')
 class PostMidday15487122AuditTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -31,8 +33,12 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         self.assertEqual(self.rc["37005"]["kind"], "date_only")
         self.assertIsNone(self.rc["37005"]["timezone"])
         self.assertIn("J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)", self.rc["37005"]["quote"])
-        self.assertIn(self.events["VOL-30"]["pick"]["release"]["status"], ("unverified_start", "past_date"))  # 22 Oct fixture
-        self.assertIn(self.lines["VOL-37005"]["release"]["status"], ("unverified_start", "past_date"))
+        # 2026-10-23: the fixture date has passed, so the date gate reports past_date. The finding is
+        # unchanged: an unzoned official label can never certify a start.
+        self.assertIn(self.events["VOL-30"]["pick"]["release"]["status"], {"unverified_start", "past_date"})
+        self.assertFalse(self.events["VOL-30"]["pick"]["release"]["eligible"])
+        self.assertIn(self.lines["VOL-37005"]["release"]["status"], {"unverified_start", "past_date"})
+        self.assertFalse(self.lines["VOL-37005"]["release"]["eligible"])
         self.assertIn("FL-096", self.flagged)
 
         # FL-097: wtafiles 405/OP.pdf prints 'Starting at 11:30 AM' without JST
@@ -45,16 +51,17 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         # FL-098: pdc.tv/WCFAQ explicitly states 'Friday December 11 (1900 GMT)' and 128-player field
         self.assertEqual(self.rc["26023"]["kind"], "exact")
         self.assertEqual(self.rc["26023"]["timezone"], "GMT")
-        # HIGH while the 22 Oct pdc.tv observation is under 24 h old; afterwards the release gate
-        # expires it to MEDIUM (stale_source) until the page is re-read.
-        self.assertIn(self.gap["DRT-18"]["pick"]["confidence"], ("HIGH", "MEDIUM"))
+        # 2026-10-23: the observation aged out of the 24-hour window, so the row is archived as analysis
+        self.assertEqual(self.gap["DRT-18"]["pick"]["evidence_grade"], "HIGH")
+        self.assertIn(self.gap["DRT-18"]["pick"]["confidence"], {"HIGH", "MEDIUM"})
+        self.assertFalse(self.gap["DRT-18"]["pick"]["release"]["eligible"])
         self.assertEqual(self.gap["DRT-18"]["pick"]["label"], "Luke Littler")
         # The OLBG outright tip count moved from 23/36 to 23/37 in the 20:55Z re-capture, so
         # the disclosed Dirichlet shrinkage re-prices the same selection.
         self.assertEqual(self.gap["DRT-18"]["pick"]["price"], 2.34)
         self.assertGreaterEqual(len(self.preds_root["DRT-18"]["body"].split()), 30)
 
-        self.assertIn(self.lines["DAR-26023"]["confidence"], ("high", "medium"))
+        self.assertIn(self.lines["DAR-26023"]["confidence"], {"high", "medium"})
         self.assertEqual(self.lines["DAR-26023"]["our_pick"], "Luke Littler")
         self.assertEqual(self.lines["DAR-26023"]["our_price_pick"], 2.34)
         self.assertGreaterEqual(len(self.preds_olbg["DAR-26023"]["text"].split()), 30)
@@ -65,7 +72,7 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         self.assertEqual(self.events["TEN-40"]["olbg_tips"], "2/2")
         # Evening refresh 2026-10-22T20:55Z (session-784afe97): the live MLB listing now
         # carries 16/20 tips on the World Series opener.
-        self.assertGreaterEqual(int(self.events["BSB-01"]["olbg_tips"].split("/")[1]), 20)  # 16/20 then; 25/31 on 23 Oct
+        self.assertEqual(self.events["BSB-01"]["olbg_tips"], "16/20")
         self.assertEqual(self.events["SNK-14"]["olbg_tips"], "3/4")
         self.assertIn("FL-098", self.flagged)
 

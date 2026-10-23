@@ -12,7 +12,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
-from board_dates import snapshot_utc
+from board_dates import snapshot_utc, snapshot_age_hours
 from discovery import OFFICIAL_REFERENCES
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -72,6 +72,19 @@ def nav(active: str, depth: int) -> str:
     return "".join(out)
 
 
+
+def stale_banner() -> str:
+    """Say loudly how old the capture is. Never pretend a stale snapshot is live."""
+    age = snapshot_age_hours()
+    if age < 30:
+        return ""
+    return (f'<div class="notice" style="border-left-color:#b3261e;background:#fdecea;color:#7a1c15">'
+            f'<strong>SNAPSHOT STALE — {age:.0f} h old.</strong> The newest committed source observation is '
+            f'{E(RUN["harvest_completed_utc"])}. Nothing on this page is a current pick: the release gate '
+            f'expires every observation 24 h after it was read, so rows shown as HIGH are historical until a '
+            f'new capture is committed. See <a href="flagged.html">Flagged for review</a>.</div>')
+
+
 def page(title: str, body: str, active: str, depth: int, subtitle: str = "") -> str:
     pre = "../" * depth
     stamp = E(RUN["harvest_completed_utc"])
@@ -92,6 +105,7 @@ def page(title: str, body: str, active: str, depth: int, subtitle: str = "") -> 
   </div>
 </header>
 <main class="wrap">
+{stale_banner()}
 {f'<p class="crumb">{subtitle}</p>' if subtitle else ''}
 {body}
 </main>
@@ -206,6 +220,52 @@ def main() -> None:
         for f in list(reversed(flagged))[:6]
     )
 
+    # ---------- executive summary (today) ----------
+    _clock = snapshot_utc()
+    _today = _clock.date().isoformat()
+    def _start_of(l):
+        return (l.get('release') or {}).get('start_utc') or ''
+    today_rows = [m for m in matches if _start_of(lines[m['id']])[:10] == _today]
+    next24 = [m for m in matches
+              if _start_of(lines[m['id']]) and _clock.isoformat() <= _start_of(lines[m['id']]) <= (_clock + __import__('datetime').timedelta(hours=24)).isoformat()]
+    today_high = [p for p in high_rows if _start_of(lines[p['match_id']])[:10] == _today]
+    verified_rows = [m for m in matches if m['competition_status'] == 'verified']
+    exec_rows = []
+    for p in high_rows:
+        l = lines[p['match_id']]
+        rel = l.get('release') or {}
+        exec_rows.append(
+            f"<tr><td>{SPORT_ICON.get(p['sport'],'•')} {E(p['sport'])}</td>"
+            f"<td><strong>{E(p['match'])}</strong><br><span class=\"muted small\">{E(l['start'])} · {E(rel.get('start_utc') or 'start unverified')}</span></td>"
+            f"<td class=\"pick\">{E(l['our_pick'] or '—')}</td>"
+            f"<td class=\"num\">{l['our_price_pick']} ({E(l.get('our_us_odds_pick') or '')})</td>"
+            f"<td class=\"num\">{l['our_pick_probability']*100:.1f}%</td>"
+            f"<td>{conf_badge(l['confidence'])}</td>"
+            f"<td class=\"small\">{E(rel.get('reason',''))}</td></tr>")
+    exec_table = ''.join(exec_rows) or '<tr><td colspan="7">No pick currently passes every gate.</td></tr>'
+    sports_with_high = sorted({p['sport'] for p in high_rows})
+    missing_sports = [s for s in sorted({m['sport'] for m in matches}) if s not in sports_with_high]
+    exec_body = f"""
+<section class="card" id="executive-summary" style="border-left:6px solid #0b9482">
+  <p class="eyebrow" style="margin:0 0 4px">EXECUTIVE SUMMARY · build {E(_clock.strftime('%Y-%m-%d %H:%MZ'))}</p>
+  <h2 style="margin-top:0">Today's highest-confidence picks</h2>
+  <p class="muted">This build publishes only the <strong>{E(RUN['harvest_completed_utc'])}</strong> listing capture
+  ({len(matches)} fixtures across {len({m['sport'] for m in matches})} sports). {len(today_rows)} fixtures start on
+  {E(_today)} and {len(next24)} start within the next 24 hours of the publication clock.
+  <strong>{len(high_rows)}</strong> picks currently pass every gate (official-start, price band, verified write-up);
+  {len(today_high)} of them are today's. {len(verified_rows)} fixtures have a competition confirmed from an official source;
+  the other {len(matches) - len(verified_rows)} are left blank rather than guessed and are listed on
+  <a href="flagged.html">Flagged for review</a>.</p>
+  <table class="tbl compact">
+    <thead><tr><th>Sport</th><th>Match</th><th>Our pick</th><th>Price (US)</th><th>Model prob.</th><th>Conf.</th><th>Why eligible</th></tr></thead>
+    <tbody>{exec_table}</tbody>
+  </table>
+  <p class="muted"><strong>Sports with a current HIGH pick:</strong> {E(', '.join(sports_with_high)) or 'none'}.
+  <strong>Sports with none today:</strong> {E(', '.join(missing_sports)) or 'none'} — each one's mechanical reason is printed in the coverage
+  table below, and the brief's five-per-sport target is reported honestly rather than met by invention.</p>
+</section>
+"""
+
     index_body = f"""
 <section class="hero">
   <h1>Every OLBG fixture we cover, with our own line on each one.</h1>
@@ -215,6 +275,8 @@ def main() -> None:
   Every row links to the page it came from. Anything we could not confirm is blank and published on
   <a href="flagged.html">Flagged for review</a>.</p>
 </section>
+
+{exec_body}
 
 <section class="stats">
   {stat(len(matches), 'fixtures in scope', f'{len(sports)} sports')}

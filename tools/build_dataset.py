@@ -46,8 +46,8 @@ SUFFIX_RE = re.compile(r"\s+(One Day Match|1st T20 Match|2nd T20 Match|3rd T20 M
 WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win"}
 OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races", "Outright Winner",
                     "Fastest Qualifier", "Win Race"}
-OTHER_MARKETS = {"Total Legs", "Total Games", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
-                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", "Man Of The Match", ""}
+OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
+                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", "Total Games", "Man Of The Match", ""}
 
 
 def competition_status(ev: dict) -> str:
@@ -146,7 +146,21 @@ def main() -> None:
             parts = line.split("|")
             parts += [""] * (11 - len(parts))
             league_label = ""
-            if fmt == "v2":
+            v3: dict = {}
+            if fmt == "v3":
+                # v3 columns: sport|league_label|path_prefix|slug|event_id|date_label|time_label|
+                #             market|consensus|tips|note|start_utc|odds_decimal|odds_american|
+                #             odds_fractional|tip_share_pct|event_name|listing_url
+                parts += [""] * (18 - len(parts))
+                (sport, league_label, prefix, slug, eid, date_label, time_label,
+                 market, consensus, tips, note, start_utc, odds_dec, odds_us,
+                 odds_frac, share_pct, event_title, listing_url) = parts[:18]
+                pct = share_pct
+                v3 = {"start_utc": start_utc, "odds_decimal": odds_dec, "odds_american": odds_us,
+                      "odds_fractional": odds_frac, "event_title": event_title,
+                      "listing_url": listing_url}
+            elif fmt == "v2":
+                v3 = {}
                 # v2 columns: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
                 (sport, league_label, prefix, slug, eid, date_label, time_label,
                  market, consensus, tips, note) = parts[:11]
@@ -172,7 +186,7 @@ def main() -> None:
             source_home, source_away = split_teams(event_name)
             if source_away:
                 source_away = SUFFIX_RE.sub("", source_away)
-            display = ev.get("fixture_name") or event_name
+            display = ev.get("fixture_name") or (v3.get("event_title") or event_name)
             home = ev.get("home") or source_home
             away = ev.get("away") or source_away
             won, total = parse_tips(tips)
@@ -197,7 +211,16 @@ def main() -> None:
                 "away": away,
                 "olbg_date_label": date_label,
                 "olbg_time_label": time_label,
-                "date_iso": resolve_date(date_label, src_day),
+                # v3 captures carry OLBG's own machine-readable start (the card's
+                # <time itemprop="startDate" datetime> attribute). It is used only for the
+                # calendar date when present; the printed label is still published verbatim.
+                "date_iso": ((v3.get("start_utc") or "")[:10] or None) or resolve_date(date_label, src_day),
+                "olbg_start_utc": v3.get("start_utc") or None,
+                "olbg_start_basis": ("OLBG <time itemprop=\"startDate\"> attribute" if v3.get("start_utc") else None),
+                "olbg_odds_decimal": float(v3["odds_decimal"]) if v3.get("odds_decimal") else None,
+                "olbg_odds_american": v3.get("odds_american") or None,
+                "olbg_odds_displayed_note": ("Price OLBG printed for this selection at capture time; not our line "
+                                             "and not a bookmaker sheet read by this project." if v3.get("odds_decimal") else None),
                 "olbg_market": market or None,
                 "market_family": family,
                 "olbg_consensus_selection": consensus or None,

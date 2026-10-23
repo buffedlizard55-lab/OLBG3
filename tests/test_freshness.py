@@ -17,9 +17,20 @@ class Freshness(unittest.TestCase):
             self.assertEqual(bd.snapshot_utc().isoformat(), '2026-10-22T09:10:00+00:00')
         source().__exit__.assert_called_once()
 
-    def test_default_clock_is_utc_today(self):
-        with patch.dict(os.environ, {}, clear=True):
-            self.assertEqual(bd.build_date(), dt.datetime.now(dt.timezone.utc).date())
+    def test_default_date_is_the_publication_clock_not_the_wall_clock(self):
+        # FL-131: a wall-clock date made every build after midnight non-reproducible, which broke
+        # the deploy for 18 h. The default date must follow the committed observation clock.
+        source = mock_open(read_data='{"checked_at":"2026-10-22T09:10:00Z","events":{}}')
+        with patch.dict(os.environ, {}, clear=True), patch('builtins.open', source):
+            self.assertEqual(bd.build_date(), dt.date(2026, 10, 22))
+
+    def test_snapshot_age_is_measured_not_assumed(self):
+        source = mock_open(read_data='{"checked_at":"2026-10-22T09:10:00Z","events":{}}')
+        later = dt.datetime(2026, 10, 23, 12, 10, tzinfo=dt.timezone.utc)
+        with patch.dict(os.environ, {}, clear=True), patch('builtins.open', source):
+            self.assertEqual(bd.snapshot_age_hours(now=later), 27.0)
+            earlier = dt.datetime(2026, 10, 22, 8, 0, tzinfo=dt.timezone.utc)
+            self.assertEqual(bd.snapshot_age_hours(now=earlier), 0.0)
 
     def test_explicit_archive_date(self):
         with patch.dict(os.environ, {'OLBG_AS_OF': '2026-10-25'}):

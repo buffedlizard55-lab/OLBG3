@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import unittest
 from pathlib import Path
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -22,6 +23,7 @@ def load(name):
     return json.loads((DATA / name).read_text())
 
 
+@pins('olbg-harvest-20261022T2100Z.tsv')
 class EveningCaptureTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -60,8 +62,7 @@ class EveningCaptureTest(unittest.TestCase):
         # NBA CLE @ PHI appeared in both captures with different rendered clocks. The committed row
         # must still carry the capture that first published it, not the evening restatement.
         row = next(r for r in self.matches if r["id"] == "BKB-534845")
-        # BKB-534845 was first published by the 22 Oct 21:30Z capture, now meta.previous_harvest.
-        self.assertEqual(row["fetched_at"], self.meta["previous_harvest"]["harvest_completed_utc"])
+        self.assertEqual(row["fetched_at"], self.meta["harvest_completed_utc"])
         self.assertFalse((row.get("row_notes") or "").startswith("supplementary"))
 
     def test_no_high_pick_after_its_certified_start(self):

@@ -1,5 +1,5 @@
 {
-  "note": "8 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "10 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -219,7 +219,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134."
+      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
     },
     {
       "ref": "RGU-13",
@@ -242,7 +242,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-134."
+      "downgrade_reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
     },
     {
       "ref": "IHO-02",
@@ -455,7 +455,7 @@
       ],
       "ref": "RGU-09",
       "status": "analysis",
-      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-134."
+      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
     },
     {
       "ref": "BKB-20",
@@ -1515,32 +1515,27 @@
       "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
     {
-      "ref": "IHO-30",
-      "selection": "Montreal Canadiens to win (money line)",
-      "headline": "Montreal's goal rate over a 3-6 Chicago side is clear, but the 1.39 price is a shade too short",
-      "body": "Montreal Canadiens visit the Chicago Blackhawks at the United Center on Friday night (puck drop 00:00 UTC on 24 October per the NHL schedule API). The standings published on 23 October have Montreal 4-3-2 with 30 goals for and 34 against through nine games, and Chicago 3-6-0 with 21 for and 36 against, the second-lowest scoring rate in the league. Chicago have won three of five at home and lost their last game; Montreal are 1-1-1 on the road with one overtime defeat. Our pricing makes the visitors a 68% chance, but that converts to 1.39 (-256), fractionally shorter than the -250 floor, so the row is published as MEDIUM analysis rather than a high-confidence pick. OLBG's three visible tips all side with Montreal.",
+      "ref": "IHO-199984",
+      "selection": "Montreal Canadiens to win at 1.55 (-182)",
+      "headline": "Montreal carry the better nine-game profile into the United Center",
+      "body": "Montreal Canadiens to win is the money-line call at 1.55 (-182). The Canadiens are 4-3-2 for 10 points after nine games, with 30 goals scored and 34 conceded, and they took a point from their most recent outing. Chicago are 3-6-0 on 6 points, having scored 21 and allowed 36, and their 3-2-0 home record is the only part of that line that worries the pick. The NHL schedule puts the puck drop at the United Center at 00:00 UTC on 24 October. Montreal's road record is 1-1-1, so the case rests on the wider scoring gap (minus 4 against minus 15) rather than on venue. Back Montreal to win.",
       "sources": [
         {
-          "label": "NHL official standings API — 2026-10-23",
-          "url": "https://api-web.nhle.com/v1/standings/2026-10-23"
-        },
-        {
-          "label": "NHL official schedule API — 2026-10-23 (startTimeUTC)",
+          "label": "NHL official schedule, 23 October 2026 (game 2026020166)",
           "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
         },
         {
-          "label": "OLBG event page — MTL Canadiens @ CHI Blackhawks (3/3 tips)",
-          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/MTL_Canadiens_@_CHI_Blackhawks/13?event_id=199984"
+          "label": "NHL official standings, 22 October 2026",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
-      "ref": "IHO-31",
-      "selection": "Tampa Bay Lightning +1.5 (puck line) is the OLBG lean; our money line is close to a coin flip",
-      "headline": "Colorado at home against a three-game-winning Lightning side prices almost level",
-      "body": "Tampa Bay Lightning at Colorado Avalanche, Ball Arena, Friday night (01:00 UTC on 24 October per the NHL schedule API). Tampa Bay are 7-2-0 with 31 goals for and 23 against and arrive on a three-game winning streak, 2-2 on the road; Colorado are 5-4-1 after ten games with a league-high 41 goals scored but 31 conceded, 3-1-1 at home and beaten in their last two. Pairing each side's scoring rate with the other's goals against leaves our money line at Tampa Bay 52% to Colorado 48%, which is below the 55% threshold for a high-confidence pick, so the row is MEDIUM. OLBG's headline market is the puck line, with one of two tips on Tampa Bay +1.5.",
+      "ref": "IHO-199985",
+      "selection": "Colorado Avalanche to win at 1.72 (-139)",
+      "headline": "Colorado's scoring rate and home ice edge out a hot Lightning side at Ball Arena",
+      "body": "Colorado Avalanche to win is the money-line call at 1.72 (-139) for Friday night at Ball Arena, which the NHL schedule API lists at 01:00 UTC on 24 October. Colorado are 5-4-1 after ten games with a league-high 41 goals scored against 31 conceded and a 3-1-1 record at home, although they have lost their last two. Tampa Bay arrive 7-2-0 with 31 for and 23 against on a three-game winning run, but they are only 2-2-0 on the road. Pairing each side's scoring rate with the other's goals against, then adding home ice, leaves Colorado at 55% to Tampa Bay's 45% - just over our threshold, so this is the narrowest of the night's calls. OLBG's headline market is the puck line, where one of two tips takes Tampa Bay +1.5; our own line is on the home side straight up.",
       "sources": [
         {
           "label": "NHL official standings API — 2026-10-23",
@@ -1555,11 +1550,10 @@
           "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_COL_Avalanche/13?event_id=199985"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
-      "ref": "TEN-56",
+      "ref": "TEN-902163",
       "selection": "Elena Rybakina to win the Ningbo semi-final",
       "headline": "Top seed Rybakina is the pick over Shnaider, but a 'not before' slot keeps it analysis",
       "body": "The WTA order of play for Saturday 24 October puts [1] Elena Rybakina against [6] Diana Shnaider on Centre Court in Ningbo, not before 5:30 PM local, the last singles match of the day. Rybakina's ranking points (9,196 on the table captured this week) are more than three times Shnaider's 2,663, which gives her a 66% chance and a price of 1.43 (-233) on our numbers, inside the requested odds window; the lone OLBG tip takes Shnaider. Because the official schedule publishes only a floor time rather than an exact start, no UTC kick-off is certified and the piece is published as analysis rather than a high-confidence release. Selection: Elena Rybakina to win.",
@@ -1617,7 +1611,7 @@
       "downgrade_reason": "Club site (club-official tier) is not on the reviewed clock-host list and prints no zone label; date-only. Fixture moved from Sat 24 Oct 7pm."
     },
     {
-      "ref": "DRT-24",
+      "ref": "DRT-32383",
       "selection": "Gerwyn Price to win the match",
       "headline": "Price's 13th seeding over Menzies' 29th is the lean, but Saturday's Dortmund clocks are unconfirmed",
       "body": "Gerwyn Price meets Cameron Menzies in the second round of the 2026 Machineseeker European Championship in Dortmund on Saturday 24 October. On the PDC seedings Price is 13th and Menzies 29th, a gap our pricing turns into a 70% chance for the Welshman at 1.36 (-278), slightly shorter than the -250 floor, and the PDC's schedule page could not be read on Friday because of a consent wall, so no session clock is recorded and the fixture itself is not yet confirmed from the PDC. OLBG shows one of two tips on Price. Analysis only until the PDC page can be re-read.",

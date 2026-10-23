@@ -353,7 +353,7 @@
       "competition": "Top 14 2026/27 — Journée 7",
       "source": "https://top14.lnr.fr/calendrier-et-resultats",
       "source_label": "LNR Top 14 official — Calendrier et résultats, Journée 7",
-      "note": "Re-observed 2026-10-23T17:11Z: \"samedi 24 octobre — Aviron Bayonnais (5e) v LOU Rugby (8e) 16h35\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-134).",
+      "note": "Re-observed 2026-10-23T17:11Z: \"samedi 24 octobre — Aviron Bayonnais (5e) v LOU Rugby (8e) 16h35\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-148).",
       "checked_at": "2026-10-23T17:02:00Z"
     },
     "RGU-13": {
@@ -373,7 +373,7 @@
       "competition": "Top 14 2026/27 — Journée 7",
       "source": "https://top14.lnr.fr/calendrier-et-resultats",
       "source_label": "LNR Top 14 official — Calendrier et résultats, Journée 7",
-      "note": "Re-observed 2026-10-23T17:11Z: \"dimanche 25 octobre — Stade Rochelais (4e) v Union Bordeaux-Bègles (3e) 21h05\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-134).",
+      "note": "Re-observed 2026-10-23T17:11Z: \"dimanche 25 octobre — Stade Rochelais (4e) v Union Bordeaux-Bègles (3e) 21h05\". LNR prints no zone label; the clock is kept verbatim and not converted (FL-148).",
       "checked_at": "2026-10-23T17:02:00Z"
     },
     "IHO-01": {
@@ -1964,6 +1964,15 @@
       "source_label": "ICC official Match Centre — Match #271647 (New Zealand vs India)",
       "note": "ICC official match page is titled \"New Zealand vs. India | IND in NZ, 5 T20Is, 2026\" and the ICC fixtures strip lists NZ v IND T20 as UPCOMING; the match-centre body did not render a date/clock in this retrieval, so no start time is certified here."
     },
+    "IHO-199984": {
+      "status": "verified",
+      "olbg": "Today 20:07",
+      "official": "Sat 24 Oct 2026, 00:00 UTC (Fri 23 Oct, 20:00 ET), United Center, Chicago",
+      "competition": "NHL 2026-27 regular season",
+      "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "source_label": "NHL official schedule API, 23 Oct 2026 gameweek",
+      "note": "The NHL's own payload names both clubs (Montreal Canadiens at Chicago Blackhawks) and states startTimeUTC 2026-10-24T00:00:00Z. OLBG event 199984 prints the same fixture as 'Today 20:07'."
+    },
     "RGU-17": {
       "status": "verified",
       "olbg": "Today 14:45",
@@ -1974,7 +1983,7 @@
       "note": "Re-observed 2026-10-23T17:02Z: \"Edinburgh v Lions, Hive Stadium, KO 19.45 IRE & UK\". Previously unverified (FL-130).",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "RGU-20": {
+    "RGU-609575": {
       "status": "verified",
       "olbg": "Today 14:45",
       "official": "Fri 23 Oct 2026, KO 19.45 IRE & UK / 20.45 ITA & SA, Cardiff Arms Park",
@@ -1984,7 +1993,7 @@
       "note": "Observed 2026-10-23T17:02Z: \"Cardiff v Hollywoodbets Sharks, Cardiff Arms Park, KO 19.45 IRE & UK / 20.45 ITA & SA\".",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "RGU-19": {
+    "RGU-609570": {
       "status": "verified",
       "olbg": "Today 14:45",
       "official": "Fri 23 Oct 2026, Kingsholm Stadium (clock on the page is rendered in the reader's zone and is not recorded)",
@@ -2004,7 +2013,7 @@
       "note": "Observed 2026-10-23T17:22Z: \"Fri Oct 23 — Newcastle Red Bulls v Sale Sharks, Kingston Park\". Date-only; previously unverified (FL-130).",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "RGU-22": {
+    "RGU-609572": {
       "status": "verified",
       "olbg": "Tomorrow 10:05",
       "official": "Sat 24 Oct 2026, Mattioli Woods Welford Road (clock rendered in reader's zone, not recorded)",
@@ -2014,7 +2023,7 @@
       "note": "Observed 2026-10-23T17:22Z: \"Sat Oct 24 — Leicester Tigers v Northampton Saints, Mattioli Woods Welford Road\". Date-only.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "RGU-23": {
+    "RGU-609569": {
       "status": "verified",
       "olbg": "Tomorrow 12:30",
       "official": "Sat 24 Oct 2026 (clock rendered in reader's zone, not recorded)",
@@ -2034,7 +2043,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): CHI Bulls @ MIL Bucks — 4:00 PM ET, Fiserv Forum.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-33": {
+    "BKB-536036": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 7:00 PM ET",
@@ -2044,7 +2053,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): MIN Timberwolves @ ORL Magic — 7:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-34": {
+    "BKB-536034": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 7:00 PM ET",
@@ -2054,7 +2063,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): TOR Raptors @ WAS Wizards — 7:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-35": {
+    "BKB-536037": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 7:00 PM ET",
@@ -2064,7 +2073,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): DAL Mavericks @ IND Pacers — 7:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-38": {
+    "BKB-536035": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 7:00 PM ET",
@@ -2074,7 +2083,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): ATL Hawks @ CHA Hornets — 7:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-36": {
+    "BKB-536038": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 8:00 PM ET",
@@ -2084,7 +2093,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): DET Pistons @ MIA Heat — 8:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-39": {
+    "BKB-536040": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 9:30 PM ET",
@@ -2094,7 +2103,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): NO Pelicans @ UTA Jazz — 9:30 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-41": {
+    "BKB-536039": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 10:00 PM ET",
@@ -2104,7 +2113,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): MEM Grizzlies @ GS Warriors — 10:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-40": {
+    "BKB-536042": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 10:00 PM ET",
@@ -2114,7 +2123,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): LA Clippers @ LA Lakers — 10:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "BKB-37": {
+    "BKB-536043": {
       "status": "verified",
       "olbg": "",
       "official": "Fri 23 Oct 2026, 10:00 PM ET",
@@ -2124,17 +2133,7 @@
       "note": "Observed 2026-10-23T17:04Z on the NBA.com schedule page (\"Friday, October 23 — 12 Games\"): POR Trail Blazers @ SAC Kings — 10:00 PM ET.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "IHO-30": {
-      "status": "verified",
-      "olbg": "Today 20:07",
-      "official": "Fri 23 Oct 2026, startTimeUTC 2026-10-24T00:00:00Z, United Center, Chicago",
-      "competition": "NHL 2026-27 regular season — game 2026020166",
-      "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
-      "source_label": "NHL official schedule API — 2026-10-23",
-      "note": "Observed 2026-10-23T16:55Z: game 2026020166 Montreal Canadiens at Chicago Blackhawks, venue United Center, \"startTimeUTC\": \"2026-10-24T00:00:00Z\".",
-      "checked_at": "2026-10-23T17:02:00Z"
-    },
-    "IHO-31": {
+    "IHO-199985": {
       "status": "verified",
       "olbg": "Today 21:07",
       "official": "Fri 23 Oct 2026, startTimeUTC 2026-10-24T01:00:00Z, Ball Arena, Denver",
@@ -2144,7 +2143,7 @@
       "note": "Observed 2026-10-23T16:55Z: game 2026020167 Tampa Bay Lightning at Colorado Avalanche, venue Ball Arena, \"startTimeUTC\": \"2026-10-24T01:00:00Z\".",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "SNK-15": {
+    "SNK-9951": {
       "status": "verified",
       "olbg": "Today 14:05",
       "official": "Fri 23 Oct 2026, Quarter Finals, Match 60 (clock rendered in reader's zone, not recorded)",
@@ -2154,7 +2153,7 @@
       "note": "Observed 2026-10-23T17:13Z: \"Scheduled — Quarter Finals — Fri 23 Oct — Match 60 — Jak Jones v Scott Donaldson\". Date-only; the page prints no zone label.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "SNK-16": {
+    "SNK-9950": {
       "status": "verified",
       "olbg": "Today 14:05",
       "official": "Fri 23 Oct 2026, Quarter Finals, Match 59 (clock rendered in reader's zone, not recorded)",
@@ -2164,7 +2163,7 @@
       "note": "Observed 2026-10-23T17:13Z: \"Fri 23 Oct — Match 59 — David Gilbert v Mark Williams\". Date-only. Earlier QFs the same day: McGill 1-6 Kyren Wilson, Craigie 6-2 Slessor.",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "TEN-53": {
+    "TEN-902157": {
       "status": "verified",
       "olbg": "Today 23:00",
       "official": "Sat 24 Oct 2026, CENTER Starting at 12:00 PM (local, Osaka), SF",
@@ -2174,7 +2173,7 @@
       "note": "Observed 2026-10-23T17:17Z: \"ORDER OF PLAY - SATURDAY, 24 OCTOBER 2026 — CENTER — Starting at 12:00 PM — SF — [1] Ann LI USA VS Ashlyn KRUEGER USA\" (released 23 Oct 2026 7:18 PM).",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "TEN-54": {
+    "TEN-902162": {
       "status": "verified",
       "olbg": "Tomorrow 00:30",
       "official": "Sat 24 Oct 2026, CENTER Not before 1:30 PM (local, Osaka), SF",
@@ -2184,7 +2183,7 @@
       "note": "Observed 2026-10-23T17:17Z: \"Not before 1:30 PM — SF — [8] Katie BOULTER GBR VS Katerina SINIAKOVA CZE\".",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "TEN-55": {
+    "TEN-902160": {
       "status": "verified",
       "olbg": "Tomorrow 03:00",
       "official": "Sat 24 Oct 2026, CENTER COURT Not before 3:00 PM (local, Ningbo), SF",
@@ -2194,7 +2193,7 @@
       "note": "Observed 2026-10-23T17:18Z: \"ORDER OF PLAY - SATURDAY, 24 OCTOBER 2026 — CENTER COURT — Not before 3:00 PM — SF — Leylah FERNANDEZ CAN VS Marie BOUZKOVA CZE\" (released 23 Oct 2026 4:07 PM).",
       "checked_at": "2026-10-23T17:02:00Z"
     },
-    "TEN-56": {
+    "TEN-902163": {
       "status": "verified",
       "olbg": "Tomorrow 05:30",
       "official": "Sat 24 Oct 2026, CENTER COURT Not before 5:30 PM (local, Ningbo), SF",

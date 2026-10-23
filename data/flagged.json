@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T17:30:00Z",
-  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose.",
+  "generated_at": "2026-10-23T17:55:00Z",
+  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id).",
   "items": [
     {
       "id": "FL-001",
@@ -2715,12 +2715,262 @@
     },
     {
       "id": "FL-131",
+      "severity": "freshness",
+      "status": "needs review",
+      "sport": "All 15 covered sports",
+      "title": "2026-10-23 clock: 22-Oct HIGH picks expired; no new 23-Oct OLBG harvest verified this session",
+      "summary": "At the real 2026-10-23T16:18Z clock, tools/check_site.py on the previously committed /olbg/ track failed on five Ice Hockey HIGH picks with 2026-10-22 kick-offs (ICH-199931, ICH-199932, ICH-199933, ICH-199940, ICH-199941). Re-running the documented /olbg/ pipeline on 2026-10-23 demoted them via the existing kick_off_passed_archived rule (HIGH 22 -> 17). The root track's deterministic publication clock remains the newest stored official observation (2026-10-22T22:10Z); measuring it at OLBG_NOW_UTC=2026-10-23T16:18Z leaves only 4 root HIGH picks, and the published pages re-check release expiry in the browser. No new 23-Oct fixture, form, injury or price claim was added: a full new harvest with official-source verification for 75 targeted picks (5 per sport) was not completed this session, so the five-per-sport target for 2026-10-23 is unmet and must not be read as met.",
+      "detail": "Session-c4cde934, 2026-10-23. Evidence: pre-rebuild `python3 tools/check_site.py` FAILED listing the five expired ICH ids above; post-rebuild it passes with high=17, all dated 2026-10-23 or later in data/lines.json. Remaining /olbg/ HIGH by sport: Basketball 5, Rugby Union 5, Baseball 1, Cricket 1, Darts 1, Gaelic Football 1, Golf 1, Motor Racing 1, Volleyball 1; Tennis, Snooker, Handball, Rugby League, Greyhounds and Ice Hockey have 0 current /olbg/ HIGH. Root-track measurement is an audit measurement only (OLBG_NOW_UTC override), not a committed root rebuild, because the committed root build is byte-reproducible against its stored observation clock by design (see FL-067/FL-099 history). OLBG's own all-sports page was re-read this session and still rendered the 22-Oct slate labelled 'Today', which is itself inconsistent with the 2026-10-23 calendar clock; no fixture was re-dated from that label.",
+      "affected_rows": [
+        "ICH-199931",
+        "ICH-199932",
+        "ICH-199933",
+        "ICH-199940",
+        "ICH-199941"
+      ],
+      "sources": [
+        {
+          "label": "OLBG - all-sports betting tips (re-read 2026-10-23; labels not re-dated from)",
+          "url": "https://www.olbg.com/betting-tips"
+        },
+        {
+          "label": "OLBG - Ice Hockey tips",
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+        }
+      ]
+    },
+    {
+      "id": "FL-132",
+      "severity": "coverage",
+      "status": "needs review",
+      "sport": "Golf",
+      "title": "Golf listing carried no live market at the 2026-10-23 capture",
+      "summary": "OLBG's Golf listing (https://www.olbg.com/betting-tips/Golf/5) rendered 'No tips found.' at 2026-10-23T16:12Z. The page header still names this week's tournaments, but no tournament market was on the server-rendered listing, so no new golf row could be captured and golf contributes no pick for the day.",
+      "detail": "The rows already on the board (GLF-101904 Bermuda Championship, GLF-101905 Genesis Championship and the other outright/race rows in data/gap_sports.json) are the 21-22 October capture and are carried as dated analysis. Re-reading the listing later in the day is the only way to add today's golf markets; nothing was inferred from the tournament names.",
+      "sources": [
+        {
+          "label": "OLBG Golf listing",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ]
+    },
+    {
+      "id": "FL-133",
+      "severity": "coverage",
+      "status": "needs review",
+      "sport": "Rugby League",
+      "title": "Rugby League listing again carries only 2027 outrights, no two-sided fixture",
+      "summary": "At 2026-10-23T16:14Z the Rugby League listing showed State of Origin 2027 (27 May 2027), Super League 2027 (02 Oct 2027) and NRL 2027 (03 Oct 2027) and no upcoming match. Those three outright rows are already on the board and are priced on the outright/race track, so Rugby League cannot contribute a match pick while the season is between fixtures.",
+      "detail": "This repeats the finding first recorded in FL-102 and is restated with today's read so the shortfall accounting is dated rather than assumed.",
+      "sources": [
+        {
+          "label": "OLBG Rugby League listing",
+          "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
+        }
+      ]
+    },
+    {
+      "id": "FL-134",
+      "severity": "source-conflict",
+      "status": "needs review",
+      "sport": "Greyhounds",
+      "title": "Greyhound race-card time and OLBG listing clock differ by about five hours",
+      "summary": "The Greyhounds listing names each race by its card time (e.g. '8:33 Romford', '9:13 Romford') and prints a different listing clock beside it ('Today 15:33' and 'Today 16:13'). Both values are copied verbatim into the 16:20Z capture; neither is converted.",
+      "detail": "It is not established which clock, if either, is local track time, so no start can be certified and no greyhound race is boarded as a pick. The two Romford rows (event ids 689846 and 689717) are recorded in data/raw/olbg-harvest-20261023T1620Z.json under a sport that is priced on the outright/race track.",
+      "sources": [
+        {
+          "label": "OLBG Greyhounds listing",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-135",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "49 fixtures captured on 2026-10-23 publish unverified (no official source read in this pass)",
+      "summary": "The 16:20Z capture added 50 previously uncaptured OLBG events to data/sports/*.json (tennis 9, ice hockey 14, basketball 15, cricket 7, volleyball 14, handball 15, rugby union 15, darts 12, snooker 2). One (ice hockey event 199984) was confirmed on the NHL's own schedule; the other 49 carry only the verbatim OLBG listing, so their official fields are blank and their verification status is unverified.",
+      "detail": "Affected refs are pinned in tests/test_audit_d3464fe4.py (CAPTURE_20261023_UNVERIFIED) so the list cannot grow without a test change. Blank fields are intentional: no date, time, venue or competition was inferred from the team names. Rows that already existed on the board were not re-added, and no row was overwritten.",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-136",
+      "severity": "model-input",
+      "status": "needs review",
+      "sport": "Basketball",
+      "title": "NBA games cannot be graded HIGH: no official NBA form table is in the model inputs",
+      "summary": "The basketball pricing branch uses the EuroLeague's own standings. NBA rows (CHI @ MIL, MIN @ ORL, HOU @ SA, TOR @ WAS, DAL @ IND, ATL @ CHA, DET @ MIA, NO @ UTA, LA Clippers @ LA Lakers, POR @ SAC on 2026-10-23/24) have no official form input in data/official.json, so they fall back to the OLBG consensus share and are capped at LOW confidence by the model's own rule.",
+      "detail": "The brief asks for five high-confidence picks per sport per day. For Basketball that is only reachable through EuroLeague/domestic-league rows whose official tables are already in the dataset; the NBA portion of OLBG's basketball listing is published as analysis. Adding an NBA standings input is a separate, reviewable change (the NBA's own site is a JS application, so the value would have to come from a documented JSON endpoint).",
+      "sources": [
+        {
+          "label": "OLBG Basketball listing",
+          "url": "https://www.olbg.com/betting-tips/Basketball/4"
+        },
+        {
+          "label": "EuroLeague official standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        }
+      ]
+    },
+    {
+      "id": "FL-137",
+      "severity": "editorial",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "Published prediction prose still contains the words 'model' and 'verified'",
+      "summary": "The brief requires that published predictions avoid the words 'model' and 'verified' (modelling and verification being internal). 78 written pieces were committed by earlier sessions and a number of them use those words in the body (for example 'the model's money-line selection'). Today's new piece does not use either word.",
+      "detail": "The wording is left in place rather than mass-rewritten in a data-only pass, because rewriting 78 hand-written pieces risks changing their meaning or their quoted prices. It is published here so the owner can decide whether to commission an editorial rewrite. No price, selection, source or grade is affected.",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-138",
+      "severity": "high",
+      "sport": "All sports",
+      "title": "The scheduled build failed every hour from 2026-10-23T00:00Z and Pages stopped deploying",
+      "summary": "Runs 39902389681, 39936419745 and 39975101348 all failed at \"Fail if the committed OLBG track is stale\" and skipped deploy, so the live site kept serving the 2026-10-22T22:10Z snapshot for about 18 hours. Cause: scripts/board_dates.build_date() used the real UTC date while the committed harvest was still dated 22 October, so every rebuild re-derived kickoff_passed, downgraded five Ice Hockey rows and rewrote the /olbg/ track. A local rebuild of the committed tree reproduced the drift with zero source changes.",
+      "resolution": "build_date() now follows the committed publication clock (the newest source observation) instead of the wall clock, so a rebuild is byte-reproducible; freshness is enforced by the 24-hour release gate, by the new stale-snapshot banner when the capture is 30+ hours old, and by the browser re-check in assets/release.js. Pinned by tests/test_freshness.py.",
+      "sources": [
+        {
+          "label": "GitHub Actions — scheduled build failure that skipped deploy",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39975101348"
+        }
+      ],
+      "status": "needs review",
+      "detail": "build_date() now follows the committed publication clock (the newest source observation) instead of the wall clock, so a rebuild is byte-reproducible; freshness is enforced by the 24-hour release gate, by the new stale-snapshot banner when the capture is 30+ hours old, and by the browser re-check in assets/release.js. Pinned by tests/test_freshness.py.",
+      "category": "live 2026-10-23 harvest",
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-139",
+      "severity": "medium",
+      "sport": "All sports",
+      "title": "A robots.txt substring rule silently denied every OLBG listing to this project's crawler",
+      "summary": "The first live capture returned robots_denied for all 18 listing pages. https://www.olbg.com/robots.txt does not disallow /betting-tips; it disallows \"/\" for a long list of named agents, one of which is \"es\". urllib.robotparser lower-cases the product token and does a substring test, so the token \"olbg3research\" matched \"es\" inside \"research\" and was refused everything. The served robots.txt is stored with the capture (sha256 ff0fd5ec…).",
+      "resolution": "The collector now uses the token OLBG3Audit and records, per URL, which robots.txt group governed the decision (robots_matched_agent / robots_allowance). The same path is allowed for the wildcard group. No request is made for a URL the governing group disallows.",
+      "sources": [
+        {
+          "label": "OLBG robots.txt (served copy, sha256 ff0fd5ec…)",
+          "url": "https://www.olbg.com/robots.txt"
+        }
+      ],
+      "status": "needs review",
+      "detail": "The collector now uses the token OLBG3Audit and records, per URL, which robots.txt group governed the decision (robots_matched_agent / robots_allowance). The same path is allowed for the wildcard group. No request is made for a URL the governing group disallows.",
+      "category": "live 2026-10-23 harvest",
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-140",
+      "severity": "unverified",
+      "sport": "Ice Hockey",
+      "title": "15 of 17 ice-hockey fixtures are European club games with no official source read",
+      "summary": "The 2026-10-23 capture lists 15 DEL / ICEHL / Metal Ligaen / NL / Liiga fixtures. No governing-body page or payload was read for them in this pass, so they keep a blank official start, stay unverified and cannot grade HIGH. The NHL schedule payload confirmed the other two (MTL @ CHI, TB @ COL).",
+      "resolution": "Published unverified with the reason on each row; no clock or competition name was inferred.",
+      "sources": [
+        {
+          "label": "NHL official schedule payload, 2026-10-23",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
+        }
+      ],
+      "status": "needs review",
+      "detail": "Published unverified with the reason on each row; no clock or competition name was inferred.",
+      "category": "live 2026-10-23 harvest",
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-141",
+      "severity": "unverified",
+      "sport": "Golf",
+      "title": "Golf/5 returned \"No tips found.\" on 2026-10-23, so the sport has no row in this build",
+      "summary": "The Golf listing was fetched successfully (HTTP 200, 274,312 bytes) and contained zero tip cards; the page itself renders \"No tips found.\" No golf fixture or outright is therefore published today, and no row was carried forward to fill the gap.",
+      "resolution": "Golf reports zero rows in the coverage table rather than inheriting 22 October rows.",
+      "sources": [
+        {
+          "label": "OLBG Golf listing — returned \"No tips found.\"",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ],
+      "status": "needs review",
+      "detail": "Golf reports zero rows in the coverage table rather than inheriting 22 October rows.",
+      "category": "live 2026-10-23 harvest",
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-142",
+      "severity": "medium",
+      "sport": "Basketball",
+      "title": "NBA and EuroLeague official endpoints refused this project's probes",
+      "summary": "cdn.nba.com returned HTTP 403 for the season schedule, www.nba.com returned HTTP 403 for the schedule and games pages, and euroleaguebasketball.net returned HTTP 429. No NBA or EuroLeague fixture could be re-certified today, so those rows carry no verified start and no HIGH pick, even where an official observation from 22 October still exists (it is now expired by the 24-hour rule).",
+      "resolution": "Rows published as analysis with the reason recorded; nothing upgraded. The 22 October observations are retained in release_checks.json and expire on their own.",
+      "sources": [
+        {
+          "label": "NBA official schedule page — HTTP 403 at probe",
+          "url": "https://www.nba.com/schedule"
+        }
+      ],
+      "status": "needs review",
+      "detail": "Rows published as analysis with the reason recorded; nothing upgraded. The 22 October observations are retained in release_checks.json and expire on their own.",
+      "category": "live 2026-10-23 harvest",
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-143",
+      "severity": "low",
+      "sport": "All sports",
+      "title": "Two written pieces quoted prices from the previous capture after a re-price",
+      "summary": "HAN-12107 and VOL-37002 quoted 1.52 (-192) and 1.36 (-278) while the 2026-10-23 rows price 1.74 (-135) and 1.78 (-128) because the tip split moved. tools/check_site.py refused the build on the mismatch.",
+      "resolution": "The price inside each piece was updated to the current row and recorded in a price_revised field naming the old value, the new value and the reason. No analytical claim was added or removed, and both pieces remain labelled analysis.",
+      "sources": [
+        {
+          "label": "OLBG Tennis/Handball listings, 2026-10-23T16:21Z capture",
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
+        },
+        {
+          "label": "OLBG Volleyball listing, 2026-10-23T16:21Z capture",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        }
+      ],
+      "status": "needs review",
+      "detail": "The price inside each piece was updated to the current row and recorded in a price_revised field naming the old value, the new value and the reason. No analytical claim was added or removed, and both pieces remain labelled analysis.",
+      "category": "live 2026-10-23 harvest",
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-144",
+      "severity": "low",
+      "sport": "All sports",
+      "status": "needs review",
+      "category": "test convention",
+      "title": "Twenty-five dated snapshot tests are skipped while the 2026-10-22 archives remain untouched",
+      "summary": "Six audit test classes written by earlier sessions assert the state of a specific harvest (the 2026-10-22T2130Z capture owning the board, three Basketball HIGH picks, a declared supplementary capture). Those assertions stay true of that snapshot, but once the 2026-10-23 capture became the live primary harvest they no longer describe the build, and eight tests failed.",
+      "detail": "They are not deleted and not weakened: each class carries tests/archive_guard.pins('<harvest>.tsv'), which runs the class when that file is the live harvest and skips it with a message naming the reason otherwise. tests/test_live_20261023.ArchiveIntegrity asserts every dated capture is still present with its row count, that the live capture is the newest, and that no archive is reused as the primary harvest.",
+      "resolution": "Convention documented in tests/archive_guard.py; 130 tests run, 25 skip, 0 fail.",
+      "sources": [
+        {
+          "label": "Archived dated captures (unchanged)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw"
+        }
+      ],
+      "also_reported_by": "session-22dbc477 (2026-10-23), independently"
+    },
+    {
+      "id": "FL-145",
       "severity": "unverified",
       "status": "needs review",
       "sport": "Darts",
       "title": "PDC schedule page unreadable on 23 Oct (consent wall): Saturday second-round rows carry no PDC confirmation or clock",
-      "summary": "Both PDC European Championship schedule URLs returned only cookie-consent text in every chunk on 23 Oct 17:09Z, so DRT-21..DRT-24 (Bunting v Huybrechts, van Veen v Woodhouse, Smith v Heta, Menzies v Price) are published from the OLBG listing only, priced from the seedings table where both players are seeded, and cannot grade HIGH.",
-      "detail": "Kim Huybrechts is not in the seedings table captured on 18 Oct, so DRT-21 is consensus-priced. Friday first-round rows keep their 22 Oct PDC confirmations. Re-read the PDC page when it renders without the consent wall.",
+      "summary": "Both PDC European Championship schedule URLs returned only cookie-consent text in every chunk on 23 Oct 17:09Z, so DRT-32384..DRT-32383 (Bunting v Huybrechts, van Veen v Woodhouse, Smith v Heta, Menzies v Price) are published from the OLBG listing only, priced from the seedings table where both players are seeded, and cannot grade HIGH.",
+      "detail": "Kim Huybrechts is not in the seedings table captured on 18 Oct, so DRT-32384 is consensus-priced. Friday first-round rows keep their 22 Oct PDC confirmations. Re-read the PDC page when it renders without the consent wall.",
       "sources": [
         {
           "label": "PDC — 2026 Machineseeker European Championship schedule (returned consent wall only)",
@@ -2733,19 +2983,20 @@
       ],
       "raised_by": "session-beb7787b",
       "affected_rows": [
-        "DRT-21",
-        "DRT-22",
-        "DRT-23",
-        "DRT-24"
-      ]
+        "DRT-32384",
+        "DRT-32385",
+        "DRT-32386",
+        "DRT-32383"
+      ],
+      "original_id": "FL-131"
     },
     {
-      "id": "FL-132",
+      "id": "FL-146",
       "severity": "unverified",
       "status": "needs review",
       "sport": "Multiple",
       "title": "23 Oct daily harvest: 36 new root fixtures published without a governing-body read",
-      "summary": "New rows from the 2026-10-23T16:30Z harvest whose competition pages were not read in this pass carry verbatim OLBG data only, blank official fields and status unverified: ice hockey IHO-32..IHO-42 (DEL, National League, Liiga, ICEHL), cricket CRK-19..CRK-24 (Australian one-day cup, CSA T20 Challenge, Pakistan v England ODI), handball HBL-39..HBL-43, volleyball VOL-36..VOL-44, basketball BKB-42/BKB-43 (Polish PLK), rugby union RGU-21 (Japan v Fiji) and tennis TEN-49..TEN-52 and TEN-57.",
+      "summary": "New rows from the 2026-10-23T16:30Z harvest whose competition pages were not read in this pass carry verbatim OLBG data only, blank official fields and status unverified: ice hockey IHO-199927..IHO-199915 (DEL, National League, Liiga, ICEHL), cricket CRK-188839..CRK-188838 (Australian one-day cup, CSA T20 Challenge, Pakistan v England ODI), handball HBL-12120..HBL-12106, volleyball VOL-37009..VOL-37013, basketball BKB-536031/BKB-536075 (Polish PLK), rugby union RGU-609582 (Japan v Fiji) and tennis TEN-902150..TEN-902147 and TEN-902159. Overlaps FL-135 (session-be917e0f) and FL-130; kept because it itemises the 16:30Z rows and the 14 fixtures only this capture carried.",
       "detail": "Sources were read for the other 28 new rows (NBA.com, NHL API, URC, PREM Rugby, WST, WTA order-of-play PDFs). The unverified set cannot grade HIGH; MEDIUM is possible only where an official table already in the dataset prices the pair. This is the 23 Oct counterpart of FL-130.",
       "sources": [
         {
@@ -2755,49 +3006,50 @@
       ],
       "raised_by": "session-beb7787b",
       "affected_rows": [
-        "IHO-32",
-        "IHO-33",
-        "IHO-34",
-        "IHO-35",
-        "IHO-36",
-        "IHO-37",
-        "IHO-38",
-        "IHO-39",
-        "IHO-40",
-        "IHO-41",
-        "IHO-42",
-        "CRK-19",
-        "CRK-20",
-        "CRK-21",
-        "CRK-22",
-        "CRK-23",
-        "CRK-24",
-        "HBL-39",
-        "HBL-40",
-        "HBL-41",
-        "HBL-42",
-        "HBL-43",
-        "VOL-36",
-        "VOL-37",
-        "VOL-38",
-        "VOL-39",
-        "VOL-40",
-        "VOL-41",
-        "VOL-42",
-        "VOL-43",
-        "VOL-44",
-        "BKB-42",
-        "BKB-43",
-        "RGU-21",
-        "TEN-49",
-        "TEN-50",
-        "TEN-51",
-        "TEN-52",
-        "TEN-57"
-      ]
+        "IHO-199927",
+        "IHO-199955",
+        "IHO-199965",
+        "IHO-199926",
+        "IHO-199925",
+        "IHO-199928",
+        "IHO-199924",
+        "IHO-199930",
+        "IHO-199908",
+        "IHO-199909",
+        "IHO-199915",
+        "CRK-188839",
+        "CRK-188840",
+        "CRK-188841",
+        "CRK-188842",
+        "CRK-188843",
+        "CRK-188838",
+        "HBL-12120",
+        "HBL-12121",
+        "HBL-12103",
+        "HBL-12090",
+        "HBL-12106",
+        "VOL-37009",
+        "VOL-37022",
+        "VOL-37025",
+        "VOL-37031",
+        "VOL-37026",
+        "VOL-37032",
+        "VOL-37018",
+        "VOL-37012",
+        "VOL-37013",
+        "BKB-536031",
+        "BKB-536075",
+        "RGU-609582",
+        "TEN-902150",
+        "TEN-902155",
+        "TEN-902153",
+        "TEN-902147",
+        "TEN-902159"
+      ],
+      "original_id": "FL-132"
     },
     {
-      "id": "FL-133",
+      "id": "FL-147",
       "severity": "corrected",
       "status": "fixed",
       "sport": "Rugby Union",
@@ -2813,10 +3065,11 @@
       "raised_by": "session-beb7787b",
       "affected_rows": [
         "RGU-11"
-      ]
+      ],
+      "original_id": "FL-133"
     },
     {
-      "id": "FL-134",
+      "id": "FL-148",
       "severity": "method",
       "status": "needs review",
       "sport": "Rugby Union",
@@ -2840,16 +3093,17 @@
         "RGU-12",
         "RGU-13",
         "RGU-15"
-      ]
+      ],
+      "original_id": "FL-134"
     },
     {
-      "id": "FL-135",
+      "id": "FL-149",
       "severity": "method",
       "status": "open",
       "sport": "Multiple",
       "title": "Official pages that render clocks in the reader's time zone are recorded date-only",
       "summary": "The EuroLeague game-center listing, wst.tv/matches and premrugby.com fixtures all showed clocks shifted to the reader's zone (e.g. 14:00 for a 19:00 BST snooker session) with no label. They are used only for pair/date confirmation; exact clocks come only from pages that print a zone (the EuroLeague \"Game Center: Round 7\" article with CEST, URC \"IRE & UK\", MLB \"All times ET\", NHL startTimeUTC).",
-      "detail": "Affected rows stay fixture-verified but are not release-eligible: SNK-15, SNK-16, RGU-18, RGU-19, RGU-22, RGU-23.",
+      "detail": "Affected rows stay fixture-verified but are not release-eligible: SNK-9951, SNK-9950, RGU-18, RGU-609570, RGU-609572, RGU-609569.",
       "sources": [
         {
           "label": "EuroLeague official game center",
@@ -2866,16 +3120,17 @@
       ],
       "raised_by": "session-beb7787b",
       "affected_rows": [
-        "SNK-15",
-        "SNK-16",
+        "SNK-9951",
+        "SNK-9950",
         "RGU-18",
-        "RGU-19",
-        "RGU-22",
-        "RGU-23"
-      ]
+        "RGU-609570",
+        "RGU-609572",
+        "RGU-609569"
+      ],
+      "original_id": "FL-135"
     },
     {
-      "id": "FL-136",
+      "id": "FL-150",
       "severity": "info",
       "status": "resolved",
       "sport": "Gaelic Football",
@@ -2891,10 +3146,11 @@
       "raised_by": "session-beb7787b",
       "affected_rows": [
         "GAF-02"
-      ]
+      ],
+      "original_id": "FL-136"
     },
     {
-      "id": "FL-137",
+      "id": "FL-151",
       "severity": "corrected",
       "status": "fixed",
       "sport": "Basketball",
@@ -2911,15 +3167,16 @@
       "affected_rows": [
         "BKB-29",
         "BKB-30"
-      ]
+      ],
+      "original_id": "FL-137"
     },
     {
-      "id": "FL-138",
+      "id": "FL-152",
       "severity": "repo hygiene",
       "status": "fixed",
       "sport": "Multiple",
       "title": "24 prediction pieces used the words \"model\" or \"verified\" in published prose",
-      "summary": "The brief bans those two words from published prediction text. The 24 pieces were reworded (e.g. \"our pricing\", \"confirmed\") without changing any number or selection; a regression test now scans data/predictions.json.",
+      "summary": "The brief bans those two words from published prediction text. The 24 pieces were reworded (e.g. \"our pricing\", \"confirmed\") without changing any number or selection; a regression test now scans data/predictions.json. Same finding as FL-137 (session-be917e0f, 78 pieces counted before the rewrite); this item records the rewrite itself.",
       "detail": "",
       "sources": [
         {
@@ -2927,10 +3184,11 @@
           "url": "https://www.olbg.com/betting-tips"
         }
       ],
-      "raised_by": "session-beb7787b"
+      "raised_by": "session-beb7787b",
+      "original_id": "FL-138"
     },
     {
-      "id": "FL-139",
+      "id": "FL-153",
       "severity": "info",
       "status": "resolved",
       "sport": "Basketball",
@@ -2946,7 +3204,8 @@
       "raised_by": "session-beb7787b",
       "affected_rows": [
         "BKB-17"
-      ]
+      ],
+      "original_id": "FL-139"
     }
   ]
 }

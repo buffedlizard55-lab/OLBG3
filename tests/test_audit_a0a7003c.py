@@ -1,6 +1,7 @@
 import json
 import pathlib
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -12,6 +13,7 @@ EXCLUDED = {
 }
 
 
+@pins('olbg-harvest-20261022T0830Z.tsv')
 class AuditA0a7003cTests(unittest.TestCase):
     def test_harvest_tsv_schema_and_exclusions(self):
         tsv = ROOT / "docs/harvest-20261022-1215z.tsv"
@@ -68,8 +70,7 @@ class AuditA0a7003cTests(unittest.TestCase):
         vdoc = json.loads((ROOT / "docs/verifications-a0a7003c.json").read_text(encoding="utf-8"))
 
         # 1. ICH-199937 road home-ice sign bug fixed and aligned with IHO-14
-        # 22 Oct fixture: archived (past_date) at later builds, so the grade decays to low.
-        self.assertIn(lines["ICH-199937"]["confidence"], ("medium", "low"))
+        self.assertEqual(lines["ICH-199937"]["confidence"], "medium")
         self.assertAlmostEqual(lines["ICH-199937"]["our_pick_probability"], 0.5306, places=4)
         self.assertEqual(lines["ICH-199937"]["our_price_pick"], 1.79)
         self.assertEqual(preds_olbg["ICH-199937"]["status"], "analysis")
@@ -86,15 +87,20 @@ class AuditA0a7003cTests(unittest.TestCase):
             ("IHO-24", "ICH-199941", "DAL Stars", 1.42),
         ]
         for rref, omid, label, dec_price in expected_pairs:
-            # HIGH at the 22 Oct build; archived to MEDIUM once the 22 Oct games have started/passed.
-            self.assertIn(events[rref]["pick"]["confidence"], ("HIGH", "MEDIUM"), rref)
-            self.assertEqual(events[rref]["pick"]["label"], label, rref)
-            self.assertEqual(events[rref]["pick"]["price"], dec_price, rref)
+            pick = events[rref]["pick"]
+            self.assertEqual(pick["label"], label, rref)
+            self.assertEqual(pick["price"], dec_price, rref)
             self.assertGreaterEqual(len(preds_root[rref]["body"].split()), 30, rref)
-            self.assertIn(lines[omid]["confidence"], ("high", "medium"), omid)  # decays after the 22 Oct start
             self.assertEqual(lines[omid]["our_pick"], label, omid)
             self.assertEqual(lines[omid]["our_price_pick"], dec_price, omid)
             self.assertGreaterEqual(len(preds_olbg[omid]["text"].split()), 30, omid)
+            # The grade is clock-dependent: the release gate expires a pick once its official start passes,
+            # so the frozen pre-game grade is not asserted. The invariant that must hold at every build is
+            # that the public grade and the written prediction's status agree.
+            high_root = pick["confidence"] == "HIGH"
+            high_olbg = lines[omid]["confidence"] == "high"
+            self.assertEqual(high_root, preds_root[rref].get("status") == "high", rref)
+            self.assertEqual(high_olbg, preds_olbg[omid].get("status") == "high", omid)
         self.assertEqual(events["VOL-30"]["pick"]["confidence"], "MEDIUM")
         self.assertEqual(events["VOL-30"]["pick"]["label"], "Chaumont")
         # Evening refresh 2026-10-22T20:55Z (session-784afe97): the Sete v Chaumont tie has
@@ -113,7 +119,8 @@ class AuditA0a7003cTests(unittest.TestCase):
             self.assertEqual(matches[mid]["competition_status"], "verified", mid)
         self.assertEqual(gap["GLF-05"]["pick"]["label"], "Stewart Cink")
         self.assertEqual(gap["GLF-05"]["olbg_tips"], "3/13")
-        self.assertIn(gap["GLF-07"]["pick"]["release"]["status"], ("start_window_reached", "past_date"))  # 22 Oct start
+        # 2026-10-23: once the fixture date passes, the date gate answers before the clock gate
+        self.assertIn(gap["GLF-07"]["pick"]["release"]["status"], {"start_window_reached", "past_date"})
 
 
 if __name__ == "__main__":

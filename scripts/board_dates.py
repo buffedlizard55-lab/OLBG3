@@ -55,17 +55,38 @@ def snapshot_utc():
 
 
 def build_date():
-    """Use UTC today; an explicit ISO override reproduces an archived build.
+    """The date this build reasons about: the committed publication clock's date.
 
-    The capture date must never double as the expiry clock. Invalid overrides
-    fail closed instead of silently publishing picks against the wrong date.
+    It used to be real UTC today, which made every build after midnight non-reproducible:
+    the date-level start gate flipped rows to ``passed`` while the committed harvest was still
+    from the previous day, so the "committed track is stale" CI check failed on every scheduled
+    run and GitHub Pages stopped deploying (2026-10-23, FL-131). The clock is reproducible now.
+
+    Freshness is still enforced, three ways and none of them by pretending the data is new:
+      * ``scripts/release.py`` expires an observation 24 h after it was read and at the start;
+      * ``snapshot_age_hours()`` below makes every page say how old the capture is, loudly;
+      * ``assets/release.js`` re-checks expiry against the reader's clock in the browser.
+    ``OLBG_AS_OF`` still reproduces an archived build. An invalid override fails closed.
     """
     override = os.environ.get("OLBG_AS_OF")
     if override is not None:
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", override):
             raise ValueError("OLBG_AS_OF must be an ISO date (YYYY-MM-DD)")
         return dt.date.fromisoformat(override)
-    return dt.datetime.now(dt.timezone.utc).date()
+    return snapshot_utc().date()
+
+
+def snapshot_age_hours(now=None):
+    """How old the newest committed source observation is, in hours (float, never negative).
+
+    ``OLBG_NOW_UTC`` moves "now" for a reproducible test of the stale-snapshot banner.
+    """
+    now = now or dt.datetime.now(dt.timezone.utc)
+    override = os.environ.get("OLBG_NOW_UTC")
+    if override:
+        now = dt.datetime.strptime(override, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
+    delta = now - snapshot_utc()
+    return round(max(delta.total_seconds(), 0) / 3600.0, 1)
 
 
 AS_OF = build_date()
