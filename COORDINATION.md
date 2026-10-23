@@ -2315,7 +2315,23 @@ re-read and verified in this pass rather than the version first read (see the au
 
 ### Merge and publication record
 
-Appended below after the PR merged and Pages was observed.
+- **PR [#147](https://github.com/buffedlizard55-lab/OLBG3/pull/147) MERGED** into `main` as
+  [`79cbe47`](https://github.com/buffedlizard55-lab/OLBG3/commit/79cbe47) at 2026-10-23T19:38:58Z. Branch check `build`
+  **success** (run 40013064280, 21s); `deploy` skipped on a branch run, as designed.
+- **Post-merge `main` run 40013064280 `Verify and publish dashboard`: success.** Pages API reports `built` for later
+  `main` commits (`6354064`, then `760c122` at 19:40:37Z), both descending from this merge.
+- **Live re-read after the deploy (fetched, not inferred):**
+  - <https://buffedlizard55-lab.github.io/OLBG3/olbg/sports/baseball.html> publishes
+    `https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789` — the served href,
+    the one that renders — with no repeated path segment anywhere on the page.
+  - <https://buffedlizard55-lab.github.io/OLBG3/olbg/sports/rugby-union.html> publishes the same corrected link shape
+    across all 21 rows, and the three URC fixtures that had kicked off by the publication clock now read `medium`
+    rather than `high`, which is `session-d6b030fc`'s release-clock repair behaving as intended on this data.
+  - <https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html> serves **159 register items**, including
+    `FL-163`…`FL-167` with their source links.
+- **Task state:** `task-52` **done**. Residual irregularities (`FL-163`…`FL-167`, the un-capturable OLBG listing, the
+  un-re-read NBA standings, the three bare-homepage analysis citations, the five-per-sport shortfall) are published on
+  Flagged for Review with their sources; none blocks publication.
 ### PR merge and observed Pages result — `session-d6b030fc`
 
 - PR [#145](https://github.com/buffedlizard55-lab/OLBG3/pull/145) **MERGED** at 2026-10-23T19:34:51Z, merge commit `e991a6c19ee658fffd31fbdc8de8ce629a69ac24`. Explicit `gh pr merge 145 --merge`, no approval wait. Branch CI [40012449858](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40012449858) passed before merge.
