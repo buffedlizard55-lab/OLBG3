@@ -5,11 +5,15 @@ class TestFreshness20261023(unittest.TestCase):
     def test_no_expired_high_on_olbg_track(self):
         lines = json.loads((ROOT/'data/lines.json').read_text())
         high = [l for l in lines if l['confidence']=='high']
-        # 2026-10-23T16:45Z capture: the exact count is date-dependent (17 at the 22:10Z clock, 5 after
-        # this day's observations), so the count is bounded rather than pinned. The invariants below are
-        # what actually has to hold at every build.
-        self.assertLessEqual(len(high), 17)
+        # 2026-10-23T16:45Z capture had 17 HIGH at the 22:10Z clock; later same-day captures and
+        # governing-body clock checks (sessions a87a3681, b322f52e) legitimately add verified upcoming
+        # HIGH picks up to the brief's 5-per-sport target across 15 sports (75 max). The freshness
+        # invariants below — upcoming release eligibility, non-past date, -250..+10000 band, <70% chalk
+        # cap — are what must hold at every build.
+        self.assertLessEqual(len(high), 75)
         for l in high:
+            self.assertTrue((l.get('release') or {}).get('eligible'), l['match_id'])
+            self.assertEqual((l.get('release') or {}).get('status'), 'upcoming', l['match_id'])
             self.assertGreaterEqual(l['start'], '2026-10-23', l['match_id'])
             self.assertTrue(1.40 <= l['our_price_pick'] <= 101.00, l['match_id'])
             self.assertLess(l['our_pick_probability'], 0.70, l['match_id'])

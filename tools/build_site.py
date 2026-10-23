@@ -175,7 +175,7 @@ def main() -> None:
     high_table = "".join(
         f"""<tr><td>{E(p['sport'])}</td><td>{E(p['match'])}</td>
         <td class="pick">{E(p['selection'])}</td><td class="num">{lines[p['match_id']]['our_price_pick']} <span class="muted small">({lines[p['match_id']].get('our_us_odds_pick','')})</span></td>
-        <td>{conf_badge(p['confidence'])}</td><td>{link(p['sources'][0]['url'], 'source')}</td></tr>"""
+        <td>{conf_badge(p['confidence'])}</td><td>{' · '.join(link(s['url'], 'source' if len(p['sources']) == 1 else f'source {idx}') for idx, s in enumerate(p['sources'], 1))}</td></tr>"""
         for p in high_rows
     )
 

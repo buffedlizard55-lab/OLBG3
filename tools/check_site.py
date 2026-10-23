@@ -46,6 +46,7 @@ ALLOWED_HOSTS = {
     "www.premrugby.com",
     "stats.unitedrugby.com",
     "ehfcl.eurohandball.com",
+    "ehfel.eurohandball.com",
     "buffedlizard55-lab.github.io",
     "github.com",
     # Hosts reviewed and accepted by session-074739aa's re-audit (2026-10-21).
@@ -75,6 +76,11 @@ ALLOWED_HOSTS = {
     # Hosts reviewed by session-af0789e6's 06:50Z sweep (official bodies / official data feeds).
     "api-web.nhle.com",
     "statsapi.mlb.com",
+    # 2026-10-23 (session-655b300a): the league's second published data service, api.nhle.com, is
+    # the same organisation as api-web.nhle.com (NHL stats REST service). It is cited only as the
+    # comparator in FL-180, where its season goal totals disagree with the standings service; it
+    # is not used for any fixture clock, price or grade. Host reviewed, structural only.
+    "api.nhle.com",
     "www.protennislive.com",
     "api.wtatennis.com",
     "www.euroleaguebasketball.net",
@@ -191,6 +197,11 @@ def captured_event_hrefs() -> dict[str, set[str]]:
         for url, eid in re.findall(
                 r'href="(https://www\.olbg\.com/betting-tips/[^"]*event_id=(\d+))"', text):
             hrefs.setdefault(eid, set()).add(url)
+    for html_file in sorted((DATA / "raw").glob("svelte-*/listings/*.html")):
+        text = html_file.read_text(errors="replace")
+        for rel, eid in re.findall(
+                r'eventUrl:"(/betting-tips/[^"]*event_id=(\d+))"', text):
+            hrefs.setdefault(eid, set()).add("https://www.olbg.com" + rel)
     return hrefs
 
 

@@ -43,6 +43,118 @@ SELECTION = re.compile(r'<h4[^>]*>\s*([^<]*?)\s*</h4>')
 ODDS = re.compile(r'data-decimal="([^"]*)"\s+data-american="([^"]*)"\s+data-fractional="([^"]*)"')
 TIPS = re.compile(r'<b class="text-xs truncate">([^<]*)</b>')
 SHARE = re.compile(r'--confidence:\s*(\d+)%')
+SVELTE_TIP_START = re.compile(r'\{id:"[0-9a-f]{40}",')
+SVELTE_EVENT_URL = re.compile(r'^(?:https://www\.olbg\.com)?/betting-tips/([^"?]*)/\d+\?event_id=(\d+)$')
+
+
+def display_path(path: Path) -> str:
+    return str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
+
+
+def _iter_svelte_tip_objects(html: str):
+    """Yield balanced {...} object literals for each tip entry in SvelteKit's <script> payload."""
+    for m in SVELTE_TIP_START.finditer(html):
+        start = m.start()
+        depth = 0
+        in_str = False
+        esc = False
+        for idx in range(start, len(html)):
+            ch = html[idx]
+            if in_str:
+                if esc:
+                    esc = False
+                elif ch == '\\':
+                    esc = True
+                elif ch == '"':
+                    in_str = False
+            else:
+                if ch == '"':
+                    in_str = True
+                elif ch == '{':
+                    depth += 1
+                elif ch == '}':
+                    depth -= 1
+                    if depth == 0:
+                        yield html[start:idx + 1]
+                        break
+
+
+def _svelte_field(obj_src: str, key: str) -> str:
+    """Read a literal string or numeric property from a SvelteKit hydration tip object."""
+    m_str = re.search(rf'(?<![A-Za-z0-9_]){re.escape(key)}:"((?:\\.|[^"\\])*)"', obj_src)
+    if m_str:
+        raw = m_str.group(1)
+        try:
+            return json.loads(f'"{raw}"')
+        except json.JSONDecodeError:
+            return raw
+    m_num = re.search(rf'(?<![A-Za-z0-9_]){re.escape(key)}:(-?\d+(?:\.\d+)?)', obj_src)
+    if m_num:
+        return m_num.group(1)
+    return ''
+
+
+def parse_svelte_tips(html: str, page: dict, manifest: dict, parse_gaps: dict) -> list[dict]:
+    """Extract active (expired == 0) tip rows from OLBG's SvelteKit <script> hydration payload.
+
+    Evening OLBG responses ship 0 server-rendered <div class="grd tip ..."> cards in <body> while
+    embedding the exact same tip objects inside the SvelteKit <script> payload with string-typed
+    literals (e.g. expired:"0" instead of expired:0). Only active rows (expired == "0") are emitted,
+    matching OLBG's SSR card filter. Relative printed_clock labels (date_label / time_label) are
+    left blank because no <time> text was rendered in <body>; nothing is inferred.
+    """
+    out: list[dict] = []
+    for obj in _iter_svelte_tip_objects(html):
+        if _svelte_field(obj, 'expired') != '0':
+            continue
+        ev_url = _svelte_field(obj, 'eventUrl').strip()
+        m_url = SVELTE_EVENT_URL.match(ev_url)
+        if not m_url:
+            parse_gaps['no_event_link'] = parse_gaps.get('no_event_link', 0) + 1
+            continue
+        ts_raw = _svelte_field(obj, 'event_start_unix_timestamp').strip()
+        start_utc = ''
+        if ts_raw.isdigit() and int(ts_raw) > 0:
+            start_utc = dt.datetime.fromtimestamp(int(ts_raw), dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
+        win_tips = _svelte_field(obj, 'win_tips').strip()
+        win_tot = _svelte_field(obj, 'win_tips_count').strip()
+        market = _svelte_field(obj, 'market_alias').strip()
+        tips_str = f'{win_tips}/{win_tot} Win Tips' if (win_tips and win_tot) else ''
+        conf_raw = _svelte_field(obj, 'confidence').strip()
+        share_pct = ''
+        if conf_raw:
+            try:
+                share_pct = str(int(round(float(conf_raw))))
+            except ValueError:
+                share_pct = ''
+        row = {
+            'sport': page['sport'],
+            'league_label': page['league'],
+            'path_prefix': m_url.group(1),
+            'slug': m_url.group(1).split('/')[-1],
+            'event_id': m_url.group(2),
+            'date_label': '',
+            'time_label': '',
+            'market': market,
+            'consensus': _svelte_field(obj, 'selection').strip(),
+            'tips': tips_str,
+            'note': '',
+            'start_utc': start_utc,
+            'odds_decimal': _svelte_field(obj, 'odds').strip(),
+            'odds_american': _svelte_field(obj, 'american_odds').strip(),
+            'odds_fractional': _svelte_field(obj, 'fractional_odds').strip(),
+            'tip_share_pct': share_pct,
+            'event_name': _svelte_field(obj, 'event_name_alias').strip(),
+            'listing_url': page['url'],
+            'listing_path': page['path'],
+            'captured_at_utc': page.get('fetched_at_utc') or manifest.get('captured_at_utc'),
+        }
+        for field in ('market', 'consensus', 'tips', 'start_utc', 'odds_decimal'):
+            if not row[field]:
+                key = f"{page['sport']}:{field}"
+                parse_gaps[key] = parse_gaps.get(key, 0) + 1
+        out.append(row)
+    return out
 
 SPORT_SLUG = {
     'Tennis': 'Tennis', 'Basketball': 'Basketball', 'Golf': 'Golf', 'Cricket': 'Cricket',
@@ -63,11 +175,11 @@ def clean_printed(raw: str) -> tuple[str, str]:
     return text, ''
 
 
-def parse_capture(capture: Path) -> tuple[list[dict], dict]:
+def parse_capture(capture: Path, svelte_fallback: bool = False) -> tuple[list[dict], dict]:
     manifest = json.loads((capture / 'manifest.json').read_text())
     rows: list[dict] = []
     report = {
-        'capture': str(capture.relative_to(ROOT)) if capture.is_relative_to(ROOT) else str(capture),
+        'capture': display_path(capture),
         'captured_at_utc': manifest.get('captured_at_utc'),
         'listings': [],
         'parse_gaps': {},
@@ -82,49 +194,57 @@ def parse_capture(capture: Path) -> tuple[list[dict], dict]:
         html = (capture / page['html_file']).read_text(encoding='utf-8', errors='replace')
         chunks = html.split(CARD)[1:]
         entry['cards'] = len(chunks)
-        for chunk in chunks:
-            href = EVENT_HREF.search(chunk)
-            name = NAME.search(chunk)
-            start = START.search(chunk)
-            printed = PRINTED.search(chunk)
-            market = MARKET.search(chunk)
-            selection = SELECTION.search(chunk)
-            odds = ODDS.search(chunk)
-            tips = TIPS.search(chunk)
-            share = SHARE.search(chunk)
-            if not href:
-                report['parse_gaps'].setdefault('no_event_link', 0)
-                report['parse_gaps']['no_event_link'] += 1
-                continue
-            date_label, time_label = clean_printed(printed.group(1)) if printed else ('', '')
-            row = {
-                'sport': page['sport'],
-                'league_label': page['league'],
-                'path_prefix': href.group(2),
-                'slug': href.group(2).split('/')[-1],
-                'event_id': href.group(3),
-                'date_label': date_label,
-                'time_label': time_label,
-                'market': market.group(1).strip() if market else '',
-                'consensus': selection.group(1).strip() if selection else '',
-                'tips': tips.group(1).strip() if tips else '',
-                'note': '',
-                'start_utc': start.group(1).strip() if start else '',
-                'odds_decimal': odds.group(1).strip() if odds else '',
-                'odds_american': odds.group(2).strip() if odds else '',
-                'odds_fractional': odds.group(3).strip() if odds else '',
-                'tip_share_pct': share.group(1).strip() if share else '',
-                'event_name': name.group(1).strip() if name else '',
-                'listing_url': page['url'],
-                'listing_path': page['path'],
-                'captured_at_utc': page.get('fetched_at_utc') or manifest.get('captured_at_utc'),
-            }
-            for field in ('market', 'consensus', 'tips', 'start_utc', 'odds_decimal'):
-                if not row[field]:
-                    key = f"{page['sport']}:{field}"
-                    report['parse_gaps'][key] = report['parse_gaps'].get(key, 0) + 1
-            rows.append(row)
-            entry['rows'] += 1
+        if chunks:
+            entry['source_mode'] = 'ssr_cards'
+            for chunk in chunks:
+                href = EVENT_HREF.search(chunk)
+                name = NAME.search(chunk)
+                start = START.search(chunk)
+                printed = PRINTED.search(chunk)
+                market = MARKET.search(chunk)
+                selection = SELECTION.search(chunk)
+                odds = ODDS.search(chunk)
+                tips = TIPS.search(chunk)
+                share = SHARE.search(chunk)
+                if not href:
+                    report['parse_gaps'].setdefault('no_event_link', 0)
+                    report['parse_gaps']['no_event_link'] += 1
+                    continue
+                date_label, time_label = clean_printed(printed.group(1)) if printed else ('', '')
+                row = {
+                    'sport': page['sport'],
+                    'league_label': page['league'],
+                    'path_prefix': href.group(2),
+                    'slug': href.group(2).split('/')[-1],
+                    'event_id': href.group(3),
+                    'date_label': date_label,
+                    'time_label': time_label,
+                    'market': market.group(1).strip() if market else '',
+                    'consensus': selection.group(1).strip() if selection else '',
+                    'tips': tips.group(1).strip() if tips else '',
+                    'note': '',
+                    'start_utc': start.group(1).strip() if start else '',
+                    'odds_decimal': odds.group(1).strip() if odds else '',
+                    'odds_american': odds.group(2).strip() if odds else '',
+                    'odds_fractional': odds.group(3).strip() if odds else '',
+                    'tip_share_pct': share.group(1).strip() if share else '',
+                    'event_name': name.group(1).strip() if name else '',
+                    'listing_url': page['url'],
+                    'listing_path': page['path'],
+                    'captured_at_utc': page.get('fetched_at_utc') or manifest.get('captured_at_utc'),
+                }
+                for field in ('market', 'consensus', 'tips', 'start_utc', 'odds_decimal'):
+                    if not row[field]:
+                        key = f"{page['sport']}:{field}"
+                        report['parse_gaps'][key] = report['parse_gaps'].get(key, 0) + 1
+                rows.append(row)
+                entry['rows'] += 1
+        elif svelte_fallback:
+            svelte_rows = parse_svelte_tips(html, page, manifest, report['parse_gaps'])
+            entry['svelte_active_tips'] = len(svelte_rows)
+            entry['source_mode'] = 'svelte_hydration' if svelte_rows else 'empty'
+            rows.extend(svelte_rows)
+            entry['rows'] += len(svelte_rows)
         # Cross-check OLBG's ISO startDate against the clock it printed. Recorded, never applied.
         offsets = set()
         for row in rows:
@@ -183,15 +303,23 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--capture', required=True)
     ap.add_argument('--out', default=None)
+    ap.add_argument('--svelte-fallback', action='store_true',
+                    help='extract active (expired == 0) rows from SvelteKit <script> hydration payloads '
+                         'when no server-rendered tip cards are present')
     args = ap.parse_args()
 
     capture = Path(args.capture)
     if not capture.is_absolute():
         capture = ROOT / capture
     stamp = capture.name.replace('live-', '')
-    out = Path(args.out) if args.out else ROOT / 'data/raw' / f'olbg-harvest-{stamp}.tsv'
+    if args.out:
+        out = Path(args.out)
+        if not out.is_absolute():
+            out = ROOT / out
+    else:
+        out = ROOT / 'data/raw' / f'olbg-harvest-{stamp}.tsv'
 
-    rows, report = parse_capture(capture)
+    rows, report = parse_capture(capture, svelte_fallback=args.svelte_fallback)
     rows = dedupe(rows)
     rows.sort(key=lambda r: (r['sport'], r['start_utc'], r['event_name']))
     write_tsv(rows, report, out, capture.name)
@@ -200,10 +328,10 @@ def main() -> int:
     by_sport: dict[str, int] = {}
     for row in rows:
         by_sport[row['sport']] = by_sport.get(row['sport'], 0) + 1
-    print(f'rows: {len(rows)} across {len(by_sport)} sports -> {out.relative_to(ROOT)}')
+    print(f'rows: {len(rows)} across {len(by_sport)} sports -> {display_path(out)}')
     for sport, count in sorted(by_sport.items()):
         print(f'  {sport:<16} {count}')
-    empty = [p for p in report['listings'] if p['outcome'] == 'captured' and not p['cards']]
+    empty = [p for p in report['listings'] if p['outcome'] == 'captured' and not p['rows']]
     if empty:
         print('listings with zero tip cards:', [p['path'] for p in empty])
     if report['parse_gaps']:

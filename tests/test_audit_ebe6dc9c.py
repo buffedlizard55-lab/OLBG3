@@ -89,6 +89,11 @@ class LnrClockFinding(unittest.TestCase):
 
 class HighCandidateScan(unittest.TestCase):
     def test_only_bkb17_is_verified_upcoming_in_band_non_high(self):
+        # 2026-10-23T21:32Z (session-a87a3681): the SuperLega Match #30003 clock for Itas Trentino v
+        # Cisterna was re-observed on Volleyball World's own match page, which makes the root row
+        # VOL-26 a second verified, upcoming, in-band, non-HIGH candidate. It is NOT promoted: the
+        # page's three-zone print is internally inconsistent (FL-181), so the start is flagged for
+        # review rather than upgraded. Update the expected list, not the grading rule.
         events = json.loads((DATA / "events.json").read_text())["events"]
         preds = {p["ref"]: p for p in json.loads((DATA / "predictions.json").read_text())["predictions"]}
         candidates = []
@@ -103,10 +108,11 @@ class HighCandidateScan(unittest.TestCase):
             if (r.get("verification") or {}).get("status") != "verified":
                 continue
             candidates.append(r["ref"])
-        self.assertEqual(candidates, ["BKB-17"])
+        self.assertEqual(candidates, ["BKB-17", "VOL-26"])
         # BKB-17 has no written prediction and cannot be upgraded to HIGH: it lacks an
         # official two-sided form source, so grading it HIGH would require inference.
         self.assertNotIn("BKB-17", preds)
+        self.assertNotIn("VOL-26", preds)
 
 
 if __name__ == "__main__":
