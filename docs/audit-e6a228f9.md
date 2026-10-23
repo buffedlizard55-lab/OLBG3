@@ -93,11 +93,11 @@ publication; none changes a price, a selection, a probability or a confidence gr
 
 | gate | result |
 |---|---|
-| `python3 -m unittest discover -s tests` | **184 tests OK**, 25 skipped (dated pins); 14 of them new in `tests/test_audit_e6a228f9.py` |
+| `python3 -m unittest discover -s tests` | **200 tests OK**, 25 skipped (dated pins); 14 of them new in `tests/test_audit_e6a228f9.py` |
 | `scripts/check.py` | PASS — 53 fixture rows, hosts, blank fields, unique IDs, internal links |
-| `scripts/check_links.py` | PASS — 108 pages, 2 266 local links, **0 broken** |
+| `scripts/check_links.py` | PASS — 108 pages, 2 246 local links, **0 broken** |
 | `scripts/check_board.py` | PASS — 359 rows, 311 fixtures, 270 verified, 310 priced, 85 pieces |
-| `tools/check_site.py` | PASS — 20 pages, 180 fixtures, 180 lines, 12 HIGH, 31 pieces, 157 register items |
+| `tools/check_site.py` | PASS — 20 pages, 180 fixtures, 180 lines, 8 HIGH, 31 pieces, 159 register items |
 | rebuild determinism | `live_refresh.py` → `build_dataset.py` → `originate.py` → `build_site.py` re-run with no diff |
 
 The pipeline was run in the CI order (`build.py`, `build_gap_sports.py`, `model.py`,
@@ -127,6 +127,6 @@ refreshed it. The committed `data/current.json` (19:13Z, from CI) is unchanged b
    earlier in the day can have a correct link that now 404s. That is the source's behaviour, not a
    link defect; the capture remains the evidence, and the `/olbg/` release gate marks the row as
    past its start rather than presenting it as live.
-5. **Five-per-sport is still not met** (12 live HIGH across the board at this pass, shortfall 59).
+5. **Five-per-sport is still not met** (12 live HIGH across both tracks at this publication clock, none of the 15 sports meeting five; shortfall 63). The count fell from 20 to 12 during this pass because `session-d6b030fc`'s release-clock repair (their FL-161) withdrew four stale pre-match HIGH rows on `main` — that is their fix working, not a regression here.
    This pass did not manufacture picks to close it: grading a fixture HIGH requires official current
    form for both sides, and that could not be re-read for most sports here.

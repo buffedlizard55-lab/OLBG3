@@ -364,7 +364,7 @@ Baseline on this branch was `f55593f`; the branch was rebased onto `main` `29241
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
-| `task-52-source-link-integrity-and-live-high-recheck-20261023` | Fix the OLBG event-URL synthesis defect that repeated the final path segment on 177 of 180 published rows (published link 404s; the captured href serves), add a regression test that pins every synthesised URL to the href literally present in the committed capture, then re-read the live HIGH write-ups and their clocks against official pages, rebuild both tracks, PR, merge, confirm Pages | `tools/build_dataset.py`, `tools/check_site.py`, `tests/test_audit_e6a228f9.py`, `data/flagged.json`, `data/predictions-olbg.json`, `data/brief_coverage.json`, `docs/audit-e6a228f9.md`, `COORDINATION.md`, `README.md`, regenerated outputs | done (merge record in session entry) | `session-e6a228f9` (branch `arena/e6a228f9-olbg3`) | Claimed 2026-10-23T19:40Z on `main` `3f126e6`. FL-163 is the URL defect (live re-fetch of the rendered href vs the published URL); FL-164…FL-167 are the four write-up repairs. 184 tests OK, `check_board.py`/`tools/check_site.py`/`check.py` PASS, `check_links.py` 108 pages / 2 266 links / 0 broken. |
+| `task-52-source-link-integrity-and-live-high-recheck-20261023` | Fix the OLBG event-URL synthesis defect that repeated the final path segment on 177 of 180 published rows (published link 404s; the captured href serves), add a regression test that pins every synthesised URL to the href literally present in the committed capture, then re-read the live HIGH write-ups and their clocks against official pages, rebuild both tracks, PR, merge, confirm Pages | `tools/build_dataset.py`, `tools/check_site.py`, `tests/test_audit_e6a228f9.py`, `data/flagged.json`, `data/predictions-olbg.json`, `data/brief_coverage.json`, `docs/audit-e6a228f9.md`, `COORDINATION.md`, `README.md`, regenerated outputs | done (merge record in session entry) | `session-e6a228f9` (branch `arena/e6a228f9-olbg3`) | Claimed 2026-10-23T19:40Z on `main` `3f126e6`. FL-163 is the URL defect (live re-fetch of the rendered href vs the published URL); FL-164…FL-167 are the four write-up repairs. 200 tests OK, `check_board.py`/`tools/check_site.py`/`check.py` PASS, `check_links.py` 108 pages / 2 246 links / 0 broken. |
 | `task-51-release-state-ui-audit` | Audit and repair the browser release-state badge contract so an expired HIGH row changes only its confidence label; keep the separate `in band` / odds-band badge truthful and synchronized in all published asset copies; add a clock-independent regression test and source-linked audit record | `COORDINATION.md`, `assets/release.js`, `olbg/assets/release.js`, `olbg-board/assets/release.js`, `tests/test_release_ui_c2eba08a.py`, `docs/audit-c2eba08a.md` | done | `session-c2eba08a` (branch `arena/c2eba08a-olbg3`) | Fixed the unguarded `.pill.high` expiry mutation; 175 tests, board/site/link checks and asset byte-sync pass. No sporting data or generated HTML/data changed; full record in `docs/audit-c2eba08a.md`. |
 | `task-50-parallel-pass-defect-repair-20261023` | Seventh parallel 2026-10-23 pass (`session-6327cf90`, claimed as task-46): its own daily pass was superseded by PRs #119–#136 and deliberately not merged; landed only the four defects `main` lacked — the `parse_tips` failure on OLBG's rendered "N/M Win Tips" label that left 167 of 180 rows priced from a home-court baseline while disclosing a tip split (FL-156), `Total Games` missing from two of three market-label sets (FL-157), two CBV verification records holding a different fixture's venue and kick-off while published as confirmed (FL-158), and three write-ups asserting form no cited source supports, one contradicting the project's own official ASOBAL table (FL-159) | `COORDINATION.md`, `README.md`, `tools/build_dataset.py`, `tools/originate.py`, `scripts/model.py`, `data/verifications.json`, `data/predictions-olbg.json`, `data/flagged.json`, `docs/audit-6327cf90.md`, `docs/harvest-20261023-1648z.tsv`, `tests/test_audit_6327cf90.py`, regenerated outputs | done (merge record in session entry) | `session-6327cf90` (branch `arena/6327cf90-olbg3`) | Superseded pass preserved at branch tip `c01cb49`; its FL-131..FL-146 drafts dropped in favour of the siblings' merged FL-131..FL-155, so this session renumbered from FL-156. Did not touch `.github/workflows/pages.yml` (owned by `session-56f4da2b`) or the harvest chain |
 | `task-49-parallel-pass-reconciliation-20261023` | Sixth parallel 2026-10-23 daily pass (`session-d0f5ca54`, claimed as task-46) reconciled onto PRs #119–#132: only net-new work kept — BSB-01 starters, BKB-30 factual correction, /olbg/ Round 7 leftovers + certified starts, SuperLega venue repair (FL-154), completed banned-word sweep + regression test (FL-155), TEN-902162 piece, 16:30Z capture kept as docs evidence | `COORDINATION.md`, `README.md`, `data/predictions.json`, `data/predictions-olbg.json`, `data/verifications.json`, `data/flagged.json`, `docs/audit-d0f5ca54.md`, `docs/harvest-20261023-1630z-d0f5ca54.tsv`, `tests/test_audit_d0f5ca54.py`, regenerated outputs | done (merge record in session entry) | `session-d0f5ca54` (branch `arena/d0f5ca54-olbg3`) | Independent pass fully preserved at branch tip `3ee68ed` (pre-merge); duplicative findings dropped in favour of merged FL-141..FL-153 |
@@ -2274,9 +2274,9 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - 0 rows carry a repeated final path segment anywhere in the site.
 - 10 HIGH pieces read against their cited pages line by line; every surviving figure quoted in the table in
   `docs/audit-e6a228f9.md` was seen on the linked page in this pass.
-- Gates on the final tree: **184 tests OK** (25 skipped dated pins; 14 new), `check_board.py` PASS (359 rows /
+- Gates on the final tree: **200 tests OK** (25 skipped dated pins; 14 new), `check_board.py` PASS (359 rows /
   311 fixtures / 270 verified / 310 priced / 85 pieces), `tools/check_site.py` PASS (20 pages / 180 fixtures /
-  12 HIGH / 31 pieces / 157 register items), `check.py` PASS, `check_links.py` 108 pages / 2 266 links / **0 broken**,
+  8 HIGH / 31 pieces / 159 register items), `check.py` PASS, `check_links.py` 108 pages / 2 246 links / **0 broken**,
   and a second `/olbg/` rebuild is byte-identical.
 
 ### Irregularities and limitations, stated rather than smoothed over
@@ -2290,8 +2290,28 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
    claims were removed under FL-159 earlier today; the weak citation remains and is not re-raised.
 4. **A correct OLBG link can still 404 once the event closes** — that is the source withdrawing the page, not a link
    defect. The capture remains the evidence and the release gate marks such rows as past their start.
-5. **The five-per-sport target is not met** (12 live HIGH, shortfall 59). No pick was manufactured to close it: a
+5. **The five-per-sport target is not met** (12 live HIGH across both tracks, shortfall 63 — four stale HIGH rows were withdrawn mid-pass by `session-d6b030fc`'s release-clock repair on `main`, which is that fix working rather than a regression here). No pick was manufactured to close it: a
    HIGH grade requires official current form for both sides, and most sports could not be re-read from here.
+
+### Rebase and collision record
+
+`origin/main` advanced to `cf49177` (PR [#145](https://github.com/buffedlizard55-lab/OLBG3/pull/145), `session-d6b030fc`)
+while this pass was running, so the branch was rebased onto it before the PR. Three collisions were handled without
+discarding anyone's work:
+
+1. **Task number.** `session-d6b030fc` claimed `task-51-release-state-ui-audit`. This session's row was renumbered
+   **`task-52`** rather than editing theirs.
+2. **Register numbers.** Their PR added **FL-161** (hourly rebuild reused a frozen source clock) and **FL-162** (the
+   Game 1 injury context plus the withdrawal of the separate Over 6.5 lean). This session's five items were therefore
+   renumbered **FL-163…FL-167**, by title rather than by position, after a first attempt keyed on the id silently dropped
+   the two colliding items — caught before commit and redone.
+3. **Generated HTML.** Conflicts in the rebuilt `olbg/`, `olbg-board/` and root pages were resolved by taking one side
+   and then regenerating every page from data, never by hand-merging markup.
+
+Their release-clock repair also changes this session's published counts: four stale pre-match HIGH rows are now
+withdrawn, so the live HIGH total at the stored clock is **12 across both tracks (8 + 8 with 4 withheld)**, not the 20
+that the pre-rebase tree showed. Their rewrite of `BSB-160789` landed mid-pass, so the current text of that piece was
+re-read and verified in this pass rather than the version first read (see the audit table).
 
 ### Merge and publication record
 

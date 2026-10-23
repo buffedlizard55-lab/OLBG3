@@ -39,9 +39,9 @@ Martinez starts), and the Cork GAA arithmetic reconciles exactly (St Finbarrs 11
 
 Every repair restates only what the linked page says and leaves price, selection and grade untouched;
 where a detail could not be re-read, it was removed rather than re-sourced. Gates on the final tree:
-184 tests OK (25 skipped dated pins), `check_board.py` PASS (359 rows / 311 fixtures / 270 verified /
-310 priced), `tools/check_site.py` PASS (180 fixtures / 12 HIGH / 157 register items),
-`check.py` PASS, `check_links.py` 108 pages / 2 266 links / **0 broken**, and the `/olbg/` rebuild is
+200 tests OK (25 skipped dated pins), `check_board.py` PASS (359 rows / 311 fixtures / 270 verified /
+310 priced), `tools/check_site.py` PASS (180 fixtures / 8 HIGH / 159 register items),
+`check.py` PASS, `check_links.py` 108 pages / 2 246 links / **0 broken**, and the `/olbg/` rebuild is
 byte-identical on a second run. `scripts/update.py` and `scripts/discovery.py` were deliberately not
 run here — both need live feeds this sandbox cannot reach, and `update.py` withholds every row when a
 fetch fails — so the 19:13Z official feed is untouched.
@@ -50,7 +50,7 @@ fetch fails — so the 19:13Z official feed is untouched.
 
 No new OLBG listing was captured: the site is unreachable from the sandbox and its listings render
 client-side ("No tips found." for every sport), though individual event pages do render — which is
-what made the link audit possible. Five-per-sport remains unmet (12 live HIGH, shortfall 59), and no
+what made the link audit possible. Five-per-sport remains unmet (12 live HIGH across both tracks, shortfall 63), and no
 pick was manufactured to close it.
 
 
