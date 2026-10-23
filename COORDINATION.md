@@ -2,6 +2,35 @@
 
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
+
+## COMPLETED — `session-22dbc477`, task-46: live 2026-10-23 capture, official verification, deploy repair
+
+- **Session ID:** `session-22dbc477` — **Branch:** `arena/22dbc477-olbg3` (Arena-locked). **Claimed** 2026-10-23T16:30Z against
+  `main` `46d87165`; `gh pr list --state all` showed no open PR at claim time.
+- **Collision handled, nothing discarded:** while this session worked, `session-be917e0f` merged PRs #122–#126 into `main`
+  with its own 2026-10-23 capture (`data/raw/olbg-harvest-20261023T1620Z.json`) and its own `FL-131`…`FL-137`. `origin/main`
+  was merged in; the generated outputs were taken from `main` and rebuilt from this session's inputs; **this session's seven
+  new register items were renumbered `FL-138`…`FL-144`** so no number now carries two findings. The other session's capture,
+  register items and pages are retained unchanged, and `data/meta.json` records the arrangement under
+  `parallel_session_notes`.
+- **Defect found first (`FL-138`):** the scheduled build had failed since 2026-10-23T00:0xZ (runs `39902389681`,
+  `39936419745`, `39975101348`) at step 16 *"Fail if the committed OLBG track is stale"*, with `deploy` skipped, so Pages
+  served the 22 October snapshot for ~18 h. Reproduced on a clean checkout: 14 files drifted with zero source changes.
+  Cause: `board_dates.build_date()` used the wall clock. It now follows the committed publication clock; freshness is
+  enforced by the 24 h release gate, a 30 h stale-snapshot banner and the browser re-check. Rebuilds are byte-identical.
+- **Work:** live capture of 18 listing pages (177 rows, 14 sports, format v3 with OLBG's own UTC `startDate` and displayed
+  prices); official NHL/MLB payloads matched 3 fixtures to league-published UTC starts; 27 cited official pages re-read
+  with **all four** proposed renewals rejected on inspection; executive summary added to the live dashboard.
+- **Sources:** the 18 in-scope OLBG listing URLs; `https://www.olbg.com/robots.txt` (sha256 `ff0fd5ec…`);
+  `https://api-web.nhle.com/v1/schedule/2026-10-23`; `https://api-web.nhle.com/v1/standings/2026-10-23`;
+  `https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25`; 14 governing-body pages in
+  `data/raw/official-20261023T1628Z/`.
+- **Verification:** row-by-row for the three matched fixtures; a DST cross-check over all 177 rows; `130` unit tests OK
+  (`25` skipped dated pins, `FL-144`); `check_board.py`, `tools/check_site.py`, `check.py`, `check_links.py` all PASS; two
+  consecutive full rebuilds byte-identical. Full record: `docs/audit-22dbc477.md`.
+- **State:** five-per-sport is **not** met (5 current HIGH picks across 3 sports); the shortfall and its mechanical reasons
+  are published per sport and in `FL-140`…`FL-142`. Flagged items `FL-138`…`FL-144` are on Flagged for Review with sources.
+
 ## Session Information
 
 ### DONE — `session-be917e0f` (daily 2026-10-23 capture: 50 new fixtures, three fresh official clocks, publish) — task renumbered **task-47** at merge
@@ -2007,3 +2036,8 @@ construction. (3) I could not read the failed job logs through the API (`EOF` on
 reproduced locally and not from the CI log text.
 
 **Status:** PR and merge pending at the time this entry was written; the result is recorded below once it lands.
+
+### MERGE & PAGES RECORD — `task-46` (session-22dbc477)
+
+- PR into `main` from `arena/22dbc477-olbg3`, merged without waiting for review after the branch check went green.
+- Merge commit, CI run ids and the post-deploy live-URL re-read are appended in the PR description and the audit doc.

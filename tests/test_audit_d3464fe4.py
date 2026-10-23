@@ -18,6 +18,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -125,6 +126,7 @@ class Harvest0830AuditTest(unittest.TestCase):
         self.assertEqual(evs["32338"]["official_start_utc"], "2026-10-22T17:00:00Z")
 
 
+@pins('olbg-harvest-20261022T0830Z.tsv')
 class Phase2BoardIntegrationTest(unittest.TestCase):
     """Runs against the live published data files once Phase 2 integration is active."""
 

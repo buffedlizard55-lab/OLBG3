@@ -60,6 +60,38 @@ against the wrong day.
   (`2026-10-23`) instead of a global constant, so `brief.html` no longer advertises an older capture than the landing page.
   Full working record: `docs/audit-be917e0f.md`.
 
+## Live 2026-10-23 capture, official verification, and the deploy repair — `session-22dbc477`
+
+The hourly build had been failing since midnight on 23 October (three runs, `deploy` skipped), so Pages served the
+22 October snapshot for ~18 h. Cause and fix: `scripts/board_dates.build_date()` used the wall clock for the
+date-level start gate, which made every rebuild differ from the committed tree; it now follows the committed
+publication clock, and a **SNAPSHOT STALE** banner appears on both boards once a capture is 30 h old (`FL-138`).
+A full rebuild is byte-identical.
+
+With no route to OLBG from this sandbox (FL-214), the fetch moved to a GitHub Actions runner and the served bytes
+are committed as evidence:
+
+- **`scripts/live_harvest.py`** — robots-aware capture of all 18 in-scope listings, storing robots.txt, HTML, text
+  renderings and a manifest with per-page status, bytes and sha256. The first run was refused by every page because
+  `urllib.robotparser` matches a disallowed agent token as a **substring**: OLBG disallows `User-agent: es`, and the
+  token `olbg3research` contains it (`FL-139`). The collector now uses `OLBG3Audit` and records which robots group
+  governed each URL.
+- **`scripts/extract_listings.py`** — 177 rows across 14 sports (Golf returned "No tips found.", `FL-141`) in harvest
+  **format v3**, which adds OLBG's own `<time itemprop="startDate">` UTC instant and the price OLBG prints for each
+  selection. A test proves the printed clock differs from that attribute by exactly the UK DST offset on every row,
+  so the UTC value is machine evidence rather than an inference.
+- **`scripts/official_probe.py` / `verify_live.py`** — NHL and MLB payloads confirmed three fixtures with the leagues'
+  own UTC starts (World Series Game 1; MTL @ CHI; TB @ COL). `statsapi.mlb.com` joins the reviewed clock hosts with a
+  written reason. NBA and EuroLeague refused the probe (403/429, `FL-142`), and the 15 European hockey fixtures have
+  no official read (`FL-140`).
+- **`scripts/probe_cited.py` / `reverify.py`** — 27 of 30 cited official pages re-read. Four renewals were proposed
+  and **all four were rejected on inspection** (boilerplate, another fixture's clock, a JSON blob), so the 24-hour
+  expiry stands and those rows remain analysis.
+- **Published:** 177 live fixtures with our own money line, handicap and total; **5 current HIGH picks** (Rugby Union
+  3, Volleyball 1, Baseball 1), each with a unique sourced prediction of 30+ words; an executive summary at the top of
+  the `/olbg/` dashboard; register items `FL-138`…`FL-144`. Five-per-sport is **not** met and is not claimed — every
+  shortfall prints its mechanical reason.
+
 ## Parallel evening harvest integration: 30 fixtures onto the root board, 22:10Z re-observations — `session-4b642f84`, 2026-10-22T22:10Z
 
 This session ran the same evening window in parallel with `784afe97`/`c038b7f4`/`cab97f19`/`a1e5112b` (PRs #100–#111) and was re-applied on top of their merged state, keeping only net-new work (`docs/audit-4b642f84.md`; task id renumbered `task-45` at merge):

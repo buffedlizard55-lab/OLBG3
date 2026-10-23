@@ -104,8 +104,8 @@
      "eligible": true,
      "as_of": "2026-10-23T16:45:00+00:00",
      "start_utc": "2026-10-24T00:00:00Z",
-     "checked_at": "2026-10-23T16:45:00Z",
-     "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23",
+     "checked_at": "2026-10-23T16:28:04Z",
+     "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
      "expires_at": "2026-10-24T00:00:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
@@ -13785,7 +13785,7 @@
      "eligible": true,
      "as_of": "2026-10-23T16:45:00+00:00",
      "start_utc": "2026-10-24T00:00:00Z",
-     "checked_at": "2026-10-23T16:20:00Z",
+     "checked_at": "2026-10-23T16:28:04Z",
      "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
      "expires_at": "2026-10-24T00:00:00Z",
      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."

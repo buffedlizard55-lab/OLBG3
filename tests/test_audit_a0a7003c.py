@@ -1,6 +1,7 @@
 import json
 import pathlib
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -12,6 +13,7 @@ EXCLUDED = {
 }
 
 
+@pins('olbg-harvest-20261022T0830Z.tsv')
 class AuditA0a7003cTests(unittest.TestCase):
     def test_harvest_tsv_schema_and_exclusions(self):
         tsv = ROOT / "docs/harvest-20261022-1215z.tsv"

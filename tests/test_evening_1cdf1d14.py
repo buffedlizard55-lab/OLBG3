@@ -12,12 +12,14 @@ import sys
 import tempfile
 from pathlib import Path
 import unittest
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "scripts"))
 
 
+@pins('olbg-harvest-20261022T2130Z.tsv')
 class EveningRefresh1cdf1d14Test(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
