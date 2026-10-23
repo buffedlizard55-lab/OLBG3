@@ -139,7 +139,7 @@ class ClockIntegrity(unittest.TestCase):
             self.assertEqual(bd.build_date(), dt.date(2026, 10, 23))
 
     def test_stale_snapshot_is_measured_in_hours(self):
-        with patch.object(bd, 'snapshot_utc',
+        with patch.object(bd, 'source_snapshot_utc',
                           return_value=dt.datetime(2026, 10, 23, 16, 28, tzinfo=dt.timezone.utc)), \
              patch.dict(os.environ, {}, clear=True):
             self.assertEqual(

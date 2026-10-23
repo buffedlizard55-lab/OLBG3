@@ -26,47 +26,49 @@ CAPTURE_DATE = dt.date(2026, 10, 21)   # data/events.json -> "generated"
 
 
 
-def snapshot_utc():
-    """Deterministic publication clock: the newest committed source observation.
+def source_snapshot_utc():
+    """Newest recorded official observation; publishing must never renew this clock."""
+    import json
+    with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                           "data/release_checks.json"), encoding="utf-8") as source:
+        doc = json.load(source)
+    stamps = [c.get("checked_at") for c in doc.get("events", {}).values() if c.get("checked_at")]
+    stamps.append(doc.get("checked_at"))
+    newest = max(s for s in stamps if s)
+    moment = dt.datetime.fromisoformat(newest.replace("Z", "+00:00"))
+    if moment.tzinfo is None:
+        raise ValueError("Source observation must have an explicit offset")
+    return moment.astimezone(dt.timezone.utc)
 
-    The committed build must be byte-reproducible (CI fails the build when a rebuild
-    drifts), so the default clock comes from data/release_checks.json rather than the
-    wall clock. Freshness against real time is enforced three ways instead: the date-level
-    AS_OF gate uses real UTC today, the release gate expires 24 h after this stored
-    observation clock, and the published pages re-check expiry in the browser.
-    `OLBG_NOW_UTC` overrides for live verification passes and tests.
+
+def snapshot_utc():
+    """Reproducible publication clock, independent of source observation times.
+
+    CI advances data/publication.json once before building. Every subsequent process
+    reads the same instant, including builds that cross a minute or UTC midnight.
+    OLBG_NOW_UTC reproduces historical builds/tests. No source check is renewed.
+    A missing or malformed publication clock fails closed rather than reviving HIGH
+    picks at an old source clock.
     """
+    import json
     override = os.environ.get("OLBG_NOW_UTC")
     if override is not None:
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}Z", override):
             raise ValueError("OLBG_NOW_UTC must be YYYY-MM-DDTHH:MMZ")
         return dt.datetime.strptime(override, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
-    try:
-        import json
-        with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                               "data/release_checks.json"), encoding="utf-8") as source:
-            doc = json.load(source)
-        stamps = [c.get("checked_at") for c in doc.get("events", {}).values() if c.get("checked_at")]
-        stamps.append(doc.get("checked_at"))
-        newest = max(s for s in stamps if s)
-        return dt.datetime.fromisoformat(newest.replace("Z", "+00:00")).astimezone(dt.timezone.utc)
-    except (OSError, ValueError, KeyError):
-        return dt.datetime.now(dt.timezone.utc).replace(second=0, microsecond=0)
+    with open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                           "data/publication.json"), encoding="utf-8") as source:
+        stamp = json.load(source)["publication_as_of"]
+    if not isinstance(stamp, str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:00Z", stamp):
+        raise ValueError("Publication clock must be YYYY-MM-DDTHH:MM:00Z")
+    return dt.datetime.fromisoformat(stamp.replace("Z", "+00:00"))
 
 
 def build_date():
-    """The date this build reasons about: the committed publication clock's date.
+    """The stored publication clock's date; OLBG_AS_OF can reproduce an archive.
 
-    It used to be real UTC today, which made every build after midnight non-reproducible:
-    the date-level start gate flipped rows to ``passed`` while the committed harvest was still
-    from the previous day, so the "committed track is stale" CI check failed on every scheduled
-    run and GitHub Pages stopped deploying (2026-10-23, FL-131). The clock is reproducible now.
-
-    Freshness is still enforced, three ways and none of them by pretending the data is new:
-      * ``scripts/release.py`` expires an observation 24 h after it was read and at the start;
-      * ``snapshot_age_hours()`` below makes every page say how old the capture is, loudly;
-      * ``assets/release.js`` re-checks expiry against the reader's clock in the browser.
-    ``OLBG_AS_OF`` still reproduces an archived build. An invalid override fails closed.
+    CI advances publication.json before a rebuild, independently of the observation
+    clocks in release_checks.json. This keeps expiry current and builds reproducible.
     """
     override = os.environ.get("OLBG_AS_OF")
     if override is not None:
@@ -77,15 +79,16 @@ def build_date():
 
 
 def snapshot_age_hours(now=None):
-    """How old the newest committed source observation is, in hours (float, never negative).
+    """Age of the newest source observation at publication, in hours (never negative).
 
-    ``OLBG_NOW_UTC`` moves "now" for a reproducible test of the stale-snapshot banner.
+    Publishing does not reset source age. Use ``now`` or ``OLBG_NOW_UTC`` for
+    an explicit later evaluation; the default stays reproducible within a build.
     """
-    now = now or dt.datetime.now(dt.timezone.utc)
+    now = now or snapshot_utc()
     override = os.environ.get("OLBG_NOW_UTC")
     if override:
         now = dt.datetime.strptime(override, "%Y-%m-%dT%H:%MZ").replace(tzinfo=dt.timezone.utc)
-    delta = now - snapshot_utc()
+    delta = now - source_snapshot_utc()
     return round(max(delta.total_seconds(), 0) / 3600.0, 1)
 
 

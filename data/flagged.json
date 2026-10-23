@@ -3365,6 +3365,54 @@
           "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
         }
       ]
+    },
+    {
+      "id": "FL-161",
+      "severity": "high — corrected",
+      "title": "Hourly rebuild reused a frozen source clock for publication expiry",
+      "detail": "At the 19:20 UTC scheduled build on 23 October, the release clock was still 17:22 UTC, the newest committed source observation. Static data therefore retained HIGH for Olympiacos–Paris (18:15 UTC), Valencia–Maccabi (18:45 UTC), Connacht–Zebre (18:45 UTC) and Edinburgh–Lions (18:45 UTC). Browser badge expiry did not correct committed JSON or static counts. Publication time now lives in data/publication.json and advances once per CI build. Each official checked_at stays unchanged. The shared integrity checks independently recompute HIGH eligibility; an old eligible boolean is not enough. A passed scheduled start does not establish a match result.",
+      "affected_rows": [
+        "BKB-29",
+        "BKB-30",
+        "BKB-535925",
+        "BKB-535926",
+        "RGU-609577",
+        "RGU-609579"
+      ],
+      "sources": [
+        {
+          "label": "Official EuroLeague round-seven clock source (existing observation, not re-read in this pass)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "Official URC fixture clock source (existing observation, not re-read in this pass)",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        },
+        {
+          "label": "Audit, reproduction and limitations",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/arena/d6b030fc-olbg3/docs/audit-d6b030fc.md"
+        }
+      ]
+    },
+    {
+      "id": "FL-162",
+      "severity": "review — editorial update",
+      "title": "Game 1 injury context added; separate Over 6.5 recommendation withdrawn",
+      "detail": "Re-read MLB’s Game 1 preview and schedule in this session. The previous Milwaukee write-ups omitted the preview’s reported postseason absence of Shane McClanahan and the shoulder-related risk around Brandon Woodruff’s roster inclusion. Both pieces now include that context, recent player form, the starting pitchers and bullpen statistics actually stated in the preview. The OLBG-track Over 6.5 supporting lean was removed: this pass establishes no independent totals edge. The money-line selection and originated price are unchanged. Lineups in the article are proposed rather than confirmed and are not presented as starters. No bookmaker price, betting edge or calibrated win probability was established. Retrieval also reported an unexpected MLB final URL/title for the preview while returning its Game 1 text; this mismatch is documented in the audit for manual review and no source timestamp was renewed.",
+      "affected_rows": [
+        "BSB-01",
+        "BSB-160789"
+      ],
+      "sources": [
+        {
+          "label": "MLB official Game 1 preview — Any injuries of note? and bullpen sections",
+          "url": "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup"
+        },
+        {
+          "label": "MLB official schedule — Game 1 teams, time and probable pitchers",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher"
+        }
+      ]
     }
   ]
 }

@@ -4,6 +4,24 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Publication expiry repair — session-d6b030fc (2026-10-23)
+
+[Audit and claim-by-claim official links](docs/audit-d6b030fc.md). Hourly builds now advance a
+separate `data/publication.json` clock **without renewing source-check timestamps**. This
+withdraws four stale pre-match HIGH selections and refreshes both tracks' coverage counts.
+Both integrity checks independently recompute release eligibility. The Game 1 write-ups now
+include MLB's injury/roster context; the extra Over 6.5 lean was withdrawn.
+
+At the local 19:29 UTC snapshot: **359 root rows, 180 OLBG-track rows, 12 distinct current HIGH
+picks across the tracks, zero sports meeting five, shortfall 63 of 75**. These are captured
+research rows, not a complete current fixture list or calibrated win-rate claim. See
+[Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html), FL-161 / FL-162.
+
+To begin a **new** publication cycle, run `python scripts/publication_clock.py` before the
+normal pipeline. Omit that step to reproduce the committed build at its stored clock.
+Run both origination tracks **before** `scripts/brief_coverage.py` and site rendering.
+`OLBG_NOW_UTC=YYYY-MM-DDTHH:MMZ` still reproduces an explicit historical evaluation.
+
 ## Seventh parallel 2026-10-23 pass, landed as a defect repair: the tip-count parser and three classes of unsourced claim — `session-6327cf90` (task-50)
 
 Full record: [`docs/audit-6327cf90.md`](docs/audit-6327cf90.md) · independent capture kept as evidence only: [`docs/harvest-20261023-1648z.tsv`](docs/harvest-20261023-1648z.tsv)

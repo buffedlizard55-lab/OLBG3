@@ -141,7 +141,8 @@ def assess(event_id, date_hint=None, now=None, records=None):
         result.update(status='unverified_start', start_utc=None, expires_at=None,
                       reason='Allowlisted official HTTPS URL and nonblank supporting quote are required; URL presence alone is not verification.')
     elif checked > now:
-        result.update(status='unverified_start', reason='Source check is later than the publication clock; cannot certify it yet.')
+        result.update(status='unverified_start', start_utc=None, expires_at=None,
+                      reason='Source check is later than the publication clock; cannot certify it yet.')
     elif start <= now:
         result.update(status='start_window_reached', reason='Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick.')
     elif now - checked >= MAX_SOURCE_AGE:
@@ -150,6 +151,26 @@ def assess(event_id, date_hint=None, now=None, records=None):
         result.update(status='upcoming', eligible=True,
                       reason='Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge.')
     return result
+
+
+def high_release_errors(event_id, published, now=None, records=None):
+    """Recompute HIGH eligibility at the build clock, not from a stored boolean.
+
+    Structural publication check only: it does not retrieve or attest source contents.
+    Both site tracks call this, so bypassing the release step cannot publish stale HIGH.
+    """
+    current = assess(event_id, now=now, records=records)
+    errors = []
+    if not current['eligible']:
+        errors.append('HIGH lacks a current official-start release: ' + current['reason'])
+    if not isinstance(published, dict):
+        return errors + ['HIGH has no stored release evidence']
+    if published.get('eligible') is not True or published.get('status') != 'upcoming':
+        errors.append('HIGH stored release is not upcoming/eligible')
+    for field in ('start_utc', 'expires_at', 'checked_at', 'source'):
+        if published.get(field) != current.get(field):
+            errors.append('HIGH stored release differs from current evidence: ' + field)
+    return errors
 
 
 def apply_board(rows, now=None):

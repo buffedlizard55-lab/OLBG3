@@ -7,10 +7,14 @@ publication clock moves, as this session did for earlier pins.
 import json
 import re
 import unittest
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
+sys.path.insert(0, str(ROOT / "scripts"))
+from release import assess
+
 
 NEW_VERIFIED = {
     # NBA.com schedule 2026-10-23
@@ -72,8 +76,13 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
 
     def test_live_high_set_and_prose(self):
         high = {ref for ref, r in self.events.items() if r["pick"]["confidence"] == "HIGH"}
-        self.assertEqual(high, LIVE_HIGH)
-        for ref in LIVE_HIGH:
+        # Keep the original candidate-set pin, but independently recompute expiry.
+        expected = {ref for ref in LIVE_HIGH
+                    if assess(self.events[ref]['olbg_event_id'])['eligible']}
+        self.assertEqual(high, expected)
+        for ref in LIVE_HIGH - expected:
+            self.assertEqual(self.preds[ref]['status'], 'analysis', ref)
+        for ref in expected:
             pk = self.events[ref]["pick"]
             self.assertEqual(pk["release"]["status"], "upcoming", ref)
             self.assertTrue(1.40 <= pk["price"] <= 101.0, ref)
