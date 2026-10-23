@@ -2391,3 +2391,9 @@ OLBG's listings still render client-side in this sandbox (FL-008/FL-077), and th
 270 verified / 310 priced / 85 pieces); `tools/check_site.py` PASS (20 pages / 180 fixtures / 180 lines / 8 HIGH / 31
 pieces); `check.py` PASS (53 fixture rows); `check_links.py` 108 pages / 2 246 links / **0 broken**; both tracks rebuilt
 from data.
+**Post-merge re-read, 20:15Z.** Deployed pages re-fetched after the merge: `olbg/sports/rugby-union.html` now renders the
+Leinster v Munster row with the Match Centre among its sources, and the venue change reaches the root track's index,
+predictions, verification and lines pages. A regression suite for this session's four repairs was added in
+`tests/test_followup_e6a228f9.py` (8 cases: FL-164 reversed Round 3 result, FL-165 Lions venue, FL-166 NBA schedule
+citation date, FL-167 verbatim-venue claim, plus flag-register uniqueness and https-source checks). Full suite after it:
+**225 tests OK** (25 archival skips).
