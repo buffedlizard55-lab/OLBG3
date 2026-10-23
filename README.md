@@ -20,11 +20,11 @@ the served href, so the next capture format change breaks the build instead of t
 price, probability or grade moved.
 
 **Then the links were used.** Ten live HIGH pieces were re-read against the page each cites. Six were
-fully confirmed — the MLB Game 1 piece, for instance, matches the official standings (MIL 103-59,
-832/618, 55-26), the postseason results (MIL 4-0 with a 6-4 clincher on 15 Oct; TB winning the last
-three ALCS games for 4-2) and the Game 1 preview (1.80 ERA, eleven days, 24-9 in Martinez starts) —
-and the Cork GAA arithmetic reconciles exactly (St Finbarrs 116/85 = +31; Nemo 98/79 = +19). Four did
-not:
+fully confirmed — the MLB Game 1 piece, as rewritten on `main` mid-pass, matches its preview article
+point for point (six bullpen earned runs in 40⅔ postseason innings, Contreras .367 in eight games,
+McClanahan out for the postseason, Woodruff's shoulder risk, 1.80 ERA over eleven days, 24-9 in
+Martinez starts), and the Cork GAA arithmetic reconciles exactly (St Finbarrs 116/85 = +31; Nemo
+98/79 = +19). Four did not:
 
 - **FL-164 (high).** `RGU-609580` reversed both URC Round 3 results, saying the Stormers were beaten
   39-22 by the Sharks and the Scarlets went down 27-26 to Benetton when the league's own table shows
