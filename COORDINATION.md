@@ -2062,3 +2062,17 @@ reproduced locally and not from the CI log text.
   across 14 sports*, *5 picks currently pass every gate* (Baseball 1.62/-161, Volleyball 1.58/-172, Rugby Union 1.42/-238,
   1.44/-227, 1.53/-189) and the per-sport "why fewer than five live HIGH picks" column;
   <https://buffedlizard55-lab.github.io/OLBG3/> renders 345 captured rows, 5 current HIGH picks and the brief-coverage line.
+
+#### Final publication record (appended after the deploy was observed)
+
+- **PR [#128](https://github.com/buffedlizard55-lab/OLBG3/pull/128) MERGED** into `main` (the CI-scope fix). Run
+  [39990588677](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39990588677) — `build` **success**,
+  `deploy` **success** (1m04s). `pages-build-deployment`
+  [39990589071](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39990589071) **success**; Pages API
+  `status: "built"` for commit `f42e834`. `main` is green again for the first time since 2026-10-23T00:00Z.
+- **Live re-read (fetched, not inferred):** `/OLBG3/olbg/` serves `EXECUTIVE SUMMARY · build 2026-10-23 16:45Z` with
+  *177 fixtures across 14 sports*, *5 picks currently pass every gate*, and the per-sport coverage reasons;
+  `/OLBG3/olbg/flagged.html` serves **145 register items** including this session's `FL-138`…`FL-144`;
+  `/OLBG3/` serves 345 captured rows and 5 current HIGH picks.
+- **Task state:** `task-46` **done**. Remaining irregularities are published on Flagged for Review with their sources; none
+  blocks publication.
