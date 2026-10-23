@@ -135,6 +135,12 @@ ALIASES = {
     "WPG Jets": "Winnipeg Jets",
     "DAL Stars": "Dallas Stars",
     "SJ Sharks": "San Jose Sharks",
+    "MTL Canadiens": "Montréal Canadiens",
+    "CHI Blackhawks": "Chicago Blackhawks",
+    "TB Lightning": "Tampa Bay Lightning",
+    "COL Avalanche": "Colorado Avalanche",
+    "WSH Capitals": "Washington Capitals",
+    "CBJ Blue Jackets": "Columbus Blue Jackets",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -302,7 +308,14 @@ for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
 off = json.load(open(os.path.join(ROOT, "data/official.json")))
 conf = off["fixture_confirmations"]
 urc = off["form_data"]["URC_2026_27_table"]["teams"]
+# NHL pricing stays on the 2026-10-22 standings block: it is the block the currently
+# published NHL pieces were priced from, and the newer 2026-10-23 block already contains
+# 22 October results, so pricing 22 October fixtures from it would reprice settled rows
+# with later information (FL-137). The 10-23 block is retained in official.json for audit
+# and for the written pieces; its gp/gf/ga for the 23 October clubs are identical anyway.
 nhl = off["form_data"].get("NHL_standings_2026_10_22", off["form_data"]["NHL_standings_2026_10_20"])["teams"]
+if "Montreal Canadiens" in nhl and "Montréal Canadiens" not in nhl:
+    nhl["Montréal Canadiens"] = nhl["Montreal Canadiens"]  # alias map uses the accented name
 urc_src = off["form_data"]["URC_2026_27_table"]["source"]
 nhl_src = off["form_data"].get("NHL_standings_2026_10_22", off["form_data"]["NHL_standings_2026_10_20"])["source"]
 

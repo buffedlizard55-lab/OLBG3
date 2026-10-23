@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-10-22T21:35:00Z",
+  "retrieved_at": "2026-10-23T16:50:00Z",
   "retrieved_at_previous": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
   "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate). Where two sessions verified the same event, both sets of facts and sources are kept and the status is the highest one an official/primary-class source supports (merge note on the record).",
   "sources": [
@@ -1468,6 +1468,42 @@
       "url": "https://www.icc-cricket.com/matches/271647/new-zealand-vs-india",
       "name": "ICC official Match Centre — Match #271647 (New Zealand vs India, IND in NZ 5 T20Is 2026)",
       "class": "primary"
+    },
+    {
+      "id": "S-NHL-SCHED-1023",
+      "name": "NHL official schedule API — 2026-10-23",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "class": "official",
+      "quote": "gameWeek 2026-10-23 lists 2 games: id 2026020166 MTL @ CHI (United Center), startTimeUTC 2026-10-24T00:00:00Z; id 2026020167 TBL @ COL (Ball Arena), startTimeUTC 2026-10-24T01:00:00Z; both gameState FUT.",
+      "note": "Read directly 2026-10-23 by session-d0f5ca54."
+    },
+    {
+      "id": "S-NBA-GAMES-1023",
+      "name": "NBA.com — games, Friday Oct 23 2026 (12-game slate, ET clocks)",
+      "url": "https://www.nba.com/games",
+      "class": "official",
+      "note": "Read 2026-10-23 by session-d0f5ca54; every tip time printed with an explicit ET label."
+    },
+    {
+      "id": "S-WTA-OSAKA-OP-24",
+      "name": "WTA Tour — official order of play, Kinoshita Group Japan Open (Osaka, 405), Saturday 24 October 2026",
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+      "class": "official",
+      "note": "Saturday sheet read 2026-10-23 (the URL serves the current OP and rolls daily). The sheet prints times with no timezone token."
+    },
+    {
+      "id": "S-WTA-NINGBO-OP-24",
+      "name": "WTA Tour — official order of play, BNB Ningbo Open (2092), Saturday 24 October 2026",
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "class": "official",
+      "note": "Saturday sheet read 2026-10-23 (the URL serves the current OP and rolls daily). The sheet prints times with no timezone token."
+    },
+    {
+      "id": "S-EL-STAND-1023",
+      "name": "EuroLeague Basketball — official standings (read 2026-10-23)",
+      "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
+      "class": "official",
+      "note": "Full 20-team table read 2026-10-23 by session-d0f5ca54; field-identical to the 2026-10-22T21:35Z values stored in data/official.json for the seven clubs in tonight's three games."
     }
   ],
   "event_verifications": {
@@ -2715,12 +2751,14 @@
       "sources": [
         "S-EL-CAL-2627",
         "S-EL-PAO-BAS",
-        "S-EL-GC"
+        "S-EL-GC",
+        "S-EL-STAND-1023"
       ],
       "facts": [
-        "EuroLeague game center Round 7: Zalgiris Kaunas (14th) v LDLC ASVEL Villeurbanne (17th), 23 October 2026, listed 13:00, ZALGIRIO ARENA, game code E2026/68; standings positions after Round 6 in brackets (S-EL-GC)."
+        "EuroLeague game center Round 7: Zalgiris Kaunas (14th) v LDLC ASVEL Villeurbanne (17th), 23 October 2026, listed 13:00, ZALGIRIO ARENA, game code E2026/68; standings positions after Round 6 in brackets (S-EL-GC).",
+        "Official EuroLeague standings read 2026-10-23: Zalgiris Kaunas 2-4 and LDLC ASVEL Villeurbanne 2-4 after six games (S-EL-STAND-1023)."
       ],
-      "note": "Confirmed on EuroLeague 2026-27 calendar: Zalgiris Kaunas (3-3) vs LDLC ASVEL Villeurbanne (1-5).",
+      "note": "Zalgiris Kaunas v LDLC ASVEL Villeurbanne, Round 7, Friday 23 Oct, 19:00 CEST per the official game-centre article (re-read 2026-10-23, session-d0f5ca54). FL-136: an earlier note cited \"(3-3)\" and \"(1-5)\" records that do not match the official standings (both clubs 2-4); withdrawn.",
       "start_utc": "2026-10-23T17:00:00Z"
     },
     "535948": {
@@ -3657,13 +3695,18 @@
     "534841": {
       "status": "verified",
       "competition": "NBA Regular Season 2026-27",
-      "venue": "Frost Bank Center, San Antonio",
+      "venue": "",
       "start_local": "2026-10-23 21:30 EDT",
       "start_utc": "2026-10-24T01:30:00Z",
       "sources": [
-        "S-NBA-GAMES-22"
+        "S-NBA-GAMES-22",
+        "S-NBA-GAMES-1023"
       ],
-      "note": "Confirmed on NBA.com 12-game Friday Oct 23 slate: Houston Rockets at San Antonio Spurs."
+      "note": "Confirmed on NBA.com 12-game Friday Oct 23 slate: Houston Rockets at San Antonio Spurs.",
+      "facts": [
+        "Re-observed on the NBA.com Friday Oct 23 games page on 2026-10-23 with the same ET tip time (S-NBA-GAMES-1023, session-d0f5ca54).",
+        "FL-138 (session-d0f5ca54): venue blanked — committed records conflict (\"Frost Bank Center, San Antonio\" here vs \"Moody Center in Austin\" in the BKB-534841 piece source label, both attributed to NBA.com reads). Venue left blank until one official reading settles it; the fixture and 21:30 ET clock are unaffected."
+      ]
     },
     "534842": {
       "status": "verified",
@@ -3672,9 +3715,13 @@
       "start_local": "2026-10-23 19:00 EDT",
       "start_utc": "2026-10-23T23:00:00Z",
       "sources": [
-        "S-NBA-GAMES-22"
+        "S-NBA-GAMES-22",
+        "S-NBA-GAMES-1023"
       ],
-      "note": "Confirmed on NBA.com 12-game Friday Oct 23 slate: New York Knicks at Boston Celtics."
+      "note": "Confirmed on NBA.com 12-game Friday Oct 23 slate: New York Knicks at Boston Celtics.",
+      "facts": [
+        "Re-observed on the NBA.com Friday Oct 23 games page on 2026-10-23 with the same ET tip time (S-NBA-GAMES-1023, session-d0f5ca54)."
+      ]
     },
     "188831": {
       "status": "verified",
@@ -4384,33 +4431,39 @@
       ]
     },
     "535925": {
-      "competition": "EuroLeague Regular Season 2026-27, Round 8",
+      "competition": "EuroLeague Regular Season 2026-27, Round 7",
       "venue": "Peace and Friendship Stadium, Piraeus",
       "start_local": "2026-10-23 20:15 CEST",
       "status": "verified",
       "sources": [
         "S-EL-R7GC",
-        "S-EL-STAND-2155"
+        "S-EL-STAND-2155",
+        "S-EL-STAND-1023"
       ],
       "facts": [
         "Official EuroLeague standings (read 2026-10-22T21:55Z): Olympiacos Piraeus 3rd, 6 played, 5-1, 83.3%, 564 points scored, 524 conceded, +40, home 1-0, away 4-1, last ten 5-1. Fenerbahce Tarfin Istanbul 2nd, 6 played, 5-1, 83.3%, 501 scored, 447 conceded, +54, home 5-0, away 0-1, last ten 5-1.",
-        "The round-seven game-centre article is dated 21 October 2026 and covers games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot; the official standings are used for form (FL-069 resolved)."
-      ]
+        "The round-seven game-centre article is dated 21 October 2026 and covers games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot; the official standings are used for form (FL-069 resolved).",
+        "FL-136 correction (session-d0f5ca54): competition said \"Round 8\"; the official game-centre article (\"Three games close out Round 7 tonight\", re-read 2026-10-23) and the six games played per club confirm these Friday games complete Round 7. Start certified from the same article's CEST clock."
+      ],
+      "start_utc": "2026-10-23T18:15:00Z"
     },
     "535926": {
-      "competition": "EuroLeague Regular Season 2026-27, Round 8",
+      "competition": "EuroLeague Regular Season 2026-27, Round 7",
       "venue": "Adidas Arena, Paris",
       "start_local": "2026-10-23 20:45 CEST",
       "status": "verified",
       "sources": [
         "S-EL-R7GC",
-        "S-EL-STAND-2155"
+        "S-EL-STAND-2155",
+        "S-EL-STAND-1023"
       ],
       "facts": [
         "Official EuroLeague standings (read 2026-10-22T21:55Z): Valencia Basket 6th, 6 played, 4-2, 66.7%, 583 points scored, 537 conceded, +46, home 2-2, away 2-0, last ten 4-2.",
         "Paris Basketball's row on the same official table, carried from the earlier read of the same official page on 2026-10-22: 12th, 6 played, 1-5, 504 points scored, 545 conceded, -41.",
-        "The round-seven game-centre article is dated 21 October 2026 and covers games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot; the official standings are used for form (FL-069 resolved)."
-      ]
+        "The round-seven game-centre article is dated 21 October 2026 and covers games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot; the official standings are used for form (FL-069 resolved).",
+        "FL-136 correction (session-d0f5ca54): competition said \"Round 8\"; the official game-centre article (\"Three games close out Round 7 tonight\", re-read 2026-10-23) and the six games played per club confirm these Friday games complete Round 7. Start certified from the same article's CEST clock."
+      ],
+      "start_utc": "2026-10-23T18:45:00Z"
     },
     "902129": {
       "competition": "ATP 250 Almaty Open — Quarter-Final",
@@ -4532,27 +4585,29 @@
     },
     "36994": {
       "competition": "SuperLega Credem Banca 2026/27 — Round 2",
-      "venue": "Eurosuole Forum, Civitanova Marche",
-      "start_local": "2026-10-25 18:00 CET",
+      "venue": "Trento, Italy",
+      "start_local": "2026-10-25 17:00 local time (Volleyball World match page; Italy is on CET from 25 Oct)",
       "status": "verified",
       "sources": [
         "vbtv-superlega-30003"
       ],
       "facts": [
-        "Itas Trentino host Cisterna Volley on Sunday 25 Oct 2026 at 16:00 UTC (17:00 Local Time) per FIVB/VBTV Match #30003."
+        "Itas Trentino host Cisterna Volley on Sunday 25 Oct 2026 at 16:00 UTC (17:00 Local Time) per FIVB/VBTV Match #30003.",
+        "FL-135 correction (session-d0f5ca54): venue previously read \"Eurosuole Forum, Civitanova Marche\" and start_local \"18:00 CET\", which belong to a different Sunday fixture; the official match #30003 page (re-read 2026-10-23) gives \"Trento, Italy - 25 Oct 2026 - 17:00 Local Time\", consistent with the stored 16:00 UTC start."
       ],
       "start_utc": "2026-10-25T16:00:00Z"
     },
     "36997": {
       "competition": "SuperLega Credem Banca 2026/27 — Round 2",
-      "venue": "OpiquadArena, Monza",
+      "venue": "",
       "start_local": "2026-10-25 18:00 CET",
       "status": "verified",
       "sources": [
         "vbtv-superlega-30002"
       ],
       "facts": [
-        "Sir Susa Scai Perugia (def. Cuneo 3-2 on Oct 18, Reggers 18 pts) host Tinet Prata di Pordenone (def. Monza 3-1, D'heer 19 pts) on Sunday 25 Oct 2026 at 17:00 UTC per FIVB/VBTV Match #30002."
+        "Sir Susa Scai Perugia (def. Cuneo 3-2 on Oct 18, Reggers 18 pts) host Tinet Prata di Pordenone (def. Monza 3-1, D'heer 19 pts) on Sunday 25 Oct 2026 at 17:00 UTC per FIVB/VBTV Match #30002.",
+        "FL-135 correction (session-d0f5ca54): venue previously read \"OpiquadArena, Monza\" although Sir Susa Scai Perugia is the home side; the arena was not captured from the official match #30002 page in this pass, so the field is blanked rather than guessed. Stored 17:00 UTC start is unchanged and matches the official page."
       ],
       "start_utc": "2026-10-25T17:00:00Z"
     },
@@ -5240,10 +5295,12 @@
       "start_utc": "2026-10-23T20:00:00Z",
       "status": "verified",
       "sources": [
-        "S-NBA-SCHED-1023"
+        "S-NBA-SCHED-1023",
+        "S-NBA-GAMES-1023"
       ],
       "facts": [
-        "NBA.com Friday October 23 slate lists Chicago Bulls at Milwaukee Bucks at 4:00 PM ET at Fiserv Forum (S-NBA-SCHED-1023)."
+        "NBA.com Friday October 23 slate lists Chicago Bulls at Milwaukee Bucks at 4:00 PM ET at Fiserv Forum (S-NBA-SCHED-1023).",
+        "Re-observed on the NBA.com Friday Oct 23 games page on 2026-10-23 with the same ET tip time (S-NBA-GAMES-1023, session-d0f5ca54)."
       ],
       "note": "Confirmed on the official NBA.com schedule; 4:00 PM ET on 23 Oct is 20:00Z."
     },
@@ -5362,10 +5419,213 @@
       "facts": [
         "ICC official match page titled \"New Zealand vs. India | IND in NZ, 5 T20Is, 2026\"; ICC fixtures strip lists the T20 as UPCOMING. No date/clock rendered in the retrieved match-centre body, so no start is certified."
       ]
+    },
+    "199984": {
+      "status": "verified",
+      "competition": "NHL",
+      "venue": "United Center, Chicago",
+      "start_local": "2026-10-23 19:00 CDT (venue-local equivalent of the API UTC clock)",
+      "start_utc": "2026-10-24T00:00:00Z",
+      "sources": [
+        "S-NHL-SCHED-1023"
+      ],
+      "facts": [
+        "NHL official schedule API game 2026020166: Montreal Canadiens at Chicago Blackhawks, United Center, startTimeUTC 2026-10-24T00:00:00Z, gameState FUT (S-NHL-SCHED-1023)."
+      ],
+      "note": "Competition taken from the OLBG NHL listing label and the NHL API game record (2026-27 regular season game id 2026020166)."
+    },
+    "199985": {
+      "status": "verified",
+      "competition": "NHL",
+      "venue": "Ball Arena, Denver",
+      "start_local": "2026-10-23 19:00 MDT (venue-local equivalent of the API UTC clock)",
+      "start_utc": "2026-10-24T01:00:00Z",
+      "sources": [
+        "S-NHL-SCHED-1023"
+      ],
+      "facts": [
+        "NHL official schedule API game 2026020167: Tampa Bay Lightning at Colorado Avalanche, Ball Arena, startTimeUTC 2026-10-24T01:00:00Z, gameState FUT (S-NHL-SCHED-1023)."
+      ],
+      "note": "Competition taken from the OLBG NHL listing label and the NHL API game record (2026-27 regular season game id 2026020167)."
+    },
+    "536034": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 19:00 ET",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Toronto Raptors at Washington Wizards at 19:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536035": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 19:00 ET",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Atlanta Hawks at Charlotte Hornets at 19:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536036": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 19:00 ET",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Minnesota Timberwolves at Orlando Magic at 19:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536037": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 19:00 ET",
+      "start_utc": "2026-10-23T23:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Dallas Mavericks at Indiana Pacers at 19:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536038": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 20:00 ET",
+      "start_utc": "2026-10-24T00:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Detroit Pistons at Miami Heat at 20:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536040": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 21:30 ET",
+      "start_utc": "2026-10-24T01:30:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists New Orleans Pelicans at Utah Jazz at 21:30 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536039": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 22:00 ET",
+      "start_utc": "2026-10-24T02:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Memphis Grizzlies at Golden State Warriors at 22:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536042": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 22:00 ET",
+      "start_utc": "2026-10-24T02:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists LA Clippers at Los Angeles Lakers at 22:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "536043": {
+      "status": "verified",
+      "competition": "NBA Regular Season 2026-27",
+      "start_local": "2026-10-23 22:00 ET",
+      "start_utc": "2026-10-24T02:00:00Z",
+      "sources": [
+        "S-NBA-GAMES-1023"
+      ],
+      "facts": [
+        "NBA.com official Friday Oct 23 slate lists Portland Trail Blazers at Sacramento Kings at 22:00 ET (S-NBA-GAMES-1023)."
+      ],
+      "note": "Competition label mirrors the committed 2026-27 regular-season records (e.g. 534841). Venue not recorded in this read and left blank."
+    },
+    "609575": {
+      "status": "verified",
+      "competition": "BKT United Rugby Championship 2026-27, Round 4",
+      "start_local": "2026-10-23 19:45 IRE/UK",
+      "start_utc": "2026-10-23T18:45:00Z",
+      "sources": [
+        "S-URC-FIX"
+      ],
+      "facts": [
+        "Official URC 2026/27 fixtures list, Round 4, Friday 23 October: Cardiff v Hollywoodbets Sharks, KO 19.45 IRE & UK / 20.45 ITA & SA (S-URC-FIX, re-read 2026-10-23 by session-d0f5ca54)."
+      ],
+      "note": "Competition string mirrors the committed Round 4 records (609577)."
+    },
+    "902157": {
+      "status": "verified",
+      "competition": "WTA 250 Kinoshita Group Japan Open (Osaka) — Semifinal",
+      "start_local": "Sat 24 Oct, 12:00 PM (order-of-play time; the sheet prints no timezone)",
+      "sources": [
+        "S-WTA-OSAKA-OP-24"
+      ],
+      "facts": [
+        "WTA official Osaka order of play for Saturday 24 Oct: semifinals — [1] Ann Li vs Ashlyn Krueger at 12:00 PM; the sheet gives no timezone, so no UTC start is certified."
+      ]
+    },
+    "902162": {
+      "status": "verified",
+      "competition": "WTA 250 Kinoshita Group Japan Open (Osaka) — Semifinal",
+      "start_local": "Sat 24 Oct, not before 1:30 PM (order-of-play time; the sheet prints no timezone)",
+      "sources": [
+        "S-WTA-OSAKA-OP-24"
+      ],
+      "facts": [
+        "WTA official Osaka order of play for Saturday 24 Oct: semifinals — [8] Katie Boulter vs Katerina Siniakova not before 1:30 PM; the sheet gives no timezone, so no UTC start is certified."
+      ]
+    },
+    "902160": {
+      "status": "verified",
+      "competition": "WTA 500 BNB Ningbo Open (Ningbo) — Semifinal",
+      "start_local": "Sat 24 Oct, not before 3:00 PM (order-of-play time; the sheet prints no timezone)",
+      "sources": [
+        "S-WTA-NINGBO-OP-24"
+      ],
+      "facts": [
+        "WTA official Ningbo order of play for Saturday 24 Oct: semifinals — Leylah Fernandez vs Marie Bouzkova not before 3:00 PM; the sheet gives no timezone, so no UTC start is certified."
+      ]
+    },
+    "902163": {
+      "status": "verified",
+      "competition": "WTA 500 BNB Ningbo Open (Ningbo) — Semifinal",
+      "start_local": "Sat 24 Oct, not before 5:30 PM (order-of-play time; the sheet prints no timezone)",
+      "sources": [
+        "S-WTA-NINGBO-OP-24"
+      ],
+      "facts": [
+        "WTA official Ningbo order of play for Saturday 24 Oct: semifinals — [1] Elena Rybakina vs [6] Diana Shnaider not before 5:30 PM; the sheet gives no timezone, so no UTC start is certified."
+      ]
     }
   },
   "retrieved_at_previous_2": "2026-10-21T06:50:00Z to 2026-10-21T07:40:00Z (session-af0789e6 re-verification pass; earlier entries retained where re-confirmed)",
   "retrieved_at_previous_3": "2026-10-21T05:40:00Z",
-  "session": "session-784afe97",
-  "retrieved_at_previous_4": "2026-10-22T21:55:00Z"
+  "session": "session-784afe97 + session-d0f5ca54 (2026-10-23 additions/corrections)",
+  "retrieved_at_previous_4": "2026-10-22T21:55:00Z",
+  "retrieved_at_previous_5": "2026-10-22T21:35:00Z"
 }

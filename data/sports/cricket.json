@@ -3,7 +3,7 @@
   "olbg_slug": "Cricket",
   "olbg_id": 7,
   "listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
-  "fetched": "2026-10-22",
+  "fetched": "2026-10-23",
   "listing_note": "Competition is NOT shown on the cricket listing (only 'All_Cricket/All_Events' in the URL); it is embedded in the event title (e.g. '1st T20 Match'). OLBG also lists outright/tournament markets separately - those are excluded from the match tables and recorded in data/outrights.json. Counts synced to the 2026-10-22T20:55Z live OLBG re-capture; the dated harvest file data/raw/olbg-harvest-20261022T2055Z.tsv holds the verbatim listing.",
   "events": [
     {
@@ -147,7 +147,7 @@
     },
     {
       "ref": "CRK-11",
-      "competition": "ICC Women's Championship \u2014 Zimbabwe Women Tour of India (1st ODI)",
+      "competition": "ICC Women's Championship — Zimbabwe Women Tour of India (1st ODI)",
       "home": "India W",
       "away": "Zimbabwe W",
       "start": "Tomorrow 04:30",
@@ -164,12 +164,12 @@
       "competition": "",
       "home": "New Zealand",
       "away": "India",
-      "start": "24 Oct 03:00",
-      "captured": "2026-10-22",
+      "start": "Tomorrow 03:00",
+      "captured": "2026-10-23",
       "market": "Win Match",
       "olbg_pick": "India",
-      "tips": "1/1",
-      "pct": 100,
+      "tips": "4/5",
+      "pct": 80,
       "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/New_Zealand_vs_India_2nd_T20_Match/7?event_id=188832",
       "event_id": 188832
     },
@@ -186,6 +186,45 @@
       "pct": 50,
       "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Dolphins_vs_Garden_Route_Badgers_T20/7?event_id=188833",
       "event_id": 188833
+    },
+    {
+      "ref": "CRK-19",
+      "home": "Pakistan",
+      "away": "England",
+      "start": "25 Oct 04:00",
+      "captured": "2026-10-23",
+      "market": "Win Match",
+      "olbg_pick": "Pakistan",
+      "tips": "1/1",
+      "pct": 100,
+      "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Pakistan_vs_England_One_Day_Match/7?event_id=188838",
+      "event_id": 188838
+    },
+    {
+      "ref": "CRK-20",
+      "home": "Tasmania",
+      "away": "Victoria",
+      "start": "Today 19:30",
+      "captured": "2026-10-23",
+      "market": "Win Match",
+      "olbg_pick": "Tasmania",
+      "tips": "5/7",
+      "pct": 71,
+      "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Tasmania_vs_Victoria_One_Day_Match/7?event_id=188839",
+      "event_id": 188839
+    },
+    {
+      "ref": "CRK-21",
+      "home": "Western Australia",
+      "away": "New South Wales",
+      "start": "Tomorrow 02:00",
+      "captured": "2026-10-23",
+      "market": "Win Match",
+      "olbg_pick": "Western Australia",
+      "tips": "3/4",
+      "pct": 75,
+      "event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Western_Australia_vs_New_South_Wales_One_Day_Match/7?event_id=188840",
+      "event_id": 188840
     }
   ]
 }

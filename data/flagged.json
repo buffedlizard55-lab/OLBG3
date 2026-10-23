@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T21:55:00Z",
+  "generated_at": "2026-10-23T16:50:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose.",
   "items": [
     {
@@ -2682,11 +2682,11 @@
     {
       "id": "FL-129",
       "severity": "data quality",
-      "status": "needs review",
+      "status": "resolved",
       "sport": "Basketball",
       "title": "EuroLeague release-source URL now 404s (BKB-22 / 535928 manual-review link rot)",
       "summary": "The EuroLeague article cited by release_checks[’535928’] (game-center-round-7-el26, observed 2026-10-22T12:10Z) returns the site’s 404 page when re-read on the evening of 22 October, as does /en/euroleague/calendar/. The stored verbatim quote is unchanged and the Zalgiris pick is unaffected arithmetically, but the manual-review link is dead.",
-      "detail": "Re-read 21:50Z–22:00Z on 2026-10-22 (session-4b642f84). The EuroLeague standings page on the same host loads normally and confirms the Round 7 table after that night’s games (Panathinaikos 6-1 +96, Fenerbahce 5-1, Olympiacos 5-1). No replacement exact-clock page for Zalgiris v ASVEL (Fri 23 Oct, 19:00 CEST) could be read on the official host that evening, so the 12:10Z observation was left untouched rather than re-dated without an equivalent reading. Related but distinct from FL-118 (preview-vs-standings staleness) and FL-119 (URC 404 repoints). Flagged for a future source-URL repair pass.",
+      "detail": "Re-read 21:50Z–22:00Z on 2026-10-22 (session-4b642f84). The EuroLeague standings page on the same host loads normally and confirms the Round 7 table after that night’s games (Panathinaikos 6-1 +96, Fenerbahce 5-1, Olympiacos 5-1). No replacement exact-clock page for Zalgiris v ASVEL (Fri 23 Oct, 19:00 CEST) could be read on the official host that evening, so the 12:10Z observation was left untouched rather than re-dated without an equivalent reading. Related but distinct from FL-118 (preview-vs-standings staleness) and FL-119 (URC 404 repoints). Flagged for a future source-URL repair pass. RESOLVED 2026-10-23 (session-d0f5ca54): the canonical URL https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/ serves the Round 7 game-centre article again (a fresh edition published this afternoon: \"Game Center: Three games close out Round 7 tonight\"). All three Friday clocks were re-observed verbatim from it (19:00 / 20:15 / 20:45 CEST) and release_checks 535925, 535926 and 535928 were refreshed at 2026-10-23T16:50:00Z. The 404 was a between-editions gap. Note this flag's own first source URL is truncated (\"...el26\"), which would 404 in its own right.",
       "sources": [
         {
           "label": "EuroLeague — Round 7 game center article (404 at re-read)",
@@ -2710,6 +2710,153 @@
         {
           "label": "OLBG — betting tips listings hub",
           "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-131",
+      "severity": "coverage",
+      "status": "needs review",
+      "sport": "Golf",
+      "title": "OLBG golf board empty on 2026-10-23 (\"No tips found.\")",
+      "summary": "The OLBG golf listing returned no tipped events in the 2026-10-23 harvest (raw/olbg-harvest-20261023T1630Z.tsv), so golf publishes with an empty board today. No golf prices or picks are originated; the sport remains in scope and will repopulate when the community lists events again.",
+      "detail": "Harvest chunks 0-1 of the golf listing (sport id 5) showed the literal text \"No tips found.\" with no event rows. Yesterday's golf rows remain in the archive as analysis only. This is a source-side availability gap, not a scrape failure: the same pass returned rows for the other 14 sports.",
+      "sources": [
+        {
+          "label": "OLBG — golf betting tips listing",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ]
+    },
+    {
+      "id": "FL-132",
+      "severity": "data quality",
+      "status": "needs review",
+      "sport": "Rugby Union",
+      "title": "Stormers v Scarlets (609580) certified clock corrected: club page vs URC competition list",
+      "summary": "The stored release check for 609580 quoted \"24 Oct 15:00\" from leinsterrugby.ie but labelled it UTC, certifying 15:00Z. The URC's own 2026/27 fixtures list, re-read 2026-10-23, gives \"KO 15.00 IRE & UK / 16.00 ITA & SA\" — 14:00Z while Ireland is on IST. The record now certifies 15:00 Irish time from unitedrugby.com; the club-page UTC reading is withdrawn.",
+      "detail": "A bare \"15:00\" on a club page never carried a UTC label; the timezone field was an inference. Same defect class as FL-096/FL-097. The kick-off is one hour earlier than previously certified, which also shortens this pick's live window by an hour. Root row and /olbg/ line are unchanged (Stormers, Saturday), only the clock moved.",
+      "sources": [
+        {
+          "label": "United Rugby Championship — 2026/27 fixtures in full (Round 4)",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        }
+      ]
+    },
+    {
+      "id": "FL-133",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Darts",
+      "title": "PDC site returns only cookie/consent content — darts start times uncertified",
+      "summary": "The official PDC European Championship schedule page returned nothing but cookie/consent boilerplate in this pass (chunks 0 and 3 of the render), so no timezone-qualified start can be certified for any darts tie. All darts rows publish as analysis with unverified starts; pairings come from the OLBG listing only.",
+      "detail": "Affected: tonight's remaining first-round ties and the four Saturday ties added today (root DRT-19..DRT-22; events 32383-32386). OLBG lists all four Saturday ties at the same reader time (\"Tomorrow 13:15\"), which is a session label, not four certified clocks. No darts piece is written for the new rows because no official order of play could be read.",
+      "sources": [
+        {
+          "label": "PDC — European Championship hub (consent wall at read time)",
+          "url": "https://www.pdc.tv/tournaments/european-championship"
+        }
+      ]
+    },
+    {
+      "id": "FL-134",
+      "severity": "data quality",
+      "status": "needs review",
+      "sport": "Rugby Union",
+      "title": "Five Pro D2 clocks quoted with a \"CET\" token the LNR page does not print — downgraded to date-only",
+      "summary": "Release checks 609558, 609560, 609561, 609562 and 609563 quoted fixtures as e.g. \"19:30 CET\" from prod2.lnr.fr. Re-reading the LNR calendar on 2026-10-23 shows it prints bare local times (\"19h30\", \"21h00\") with no timezone token anywhere — and France observes CEST, not CET, in late October, so the certified UTC starts were also an hour out. All five records are downgraded to date_only with today's verbatim quotes.",
+      "detail": "Consequence: root RGU-02 (Agen), RGU-03 (Soyaux-Angoulême) and RGU-09 (Grenoble), live HIGH yesterday, now publish as analysis, as do the Aurillac and Provence rows. Pairings, dates and the LNR table that prices them are unaffected; only the invented clock token is withdrawn. Same defect class as FL-096/FL-097/FL-132. The remaining Journée 8 fixtures (609557, 609559, 609564, 609567) never had release records and stay analysis.",
+      "sources": [
+        {
+          "label": "LNR — Pro D2 calendar and results (bare local times only)",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ]
+    },
+    {
+      "id": "FL-135",
+      "severity": "data quality",
+      "status": "needs review",
+      "sport": "Volleyball",
+      "title": "SuperLega verification venue/clock fields corrected (36994, 36997)",
+      "summary": "The /olbg/ verification for 36994 (Itas Trentino v Cisterna, Sunday) carried venue \"Eurosuole Forum, Civitanova Marche\" and start_local \"18:00 CET\" — both belong to a different Sunday fixture. The official match #30003 page, re-read 2026-10-23, gives \"Trento, Italy - 25 Oct 2026 - 17:00 Local Time\"; venue and local clock corrected, stored 16:00 UTC start unchanged (it was always right).",
+      "detail": "For 36997 (Perugia v Tinet Prata di Pordenone) the venue read \"OpiquadArena, Monza\" although Perugia is the home side and Monza was Prata's previous opponent; the arena was not captured from match page #30002 in this pass, so the field is blanked rather than guessed. The 17:00 UTC start is unchanged. VOL-36997's written piece names PalaBarton from an earlier official read and is unaffected.",
+      "sources": [
+        {
+          "label": "Volleyball World — SuperLega match #30003",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/"
+        },
+        {
+          "label": "Volleyball World — SuperLega match #30002",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        }
+      ]
+    },
+    {
+      "id": "FL-136",
+      "severity": "data quality",
+      "status": "needs review",
+      "sport": "Basketball",
+      "title": "EuroLeague \"Round 8\" mislabels corrected to Round 7 (verifications and four pieces)",
+      "summary": "Tonight's three EuroLeague games close Round 7 — the official game-centre headline says so verbatim and every club shows six games played — but verifications 535925/535926 and pieces BKB-29/BKB-30 (root) and BKB-535925/BKB-535926 (/olbg/) called them Round 8. All corrected. Verification 535928 also carried stale \"(3-3)\"/\"(1-5)\" club records against the official 2-4/2-4; withdrawn.",
+      "detail": "The mislabel seems to have started as an off-by-one round count in the verification competition strings and propagated into the written pieces (including a source label that hedged \"Round 7/8\"). No price, pick or clock changed: 20:15 and 20:45 CEST were always the certified starts. Relatedly, today's game-centre text calls Valencia \"(5-1)\" while the official table says 4-2; per the FL-069 precedent the table governs form and the article is used for fixture/clock only.",
+      "sources": [
+        {
+          "label": "EuroLeague — Round 7 game centre (\"Three games close out Round 7 tonight\")",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "EuroLeague — official standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        }
+      ]
+    },
+    {
+      "id": "FL-137",
+      "severity": "data quality",
+      "status": "needs review",
+      "sport": "Ice Hockey",
+      "title": "NHL origination pinned to the 2026-10-22 standings block; per-fixture dating needed",
+      "summary": "A fresh 32-club NHL_standings_2026_10_23 block was transcribed today, but scripts/model.py deliberately keeps pricing from NHL_standings_2026_10_22: the new block already contains 22 October results, so pricing settled 22 October fixtures (IHO-15..17, IHO-23, IHO-24) from it silently moved their published prices (e.g. IHO-16 1.68 → 1.50) and broke the pieces that quote them.",
+      "detail": "For tonight's two games the blocks are gp/gf/ga-identical (none of Montréal, Chicago, Colorado or Tampa Bay played on 22 October), so IHO-30 (1.55) and IHO-31 (1.72) price the same either way, and the new pieces cite today's table. The durable fix is per-fixture standings dating (price each row from the newest block not later than its capture date); until then the 10-23 block is audit/form backing only. The accented \"Montréal Canadiens\" key is dual-registered so the alias map resolves under either block.",
+      "sources": [
+        {
+          "label": "NHL — official standings",
+          "url": "https://www.nhl.com/standings"
+        }
+      ]
+    },
+    {
+      "id": "FL-138",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Basketball",
+      "title": "Spurs venue conflict: Frost Bank Center vs Moody Center (534841)",
+      "summary": "Two committed records disagree on tonight's Houston @ San Antonio venue: the /olbg/ verification says \"Frost Bank Center, San Antonio\" while the BKB-534841 piece's source label says \"Moody Center\" (Austin), both attributed to NBA.com reads. Today's NBA.com games read did not settle it, so the verification venue is blanked and the piece no longer names a venue.",
+      "detail": "The fixture, 21:30 ET certified clock, records (HOU 1-0, SAS 0-1) and price (1.72) are unaffected. San Antonio is the only NBA club in this dataset known to split home dates between two arenas, which is how the conflict arose; a future pass should read the official game page and restore one venue.",
+      "sources": [
+        {
+          "label": "NBA.com — games (Fri Oct 23 slate)",
+          "url": "https://www.nba.com/games"
+        }
+      ]
+    },
+    {
+      "id": "FL-139",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "Ten root rows added 2026-10-23 publish unverified or with uncertified starts (tennis, snooker, darts, cricket)",
+      "summary": "Root rows TEN-53 (Almaty), SNK-15, SNK-16 (Northern Ireland Open), DRT-19..DRT-22 (European Championship) and CRK-19..CRK-21 (Pakistan v England; Tasmania v Victoria; Western Australia v New South Wales) carry OLBG listing data only: no governing-body page was read for them in this pass, so they publish unverified and cannot grade HIGH. This is today's counterpart of FL-130.",
+      "detail": "Why each stayed uncertified: the WTA Saturday orders of play for Osaka and Ningbo WERE read (TEN-49..TEN-52 are fixture-verified) but print no timezone, so their starts are uncertified and their pieces run as analysis; no ATP Almaty Saturday sheet was read. WST's matches page confirms the Northern Ireland Open is running but prints bare clocks. The PDC site is consent-walled (FL-133). icc-cricket.com/fixtures and nzc.nz fixture pages returned 404, so CRK-17 (NZ v India) also keeps yesterday's pair-only confirmation with no certified clock. tests/test_audit_d3464fe4.py pins the exemption set so this list cannot grow silently.",
+      "sources": [
+        {
+          "label": "WTA — official orders of play (Osaka 405 / Ningbo 2092, no timezone printed)",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf"
+        },
+        {
+          "label": "WST — matches (bare clocks)",
+          "url": "https://www.wst.tv/matches"
         }
       ]
     }
