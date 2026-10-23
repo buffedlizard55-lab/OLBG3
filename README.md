@@ -56,7 +56,9 @@ against the wrong day.
   race-card clock disagrees with the listing clock by about five hours (FL-134), 49 new rows publish unverified with
   blank official fields (FL-135, pinned in tests), NBA rows cannot reach HIGH without an official NBA form input
   (FL-136), and 78 earlier pieces still use the words "model"/"verified" that the brief excludes from published prose
-  (FL-137). Full working record: `docs/audit-be917e0f.md`.
+  (FL-137). `data/events.json`'s headline `generated` date is now the newest per-row reading date on the board
+  (`2026-10-23`) instead of a global constant, so `brief.html` no longer advertises an older capture than the landing page.
+  Full working record: `docs/audit-be917e0f.md`.
 
 ## Parallel evening harvest integration: 30 fixtures onto the root board, 22:10Z re-observations — `session-4b642f84`, 2026-10-22T22:10Z
 

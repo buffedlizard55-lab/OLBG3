@@ -777,7 +777,11 @@ picks = apply_board(picks, now=snapshot_utc())
 sync_predictions(Path(ROOT) / 'data/predictions.json', {r['ref']: r for r in picks},
                  'ref', lambda r: r['pick']['confidence'].lower())
 
-json.dump({"generated": CAPTURE_DATE.isoformat(), "built": AS_OF.isoformat(),
+# "generated" is the newest listing-reading date actually present on the board: rows captured on
+# different days are resolved against their own reading date (the per-row "captured" field), so a
+# single global date would understate the board's freshness once a later capture is appended.
+_newest_capture = max((p.get("captured_at") or CAPTURE_DATE.isoformat()) for p in picks)
+json.dump({"generated": _newest_capture, "built": AS_OF.isoformat(),
            "publication_clock": snapshot_utc().isoformat(),
            "assumptions": ASSUMPTIONS, "events": picks},
           open(os.path.join(ROOT, "data/events.json"), "w"), indent=1, ensure_ascii=False)
