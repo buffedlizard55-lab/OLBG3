@@ -47,8 +47,9 @@ that the repairs on `main` are right.
 
 ## 2. What was actually net-new
 
-Four defects survived the comparison — each reproduced against `origin/main`, each repaired, each
-pinned by `tests/test_audit_6327cf90.py`.
+Five defects survived the comparison — each reproduced against `origin/main`, each repaired, each
+pinned by `tests/test_audit_6327cf90.py`. The fifth (FL-160) was found after the merge of the first
+four, by auditing the hand-off item FL-156 left open.
 
 ### FL-156 — the tip-count parser silently failed on OLBG's rendered label (high)
 
@@ -164,11 +165,46 @@ All three remain `analysis`, not HIGH: each rests on a two- or three-tip sample 
 timezone-qualified official start. The retraction history is kept in the register and in each piece's
 `correction_note`, not in the reader-facing prose.
 
+### FL-160 — two darts write-ups contradicted their own rows, and the price-quote check could not see it
+
+Prose is hand-written while every row is re-priced on each rebuild, so the two drift; that is why both
+tracks enforce that any price quoted in a write-up equals the price its row carries. The root track's
+rule in `scripts/check_board.py` was widened on 2026-10-22 for precisely this reason and is pinned by
+`tests/test_price_quote_rule.py`, whose own docstring records that five snooker pieces had drifted
+before the gap was found. The `/olbg/` track never received the same widening: `tools/check_site.py`
+matched only `(\d+\.\d{2})\s*\(([+-]\d{2,5})\)`, the `1.58 (-172)` form. Two darts pieces wrote
+their selection as *"Kevin Doets to win (money line, 1.66 / -152)"*, where the comma and slash sit
+between the decimal and the US odds, so the pattern never fired.
+
+| row | the piece said | the row said |
+|---|---|---|
+| `DAR-32331` | selection **Kevin Doets**, with an argument for Doets | pick **Michael van Gerwen** at 1.71 (−141), priced from an OLBG consensus of 3/5 on van Gerwen |
+| `DAR-32336` | **1.71 (−141)** | **1.37 (−270)** after the tip split firmed to 7/9 — shorter than the −250 floor, which is exactly why the row is capped below HIGH |
+
+`DAR-32331` tipped the opposite player to the one the row beside it carried. Both pieces also
+justified their calls with ranking movement, tournament results and scoring averages — *"dropping
+below 98"*, *"a first major semi-final"*, *"a top-twenty Order of Merit position"*, *"a scoring
+average of 99.2"* — citing only the PDC's schedule page, which carries the fixture list and format
+and no ranking or form data at all. Same class as FL-159.
+
+Repaired by bringing the `/olbg/` rule up to the root track's standard — all three quote forms now
+matched, with the 1.91 handicap/total exemption the root rule already carries — and by adding an
+optional comma to the root pattern too, since `money line, 1.66` defeated it as well; **the widened
+rule is what surfaced both rows.** Both pieces were then rewritten so selection and price agree with
+the row, and the unsourced ranking and average claims were removed rather than re-sourced, because no
+official PDC Order of Merit or results page could be retrieved in this pass. Both remain `analysis`.
+
+One process note worth keeping: the first drafts of both rewrites narrated their own correction
+inline, quoting the very figures they were retracting. This session's own new audit test rejected
+them, twice. In a pick write-up that reads as hedging and buries the selection, so retraction history
+belongs in the register and in each piece's `correction_note` — which is where it now is. The same
+test had already caught the identical mistake on `HAN-12107` earlier in the pass.
+
 ## 3. Gate results
 
-- `python -m unittest discover -s tests` → **167 tests OK** (25 dated pins skipped by the siblings' `archive_guard`; 18 new in `test_audit_6327cf90.py`)
+- `python -m unittest discover -s tests` → **170 tests OK** (25 dated pins skipped by the siblings' `archive_guard`; 21 new in `test_audit_6327cf90.py`)
 - `scripts/check_board.py` → **PASS** (359 rows, 311 fixtures, 48 outright/race, 270 verified, 310 priced, 85 predictions)
-- `tools/check_site.py` → **PASS** (20 pages, 180 fixtures, 180 lines, **12 HIGH**, 31 predictions, **151** flags)
+- `tools/check_site.py` → **PASS** (20 pages, 180 fixtures, 180 lines, **12 HIGH**, 31 predictions, **152** flags)
 - `scripts/check.py` → **PASS** (40 feed rows)
 - `scripts/check_links.py` → **PASS** (108 pages, 2,266 links, **0 broken**)
 - `scripts/brief_coverage.py` → live HIGH root 10, `/olbg/` 12, union **16**, shortfall 59, `meeting_5_target` **1** (was 0)

@@ -194,3 +194,75 @@ class TestProseMatchesItsSources(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestQuotedPricesMatchTheirRows(unittest.TestCase):
+    """FL-160: a write-up must never quote a price or name a side its own row contradicts.
+
+    tools/check_site.py now matches all three quote forms, but a checker only sees the forms it
+    knows. This asserts the property directly over the corpus, so a new selection-label style
+    cannot reintroduce the drift silently.
+    """
+
+    PATTERNS = (
+        (r"(\d+\.\d{2})\s*\(([+-]\d{2,5})\)", "dec_us"),
+        (r"([+-]\d{2,5})\s*/\s*(\d+\.\d{2})", "us_dec"),
+        (r"(?:money line|\bat\b|\bPriced\b)\s*,?\s*(?:an?\s+)?(\d\.\d{2})\s*(?:/|\()\s*([+-]\d{2,5})", "dec_us"),
+    )
+
+    def test_no_piece_quotes_a_price_its_row_does_not_carry(self):
+        lines = {l["match_id"]: l for l in load("lines.json")}
+        offenders = []
+        for piece in load("predictions-olbg.json")["predictions"]:
+            row = lines.get(piece["match_id"])
+            if not row or row.get("our_price_pick") is None:
+                continue
+            price = float(row["our_price_pick"])
+            us = int(row["our_us_odds_pick"])
+            blob = (piece.get("selection") or "") + " " + (piece.get("text") or "")
+            for pattern, order in self.PATTERNS:
+                for a, b in re.findall(pattern, blob):
+                    dec, quoted_us = (a, b) if order == "dec_us" else (b, a)
+                    if float(dec) == 1.91 and re.search(r"handicap|total", blob, re.I):
+                        continue
+                    if abs(float(dec) - price) > 0.005:
+                        offenders.append((piece["match_id"], "decimal", dec, price))
+                    if int(quoted_us) != us:
+                        offenders.append((piece["match_id"], "us", quoted_us, us))
+        self.assertEqual([], offenders)
+
+    def test_no_piece_tips_the_opposite_side_to_its_row(self):
+        """DAR-32331 argued for one player while its row named the other."""
+        lines = {l["match_id"]: l for l in load("lines.json")}
+        matches = {m["id"]: m for m in load("matches.json")}
+
+        def norm(value):
+            return re.sub(r"[^a-z0-9]", "", (value or "").lower())
+
+        offenders = []
+        for piece in load("predictions-olbg.json")["predictions"]:
+            row, match = lines.get(piece["match_id"]), matches.get(piece["match_id"])
+            if not row or not match or not row.get("our_pick"):
+                continue
+            pick, home, away = norm(row["our_pick"]), norm(match.get("home")), norm(match.get("away"))
+            other = away if pick == home else (home if pick == away else None)
+            if not other or other == pick:
+                continue
+            blob = norm(piece.get("selection") or "")
+            if other in blob and pick not in blob:
+                offenders.append((piece["match_id"], row["our_pick"], piece["selection"][:60]))
+        self.assertEqual([], offenders)
+
+    def test_the_two_repaired_darts_pieces_agree_with_their_rows(self):
+        lines = {l["match_id"]: l for l in load("lines.json")}
+        pieces = {p["match_id"]: p for p in load("predictions-olbg.json")["predictions"]}
+        self.assertIn("Michael van Gerwen", pieces["DAR-32331"]["selection"])
+        self.assertEqual("Michael van Gerwen", lines["DAR-32331"]["our_pick"])
+        self.assertIn("Josh Rock", pieces["DAR-32336"]["selection"])
+        self.assertEqual("1.37 (-270)",
+                         f"{float(lines['DAR-32336']['our_price_pick']):.2f} "
+                         f"({int(lines['DAR-32336']['our_us_odds_pick']):+d})")
+        # the unsourced ranking/average claims cited only a schedule page and are gone
+        for mid, claim in (("DAR-32331", "dropping below 98"), ("DAR-32336", "99.2")):
+            self.assertNotIn(claim, pieces[mid]["text"], mid)
+            self.assertNotIn("top 20 of the PDC Order of Merit", pieces[mid]["text"], mid)

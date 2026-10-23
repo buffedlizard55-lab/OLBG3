@@ -255,15 +255,34 @@ def main() -> int:
         if status == "analysis" and row["confidence"] == "high":
             errors.append(f"prediction {p['match_id']} is labelled analysis but its row is HIGH")
 
-    # every quoted price in a write-up must be the price the row actually carries
+    # Every quoted price in a write-up must be the price the row actually carries. Prose is
+    # hand-written while rows are re-priced on every rebuild, so the two drift. The root track's
+    # equivalent rule in scripts/check_board.py was widened on 2026-10-22 for exactly this reason
+    # (tests/test_price_quote_rule.py); this track kept only the narrow "1.58 (-172)" form, so a
+    # selection label written "money line, 1.66 / -152" escaped it and DAR-32331 published a piece
+    # tipping one player beside a row naming another. See FL-160. The optional comma below closes
+    # a gap the root pattern has too. 1.91 is our fixed two-way handicap/total quote and is exempt
+    # when the sentence names a handicap or total, because that is a different market.
+    _QUOTE_PATTERNS = (
+        (r"(\d+\.\d{2})\s*\(([+-]\d{2,5})\)", "dec_us"),        # "1.58 (-172)"
+        (r"([+-]\d{2,5})\s*/\s*(\d+\.\d{2})", "us_dec"),        # "+732 / 7.32"
+        (r"(?:money line|\bat\b|\bPriced\b)\s*,?\s*(?:an?\s+)?(\d\.\d{2})\s*(?:/|\()\s*([+-]\d{2,5})",
+         "dec_us"),                                                   # "money line, 1.66 / -152"
+    )
     for p in preds:
         row = lines[p["match_id"]]
         price, us = row.get("our_price_pick"), row.get("our_us_odds_pick")
-        for q_dec, q_us in re.findall(r"(\d+\.\d{2})\s*\(([+-]\d{2,5})\)", p["selection"] + " " + p["text"]):
-            if price is not None and abs(float(q_dec) - price) > 0.005:
-                errors.append(f"prediction {p['match_id']} quotes decimal {q_dec} but its row prices {price}")
-            if us is not None and int(q_us) != int(us):
-                errors.append(f"prediction {p['match_id']} quotes {q_us} but its row's US odds are {us}")
+        us = int(us) if us is not None else None
+        blob = (p.get("selection") or "") + " " + (p.get("text") or "")
+        for pattern, order in _QUOTE_PATTERNS:
+            for a, b in re.findall(pattern, blob):
+                q_dec, q_us = (a, b) if order == "dec_us" else (b, a)
+                if float(q_dec) == 1.91 and re.search(r"handicap|total", blob, re.I):
+                    continue
+                if price is not None and abs(float(q_dec) - float(price)) > 0.005:
+                    errors.append(f"prediction {p['match_id']} quotes decimal {q_dec} but its row prices {price}")
+                if us is not None and int(q_us) != us:
+                    errors.append(f"prediction {p['match_id']} quotes {q_us} but its row's US odds are {us}")
 
     for mid, l in lines.items():
         if l["confidence"] == "high":
