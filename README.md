@@ -24,6 +24,13 @@ What the published numbers do and do not mean:
 | `reconcile.html` | **Cross-track review**: every fixture priced on both tracks where the two models name different selections, both versions with their prices and confidence labels |
 | `/olbg/` | The separate OLBG lines audit track (21 pages, 338 chained rows, 22 live high-confidence picks at the 22:10Z snapshot) with the same release gate applied to its picks |
 
+## Daily cycle 2026-10-23: fresh 15-sport harvest, 64 new root fixtures, official re-observations, 8 live HIGH picks — `session-beb7787b`, 2026-10-23T17:22Z
+
+- **Harvest.** All 15 in-scope OLBG listings re-read 16:16Z–16:40Z (180 rows, 0 excluded) into `data/raw/olbg-harvest-20261023T1630Z.tsv`; 64 new two-sided fixtures added to the root board, 66 consensus syncs, Galway SFC final date move recorded with `start_prev` (organisers moved it to Sunday 25 Oct 4pm for a weather warning — club site, FL-136).
+- **Official clocks re-observed** on the competition's own pages: URC Round 4 (`IRE & UK`, incl. a corrected Stormers v Scarlets entry — FL-133), NBA.com (12 games, ET), MLB.com (Game 1, 8 p.m. ET), EuroLeague Round 7 article (CEST), NHL API (`startTimeUTC`), Cork GAA. Pages that print no zone (LNR Top 14, WTA order-of-play PDFs) or render the reader's zone (WST, PREM Rugby, EuroLeague game-center) are recorded date-only (FL-134/FL-135). The PDC schedule page returned only a consent wall (FL-131).
+- **Picks.** 8 live HIGH picks (Brewers, Olympiacos, Valencia, St Finbarrs, Leinster, Perugia, Civitanova, Monza) with sourced 30+-word pieces; BKB-29/BKB-30 rewritten from the Round 7 article (FL-137). All 84 root pieces now avoid the words "model"/"verified" (FL-138, regression-tested). NHL standings are dated tables; a fixture is priced from the newest table on or before its own date.
+- Full record: `docs/audit-beb7787b.md`; tests `tests/test_audit_beb7787b.py` (118 total pass).
+
 ## Parallel evening harvest integration: 30 fixtures onto the root board, 22:10Z re-observations — `session-4b642f84`, 2026-10-22T22:10Z
 
 This session ran the same evening window in parallel with `784afe97`/`c038b7f4`/`cab97f19`/`a1e5112b` (PRs #100–#111) and was re-applied on top of their merged state, keeping only net-new work (`docs/audit-4b642f84.md`; task id renumbered `task-45` at merge):

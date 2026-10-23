@@ -18,9 +18,9 @@ NEW_VERIFIED = {  # governing-body pages read on 2026-10-22 evening (ATP/WTA/ICC
     "TEN-45", "TEN-46", "TEN-47", "TEN-48", "CRK-17",
 }
 NEW_UNVERIFIED = {  # published blank-flagged as FL-103; nothing inferred
-    "BKB-31", "BKB-32", "CRK-18",
+    "BKB-31", "CRK-18",
     "HBL-32", "HBL-33", "HBL-34", "HBL-35", "HBL-36", "HBL-37", "HBL-38",
-    "IHO-26", "IHO-27", "IHO-28", "IHO-29", "RGU-17", "RGU-18",
+    "IHO-26", "IHO-27", "IHO-28", "IHO-29",
     "VOL-31", "VOL-32", "VOL-33", "VOL-34", "VOL-35",
 }
 
@@ -37,10 +37,14 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
         cls.lines = {r["match_id"]: r for r in json.loads((DATA / "lines.json").read_text())}
 
     def test_harvest_chain_points_at_evening_capture(self):
-        self.assertEqual(self.meta["harvest_file"], "raw/olbg-harvest-20261022T2130Z.tsv")
-        self.assertEqual(self.meta["harvest_completed_utc"], "2026-10-22T21:35:00Z")
-        self.assertEqual(self.meta["previous_harvest"]["file"], "raw/olbg-harvest-20261022T2055Z.tsv")
-        chained = {e["file"] for e in self.meta["previous_harvests_extra"]}
+        # The 23 Oct daily harvest (session-beb7787b) is now the head; the 21:30Z evening capture
+        # is chained directly behind it, and the 20:55Z capture behind that.
+        chain = [self.meta["previous_harvest"]] + list(self.meta["previous_harvests_extra"])
+        files = [e["file"] for e in chain]
+        self.assertEqual(self.meta["previous_harvest"]["file"], "raw/olbg-harvest-20261022T2130Z.tsv")
+        self.assertEqual(self.meta["previous_harvest"]["harvest_completed_utc"], "2026-10-22T21:35:00Z")
+        self.assertIn("raw/olbg-harvest-20261022T2055Z.tsv", files)
+        chained = set(files)
         self.assertIn("raw/olbg-harvest-20261022T0830Z.tsv", chained)
         self.assertTrue((DATA / "raw/olbg-harvest-20261022T2130Z.tsv").exists())
 
@@ -50,6 +54,9 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
         for ref in NEW_UNVERIFIED:
             self.assertEqual(self.events[ref]["verification"]["status"], "unverified", ref)
             self.assertNotEqual(self.events[ref]["pick"]["confidence"], "HIGH", ref)
+        # RGU-17 / RGU-18 left this set on 23 Oct once the URC and PREM Rugby pages were read.
+        for ref in ("RGU-17", "RGU-18", "BKB-32"):
+            self.assertEqual(self.events[ref]["verification"]["status"], "verified", ref)
         self.assertIn("FL-130", self.flagged)
 
     def test_no_excluded_sport_rows_added(self):
@@ -65,7 +72,7 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
             self.assertEqual(self.rc[eid]["checked_at"], "2026-10-22T22:10:00Z", eid)
             self.assertEqual(self.rc[eid]["source"], "https://api-web.nhle.com/v1/schedule/2026-10-22", eid)
         # MLB World Series Game 1 re-read on mlb.com
-        self.assertEqual(self.rc["160789"]["checked_at"], "2026-10-22T22:10:00Z")
+        self.assertGreaterEqual(self.rc["160789"]["checked_at"], "2026-10-22T22:10:00Z")  # re-read again 23 Oct 17:05Z
         # SuperLega UTC clocks re-read on VolleyballWorld
         for eid in ("36997", "36995", "36996"):
             self.assertEqual(self.rc[eid]["checked_at"], "2026-10-22T22:10:00Z", eid)

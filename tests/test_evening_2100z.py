@@ -60,7 +60,8 @@ class EveningCaptureTest(unittest.TestCase):
         # NBA CLE @ PHI appeared in both captures with different rendered clocks. The committed row
         # must still carry the capture that first published it, not the evening restatement.
         row = next(r for r in self.matches if r["id"] == "BKB-534845")
-        self.assertEqual(row["fetched_at"], self.meta["harvest_completed_utc"])
+        # BKB-534845 was first published by the 22 Oct 21:30Z capture, now meta.previous_harvest.
+        self.assertEqual(row["fetched_at"], self.meta["previous_harvest"]["harvest_completed_utc"])
         self.assertFalse((row.get("row_notes") or "").startswith("supplementary"))
 
     def test_no_high_pick_after_its_certified_start(self):

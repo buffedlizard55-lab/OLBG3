@@ -1,9 +1,9 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261022-D",
-  "run_started_utc": "2026-10-22T08:27:00Z",
-  "harvest_completed_utc": "2026-10-22T21:35:00Z",
-  "olbg_locale_date": "2026-10-22",
+  "run_id": "S-20261023-A",
+  "run_started_utc": "2026-10-23T16:05:00Z",
+  "harvest_completed_utc": "2026-10-23T16:40:00Z",
+  "olbg_locale_date": "2026-10-23",
   "excluded_sports_verbatim": [
     "soccer",
     "boxing",
@@ -66,20 +66,27 @@
   ],
   "harvest_method": {
     "tool": "agent page-retrieval across all 15 allowed OLBG sport pages, the sub-league endpoints and the individual event pages needed to read a market the listing did not render",
-    "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus the event pages for OLBG event ids 32338, 609567 and 37018",
-    "granularity": "128 live listing rows captured at 2026-10-22T20:55Z-21:20Z across 13 of the 15 allowed sports; Snooker and Greyhounds returned 'No tips found.' server-side (the Northern Ireland Open and the UK greyhound cards had finished), so their dated rows are carried forward and are not graded HIGH.",
+    "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus the event pages for OLBG event ids 32338, 609567 and 37018 (23 Oct: listing pages only, Golf via /Golf/All_Golf/5)",
+    "granularity": "180 live listing rows captured at 2026-10-23T16:16Z-16:40Z across all 15 allowed sports (Golf and Rugby League show outrights only; Greyhounds 36 UK race rows).",
     "values_inferred": "none - blank when not stated by an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261022T2130Z.tsv",
+  "harvest_file": "raw/olbg-harvest-20261023T1630Z.tsv",
   "harvest_format": "v2",
-  "harvest_timezone_note": "At 2026-10-22T20:55Z-21:20Z OLBG rendered a bare local clock with no zone label, and the render basis differed between endpoints and changed relative to the midday capture (St Finbarrs v Nemo Rangers now reads 16:00 where the 12:15Z capture read 12:00; the NBA page now reads 'Tomorrow 00:10' where the 12:15Z capture read 'Today 19:10', while the all-sports page kept the 19:10 rendering). Every label in this capture is copied VERBATIM and is never converted. Only explicitly timezone-qualified governing-body clocks in release_checks.json certify a UTC start.",
+  "harvest_timezone_note": "At 2026-10-23T16:16Z-16:40Z OLBG rendered a bare local clock with no zone label (e.g. \"Today 20:00\" for World Series Game 1, which MLB.com lists at 8 p.m. ET). Every label in this capture is copied VERBATIM and is never converted; where the 22 Oct label for the same event differed (GAF-02 moved by the organisers to 25 Oct; VOL-23/24/25; HBL-25) the previous label is kept in start_prev. Only explicitly timezone-qualified governing-body clocks in release_checks.json certify a UTC start.",
   "previous_harvest": {
-    "file": "raw/olbg-harvest-20261022T2055Z.tsv",
+    "file": "raw/olbg-harvest-20261022T2130Z.tsv",
     "format": "v2",
     "olbg_locale_date": "2026-10-22",
-    "harvest_completed_utc": "2026-10-22T21:20:00Z"
+    "harvest_completed_utc": "2026-10-22T21:35:00Z"
   },
   "previous_harvests_extra": [
+    {
+      "file": "raw/olbg-harvest-20261022T2055Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-22",
+      "harvest_completed_utc": "2026-10-22T21:20:00Z",
+      "note": "Retained byte-for-byte unchanged for audit; 22 Oct 20:55Z evening capture, demoted behind the 21:30Z capture."
+    },
     {
       "file": "raw/olbg-harvest-20261022T1215Z.tsv",
       "format": "v2",
@@ -137,7 +144,7 @@
       "note": "Retained byte-for-byte unchanged for audit; chained behind the current live capture."
     }
   ],
-  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893)",
+  "session": "session-beb7787b (23 Oct daily harvest, re-verification and predictions)",
   "supplementary_harvests": [
     {
       "file": "raw/olbg-harvest-20261022T2100Z.tsv",

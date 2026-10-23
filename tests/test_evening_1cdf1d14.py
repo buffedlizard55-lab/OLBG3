@@ -68,9 +68,12 @@ class EveningRefresh1cdf1d14Test(unittest.TestCase):
             self.assertTrue(any("standings" in s["url"] for s in piece["sources"]), ref)
 
     def test_basketball_publishes_three_live_high_picks(self) -> None:
+        # Three EuroLeague picks were live at the 22 Oct evening build; the publication clock moved
+        # to 23 Oct 17:22Z, after Zalgiris v ASVEL (17:00Z) tipped off, so that row is archived.
         sports = [r["sport"] for r in self.events.values() if r["pick"]["confidence"] == "HIGH"]
-        self.assertEqual(sports.count("Basketball"), 3)
-        for ref in ("BKB-22", "BKB-29", "BKB-30"):
+        self.assertEqual(sports.count("Basketball"), 2)
+        self.assertEqual(self.events["BKB-22"]["pick"]["release"]["status"], "start_window_reached")
+        for ref in ("BKB-29", "BKB-30"):
             self.assertEqual(self.events[ref]["pick"]["release"]["status"], "upcoming", ref)
 
     def test_repriced_started_euroleague_pieces_quote_the_current_price(self) -> None:
@@ -78,7 +81,7 @@ class EveningRefresh1cdf1d14Test(unittest.TestCase):
             pick = self.events[ref]["pick"]
             self.assertEqual(pick["price"], price, ref)
             self.assertEqual(pick["american"], us, ref)
-            self.assertEqual(pick["release"]["status"], "start_window_reached", ref)
+            self.assertIn(pick["release"]["status"], ("start_window_reached", "past_date"), ref)  # 22 Oct games
             piece = self.preds[ref]
             self.assertEqual(piece["status"], "analysis", ref)
             self.assertIn(f"{price:.2f}", piece["selection"], ref)

@@ -157,11 +157,22 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
         #    no official source could be read that evening; they publish unverified with blank
         #    official fields as FL-130. Any other unverified row fails here.
         EVENING_UNVERIFIED = {
-            "BKB-31", "BKB-32", "CRK-18",
+            "BKB-31", "CRK-18",  # BKB-32 verified on NBA.com 23 Oct
             "HBL-32", "HBL-33", "HBL-34", "HBL-35", "HBL-36", "HBL-37", "HBL-38",
-            "IHO-26", "IHO-27", "IHO-28", "IHO-29", "RGU-17", "RGU-18",
+            "IHO-26", "IHO-27", "IHO-28", "IHO-29",
             "VOL-31", "VOL-32", "VOL-33", "VOL-34", "VOL-35",
         }
+        # 23 Oct daily harvest (session-beb7787b): rows whose competition page was not read that
+        # day publish unverified as FL-132 (plus the PDC consent-wall rows, FL-131).
+        DAILY_UNVERIFIED_20261023 = {
+            "IHO-32", "IHO-33", "IHO-34", "IHO-35", "IHO-36", "IHO-37", "IHO-38", "IHO-39", "IHO-40", "IHO-41", "IHO-42",
+            "CRK-19", "CRK-20", "CRK-21", "CRK-22", "CRK-23", "CRK-24",
+            "HBL-39", "HBL-40", "HBL-41", "HBL-42", "HBL-43",
+            "VOL-36", "VOL-37", "VOL-38", "VOL-39", "VOL-40", "VOL-41", "VOL-42", "VOL-43", "VOL-44",
+            "BKB-42", "BKB-43", "RGU-21", "TEN-49", "TEN-50", "TEN-51", "TEN-52", "TEN-57",
+            "DRT-21", "DRT-22", "DRT-23", "DRT-24",
+        }
+        EVENING_UNVERIFIED |= DAILY_UNVERIFIED_20261023
         self.assertGreaterEqual(len(self.events), 201)
         for ev in self.events:
             if ev["ref"] in EVENING_UNVERIFIED:

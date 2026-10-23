@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T21:55:00Z",
+  "generated_at": "2026-10-23T17:30:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose.",
   "items": [
     {
@@ -2711,6 +2711,241 @@
           "label": "OLBG — betting tips listings hub",
           "url": "https://www.olbg.com/betting-tips"
         }
+      ]
+    },
+    {
+      "id": "FL-131",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Darts",
+      "title": "PDC schedule page unreadable on 23 Oct (consent wall): Saturday second-round rows carry no PDC confirmation or clock",
+      "summary": "Both PDC European Championship schedule URLs returned only cookie-consent text in every chunk on 23 Oct 17:09Z, so DRT-21..DRT-24 (Bunting v Huybrechts, van Veen v Woodhouse, Smith v Heta, Menzies v Price) are published from the OLBG listing only, priced from the seedings table where both players are seeded, and cannot grade HIGH.",
+      "detail": "Kim Huybrechts is not in the seedings table captured on 18 Oct, so DRT-21 is consensus-priced. Friday first-round rows keep their 22 Oct PDC confirmations. Re-read the PDC page when it renders without the consent wall.",
+      "sources": [
+        {
+          "label": "PDC — 2026 Machineseeker European Championship schedule (returned consent wall only)",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/"
+        },
+        {
+          "label": "OLBG Darts listing",
+          "url": "https://www.olbg.com/betting-tips/Darts/15"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "DRT-21",
+        "DRT-22",
+        "DRT-23",
+        "DRT-24"
+      ]
+    },
+    {
+      "id": "FL-132",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "23 Oct daily harvest: 36 new root fixtures published without a governing-body read",
+      "summary": "New rows from the 2026-10-23T16:30Z harvest whose competition pages were not read in this pass carry verbatim OLBG data only, blank official fields and status unverified: ice hockey IHO-32..IHO-42 (DEL, National League, Liiga, ICEHL), cricket CRK-19..CRK-24 (Australian one-day cup, CSA T20 Challenge, Pakistan v England ODI), handball HBL-39..HBL-43, volleyball VOL-36..VOL-44, basketball BKB-42/BKB-43 (Polish PLK), rugby union RGU-21 (Japan v Fiji) and tennis TEN-49..TEN-52 and TEN-57.",
+      "detail": "Sources were read for the other 28 new rows (NBA.com, NHL API, URC, PREM Rugby, WST, WTA order-of-play PDFs). The unverified set cannot grade HIGH; MEDIUM is possible only where an official table already in the dataset prices the pair. This is the 23 Oct counterpart of FL-130.",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "IHO-32",
+        "IHO-33",
+        "IHO-34",
+        "IHO-35",
+        "IHO-36",
+        "IHO-37",
+        "IHO-38",
+        "IHO-39",
+        "IHO-40",
+        "IHO-41",
+        "IHO-42",
+        "CRK-19",
+        "CRK-20",
+        "CRK-21",
+        "CRK-22",
+        "CRK-23",
+        "CRK-24",
+        "HBL-39",
+        "HBL-40",
+        "HBL-41",
+        "HBL-42",
+        "HBL-43",
+        "VOL-36",
+        "VOL-37",
+        "VOL-38",
+        "VOL-39",
+        "VOL-40",
+        "VOL-41",
+        "VOL-42",
+        "VOL-43",
+        "VOL-44",
+        "BKB-42",
+        "BKB-43",
+        "RGU-21",
+        "TEN-49",
+        "TEN-50",
+        "TEN-51",
+        "TEN-52",
+        "TEN-57"
+      ]
+    },
+    {
+      "id": "FL-133",
+      "severity": "corrected",
+      "status": "fixed",
+      "sport": "Rugby Union",
+      "title": "Stormers v Scarlets (609580) clock was recorded as 15:00 UTC; the official list says 15.00 IRE & UK (14:00 UTC)",
+      "summary": "The 22 Oct 12:25Z release-check entry for RGU-11 copied \"15:00\" with timezone UTC from a Leinster Rugby page. The URC fixtures-in-full list, re-read 23 Oct 17:02Z, prints \"KO 15.00 IRE & UK / 16.00 ITA & SA\", i.e. 15:00 Irish time = 14:00 UTC. The entry now cites the URC list with timezone \"Irish time\"; the previous value would have kept the pick eligible for an hour after kick-off.",
+      "detail": "No other URC entry was affected; 609576/609577/609578/609579 already used \"Irish time\".",
+      "sources": [
+        {
+          "label": "United Rugby Championship official — 2026/27 fixtures in full",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "RGU-11"
+      ]
+    },
+    {
+      "id": "FL-134",
+      "severity": "method",
+      "status": "needs review",
+      "sport": "Rugby Union",
+      "title": "LNR (Top 14 / Pro D2) prints kick-off clocks with no zone label; recorded date-only, and the 22 Oct Pro D2 \"CET\" entries are held",
+      "summary": "top14.lnr.fr and prod2.lnr.fr print \"16h35\"-style clocks without a zone. Following FL-096 (lnv.fr), today's Top 14 entries (609564, 609567 Sat 24 Oct; 609554 Sun 25 Oct) are recorded date-only with the verbatim clock in the quote, so they cannot certify a UTC start. The 22 Oct Pro D2 entries for 609561 and 609562 labelled \"21:00 CET\" on 23 Oct, which would place the start at 20:00 UTC when French legal time that evening was CEST (19:00 UTC); they are placed on hold (source_conflict) rather than relabelled because the page was not re-read.",
+      "detail": "Rows RGU-12, RGU-13 and RGU-15 therefore stay analysis (unverified_start) even where the evidence grade is HIGH. A zone-labelled LNR source (or broadcaster listing from the league) would be needed to certify these clocks.",
+      "sources": [
+        {
+          "label": "LNR Top 14 official — Calendrier et résultats",
+          "url": "https://top14.lnr.fr/calendrier-et-resultats"
+        },
+        {
+          "label": "LNR Pro D2 official — Calendrier et résultats",
+          "url": "https://prod2.lnr.fr/calendrier-et-resultats"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "RGU-09",
+        "RGU-10",
+        "RGU-12",
+        "RGU-13",
+        "RGU-15"
+      ]
+    },
+    {
+      "id": "FL-135",
+      "severity": "method",
+      "status": "open",
+      "sport": "Multiple",
+      "title": "Official pages that render clocks in the reader's time zone are recorded date-only",
+      "summary": "The EuroLeague game-center listing, wst.tv/matches and premrugby.com fixtures all showed clocks shifted to the reader's zone (e.g. 14:00 for a 19:00 BST snooker session) with no label. They are used only for pair/date confirmation; exact clocks come only from pages that print a zone (the EuroLeague \"Game Center: Round 7\" article with CEST, URC \"IRE & UK\", MLB \"All times ET\", NHL startTimeUTC).",
+      "detail": "Affected rows stay fixture-verified but are not release-eligible: SNK-15, SNK-16, RGU-18, RGU-19, RGU-22, RGU-23.",
+      "sources": [
+        {
+          "label": "EuroLeague official game center",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/game-center/"
+        },
+        {
+          "label": "WST official Matches",
+          "url": "https://www.wst.tv/matches/"
+        },
+        {
+          "label": "PREM Rugby official fixtures",
+          "url": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "SNK-15",
+        "SNK-16",
+        "RGU-18",
+        "RGU-19",
+        "RGU-22",
+        "RGU-23"
+      ]
+    },
+    {
+      "id": "FL-136",
+      "severity": "info",
+      "status": "resolved",
+      "sport": "Gaelic Football",
+      "title": "Galway SFC final moved by the organisers from Saturday 24 Oct 7pm to Sunday 25 Oct 4pm (weather warning)",
+      "summary": "The 22 Oct confirmation for GAF-02 (Moycullen v Salthill-Knocknacarra, Sat 24 Oct 19:00, Pearse Stadium) is superseded: the Moycullen club site, read 23 Oct 17:21Z, states \"Moved to Sunday due to the weather warning — Sunday 25 October — 4pm · Pearse Stadium\". OLBG's listing moved to \"25 Oct 12:00\" in the same window. The row keeps the previous label in start_prev for audit.",
+      "detail": "Club site is club-official tier and prints no zone label, so the release check is date-only; the row is consensus-priced (no Galway table) and LOW.",
+      "sources": [
+        {
+          "label": "Maigh Cuilinn GAA official club site",
+          "url": "https://www.maighcuilinn.com/"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "GAF-02"
+      ]
+    },
+    {
+      "id": "FL-137",
+      "severity": "corrected",
+      "status": "fixed",
+      "sport": "Basketball",
+      "title": "EuroLeague prose for BKB-29/BKB-30 said \"Round 8\"; the official article is \"Game Center: Round 7\"",
+      "summary": "Both clubs were 5-1 after six games, and the EuroLeague article headlining Friday's games is titled Round 7. The two write-ups were rewritten with the round number, the CEST clocks and the form notes from that article.",
+      "detail": "",
+      "sources": [
+        {
+          "label": "EuroLeague official — Game Center: Round 7",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "BKB-29",
+        "BKB-30"
+      ]
+    },
+    {
+      "id": "FL-138",
+      "severity": "repo hygiene",
+      "status": "fixed",
+      "sport": "Multiple",
+      "title": "24 prediction pieces used the words \"model\" or \"verified\" in published prose",
+      "summary": "The brief bans those two words from published prediction text. The 24 pieces were reworded (e.g. \"our pricing\", \"confirmed\") without changing any number or selection; a regression test now scans data/predictions.json.",
+      "detail": "",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ],
+      "raised_by": "session-beb7787b"
+    },
+    {
+      "id": "FL-139",
+      "severity": "info",
+      "status": "resolved",
+      "sport": "Basketball",
+      "title": "HOU @ SAS (534841): NBA.com now lists Moody Center, Austin; the 22 Oct quote said Frost Bank Center",
+      "summary": "The clock (9:30 PM ET) is unchanged; only the venue text differs between the 22 Oct and 23 Oct reads of NBA.com. The release-check quote was refreshed from the 23 Oct schedule page.",
+      "detail": "",
+      "sources": [
+        {
+          "label": "NBA.com official schedule — 2026-10-23",
+          "url": "https://www.nba.com/schedule?date=2026-10-23"
+        }
+      ],
+      "raised_by": "session-beb7787b",
+      "affected_rows": [
+        "BKB-17"
       ]
     }
   ]
