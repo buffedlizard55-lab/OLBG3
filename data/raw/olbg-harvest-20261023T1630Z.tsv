@@ -1,184 +1,184 @@
-# OLBG3 live daily harvest — 2026-10-23T16:25Z..16:45Z across all 15 allowed sports (session-d0f5ca54)
+# OLBG3 live daily harvest — 2026-10-23T16:20Z..16:40Z across all 15 allowed sports (session-beb7787b)
 # Format v2: sport|league_label|path_prefix|slug|event_id|date_label|time_label|market|consensus|tips|note
-# Method: agent page-retrieval of the server-rendered sport listing pages (/Tennis/3, /Basketball/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28). Listings are tips-sorted and 'Load More Tips'-truncated server-side; rows beyond the server-rendered cut are not observable and are NOT invented (see FL-100). Golf/5 returned 'No tips found.' at ~16:35Z, so no golf row is captured in this pass (FL-131); dated golf rows chain forward from the earlier captures. Bare OLBG clocks are copied VERBATIM and never converted; only explicitly timezone-qualified governing-body clocks in release_checks.json certify a UTC start.
-# Zero excluded sports (Football/soccer, Horse_Racing, Boxing/UFC/MMA, American_Football, Hurling, Cycling, Specials excluded).
-Ice_Hockey|Danish Metal Ligaen|Ice_Hockey/Other/Danish_Metal_Ligaen|Esbjerg_Energy_vs_Herning_Blue_Fox|199946|Today|13:00|Money Line|Herning Blue Fox|3/3|newly posted Friday fixture; consensus 3/3 (100%) on road Herning
-Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|MTL_Canadiens_@_CHI_Blackhawks|199984|Today|20:07|Money Line|MTL Canadiens|3/3|newly posted Friday night NHL fixture; consensus 3/3 (100%) on road Montreal
-Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Grizzlys_Wolfsburg_vs_ERC_Ingolstadt|199927|Today|13:30|Money Line|ERC Ingolstadt|2/2|newly posted Friday fixture; consensus 2/2 (100%)
-Ice_Hockey|Danish Metal Ligaen|Ice_Hockey/Other/Danish_Metal_Ligaen|Rodovre_Mighty_Bulls_vs_Herlev_Eagles|199947|Today|13:30|Money Line|Herlev Eagles|2/2|newly posted Friday fixture; consensus 2/2 (100%)
-Ice_Hockey|Finland SM Liiga|Ice_Hockey/Other/Finland_SM_Liiga|K_Espoo_vs_HIFK|199955|Today|12:30|Game Totals|Over 5.50|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Graz_99ers_vs_EHC_Black_Wings_Linz|199965|Today|12:30|Puck Line|EHC Black Wings Linz +1.50|1/2|newly posted Friday fixture; consensus 1/2 (50%)
-Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|HK_Olimpija_Ljubljana_vs_Fehervar_AV19|199969|Today|13:15|Puck Line|HK Olimpija Ljubljana -1.50|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Eisbaren_Berlin_vs_Augsburger_Panther|199926|Today|13:30|Puck Line|Eisbaren Berlin -1.50|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Adler_Mannheim_vs_Lowen_Frankfurt|199925|Today|13:30|Money Line|Adler Mannheim|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Nurnberg_Ice_Tigers_vs_Krefeld_Pinguine|199928|Today|13:30|Game Totals|Under 5.50|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|EHC_Munchen_vs_Iserlohn_Roosters|199924|Today|13:30|Money Line|EHC Munchen|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Straubing_Tigers_vs_Kolner_Haie|199930|Today|13:30|Game Totals|Under 5.50|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Pioneers_Vorarlberg_vs_HCB_Sudtirol_Alperia|199968|Today|13:30|Money Line|HCB Sudtirol Alperia|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Switzerland NLA|Ice_Hockey/Other/Switzerland_NLA|Fribourg_Gotteron_vs_EHC_Biel|199908|Today|13:45|Money Line|Fribourg Gotteron|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Switzerland NLA|Ice_Hockey/Other/Switzerland_NLA|ZSC_Lions_vs_SCL_Tigers|199909|Today|13:45|Money Line|ZSC Lions|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|Switzerland NLA|Ice_Hockey/Other/Switzerland_NLA|Lugano_vs_EHC_Kloten|199915|Today|13:45|Money Line|Lugano|1/1|newly posted Friday fixture; consensus 1/1 (100%)
-Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|TB_Lightning_@_COL_Avalanche|199985|Today|21:07|Puck Line|TB Lightning +1.50|1/2|newly posted Friday night NHL fixture; consensus 1/2 (50%)
-Basketball|Euroleague|Basketball/European/Euroleague|Zalgiris_vs_Asvel_Lyon_Villeurbanne|535928|Today|13:00|Money Line|Zalgiris|9/16|EuroLeague Round 8 (Friday); consensus 9/16 (56%)
-Basketball|Euroleague|Basketball/European/Euroleague|Olympiacos_vs_Fenerbahce|535925|Today|14:15|Money Line|Olympiacos|6/10|EuroLeague Round 8 (Friday); consensus 6/10 (60%)
-Basketball|Euroleague|Basketball/European/Euroleague|Paris_vs_Valencia|535926|Today|14:45|Money Line|Valencia|5/10|EuroLeague Round 8 (Friday); consensus 5/10 (50%)
-Basketball|NBA|Basketball/NBA/NBA|CHI_Bulls_@_MIL_Bucks|536041|Today|16:10|Money Line|MIL Bucks|5/5|newly posted Friday NBA fixture; consensus 5/5 (100%)
-Basketball|NBA|Basketball/NBA/NBA|MIN_Timberwolves_@_ORL_Magic|536036|Today|19:10|Money Line|MIN Timberwolves|5/5|newly posted Friday NBA fixture; consensus 5/5 (100%)
-Basketball|NBA|Basketball/NBA/NBA|HOU_Rockets_@_SA_Spurs|534841|Today|21:40|Money Line|SA Spurs|4/6|Friday NBA fixture first captured 22 Oct; consensus 4/6 (67%)
-Basketball|NBA|Basketball/NBA/NBA|NY_Knicks_@_BOS_Celtics|534842|Today|19:10|Pointspread|BOS Celtics -2.50|3/3|Friday NBA fixture first captured 22 Oct; headline market now Pointspread; consensus 3/3 (100%)
-Basketball|NBA|Basketball/NBA/NBA|TOR_Raptors_@_WAS_Wizards|536034|Today|19:10|Money Line|TOR Raptors|3/4|newly posted Friday NBA fixture; consensus 3/4 (75%)
-Basketball|NBA|Basketball/NBA/NBA|DAL_Mavericks_@_IND_Pacers|536037|Today|19:10|Money Line|IND Pacers|3/3|newly posted Friday NBA fixture; consensus 3/3 (100%)
-Basketball|NBA|Basketball/NBA/NBA|DET_Pistons_@_MIA_Heat|536038|Today|20:10|Money Line|DET Pistons|3/3|newly posted Friday NBA fixture; consensus 3/3 (100%)
-Basketball|NBA|Basketball/NBA/NBA|POR_Trail_Blazers_@_SAC_Kings|536043|Today|22:10|Pointspread|POR Trail Blazers -10.50|3/3|newly posted Friday NBA fixture; consensus 3/3 (100%)
-Basketball|Poland PLK|Basketball/European/Poland_PLK|Gtk_Gliwice_vs_Torun|536031|Today|14:15|Money Line|Torun|2/3|newly posted Friday fixture; consensus 2/3 (67%)
-Basketball|NBA|Basketball/NBA/NBA|ATL_Hawks_@_CHA_Hornets|536035|Today|19:10|Pointspread|ATL Hawks -2.50|2/2|newly posted Friday NBA fixture; consensus 2/2 (100%)
-Basketball|NBA|Basketball/NBA/NBA|NO_Pelicans_@_UTA_Jazz|536040|Today|21:40|Money Line|UTA Jazz|2/2|newly posted Friday NBA fixture; consensus 2/2 (100%)
-Basketball|NBA|Basketball/NBA/NBA|LA_Clippers_@_LA_Lakers|536042|Today|22:10|Pointspread|LA Clippers +9.50|2/3|newly posted Friday NBA fixture; consensus 2/3 (67%)
-Basketball|NBA|Basketball/NBA/NBA|MEM_Grizzlies_@_GS_Warriors|536039|Today|22:10|Pointspread|GS Warriors -4.50|2/3|newly posted Friday NBA fixture; consensus 2/3 (67%)
-Basketball|Poland PLK|Basketball/European/Poland_PLK|Slask_Wroclaw_vs_Astoria_Bydgoszcz|536075|Tomorrow|13:30|Money Line|Astoria Bydgoszcz|1/1|newly posted Saturday fixture; consensus 1/1 (100%)
-Tennis||Tennis/All_Tennis/All_Events|Arthur_Fils_vs_Alex_Michelsen|902150|Today|12:30|Win Match|Arthur Fils|5/10|ATP Lyon semi-final; consensus 5/10 (50%)
-Tennis||Tennis/All_Tennis/All_Events|Flavio_Cobolli_vs_Brandon_Nakashima|902155|Today|13:00|Win Match|Flavio Cobolli|5/8|newly posted Friday semi-final; consensus 5/8 (63%)
-Tennis||Tennis/All_Tennis/All_Events|Jan_Lennard_Struff_vs_Zizou_Bergs|902153|Today|14:00|Win Match|Jan Lennard Struff|5/8|ATP Almaty semi-final; consensus 5/8 (63%)
-Tennis||Tennis/All_Tennis/All_Events|Luca_Van_Assche_vs_Lorenzo_Musetti|902147|Today|14:30|Win Match|Luca Van Assche|3/5|newly posted Friday semi-final; consensus 3/5 (60%)
-Tennis||Tennis/All_Tennis/All_Events|Ann_Li_vs_Ashlyn_Krueger|902157|Today|23:00|Total Games|Over 22.50|2/3|WTA Osaka semi-final; consensus 2/3 (67%)
-Tennis||Tennis/All_Tennis/All_Events|Katie_Boulter_vs_Katerina_Siniakova|902162|Tomorrow|00:30|Win Match|Katie Boulter|1/1|newly posted semi-final; consensus 1/1 (100%)
-Tennis||Tennis/All_Tennis/All_Events|Leylah_Fernandez_vs_Marie_Bouzkova|902160|Tomorrow|03:00|Win Match|Leylah Fernandez|1/1|WTA Ningbo semi-final; consensus 1/1 (100%)
-Tennis||Tennis/All_Tennis/All_Events|Elena_Rybakina_vs_Diana_Shnaider|902163|Tomorrow|05:30|Win Match|Diana Shnaider|1/1|WTA Ningbo semi-final; consensus 1/1 (100%)
-Tennis||Tennis/All_Tennis/All_Events|Nikoloz_Basilashvili_vs_Stefanos_Tsitsipas|902159|Tomorrow|06:00|Set Betting|Stefanos Tsitsipas to win 2 - 1|1/1|ATP Almaty semi-final; consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|VOLLEY_GOATS_Mitteldeutschland_vs_Netzhoppers_KW|37009|Today|13:30|Win Match|Netzhoppers KW|6/7|Consensus 6/7 (86%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Brasilia_W_vs_Sesc_RJ_Flamengo_W|37001|Today|17:30|Win Match|Brasilia W|5/9|Brazil Superliga Women; consensus 5/9 (56%)
-Volleyball||Volleyball/All_Volleyball/All_Events|ATSC_Klagenfurt_Women_vs_Linz_Steg_W|37015|Today|14:00|Win Match|Linz Steg W|4/7|Consensus 4/7 (57%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Minas_W_vs_Paulistano-Barueri_W|37022|Today|17:30|Win Match|Minas W|4/6|Consensus 4/6 (67%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Lokomotiv_Avia_vs_Montana|37025|Today|12:30|Win Match|Lokomotiv Avia|3/4|consensus 3/4 (75%)
-Volleyball||Volleyball/All_Volleyball/All_Events|PGE_Skra_Belchatow_vs_Projekt_Warszawa|36964|Tomorrow|12:00|Win Match|Projekt Warszawa|2/3|Polish PlusLiga; consensus 2/3 (67%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Mackenzie_W_vs_Osasco_W|37002|Tomorrow|15:00|Win Match|Mackenzie W|2/3|Brazil Superliga Women; consensus 2/3 (67%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Abel-Moda_Brusque_W_vs_Praia_Clube_W|37003|Tomorrow|20:00|Win Match|Abel/Moda Brusque W|2/2|Brazil Superliga Women; consensus 2/2 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Trentino_vs_Cisterna|36994|25 Oct|12:00|Win Match|Cisterna|2/2|Italy SuperLega Sunday; consensus 2/2 (100%) on road Cisterna
-Volleyball||Volleyball/All_Volleyball/All_Events|Perugia_vs_Pordenone|36997|25 Oct|13:00|Win Match|Pordenone|2/2|Italy SuperLega Sunday; consensus 2/2 (100%) on road Pordenone
-Volleyball||Volleyball/All_Volleyball/All_Events|CHKS_Chelm_vs_Resovia_Rzeszow|36965|25 Oct|13:00|Win Match|Resovia Rzeszow|2/3|Polish PlusLiga; consensus 2/3 (67%)
-Volleyball||Volleyball/All_Volleyball/All_Events|SG_Sokol-Post_W_vs_TSV_Hartberg_W|37017|Tomorrow|10:30|Set Score|SG Sokol/Post W to win 3-1|1/1|Consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|UVC_Ried_vs_VBK_Klagenfurt|37031|Tomorrow|12:00|Win Match|UVC Ried|1/1|consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Sternberk_W_vs_VK_Lvice_Praha_W|37026|Tomorrow|12:00|Set Score|Sternberk W to win 3-1|1/1|consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|VfB_Friedrichshafen_vs_SSC_Karlsruhe|37010|Tomorrow|12:30|Set Score|VfB Friedrichshafen to win 3-1|1/1|Consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|SK_Aich-Dob_vs_SG_VCA_Amstetten|37032|Tomorrow|13:00|Win Match|SK Aich/Dob|1/1|consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|SVG_Luneburg_vs_SV_Warnemunde|37011|Tomorrow|13:00|Set Score|SVG Luneburg to win 3-1|1/1|Consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|ASKO_Purgstall_W_vs_VBV_Trofaiach-WSV_Eisenerz_W|37018|Tomorrow|13:00|Win Match|ASKO Purgstall W|1/2|Consensus 1/2 (50%)
-Volleyball||Volleyball/All_Volleyball/All_Events|SWD_Duren_vs_WWK_Volleys_Munchen|37012|Tomorrow|13:30|Set Score|WWK Volleys Munchen to win 3-1|1/1|Consensus 1/1 (100%)
-Volleyball||Volleyball/All_Volleyball/All_Events|Helios_Grizzlys_Giesen_vs_Berlin_Volleys|37013|Tomorrow|13:30|Set Score|Helios Grizzlys Giesen to win 3-1|1/1|Consensus 1/1 (100%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Aurillac_v_Nevers|609560|Today|13:30|To Win|Aurillac|14/19|Pro D2 Friday; consensus 14/19 (74%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Agen_v_Nissa|609558|Today|13:30|To Win|Agen|12/18|Pro D2 Friday; consensus 12/18 (67%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Narbonne_v_Brive|609557|Today|13:00|To Win|Brive|11/17|Pro D2 Friday; consensus 11/17 (65%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Connacht_v_Zebre_Parma|609577|Today|14:45|To Win|Connacht|11/15|URC Round 4 Friday night; consensus 11/15 (73%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Edinburgh_v_Lions|609579|Today|14:45|To Win|Edinburgh|8/9|URC Round 4 Friday night; consensus 8/9 (89%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Soyaux_Angouleme_v_Dax|609563|Today|13:30|To Win|Dax|7/14|Pro D2 Friday; consensus flipped to road Dax 7/14 (50%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Gloucester_v_Bath|609570|Today|14:45|To Win|Gloucester|7/7|Consensus 7/7 (100%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Valence_Romans_v_Colomiers|609559|Today|13:30|To Win|Valence Romans|6/11|Pro D2 Friday; consensus 6/11 (55%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Provence_v_Beziers|609562|Today|15:00|To Win|Provence|6/10|Pro D2 Friday; consensus 6/10 (60%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Grenoble_v_Biarritz|609561|Today|15:00|To Win|Grenoble|6/10|Pro D2 Friday; consensus 6/10 (60%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Cardiff_v_Sharks|609575|Today|14:45|To Win|Sharks|4/7|Consensus 4/7 (57%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Newcastle_Red_Bulls_v_Sale_Sharks|609573|Today|14:45|To Win|Sale Sharks|3/5|Consensus 3/5 (60%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bulls_v_Ulster|609576|Tomorrow|07:45|To Win|Ulster|3/4|URC Round 4 Saturday; consensus flipped to road Ulster 3/4 (75%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Japan_v_Fiji|609582|Tomorrow|01:50|To Win|Fiji|2/3|Consensus 2/3 (67%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Stormers_v_Scarlets|609580|Tomorrow|10:00|To Win|Scarlets|2/4|URC Round 4 Saturday; consensus flipped to road Scarlets 2/4 (50%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Toulouse_v_Perpignan|609567|Tomorrow|10:35|To Win|Perpignan|2/4|Top 14 Saturday; consensus 2/4 (50%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Leinster_v_Munster|609578|Tomorrow|13:00|To Win|Leinster|2/3|URC Round 4 Saturday; consensus 2/3 (67%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Leicester_Tigers_v_Northampton_Saints|609572|Tomorrow|10:05|To Win|Northampton Saints|1/1|Consensus 1/1 (100%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bayonne_v_Lyon|609564|Tomorrow|10:35|Handicap|Lyon +10.50|1/1|Top 14 Saturday; consensus 1/1 (100%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bristol_Bears_v_Exeter_Chiefs|609569|Tomorrow|12:30|Handicap|Exeter Chiefs +7.50|1/1|Consensus 1/1 (100%)
-Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Six_Nations_2027|609013|14 Mar 2027|16:00|Win Tournament|Ireland|3/9|outright; consensus 3/9 (33%)
-Cricket||Cricket/All_Cricket/All_Events|Tasmania_vs_Victoria_One_Day_Match|188839|Today|19:30|Win Match|Tasmania|5/7|Consensus 5/7 (71%)
-Cricket||Cricket/All_Cricket/All_Events|New_Zealand_vs_India_2nd_T20_Match|188832|Tomorrow|03:00|Win Match|India|4/5|Consensus 4/5 (80%)
-Cricket||Cricket/All_Cricket/All_Events|Western_Australia_vs_New_South_Wales_One_Day_Match|188840|Tomorrow|02:00|Win Match|Western Australia|3/4|Consensus 3/4 (75%)
-Cricket||Cricket/All_Cricket/All_Events|Lions_vs_Limpopo_Impalas_T20|188841|Tomorrow|07:00|Win Match|Lions|3/3|Consensus 3/3 (100%)
-Cricket||Cricket/All_Cricket/All_Events|Eastern_Cape_Iinyathi_vs_Warriors_T20|188842|Tomorrow|07:00|Win Match|Warriors|2/2|Consensus 2/2 (100%)
-Cricket||Cricket/All_Cricket/All_Events|Knights_vs_Mpumalanga_Rhinos_T20|188843|Tomorrow|12:00|Win Match|Mpumalanga Rhinos|1/1|Consensus 1/1 (100%)
-Cricket||Cricket/All_Cricket/All_Events|Pakistan_vs_England_One_Day_Match|188838|25 Oct|04:00|Win Match|Pakistan|1/1|Consensus 1/1 (100%)
-Cricket||Cricket/All_Cricket/All_Events|World_Cup_2027|182606|21 Nov 2027|05:00|Outright Winner|India|6/12|outright; consensus 6/12 (50%)
-Cricket||Cricket/All_Cricket/All_Events|Big_Bash_Women_2026|187184|05 Dec|03:10|Outright Winner|Sydney Sixers W|2/3|outright; consensus 2/3 (67%)
-Cricket||Cricket/All_Cricket/All_Events|T20_Big_Bash_2026-27|187503|12 Dec|03:15|Outright Winner|Adelaide Strikers|1/2|outright; consensus 1/2 (50%)
-Cricket||Cricket/All_Cricket/All_Events|SA20_2026-27|187504|24 Jan 2027|11:30|Outright Winner|Pretoria Capitals|1/1|outright; consensus 1/1 (100%)
-Cricket||Cricket/All_Cricket/All_Events|T20_Blast_2027|188350|18 Jul 2027|11:00|Outright Winner|Sussex||outright; tip count not rendered in the server listing read
-Snooker||Snooker/All_Snooker/All_Events|Jak_Jones_v_Scott_Donaldson|9951|Today|14:05|Win Match|Jak Jones|11/15|Consensus 11/15 (73%)
-Snooker||Snooker/All_Snooker/All_Events|David_Gilbert_v_Mark_Williams|9950|Today|14:05|Win Match|Mark Williams|11/15|Consensus 11/15 (73%)
-Darts||Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|Today|14:45|Win Match 2-way|Jonny Clayton|26/31|European Championship R1 Dortmund; consensus 26/31 (84%)
-Darts||Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|Today|15:45|Win Match 2-way|Wessel Nijman|18/23|European Championship R1 Dortmund; consensus 18/23 (78%)
-Darts||Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|Today|13:15|Win Match 2-way|Ryan Joyce|16/25|European Championship R1 Dortmund; consensus 16/25 (64%)
-Darts||Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|Today|13:45|Win Match 2-way|Krzysztof Ratajski|15/26|European Championship R1 Dortmund; consensus 15/26 (58%)
-Darts||Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|Today|14:15|Win Match 2-way|Nathan Aspinall|14/22|European Championship R1 Dortmund; consensus 14/22 (64%)
-Darts||Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|Today|15:15|Win Match 2-way|Luke Littler|14/20|European Championship R1 Dortmund; consensus 14/20 (70%)
-Darts||Darts/All_Darts/All_Events|Kevin_Doets_vs_Michael_van_Gerwen|32331|Today|16:15|Win Match 2-way|Michael van Gerwen|10/17|European Championship R1 Dortmund; consensus 10/17 (59%)
-Darts||Darts/All_Darts/All_Events|Josh_Rock_vs_Chris_Dobey|32336|Today|16:45|Win Match 2-way|Josh Rock|10/19|European Championship R1 Dortmund; consensus 10/19 (53%)
-Darts||Darts/All_Darts/All_Events|Stephen_Bunting_vs_Kim_Huybrechts|32384|Tomorrow|13:15|Win Match 2-way|Kim Huybrechts|2/3|newly posted; consensus 2/3 (67%)
-Darts||Darts/All_Darts/All_Events|Gian_van_Veen_vs_Luke_Woodhouse|32385|Tomorrow|13:15|Win Match 2-way|Luke Woodhouse|2/3|newly posted; consensus 2/3 (67%)
-Darts||Darts/All_Darts/All_Events|Ross_Smith_vs_Damon_Heta|32386|Tomorrow|13:15|Win Match 2-way|Damon Heta|2/3|newly posted; consensus 2/3 (67%)
-Darts||Darts/All_Darts/All_Events|Cameron_Menzies_vs_Gerwyn_Price|32383|Tomorrow|13:15|Win Match 2-way|Gerwyn Price|1/2|newly posted; consensus 1/2 (50%)
-Darts||Darts/All_Darts/All_Events|PDC_World_Championship_2027|26023|03 Jan 2027|12:00|Win Tournament|Luke Littler|23/37|outright; consensus 23/37 (62%)
-Darts||Darts/All_Darts/All_Events|European_Championship|32338|25 Oct|14:00|Win Tournament|Gian van Veen|4/18|outright; consensus 4/18 (22%)
-Baseball|MLB|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|Today|20:00|Money Line|MIL Brewers|25/31|World Series Game 1; consensus 25/31 (81%)
-Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|St_Finbarrs_v_Nemo_Rangers|3530|25 Oct|12:00||Nemo Rangers +1.50|14/18|Cork SFC final weekend; headline market label not rendered; consensus 14/18 (78%)
-Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Moycullen_v_Salthill-Knocknacarra|3532|25 Oct|12:00||Moycullen -3.50|12/24|Galway SFC final weekend; headline market label not rendered; consensus 12/24 (50%)
-Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Kanturk_v_Eire_Og_Cor|3531|01 Nov|09:00||Kanturk|4/7|headline market label not rendered; consensus 4/7 (57%)
-Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Fr_Caseys_v_Kildimo_Pallaskenry|3537|01 Nov|10:30||Fr Caseys|3/3|headline market label not rendered; consensus 3/3 (100%)
-Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|All_Ireland_Football_Championship_2027|3327|25 Jul 2027|10:30||Kerry|5/7|outright; headline market label not rendered; consensus 5/7 (71%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:12_Towcester|689803|Today|12:12|Daily Races|Choices Jean|2/4|Friday evening UK card; row shown Expired in the render; consensus 2/4 (50%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:18_Kinsley|689800|Today|12:18|Daily Races|Grumpy Sandstorm|2/2|Friday evening UK card; consensus 2/2 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:31_Towcester|689802|Today|12:31|Daily Races|Mums Image|2/2|Friday evening UK card; consensus 2/2 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:49_Towcester|689805|Today|12:49|Daily Races|Trapstyle Sneezy|2/2|Friday evening UK card; consensus 2/2 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:33_Romford|689846|Today|15:33|Daily Races|Ontherun Jamie|2/2|Friday evening UK card; consensus 2/2 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|9:13_Romford|689717|Today|16:13|Daily Races|Grouchos Gregor|2/2|Friday evening UK card; consensus 2/2 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:24_Newcastle|689806|Today|12:24|Daily Races|Alnwick Tina|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:37_Kinsley|689804|Today|12:37|Daily Races|Grumpy Jacko|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:43_Newcastle|689798|Today|12:43|Daily Races|Dryland Velvet|1/2|Friday evening UK card; consensus 1/2 (50%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:51_Harlow|689801|Today|12:51|Daily Races|Doreens Poppy|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:56_Kinsley|689807|Today|12:56|Daily Races|Kellyseyenoone|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:02_Newcastle|689808|Today|13:02|Daily Races|Mollys Aoibhe|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:08_Nottingham|689810|Today|13:08|Daily Races|Honeygar Flow|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:11_Harlow|689811|Today|13:11|Daily Races|Club Dream|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:18_Sheffield|689816|Today|13:18|Daily Races|Jaykay Seven|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:23_Sunderland|689809|Today|13:23|Daily Races|Listen Tilly|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:28_Nottingham|689815|Today|13:28|Daily Races|Perdey|1/2|Friday evening UK card; consensus 1/2 (50%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:29_Harlow|689814|Today|13:29|Daily Races|Savana Bridget|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:33_Romford|689812|Today|13:33|Daily Races|Razldazl Minty|1/2|Friday evening UK card; consensus 1/2 (50%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:38_Sheffield|689813|Today|13:38|Daily Races|Dairyland Amelia|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:43_Sunderland|689817|Today|13:43|Daily Races|Little Pretender|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:46_Harlow|689818|Today|13:46|Daily Races|Unlikely Maddie|1/2|Friday evening UK card; consensus 1/2 (50%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:48_Nottingham|689819|Today|13:48|Daily Races|Headford Shark|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:53_Romford|689823|Today|13:53|Daily Races|Lollipop Lucy|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:58_Sheffield|689826|Today|13:58|Daily Races|Droopys Sway|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:03_Sunderland|689820|Today|14:03|Daily Races|Swift Mandy|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:04_Harlow|689825|Today|14:04|Daily Races|Skirk Sky|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:08_Nottingham|689822|Today|14:08|Daily Races|Macash Rose|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:13_Romford|689821|Today|14:13|Daily Races|Crossfield Roger|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:18_Sheffield|689824|Today|14:18|Daily Races|La Flor|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:23_Sunderland|689827|Today|14:23|Daily Races|Highmeadow Henry|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:28_Nottingham|689828|Today|14:28|Daily Races|Hillend Maise|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:33_Romford|689830|Today|14:33|Daily Races|Miss Manage|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:53_Romford|689834|Today|14:53|Daily Races|Skidroe Lady|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:13_Romford|689840|Today|15:13|Daily Races|Scooby Amethyst|1/1|Friday evening UK card; consensus 1/1 (100%)
-Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:53_Romford|689854|Today|15:53|Daily Races|Stormy Pat|1/1|Friday evening UK card; consensus 1/1 (100%)
-Handball||Handball/All_Handball/All_Events|Pays_dAix_UC_vs_Toulouse|12083|Today|14:00|Money Line|Toulouse|7/16|France LNH; consensus 7/16 (44%)
-Handball||Handball/All_Handball/All_Events|Frisch_Auf_Goppingen_vs_ThSV_Eisenach|12088|Today|13:00|Money Line|Tie|6/15|Germany Bundesliga; consensus 6/15 (40%) on the Tie
-Handball||Handball/All_Handball/All_Events|Bidasoa_Irun_vs_Caserio_Ciudad_Real|12101|Today|13:00|Money Line|Bidasoa Irun|6/12|Spain ASOBAL; consensus 6/12 (50%)
-Handball||Handball/All_Handball/All_Events|Limoges_87_vs_Dunkerque|12080|Today|14:00|Money Line|Limoges 87|6/15|France LNH; consensus 6/15 (40%)
-Handball||Handball/All_Handball/All_Events|TSV_Hannover_Burgdorf_vs_TBV_Lemgo_Lippe|12093|Today|14:00|Money Line|Tie|6/13|Consensus 6/13 (46%) on the Tie
-Handball||Handball/All_Handball/All_Events|GRK_Ohrid_vs_Spor_Toto_SK|12120|Today|12:30|Match Handicap|Spor Toto SK +11.50|5/5|Consensus 5/5 (100%)
-Handball||Handball/All_Handball/All_Events|Chartres_vs_USAM_Nimes|12079|Today|14:00|Money Line|Tie|5/10|Consensus 5/10 (50%) on the Tie
-Handball||Handball/All_Handball/All_Events|Estonia_W_vs_Kosovo_W|12110|Today|14:00|Money Line|Kosovo (W)|5/11|women international; consensus 5/11 (45%)
-Handball||Handball/All_Handball/All_Events|FC_Barcelona_vs_Ciudad_Encantada|12121|Today|13:00|Match Handicap|Ciudad Encantada +13.50|4/5|Consensus 4/5 (80%)
-Handball||Handball/All_Handball/All_Events|Selestat_Alsace_vs_Caen|12085|Today|14:30|Money Line|Caen|4/8|France Proligue; consensus 4/8 (50%)
-Handball||Handball/All_Handball/All_Events|Tremblay_vs_Cesson_Rennes|12086|Today|14:30|Money Line|Cesson Rennes|4/9|Consensus 4/9 (44%)
-Handball||Handball/All_Handball/All_Events|Skive_FH_vs_Aalborg_Handbold|12076|Tomorrow|09:00|Money Line|Aalborg Handbold|3/6|Denmark; consensus 3/6 (50%)
-Handball||Handball/All_Handball/All_Events|Skjern_Handbold_vs_Ribe_Esbjerg_HH|12077|Tomorrow|10:00|Money Line|Ribe Esbjerg HH|2/3|Consensus 2/3 (67%)
-Handball||Handball/All_Handball/All_Events|Villa_De_Aranda_vs_Puerto_Sagunto|12107|Tomorrow|13:00|Money Line|Puerto Sagunto|2/2|Spain ASOBAL; consensus 2/2 (100%)
-Handball||Handball/All_Handball/All_Events|HC_Erlangen_vs_THW_Kiel|12091|Tomorrow|12:00|Money Line|HC Erlangen|1/2|Consensus 1/2 (50%)
-Handball||Handball/All_Handball/All_Events|BM_Nava_vs_Atletico_Valladolid|12104|Tomorrow|13:00|Money Line|BM Nava|1/1|Consensus 1/1 (100%)
-Handball||Handball/All_Handball/All_Events|Nantes_vs_Chambery_Savoie|12082|Tomorrow|13:00|Money Line|Nantes|1/2|Consensus 1/2 (50%)
-Handball||Handball/All_Handball/All_Events|BM_Logrono_La_Rioja_vs_BM_Cangas|12103|Tomorrow|13:30|Money Line|BM Cangas|1/2|Consensus 1/2 (50%)
-Handball||Handball/All_Handball/All_Events|HBW_Balingen_Weilstetten_vs_MT_Melsungen|12090|Tomorrow|14:00|Money Line|HBW Balingen-Weilstetten|1/2|Consensus 1/2 (50%)
-Handball||Handball/All_Handball/All_Events|CBM_Sporting_Alicante_vs_Ademar_Leon|12106|25 Oct|07:00|Money Line|Ademar Leon|1/1|Consensus 1/1 (100%)
-Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|913|25 Oct|16:00|Win Race|Max Verstappen|13/38|F1 US GP Sunday; consensus 13/38 (34%)
-Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026|828|06 Dec|08:00|Win Tournament|Max Verstappen|9/33|outright; consensus 9/33 (27%)
-Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli|912|06 Dec|08:00|Win Tournament|Max Verstappen|4/7|outright w/o Antonelli; consensus 4/7 (57%)
-Rugby_League||Rugby_League/All_Rugby_League/All_Events|State_of_Origin_2027|2695857|27 May 2027|06:00|Win Tournament|New South Wales|9/12|outright only — no fixtures listed (off-season); consensus 9/12 (75%)
-Rugby_League||Rugby_League/All_Rugby_League/All_Events|Super_League_2027|2801554|02 Oct 2027|13:00|Grand Final Winner|Leeds Rhinos|1/3|outright; consensus 1/3 (33%)
-Rugby_League||Rugby_League/All_Rugby_League/All_Events|NRL_2027|2801600|03 Oct 2027|04:30|Grand Final Winner|Penrith Panthers|1/2|outright; consensus 1/2 (50%)
+# Method: agent page-retrieval of the server-rendered sport listing pages (/Tennis/3, /Basketball/4, /Golf/5, /Golf/All_Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28). Listings are tips-sorted and 'Load More Tips'-truncated server-side; rows beyond the server-rendered cut are not observable and are NOT invented (FL-100). Golf/5 and Golf/All_Golf/5 returned 'No tips found.' at ~16:35Z (the week's tournaments are in play; no golf event was listed). Date/time labels are copied VERBATIM (bare clock, no zone label; NBA/NHL/MLB clocks match US Eastern +7-10 min as documented in docs/olbg-structure.md) and are never converted.
+# Zero excluded sports (Football/soccer, Horse_Racing, Boxing/UFC/MMA, American_Football, Hurling, Cycling, Specials untouched).
+Tennis||Tennis/All_Tennis/All_Events|Arthur_Fils_vs_Alex_Michelsen|902150|Today|12:30|Win Match|Arthur Fils|5/10|new 23 Oct row; 50%, 4 comments
+Tennis||Tennis/All_Tennis/All_Events|Flavio_Cobolli_vs_Brandon_Nakashima|902155|Today|13:00|Win Match|Flavio Cobolli|5/8|new 23 Oct row; 63%, 1 comment
+Tennis||Tennis/All_Tennis/All_Events|Jan_Lennard_Struff_vs_Zizou_Bergs|902153|Today|14:00|Win Match|Jan Lennard Struff|5/8|new 23 Oct row; 63%, 1 comment
+Tennis||Tennis/All_Tennis/All_Events|Luca_Van_Assche_vs_Lorenzo_Musetti|902147|Today|14:30|Win Match|Luca Van Assche|3/5|new 23 Oct row; 60%
+Tennis||Tennis/All_Tennis/All_Events|Ann_Li_vs_Ashlyn_Krueger|902157|Today|23:00|Total Games|Over 22.50|2/3|new 23 Oct row; headline market Total Games; 67%, 1 comment
+Tennis||Tennis/All_Tennis/All_Events|Katie_Boulter_vs_Katerina_Siniakova|902162|Tomorrow|00:30|Win Match|Katie Boulter|1/1|new row; single tip
+Tennis||Tennis/All_Tennis/All_Events|Leylah_Fernandez_vs_Marie_Bouzkova|902160|Tomorrow|03:00|Win Match|Leylah Fernandez|1/1|new row; single tip
+Tennis||Tennis/All_Tennis/All_Events|Elena_Rybakina_vs_Diana_Shnaider|902163|Tomorrow|05:30|Win Match|Diana Shnaider|1/1|new row; single tip on the second-named player
+Tennis||Tennis/All_Tennis/All_Events|Nikoloz_Basilashvili_vs_Stefanos_Tsitsipas|902159|Tomorrow|06:00|Set Betting|Stefanos Tsitsipas to win 2 - 1|1/1|new row; headline market Set Betting; 1 comment
+Basketball|Euroleague|Basketball/European/Euroleague|Zalgiris_vs_Asvel_Lyon_Villeurbanne|535928|Today|13:00|Money Line|Zalgiris|9/16|56%, 2 comments
+Basketball|Euroleague|Basketball/European/Euroleague|Olympiacos_vs_Fenerbahce|535925|Today|14:15|Money Line|Olympiacos|6/10|60%, 2 comments, 1 expert
+Basketball|Euroleague|Basketball/European/Euroleague|Paris_vs_Valencia|535926|Today|14:45|Money Line|Valencia|5/10|50%, 3 comments, 1 expert
+Basketball|NBA|Basketball/NBA/NBA|CHI_Bulls_@_MIL_Bucks|536041|Today|16:10|Money Line|MIL Bucks|5/5|new 23 Oct row; 100%, 3 comments
+Basketball|NBA|Basketball/NBA/NBA|MIN_Timberwolves_@_ORL_Magic|536036|Today|19:10|Money Line|MIN Timberwolves|5/5|new 23 Oct row; 100%, 3 comments
+Basketball|NBA|Basketball/NBA/NBA|HOU_Rockets_@_SA_Spurs|534841|Today|21:40|Money Line|SA Spurs|4/6|67%, 1 comment
+Basketball|NBA|Basketball/NBA/NBA|NY_Knicks_@_BOS_Celtics|534842|Today|19:10|Pointspread|BOS Celtics -2.50|3/3|100%, 2 comments
+Basketball|NBA|Basketball/NBA/NBA|TOR_Raptors_@_WAS_Wizards|536034|Today|19:10|Money Line|TOR Raptors|3/4|new 23 Oct row; 75%, 1 comment
+Basketball|NBA|Basketball/NBA/NBA|DAL_Mavericks_@_IND_Pacers|536037|Today|19:10|Money Line|IND Pacers|3/3|new 23 Oct row; 100%, 1 comment
+Basketball|NBA|Basketball/NBA/NBA|DET_Pistons_@_MIA_Heat|536038|Today|20:10|Money Line|DET Pistons|3/3|new 23 Oct row; 100%, 1 comment
+Basketball|NBA|Basketball/NBA/NBA|POR_Trail_Blazers_@_SAC_Kings|536043|Today|22:10|Pointspread|POR Trail Blazers -10.50|3/3|new 23 Oct row; 100%, 2 comments
+Basketball|Poland PLK|Basketball/European/Poland_PLK|Gtk_Gliwice_vs_Torun|536031|Today|14:15|Money Line|Torun|2/3|new 23 Oct row; 67%
+Basketball|NBA|Basketball/NBA/NBA|ATL_Hawks_@_CHA_Hornets|536035|Today|19:10|Pointspread|ATL Hawks -2.50|2/2|new 23 Oct row; 100%, 2 comments
+Basketball|NBA|Basketball/NBA/NBA|NO_Pelicans_@_UTA_Jazz|536040|Today|21:40|Money Line|UTA Jazz|2/2|new 23 Oct row; 100%, 2 comments
+Basketball|NBA|Basketball/NBA/NBA|LA_Clippers_@_LA_Lakers|536042|Today|22:10|Pointspread|LA Clippers +9.50|2/3|new 23 Oct row; 67%, 1 comment
+Basketball|NBA|Basketball/NBA/NBA|MEM_Grizzlies_@_GS_Warriors|536039|Today|22:10|Pointspread|GS Warriors -4.50|2/3|new 23 Oct row; 67%, 2 comments
+Basketball|Poland PLK|Basketball/European/Poland_PLK|Slask_Wroclaw_vs_Astoria_Bydgoszcz|536075|Tomorrow|13:30|Money Line|Astoria Bydgoszcz|1/1|new row; single tip
+Baseball|MLB|Baseball/MLB/MLB|TB_Rays_@_MIL_Brewers|160789|Today|20:00|Money Line|MIL Brewers|25/31|World Series Game 1; consensus grew to 25/31 (81%), 9 comments
+Ice_Hockey|Danish Metal Ligaen|Ice_Hockey/Other/Danish_Metal_Ligaen|Esbjerg_Energy_vs_Herning_Blue_Fox|199946|Today|13:00|Money Line|Herning Blue Fox|3/3|consensus grew 1/1 -> 3/3 (100%), 2 comments
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|MTL_Canadiens_@_CHI_Blackhawks|199984|Today|20:07|Money Line|MTL Canadiens|3/3|new 23 Oct row; 100%, 2 comments, 1 expert
+Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Grizzlys_Wolfsburg_vs_ERC_Ingolstadt|199927|Today|13:30|Money Line|ERC Ingolstadt|2/2|new 23 Oct row; 100%, 2 comments
+Ice_Hockey|Danish Metal Ligaen|Ice_Hockey/Other/Danish_Metal_Ligaen|Rodovre_Mighty_Bulls_vs_Herlev_Eagles|199947|Today|13:30|Money Line|Herlev Eagles|2/2|consensus grew 1/1 -> 2/2, 1 comment
+Ice_Hockey|Finland SM Liiga|Ice_Hockey/Other/Finland_SM_Liiga|K_Espoo_vs_HIFK|199955|Today|12:30|Game Totals|Over 5.50|1/1|new 23 Oct row; headline market Game Totals
+Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Graz_99ers_vs_EHC_Black_Wings_Linz|199965|Today|12:30|Puck Line|EHC Black Wings Linz +1.50|1/2|new 23 Oct row; headline market Puck Line; 50%, 1 comment
+Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|HK_Olimpija_Ljubljana_vs_Fehervar_AV19|199969|Today|13:15|Puck Line|HK Olimpija Ljubljana -1.50|1/1|unchanged 1/1, 1 comment
+Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Eisbaren_Berlin_vs_Augsburger_Panther|199926|Today|13:30|Puck Line|Eisbaren Berlin -1.50|1/1|new 23 Oct row; headline market Puck Line; 1 comment
+Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Adler_Mannheim_vs_Lowen_Frankfurt|199925|Today|13:30|Money Line|Adler Mannheim|1/1|new 23 Oct row; 1 comment
+Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Nurnberg_Ice_Tigers_vs_Krefeld_Pinguine|199928|Today|13:30|Game Totals|Under 5.50|1/1|new 23 Oct row; headline market Game Totals
+Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|EHC_Munchen_vs_Iserlohn_Roosters|199924|Today|13:30|Money Line|EHC Munchen|1/1|new 23 Oct row; 1 comment
+Ice_Hockey|Germany Eishockey Liga|Ice_Hockey/Other/Germany_Eishockey_Liga|Straubing_Tigers_vs_Kolner_Haie|199930|Today|13:30|Game Totals|Under 5.50|1/1|new 23 Oct row; headline market Game Totals
+Ice_Hockey|Austria EHL|Ice_Hockey/Other/Austria_EHL|Pioneers_Vorarlberg_vs_HCB_Sudtirol_Alperia|199968|Today|13:30|Money Line|HCB Sudtirol Alperia|1/1|unchanged 1/1, 1 comment
+Ice_Hockey|Switzerland NLA|Ice_Hockey/Other/Switzerland_NLA|Fribourg_Gotteron_vs_EHC_Biel|199908|Today|13:45|Money Line|Fribourg Gotteron|1/1|new 23 Oct row
+Ice_Hockey|Switzerland NLA|Ice_Hockey/Other/Switzerland_NLA|ZSC_Lions_vs_SCL_Tigers|199909|Today|13:45|Money Line|ZSC Lions|1/1|new 23 Oct row
+Ice_Hockey|Switzerland NLA|Ice_Hockey/Other/Switzerland_NLA|Lugano_vs_EHC_Kloten|199915|Today|13:45|Money Line|Lugano|1/1|new 23 Oct row
+Ice_Hockey|NHL|Ice_Hockey/NHL/NHL|TB_Lightning_@_COL_Avalanche|199985|Today|21:07|Puck Line|TB Lightning +1.50|1/2|new 23 Oct row; headline market Puck Line; 50%
+Cricket||Cricket/All_Cricket/All_Events|Tasmania_vs_Victoria_One_Day_Match|188839|Today|19:30|Win Match|Tasmania|5/7|new 23 Oct row; 71%, 3 comments
+Cricket||Cricket/All_Cricket/All_Events|New_Zealand_vs_India_2nd_T20_Match|188832|Tomorrow|03:00|Win Match|India|4/5|consensus moved 3/4 -> 4/5 (80%), 3 comments, 2 experts
+Cricket||Cricket/All_Cricket/All_Events|Western_Australia_vs_New_South_Wales_One_Day_Match|188840|Tomorrow|02:00|Win Match|Western Australia|3/4|new row; 75%, 1 comment
+Cricket||Cricket/All_Cricket/All_Events|Lions_vs_Limpopo_Impalas_T20|188841|Tomorrow|07:00|Win Match|Lions|3/3|new row; 100%, 2 comments
+Cricket||Cricket/All_Cricket/All_Events|Eastern_Cape_Iinyathi_vs_Warriors_T20|188842|Tomorrow|07:00|Win Match|Warriors|2/2|new row; 100%, 1 comment
+Cricket||Cricket/All_Cricket/All_Events|Knights_vs_Mpumalanga_Rhinos_T20|188843|Tomorrow|12:00|Win Match|Mpumalanga Rhinos|1/1|new row; 1 comment
+Cricket||Cricket/All_Cricket/All_Events|Pakistan_vs_England_One_Day_Match|188838|25 Oct|04:00|Win Match|Pakistan|1/1|new row; single tip
+Cricket||Cricket/All_Cricket/All_Events|World_Cup_2027|182606|21 Nov 2027|05:00|Outright Winner|India|6/12|outright; 50%
+Cricket||Cricket/All_Cricket/All_Events|Big_Bash_Women_2026|187184|05 Dec|03:10|Outright Winner|Sydney Sixers W|2/3|outright; 67%
+Cricket||Cricket/All_Cricket/All_Events|T20_Big_Bash_2026-27|187503|12 Dec|03:15|Outright Winner|Adelaide Strikers|1/2|outright; 50%
+Cricket||Cricket/All_Cricket/All_Events|SA20_2026-27|187504|24 Jan 2027|11:30|Outright Winner|Pretoria Capitals|1/1|outright
+Cricket||Cricket/All_Cricket/All_Events|T20_Blast_2027|188350|18 Jul 2027|11:00|Outright Winner|Sussex||outright; listing rendered the selection with no tip count
+Darts||Darts/All_Darts/All_Events|Jonny_Clayton_vs_Niko_Springer|32335|Today|14:45|Win Match 2-way|Jonny Clayton|26/31|consensus grew to 26/31 (84%), 10 comments
+Darts||Darts/All_Darts/All_Events|Wessel_Nijman_vs_Martin_Schindler|32326|Today|15:45|Win Match 2-way|Wessel Nijman|18/23|78%, 5 comments
+Darts||Darts/All_Darts/All_Events|Ryan_Joyce_vs_Jermaine_Wattimena|32332|Today|13:15|Win Match 2-way|Ryan Joyce|16/25|64%, 7 comments, 1 expert
+Darts||Darts/All_Darts/All_Events|Krzysztof_Ratajski_vs_Dave_Chisnall|32333|Today|13:45|Win Match 2-way|Krzysztof Ratajski|15/26|58%, 6 comments
+Darts||Darts/All_Darts/All_Events|Nathan_Aspinall_vs_Cristo_Reyes|32327|Today|14:15|Win Match 2-way|Nathan Aspinall|14/22|64%, 2 comments
+Darts||Darts/All_Darts/All_Events|Luke_Littler_vs_William_OConnor|32328|Today|15:15|Win Match 2-way|Luke Littler|14/20|70%, 3 comments
+Darts||Darts/All_Darts/All_Events|Kevin_Doets_vs_Michael_van_Gerwen|32331|Today|16:15|Win Match 2-way|Michael van Gerwen|10/17|59%, 4 comments, 1 expert
+Darts||Darts/All_Darts/All_Events|Josh_Rock_vs_Chris_Dobey|32336|Today|16:45|Win Match 2-way|Josh Rock|10/19|53%, 2 comments, 1 expert
+Darts||Darts/All_Darts/All_Events|Stephen_Bunting_vs_Kim_Huybrechts|32384|Tomorrow|13:15|Win Match 2-way|Kim Huybrechts|2/3|new row (Round 2); 67%
+Darts||Darts/All_Darts/All_Events|Gian_van_Veen_vs_Luke_Woodhouse|32385|Tomorrow|13:15|Win Match 2-way|Luke Woodhouse|2/3|new row (Round 2); 67%, 1 comment
+Darts||Darts/All_Darts/All_Events|Ross_Smith_vs_Damon_Heta|32386|Tomorrow|13:15|Win Match 2-way|Damon Heta|2/3|new row (Round 2); 67%
+Darts||Darts/All_Darts/All_Events|Cameron_Menzies_vs_Gerwyn_Price|32383|Tomorrow|13:15|Win Match 2-way|Gerwyn Price|1/2|new row (Round 2); 50%
+Darts||Darts/All_Darts/All_Events|PDC_World_Championship_2027|26023|03 Jan 2027|12:00|Win Tournament|Luke Littler|23/37|outright; 62%, 8 comments
+Darts||Darts/All_Darts/All_Events|European_Championship|32338|25 Oct|14:00|Win Tournament|Gian van Veen|4/18|outright; leader now Gian van Veen 4/18 (22%), 3 comments
+Snooker||Snooker/All_Snooker/All_Events|Jak_Jones_v_Scott_Donaldson|9951|Today|14:05|Win Match|Jak Jones|11/15|new 23 Oct row; 73%, 6 comments
+Snooker||Snooker/All_Snooker/All_Events|David_Gilbert_v_Mark_Williams|9950|Today|14:05|Win Match|Mark Williams|11/15|new 23 Oct row; 73%, 6 comments, 1 expert
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Aurillac_v_Nevers|609560|Today|13:30|To Win|Aurillac|14/19|74%, 10 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Agen_v_Nissa|609558|Today|13:30|To Win|Agen|12/18|67%, 6 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Narbonne_v_Brive|609557|Today|13:00|To Win|Brive|11/17|65%, 5 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Connacht_v_Zebre_Parma|609577|Today|14:45|To Win|Connacht|11/15|73%, 5 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Edinburgh_v_Lions|609579|Today|14:45|To Win|Edinburgh|8/9|89%, 7 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Soyaux_Angouleme_v_Dax|609563|Today|13:30|To Win|Dax|7/14|50%, 2 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Gloucester_v_Bath|609570|Today|14:45|To Win|Gloucester|7/7|100%, 5 comments, 1 expert
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Valence_Romans_v_Colomiers|609559|Today|13:30|To Win|Valence Romans|6/11|55%, 3 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Provence_v_Beziers|609562|Today|15:00|To Win|Provence|6/10|60%, 3 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Grenoble_v_Biarritz|609561|Today|15:00|To Win|Grenoble|6/10|60%, 5 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Cardiff_v_Sharks|609575|Today|14:45|To Win|Sharks|4/7|57%, 3 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Newcastle_Red_Bulls_v_Sale_Sharks|609573|Today|14:45|To Win|Sale Sharks|3/5|60%, 2 comments
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bulls_v_Ulster|609576|Tomorrow|07:45|To Win|Ulster|3/4|75%
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Japan_v_Fiji|609582|Tomorrow|01:50|To Win|Fiji|2/3|new row; 67%, 1 comment
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Stormers_v_Scarlets|609580|Tomorrow|10:00|To Win|Scarlets|2/4|50%
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Toulouse_v_Perpignan|609567|Tomorrow|10:35|To Win|Perpignan|2/4|headline market now To Win; 50%
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Leinster_v_Munster|609578|Tomorrow|13:00|To Win|Leinster|2/3|67%
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Leicester_Tigers_v_Northampton_Saints|609572|Tomorrow|10:05|To Win|Northampton Saints|1/1|single tip
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bayonne_v_Lyon|609564|Tomorrow|10:35|Handicap|Lyon +10.50|1/1|headline market Handicap; single tip
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Bristol_Bears_v_Exeter_Chiefs|609569|Tomorrow|12:30|Handicap|Exeter Chiefs +7.50|1/1|headline market Handicap; single tip
+Rugby_Union||Rugby_Union/All_Rugby_Union/All_Events|Six_Nations_2027|609013|14 Mar 2027|16:00|Win Tournament|Ireland|3/9|outright; 33%, 2 comments
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|State_of_Origin_2027|2695857|27 May 2027|06:00|Win Tournament|New South Wales|9/12|outright; 75%, 3 comments; no dated Rugby League fixture listed
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|Super_League_2027|2801554|02 Oct 2027|13:00|Grand Final Winner|Leeds Rhinos|1/3|outright; 33%, 1 comment
+Rugby_League||Rugby_League/All_Rugby_League/All_Events|NRL_2027|2801600|03 Oct 2027|04:30|Grand Final Winner|Penrith Panthers|1/2|outright; 50%, 1 comment
+Handball||Handball/All_Handball/All_Events|Pays_dAix_UC_vs_Toulouse|12083|Today|14:00|Money Line|Toulouse|7/16|44%, 4 comments
+Handball||Handball/All_Handball/All_Events|Frisch_Auf_Goppingen_vs_ThSV_Eisenach|12088|Today|13:00|Money Line|Tie|6/15|headline selection is the Tie (40%), 1 comment, 1 expert
+Handball||Handball/All_Handball/All_Events|Bidasoa_Irun_vs_Caserio_Ciudad_Real|12101|Today|13:00|Money Line|Bidasoa Irun|6/12|50%, 3 comments, 1 expert
+Handball||Handball/All_Handball/All_Events|Limoges_87_vs_Dunkerque|12080|Today|14:00|Money Line|Limoges 87|6/15|40%, 3 comments
+Handball||Handball/All_Handball/All_Events|TSV_Hannover_Burgdorf_vs_TBV_Lemgo_Lippe|12093|Today|14:00|Money Line|Tie|6/13|headline selection is the Tie (46%), 2 comments, 1 expert
+Handball||Handball/All_Handball/All_Events|GRK_Ohrid_vs_Spor_Toto_SK|12120|Today|12:30|Match Handicap|Spor Toto SK +11.50|5/5|new 23 Oct row; headline market Match Handicap; 100%, 2 comments
+Handball||Handball/All_Handball/All_Events|Chartres_vs_USAM_Nimes|12079|Today|14:00|Money Line|Tie|5/10|headline selection is the Tie (50%)
+Handball||Handball/All_Handball/All_Events|Estonia_W_vs_Kosovo_W|12110|Today|14:00|Money Line|Kosovo (W)|5/11|45%, 1 comment
+Handball||Handball/All_Handball/All_Events|FC_Barcelona_vs_Ciudad_Encantada|12121|Today|13:00|Match Handicap|Ciudad Encantada +13.50|4/5|new 23 Oct row; headline market Match Handicap; 80%
+Handball||Handball/All_Handball/All_Events|Selestat_Alsace_vs_Caen|12085|Today|14:30|Money Line|Caen|4/8|50%, 1 comment
+Handball||Handball/All_Handball/All_Events|Tremblay_vs_Cesson_Rennes|12086|Today|14:30|Money Line|Cesson Rennes|4/9|44%, 2 comments
+Handball||Handball/All_Handball/All_Events|Skive_FH_vs_Aalborg_Handbold|12076|Tomorrow|09:00|Money Line|Aalborg Handbold|3/6|50%
+Handball||Handball/All_Handball/All_Events|Skjern_Handbold_vs_Ribe_Esbjerg_HH|12077|Tomorrow|10:00|Money Line|Ribe Esbjerg HH|2/3|67%
+Handball||Handball/All_Handball/All_Events|Villa_De_Aranda_vs_Puerto_Sagunto|12107|Tomorrow|13:00|Money Line|Puerto Sagunto|2/2|new row; 100%
+Handball||Handball/All_Handball/All_Events|HC_Erlangen_vs_THW_Kiel|12091|Tomorrow|12:00|Money Line|HC Erlangen|1/2|50%
+Handball||Handball/All_Handball/All_Events|BM_Nava_vs_Atletico_Valladolid|12104|Tomorrow|13:00|Money Line|BM Nava|1/1|new row; single tip
+Handball||Handball/All_Handball/All_Events|Nantes_vs_Chambery_Savoie|12082|Tomorrow|13:00|Money Line|Nantes|1/2|50%
+Handball||Handball/All_Handball/All_Events|BM_Logrono_La_Rioja_vs_BM_Cangas|12103|Tomorrow|13:30|Money Line|BM Cangas|1/2|new row; 50%
+Handball||Handball/All_Handball/All_Events|HBW_Balingen_Weilstetten_vs_MT_Melsungen|12090|Tomorrow|14:00|Money Line|HBW Balingen-Weilstetten|1/2|50%
+Handball||Handball/All_Handball/All_Events|CBM_Sporting_Alicante_vs_Ademar_Leon|12106|25 Oct|07:00|Money Line|Ademar Leon|1/1|new row; single tip
+Volleyball||Volleyball/All_Volleyball/All_Events|VOLLEY_GOATS_Mitteldeutschland_vs_Netzhoppers_KW|37009|Today|13:30|Win Match|Netzhoppers KW|6/7|86%, 5 comments, 1 expert
+Volleyball||Volleyball/All_Volleyball/All_Events|Brasilia_W_vs_Sesc_RJ_Flamengo_W|37001|Today|17:30|Win Match|Brasilia W|5/9|56%
+Volleyball||Volleyball/All_Volleyball/All_Events|ATSC_Klagenfurt_Women_vs_Linz_Steg_W|37015|Today|14:00|Win Match|Linz Steg W|4/7|57%, 2 comments
+Volleyball||Volleyball/All_Volleyball/All_Events|Minas_W_vs_Paulistano-Barueri_W|37022|Today|17:30|Win Match|Minas W|4/6|new 23 Oct row; 67%, 3 comments
+Volleyball||Volleyball/All_Volleyball/All_Events|Lokomotiv_Avia_vs_Montana|37025|Today|12:30|Win Match|Lokomotiv Avia|3/4|new 23 Oct row; 75%, 3 comments
+Volleyball||Volleyball/All_Volleyball/All_Events|PGE_Skra_Belchatow_vs_Projekt_Warszawa|36964|Tomorrow|12:00|Win Match|Projekt Warszawa|2/3|67%
+Volleyball||Volleyball/All_Volleyball/All_Events|Mackenzie_W_vs_Osasco_W|37002|Tomorrow|15:00|Win Match|Mackenzie W|2/3|67%
+Volleyball||Volleyball/All_Volleyball/All_Events|Abel-Moda_Brusque_W_vs_Praia_Clube_W|37003|Tomorrow|20:00|Win Match|Abel/Moda Brusque W|2/2|100%
+Volleyball||Volleyball/All_Volleyball/All_Events|Trentino_vs_Cisterna|36994|25 Oct|12:00|Win Match|Cisterna|2/2|100%
+Volleyball||Volleyball/All_Volleyball/All_Events|Perugia_vs_Pordenone|36997|25 Oct|13:00|Win Match|Pordenone|2/2|100%
+Volleyball||Volleyball/All_Volleyball/All_Events|CHKS_Chelm_vs_Resovia_Rzeszow|36965|25 Oct|13:00|Win Match|Resovia Rzeszow|2/3|67%
+Volleyball||Volleyball/All_Volleyball/All_Events|SG_Sokol-Post_W_vs_TSV_Hartberg_W|37017|Tomorrow|10:30|Set Score|SG Sokol/Post W to win 3-1|1/1|headline market Set Score
+Volleyball||Volleyball/All_Volleyball/All_Events|UVC_Ried_vs_VBK_Klagenfurt|37031|Tomorrow|12:00|Win Match|UVC Ried|1/1|new row; 1 comment
+Volleyball||Volleyball/All_Volleyball/All_Events|Sternberk_W_vs_VK_Lvice_Praha_W|37026|Tomorrow|12:00|Set Score|Sternberk W to win 3-1|1/1|new row; headline market Set Score
+Volleyball||Volleyball/All_Volleyball/All_Events|VfB_Friedrichshafen_vs_SSC_Karlsruhe|37010|Tomorrow|12:30|Set Score|VfB Friedrichshafen to win 3-1|1/1|headline market Set Score
+Volleyball||Volleyball/All_Volleyball/All_Events|SK_Aich-Dob_vs_SG_VCA_Amstetten|37032|Tomorrow|13:00|Win Match|SK Aich/Dob|1/1|new row; 1 comment
+Volleyball||Volleyball/All_Volleyball/All_Events|SVG_Luneburg_vs_SV_Warnemunde|37011|Tomorrow|13:00|Set Score|SVG Luneburg to win 3-1|1/1|headline market Set Score
+Volleyball||Volleyball/All_Volleyball/All_Events|ASKO_Purgstall_W_vs_VBV_Trofaiach-WSV_Eisenerz_W|37018|Tomorrow|13:00|Win Match|ASKO Purgstall W|1/2|50%
+Volleyball||Volleyball/All_Volleyball/All_Events|SWD_Duren_vs_WWK_Volleys_Munchen|37012|Tomorrow|13:30|Set Score|WWK Volleys Munchen to win 3-1|1/1|headline market Set Score
+Volleyball||Volleyball/All_Volleyball/All_Events|Helios_Grizzlys_Giesen_vs_Berlin_Volleys|37013|Tomorrow|13:30|Set Score|Helios Grizzlys Giesen to win 3-1|1/1|headline market Set Score
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|USA_Grand_Prix|913|25 Oct|16:00|Win Race|Max Verstappen|13/38|consensus grew to 13/38 (34%), 7 comments, 3 experts
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026|828|06 Dec|08:00|Win Tournament|Max Verstappen|9/33|outright; 27%, 4 comments
+Motor_Racing||Motor_Racing/All_Motor_Racing/All_Events|Formula_1_Drivers_Championship_2026_Without_Kimi_Antonelli|912|06 Dec|08:00|Win Tournament|Max Verstappen|4/7|outright; 57%, 1 comment
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|St_Finbarrs_v_Nemo_Rangers|3530|25 Oct|12:00|Handicap|Nemo Rangers +1.50|14/18|OLBG renders no market label for Gaelic rows; the selection carries a +1.50 handicap figure, so the market is recorded as Handicap on that basis (docs/olbg-structure.md); consensus grew to 14/18 (78%), 4 comments
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Moycullen_v_Salthill-Knocknacarra|3532|25 Oct|12:00|Handicap|Moycullen -3.50|12/24|no market label rendered; selection carries a -3.50 handicap figure; headline flipped to Moycullen -3.50 12/24 (50%); 4 comments; date label now 25 Oct (was 24 Oct)
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Kanturk_v_Eire_Og_Cor|3531|01 Nov|09:00|To Win|Kanturk|4/7|no market label rendered; plain team selection recorded as To Win; 57%, 1 comment
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|Fr_Caseys_v_Kildimo_Pallaskenry|3537|01 Nov|10:30|To Win|Fr Caseys|3/3|no market label rendered; plain team selection recorded as To Win (headline was Fr Caseys -3.50 handicap in the 22 Oct capture); 100%, 1 comment
+Gaelic_Football||Gaelic_Football/All_Gaelic_Football/All_Events|All_Ireland_Football_Championship_2027|3327|25 Jul 2027|10:30|Win Tournament|Kerry|5/7|outright; no market label rendered; 71%, 2 comments; date label now 25 Jul 2027 (was 26 Jul 2027)
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:12_Towcester|689803|Today|12:12|Daily Races|Choices Jean|2/4|listing shows Expired; 50%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:18_Kinsley|689800|Today|12:18|Daily Races|Grumpy Sandstorm|2/2|100%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:31_Towcester|689802|Today|12:31|Daily Races|Mums Image|2/2|100%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:49_Towcester|689805|Today|12:49|Daily Races|Trapstyle Sneezy|2/2|100%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:33_Romford|689846|Today|15:33|Daily Races|Ontherun Jamie|2/2|100%, 1 comment
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|9:13_Romford|689717|Today|16:13|Daily Races|Grouchos Gregor|2/2|100%, 2 comments
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:24_Newcastle|689806|Today|12:24|Daily Races|Alnwick Tina|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:37_Kinsley|689804|Today|12:37|Daily Races|Grumpy Jacko|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:43_Newcastle|689798|Today|12:43|Daily Races|Dryland Velvet|1/2|50%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:51_Harlow|689801|Today|12:51|Daily Races|Doreens Poppy|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|5:56_Kinsley|689807|Today|12:56|Daily Races|Kellyseyenoone|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:02_Newcastle|689808|Today|13:02|Daily Races|Mollys Aoibhe|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:08_Nottingham|689810|Today|13:08|Daily Races|Honeygar Flow|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:11_Harlow|689811|Today|13:11|Daily Races|Club Dream|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:18_Sheffield|689816|Today|13:18|Daily Races|Jaykay Seven|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:23_Sunderland|689809|Today|13:23|Daily Races|Listen Tilly|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:28_Nottingham|689815|Today|13:28|Daily Races|Perdey|1/2|50%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:29_Harlow|689814|Today|13:29|Daily Races|Savana Bridget|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:33_Romford|689812|Today|13:33|Daily Races|Razldazl Minty|1/2|50%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:38_Sheffield|689813|Today|13:38|Daily Races|Dairyland Amelia|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:43_Sunderland|689817|Today|13:43|Daily Races|Little Pretender|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:46_Harlow|689818|Today|13:46|Daily Races|Unlikely Maddie|1/2|50%
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:48_Nottingham|689819|Today|13:48|Daily Races|Headford Shark|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:53_Romford|689823|Today|13:53|Daily Races|Lollipop Lucy|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|6:58_Sheffield|689826|Today|13:58|Daily Races|Droopys Sway|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:03_Sunderland|689820|Today|14:03|Daily Races|Swift Mandy|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:04_Harlow|689825|Today|14:04|Daily Races|Skirk Sky|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:08_Nottingham|689822|Today|14:08|Daily Races|Macash Rose|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:13_Romford|689821|Today|14:13|Daily Races|Crossfield Roger|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:18_Sheffield|689824|Today|14:18|Daily Races|La Flor|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:23_Sunderland|689827|Today|14:23|Daily Races|Highmeadow Henry|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:28_Nottingham|689828|Today|14:28|Daily Races|Hillend Maise|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:33_Romford|689830|Today|14:33|Daily Races|Miss Manage|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|7:53_Romford|689834|Today|14:53|Daily Races|Skidroe Lady|1/1|
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:13_Romford|689840|Today|15:13|Daily Races|Scooby Amethyst|1/1|1 comment
+Greyhounds||Greyhounds/All_Greyhounds/All_Events|8:53_Romford|689854|Today|15:53|Daily Races|Stormy Pat|1/1|

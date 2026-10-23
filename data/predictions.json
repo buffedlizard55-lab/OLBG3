@@ -1,5 +1,5 @@
 {
-  "note": "12 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "10 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -196,7 +196,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "FL-134 downgrade (session-d0f5ca54): the earlier record quoted this fixture as \"... CET\", a token the LNR page does not print (and France observes CEST, not CET, in October). Pair and date confirmed by LNR; exact UTC start left blank."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "RGU-10",
@@ -219,7 +219,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "FL-134 downgrade (session-d0f5ca54): the earlier record quoted this fixture as \"... CET\", a token the LNR page does not print (and France observes CEST, not CET, in October). Pair and date confirmed by LNR; exact UTC start left blank."
+      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
     },
     {
       "ref": "RGU-13",
@@ -242,7 +242,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
     },
     {
       "ref": "IHO-02",
@@ -339,7 +339,7 @@
     {
       "selection": "Milwaukee Brewers to win Game 1 (money line, 1.67 / -149)",
       "headline": "Milwaukee’s sweep meets Tampa Bay’s late ALCS surge",
-      "body": "Milwaukee to win Game 1 is the money-line selection. The Brewers finished 103–59, scored 832 runs and allowed 618, then swept the Dodgers in four NLCS games, closing with a 6–4 win on October 15. Tampa Bay deserve respect after winning the last three ALCS games against Cleveland to take that series 4–2. Milwaukee’s 55–26 regular-season home record supplies the preference, not a guarantee. MLB.com's Game 1 preview now names the starters. Brewers right-hander Jacob Misiorowski led the majors with a 1.80 ERA, 252 strikeouts and a 0.80 WHIP, threw the fastest pitch of this postseason at 104.8 mph and goes on eleven full days of rest. The Rays counter with right-hander Nick Martinez — Tampa Bay are 24-9 in his starts this year including the playoffs, and he has allowed three runs across nine postseason innings, all on the road. That matchup tempers, but does not overturn, the home preference.",
+      "body": "Milwaukee to win Game 1 is the money-line selection. The Brewers finished 103–59, scored 832 runs and allowed 618, then swept the Dodgers in four NLCS games, closing with a 6–4 win on October 15. Tampa Bay deserve respect after winning the last three ALCS games against Cleveland to take that series 4–2. Milwaukee’s 55–26 regular-season home record supplies the preference, not a guarantee. MLB.com’s Game 1 coverage spotlights Brewers ace Jacob Misiorowski, whose 100.6 mph average fastball velocity is the highest for a major-league starter in 2026, against Rays slugger Junior Caminero, whose 79.4 mph average bat speed also leads the majors; Tampa Bay’s Game 1 starter was not named in the sources read, so no pitching matchup beyond Misiorowski is assumed. On the morning of Game 1 the official schedule page still lists Rays @ Brewers at 8 p.m. ET at American Family Field, Milwaukee's first World Series since 1982 and Tampa Bay's third, and OLBG's crowd has firmed to 25 of 31 tips (81%) for the Brewers; the first pitch is 00:00 UTC on 24 October.",
       "sources": [
         {
           "label": "MLB official 2026 standings",
@@ -350,8 +350,8 @@
           "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
         },
         {
-          "label": "MLB official World Series Game 1 preview (starters Nick Martinez vs Jacob Misiorowski)",
-          "url": "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup"
+          "label": "OLBG event page — TB Rays @ MIL Brewers (25/31 tips at 16:30Z)",
+          "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789"
         }
       ],
       "ref": "BSB-01",
@@ -381,7 +381,7 @@
       ],
       "ref": "RGU-02",
       "status": "analysis",
-      "downgrade_reason": "FL-134 downgrade (session-d0f5ca54): the earlier record quoted this fixture as \"... CET\", a token the LNR page does not print (and France observes CEST, not CET, in October). Pair and date confirmed by LNR; exact UTC start left blank."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "selection": "Soyaux-Angouleme to win (3-way match betting, 1.46 / -217)",
@@ -407,7 +407,7 @@
       ],
       "ref": "RGU-03",
       "status": "analysis",
-      "downgrade_reason": "FL-134 downgrade (session-d0f5ca54): the earlier record quoted this fixture as \"... CET\", a token the LNR page does not print (and France observes CEST, not CET, in October). Pair and date confirmed by LNR; exact UTC start left blank."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "selection": "Valence Romans to win (3-way match betting, 1.72 / -139)",
@@ -455,7 +455,7 @@
       ],
       "ref": "RGU-09",
       "status": "analysis",
-      "downgrade_reason": "FL-134 downgrade (session-d0f5ca54): the earlier record quoted this fixture as \"... CET\", a token the LNR page does not print (and France observes CEST, not CET, in October). Pair and date confirmed by LNR; exact UTC start left blank."
+      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
     },
     {
       "ref": "BKB-20",
@@ -555,7 +555,7 @@
     {
       "selection": "Gerwyn Price to win Match (Best of 11 legs)",
       "headline": "Ten-time Euro Tour champion Gerwyn Price holds the heavy-scoring edge over Rob Cross in Dortmund",
-      "body": "Thursday night's marquee opening-round tie at Dortmund's Westfalenhalle pits 13th seed Gerwyn Price against 20th seed Rob Cross over a sprint first-to-six-legs distance. Price enters with 10 career European Tour titles and superior 2026 continental prize-money form over Cross, whose patchy doubles under early pressure have repeatedly left him chasing legs this autumn. With 10 of 13 OLBG tipsters backing the Welshman and our seedings read concurring at 1.61 (-164), take Gerwyn Price to Win Match.",
+      "body": "Thursday night's marquee opening-round tie at Dortmund's Westfalenhalle pits 13th seed Gerwyn Price against 20th seed Rob Cross over a sprint first-to-six-legs distance. Price enters with 10 career European Tour titles and superior 2026 continental prize-money form over Cross, whose patchy doubles under early pressure have repeatedly left him chasing legs this autumn. With 10 of 13 OLBG tipsters backing the Welshman and our seedings-based pricing concurring at 1.61 (-164), take Gerwyn Price to Win Match.",
       "sources": [
         {
           "label": "PDC — Confirmed 2026 Machineseeker European Championship Schedule",
@@ -573,7 +573,7 @@
     {
       "selection": "Krzysztof Ratajski to win Match (Best of 11 legs)",
       "headline": "European Tour title winner Krzysztof Ratajski's consistency contrasts sharply with 30th-seeded Dave Chisnall",
-      "body": "Here our PDC Order of Merit numbers firmly disagrees with a narrow 5/9 crowd lean toward Dave Chisnall on Friday's Dortmund card. Polish number one Krzysztof Ratajski captured a 2026 European Tour title to qualify comfortably as the third seed, whereas Chisnall barely scraped into the 32-man field in 30th after months of erratic finishing on outer doubles. Priced at 1.48 (-208), Krzysztof Ratajski to Win Match is a prime numbers-led selection.",
+      "body": "Here our PDC Order of Merit pricing firmly disagrees with a narrow 5/9 crowd lean toward Dave Chisnall on Friday's Dortmund card. Polish number one Krzysztof Ratajski captured a 2026 European Tour title to qualify comfortably as the third seed, whereas Chisnall barely scraped into the 32-man field in 30th after months of erratic finishing on outer doubles. Priced at 1.48 (-208), Krzysztof Ratajski to Win Match is a prime numbers-driven selection.",
       "sources": [
         {
           "label": "PDC — 2026 Machineseeker European Championship Field & Draw",
@@ -608,7 +608,7 @@
     },
     {
       "selection": "Pick Szeged to win in 60-minute match betting",
-      "headline": "Szeged’s home response is tested by GOG’s recorded winning run",
+      "headline": "Szeged’s home response is tested by GOG’s confirmed winning run",
       "body": "Pick Szeged to win in regulation is our selection, with GOG’s form a substantial warning. The EHF preview places GOG second in Group D on six points and Szeged third on three after round four. GOG won the reverse meeting 36–34 on September 16, not earlier in October. Manuel Zehnder then scored 11 against Kristianstad; the separate 39–30 result was against Kolding domestically. Szeged lost 28–34 at Sporting but beat NEKA 40–29, giving a mixed recent record rather than a one-sided case.",
       "sources": [
         {
@@ -799,7 +799,7 @@
     {
       "selection": "Zizou Bergs to win Match",
       "headline": "Sixth seed Zizou Bergs turns home Belgian indoor courts to his advantage against Damir Dzumhur",
-      "body": "Our ATP ranking read reverses a lone OLBG tip on veteran Damir Dzumhur when sixth seed Zizou Bergs takes Centre Court in Brussels on Thursday evening. Bergs excels on brisk indoor hard courts where his first-strike forehand rushes world No. 83 Dzumhur, even after Dzumhur outlasted Dino Prizmic in Round 1. Priced squarely in the value zone at 1.62 (-161), Zizou Bergs to Win Match is the call.",
+      "body": "Our ATP ranking-based pricing reverses a lone OLBG tip on veteran Damir Dzumhur when sixth seed Zizou Bergs takes Centre Court in Brussels on Thursday evening. Bergs excels on brisk indoor hard courts where his first-strike forehand rushes world No. 83 Dzumhur, even after Dzumhur outlasted Dino Prizmic in Round 1. Priced squarely in the value zone at 1.62 (-161), Zizou Bergs to Win Match is the call.",
       "sources": [
         {
           "label": "ATP Tour — Official Brussels European Open Day 6 Schedule",
@@ -895,13 +895,14 @@
         }
       ],
       "ref": "MTR-01",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "HBL-23",
       "selection": "Pays d'Aix UC to win the match (money line 1.52 / -192); handicap angle Aix -1.5 goals at 1.91, total 62.5 goals",
       "headline": "Aix's superior goal differential should separate two mid-table sides on the same points",
-      "body": "Pays d'Aix Université Club to win is the call at 1.52, with the Aix -1.5 goal handicap and the 62.5-goal match total as the other two markets we priced. After seven rounds the LNH table has Aix eighth on six points with 227 goals scored and 223 conceded, a +4 differential, while Toulouse sit 13th on the very same six points from a 3-4 record. The scoring split is where the two clubs part company: Aix have found the net 227 times, Toulouse only 198, a total that just Dunkerque (175) fall below in the 16-club division, and Fénix have conceded 201 against Aix's 223. Our numbers pair each side's goals-for average with the opponent's goals-against average, adds the disclosed 1.4-goal home adjustment for Aix and lands at roughly a two-goal edge, which is why the win price sits shorter than the handicap.",
+      "body": "Pays d'Aix Université Club to win is the call at 1.52, with the Aix -1.5 goal handicap and the 62.5-goal match total as the other two markets we priced. After seven rounds the LNH table has Aix eighth on six points with 227 goals scored and 223 conceded, a +4 differential, while Toulouse sit 13th on the very same six points from a 3-4 record. The scoring split is where the two clubs part company: Aix have found the net 227 times, Toulouse only 198, a total that just Dunkerque (175) fall below in the 16-club division, and Fénix have conceded 201 against Aix's 223. Our pricing pairs each side's goals-for average with the opponent's goals-against average, adds the disclosed 1.4-goal home adjustment for Aix and lands at roughly a two-goal edge, which is why the win price sits shorter than the handicap.",
       "sources": [
         {
           "label": "LNH official Daikin StarLigue 2026/27 standings after Journée 07 (Aix 227/223, Toulouse 198/201)",
@@ -920,7 +921,7 @@
       "ref": "HBL-21",
       "selection": "Ystads IF HF to win the match (money line 1.60 / -167); handicap angle Ystads -1.5 goals at 1.91, total 60.5 goals",
       "headline": "Ystads' +13 differential meets a winless Önnereds side on home court",
-      "body": "Ystads IF HF to win at 1.60 is our selection, with the Ystads -1.5 goal handicap and a 60.5-goal match total quoted alongside it. The Handbollsligan's own table has Ystads sixth on six points from four matches, three wins and one defeat, with 125 goals scored and 112 conceded. Önnereds are 12th with two points from five games and are still without a win: two draws, three defeats, 140 scored and 152 conceded. Both clubs have played a similar share of the season, and the 25-goal swing between Ystads' +13 differential and Önnereds' -12 is the clearest signal in the row; our numbers pair each side's scoring rate with the opposing defence, applies the disclosed 1.4-goal home adjustment to Önnereds and still makes the visitors roughly 59% to win, which is why we take the away money line rather than the handicap.",
+      "body": "Ystads IF HF to win at 1.60 is our selection, with the Ystads -1.5 goal handicap and a 60.5-goal match total quoted alongside it. The Handbollsligan's own table has Ystads sixth on six points from four matches, three wins and one defeat, with 125 goals scored and 112 conceded. Önnereds are 12th with two points from five games and are still without a win: two draws, three defeats, 140 scored and 152 conceded. Both clubs have played a similar share of the season, and the 25-goal swing between Ystads' +13 differential and Önnereds' -12 is the clearest signal in the row; our pricing pairs each side's scoring rate with the opposing defence, applies the disclosed 1.4-goal home adjustment to Önnereds and still makes the visitors roughly 59% to win, which is why we take the away money line rather than the handicap.",
       "sources": [
         {
           "label": "Handbollsligan official table 2026-27 (Ystads 125-112 in 4, Önnereds 140-152 in 5)",
@@ -939,7 +940,7 @@
       "ref": "HBL-30",
       "selection": "Skånela IF to win the match (money line 1.70 / -143); handicap angle Skånela -0.5 goals at 1.91, total 63.5 goals",
       "headline": "Home court is the tie-breaker in a near-even Skånela-Karlskrona matchup",
-      "body": "Skånela IF to win at 1.70 is a narrow home call rather than a mismatch, and we price the -0.5-goal handicap and a 63.5-goal total around it. Skånela are 13th in the Handbollsligan table with two points from five matches, one win and four defeats, scoring 142 and conceding 155. HF Karlskrona, listed by OLBG under their old HIF name, are 11th on four points from the same five games, two wins and three defeats, 156 scored and 164 conceded. The profiles are close: Karlskrona score about 2.8 goals per game more but also ship about 1.8 more. Our numbers give Skånela only about 56% because the disclosed 1.4-goal home adjustment is enough to flip an otherwise even projection, so the win market, not the handicap, is the honest way to take this one.",
+      "body": "Skånela IF to win at 1.70 is a narrow home call rather than a mismatch, and we price the -0.5-goal handicap and a 63.5-goal total around it. Skånela are 13th in the Handbollsligan table with two points from five matches, one win and four defeats, scoring 142 and conceding 155. HF Karlskrona, listed by OLBG under their old HIF name, are 11th on four points from the same five games, two wins and three defeats, 156 scored and 164 conceded. The profiles are close: Karlskrona score about 2.8 goals per game more but also ship about 1.8 more. Our pricing gives Skånela only about 56% because the disclosed 1.4-goal home adjustment is enough to flip an otherwise even projection, so the win market, not the handicap, is the honest way to take this one.",
       "sources": [
         {
           "label": "Handbollsligan official table 2026-27 (Skånela 142-155 in 5, Karlskrona 156-164 in 5)",
@@ -969,7 +970,8 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "BKB-26",
@@ -992,16 +994,20 @@
     {
       "ref": "BKB-29",
       "selection": "Olympiacos Piraeus to win on the money line at 1.69 (-145)",
-      "headline": "Olympiacos' road-heavy 5-1 start is the edge over Fenerbahce in Piraeus",
-      "body": "Olympiacos Piraeus host Fenerbahce Tarfin Istanbul as Round 7 closes tonight (20:15 CEST), and our money line is Olympiacos at 1.69 (-145). Both clubs are 5-1 on the official standings, so the split that matters is venue: Olympiacos are 1-0 at home and 4-1 away with 564 points scored, while all five Fenerbahce wins have come in Istanbul and they are 0-1 on the road. Olympiacos also arrive off back-to-back overtime road wins and have taken the last three meetings between the clubs, including the 2026 Final Four semi-final. Selection: Olympiacos Piraeus to win the match.",
+      "headline": "Olympiacos' road-hardened 5-1 start and three straight wins in this fixture are the edge over Fenerbahce",
+      "body": "Olympiacos Piraeus host Fenerbahce Tarfin Istanbul in EuroLeague Round 7 on Friday 23 October (20:15 CEST, 18:15 UTC) and our originated money line is Olympiacos at 1.69 (-145). Both clubs arrive 5-1, so the split that matters is where the wins came from: Olympiacos have won four of five on the road, including back-to-back overtime away wins, and average 98.2 points, second-best in the competition, while all five Fenerbahce wins came in Istanbul and the club is still seeking a first road win of the season. Fenerbahce's answer is defence, conceding just 74.5 points a game, second-best in the league. Olympiacos have also won the last three meetings, including the 2026 Final Four semi-final and the SuperCup semi-final. Our pricing reads the match-up as a 56.2% home win, which is why the row sits inside the requested odds window. Selection: Olympiacos Piraeus to win the match.",
       "sources": [
         {
-          "label": "EuroLeague official standings, read 2026-10-22T21:35Z (Olympiacos 5-1, 564-524, 1-0 home / 4-1 away; Fenerbahce 5-1, 501-447, 5-0 home / 0-1 away)",
+          "label": "EuroLeague official — Game Center: Round 7 (clocks in CEST, form and head-to-head notes)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "EuroLeague official standings",
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         },
         {
-          "label": "EuroLeague official Round 7 game centre (Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul, 20:15 CEST; re-read 2026-10-23)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+          "label": "OLBG event page — Olympiacos vs Fenerbahce (6/10 tips at 16:30Z)",
+          "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Olympiacos_vs_Fenerbahce/4?event_id=535925"
         }
       ],
       "status": "high"
@@ -1009,16 +1015,20 @@
     {
       "ref": "BKB-30",
       "selection": "Valencia Basket to win on the money line at 1.53 (-189)",
-      "headline": "Paris' 1-5 start and -41 scoring gap make Valencia the clear Round 7 lean",
-      "body": "Paris Basketball host Valencia Basket in the final game of Round 7 tonight (20:45 CEST), and our money line takes the visitors, Valencia at 1.53 (-189). The official standings have Valencia 4-2 with 583 points scored against 537 conceded and a perfect 2-0 away record, while Paris are 1-5 at 504-545 and on a three-game losing streak. There is a subplot too: TJ Shorts, who led Paris to the 2024 EuroCup title, returns tonight to face his former club in a Valencia shirt. Selection: Valencia Basket to win the match.",
+      "headline": "Paris' three-game slide and league-worst 1-5 record make Valencia the Round 7 call",
+      "body": "Paris Basketball host Valencia Basket in EuroLeague Round 7 on Friday 23 October (20:45 CEST, 18:45 UTC) and our originated money line takes the visitors at 1.53 (-189). Paris are 1-5 and on a three-game losing streak, although they get point guard TJ Shorts back, while Valencia are 5-1 after their first defeat of the season and own the competition's top offence at 98.3 points a game. Valencia have also won both road games so far, with 583 points scored against 537 conceded on the standings read on 22 October, against Paris' 504-545. Nadir Hifi, the league's leading scorer at 20.2 points, is the home side's main route to an upset. Our pricing makes Valencia a 62.2% chance. OLBG's headline consensus swung from Paris to Valencia (5/10) in Friday's 16:30Z capture. Selection: Valencia Basket to win the match.",
       "sources": [
         {
-          "label": "EuroLeague official standings, read 2026-10-22T21:35Z (Valencia 4-2, 583-537, 2-0 away; Paris 1-5, 504-545, 1-3 home)",
+          "label": "EuroLeague official — Game Center: Round 7 (clocks in CEST, form notes)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "EuroLeague official standings",
           "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
         },
         {
-          "label": "EuroLeague official Round 7 game centre (Paris Basketball vs. Valencia Basket, 20:45 CEST; re-read 2026-10-23)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+          "label": "OLBG event page — Paris vs Valencia (5/10 tips at 16:30Z)",
+          "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Paris_vs_Valencia/4?event_id=535926"
         }
       ],
       "status": "high"
@@ -1058,8 +1068,8 @@
     {
       "ref": "SNK-07",
       "selection": "Kyren Wilson to win at 1.42 (-238)",
-      "headline": "Kyren Wilson to win at 1.61 — recent results checked, start timezone not stated",
-      "body": "Kyren Wilson to win is our selection against Pang Junxu. WST’s results show Wilson beating Ben Mertens 4–0 and Thepchaiya Un-Nooh 4–2, while Pang followed a 4–2 win over Alfie Burden with a 4–3 escape against Liam Davies. Wilson’s less extended route supplies the preference. The official page confirms this round-three pairing on October 22, but its clock carries no stated timezone, so the write-up remains analysis rather than a timed pre-match release.",
+      "headline": "Kyren Wilson to win at 1.61 — recent results checked, start timezone unconfirmed",
+      "body": "Kyren Wilson to win is our selection against Pang Junxu. WST’s results show Wilson beating Ben Mertens 4–0 and Thepchaiya Un-Nooh 4–2, while Pang followed a 4–2 win over Alfie Burden with a 4–3 escape against Liam Davies. Wilson’s less extended route supplies the preference. The official page confirms this round-three pairing on October 22, but its clock carries no confirmed timezone, so the write-up remains analysis rather than a timed pre-match release.",
       "sources": [
         {
           "label": "WST official Matches: round-three pair and prior results",
@@ -1072,8 +1082,8 @@
     {
       "ref": "SNK-09",
       "selection": "Anthony McGill to win at 1.90 (-111)",
-      "headline": "Anthony McGill to win at 1.67 — recent results checked, start timezone not stated",
-      "body": "Anthony McGill to win is the selection after two 4–1 victories, over Stephen Maguire and Jack Lisowski, in WST’s official results. Mateusz Baranowski has shown resilience by beating Gary Wilson and Wang Xinbo 4–3. McGill’s larger winning margins are our reason for preference, not proof of future performance. This round-three meeting is confirmed for October 22; the source clock's timezone is not stated and the piece is retained as analysis.",
+      "headline": "Anthony McGill to win at 1.67 — recent results checked, start timezone unconfirmed",
+      "body": "Anthony McGill to win is the selection after two 4–1 victories, over Stephen Maguire and Jack Lisowski, in WST’s official results. Mateusz Baranowski has shown resilience by beating Gary Wilson and Wang Xinbo 4–3. McGill’s larger winning margins are our reason for preference, not proof of future performance. This round-three meeting is confirmed for October 22; the source clock’s timezone remains unverified and the piece is retained as analysis.",
       "sources": [
         {
           "label": "WST official Matches: round-three pair and prior results",
@@ -1086,8 +1096,8 @@
     {
       "ref": "SNK-10",
       "selection": "Elliot Slessor to win at 1.34 (-294)",
-      "headline": "Elliot Slessor to win at 1.64 — recent results checked, start timezone not stated",
-      "body": "Elliot Slessor to win is our lean against Ricky Walden, with risk on both sides. WST records Slessor’s opening 4–0 win over He Guoqiang; Walden defeated Neil Robertson 4–1 before edging Joe O’Connor 4–3. That record shows why Walden cannot be dismissed despite our preference. WST confirms the round-three pairing, but no timezone-qualified exact start is on record, so this is analysis rather than a live HIGH recommendation.",
+      "headline": "Elliot Slessor to win at 1.64 — recent results checked, start timezone unconfirmed",
+      "body": "Elliot Slessor to win is our lean against Ricky Walden, with risk on both sides. WST records Slessor’s opening 4–0 win over He Guoqiang; Walden defeated Neil Robertson 4–1 before edging Joe O’Connor 4–3. That record shows why Walden cannot be dismissed despite our preference. WST confirms the round-three pairing, but no timezone-qualified exact start was confirmed, so this is analysis rather than a live HIGH recommendation.",
       "sources": [
         {
           "label": "WST official Matches: round-three pair and prior results",
@@ -1100,7 +1110,7 @@
     {
       "ref": "SNK-11",
       "selection": "Mark Williams to win the match (money line at 1.02 / -5000; OLBG's consensus is 100%, which we cap at 98%)",
-      "headline": "Mark Williams to win at 1.47 — recent results checked, start timezone not stated",
+      "headline": "Mark Williams to win at 1.47 — recent results checked, start timezone unconfirmed",
       "body": "Mark Williams to win is our selection against Martin O’Donnell. Williams has recorded successive 4–2 victories over Robbie Williams and Zhang Anda on WST’s official match list. O’Donnell’s 4–3 victory over Judd Trump is a substantial reason for caution, not something to omit from the case. The official pairing and October 22 date are confirmed; an exact UTC start and the previously quoted seed numbers are not, so HIGH publication is withheld.",
       "sources": [
         {
@@ -1114,8 +1124,8 @@
     {
       "ref": "SNK-12",
       "selection": "David Gilbert to win at 1.42 (-238)",
-      "headline": "David Gilbert to win at 1.57 — recent results checked, start timezone not stated",
-      "body": "David Gilbert to win is our preference, but Ka Wai Cheung arrives with results that demand respect. WST lists Gilbert’s 4–1 win over Oliver Sykes and 4–3 victory against Gao Yang; Cheung beat Ronnie O’Sullivan 4–3 and then Stuart Bingham 4–0. Those are the recorded recent results, not a basis for inventing an easy matchup. With the source timezone unresolved, the selection remains research analysis.",
+      "headline": "David Gilbert to win at 1.57 — recent results checked, start timezone unconfirmed",
+      "body": "David Gilbert to win is our preference, but Ka Wai Cheung arrives with results that demand respect. WST lists Gilbert’s 4–1 win over Oliver Sykes and 4–3 victory against Gao Yang; Cheung beat Ronnie O’Sullivan 4–3 and then Stuart Bingham 4–0. Those are confirmed recent results, not a basis for inventing an easy matchup. With the source timezone unresolved, the selection remains research analysis.",
       "sources": [
         {
           "label": "WST official Matches: round-three pair and prior results",
@@ -1198,7 +1208,7 @@
       "ref": "IHO-14",
       "selection": "NY Rangers money line (1.79 / -127, overtime/shootout included)",
       "headline": "New York Rangers' 2.18 goals-against defensive profile carries slight road edge in Toronto",
-      "body": "NY Rangers on the 2-way money line (1.79 / -127, 53.1% fair probability — graded MEDIUM below our 55% HIGH threshold) opposes the lone 1/1 Maple Leafs tip at Scotiabank Arena (23:00 UTC, NHL Game 2026020155). Official NHL standings on 22 October place New York at 7-3-1 across 11 games (15 points, 33 goals for, 24 against), whereas Toronto sit 5-4-2 across 11 games (12 points, 38 goals for, 35 against).",
+      "body": "NY Rangers on the 2-way money line (1.79 / -127, 53.1% win probability on our numbers — graded MEDIUM below our 55% HIGH threshold) opposes the lone 1/1 Maple Leafs tip at Scotiabank Arena (23:00 UTC, NHL Game 2026020155). Official NHL standings on 22 October place New York at 7-3-1 across 11 games (15 points, 33 goals for, 24 against), whereas Toronto sit 5-4-2 across 11 games (12 points, 38 goals for, 35 against).",
       "sources": [
         {
           "label": "NHL official schedule API (2026-10-22)",
@@ -1248,7 +1258,7 @@
       "ref": "GAF-01",
       "selection": "St Finbarrs to win (60-minute match betting, 1.62 / -161; St Finbarrs -1.5 handicap angle)",
       "headline": "St Finbarrs' superior Cork championship scoring differential backs -161 county final line",
-      "body": "St Finbarrs to win at 1.62 (-161) is our selection for Sunday's McCarthy Insurance Group Cork Premier Senior Football Championship Final at SuperValu Pairc Ui Chaoimh on Sunday afternoon. Across all five 2026 Cork championship matches on gaacork.ie, St Finbarrs have outscored opponents 116 points to 85 (+31), routing Carbery 4-23 to 1-11 in the quarter-final before edging Clonakilty 2-12 to 0-16 in the semi-final, outpacing Nemo Rangers' +19 differential (98 for, 79 against after beating Castlehaven 1-20 to 1-17 and Carrigaline 1-15 to 0-16).",
+      "body": "St Finbarrs to win at 1.62 (-161) is our selection for Sunday's McCarthy Insurance Group Cork Premier Senior Football Championship Final at SuperValu Pairc Ui Chaoimh (2026-10-25T16:00:00Z). Across all five 2026 Cork championship matches on gaacork.ie, St Finbarrs have outscored opponents 116 points to 85 (+31), routing Carbery 4-23 to 1-11 in the quarter-final before edging Clonakilty 2-12 to 0-16 in the semi-final, outpacing Nemo Rangers' +19 differential (98 for, 79 against after beating Castlehaven 1-20 to 1-17 and Carrigaline 1-15 to 0-16). The county board's event page, re-read on Friday 23 October, still fixes the final for Sunday October 25 at 4.00pm at SuperValu Páirc Uí Chaoimh, with extra tickets and a Clubber stream listed; the OLBG crowd leans the other way, with 14 of 18 tips on Nemo Rangers +1.5, so this is a selection against the public line, backed by the scoring record rather than the tip count.",
       "sources": [
         {
           "label": "Cork GAA official Premier SFC Final event page",
@@ -1306,7 +1316,7 @@
       "ref": "IHO-16",
       "selection": "NJ Devils money line (-147 / 1.68, overtime/shootout included)",
       "headline": "Prudential Center home record and Anaheim's four-game slide favour New Jersey",
-      "body": "Select NJ Devils on the 2-way money line (-147 / 1.68) when Anaheim visits Prudential Center on Thursday 22 October, 23:00 UTC (NHL Game 2026020157). Official NHL standings retrieved on 22 October list New Jersey 5-4-0 across nine games (10 points, 29 goals for, 30 against) with a 4-2-0 record on home ice and a W1 bounce-back win, whereas the Ducks arrive 4-5-0 through nine games (8 points, 26 goals for, 29 against) on a four-game losing streak (L4). Our goal-rate numbers assign New Jersey 56.5% win probability, pricing the home money line at 1.68 (-147).",
+      "body": "Select NJ Devils on the 2-way money line (-147 / 1.68) when Anaheim visits Prudential Center on Thursday 22 October, 23:00 UTC (NHL Game 2026020157). Official NHL standings retrieved on 22 October list New Jersey 5-4-0 across nine games (10 points, 29 goals for, 30 against) with a 4-2-0 record on home ice and a W1 bounce-back win, whereas the Ducks arrive 4-5-0 through nine games (8 points, 26 goals for, 29 against) on a four-game losing streak (L4). Our goal-rate pricing assigns New Jersey 56.5% win probability, pricing the home money line at 1.68 (-147).",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020157)",
@@ -1324,7 +1334,7 @@
       "ref": "IHO-17",
       "selection": "DET Red Wings money line (-169 / 1.59, overtime/shootout included)",
       "headline": "Vancouver's league-worst 51 goals conceded in 11 games gives Detroit clear road value",
-      "body": "Take DET Red Wings on the 2-way money line (-169 / 1.59) in Vancouver on Friday 23 October, 02:00 UTC at Rogers Arena (NHL Game 2026020165), where the OLBG money-line market has moved to 5/7 for Detroit. Official NHL standings, re-read on the evening of 22 October, show the Canucks struggling at 2-8-1 through 11 games with 5 points, 1-3-0 on home ice, two straight losses and an NHL-high 51 goals conceded against 33 scored, while Detroit enters 3-3-3 in nine games on 9 points with 23 goals for and 28 against. That defensive gulf lifts the Red Wings to 59.6% on our numbers at 1.59 (-169), and the growing 5/7 support for the visitors is consistent with the scoring numbers rather than an argument against them.",
+      "body": "Take DET Red Wings on the 2-way money line (-169 / 1.59) in Vancouver on Friday 23 October, 02:00 UTC at Rogers Arena (NHL Game 2026020165), where the OLBG money-line market has moved to 5/7 for Detroit. Official NHL standings, re-read on the evening of 22 October, show the Canucks struggling at 2-8-1 through 11 games with 5 points, 1-3-0 on home ice, two straight losses and an NHL-high 51 goals conceded against 33 scored, while Detroit enters 3-3-3 in nine games on 9 points with 23 goals for and 28 against. That defensive gulf lifts the Red Wings to 59.6% in our pricing at 1.59 (-169), and the growing 5/7 support for the visitors is consistent with the scoring numbers rather than an argument against them.",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020165)",
@@ -1360,7 +1370,7 @@
       "ref": "IHO-24",
       "selection": "DAL Stars money line (-238 / 1.42, overtime/shootout included)",
       "headline": "Dallas's league-best 15 goals allowed in nine games anchors Central Division clash with Winnipeg",
-      "body": "Play DAL Stars on the 2-way money line (-238 / 1.42) hosting Winnipeg at American Airlines Center on Friday 23 October, 00:00 UTC (NHL Game 2026020161), with the OLBG money-line market now 4/7 for Dallas. Official NHL standings, re-read on the evening of 22 October, credit Dallas with an NHL-low 15 goals conceded across nine games on 5-3-1 with 11 points, 23 goals scored and three straight wins, whereas the Jets arrive 4-3-2 through nine games on 10 points with 24 goals scored, 26 allowed and a two-game skid. Dallas grades 66.9% in our goal-expectancy numbers and clears the -250 floor at 1.42 (-238).",
+      "body": "Play DAL Stars on the 2-way money line (-238 / 1.42) hosting Winnipeg at American Airlines Center on Friday 23 October, 00:00 UTC (NHL Game 2026020161), with the OLBG money-line market now 4/7 for Dallas. Official NHL standings, re-read on the evening of 22 October, credit Dallas with an NHL-low 15 goals conceded across nine games on 5-3-1 with 11 points, 23 goals scored and three straight wins, whereas the Jets arrive 4-3-2 through nine games on 10 points with 24 goals scored, 26 allowed and a two-game skid. Dallas grades 66.9% in our goal-expectancy pricing and clears the -250 floor at 1.42 (-238).",
       "sources": [
         {
           "label": "NHL official schedule API (Game 2026020161)",
@@ -1378,7 +1388,7 @@
       "ref": "VOL-30",
       "selection": "Chaumont to win (-149 / 1.67)",
       "headline": "Unbeaten Chaumont's 6:1 set start and +27 rally differential travel to winless Sète",
-      "body": "Back Chaumont to win the match (-149 / 1.67) in Thursday's LNV Alterna VOLSTAR Journée 3 televised fixture in Salle Louis Marty (22 October, 20:00 local French clock (un-timezoned on lnv.fr)), matching 3/3 OLBG win tips including an expert pick. Official LNV DataProject standings after two rounds place Chaumont second on a maximum 6 points (2-0, 6:1 sets, 173 rally points won to 146 lost after beating Plessis-Robinson and sweeping Toulouse 3-0), while Arago de Sète sit 13th on 0 points (0-2, 1:6 sets, 165 rally points won to 194 lost). Our rally-points numbers gives Chaumont 56.7% and prices the away win at 1.67 (-149).",
+      "body": "Back Chaumont to win the match (-149 / 1.67) in Thursday's LNV Alterna VOLSTAR Journée 3 televised fixture in Salle Louis Marty (22 October, 20:00 local French clock (un-timezoned on lnv.fr)), matching 3/3 OLBG win tips including an expert pick. Official LNV DataProject standings after two rounds place Chaumont second on a maximum 6 points (2-0, 6:1 sets, 173 rally points won to 146 lost after beating Plessis-Robinson and sweeping Toulouse 3-0), while Arago de Sète sit 13th on 0 points (0-2, 1:6 sets, 165 rally points won to 194 lost). Our rally-points pricing gives Chaumont 56.7% and prices the away win at 1.67 (-149).",
       "sources": [
         {
           "label": "LNV official Alterna VOLSTAR J1-J8 calendar (J3 Sète vs Chaumont)",
@@ -1414,7 +1424,7 @@
       "ref": "TEN-47",
       "selection": "Taylor Fritz to win the match",
       "headline": "Taylor Fritz’s ranking-points gulf makes him the Lyon quarter-final call at 1.44",
-      "body": "Taylor Fritz to win the match is our selection in Friday’s Lyon quarter-final, and the case rests on a plain rankings mismatch: on the official October ranking points captured in our dataset, second seed Taylor Fritz holds 2,880 points against Daniel Altmaier’s 849, more than a three-to-one edge. Altmaier should not be dismissed lightly — he survived a three-set fight with Droguet (5-7, 7-6(4), 7-6(3)) earlier this week before beating Borna Gojo in the round of 16 — but Taylor Fritz arrived in the last eight by beating Pierre-Hugues Herbert and owns the bigger first-strike game for these indoor courts. We make Taylor Fritz a 66% favourite at 1.44 (-227), inside the required odds window; OLBG’s own headline market on this match is instead Total Games Over 22.50.",
+      "body": "Taylor Fritz to win the match is our selection in Friday’s Lyon quarter-final, and the case rests on a plain rankings mismatch: on the official October ranking points captured in our dataset, second seed Taylor Fritz holds 2,880 points against Daniel Altmaier’s 849, more than a three-to-one edge. Altmaier should not be dismissed lightly — he survived a three-set fight with Droguet (5-7, 7-6(4), 7-6(3)) earlier this week before beating Borna Gojo in the round of 16 — but Taylor Fritz arrived in the last eight by beating Pierre-Hugues Herbert and owns the bigger first-strike game for these indoor courts. Our pricing makes Taylor Fritz a 66% favourite at 1.44 (-227), inside the required odds window; OLBG’s own headline market on this match is instead Total Games Over 22.50.",
       "sources": [
         {
           "label": "ATP Tour official Lyon Daily Schedule, Day 6 (23 October 2026)",
@@ -1450,7 +1460,7 @@
       "ref": "CRK-17",
       "selection": "India to win the match",
       "headline": "India’s ratings cushion makes them the 1.57 selection for the second T20 in New Zealand",
-      "body": "India to win the match is our selection for the second T20 international of India’s five-match tour of New Zealand. The ICC team-ratings input captured in our dataset on 22 October gives India 124 against New Zealand’s 104 — a twenty-point cushion that is the widest gap between any two sides in that table — and it converts to a 61% fair probability and our price of 1.57 (-175), inside the requested odds window. Home conditions keep New Zealand dangerous, and OLBG’s single visible tip also sides with India, but the selection stands on the ratings gap rather than that thin crowd sample.",
+      "body": "India to win the match is our selection for the second T20 international of India’s five-match tour of New Zealand. The ICC team-ratings input captured in our dataset on 22 October gives India 124 against New Zealand’s 104 — a twenty-point cushion that is the widest gap between any two sides in that table — and it converts to a 61% win probability on our numbers and our price of 1.57 (-175), inside the requested odds window. Home conditions keep New Zealand dangerous, and OLBG’s single visible tip also sides with India, but the selection stands on the ratings gap rather than that thin crowd sample. New Zealand Cricket's own site adds two squad notes that matter: Mark Chapman (hamstring) and Zak Foulkes (hip flexor) were ruled out of the T20I series before it began, with Josh Clarkson and Blair Tickner called in, and Will O'Rourke is missing the tour entirely; the ICC match centre for the series still shows no timezone-qualified clock, so the piece remains analysis.",
       "sources": [
         {
           "label": "ICC official Match Centre — New Zealand vs India (IND in NZ, 5 T20Is, 2026)",
@@ -1459,6 +1469,10 @@
         {
           "label": "ICC official team-ratings data (captured in data/official.json, 2026-10-22)",
           "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i"
+        },
+        {
+          "label": "New Zealand Cricket official — Chapman and Foulkes ruled out of India T20Is",
+          "url": "https://www.nzc.nz/chapman-and-foulkes-ruled-out-of-india-t20is-clarkson-and-tickner-called-in/"
         }
       ],
       "status": "analysis",
@@ -1468,7 +1482,7 @@
       "ref": "DRT-10",
       "selection": "Ryan Joyce to win the match",
       "headline": "Ryan Joyce pairs the stronger seeding with Friday’s loudest crowd signal in Dortmund",
-      "body": "Ryan Joyce to win the match is our Friday selection in Dortmund. The official PDC European Championship draw seeds Ryan Joyce 15th against Jermaine Wattimena’s 18th, a modest but real Order of Merit edge for a player whose relentless, metronomic style suits the race-to-six-legs first-round sprint. The public signal is unusually clear for an opening-round tie: nine of eleven OLBG win tips (82%) sit with Ryan Joyce, the strongest consensus on Friday’s card. We price him at 1.76, comfortably inside the -250 to +10000 window, and we side with the seeded player’s steadier finishing over Wattimena’s streakier scoring.",
+      "body": "Ryan Joyce to win the match is our Friday selection in Dortmund. The official PDC European Championship draw seeds Ryan Joyce 15th against Jermaine Wattimena’s 18th, a modest but real Order of Merit edge for a player whose relentless, metronomic style suits the race-to-six-legs first-round sprint. The public signal is unusually clear for an opening-round tie: nine of eleven OLBG win tips (82%) sit with Ryan Joyce, the strongest consensus on Friday’s card. Our pricing puts him at 1.76, comfortably inside the -250 to +10000 window, and we side with the seeded player’s steadier finishing over Wattimena’s streakier scoring.",
       "sources": [
         {
           "label": "PDC official European Championship field & draw (seedings)",
@@ -1480,7 +1494,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "DRT-09",
@@ -1501,73 +1515,117 @@
       "downgrade_reason": "PDC states session window (1900-2300 CEST) and running order; walk-on after Match 1 depends on prior best-of-11 ties, so exact UTC start is left blank."
     },
     {
-      "ref": "IHO-30",
-      "status": "high",
-      "selection": "Montreal Canadiens to win the match (money line, 1.55 / -182)",
-      "headline": "Montreal's scoring edge meets a Chicago side whose wins have all come at home",
-      "body": "Back the Montreal Canadiens to beat the Chicago Blackhawks at United Center tonight. Montreal arrive 4-3-2 with 10 points and 30 goals scored through nine games, while Chicago sit 3-6-0 on six points with just 21 goals for and 36 against — a minus-15 goal difference. The caution is venue: all three Chicago wins have come at home (3-2-0), and Montreal are only 1-1-1 on the road so far. Even allowing for that split, a team outscoring its host by nine goals across the same nine-game sample gets our vote at 1.55 (-182). Selection: Montreal Canadiens to win.",
+      "ref": "IHO-199984",
+      "selection": "Montreal Canadiens to win at 1.55 (-182)",
+      "headline": "Montreal carry the better nine-game profile into the United Center",
+      "body": "Montreal Canadiens to win is the money-line call at 1.55 (-182). The Canadiens are 4-3-2 for 10 points after nine games, with 30 goals scored and 34 conceded, and they took a point from their most recent outing. Chicago are 3-6-0 on 6 points, having scored 21 and allowed 36, and their 3-2-0 home record is the only part of that line that worries the pick. The NHL schedule puts the puck drop at the United Center at 00:00 UTC on 24 October. Montreal's road record is 1-1-1, so the case rests on the wider scoring gap (minus 4 against minus 15) rather than on venue. Back Montreal to win.",
       "sources": [
         {
-          "label": "NHL official standings (read 2026-10-23)",
-          "url": "https://www.nhl.com/standings"
+          "label": "NHL official schedule, 23 October 2026 (game 2026020166)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
         },
         {
-          "label": "NHL official schedule API — 2026-10-23",
-          "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
+          "label": "NHL official standings, 22 October 2026",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-22"
         }
-      ]
+      ],
+      "status": "high"
     },
     {
-      "ref": "IHO-31",
-      "status": "high",
-      "selection": "Colorado Avalanche to win the match (money line, 1.72 / -139)",
-      "headline": "Colorado's 41-goal attack gets the home-ice nod over Tampa Bay's better record",
-      "body": "Take the Colorado Avalanche to beat the Tampa Bay Lightning at Ball Arena tonight. Tampa Bay own the stronger record at 7-2-0, are riding three straight wins and have conceded only 23 goals in nine games, and all of that is respected here. Colorado's case is firepower plus home ice: 41 goals in ten games — better than four a night — a plus-10 goal difference and a 3-1-1 home record, against a Lightning side that is 2-2-0 away from home. At 1.72 (-139) we side with the hosts' scoring pace to edge a tight one. Selection: Colorado Avalanche to win.",
+      "ref": "IHO-199985",
+      "selection": "Colorado Avalanche to win at 1.72 (-139)",
+      "headline": "Colorado's scoring rate and home ice edge out a hot Lightning side at Ball Arena",
+      "body": "Colorado Avalanche to win is the money-line call at 1.72 (-139) for Friday night at Ball Arena, which the NHL schedule API lists at 01:00 UTC on 24 October. Colorado are 5-4-1 after ten games with a league-high 41 goals scored against 31 conceded and a 3-1-1 record at home, although they have lost their last two. Tampa Bay arrive 7-2-0 with 31 for and 23 against on a three-game winning run, but they are only 2-2-0 on the road. Pairing each side's scoring rate with the other's goals against, then adding home ice, leaves Colorado at 55% to Tampa Bay's 45% - just over our threshold, so this is the narrowest of the night's calls. OLBG's headline market is the puck line, where one of two tips takes Tampa Bay +1.5; our own line is on the home side straight up.",
       "sources": [
         {
-          "label": "NHL official standings (read 2026-10-23)",
-          "url": "https://www.nhl.com/standings"
+          "label": "NHL official standings API — 2026-10-23",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-23"
         },
         {
-          "label": "NHL official schedule API — 2026-10-23",
+          "label": "NHL official schedule API — 2026-10-23 (startTimeUTC)",
           "url": "https://api-web.nhle.com/v1/schedule/2026-10-23"
+        },
+        {
+          "label": "OLBG event page — TB Lightning @ COL Avalanche",
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_COL_Avalanche/13?event_id=199985"
         }
-      ]
+      ],
+      "status": "high"
     },
     {
-      "ref": "TEN-52",
-      "status": "analysis",
-      "selection": "Elena Rybakina to win the match (our price 1.43 / -233)",
-      "headline": "Top seed Rybakina's points mountain looms over Shnaider in the Ningbo semi-final",
-      "body": "Elena Rybakina to beat Diana Shnaider is our read of Saturday's second Ningbo semi-final, listed not before 5:30 PM on the official WTA order of play. Rybakina is the tournament's No. 1 seed and carries 9,196 ranking points in this week's standings against 2,663 for the No. 6 seed Shnaider — a gap of more than three to one that no other semi-finalist pairing this week comes close to. The WTA sheet prints no timezone, so this runs as analysis rather than a timed release, but the selection is Rybakina to win at 1.43 (-233).",
+      "ref": "TEN-902163",
+      "selection": "Elena Rybakina to win the Ningbo semi-final",
+      "headline": "Top seed Rybakina is the pick over Shnaider, but a 'not before' slot keeps it analysis",
+      "body": "The WTA order of play for Saturday 24 October puts [1] Elena Rybakina against [6] Diana Shnaider on Centre Court in Ningbo, not before 5:30 PM local, the last singles match of the day. Rybakina's ranking points (9,196 on the table captured this week) are more than three times Shnaider's 2,663, which gives her a 66% chance and a price of 1.43 (-233) on our numbers, inside the requested odds window; the lone OLBG tip takes Shnaider. Because the official schedule publishes only a floor time rather than an exact start, no UTC kick-off is certified and the piece is published as analysis rather than a high-confidence release. Selection: Elena Rybakina to win.",
       "sources": [
         {
-          "label": "WTA official Order of Play — BNB Ningbo Open (2092), Saturday 24 October",
+          "label": "WTA official Order of Play — BNB Ningbo Open, Saturday 24 October 2026",
           "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf"
         },
         {
-          "label": "WTA draws — BNB Ningbo Open 2026",
-          "url": "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws"
+          "label": "OLBG event page — Elena Rybakina vs Diana Shnaider",
+          "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Diana_Shnaider/3?event_id=902163"
         }
       ],
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "status": "analysis",
+      "downgrade_reason": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
     },
     {
-      "ref": "TEN-50",
-      "status": "analysis",
-      "selection": "Katie Boulter to win the match (our price 1.02 — a single-tip price; treat as a form read only)",
-      "headline": "Eighth seed Boulter meets unseeded Siniakova for a place in the Osaka final",
-      "body": "Katie Boulter is our lean against Katerina Siniakova in Saturday's second Osaka semi-final, listed not before 1:30 PM on the official WTA order of play. Boulter is the No. 8 seed and the only seeded player in this tie; Siniakova, on 1,480 ranking points this week, has come through unseeded. Two cautions come first: the 1.02 price is built from a single OLBG tip and says nothing reliable about the matchup, and the WTA sheet prints no timezone, so this stays analysis. On seeding alone, Boulter to win is the selection.",
+      "ref": "RGU-17",
+      "selection": "Edinburgh to win (3-way match betting)",
+      "headline": "Edinburgh are 80% at home to the Lions on the table, far too short for the band",
+      "body": "Edinburgh host the 10bet Lions at the Hive Stadium on Friday 23 October, kick-off 19.45 IRE & UK (18:45 UTC) on the URC's own fixture list. On the official URC table (read 21 October) Edinburgh are unbeaten on 14 points from three wins with 80 scored and 54 conceded, while the Lions sit on 9 points at 2-1 with 77 for and 102 against, a -25 differential, and that gap prices the home side at 80% and 1.19 (-526) on our numbers, a long way inside the -250 floor, so the pick is MEDIUM analysis despite a HIGH evidence grade. Eight of nine OLBG tipsters agree on Edinburgh. The Lions' South African touring form is the risk, but it is not enough to move the line.",
       "sources": [
         {
-          "label": "WTA official Order of Play — Kinoshita Group Japan Open, Osaka (405), Saturday 24 October",
-          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf"
+          "label": "United Rugby Championship official — 2026/27 fixtures in full (Round 4)",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
         },
         {
-          "label": "WTA draws — Kinoshita Group Japan Open (Osaka) 2026",
-          "url": "https://www.wtatennis.com/tournaments/405/osaka/2026/draws"
+          "label": "URC official table 2026/27",
+          "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        },
+        {
+          "label": "OLBG event page — Edinburgh v Lions (8/9 tips)",
+          "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Edinburgh_v_Lions/9?event_id=609579"
         }
       ],
+      "status": "analysis",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+    },
+    {
+      "ref": "GAF-02",
+      "selection": "Moycullen -3.5 is the OLBG lean; we publish no originated line",
+      "headline": "Galway final moved to Sunday for weather; champions Moycullen have won their two knockout ties by a combined 60 points",
+      "body": "The Galway Senior Football Championship final between Maigh Cuilinn (Moycullen) and Salthill-Knocknacarra has been moved from Saturday evening to Sunday 25 October at 4pm, Pearse Stadium, because of a weather warning, according to the Moycullen club site; OLBG's listing now reads 25 Oct 12:00, consistent with the new date. Moycullen are chasing back-to-back titles and a fourth in seven seasons after beating Mountbellew-Moylough 3-25 to 0-13 and Annaghdown 4-26 to 0-8, their fifth county final in a row under Cathal Clancy. Twelve of twenty-four OLBG tips take Moycullen -3.5. No official Galway table is in our dataset, so the row carries only the consensus price and is graded LOW.",
+      "sources": [
+        {
+          "label": "Maigh Cuilinn GAA official club site — county final notice (new time)",
+          "url": "https://www.maighcuilinn.com/"
+        },
+        {
+          "label": "OLBG event page — Moycullen v Salthill-Knocknacarra",
+          "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Moycullen_v_Salthill-Knocknacarra/25?event_id=3532"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Club site (club-official tier) is not on the reviewed clock-host list and prints no zone label; date-only. Fixture moved from Sat 24 Oct 7pm."
+    },
+    {
+      "ref": "DRT-32383",
+      "selection": "Gerwyn Price to win the match",
+      "headline": "Price's 13th seeding over Menzies' 29th is the lean, but Saturday's Dortmund clocks are unconfirmed",
+      "body": "Gerwyn Price meets Cameron Menzies in the second round of the 2026 Machineseeker European Championship in Dortmund on Saturday 24 October. On the PDC seedings Price is 13th and Menzies 29th, a gap our pricing turns into a 70% chance for the Welshman at 1.36 (-278), slightly shorter than the -250 floor, and the PDC's schedule page could not be read on Friday because of a consent wall, so no session clock is recorded and the fixture itself is not yet confirmed from the PDC. OLBG shows one of two tips on Price. Analysis only until the PDC page can be re-read.",
+      "sources": [
+        {
+          "label": "PDC official European Championship field & draw (seedings)",
+          "url": "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+        },
+        {
+          "label": "OLBG event page — Cameron Menzies vs Gerwyn Price",
+          "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Cameron_Menzies_vs_Gerwyn_Price/15?event_id=32383"
+        }
+      ],
+      "status": "analysis",
       "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
     }
   ]

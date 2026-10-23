@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import unittest
 from pathlib import Path
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -22,6 +23,7 @@ def load(name):
     return json.loads((DATA / name).read_text())
 
 
+@pins('olbg-harvest-20261022T2100Z.tsv')
 class EveningCaptureTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

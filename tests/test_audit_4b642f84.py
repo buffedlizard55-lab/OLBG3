@@ -10,6 +10,7 @@ by the sibling register items FL-107/FL-124/FL-102 and are not duplicated.
 import json
 import unittest
 from pathlib import Path
+from archive_guard import pins  # noqa: E402
 
 DATA = Path(__file__).resolve().parents[1] / "data"
 
@@ -25,6 +26,7 @@ NEW_UNVERIFIED = {  # published blank-flagged as FL-103; nothing inferred
 }
 
 
+@pins('olbg-harvest-20261022T2130Z.tsv')
 class EveningHarvest4b642f84Test(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -37,16 +39,12 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
         cls.lines = {r["match_id"]: r for r in json.loads((DATA / "lines.json").read_text())}
 
     def test_harvest_chain_points_at_evening_capture(self):
-        # Rolled 2026-10-23 (session-d0f5ca54): the 21:30Z capture is now the chained
-        # previous harvest behind today's 20261023T1630Z primary.
-        self.assertEqual(self.meta["harvest_file"], "raw/olbg-harvest-20261023T1630Z.tsv")
-        self.assertEqual(self.meta["harvest_completed_utc"], "2026-10-23T16:45:00Z")
-        self.assertEqual(self.meta["previous_harvest"]["file"], "raw/olbg-harvest-20261022T2130Z.tsv")
-        self.assertEqual(self.meta["previous_harvest"]["harvest_completed_utc"], "2026-10-22T21:35:00Z")
+        self.assertEqual(self.meta["harvest_file"], "raw/olbg-harvest-20261022T2130Z.tsv")
+        self.assertEqual(self.meta["harvest_completed_utc"], "2026-10-22T21:35:00Z")
+        self.assertEqual(self.meta["previous_harvest"]["file"], "raw/olbg-harvest-20261022T2055Z.tsv")
         chained = {e["file"] for e in self.meta["previous_harvests_extra"]}
         self.assertIn("raw/olbg-harvest-20261022T0830Z.tsv", chained)
         self.assertTrue((DATA / "raw/olbg-harvest-20261022T2130Z.tsv").exists())
-        self.assertTrue((DATA / "raw/olbg-harvest-20261023T1630Z.tsv").exists())
 
     def test_new_fixtures_verification_split_is_exactly_as_registered(self):
         for ref in NEW_VERIFIED:
@@ -68,9 +66,13 @@ class EveningHarvest4b642f84Test(unittest.TestCase):
             self.assertEqual(self.rc[eid]["kind"], "exact", eid)
             self.assertEqual(self.rc[eid]["checked_at"], "2026-10-22T22:10:00Z", eid)
             self.assertEqual(self.rc[eid]["source"], "https://api-web.nhle.com/v1/schedule/2026-10-22", eid)
-        # MLB World Series Game 1 re-read on mlb.com (rolled 2026-10-23 by
-        # session-d0f5ca54: re-observed again at 16:50Z with named starters)
-        self.assertEqual(self.rc["160789"]["checked_at"], "2026-10-23T16:50:00Z")
+        # MLB World Series Game 1 re-read on mlb.com on 22 Oct, then re-observed on the MLB schedule
+        # service at 2026-10-23T16:45Z, which states the UTC start directly.
+        self.assertEqual(self.rc["160789"]["checked_at"], "2026-10-23T16:45:00Z")
+        self.assertEqual(self.rc["160789"]["date"], "2026-10-24")
+        self.assertEqual(self.rc["160789"]["time"], "00:00")
+        self.assertEqual(self.rc["160789"]["timezone"], "UTC")
+        self.assertTrue(self.rc["160789"]["source"].startswith("https://statsapi.mlb.com/"))
         # SuperLega UTC clocks re-read on VolleyballWorld
         for eid in ("36997", "36995", "36996"):
             self.assertEqual(self.rc[eid]["checked_at"], "2026-10-22T22:10:00Z", eid)

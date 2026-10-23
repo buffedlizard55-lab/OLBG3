@@ -3,7 +3,8 @@
 import json, os, glob, html, shutil, sys
 from collections import Counter, defaultdict
 
-from board_dates import american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF, snapshot_utc
+from board_dates import (american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF, snapshot_utc,
+                         snapshot_age_hours)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
@@ -114,6 +115,13 @@ n_hi_in_band = sum(1 for r in EVENTS if r["pick"]["confidence"] == "HIGH" and r[
 n_total = sum(1 for r in EVENTS if r["model"].get("total"))
 
 # ---------- shared chrome ----------
+SNAPSHOT_AGE_H = snapshot_age_hours()
+STALE_BANNER = ("" if SNAPSHOT_AGE_H < 30 else
+                f'<div class="notice" style="border-left-color:#b3261e;background:#fdecea;color:#7a1c15">'
+                f'<strong>SNAPSHOT STALE — {SNAPSHOT_AGE_H:.0f} h old.</strong> The newest committed source '
+                f'observation is {CLOCK}. Rows below are archived analysis, not current picks. A new live '
+                f'capture is needed before anything here can be presented as today\'s selection.</div>')
+
 def head(title, depth=0):
     p = "../" * depth
     primary = {"index.html", "brief.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
@@ -133,7 +141,7 @@ def head(title, depth=0):
     {navlinks}
   </nav>
 </header>
-<main>"""
+<main>{STALE_BANNER}"""
 
 FOOT = f"""
 </main>
@@ -547,7 +555,7 @@ index = head("Dashboard") + f"""
   <p class="hero-actions"><a class="button" href="#research-board">Explore the board ↓</a>
   <a class="button secondary" href="predictions.html">Read the sourced predictions</a>
   <a class="button secondary" href="discovery.html">Latest public discovery →</a></p>
-  <p class="stamp">Build {CLOCK} · OLBG captures span 21–22 October 2026 · <a href="source-health.html">Check source age</a></p>
+  <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
 </section>
 
 <div class="notice clock-notice">
