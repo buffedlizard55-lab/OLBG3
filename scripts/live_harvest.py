@@ -40,8 +40,27 @@ from urllib.parse import urljoin, urlparse
 from urllib.robotparser import RobotFileParser
 
 BASE = 'https://www.olbg.com'
-AGENT = ('OLBG3Research/1.0 (+https://github.com/buffedlizard55-lab/OLBG3; '
-         'public-listing-audit; contact via repository issues)')
+# The token before "/1.0" is what urllib.robotparser compares. It must not *contain* any
+# agent name that OLBG disallows: RobotFileParser.applies_to() lower-cases the product token
+# and does a substring test, so a token like "olbg3research" matches the rule
+# "User-agent: es" (the letters e-s inside "r-e-s-earch") and is denied everything even
+# though no rule names it. "olbg3audit" contains none of the disallowed agent tokens.
+AGENT = ('OLBG3Audit/1.0 (+https://github.com/buffedlizard55-lab/OLBG3; '
+         'public listing audit; contact via repository issues)')
+
+
+def matching_agent(robot, url):
+    """Which robots.txt group actually governs this URL, for the manifest's audit trail."""
+    ua = AGENT.split('/')[0].lower()
+    for entry in getattr(robot, 'entries', []):
+        for agent in entry.useragents:
+            agent_l = agent.lower()
+            if agent_l == '*' or agent_l in ua:
+                return agent, entry.allowance(url)
+    default = getattr(robot, 'default_entry', None)
+    if default is not None:
+        return '*', default.allowance(url)
+    return None, None
 ROOT = Path(__file__).resolve().parents[1]
 
 # The 15 in-scope sports plus the sub-league endpoints the brief's coverage needs.
@@ -168,6 +187,9 @@ def main() -> int:
         if robot is not None:
             try:
                 allowed = robot.can_fetch(AGENT, url)
+                agent, allowance = matching_agent(robot, url)
+                record['robots_matched_agent'] = agent
+                record['robots_allowance'] = allowance
             except Exception as exc:                     # noqa: BLE001 - record, never assume
                 record['robots_error'] = f'{type(exc).__name__}: {exc}'
         record['robots_allows'] = allowed
