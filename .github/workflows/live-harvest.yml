@@ -40,9 +40,13 @@ jobs:
           PY
       - name: Capture listings
         run: |
+          mkdir -p "${{ steps.request.outputs.out }}"
+          set +e
           python scripts/live_harvest.py \
             --out "${{ steps.request.outputs.out }}" \
-            --delay "${{ vars.HARVEST_DELAY || 3 }}"
+            --delay 3 > "${{ steps.request.outputs.out }}/run.log" 2>&1
+          echo "exit=$?" >> "${{ steps.request.outputs.out }}/run.log"
+          cat "${{ steps.request.outputs.out }}/run.log"
       - name: Show capture summary
         run: |
           python - <<'PY'
