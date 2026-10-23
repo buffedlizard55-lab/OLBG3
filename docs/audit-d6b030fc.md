@@ -125,3 +125,19 @@ remains linked for review. No observation timestamp is renewed from this tool re
 - Skipped tests are existing dated-capture pins, not new exemptions.
 - Workflow and build outputs are checked again before merge. The PR and observed Pages
   result are recorded in `COORDINATION.md`; a green build alone is not claimed as deployment.
+
+## Live publication confirmation and copy correction
+
+PR [#145](https://github.com/buffedlizard55-lab/OLBG3/pull/145) merged as `e991a6c`
+at 2026-10-23T19:34:51Z. Main run
+[40012519723](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40012519723)
+reported both build and deploy success. Pages API reported `built` for the resulting
+checked-output commit `cf49177`; the live `/olbg/` page was retrieved and states build
+**19:35Z**, **8 current HIGH**. Main's publication JSON independently states 19:35Z.
+The source-observation clocks were not renewed by this advance.
+
+The live read also exposed an inherited headline promising a line, handicap and total
+for every fixture, contradicted by the same page's 177 priced / 180 captured count.
+The follow-up changes this landing-page copy to describe incomplete captured research,
+with unsupported markets and missing facts explicitly unfilled. It changes no data,
+price, source status or prediction. Scope extension: `tools/build_site.py` intro only.
