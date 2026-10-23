@@ -2304,4 +2304,23 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
   after this pass re-read the same page) and `tests/test_audit_ebe6dc9c.py` (`VOL-26` joins the in-band,
   verified, non-HIGH root candidates because the SuperLega clock was renewed; it is deliberately not promoted
   — `FL-181`).
-- **Status:** `task-a87a3681-daily-20261024-coverage` **done** pending the PR/merge record appended below.
+- **Status:** `task-a87a3681-daily-20261024-coverage` **done**.
+
+### PR, merge and Pages record — `session-a87a3681`
+
+- **PR #156** — <https://github.com/buffedlizard55-lab/OLBG3/pull/156> (`arena/a87a3681-olbg3` → `main`), merged
+  without waiting for approval per the standing instruction at 2026-10-23T21:52Z as **`1070fbf`**.
+- **CI before merge:** the first run on head `7a5bcae` **failed** in "Unit tests (after the rebuild)" because the
+  runner's publication-clock advance made the empty 21:35Z capture the newest harvest file, and
+  `tests/test_live_20261023.py::test_live_capture_is_the_newest` pinned the 17:00Z file as the newest. Fixed by
+  asserting the property that matters (the primary harvest is the newest capture that **carries rows**) and by
+  keeping the empty capture as evidence. Re-run on head `687b4a4`: **success**.
+- **Post-merge on `main`:** `Verify and publish dashboard` **success**, board refresh auto-committed as `b9b67f9`,
+  `pages-build-deployment` **success**; the Pages API reports `status=built` for <https://buffedlizard55-lab.github.io/OLBG3/>.
+- **Served-artifact check on the deployed commit (not the working tree):** `flagged.html` carries FL-177 … FL-183 with
+  their source links; `brief.html` reads **17 of 75 targeted picks**, 15 sports covered, **Basketball "target met"**
+  (7 distinct live HIGH), Basketball/Rugby Union/Volleyball/Ice Hockey/Baseball/Gaelic Football as the six sports with
+  live picks; `predictions.html` carries the seven new write-ups and the three repaired ones.
+- **Follow-up correction in the same pass:** `scripts/brief_coverage.py`'s fixed note said live re-verification was
+  blocked in this sandbox. That is no longer true of the page-retrieval route, and this pass used it, so the note now
+  states the accurate position instead of repeating a stale limitation.
