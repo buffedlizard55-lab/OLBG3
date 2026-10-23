@@ -1,8 +1,9 @@
 {
-  "out": "data/raw/live-20261023T1735Z",
-  "requested_at_utc": "2026-10-23T17:35:00Z",
+  "out": "data/raw/live-20261023T1740Z",
+  "requested_at_utc": "2026-10-23T17:40:00Z",
   "requested_by": "session-22dbc477",
-  "why": "Official-source probe only (listings already captured at 17:00Z); fix the shell-stamp bug that failed the first probe step.",
+  "why": "Re-read the 28 official pages already cited for upcoming fixtures, so an expiring observation is renewed only if the page still states the fixture, clock and zone.",
   "capture": false,
-  "probe": true
+  "probe": false,
+  "cited": true
 }

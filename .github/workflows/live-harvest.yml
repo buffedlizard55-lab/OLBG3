@@ -39,6 +39,7 @@ jobs:
           print(f"out={req['out']}")
           print(f"capture={'true' if req.get('capture', True) else 'false'}")
           print(f"probe={'true' if req.get('probe', True) else 'false'}")
+          print(f"cited={'true' if req.get('cited', False) else 'false'}")
           PY
       - name: Capture listings
         if: steps.request.outputs.capture == 'true'
@@ -58,6 +59,16 @@ jobs:
           echo "out=$OUT" >> "$GITHUB_ENV"
           set +e
           python scripts/official_probe.py --out "$OUT" --delay 2 > "$OUT/run.log" 2>&1
+          echo "exit=$?" >> "$OUT/run.log"
+          cat "$OUT/run.log"
+      - name: Re-read the official pages this repo cites
+        if: steps.request.outputs.cited == 'true'
+        run: |
+          STAMP="$(date -u +%Y%m%dT%H%MZ)"
+          OUT="data/raw/cited-$STAMP"
+          mkdir -p "$OUT"
+          set +e
+          python scripts/probe_cited.py --out "$OUT" --delay 2 > "$OUT/run.log" 2>&1
           echo "exit=$?" >> "$OUT/run.log"
           cat "$OUT/run.log"
       - name: Show capture summary
