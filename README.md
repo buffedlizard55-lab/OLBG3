@@ -58,6 +58,11 @@ existed; it gets read from the clock, never typed from memory.
 **Verification:** 271 tests (29 new), board/site/official-feed/link checks all PASS, 108 pages and
 2,260 local links with **0 broken**, and no value filled in that a source does not print.
 
+**Published:** [PR #157](https://github.com/buffedlizard55-lab/OLBG3/pull/157), merged
+2026-10-23T21:46:30Z as `88d8ed8`; `main`'s `Verify and publish dashboard` and
+`pages-build-deployment` both succeeded and Pages reports built at `8f91051`. The deployed
+`flagged.html` and `olbg/flagged.html` were re-read from `main` to confirm they carry FL-184…FL-190.
+
 ## Late-evening 2026-10-23 pass — seven in-band picks added, three published claims repaired — `session-a87a3681`
 
 Full record: [`docs/audit-a87a3681.md`](docs/audit-a87a3681.md) · register: **FL-177 … FL-183** on

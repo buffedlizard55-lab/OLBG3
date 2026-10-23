@@ -179,3 +179,16 @@ be read from the clock like any other value, never typed from an estimate. The s
 only clock this environment has; the CI runner advances `data/publication.json` itself at the start
 of every build, which is why a hand-written stamp can disagree with it by an hour and go unnoticed
 until a test asks the question.
+
+## 10. Publication
+
+- **PR:** [#157](https://github.com/buffedlizard55-lab/OLBG3/pull/157) — CI `Verify and publish dashboard` success on
+  head `d9b480a` (run 40028859199); `Live OLBG listing capture` run 40028660939 ran alongside it.
+- **Merged:** 2026-10-23T21:46:30Z as `88d8ed8`, immediately, per the standing instruction not to wait for review.
+  One rebase was needed: `session-a87a3681` merged PR #158 while this pass was running, so the branch was
+  re-merged onto `db7c864` and rebuilt before the final push.
+- **Pages:** `Verify and publish dashboard` **success** on `main`, `pages-build-deployment` **success**, and the Pages
+  API reports **built** at `8f91051` (2026-10-23T21:49:15Z).
+- **Deployed content checked in `origin/main`, not inferred from a green tick:** both flagged pages carry FL-184 and
+  FL-190, the register holds 182 items, `predictions.html` carries "sit 11th on 8 points" and
+  `olbg/predictions.html` "Leinster eleventh on eight points", and neither page carries the superseded ordinals.
