@@ -4,6 +4,11 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## 2026-10-23 freshness audit — `session-c4cde934` (task-46)
+
+At the real **2026-10-23T16:18Z** clock the previously committed `/olbg/` build failed its own checker on five expired 22-Oct Ice Hockey HIGH picks. Re-running the documented `/olbg/` pipeline demoted them (`kick_off_passed_archived`): **HIGH 22 → 17**, all dated 2026-10-23 or later, all inside -250..+10000 with model probability < 0.70 (Basketball 5, Rugby Union 5, and one each for Baseball, Cricket, Darts, Gaelic Football, Golf, Motor Racing, Volleyball). The root track was *measured* at the 23-Oct clock (4 HIGH) but not rebuilt under an override clock, because its committed build is byte-reproducible against its stored observation clock by design; its pages re-check release expiry in the browser. **No new 23-Oct fixtures or predictions were added** — the five-per-sport target for 2026-10-23 is unmet and is published as **FL-131** on Flagged for Review, with the full record in `docs/audit-c4cde934.md`.
+
+
 What the published numbers do and do not mean:
 
 - **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained **338-row** `/olbg/` audit track (`122` review-register items) refreshed by an evening listing capture at `20:53Z–21:12Z`, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.

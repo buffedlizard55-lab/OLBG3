@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T21:55:00Z",
+  "generated_at": "2026-10-23T16:18:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose.",
   "items": [
     {
@@ -2710,6 +2710,32 @@
         {
           "label": "OLBG — betting tips listings hub",
           "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-131",
+      "severity": "freshness",
+      "status": "needs review",
+      "sport": "All 15 covered sports",
+      "title": "2026-10-23 clock: 22-Oct HIGH picks expired; no new 23-Oct OLBG harvest verified this session",
+      "summary": "At the real 2026-10-23T16:18Z clock, tools/check_site.py on the previously committed /olbg/ track failed on five Ice Hockey HIGH picks with 2026-10-22 kick-offs (ICH-199931, ICH-199932, ICH-199933, ICH-199940, ICH-199941). Re-running the documented /olbg/ pipeline on 2026-10-23 demoted them via the existing kick_off_passed_archived rule (HIGH 22 -> 17). The root track's deterministic publication clock remains the newest stored official observation (2026-10-22T22:10Z); measuring it at OLBG_NOW_UTC=2026-10-23T16:18Z leaves only 4 root HIGH picks, and the published pages re-check release expiry in the browser. No new 23-Oct fixture, form, injury or price claim was added: a full new harvest with official-source verification for 75 targeted picks (5 per sport) was not completed this session, so the five-per-sport target for 2026-10-23 is unmet and must not be read as met.",
+      "detail": "Session-c4cde934, 2026-10-23. Evidence: pre-rebuild `python3 tools/check_site.py` FAILED listing the five expired ICH ids above; post-rebuild it passes with high=17, all dated 2026-10-23 or later in data/lines.json. Remaining /olbg/ HIGH by sport: Basketball 5, Rugby Union 5, Baseball 1, Cricket 1, Darts 1, Gaelic Football 1, Golf 1, Motor Racing 1, Volleyball 1; Tennis, Snooker, Handball, Rugby League, Greyhounds and Ice Hockey have 0 current /olbg/ HIGH. Root-track measurement is an audit measurement only (OLBG_NOW_UTC override), not a committed root rebuild, because the committed root build is byte-reproducible against its stored observation clock by design (see FL-067/FL-099 history). OLBG's own all-sports page was re-read this session and still rendered the 22-Oct slate labelled 'Today', which is itself inconsistent with the 2026-10-23 calendar clock; no fixture was re-dated from that label.",
+      "affected_rows": [
+        "ICH-199931",
+        "ICH-199932",
+        "ICH-199933",
+        "ICH-199940",
+        "ICH-199941"
+      ],
+      "sources": [
+        {
+          "label": "OLBG - all-sports betting tips (re-read 2026-10-23; labels not re-dated from)",
+          "url": "https://www.olbg.com/betting-tips"
+        },
+        {
+          "label": "OLBG - Ice Hockey tips",
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
         }
       ]
     }
