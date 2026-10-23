@@ -5641,7 +5641,7 @@
     }
   },
   "source_tiers": {
-    "policy": "A row counts as officially verified only when the specific fixture appears on the competition's own site (governing body, league, tour or federation) or on one of the two clubs' own sites. Reputable third parties (ESPN/ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects, tipsterio, kicker) are kept as corroboration only and labelled 'corroborated', never 'verified'. Where a row had only a third-party source we recorded it, tried to replace it with an official one, and left the tier honest when we could not.",
+    "policy": "A row counts as officially verified only when the specific fixture appears on the competition's own site (governing body, league, tour or federation) or on one of the two clubs' own sites. Reputable third parties (ESPN/ESPNcricinfo, Sofascore, AS, TNT Sports, ORF, snooker.org, Eliteprospects, tipsterio, kicker) are kept as corroboration only and labelled 'corroborated', never 'verified'. Where a row had only a third-party source we recorded it, tried to replace it with an official one, and left the tier honest when we could not. www.unitedrugby.com added 2026-10-23 (session-d0f5ca54): it is the URC's own domain and publishes the canonical 2026/27 fixtures list; stats.unitedrugby.com was already listed, and release.py has trusted the www host as a clock source since 2026-10-22.",
     "official": [
       "www.lnh.fr",
       "cricket.co.za",
@@ -5725,7 +5725,8 @@
       "bcci.tv",
       "lnv.fr",
       "lnv-web.dataproject.com",
-      "protennislive.com"
+      "protennislive.com",
+      "www.unitedrugby.com"
     ],
     "club-official": [
       "hapoelbc.com",

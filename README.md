@@ -6,7 +6,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 265 root rows (217 fixtures + 48 outright/race) captured 21–22 Oct 2026 (through `12:40Z`), plus the chained **338-row** `/olbg/` audit track (`122` review-register items) refreshed by an evening listing capture at `20:53Z–21:12Z`, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 321 root rows (273 fixtures + 48 outright/race) captured 21–23 Oct 2026 (through `2026-10-23T16:50Z`), plus the chained **432-row** `/olbg/` audit track (`132` review-register items) refreshed by the 16:30Z listing capture on 23 Oct, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
   These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
@@ -22,7 +22,17 @@ What the published numbers do and do not mean:
 | `feed-overview.html`, `matches.html`, `coverage.html`, `review.html`, `markets.html` | Official NHL/MLB/NBA schedule feed with per-source attempt/success timestamps and payload hashes; failed sources are withheld as cache |
 | `brief.html` | **Brief coverage**: per-sport accounting of published live HIGH picks against the brief's five-per-sport daily target, the mechanical blocker for every sport that falls short, and how each written piece is evidenced |
 | `reconcile.html` | **Cross-track review**: every fixture priced on both tracks where the two models name different selections, both versions with their prices and confidence labels |
-| `/olbg/` | The separate OLBG lines audit track (21 pages, 338 chained rows, 22 live high-confidence picks at the 22:10Z snapshot) with the same release gate applied to its picks |
+| `/olbg/` | The separate OLBG lines audit track (21 pages, 432 chained rows, 14 live high-confidence picks at the `2026-10-23T16:50Z` snapshot) with the same release gate applied to its picks |
+
+## Daily refresh to a 16:50Z publication clock: new harvest, 23 root rows, four evidence defects repaired — `session-d0f5ca54`, 2026-10-23T16:50Z
+
+Full daily pass (`docs/audit-d0f5ca54.md`; claimed `task-46` against `main=46d8716`, no sibling sessions active):
+
+- **New primary harvest** `data/raw/olbg-harvest-20261023T1630Z.tsv` (180 rows, 0 excluded; Golf literally “No tips found.”, `FL-131`), `data/matches.json` 338 → **432 rows**. Root board **321 rows** (273 fixtures + 48 outright/race), 262 verified, 286 priced; `/olbg/` **432 rows/lines, 94 pieces**; register **132 items**.
+- **Publication clock `2026-10-23T16:50:00Z`** from 24 release re-observations read this pass (NHL API, NBA.com, URC fixtures-in-full, EuroLeague Round 7 game centre, MLB.com, formula1.com, VolleyballWorld, gaacork.ie). **Live HIGH: 12 root / 14 `/olbg/` / 18 union** — Basketball (EuroLeague trio + Spurs + Celtics) and Rugby Union (URC Round 4) each meet the brief’s five-per-sport target; shortfall 57 with per-sport blockers in `brief.html`.
+- **23 new root rows** (`IHO-30/31`, `BKB-33..41`, `RGU-19`, `TEN-49..53`, `SNK-15/16`, `DRT-19..22`, `CRK-19..21`), 16 with governing-body confirmations, 10 published unverified (`FL-139`). New live pieces: Montréal Canadiens 1.55 and Colorado Avalanche 1.72 (NHL API clocks); `BSB-01` now names the World Series Game 1 starters (Nick Martinez vs Jacob Misiorowski, 1.80 ERA / 252 K / 11 days’ rest).
+- **Evidence defects found in committed data and repaired:** the Stormers clock certified as UTC from a zone-less club page (`FL-132`); five Pro D2 clocks quoted with a “CET” token LNR never prints — downgraded, three live HIGHs honestly withdrawn (`FL-134`); SuperLega venue/clock fields mixed between fixtures (`FL-135`); “Round 8” mislabels on Round 7 games (`FL-136`); a Spurs venue conflict blanked (`FL-138`); and **68 published piece fields** containing the brief-banned words “model”/“verified” swept clean with a regression test (`FL-140`). `FL-129` resolved (the EuroLeague URL serves a fresh edition; all three clocks re-observed); `FL-137` records why NHL pricing stays on the 2026-10-22 standings block despite a newer one being transcribed.
+- **Checks:** `116/116` unit tests OK (7 new pins), `check_board.py` PASS, `tools/check_site.py` PASS, `check.py` PASS, `check_links.py` 110 pages / 0 broken.
 
 ## Parallel evening harvest integration: 30 fixtures onto the root board, 22:10Z re-observations — `session-4b642f84`, 2026-10-22T22:10Z
 

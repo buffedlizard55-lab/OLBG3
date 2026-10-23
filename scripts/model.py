@@ -109,6 +109,8 @@ def source_tier(url):
 ALIASES = {
     "Bulls": "Vodacom Bulls",
     "Stormers": "DHL Stormers",
+    "Cardiff": "Cardiff Rugby",
+    "Sharks": "Hollywoodbets Sharks",
     "BUF Sabres": "Buffalo Sabres",
     "PHI Flyers": "Philadelphia Flyers",
     "FLA Panthers": "Florida Panthers",

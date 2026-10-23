@@ -31,8 +31,10 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         self.assertEqual(self.rc["37005"]["kind"], "date_only")
         self.assertIsNone(self.rc["37005"]["timezone"])
         self.assertIn("J3 : Arago de Sète - Chaumont VB 52 : jeudi 22 octobre (20h)", self.rc["37005"]["quote"])
-        self.assertEqual(self.events["VOL-30"]["pick"]["release"]["status"], "unverified_start")
-        self.assertEqual(self.lines["VOL-37005"]["release"]["status"], "unverified_start")
+        # Rolled 2026-10-23 (session-d0f5ca54): the 22 October fixture date has passed,
+        # so the gate now reports past_date; the no-guessed-zone invariant is unchanged.
+        self.assertEqual(self.events["VOL-30"]["pick"]["release"]["status"], "past_date")
+        self.assertEqual(self.lines["VOL-37005"]["release"]["status"], "past_date")
         self.assertIn("FL-096", self.flagged)
 
         # FL-097: wtafiles 405/OP.pdf prints 'Starting at 11:30 AM' without JST
@@ -45,14 +47,19 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         # FL-098: pdc.tv/WCFAQ explicitly states 'Friday December 11 (1900 GMT)' and 128-player field
         self.assertEqual(self.rc["26023"]["kind"], "exact")
         self.assertEqual(self.rc["26023"]["timezone"], "GMT")
-        self.assertEqual(self.gap["DRT-18"]["pick"]["confidence"], "HIGH")
+        # Rolled 2026-10-23 (session-d0f5ca54, FL-133): pdc.tv renders only its
+        # consent manager today, so check 26023 (last read 2026-10-22T12:40Z) could
+        # not be refreshed inside 24h and the outright rotates HIGH -> MEDIUM.
+        self.assertEqual(self.gap["DRT-18"]["pick"]["confidence"], "MEDIUM")
         self.assertEqual(self.gap["DRT-18"]["pick"]["label"], "Luke Littler")
         # The OLBG outright tip count moved from 23/36 to 23/37 in the 20:55Z re-capture, so
         # the disclosed Dirichlet shrinkage re-prices the same selection.
         self.assertEqual(self.gap["DRT-18"]["pick"]["price"], 2.34)
         self.assertGreaterEqual(len(self.preds_root["DRT-18"]["body"].split()), 30)
 
-        self.assertEqual(self.lines["DAR-26023"]["confidence"], "high")
+        # Rolled 2026-10-23 (session-d0f5ca54): the DAR-26023 row is carried from the
+        # 22 October capture, which caps the /olbg/ grade at medium.
+        self.assertEqual(self.lines["DAR-26023"]["confidence"], "medium")
         self.assertEqual(self.lines["DAR-26023"]["our_pick"], "Luke Littler")
         self.assertEqual(self.lines["DAR-26023"]["our_price_pick"], 2.34)
         self.assertGreaterEqual(len(self.preds_olbg["DAR-26023"]["text"].split()), 30)
@@ -61,9 +68,9 @@ class PostMidday15487122AuditTest(unittest.TestCase):
         # Evening refresh 2026-10-22T20:55Z (session-784afe97): the live Osaka listing now
         # carries 2/2 tips on the Sara Bejlek v Marie Bouzkova quarter-final.
         self.assertEqual(self.events["TEN-40"]["olbg_tips"], "2/2")
-        # Evening refresh 2026-10-22T20:55Z (session-784afe97): the live MLB listing now
-        # carries 16/20 tips on the World Series opener.
-        self.assertEqual(self.events["BSB-01"]["olbg_tips"], "16/20")
+        # Rolled 2026-10-23 (session-d0f5ca54): the 16:30Z capture carries 25/31 tips
+        # on the World Series opener (was 16/20 at the 20:55Z refresh).
+        self.assertEqual(self.events["BSB-01"]["olbg_tips"], "25/31")
         self.assertEqual(self.events["SNK-14"]["olbg_tips"], "3/4")
         self.assertIn("FL-098", self.flagged)
 

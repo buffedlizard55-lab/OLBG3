@@ -78,7 +78,9 @@ class EveningRefresh1cdf1d14Test(unittest.TestCase):
             pick = self.events[ref]["pick"]
             self.assertEqual(pick["price"], price, ref)
             self.assertEqual(pick["american"], us, ref)
-            self.assertEqual(pick["release"]["status"], "start_window_reached", ref)
+            # Rolled 2026-10-23 (session-d0f5ca54): these were 22 October fixtures, so a
+            # day later the gate reports past_date rather than start_window_reached.
+            self.assertEqual(pick["release"]["status"], "past_date", ref)
             piece = self.preds[ref]
             self.assertEqual(piece["status"], "analysis", ref)
             self.assertIn(f"{price:.2f}", piece["selection"], ref)

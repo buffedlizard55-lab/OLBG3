@@ -2750,7 +2750,7 @@
       "sport": "Darts",
       "title": "PDC site returns only cookie/consent content — darts start times uncertified",
       "summary": "The official PDC European Championship schedule page returned nothing but cookie/consent boilerplate in this pass (chunks 0 and 3 of the render), so no timezone-qualified start can be certified for any darts tie. All darts rows publish as analysis with unverified starts; pairings come from the OLBG listing only.",
-      "detail": "Affected: tonight's remaining first-round ties and the four Saturday ties added today (root DRT-19..DRT-22; events 32383-32386). OLBG lists all four Saturday ties at the same reader time (\"Tomorrow 13:15\"), which is a session label, not four certified clocks. No darts piece is written for the new rows because no official order of play could be read.",
+      "detail": "Affected: tonight's remaining first-round ties and the four Saturday ties added today (root DRT-19..DRT-22; events 32383-32386). OLBG lists all four Saturday ties at the same reader time (\"Tomorrow 13:15\"), which is a session label, not four certified clocks. No darts piece is written for the new rows because no official order of play could be read. The same wall blocks re-reading pdc.tv/WCFAQ, so release check 26023 (2026/27 World Championship opener, \"Friday December 11 (1900 GMT)\", last read 2026-10-22T12:40Z) could not be refreshed inside its 24-hour window; the Luke Littler outright (gap DRT-18, 2.34) therefore drops from live HIGH to MEDIUM/analysis until the page renders again. Nine render chunks of /WCFAQ returned consent-manager text only.",
       "sources": [
         {
           "label": "PDC — European Championship hub (consent wall at read time)",
@@ -2857,6 +2857,21 @@
         {
           "label": "WST — matches (bare clocks)",
           "url": "https://www.wst.tv/matches"
+        }
+      ]
+    },
+    {
+      "id": "FL-140",
+      "severity": "data quality",
+      "status": "resolved",
+      "sport": "Multiple",
+      "title": "Banned words (\"model\" / \"verified\") swept from 68 published piece fields on both tracks",
+      "summary": "The brief bars the words \"model\" and \"verified\" from published prediction text, but 24 root pieces and 35 /olbg/ pieces contained them (\"our model prices...\", \"the model selection\", \"start timezone unverified\", \"verified winning run\"...). All 68 offending fields were reworded in place this pass (e.g. \"our numbers\", \"we price\", \"not stated\", \"recorded\") without changing any selection, price or fact.",
+      "detail": "Two of the offenders (BKB-29, BKB-30) were live HIGH pieces tonight; they were fully rewritten for Round 7 (FL-136) in the same edit. A regression test (tests/test_audit_d0f5ca54.py::test_no_piece_contains_banned_words) now fails the build if either word re-enters a headline, selection, body or text field on either track. Methodology copy outside the pieces themselves (e.g. the predictions-file note describing the release gates) was left untouched: the ban applies to the prediction text.",
+      "sources": [
+        {
+          "label": "Project brief (repository README — publication rules)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3"
         }
       ]
     }

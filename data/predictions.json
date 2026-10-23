@@ -1281,7 +1281,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred.",
       "row_confidence": "MEDIUM"
     },
     {
@@ -1408,7 +1408,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "TEN-47",
