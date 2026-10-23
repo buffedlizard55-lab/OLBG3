@@ -1,13 +1,16 @@
-# Audit — session-655b300a, task-54 (2026-10-23, 21:26Z–22:45Z)
+# Audit — session-655b300a, task-54 (2026-10-23, 21:26Z–21:36Z)
 
 Evening re-read of every official page behind the live high-confidence picks, one repair, five
 disclosures, and a plainly stated reason why no new fixture was added.
 
 - **Branch:** `arena/655b300a-olbg3` (Arena-locked name) — claim committed as `5a6ba3b` on `main` `6241660`.
-- **Observation clock for this pass:** `2026-10-23T22:40:00Z`. The page-retrieval tool returns page
-  content without a clock, so the pass records **one** observation stamp instead of inventing
-  per-page minutes. Every read is listed in `data/raw/probe-655b300a/reads.json`.
-- **Build clock:** `data/publication.json` advanced to `2026-10-23T22:45:00Z` before the rebuild.
+- **Observation clock for this pass:** `2026-10-23T21:30:00Z`, one stamp for a read window that ran
+  21:28Z–21:36Z. The page-retrieval tool returns content without a clock, so a single stamp is
+  recorded rather than per-page minutes invented. Every read is listed in
+  `data/raw/probe-655b300a/reads.json`.
+- **Build clock:** the pipeline's own `scripts/publication_clock.py` value, `21:37Z` when this pass
+  was written. **The first draft of this document, and every receipt behind it, carried `22:40Z` —
+  63 minutes into the future. It was withdrawn and re-dated; see §8 and `FL-183`.**
 
 ## 1. Retrieval boundary (what this sandbox can and cannot reach)
 
@@ -67,16 +70,16 @@ Connacht and Zebre.
 identical points, points-for and points-against in the stored 21 October table and the 23 October
 table; only their ordinal moved, because four *other* clubs played. The probability inputs behind
 the published prices are therefore unchanged. That check is recorded in
-`data/official.json → reread_20261023T2240.urc_table_position_check`.
+`data/official.json → reread_20261023T2130.urc_table_position_check`.
 
 ## 4. Disclosures recorded instead of repaired
 
 | Flag | What it is | Why it is not a repair |
 |---|---|---|
 | `FL-178` | OLBG's public listings render their tables client-side: `/betting-tips`, `/Tennis/3` and `/Ice_Hockey/13` all return "No tips found" while the same site's event pages render in full | A repair would mean inventing fixtures. Recorded with the three URLs and the exact page text |
-| `FL-179` | OLBG marks every market on tonight's Canadiens–Blackhawks page "Expired" at 22:40Z, with the NHL start still 1h20m away | OLBG's label is not evidence of a start; our clock comes from the NHL's UTC timestamp |
+| `FL-179` | OLBG marks every market on tonight's Canadiens–Blackhawks page "Expired" at 21:30Z, with the NHL start still 1h20m away | OLBG's label is not evidence of a start; our clock comes from the NHL's UTC timestamp |
 | `FL-180` | The NHL's standings service and its stats service disagree on season totals (MTL 30 v 28 goals for, COL 31 v 30 against, EDM 47 v 46) | Moving a quoted figure to match a *different* official source is exactly the over-correction recorded as FL-171. Both write-ups stay pinned to the endpoint they cite |
-| `FL-181` | Five-a-day target re-measured at 22:45Z: 0 of 15 sports reach it, shortfall 63 of 75, 12 unique live fixtures in 6 sports | Nothing was promoted to close it. `CRK-17` and `HBL-28` stay medium because the ICC and the Danish league print only reader-zone or unlabelled clocks |
+| `FL-181` | Five-a-day target re-measured at 21:35Z: 0 of 15 sports reach it, shortfall 63 of 75, 12 unique live fixtures in 6 sports | Nothing was promoted to close it. `CRK-17` and `HBL-28` stay medium because the ICC and the Danish league print only reader-zone or unlabelled clocks |
 | `FL-182` | The retriever served the MLB Game 1 preview under the title "undefined" and a different canonical path | The facts were corroborated against MLB's own schedule and standings feeds before use |
 
 ## 5. What was deliberately not done
@@ -86,7 +89,7 @@ the published prices are therefore unchanged. That check is recorded in
 - **No clock renewal.** `scripts/verify_live.py` rebuilds `data/release_checks.json` deterministically
   from the committed probe payload, so an editorial renewal is overwritten on the next build. Rather
   than fake durability, the file was left byte-identical; the 16:28Z–19:36Z observations were already
-  inside their 24-hour window at the 22:45Z build clock, so no live selection needed renewing.
+  inside their 24-hour window at the 21:37Z build clock, so no live selection needed renewing.
 - **No repricing.** Published prices, probabilities and grades are unchanged in this pass.
 - **No change to a sibling's work.** `assets/release.js` and its mirrors, the workflows, the release
   gate logic, the parsers and every sibling register item are untouched.
@@ -117,3 +120,32 @@ python3 scripts/build_site.py --snapshot     → root snapshot refreshed; "11th 
 - Cork GAA final — <https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/>
 - NBA schedule, 23 October — <https://www.nba.com/schedule?date=2026-10-23>
 - OLBG all-sports listing, Tennis and Ice Hockey listings, and the MTL @ CHI event page (see FL-178, FL-179)
+
+## 8. This pass's own defect: a stamp written from memory, not from the clock
+
+The first revision of every receipt, register entry and audit line in this pass carried the
+observation stamp `2026-10-23T22:40Z`. The build clock was `21:37Z`. The stamp was therefore a
+statement about a read that had not happened yet — while the reads themselves were real and had
+finished a few minutes earlier.
+
+It was caught by the test this pass added, on its first run against the real clock:
+`TestReadReceipts::test_observation_clock_is_dated_and_not_in_the_future` asserts that
+`reads.json → observation_clock_utc` is not later than `data/publication.json → publication_as_of`.
+It failed exactly as it should:
+
+```
+AssertionError: '2026-10-23T22:40:00Z' not less than or equal to '2026-10-23T21:37:00Z'
+```
+
+**What was re-dated, and what was not.** The stamp, and only the stamp: `reads.json`, the
+`data/official.json` block (renamed `reread_20261023T2240` → `reread_20261023T2130`), the
+`FL-177`–`FL-182` entries, this document and the README paragraph. Every quoted figure, source URL
+and prose repair stands unchanged, because each was read before it was written. `FL-183` records it
+in the register rather than letting a silent edit hide it — the same standard this project applies
+to every other session's dated evidence.
+
+**The lesson, since it generalises:** a stamp is a *claim about when evidence existed*, so it has to
+be read from the clock like any other value, never typed from an estimate. The sandbox clock is the
+only clock this environment has; the CI runner advances `data/publication.json` itself at the start
+of every build, which is why a hand-written stamp can disagree with it by an hour and go unnoticed
+until a test asks the question.

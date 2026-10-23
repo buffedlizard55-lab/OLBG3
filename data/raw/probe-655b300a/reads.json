@@ -1,6 +1,6 @@
 {
   "session": "session-655b300a",
-  "observation_clock_utc": "2026-10-23T22:40:00Z",
+  "observation_clock_utc": "2026-10-23T21:30:00Z",
   "tool": "harness page-retrieval tool (the shell in this sandbox has no route to these hosts: curl -> SSL_ERROR_SYSCALL)",
   "note": "One receipt per page actually read in this pass. 'established' records only what the page prints; nothing is inferred.",
   "reads": [
@@ -17,12 +17,12 @@
     {
       "url": "https://api-web.nhle.com/v1/standings/2026-10-23",
       "established": "Per-club standings. CHI 3-6-0, 21 goals for / 36 against, home 3-2-0. MTL 4-3-2, 30/34, home 3-2-1, road 1-1-1, streak OT1. TBL 7-2-0, 31/23, road 2-2-0, streak W3. COL 5-4-1, 41/31, home 3-1-1, streak L2. Payload header standingsDateTimeUtc 2026-10-23T21:28:15Z.",
-      "quote": "\"standingsDateTimeUtc\":\"2026-10-23T21:28:15Z\" ... \"placeName\":{\"default\":\"Montréal\"} ... \"goalFor\":30,\"goalAgainst\":34 ... \"roadWins\":1,\"roadLosses\":1,\"roadOtLosses\":1"
+      "quote": "\"standingsDateTimeUtc\":\"2026-10-23T21:28:15Z\" ... \"placeName\":{\"default\":\"Montr\u00e9al\"} ... \"goalFor\":30,\"goalAgainst\":34 ... \"roadWins\":1,\"roadLosses\":1,\"roadOtLosses\":1"
     },
     {
       "url": "https://api.nhle.com/stats/rest/en/team/summary?isAggregate=false&isGame=false&start=0&limit=10&cayenneExp=gameTypeId%3D2%20and%20seasonId%3D20262027%20and%20teamId%20in%20(8%2C16%2C21%2C14)",
       "established": "The league's stats service reports different season goal totals from the standings service for three of the four clubs checked: MTL 28 goals for (standings: 30), COL 30 goals against (standings: 31), EDM 46 goals for (standings: 47). TBL 31/23 agrees in both. Recorded as a source conflict, not a repair.",
-      "quote": "\"teamFullName\":\"Montréal Canadiens\",\"gamesPlayed\":9,\"goalsAgainst\":34,\"goalsFor\":28 ... \"teamFullName\":\"Colorado Avalanche\",\"goalsFor\":41,\"goalsAgainst\":30"
+      "quote": "\"teamFullName\":\"Montr\u00e9al Canadiens\",\"gamesPlayed\":9,\"goalsAgainst\":34,\"goalsFor\":28 ... \"teamFullName\":\"Colorado Avalanche\",\"goalsFor\":41,\"goalsAgainst\":30"
     },
     {
       "url": "https://www.olbg.com/betting-tips",
@@ -31,7 +31,7 @@
     },
     {
       "url": "https://www.olbg.com/betting-tips/Tennis/3",
-      "established": "Tennis listing renders 'No tips found.' — same client-side table as the All-Sports page.",
+      "established": "Tennis listing renders 'No tips found.' \u2014 same client-side table as the All-Sports page.",
       "quote": "**Tennis** / Show Expired Events / No tips found."
     },
     {
@@ -61,7 +61,7 @@
     },
     {
       "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-      "established": "Final Nemo Rangers v St Finbarrs, Sunday 25 October, 4.00pm, SuperValu Páirc Uí Chaoimh; Nemo 1-15 to 0-16 v Carrigaline, 1-20 to 1-17 v Castlehaven; St Finbarrs 2-12 to 0-16 v Clonakilty and a 'convincing victory over Carbery'. Google Calendar link 20261025T160000/20261025T180000 with ctz=Europe/Dublin.",
+      "established": "Final Nemo Rangers v St Finbarrs, Sunday 25 October, 4.00pm, SuperValu P\u00e1irc U\u00ed Chaoimh; Nemo 1-15 to 0-16 v Carrigaline, 1-20 to 1-17 v Castlehaven; St Finbarrs 2-12 to 0-16 v Clonakilty and a 'convincing victory over Carbery'. Google Calendar link 20261025T160000/20261025T180000 with ctz=Europe/Dublin.",
       "quote": "Nemo Rangers advanced after a closely contested 1-15 to 0-16 victory over Carrigaline ... St Finbarrs secured their final place with a 2-12 to 0-16 win over Clonakilty."
     },
     {
@@ -89,11 +89,12 @@
   "failed_reads": [
     {
       "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
-      "result": "Failed to fetch page — the CDN host is not reachable from this sandbox, so NBA fixture times were taken from the www.nba.com schedule page instead."
+      "result": "Failed to fetch page \u2014 the CDN host is not reachable from this sandbox, so NBA fixture times were taken from the www.nba.com schedule page instead."
     },
     {
       "url": "https://www.olbg.com/betting-tips/golf",
-      "result": "404 Not Found. Golf's authoritative listing path is /betting-tips/Golf/5, not the slug alone — the same grammar already documented in docs/olbg-structure.md."
+      "result": "404 Not Found. Golf's authoritative listing path is /betting-tips/Golf/5, not the slug alone \u2014 the same grammar already documented in docs/olbg-structure.md."
     }
-  ]
+  ],
+  "clock_note": "Single stamp for a read window that ran 21:28Z-21:36Z. An earlier revision of this file carried 22:40Z, 63 minutes ahead of the build clock; that stamp was withdrawn and is recorded as FL-183. Nothing else in the file changed."
 }

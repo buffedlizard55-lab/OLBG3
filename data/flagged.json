@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T22:45:00Z",
-  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number.",
+  "generated_at": "2026-10-23T21:35:00Z",
+  "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-177..FL-183 were raised by session-655b300a's 21:28Z-21:36Z official re-read; FL-183 is that session flagging its own future-dated stamp.",
   "items": [
     {
       "id": "FL-001",
@@ -3733,9 +3733,9 @@
       "id": "FL-177",
       "severity": "high",
       "title": "Five league-table positions quoted in four Rugby Union write-ups were contradicted by the URC table after the Friday Round 4 matches",
-      "detail": "The official URC table re-read at 2026-10-23T22:40Z lists Munster 10th, Leinster 11th, Vodacom Bulls 4th, DHL Stormers 5th, Ulster 12th and Scarlets 13th. Four published write-ups still carried the pre-Round-4 order: RGU-14 and RGU-609578 said Leinster were tenth and Munster ninth; RGU-609580 said the Stormers were fourth and the Scarlets twelfth; RGU-609576 said the Bulls were third and Ulster eleventh. The underlying points, for/against and Round 3 scorelines in those pieces were all still correct — only the ordinals had been overtaken by the three Friday matches (Cardiff v Sharks, Connacht v Zebre, Edinburgh v Lions). No price, probability or grade was changed.",
+      "detail": "The official URC table re-read at 2026-10-23T21:30Z lists Munster 10th, Leinster 11th, Vodacom Bulls 4th, DHL Stormers 5th, Ulster 12th and Scarlets 13th. Four published write-ups still carried the pre-Round-4 order: RGU-14 and RGU-609578 said Leinster were tenth and Munster ninth; RGU-609580 said the Stormers were fourth and the Scarlets twelfth; RGU-609576 said the Bulls were third and Ulster eleventh. The underlying points, for/against and Round 3 scorelines in those pieces were all still correct — only the ordinals had been overtaken by the three Friday matches (Cardiff v Sharks, Connacht v Zebre, Edinburgh v Lions). No price, probability or grade was changed.",
       "status": "needs review",
-      "action": "Repaired in the prose at 2026-10-23T22:40Z: the positions now match the table published on 23 October, and the 'after Round 3' phrasing was replaced because the table now includes four rounds for three clubs. Points, points-for, points-against and the Round 3 scorelines were re-checked line by line and left unchanged because they still agree.",
+      "action": "Repaired in the prose at 2026-10-23T21:30Z: the positions now match the table published on 23 October, and the 'after Round 3' phrasing was replaced because the table now includes four rounds for three clubs. Points, points-for, points-against and the Round 3 scorelines were re-checked line by line and left unchanged because they still agree.",
       "affected_ids": [
         "RGU-14",
         "RGU-609578",
@@ -3744,7 +3744,7 @@
       ],
       "sources": [
         {
-          "label": "United Rugby Championship — official 2026/27 league table (read 2026-10-23T22:40Z)",
+          "label": "United Rugby Championship — official 2026/27 league table (read 2026-10-23T21:30Z)",
           "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
         },
         {
@@ -3757,7 +3757,7 @@
       "id": "FL-178",
       "severity": "high",
       "title": "OLBG's public tips listings render their tables client-side, so the retriever returns 'No tips found' and no new 15-sport capture could be made in this pass",
-      "detail": "Read at 2026-10-23T22:40Z: https://www.olbg.com/betting-tips prints 'No tips found.' and 'No tournaments tips found.'; https://www.olbg.com/betting-tips/Tennis/3 and https://www.olbg.com/betting-tips/Ice_Hockey/13 print 'No tips found.' as well. The same site's event pages still render in full — the MTL Canadiens @ CHI Blackhawks page returns its money line, puck line and totals with tip counts and percentages — and the NHL feed listed 14 upcoming games at that moment, so the empty tables are a rendering behaviour, not an absence of tips. Consequence: the committed listing capture of 2026-10-23T16:30Z remains the newest, no fixture could be added, and the five-per-sport target cannot be closed from this environment.",
+      "detail": "Read at 2026-10-23T21:30Z: https://www.olbg.com/betting-tips prints 'No tips found.' and 'No tournaments tips found.'; https://www.olbg.com/betting-tips/Tennis/3 and https://www.olbg.com/betting-tips/Ice_Hockey/13 print 'No tips found.' as well. The same site's event pages still render in full — the MTL Canadiens @ CHI Blackhawks page returns its money line, puck line and totals with tip counts and percentages — and the NHL feed listed 14 upcoming games at that moment, so the empty tables are a rendering behaviour, not an absence of tips. Consequence: the committed listing capture of 2026-10-23T16:30Z remains the newest, no fixture could be added, and the five-per-sport target cannot be closed from this environment.",
       "status": "needs review",
       "action": "Published rather than worked around. Nothing was inferred from the empty tables and no fixture, price or confidence was manufactured. The dated reads are stored in data/raw/probe-655b300a/reads.json. A capture has to come from a runner that executes the page's JavaScript (the repository's own live-harvest workflow) or from OLBG's data endpoints if one is documented.",
       "affected_ids": [
@@ -3770,15 +3770,15 @@
       ],
       "sources": [
         {
-          "label": "OLBG — all-sports tips listing (read 2026-10-23T22:40Z)",
+          "label": "OLBG — all-sports tips listing (read 2026-10-23T21:30Z)",
           "url": "https://www.olbg.com/betting-tips"
         },
         {
-          "label": "OLBG — Tennis listing (read 2026-10-23T22:40Z)",
+          "label": "OLBG — Tennis listing (read 2026-10-23T21:30Z)",
           "url": "https://www.olbg.com/betting-tips/Tennis/3"
         },
         {
-          "label": "OLBG — Ice Hockey listing (read 2026-10-23T22:40Z)",
+          "label": "OLBG — Ice Hockey listing (read 2026-10-23T21:30Z)",
           "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
         },
         {
@@ -3791,7 +3791,7 @@
       "id": "FL-179",
       "severity": "medium",
       "title": "OLBG labels every market on tonight's Canadiens–Blackhawks page 'Expired' more than two hours before the NHL's published start",
-      "detail": "At 2026-10-23T22:40Z the OLBG event page for MTL Canadiens @ CHI Blackhawks shows the money line, both puck-line sides and the 6.50 game total each marked 'Expired', while api-web.nhle.com lists the same fixture at startTimeUTC 2026-10-24T00:00:00Z with gameState 'FUT'. The page also prints one selection as '7 / 073' in its summary table and '7 / 10 Win Tips' in the detail panel. Neither the expiry flag nor the tip counts are treated as evidence of a start or a result in this project.",
+      "detail": "At 2026-10-23T21:30Z the OLBG event page for MTL Canadiens @ CHI Blackhawks shows the money line, both puck-line sides and the 6.50 game total each marked 'Expired', while api-web.nhle.com lists the same fixture at startTimeUTC 2026-10-24T00:00:00Z with gameState 'FUT'. The page also prints one selection as '7 / 073' in its summary table and '7 / 10 Win Tips' in the detail panel. Neither the expiry flag nor the tip counts are treated as evidence of a start or a result in this project.",
       "status": "needs review",
       "action": "Recorded as an OLBG display quirk. Our release clock still comes from the NHL's own UTC timestamp, so the pick stays live until the official start. No value was taken from OLBG's expiry label.",
       "affected_ids": [
@@ -3799,7 +3799,7 @@
       ],
       "sources": [
         {
-          "label": "OLBG — event page marked Expired (read 2026-10-23T22:40Z)",
+          "label": "OLBG — event page marked Expired (read 2026-10-23T21:30Z)",
           "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/MTL_Canadiens_@_CHI_Blackhawks/13?event_id=199984"
         },
         {
@@ -3812,7 +3812,7 @@
       "id": "FL-180",
       "severity": "medium",
       "title": "Two official NHL endpoints disagree on season goal totals for three of the four clubs checked; the published write-ups match the endpoint they cite",
-      "detail": "On 2026-10-23T22:40Z the standings service (api-web.nhle.com/v1/standings/2026-10-23) reports Montréal 30 goals for and Colorado 31 against, while the league's stats service (api.nhle.com/stats/rest/en/team/summary) reports 28 and 30 for the same clubs over the same nine and ten games; Edmonton appears as 47 goals for in one and 46 in the other. Tampa Bay's 31/23 agrees in both. IHO-199984 cites the standings service and says 30/34, IHO-199985 cites it and says 41/31 — both correct against their own citation.",
+      "detail": "On 2026-10-23T21:30Z the standings service (api-web.nhle.com/v1/standings/2026-10-23) reports Montréal 30 goals for and Colorado 31 against, while the league's stats service (api.nhle.com/stats/rest/en/team/summary) reports 28 and 30 for the same clubs over the same nine and ten games; Edmonton appears as 47 goals for in one and 46 in the other. Tampa Bay's 31/23 agrees in both. IHO-199984 cites the standings service and says 30/34, IHO-199985 cites it and says 41/31 — both correct against their own citation.",
       "status": "needs review",
       "action": "No repair made: changing a value quoted from one official source to match a different official source would repeat the over-correction recorded as FL-171. The conflict is disclosed instead, and the two write-ups stay pinned to the endpoint they name.",
       "affected_ids": [
@@ -3833,8 +3833,8 @@
     {
       "id": "FL-181",
       "severity": "medium",
-      "title": "Re-measured at the 22:45Z build clock: no sport meets the five-a-day high-confidence target and the shortfall is 63 of 75",
-      "detail": "The live board at the 2026-10-23T22:45Z publication clock carries 8 root-track and 8 /olbg/-track high-confidence selections over 12 unique fixtures in 6 sports (Baseball, Basketball, Gaelic Football, Ice Hockey, Rugby Union, Volleyball). The other nine covered sports carry none. This continues the shortfall recorded as FL-174; the cause is now documented as FL-178 (no new listing capture) plus the release gate refusing to certify clocks that the governing body does not print in an explicit zone.",
+      "title": "Re-measured at the 21:35Z build clock: no sport meets the five-a-day high-confidence target and the shortfall is 63 of 75",
+      "detail": "The live board at the 2026-10-23T21:35Z publication clock carries 8 root-track and 8 /olbg/-track high-confidence selections over 12 unique fixtures in 6 sports (Baseball, Basketball, Gaelic Football, Ice Hockey, Rugby Union, Volleyball). The other nine covered sports carry none. This continues the shortfall recorded as FL-174; the cause is now documented as FL-178 (no new listing capture) plus the release gate refusing to certify clocks that the governing body does not print in an explicit zone.",
       "status": "needs review",
       "action": "Nothing promoted to close the gap. Sports that cannot reach five are published with their count and the reason on the brief-coverage page; the two medium picks whose federations print only reader-zone or unlabelled clocks (CRK-17, HBL-28) stay medium.",
       "affected_ids": [
@@ -3856,7 +3856,7 @@
       "id": "FL-182",
       "severity": "low",
       "title": "The page retriever served the MLB Game 1 preview body under a different article title and canonical path",
-      "detail": "Requesting https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup at 2026-10-23T22:40Z returned the Game 1 preview text (Misiorowski 1.80/252/0.80, 104.8 mph first pitch, 11 days off, Martinez 24-9 in his starts) with the title 'undefined' and a displayed canonical of .../pat-murphy-kevin-cash-1998-college-world-series. The quoted facts were cross-checked against the MLB schedule and standings services before being relied on.",
+      "detail": "Requesting https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup at 2026-10-23T21:30Z returned the Game 1 preview text (Misiorowski 1.80/252/0.80, 104.8 mph first pitch, 11 days off, Martinez 24-9 in his starts) with the title 'undefined' and a displayed canonical of .../pat-murphy-kevin-cash-1998-college-world-series. The quoted facts were cross-checked against the MLB schedule and standings services before being relied on.",
       "status": "needs review",
       "action": "Recorded for review. The cited facts are corroborated by the league's own schedule and standings feeds; the URL/title mismatch is a property of the retrieval route, not of the article.",
       "affected_ids": [
@@ -3871,6 +3871,25 @@
         {
           "label": "MLB — official schedule service, Game 1 gamePk 849805",
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-30"
+        }
+      ]
+    },
+    {
+      "id": "FL-183",
+      "severity": "medium",
+      "title": "This pass's own observation stamp was written 63 minutes ahead of the build clock; withdrawn, re-dated and now pinned by a test",
+      "detail": "Every dated receipt, register entry and audit line from this pass first carried the stamp 2026-10-23T22:40Z. The build clock at the time of writing was 21:37Z, so that stamp described an observation that had not yet happened: the reads themselves ran between 21:28Z and 21:36Z. No fact was affected — every quote, figure and source URL was read before it was published — but evidence dated into the future is exactly the class of defect this project flags in other people's work, so it is recorded here rather than quietly overwritten.",
+      "status": "corrected",
+      "action": "Re-dated to a single 2026-10-23T21:30Z stamp across data/raw/probe-655b300a/reads.json, data/official.json (block renamed reread_20261023T2240 -> reread_20261023T2130), the FL-177..FL-182 entries and docs/audit-655b300a.md. The pass that caught it is the test shipped with it: tests/test_audit_655b300a.py::TestReadReceipts::test_observation_clock_is_dated_and_not_in_the_future asserts the receipt clock is not later than data/publication.json, and it failed on the first run against the real clock. The lesson is recorded, not just the fix: a stamp is a claim about when evidence existed, so it must be read from the clock, never typed.",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "data/publication.json — build clock that the stamp was checked against",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/publication.json"
+        },
+        {
+          "label": "data/raw/probe-655b300a/reads.json — the re-dated receipts",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/probe-655b300a/reads.json"
         }
       ]
     }

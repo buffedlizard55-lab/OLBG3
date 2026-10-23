@@ -76,7 +76,7 @@ class TestUrcOrdinals(unittest.TestCase):
             self.assertIn("published on 23 October", body)
 
     def test_urc_evidence_block_matches_the_correction(self):
-        evidence = load("official.json")["reread_20261023T2240"]["fixtures"]
+        evidence = load("official.json")["reread_20261023T2130"]["fixtures"]
         expected = {
             "RGU-14 / RGU-609578": ("8 pts", "9 pts", "75 for", "72 for"),
             "RGU-609580": ("11 pts", "7 pts", "81 for", "68 for"),
@@ -102,7 +102,7 @@ class TestUrcOrdinals(unittest.TestCase):
 class TestRegisterItems(unittest.TestCase):
     """FL-177..FL-182 must exist, carry a reviewable source and stay published."""
 
-    IDS = ["FL-177", "FL-178", "FL-179", "FL-180", "FL-181", "FL-182"]
+    IDS = ["FL-177", "FL-178", "FL-179", "FL-180", "FL-181", "FL-182", "FL-183"]
 
     def setUp(self):
         self.items = {item["id"]: item for item in load("flagged.json")["items"]}
@@ -179,9 +179,37 @@ class TestReadReceipts(unittest.TestCase):
             self.assertGreater(len(entry["result"]), 20)
 
     def test_observation_clock_is_dated_and_not_in_the_future(self):
+        """FL-183: the first draft stamped these receipts 63 minutes ahead of the build clock.
+        This is the assertion that caught it, so it stays even though the stamp it guards has moved."""
         publication = load("publication.json")["publication_as_of"]
-        self.assertRegex(self.doc["observation_clock_utc"], r"^2026-10-23T22:40:00Z$")
+        self.assertRegex(self.doc["observation_clock_utc"], r"^2026-10-23T21:30:00Z$")
         self.assertLessEqual(self.doc["observation_clock_utc"], publication)
+
+
+class TestSelfDatedStamp(unittest.TestCase):
+    """FL-183 must stay in the register, and the withdrawal must stay visible in the receipts."""
+
+    def test_fl183_exists_and_is_corrected(self):
+        items = {item["id"]: item for item in load("flagged.json")["items"]}
+        self.assertIn("FL-183", items)
+        self.assertEqual(items["FL-183"]["status"], "corrected")
+        self.assertIn("22:40", items["FL-183"]["detail"])
+
+    def test_receipts_admit_the_withdrawn_stamp(self):
+        doc = json.loads((DATA / "raw" / "probe-655b300a" / "reads.json").read_text())
+        self.assertIn("22:40", doc["clock_note"])
+        self.assertIn("FL-183", doc["clock_note"])
+
+    def test_no_receipt_payload_still_claims_the_withdrawn_time(self):
+        doc = json.loads((DATA / "raw" / "probe-655b300a" / "reads.json").read_text())
+        payload = json.dumps({k: v for k, v in doc.items() if k != "clock_note"})
+        self.assertNotIn("22:40", payload)
+        self.assertNotIn("2240", (DATA / "official.json").read_text())
+
+    def test_published_register_page_shows_fl183(self):
+        for page in (ROOT / "flagged.html", ROOT / "olbg" / "flagged.html"):
+            with self.subTest(page=str(page)):
+                self.assertIn("FL-183", page.read_text())
 
 
 class TestReviewedHostAllowlist(unittest.TestCase):

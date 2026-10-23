@@ -8,7 +8,7 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 Full record: [`docs/audit-655b300a.md`](docs/audit-655b300a.md) · register: **FL-177 … FL-182**
 
-**Every official page behind every live high-confidence pick was re-read at 22:40Z.** Six of the
+**Every official page behind every live high-confidence pick was re-read in a 21:28Z–21:36Z window.** Six of the
 eight fixtures came back exactly as published — the Brewers' 103-59 record and 832/618 run line, the
 Rays' 4-2 ALCS comeback, Misiorowski's 1.80 ERA and eleven days off, the Canadiens' and Avalanche's
 full standings lines, all four SuperLega rally-point totals, and both Cork scorelines. The two
@@ -27,7 +27,7 @@ prices were not repriced, and the reason is recorded in `data/official.json`.
 `/betting-tips`, `/Tennis/3` and `/Ice_Hockey/13` all return *"No tips found"* while the same site's
 event pages render in full. With no readable listing there is no honest way to add a row, so the
 blocker is published as `FL-178` instead of papered over with a fixture that cannot be pointed at.
-The five-a-day target is re-measured at the 22:45Z build clock: **0 of 15 sports, shortfall 63 of
+The five-a-day target is re-measured at the 21:37Z build clock: **0 of 15 sports, shortfall 63 of
 75, 12 unique live fixtures across 6 sports** (`FL-181`).
 
 **Three further irregularities, disclosed rather than "fixed".** OLBG labels tonight's
@@ -37,6 +37,12 @@ Edmonton 47 v 46 — so the write-ups stay pinned to the endpoint each one cites
 harmonised into a third version (`FL-180`, and the over-correction lesson of `FL-171`). The retriever
 served the MLB Game 1 preview under the title "undefined" with a different canonical path; the facts
 were corroborated against MLB's own schedule and standings feeds before use (`FL-182`).
+
+**This pass also flagged itself.** Its first revision dated every receipt `22:40Z`, 63 minutes ahead
+of the build clock. The test written in the same pass — *the observation clock may not be later than
+the publication clock* — failed on its first run against the real clock, and the stamp was withdrawn
+and re-dated without touching a single quoted fact (`FL-183`). A stamp is a claim about when evidence
+existed; it gets read from the clock, never typed from memory.
 
 **Verification:** 251 tests (20 new), board/site/official-feed/link checks all PASS, 108 pages and
 2,246 local links with **0 broken**, and no value filled in that a source does not print.
