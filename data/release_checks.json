@@ -1,16 +1,17 @@
 {
   "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label.",
-  "session": "session-784afe97 + session-4b642f84 (22:10Z re-observations)",
-  "checked_at": "2026-10-22T22:10:00Z",
+  "session": "session-be917e0f",
+  "checked_at": "2026-10-23T16:45:00Z",
   "events": {
     "160789": {
-      "date": "2026-10-23",
-      "time": "20:00",
-      "timezone": "ET",
+      "date": "2026-10-24",
+      "time": "00:00",
+      "timezone": "UTC",
       "kind": "exact",
-      "source": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule",
-      "quote": "WORLD SERIES — Friday, Oct. 23 — Rays @ Brewers, Game 1: 8 p.m. (FOX/FOX One/FOX Deportes) — All times ET",
-      "checked_at": "2026-10-22T22:10:00Z"
+      "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23",
+      "quote": "gamePk 849805, description \"World Series Game 1\", gameDate \"2026-10-24T00:00:00Z\", Tampa Bay Rays at Milwaukee Brewers, venue American Family Field, status Scheduled",
+      "checked_at": "2026-10-23T16:45:00Z",
+      "note": "MLB's own schedule service states the World Series opener's UTC start explicitly. The earlier mlb.com article reading is superseded by this exact-clock observation, not overwritten in place."
     },
     "535918": {
       "date": "2026-10-22",
@@ -1042,6 +1043,16 @@
       "quote": "ORDER OF PLAY - FRIDAY, 23 OCTOBER 2026 — CENTER — Followed by — QF — [Q] Mary STOIANA USA VS Katerina SINIAKOVA CZE",
       "checked_at": "2026-10-22T22:10:00Z",
       "note": "Official WTA Osaka Order of Play (released 22 Oct 2026 4:20 PM) lists the quarter-final as the third CENTER match with no timezone printed; no exact start is certified."
+    },
+    "199984": {
+      "date": "2026-10-24",
+      "time": "00:00",
+      "timezone": "UTC",
+      "kind": "exact",
+      "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "quote": "2026-10-23 game 2026020166 Montreal Canadiens at Chicago Blackhawks, startTimeUTC \"2026-10-24T00:00:00Z\", venue United Center, gameState FUT (OLBG lists the same fixture as event 199984, 'Today 20:07')",
+      "checked_at": "2026-10-23T16:20:00Z",
+      "note": "Exact UTC start read from the NHL's own schedule payload; no conversion and no zone inference."
     }
   }
 }

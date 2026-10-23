@@ -117,7 +117,8 @@ class AuditA0a7003cTests(unittest.TestCase):
             self.assertEqual(matches[mid]["competition_status"], "verified", mid)
         self.assertEqual(gap["GLF-05"]["pick"]["label"], "Stewart Cink")
         self.assertEqual(gap["GLF-05"]["olbg_tips"], "3/13")
-        self.assertEqual(gap["GLF-07"]["pick"]["release"]["status"], "start_window_reached")
+        # 2026-10-23: once the fixture date passes, the date gate answers before the clock gate
+        self.assertIn(gap["GLF-07"]["pick"]["release"]["status"], {"start_window_reached", "past_date"})
 
 
 if __name__ == "__main__":

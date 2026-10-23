@@ -135,6 +135,12 @@ ALIASES = {
     "WPG Jets": "Winnipeg Jets",
     "DAL Stars": "Dallas Stars",
     "SJ Sharks": "San Jose Sharks",
+    # NHL clubs from the 2026-10-23 capture (OLBG abbreviation -> NHL full name)
+    "MTL Canadiens": "Montreal Canadiens",
+    "CHI Blackhawks": "Chicago Blackhawks",
+    "TB Lightning": "Tampa Bay Lightning",
+    "TBL Lightning": "Tampa Bay Lightning",
+    "COL Avalanche": "Colorado Avalanche",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",

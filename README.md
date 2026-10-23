@@ -29,6 +29,35 @@ What the published numbers do and do not mean:
 | `reconcile.html` | **Cross-track review**: every fixture priced on both tracks where the two models name different selections, both versions with their prices and confidence labels |
 | `/olbg/` | The separate OLBG lines audit track (21 pages, 338 chained rows, 22 live high-confidence picks at the 22:10Z snapshot) with the same release gate applied to its picks |
 
+## Daily capture 2026-10-23: fifteen-sport re-harvest, fresh official clocks, honest shortfall — `session-be917e0f`
+
+A new day is a new capture, not a copy of yesterday's board. This pass read all fifteen in-scope OLBG listings on
+**2026-10-23 (16:05Z–16:20Z)** and recorded 107 rows verbatim (`data/raw/olbg-harvest-20261023T1620Z.json`, format
+v3-json, zero excluded-sport rows): 50 fixtures that were not on the board were appended, 55 that were already there
+were **not** duplicated, and the two greyhound races stayed on the outright/race track. Applier:
+`scripts/apply_capture.py`; every appended row carries its own `captured` date so `Today`/`Tomorrow` can never resolve
+against the wrong day.
+
+- **Three fresh official clocks, all exact UTC and none converted:** the NHL's own schedule payload gives Montreal at
+  Chicago `2026-10-24T00:00:00Z` (and Tampa Bay at Colorado `01:00Z`, not rendered by OLBG today, so recorded but not
+  priced); MLB's schedule service gives World Series Game 1, Rays at Brewers, `2026-10-24T00:00:00Z`. Because MLB's
+  own service states the UTC start directly, `statsapi.mlb.com` was added to the reviewed clock-host list with the
+  reason recorded in `scripts/release.py`.
+- **The publication clock moved to `2026-10-23T16:45Z`,** so the release gate did what it is for: 22–23 October
+  fixtures and observations older than 24 hours are now archived. The live set at this build is **5 root HIGH** —
+  `BSB-01` Milwaukee 1.67 (-149), `IHO-199984` Montreal 1.55 (-182), `VOL-27` Perugia 1.58 (-172), `VOL-28` Civitanova
+  1.44 (-227), `VOL-29` Monza 1.61 (-164) — plus 5 on `/olbg/`, a union of 8. `brief.html` recomputes the 15-sport
+  accounting and the 67-pick shortfall from the rows, with a dated mechanical reason per sport (FL-132..FL-137).
+- **Eight date-pinned assertions from earlier sessions were re-expressed as evidence invariants** rather than
+  deleted: what changed today is the release status (archived vs live), never a price, a source or a word count.
+  `112/112` tests pass; `check_board.py`, `tools/check_site.py`, `check.py` and `check_links.py` all pass; rebuilds are
+  byte-identical.
+- **New register items:** golf carried no listing (FL-132), rugby league has no fixture (FL-133), the greyhound
+  race-card clock disagrees with the listing clock by about five hours (FL-134), 49 new rows publish unverified with
+  blank official fields (FL-135, pinned in tests), NBA rows cannot reach HIGH without an official NBA form input
+  (FL-136), and 78 earlier pieces still use the words "model"/"verified" that the brief excludes from published prose
+  (FL-137). Full working record: `docs/audit-be917e0f.md`.
+
 ## Parallel evening harvest integration: 30 fixtures onto the root board, 22:10Z re-observations — `session-4b642f84`, 2026-10-22T22:10Z
 
 This session ran the same evening window in parallel with `784afe97`/`c038b7f4`/`cab97f19`/`a1e5112b` (PRs #100–#111) and was re-applied on top of their merged state, keeping only net-new work (`docs/audit-4b642f84.md`; task id renumbered `task-45` at merge):
