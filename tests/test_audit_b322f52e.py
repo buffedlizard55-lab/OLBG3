@@ -1,17 +1,17 @@
 """Regression tests for session-b322f52e (task-55, 2026-10-23T21:33Z SvelteKit supplement & audit).
 
 Pins:
-  * FL-191: scripts/extract_listings.py --svelte-fallback extracts all 123 active (expired == "0")
+  * FL-194: scripts/extract_listings.py --svelte-fallback extracts all 123 active (expired == "0")
     rows across 12 sports from data/raw/svelte-b322f52e-20261023T2133Z while keeping default
     SSR-only extraction byte-identical on live-20261023T1700Z (177 rows) and preserving empty SSR
     output on live-20261023T2135Z.
-  * FL-192: RGU-609581 (Ospreys v Dragons) carries the official 18:45Z URC kick-off while
+  * FL-195: RGU-609581 (Ospreys v Dragons) carries the official 18:45Z URC kick-off while
     preserving OLBG's 18:00Z card timestamp in olbg_start_utc.
-  * FL-193: 'Top Team1 Batsman' is present in all three non-winner market sets so CRI-188845
+  * FL-196: 'Top Team1 Batsman' is present in all three non-winner market sets so CRI-188845
     ('RRS Cornwall (Toronto Kings)') cannot leak into match-winner probability.
-  * FL-194: verifications.json entries 36995 and 36996 no longer carry swapped Trento/Perugia
+  * FL-197: verifications.json entries 36995 and 36996 no longer carry swapped Trento/Perugia
     arenas or the contradicted 97:85 Round 1 tally.
-  * FL-195: no row in data/lines.json has an inverted our_home_probability when the selected side
+  * FL-198: no row in data/lines.json has an inverted our_home_probability when the selected side
     resolves to the home club via resolve_team_side().
   * FL-176 resolution: /olbg/index.html renders every source link in p['sources'] for each HIGH row.
   * All 11 net-new HIGH pieces + refreshed MTR-913 carry >=30 words, unique prose, https official
@@ -120,7 +120,7 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
         self.assertEqual(self.flagged["FL-176"]["status"], "resolved")
 
     def test_new_register_items_are_present_and_sourced(self):
-        for fid in ("FL-191", "FL-192", "FL-193", "FL-194", "FL-195"):
+        for fid in ("FL-194", "FL-195", "FL-196", "FL-197", "FL-198"):
             self.assertIn(fid, self.flagged)
             self.assertTrue(self.flagged[fid]["sources"], fid)
             for src in self.flagged[fid]["sources"]:

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T21:54:00Z",
+  "generated_at": "2026-10-23T22:03:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4028,12 +4028,79 @@
     },
     {
       "id": "FL-191",
+      "original_id": "FL-176",
+      "severity": "high",
+      "sport": "all 15 in scope",
+      "status": "corrected",
+      "title": "An empty OLBG listing capture became a zero-row harvest file that name-based resolution could publish over the whole board",
+      "summary": "scripts/extract_listings.py wrote a harvest TSV unconditionally, so a capture with no tip cards produced a file of six comment lines and zero rows; scripts/live_refresh.py then selected captures by name alone, making that empty file the pipeline's harvest.",
+      "detail": "Reproduced, not theorised. The 2026-10-23T21:30Z capture took all 18 in-scope OLBG listings at HTTP 200 (220-309 KB each) and found zero tip cards on every one — OLBG's overnight state, also seen at 19:35Z by another session's runner capture. scripts/extract_listings.py still called write_tsv(), producing data/raw/olbg-harvest-20261023T2135Z.tsv with no data rows. scripts/live_refresh.py chose captures with max(candidates, key=lambda p: p.name) — its own docstring said 'the newest one by name wins' — so the empty file became the harvest. Two consequences were demonstrated: (1) tests/test_live_20261023.py::test_live_capture_is_the_newest pinned the newest harvest filename and went red, and on main that unit-test step runs after live_refresh.py, so an overnight empty capture would have failed the publish job; (2) any resolver using 'newest harvest TSV' instead of data/meta.json['harvest_file'] would have replaced all 180 published /olbg/ rows with nothing. Only the fact that tools/build_dataset.py reads the pinned harvest_file kept the board intact — a guard that did not exist. FL-180 (session-a87a3681) had already made the test tolerate the empty file by filtering on rows; that treated the symptom. Repair: an empty capture is evidence, not a harvest — extract_listings.py writes its extract-report.json (the proof the listings were empty rather than unread), removes any stale zero-row file so a re-run is byte-stable, and exits 3 without creating a harvest; live_refresh.py walks captures newest-first, skips any with no rows, and re-verifies only when the capture it settles on is newer than the one behind the committed primary harvest. The test now asserts the stronger invariant: no zero-row harvest file may exist at all, and the empty capture is preserved as a capture directory. FL-180's intent is kept and strengthened, not discarded.",
+      "sources": [
+        {
+          "label": "OLBG Tennis listing as served at 2026-10-23T21:30Z (committed capture; server-rendered 'No tips found.')",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        },
+        {
+          "label": "OLBG NBA listing as served at the same clock (committed capture; zero tip cards)",
+          "url": "https://www.olbg.com/betting-tips/Basketball/NBA/4"
+        },
+        {
+          "label": "OLBG robots.txt as read at the same clock (the /betting-tips/ listings are not disallowed)",
+          "url": "https://www.olbg.com/robots.txt"
+        }
+      ]
+    },
+    {
+      "id": "FL-192",
+      "original_id": "FL-177",
+      "severity": "low",
+      "sport": "all 15 in scope",
+      "status": "corrected",
+      "title": "extract_listings.py crashed with ValueError when --out pointed outside the repository, after already writing the file",
+      "summary": "The summary line printed out.relative_to(ROOT) unguarded, although the capture path one line earlier was guarded with is_relative_to. Found by writing the FL-184 regression tests, not before them.",
+      "detail": "scripts/extract_listings.py guarded its capture path with is_relative_to(ROOT) but printed its harvest path with a bare out.relative_to(ROOT). Any --out outside the repository therefore wrote the harvest file, then died on the summary line with ValueError: '/tmp/x.tsv' is not in the subpath of '/home/user/OLBG3', exiting 1 — which scripts/live_refresh.py reads as 'extraction failed' and aborts the whole step on. Reproduced with --capture data/raw/live-20261023T1700Z --out /tmp/x.tsv. No committed data was affected: every call site in the repository passes a --out inside data/raw. Both paths now go through one display_path() helper. Recorded separately from FL-191 because it is an independent inconsistency, and because the honest provenance is that it surfaced while testing the other fix rather than in review.",
+      "sources": [
+        {
+          "label": "scripts/extract_listings.py — the repaired summary line and display_path() helper (this repository)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/extract_listings.py"
+        },
+        {
+          "label": "tests/test_audit_d26daaf0.py — regression tests pinning both repairs (this repository)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/tests/test_audit_d26daaf0.py"
+        }
+      ]
+    },
+    {
+      "id": "FL-193",
+      "severity": "medium",
+      "sport": "all 15 in scope",
+      "status": "needs review",
+      "title": "The empty 21:30Z listings are a genuine absence of tips, not a client-side rendering gap — the same runner and user agent got 8 server-rendered cards four hours earlier",
+      "summary": "FL-185 explains the empty tips tables as client-side rendering. Comparing two committed captures taken by the same runner with the same user agent at the same URL shows the server does render the cards when there are any, so the 21:30Z empty state means OLBG had no tips listed, not that tips existed unseen.",
+      "detail": "Both readings matter for how the shortfall is described, so the evidence is set out rather than argued. data/raw/live-20261023T1700Z/listings/betting-tips_Tennis_3.html — captured by scripts/live_harvest.py on a GitHub Actions runner with User-Agent 'OLBG3Audit/1.0' — is 333,779 bytes and contains 8 occurrences of the server-rendered card marker div.grd.tip and 8 itemprop=\"startDate\" attributes. data/raw/live-20261023T2135Z/listings/betting-tips_Tennis_3.html, same script, same user agent, same URL, 294,198 bytes, contains 0 of each, while still carrying 22 event_id hrefs from the page's navigation and editorial links. extract-report.json for the later capture records parse_gaps: {} across all 18 listings, so nothing failed to parse. If the table were rendered only in the browser, the 17:00Z capture could not have carried 8 cards. The distinction is not academic: a rendering gap would mean tips exist and this project cannot see them, whereas an absence of tips means OLBG's tipsters had posted nothing for the overnight window, and the five-per-sport shortfall at that hour is a property of the source rather than of this pipeline. FL-185's account of the harness page-retriever receiving an un-hydrated shell is not disputed and is consistent with this; what this item adds is that the runner route shows the same empty state, so the retriever is not the reason the board could not be refreshed. Raised for review because it qualifies a published flag rather than correcting a value.",
+      "sources": [
+        {
+          "label": "Committed 17:00Z capture — same script, user agent and URL, 8 server-rendered tip cards",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/live-20261023T1700Z/extract-report.json"
+        },
+        {
+          "label": "Committed 21:35Z capture — 18 listings HTTP 200, 0 cards, parse_gaps empty",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/live-20261023T2135Z/extract-report.json"
+        },
+        {
+          "label": "OLBG Tennis listing page as served (the URL both captures read)",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ]
+    },
+    {
+      "id": "FL-194",
       "original_id": "FL-177",
       "severity": "high",
-      "title": "Evening OLBG listing responses switch from SSR tip cards to client-hydrated SvelteKit <script> payloads (expired:\"0\"), explaining the FL-180 / FL-185 zero-card captures",
-      "detail": "Across all 18 in-scope listing pages captured at 2026-10-23T19:35Z, 21:33:06Z (data/raw/svelte-b322f52e-20261023T2133Z), and 21:35Z (FL-180 / FL-185), OLBG returned HTTP 200 with 290-350 KB HTML whose <body> prints '<p>No tips found.</p>' and zero '<div class=\"grd tip content-visibility-auto\">' cards, while embedding the full active listing inside the SvelteKit hydration <script> block (123 unique expired:\"0\" rows across 12 sports at 21:33:06Z, including 43 upcoming events absent from the 16:21Z/16:30Z captures). Numeric fields in the evening payload are serialized as JSON string literals (expired:\"0\") rather than bare integers (expired:0).",
+      "title": "Evening OLBG listing responses switch from SSR tip cards to client-hydrated SvelteKit <script> payloads (expired:\"0\"), explaining the FL-180 / FL-185 / FL-193 zero-card captures",
+      "detail": "Across all 18 in-scope listing pages captured at 2026-10-23T19:35Z, 21:33:06Z (data/raw/svelte-b322f52e-20261023T2133Z), and 21:35Z (FL-180 / FL-185 / FL-193), OLBG returned HTTP 200 with 290-350 KB HTML whose <body> prints '<p>No tips found.</p>' and zero '<div class=\"grd tip content-visibility-auto\">' cards, while embedding the full active listing inside the SvelteKit hydration <script> block (123 unique expired:\"0\" rows across 12 sports at 21:33:06Z, including 43 upcoming events absent from the 16:21Z/16:30Z captures). Numeric fields in the evening payload are serialized as JSON string literals (expired:\"0\") rather than bare integers (expired:0).",
       "status": "resolved",
-      "action": "Added opt-in --svelte-fallback to scripts/extract_listings.py (balanced-brace SvelteKit tips:[...] parser emitting only active expired == \"0\" rows while leaving SSR-only extraction unchanged by default so FL-180's empty-SSR evidence file stays intact). Extracted data/raw/olbg-supplement-20261023T2133Z-b322f52e.tsv (123 rows), chained it in data/meta.json['supplementary_harvests'], and extended tools/check_site.py captured_event_hrefs() to verify SvelteKit eventUrl hrefs byte-for-byte.",
+      "action": "Added opt-in --svelte-fallback to scripts/extract_listings.py alongside FL-191's EMPTY_CAPTURE=3 SSR guard (balanced-brace SvelteKit tips:[...] parser emitting only active expired == \"0\" rows while leaving default SSR-only extraction unchanged). Extracted data/raw/olbg-supplement-20261023T2133Z-b322f52e.tsv (123 rows), chained it in data/meta.json['supplementary_harvests'], and extended tools/check_site.py captured_event_hrefs() to verify SvelteKit eventUrl hrefs byte-for-byte.",
       "affected_ids": [
         "RGU-609581",
         "VOL-36995",
@@ -4058,7 +4125,7 @@
       ]
     },
     {
-      "id": "FL-192",
+      "id": "FL-195",
       "original_id": "FL-178",
       "severity": "medium",
       "title": "OLBG's startDate on RGU-609581 (Ospreys v Dragons) is 45 minutes earlier than the official URC Round 4 kick-off",
@@ -4080,7 +4147,7 @@
       ]
     },
     {
-      "id": "FL-193",
+      "id": "FL-196",
       "original_id": "FL-179",
       "severity": "high",
       "title": "Unclassified cricket player-prop market 'Top Team1 Batsman' (CRI-188845) contains the home team name in parentheses and would leak into match-winner probability",
@@ -4098,7 +4165,7 @@
       ]
     },
     {
-      "id": "FL-194",
+      "id": "FL-197",
       "original_id": "FL-180",
       "severity": "high",
       "title": "SuperLega verifications for 36995 (Civitanova vs Padova) and 36996 (Monza vs Verona) carried wrong-city arenas and a contradicted Round 1 point tally",
@@ -4121,7 +4188,7 @@
       ]
     },
     {
-      "id": "FL-195",
+      "id": "FL-198",
       "original_id": "FL-181",
       "severity": "high",
       "title": "tools/originate.py computed inverted our_home_probability on five EDITORIAL_STRENGTH rows where the full official club name differed from OLBG's short home name",

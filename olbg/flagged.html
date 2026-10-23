@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">187 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">190 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1301,34 +1301,55 @@
 </article>
 <article class="card flag" id="FL-191">
   <div class="flag-head"><span class="tag">FL-191</span> <span class="sev sev-high">high</span></div>
-  <h2>Evening OLBG listing responses switch from SSR tip cards to client-hydrated SvelteKit &lt;script&gt; payloads (expired:&quot;0&quot;), explaining the FL-180 / FL-185 zero-card captures</h2>
-  <p>Across all 18 in-scope listing pages captured at 2026-10-23T19:35Z, 21:33:06Z (data/raw/svelte-b322f52e-20261023T2133Z), and 21:35Z (FL-180 / FL-185), OLBG returned HTTP 200 with 290-350 KB HTML whose &lt;body&gt; prints &#x27;&lt;p&gt;No tips found.&lt;/p&gt;&#x27; and zero &#x27;&lt;div class=&quot;grd tip content-visibility-auto&quot;&gt;&#x27; cards, while embedding the full active listing inside the SvelteKit hydration &lt;script&gt; block (123 unique expired:&quot;0&quot; rows across 12 sports at 21:33:06Z, including 43 upcoming events absent from the 16:21Z/16:30Z captures). Numeric fields in the evening payload are serialized as JSON string literals (expired:&quot;0&quot;) rather than bare integers (expired:0).</p>
+  <h2>An empty OLBG listing capture became a zero-row harvest file that name-based resolution could publish over the whole board</h2>
+  <p>Reproduced, not theorised. The 2026-10-23T21:30Z capture took all 18 in-scope OLBG listings at HTTP 200 (220-309 KB each) and found zero tip cards on every one — OLBG&#x27;s overnight state, also seen at 19:35Z by another session&#x27;s runner capture. scripts/extract_listings.py still called write_tsv(), producing data/raw/olbg-harvest-20261023T2135Z.tsv with no data rows. scripts/live_refresh.py chose captures with max(candidates, key=lambda p: p.name) — its own docstring said &#x27;the newest one by name wins&#x27; — so the empty file became the harvest. Two consequences were demonstrated: (1) tests/test_live_20261023.py::test_live_capture_is_the_newest pinned the newest harvest filename and went red, and on main that unit-test step runs after live_refresh.py, so an overnight empty capture would have failed the publish job; (2) any resolver using &#x27;newest harvest TSV&#x27; instead of data/meta.json[&#x27;harvest_file&#x27;] would have replaced all 180 published /olbg/ rows with nothing. Only the fact that tools/build_dataset.py reads the pinned harvest_file kept the board intact — a guard that did not exist. FL-180 (session-a87a3681) had already made the test tolerate the empty file by filtering on rows; that treated the symptom. Repair: an empty capture is evidence, not a harvest — extract_listings.py writes its extract-report.json (the proof the listings were empty rather than unread), removes any stale zero-row file so a re-run is byte-stable, and exits 3 without creating a harvest; live_refresh.py walks captures newest-first, skips any with no rows, and re-verifies only when the capture it settles on is newer than the one behind the committed primary harvest. The test now asserts the stronger invariant: no zero-row harvest file may exist at all, and the empty capture is preserved as a capture directory. FL-180&#x27;s intent is kept and strengthened, not discarded.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG Tennis listing as served at 2026-10-23T21:30Z (committed capture; server-rendered &#x27;No tips found.&#x27;)</a></li><li><a href="https://www.olbg.com/betting-tips/Basketball/NBA/4" rel="noopener nofollow" target="_blank">OLBG NBA listing as served at the same clock (committed capture; zero tip cards)</a></li><li><a href="https://www.olbg.com/robots.txt" rel="noopener nofollow" target="_blank">OLBG robots.txt as read at the same clock (the /betting-tips/ listings are not disallowed)</a></li></ul>
+</article>
+<article class="card flag" id="FL-192">
+  <div class="flag-head"><span class="tag">FL-192</span> <span class="sev sev-low">low</span></div>
+  <h2>extract_listings.py crashed with ValueError when --out pointed outside the repository, after already writing the file</h2>
+  <p>scripts/extract_listings.py guarded its capture path with is_relative_to(ROOT) but printed its harvest path with a bare out.relative_to(ROOT). Any --out outside the repository therefore wrote the harvest file, then died on the summary line with ValueError: &#x27;/tmp/x.tsv&#x27; is not in the subpath of &#x27;/home/user/OLBG3&#x27;, exiting 1 — which scripts/live_refresh.py reads as &#x27;extraction failed&#x27; and aborts the whole step on. Reproduced with --capture data/raw/live-20261023T1700Z --out /tmp/x.tsv. No committed data was affected: every call site in the repository passes a --out inside data/raw. Both paths now go through one display_path() helper. Recorded separately from FL-191 because it is an independent inconsistency, and because the honest provenance is that it surfaced while testing the other fix rather than in review.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/extract_listings.py" rel="noopener nofollow" target="_blank">scripts/extract_listings.py — the repaired summary line and display_path() helper (this repository)</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tests/test_audit_d26daaf0.py" rel="noopener nofollow" target="_blank">tests/test_audit_d26daaf0.py — regression tests pinning both repairs (this repository)</a></li></ul>
+</article>
+<article class="card flag" id="FL-193">
+  <div class="flag-head"><span class="tag">FL-193</span> <span class="sev sev-medium">medium</span></div>
+  <h2>The empty 21:30Z listings are a genuine absence of tips, not a client-side rendering gap — the same runner and user agent got 8 server-rendered cards four hours earlier</h2>
+  <p>Both readings matter for how the shortfall is described, so the evidence is set out rather than argued. data/raw/live-20261023T1700Z/listings/betting-tips_Tennis_3.html — captured by scripts/live_harvest.py on a GitHub Actions runner with User-Agent &#x27;OLBG3Audit/1.0&#x27; — is 333,779 bytes and contains 8 occurrences of the server-rendered card marker div.grd.tip and 8 itemprop=&quot;startDate&quot; attributes. data/raw/live-20261023T2135Z/listings/betting-tips_Tennis_3.html, same script, same user agent, same URL, 294,198 bytes, contains 0 of each, while still carrying 22 event_id hrefs from the page&#x27;s navigation and editorial links. extract-report.json for the later capture records parse_gaps: {} across all 18 listings, so nothing failed to parse. If the table were rendered only in the browser, the 17:00Z capture could not have carried 8 cards. The distinction is not academic: a rendering gap would mean tips exist and this project cannot see them, whereas an absence of tips means OLBG&#x27;s tipsters had posted nothing for the overnight window, and the five-per-sport shortfall at that hour is a property of the source rather than of this pipeline. FL-185&#x27;s account of the harness page-retriever receiving an un-hydrated shell is not disputed and is consistent with this; what this item adds is that the runner route shows the same empty state, so the retriever is not the reason the board could not be refreshed. Raised for review because it qualifies a published flag rather than correcting a value.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/live-20261023T1700Z/extract-report.json" rel="noopener nofollow" target="_blank">Committed 17:00Z capture — same script, user agent and URL, 8 server-rendered tip cards</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/live-20261023T2135Z/extract-report.json" rel="noopener nofollow" target="_blank">Committed 21:35Z capture — 18 listings HTTP 200, 0 cards, parse_gaps empty</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG Tennis listing page as served (the URL both captures read)</a></li></ul>
+</article>
+<article class="card flag" id="FL-194">
+  <div class="flag-head"><span class="tag">FL-194</span> <span class="sev sev-high">high</span></div>
+  <h2>Evening OLBG listing responses switch from SSR tip cards to client-hydrated SvelteKit &lt;script&gt; payloads (expired:&quot;0&quot;), explaining the FL-180 / FL-185 / FL-193 zero-card captures</h2>
+  <p>Across all 18 in-scope listing pages captured at 2026-10-23T19:35Z, 21:33:06Z (data/raw/svelte-b322f52e-20261023T2133Z), and 21:35Z (FL-180 / FL-185 / FL-193), OLBG returned HTTP 200 with 290-350 KB HTML whose &lt;body&gt; prints &#x27;&lt;p&gt;No tips found.&lt;/p&gt;&#x27; and zero &#x27;&lt;div class=&quot;grd tip content-visibility-auto&quot;&gt;&#x27; cards, while embedding the full active listing inside the SvelteKit hydration &lt;script&gt; block (123 unique expired:&quot;0&quot; rows across 12 sports at 21:33:06Z, including 43 upcoming events absent from the 16:21Z/16:30Z captures). Numeric fields in the evening payload are serialized as JSON string literals (expired:&quot;0&quot;) rather than bare integers (expired:0).</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG Handball listing (SvelteKit hydration payload captured at 21:33:06Z)</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing (SvelteKit hydration payload captured at 21:33:06Z)</a></li></ul>
 </article>
-<article class="card flag" id="FL-192">
-  <div class="flag-head"><span class="tag">FL-192</span> <span class="sev sev-medium">medium</span></div>
+<article class="card flag" id="FL-195">
+  <div class="flag-head"><span class="tag">FL-195</span> <span class="sev sev-medium">medium</span></div>
   <h2>OLBG&#x27;s startDate on RGU-609581 (Ospreys v Dragons) is 45 minutes earlier than the official URC Round 4 kick-off</h2>
   <p>In data/raw/svelte-b322f52e-20261023T2133Z, OLBG event 609581 (Ospreys v Dragons) carries event_start_unix_timestamp 1792864800 -&gt; 2026-10-24T18:00:00.000Z (19:00 BST). The official United Rugby Championship 2026/27 fixture list prints &#x27;SATURDAY, OCTOBER 24 — Ospreys v Dragons, St. Helen&#x27;s, Swansea, KO 19.45 IRE &amp; UK / 20.45 ITA &amp; SA&#x27;, which is 2026-10-24T18:45:00Z.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship — 2026/27 fixtures in full</a></li><li><a href="https://www.olbg.com/betting-tips/Rugby_Union/International_Club/United_Rugby_Championship/Ospreys_v_Dragons/9?event_id=609581" rel="noopener nofollow" target="_blank">OLBG — Ospreys v Dragons event page</a></li></ul>
 </article>
-<article class="card flag" id="FL-193">
-  <div class="flag-head"><span class="tag">FL-193</span> <span class="sev sev-high">high</span></div>
+<article class="card flag" id="FL-196">
+  <div class="flag-head"><span class="tag">FL-196</span> <span class="sev sev-high">high</span></div>
   <h2>Unclassified cricket player-prop market &#x27;Top Team1 Batsman&#x27; (CRI-188845) contains the home team name in parentheses and would leak into match-winner probability</h2>
   <p>Event 188845 (Toronto Kings vs Vancouver Guardians T20) in the 21:33:06Z capture carries market &#x27;Top Team1 Batsman&#x27; with selection &#x27;RRS Cornwall (Toronto Kings)&#x27; (2/3 tips at 5.50). Because &#x27;Top Team1 Batsman&#x27; was not listed in OTHER_MARKETS / _non_win / NON_WIN_CONSENSUS_MARKETS, resolve_team_side() matched &#x27;(Toronto Kings)&#x27; to home side &#x27;Toronto Kings&#x27; and treated a 5.50 batsman prop split as a two-way match-winner consensus.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845" rel="noopener nofollow" target="_blank">OLBG — Toronto Kings vs Vancouver Guardians T20 event page</a></li></ul>
 </article>
-<article class="card flag" id="FL-194">
-  <div class="flag-head"><span class="tag">FL-194</span> <span class="sev sev-high">high</span></div>
+<article class="card flag" id="FL-197">
+  <div class="flag-head"><span class="tag">FL-197</span> <span class="sev sev-high">high</span></div>
   <h2>SuperLega verifications for 36995 (Civitanova vs Padova) and 36996 (Monza vs Verona) carried wrong-city arenas and a contradicted Round 1 point tally</h2>
   <p>In data/verifications.json, event 36995 (Cucine Lube Civitanova vs Pallavolo Padova) stored venue &#x27;BTS Arena, Trento&#x27;, start_local &#x27;2026-10-25 17:00 CET&#x27; (off by one hour from 17:00 UTC = 18:00 CET), and Round 1 rally points &#x27;97:85&#x27; whereas Volleyball World&#x27;s official SuperLega standings record Civitanova at 3-0 sets and 78:65 rally points. Event 36996 (Vero Volley Monza vs Rana Verona) stored venue &#x27;Pala Barton Energy, Perugia&#x27; — the exact swapped-venue defect that FL-154 had fixed on 36997.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #7 &amp; Round 2 schedule</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/standings/" rel="noopener nofollow" target="_blank">Volleyball World — official 2026/27 SuperLega standings</a></li></ul>
 </article>
-<article class="card flag" id="FL-195">
-  <div class="flag-head"><span class="tag">FL-195</span> <span class="sev sev-high">high</span></div>
+<article class="card flag" id="FL-198">
+  <div class="flag-head"><span class="tag">FL-198</span> <span class="sev sev-high">high</span></div>
   <h2>tools/originate.py computed inverted our_home_probability on five EDITORIAL_STRENGTH rows where the full official club name differed from OLBG&#x27;s short home name</h2>
   <p>Line 412 of tools/originate.py computed p_home = p_pick if pick == home else round(1.0 - p_pick, 4). Whenever EDITORIAL_STRENGTH used the official full club name (&#x27;Vodacom Bulls&#x27;, &#x27;DHL Stormers&#x27;, &#x27;Sir Susa Scai Perugia&#x27;, &#x27;Itas Trentino&#x27;, &#x27;Olympiacos Piraeus&#x27;) while matches.json held OLBG&#x27;s short home name (&#x27;Bulls&#x27;, &#x27;Stormers&#x27;, &#x27;Perugia&#x27;, &#x27;Trentino&#x27;, &#x27;Olympiacos&#x27;), pick == home evaluated to False and our_home_probability published 1 - p_pick (e.g. 0.38 on Vodacom Bulls, 0.40 on DHL Stormers, 0.4005 on Perugia) even though the home side was our selected favourite.</p>
   <p class="muted small">Affected rows: —</p>
@@ -1338,7 +1359,7 @@
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T21:59:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T22:06:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
