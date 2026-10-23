@@ -141,3 +141,43 @@ FL-138 failed hourly build / frozen Pages · FL-139 the robots.txt `es` substrin
 unverifiable European hockey fixtures · FL-141 Golf "No tips found." · FL-142 NBA/EuroLeague API
 refusals · FL-143 two pieces re-priced after a tip-split move · FL-144 the archived-snapshot test
 convention. Each carries its source links on `flagged.html`.
+
+## 8. Merge, CI recovery and the price-window study
+
+**Merged.** PR [#127](https://github.com/buffedlizard55-lab/OLBG3/pull/127) into `main` as
+[`1786427`](https://github.com/buffedlizard55-lab/OLBG3/commit/1786427) after a green branch run, without waiting for review.
+`origin/main` had advanced to `a1e72a6` (PRs #122–#126, session `be917e0f`) with its own 2026-10-23 capture and its own
+`FL-131`…`FL-137`; that work was kept, the merge was committed before any script ran, generated outputs were rebuilt from
+this branch's inputs, and this session's seven register items were renumbered `FL-138`…`FL-144` keyed on item title (an
+earlier id-keyed renumbering attempt was discarded — see the errors section of the coordination log).
+
+**CI.** The `build` job went green on `main` for the first time since 2026-10-23T00:00Z, but `deploy` failed at
+`actions/deploy-pages`. Cause, read from the API rather than guessed: this repository's Pages site is
+`build_type: "legacy"` (branch `main`, path `/`), so the branch publisher does the publishing and `deploy-pages` cannot
+succeed; `POST /repos/{owner}/{repo}/pages` with `build_type=workflow` returns **403** to the integration token, so the
+configuration cannot be changed from here. PR [#128](https://github.com/buffedlizard55-lab/OLBG3/pull/128) makes the
+`deploy` job attempt `deploy-pages` with `continue-on-error`, falls back to the known Pages URL for the smoke tests, and
+scopes the capture workflow to `arena/**` branches so a merge cannot trigger a capture that pushes onto `main`. After the
+merge, run [39990588677](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39990588677) is green end to end,
+`pages-build-deployment` [39990589071](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39990589071) succeeded, and
+the Pages API reports `status: built` for that commit.
+
+**Live confirmation after the deploy (fetched, not inferred).** `/OLBG3/olbg/` served the 2026-10-23 executive summary,
+177 fixtures across 14 sports and the five gate-passing picks; `/OLBG3/olbg/flagged.html` served 145 register items
+including `FL-138`…`FL-144`; `/OLBG3/` served 345 captured rows and the same five HIGH picks.
+
+**Price-window study (brief item 5).** Added to `olbg/methodology.html` as section *1b*, computed from the board at build
+time rather than typed in. Result at this build: 130 fixtures carry an originated price, **126 sit inside -250 to +10000**,
+only **2** of those imply more than 70% (Darts, Rugby Union), and **4** prices are shorter than -250 and therefore outside
+the window. The arithmetic behind it: -250 is 71.43% implied and 70% is reached at about -233.33, so the entire above-70%
+region is the 16.7-point strip at the window's left edge. The five published HIGH picks sit at 58–67%, further into the
+window; no probability was inflated to manufacture a 70% figure.
+
+**Coverage shortfall, per sport (published, not hidden).** The brief asks for five HIGH predictions per covered sport.
+At this build the board supports **5 in total**: Rugby Union 3, Volleyball 1, Baseball 1, and **0 in eleven** of the
+fourteen sports that have fixtures on the board (Basketball, Cricket, Darts, Gaelic Football, Greyhounds, Handball,
+Ice Hockey, Motor Racing, Rugby League, Snooker, Tennis). The fifteenth in-scope sport, Golf, had no live OLBG listing at
+capture time (FL-141), so it has no rows to grade. The per-sport reason is a column on the index page and the shortfall
+table is in the methodology page: no live listing for that sport, no timezone-qualified official start, a fixture that has
+already started, or a price outside the window. Writing more than the evidence supports would mean inventing form,
+injuries or start times, so the shortfall stays visible.

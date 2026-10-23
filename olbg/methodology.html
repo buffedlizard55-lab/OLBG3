@@ -43,6 +43,30 @@
   </ul>
 </section>
 
+<section class="card" id="window">
+  <h2>1b · Does a 70%-plus pick exist inside the -250 to +10000 window?</h2>
+  <p>The brief asks whether high-confidence picks above roughly 70% implied win chance exist inside
+  <strong>-250 to +10000</strong> American odds, and to focus there. The window can only contain such a pick in one narrow slice:
+  -250 is 71.43% implied and a 70% implied chance is reached at about -233.33, so the whole above-70% region is the
+  <strong>16.7-point strip from -233.33 to -250</strong> — 6.7 percentage points of implied chance. Everything shorter than -250 (a -400 favourite, say, at 80%)
+  is outside the window by construction.</p>
+  <table class="tbl compact">
+    <thead><tr><th>Measure at this build</th><th class="num">Rows</th></tr></thead>
+    <tbody>
+      <tr><td>Fixtures with an originated price</td><td class="num">130</td></tr>
+      <tr><td>Prices inside -250 to +10000</td><td class="num">126</td></tr>
+      <tr><td>…and implying more than 70%</td><td class="num">2 — Darts, Rugby Union</td></tr>
+      <tr><td>Prices shorter than -250, therefore outside the window</td><td class="num">4</td></tr>
+      <tr><td>Our pick probabilities across the in-window rows</td><td class="num">11% – 67%</td></tr>
+    </tbody>
+  </table>
+  <p>2 of 126 in-window prices imply more than 70%, so the answer is <em>barely</em>: the above-70%
+  region is a narrow strip at the window's left edge, and a fixture priced there is a short-priced favourite whose edge
+  is thin. The five published HIGH picks sit at 58–67% instead, further out in the window where a price at our fair odds
+  actually pays. Nothing is padded to manufacture a 70% figure: implied probability above 70% is a statement about the
+  price, not about how likely the result is.</p>
+</section>
+
 <section class="card" id="verification">
   <h2>2 · Verification rule</h2>
   <p>A value is written only when the linked source states it. If a source is silent, the field is blank and the row is flagged.
