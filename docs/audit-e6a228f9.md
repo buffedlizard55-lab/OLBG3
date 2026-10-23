@@ -130,3 +130,58 @@ refreshed it. The committed `data/current.json` (19:13Z, from CI) is unchanged b
 5. **Five-per-sport is still not met** (12 live HIGH across both tracks at this publication clock, none of the 15 sports meeting five; shortfall 63). The count fell from 20 to 12 during this pass because `session-d6b030fc`'s release-clock repair (their FL-161) withdrew four stale pre-match HIGH rows on `main` — that is their fix working, not a regression here.
    This pass did not manufacture picks to close it: grading a fixture HIGH requires official current
    form for both sides, and that could not be re-read for most sports here.
+
+## Follow-up verification, 2026-10-23T20:00Z–20:20Z
+
+Second read of the evening, after `main` had advanced through PR #145, #147, #148, #149 and #152. Nothing below is
+inferred: each line names the page that was fetched in this window.
+
+### Confirmed, with the arithmetic shown
+
+**GFA-3530 — St Finbarrs v Nemo Rangers (Cork PSFC final, Sun 25 Oct 16:00Z).** Every number in the piece reconciles
+against `gaacork.ie`:
+
+| St Finbarrs match | Score | For | Against |
+|---|---|---|---|
+| 24 Jul v Carrigaline | 2-15 v 1-20 | 21 | 23 |
+| 14 Aug v Douglas | 3-16 v 1-11 | 25 | 14 |
+| 13 Sep v Mallow | 2-11 v 1-15 | 17 | 18 |
+| QF v Carbery | 4-23 v 1-11 | 35 | 14 |
+| SF v Clonakilty | 2-12 v 0-16 | 18 | 16 |
+| **five matches** | | **116** | **85** | → **+31**, exactly as published |
+
+The first three rows also equal the Division 1 table's published `PF 63 / PA 55`, which is an independent check on the
+reading of the results grid. Nemo Rangers: 1-13 v 2-16 at Newcestown (25 Jul), 1-21 v 2-10 v St Michaels (16 Aug),
+1-14 v 0-5 v Valley Rovers (13 Sep), 1-20 v 1-17 v Castlehaven (QF, 27 Sep), 1-15 v 0-16 v Carrigaline (SF, 10 Oct) =
+**98 for, 79 against, +19**, again exactly as published. Venue, date and 4.00pm throw-in confirmed on both the event page
+and the league page (`ctz=Europe/Dublin`).
+
+**BSB-160789 — TB Rays @ MIL Brewers.** `mlb.com/standings/2026` gives Milwaukee 103-59, 832 scored, 618 allowed, 55-26
+at home, and Tampa Bay 98-64, 43-38 away; the Game 1 preview carries the 24-9 record in Nick Martinez's starts, the six
+earned runs in 40⅔ bullpen innings, Contreras's .367 in eight games, McClanahan ruled out and the Woodruff risk. All
+figures in the current text hold.
+
+**URC Round 4.** The Match Centre shows Cardiff 7-12 Sharks (live), Connacht 33-17 Zebre (HT) and Edinburgh 5-3 Lions at
+the time of reading — the three Friday fixtures this dataset timed at 18:45Z all started on schedule, which is a live
+cross-check on the clock arithmetic rather than on the picks.
+
+### Corrected
+
+**RGU-609578 venue: `TBC, Dublin` → `Aviva Stadium, Dublin`.** The Match Centre names Aviva and lists 13:00 on a page
+whose header says "All times shown are Local"; 13:00 US Eastern = 17:00Z = 18:00 Irish, which agrees independently with
+the fixtures-in-full list and with the start already published. Second official source: Leinster Rugby's fixtures page
+(read 22 Oct) also gave Aviva. `data/verifications.json` carries the new fact and `S-URC-R4`; the superseded wording is
+kept in the observation notes so the change is auditable.
+
+### Newly pinned in tests
+
+`tests/test_followup_e6a228f9.py` (8 cases) locks the four repairs that this session registered — FL-164 (no reversed
+Round 3 result in either track), FL-165 (the Lions' 57-15 defeat was away at Loftus Versfeld), FL-166 (an NBA schedule
+link must carry the US-Eastern date of the game, not the previous day) and FL-167 (no "confirmed verbatim" venue claim
+when the stored verification has no venue) — plus uniqueness and https-source checks on the flag register.
+
+### Still open
+
+`FL-176` (landing-page citation claim wider than the visible link), the five-per-sport shortfall (`FL-174`), the
+un-capturable OLBG listing (`FL-008`, `FL-077`), and the NBA standings claims, which were **not** re-read in this window
+because `nba.com` renders its schedule client-side to this retrieval path.
