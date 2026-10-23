@@ -39,7 +39,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "RGU-609578",
@@ -62,8 +62,7 @@
           "url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Leinster_v_Munster/9?event_id=609578"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "MTR-913",
@@ -102,8 +101,7 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "BKB-535926",
@@ -122,8 +120,7 @@
           "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "HAN-12076",
@@ -201,8 +198,7 @@
           "url": "https://gaacork.ie/results/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "DAR-32332",
@@ -218,7 +214,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "match_id": "DAR-32338",
@@ -277,8 +273,7 @@
           "url": "https://www.nba.com/standings?date=2026-10-22"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "BKB-534841",
@@ -297,8 +292,7 @@
           "url": "https://www.nba.com/standings?date=2026-10-22"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "RGU-609580",
@@ -321,8 +315,7 @@
           "url": "https://stats.unitedrugby.com/match-centre/2026-27/4"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "RGU-609577",
@@ -549,7 +542,7 @@
       "match": "Grenoble v Biarritz",
       "confidence": "medium",
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
     },
     {
       "match_id": "RGU-609562",
@@ -565,7 +558,7 @@
       "match": "Provence v Beziers",
       "confidence": "low",
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
     },
     {
       "match_id": "VOL-37002",
@@ -606,5 +599,5 @@
       "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     }
   ],
-  "note": "5 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "12 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

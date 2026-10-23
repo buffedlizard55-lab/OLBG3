@@ -75,8 +75,16 @@
   "harvest_timezone_note": "Format v3 captures the card's own <time itemprop=\"startDate\" datetime> attribute, so each row carries OLBG's machine-readable UTC start as well as the clock OLBG printed beside it. Across the 177 rows the printed clock is exactly one hour ahead of the attribute until the 25 October 2026 DST changeover and equal to it afterwards, which is why the printed label is still published verbatim and never converted.",
   "previous_harvest": null,
   "previous_harvests_extra": [],
-  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893)",
-  "supplementary_harvests": [],
+  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations)",
+  "supplementary_harvests": [
+    {
+      "file": "raw/olbg-harvest-20261023T1630Z.tsv",
+      "format": "v2",
+      "olbg_locale_date": "2026-10-23",
+      "harvest_completed_utc": "2026-10-23T16:40:00Z",
+      "note": "session-beb7787b agent page-retrieval of all 15 in-scope listings, 16:16Z-16:40Z, 180 rows copied verbatim (v2: printed labels only, no startDate attribute). Same-day as the 16:21Z primary capture; adds only the 3 events the primary did not render (902147 Van Assche v Musetti, greyhound races 689803 and 689800). Never restates a row the primary already published."
+    }
+  ],
   "root_capture_20261023": {
     "capture": "2026-10-23T16:20Z",
     "file": "raw/olbg-harvest-20261023T1620Z.json",
@@ -90,12 +98,17 @@
     "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
     "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
   },
-  "archive_note": "This build publishes ONLY the 2026-10-23T16:21Z capture (177 rows, 14 sports). The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick.",
+  "archive_note": "This build publishes ONLY the 2026-10-23 captures: the 16:21Z primary (177 rows, 14 sports) plus the 3 events only the same-day 16:16Z-16:40Z supplementary capture rendered. The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick.",
   "parallel_session_notes": [
     {
       "session": "be917e0f",
       "what": "Independently captured 2026-10-23 listings into data/raw/olbg-harvest-20261023T1620Z.json and published FL-131..FL-137 of its own. That capture is retained unchanged in data/raw; this build uses the later, larger 16:21Z capture (177 rows, format v3) from data/raw/live-20261023T1700Z.",
       "kept": "the file, its register items and every page it produced; nothing of it was deleted or reworded"
+    },
+    {
+      "session": "beb7787b",
+      "what": "Independently captured the same 15 listings 16:16Z-16:40Z into data/raw/olbg-harvest-20261023T1630Z.tsv (180 rows, v2) and re-observed official pages 16:55Z-17:22Z; merged on top of this build at ~17:55Z. Its capture is chained as a same-day supplementary source (3 extra events), its 14 root fixtures absent from the 16:20Z JSON were appended with the SPORT-<event_id> refs this build uses, tip counts were merged monotonically (larger total wins), and its register items were renumbered FL-145..FL-153.",
+      "kept": "every file, register item and page of the earlier sessions; nothing deleted or reworded"
     }
   ]
 }

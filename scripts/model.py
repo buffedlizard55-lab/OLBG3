@@ -141,6 +141,10 @@ ALIASES = {
     "TB Lightning": "Tampa Bay Lightning",
     "TBL Lightning": "Tampa Bay Lightning",
     "COL Avalanche": "Colorado Avalanche",
+    # URC (OLBG short name -> sponsor-prefixed name used in the URC table)
+    "Lions": "10bet Lions",
+    "Sharks": "Hollywoodbets Sharks",
+    "Cardiff": "Cardiff Rugby",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -308,9 +312,24 @@ for path in sorted(glob.glob(os.path.join(ROOT, "data/sports/*.json"))):
 off = json.load(open(os.path.join(ROOT, "data/official.json")))
 conf = off["fixture_confirmations"]
 urc = off["form_data"]["URC_2026_27_table"]["teams"]
-nhl = off["form_data"].get("NHL_standings_2026_10_22", off["form_data"]["NHL_standings_2026_10_20"])["teams"]
+# Dated official NHL standings observations. A fixture is priced from the newest table observed on or
+# before its own calendar date, so an archived row keeps the standings it was published from and a new
+# row uses the latest observation; older dated tables stay in official.json for the archive.
+_nhl_keys = sorted(k for k in off["form_data"] if k.startswith("NHL_standings_"))
+_nhl_key = _nhl_keys[-1]
+nhl = off["form_data"][_nhl_key]["teams"]
 urc_src = off["form_data"]["URC_2026_27_table"]["source"]
-nhl_src = off["form_data"].get("NHL_standings_2026_10_22", off["form_data"]["NHL_standings_2026_10_20"])["source"]
+nhl_src = off["form_data"][_nhl_key]["source"]
+
+
+def nhl_table_for(event_date_iso):
+    """(teams, source) of the newest NHL standings table dated on or before the fixture date."""
+    chosen = _nhl_keys[0]
+    for k in _nhl_keys:
+        tbl_date = k[len("NHL_standings_"):].replace("_", "-")
+        if event_date_iso and tbl_date <= event_date_iso:
+            chosen = k
+    return off["form_data"][chosen]["teams"], off["form_data"][chosen]["source"]
 
 # Additional official league tables gathered in later passes. Each rugby union
 # table uses an identical schema (pts/pl/w/d/l/bp/pf/pa/diff/form) so they can
@@ -445,6 +464,12 @@ for e in events:
     home_row = rugby_tables.get(official_name(e["home"]))
     away_row = rugby_tables.get(official_name(e["away"]))
     nhl_home = hockey_tables.get(official_name(e["home"])); nhl_away = hockey_tables.get(official_name(e["away"]))
+    # NHL rows: pick the dated standings table that matches the fixture date (see nhl_table_for).
+    _ev_cap = (__import__("datetime").date.fromisoformat(e["captured"]) if e.get("captured") else CAPTURE_DATE)
+    _ev_date = resolve_start(e["start"], capture=_ev_cap)[0]
+    nhl_dated, nhl_dated_src = nhl_table_for(_ev_date)
+    if official_name(e["home"]) in nhl_dated and official_name(e["away"]) in nhl_dated:
+        nhl_home = nhl_dated[official_name(e["home"])]; nhl_away = nhl_dated[official_name(e["away"])]
 
     probs = None; margin = None; total = None; basis = None
     if e["sport"] == "Rugby Union" and home_row and away_row:
@@ -465,7 +490,7 @@ for e in events:
         probs, margin, total = nhl_model(nhl_home, nhl_away)
         basis = "official-standings"
         def _which_hockey_table(name):
-            if name in nhl: return nhl_src
+            if name in nhl_dated: return nhl_dated_src
             if name in icehl: return icehl_src
             if name in shl: return shl_src
             return "?"

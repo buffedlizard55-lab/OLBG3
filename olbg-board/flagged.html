@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">136 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">145 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -977,11 +977,74 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw" rel="noopener nofollow" target="_blank">Archived dated captures (unchanged)</a></li></ul>
 </article>
+<article class="card flag" id="FL-145">
+  <div class="flag-head"><span class="tag">FL-145</span> <span class="sev sev-unverified">unverified</span></div>
+  <h2>PDC schedule page unreadable on 23 Oct (consent wall): Saturday second-round rows carry no PDC confirmation or clock</h2>
+  <p>Kim Huybrechts is not in the seedings table captured on 18 Oct, so DRT-32384 is consensus-priced. Friday first-round rows keep their 22 Oct PDC confirmations. Re-read the PDC page when it renders without the consent wall.</p>
+  <p class="muted small">Affected rows: DRT-32384, DRT-32385, DRT-32386, DRT-32383</p>
+  <ul class="srclist"><li><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" rel="noopener nofollow" target="_blank">PDC — 2026 Machineseeker European Championship schedule (returned consent wall only)</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/15" rel="noopener nofollow" target="_blank">OLBG Darts listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-146">
+  <div class="flag-head"><span class="tag">FL-146</span> <span class="sev sev-unverified">unverified</span></div>
+  <h2>23 Oct daily harvest: 36 new root fixtures published without a governing-body read</h2>
+  <p>Sources were read for the other 28 new rows (NBA.com, NHL API, URC, PREM Rugby, WST, WTA order-of-play PDFs). The unverified set cannot grade HIGH; MEDIUM is possible only where an official table already in the dataset prices the pair. This is the 23 Oct counterpart of FL-130.</p>
+  <p class="muted small">Affected rows: IHO-199927, IHO-199955, IHO-199965, IHO-199926, IHO-199925, IHO-199928, IHO-199924, IHO-199930, IHO-199908, IHO-199909, IHO-199915, CRK-188839, CRK-188840, CRK-188841, CRK-188842, CRK-188843, CRK-188838, HBL-12120, HBL-12121, HBL-12103, HBL-12090, HBL-12106, VOL-37009, VOL-37022, VOL-37025, VOL-37031, VOL-37026, VOL-37032, VOL-37018, VOL-37012, VOL-37013, BKB-536031, BKB-536075, RGU-609582, TEN-902150, TEN-902155, TEN-902153, TEN-902147, TEN-902159</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
+</article>
+<article class="card flag" id="FL-147">
+  <div class="flag-head"><span class="tag">FL-147</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>Stormers v Scarlets (609580) clock was recorded as 15:00 UTC; the official list says 15.00 IRE &amp; UK (14:00 UTC)</h2>
+  <p>No other URC entry was affected; 609576/609577/609578/609579 already used &quot;Irish time&quot;.</p>
+  <p class="muted small">Affected rows: RGU-11</p>
+  <ul class="srclist"><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship official — 2026/27 fixtures in full</a></li></ul>
+</article>
+<article class="card flag" id="FL-148">
+  <div class="flag-head"><span class="tag">FL-148</span> <span class="sev sev-method">method</span></div>
+  <h2>LNR (Top 14 / Pro D2) prints kick-off clocks with no zone label; recorded date-only, and the 22 Oct Pro D2 &quot;CET&quot; entries are held</h2>
+  <p>Rows RGU-12, RGU-13 and RGU-15 therefore stay analysis (unverified_start) even where the evidence grade is HIGH. A zone-labelled LNR source (or broadcaster listing from the league) would be needed to certify these clocks.</p>
+  <p class="muted small">Affected rows: RGU-09, RGU-10, RGU-12, RGU-13, RGU-15</p>
+  <ul class="srclist"><li><a href="https://top14.lnr.fr/calendrier-et-resultats" rel="noopener nofollow" target="_blank">LNR Top 14 official — Calendrier et résultats</a></li><li><a href="https://prod2.lnr.fr/calendrier-et-resultats" rel="noopener nofollow" target="_blank">LNR Pro D2 official — Calendrier et résultats</a></li></ul>
+</article>
+<article class="card flag" id="FL-149">
+  <div class="flag-head"><span class="tag">FL-149</span> <span class="sev sev-method">method</span></div>
+  <h2>Official pages that render clocks in the reader&#x27;s time zone are recorded date-only</h2>
+  <p>Affected rows stay fixture-verified but are not release-eligible: SNK-9951, SNK-9950, RGU-18, RGU-609570, RGU-609572, RGU-609569.</p>
+  <p class="muted small">Affected rows: SNK-9951, SNK-9950, RGU-18, RGU-609570, RGU-609572, RGU-609569</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/game-center/" rel="noopener nofollow" target="_blank">EuroLeague official game center</a></li><li><a href="https://www.wst.tv/matches/" rel="noopener nofollow" target="_blank">WST official Matches</a></li><li><a href="https://www.premrugby.com/fixtures-results?competition=gallagher-prem&amp;round=4" rel="noopener nofollow" target="_blank">PREM Rugby official fixtures</a></li></ul>
+</article>
+<article class="card flag" id="FL-150">
+  <div class="flag-head"><span class="tag">FL-150</span> <span class="sev sev-info">info</span></div>
+  <h2>Galway SFC final moved by the organisers from Saturday 24 Oct 7pm to Sunday 25 Oct 4pm (weather warning)</h2>
+  <p>Club site is club-official tier and prints no zone label, so the release check is date-only; the row is consensus-priced (no Galway table) and LOW.</p>
+  <p class="muted small">Affected rows: GAF-02</p>
+  <ul class="srclist"><li><a href="https://www.maighcuilinn.com/" rel="noopener nofollow" target="_blank">Maigh Cuilinn GAA official club site</a></li></ul>
+</article>
+<article class="card flag" id="FL-151">
+  <div class="flag-head"><span class="tag">FL-151</span> <span class="sev sev-corrected">corrected</span></div>
+  <h2>EuroLeague prose for BKB-29/BKB-30 said &quot;Round 8&quot;; the official article is &quot;Game Center: Round 7&quot;</h2>
+  <p></p>
+  <p class="muted small">Affected rows: BKB-29, BKB-30</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">EuroLeague official — Game Center: Round 7</a></li></ul>
+</article>
+<article class="card flag" id="FL-152">
+  <div class="flag-head"><span class="tag">FL-152</span> <span class="sev sev-repo">repo hygiene</span></div>
+  <h2>24 prediction pieces used the words &quot;model&quot; or &quot;verified&quot; in published prose</h2>
+  <p></p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
+</article>
+<article class="card flag" id="FL-153">
+  <div class="flag-head"><span class="tag">FL-153</span> <span class="sev sev-info">info</span></div>
+  <h2>HOU @ SAS (534841): NBA.com now lists Moody Center, Austin; the 22 Oct quote said Frost Bank Center</h2>
+  <p></p>
+  <p class="muted small">Affected rows: BKB-17</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-23" rel="noopener nofollow" target="_blank">NBA.com official schedule — 2026-10-23</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T16:45:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T17:22:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

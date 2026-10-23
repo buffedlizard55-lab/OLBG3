@@ -1,7 +1,7 @@
 {
- "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label.",
+ "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label. Daily refresh 2026-10-23T16:55Z-17:22Z (session-beb7787b): clocks re-observed on the competition's own pages (URC, NBA.com, MLB.com, EuroLeague news article with CEST clocks, LNR Top 14 (date-only: no zone printed), NHL API, WTA order-of-play PDFs (date-only / not-before: no zone printed), Cork GAA); pages that render clocks in the reader's zone without a label (WST matches, EuroLeague game-center, PREM Rugby) are recorded date-only; prior Pro D2 entries that labelled an unlabelled LNR clock as CET are held.",
  "session": "session-22dbc477 (live 2026-10-23 probe)",
- "checked_at": "2026-10-23T16:45:00Z",
+ "checked_at": "2026-10-23T17:22:00Z",
  "events": {
   "160789": {
    "date": "2026-10-24",
@@ -72,8 +72,9 @@
    "timezone": "CEST",
    "kind": "exact",
    "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-   "quote": "October 23, 2026 \u2014 Zalgiris Kaunas vs. LDLC ASVEL Villeurbanne (19:00 CEST)",
-   "checked_at": "2026-10-22T12:10:00Z"
+   "quote": "Friday, October 23, 2026 \u2014 Zalgiris Kaunas vs. LDLC ASVEL Villeurbanne (19:00 CEST)",
+   "checked_at": "2026-10-23T17:07:00Z",
+   "note": "Re-observed 23 Oct 17:07Z. 19:00 CEST = 17:00 UTC."
   },
   "535925": {
    "date": "2026-10-23",
@@ -81,10 +82,9 @@
    "timezone": "CEST",
    "kind": "exact",
    "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-   "quote": "October 23, 2026 \u2014 Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul (20:15 CEST)",
-   "checked_at": "2026-10-22T09:10:00Z",
-   "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
-   "resolution": "FL-069 resolved by session-784afe97: the round-seven game-centre article is dated 21 October 2026 and describes games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot, not a contradiction of the official table. The official EuroLeague standings read at 2026-10-22T21:55Z are used for form; the game-centre article is retained only for the fixture and its timezone-qualified clock."
+   "quote": "Friday, October 23, 2026 \u2014 Olympiacos Piraeus vs. Fenerbahce Tarfin Istanbul (20:15 CEST)",
+   "checked_at": "2026-10-23T17:07:00Z",
+   "note": "Re-observed 23 Oct 17:07Z. 20:15 CEST = 18:15 UTC. The game-center listing page renders clocks in the reader's zone without a label and is not used for certification."
   },
   "535926": {
    "date": "2026-10-23",
@@ -92,10 +92,9 @@
    "timezone": "CEST",
    "kind": "exact",
    "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
-   "quote": "October 23, 2026 \u2014 Paris Basketball vs. Valencia Basket (20:45 CEST)",
-   "checked_at": "2026-10-22T09:10:00Z",
-   "conflicting_source": "https://www.euroleaguebasketball.net/en/euroleague/standings/",
-   "resolution": "FL-069 resolved by session-784afe97: the round-seven game-centre article is dated 21 October 2026 and describes games played on 22 October, so its record and scoring lines are a pre-round-seven snapshot, not a contradiction of the official table. The official EuroLeague standings read at 2026-10-22T21:55Z are used for form; the game-centre article is retained only for the fixture and its timezone-qualified clock."
+   "quote": "Friday, October 23, 2026 \u2014 Paris Basketball vs. Valencia Basket (20:45 CEST)",
+   "checked_at": "2026-10-23T17:07:00Z",
+   "note": "Re-observed 23 Oct 17:07Z. 20:45 CEST = 18:45 UTC."
   },
   "12051": {
    "date": "2026-10-22",
@@ -321,9 +320,10 @@
    "time": "18:00",
    "timezone": "Irish time",
    "kind": "exact",
-   "source": "https://www.leinsterrugby.ie/fixtures-rugby/",
-   "quote": "Leinster Rugby v Munster Rugby \u2014 SATURDAY, 24 OCTOBER 2026 \u2014 BKT United Rugby Championship \u2014 Aviva Stadium \u2014 KO: 6pm *all kick offs are in Irish time",
-   "checked_at": "2026-10-22T09:10:00Z"
+   "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+   "quote": "Leinster v Munster, TBC, Dublin, KO 18.00 IRE & UK / 19.00 ITA & SA",
+   "checked_at": "2026-10-23T17:02:00Z",
+   "note": "Re-observed 23 Oct 17:02Z; agrees with Leinster Rugby fixtures page (6pm Irish time, Aviva Stadium) read 22 Oct. 18:00 Irish time = 17:00 UTC."
   },
   "3530": {
    "date": "2026-10-25",
@@ -331,8 +331,9 @@
    "timezone": "Irish time",
    "kind": "exact",
    "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-   "quote": "Match Details \u2014 McCarthy Insurance Group Premier Senior Football Championship Final \u2014 Sunday, October 25 \u2014 4.00pm \u2014 SuperValu P\u00e1irc U\u00ed Chaoimh",
-   "checked_at": "2026-10-22T12:10:00Z"
+   "quote": "Match Details \u2014 McCarthy Insurance Group Premier Senior Football Championship Final \u2014 Sunday, October 25 \u2014 4.00pm \u2014 SuperValu P\u00e1irc U\u00ed Chaoimh (calendar link ctz=Europe/Dublin)",
+   "checked_at": "2026-10-23T17:20:00Z",
+   "note": "Re-observed 23 Oct 17:20Z. Ireland returns to GMT at 02:00 on 25 Oct, so 16:00 Irish time = 16:00 UTC."
   },
   "12049": {
    "date": "2026-10-22",
@@ -739,31 +740,34 @@
    "checked_at": "2026-10-22T21:20:00Z"
   },
   "534842": {
-   "kind": "exact",
    "date": "2026-10-23",
    "time": "19:00",
    "timezone": "ET",
-   "checked_at": "2026-10-22T12:25:00Z",
-   "source": "https://www.nba.com/games?date=2026-10-22",
-   "quote": "New York Knicks @ Boston Celtics, Thursday October 23, 7:00 PM ET, TD Garden"
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 NY Knicks @ BOS Celtics \u2014 7:00 PM ET (Prime Video)",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
   },
   "534841": {
-   "kind": "exact",
    "date": "2026-10-23",
    "time": "21:30",
    "timezone": "ET",
-   "checked_at": "2026-10-22T12:25:00Z",
-   "source": "https://www.nba.com/games?date=2026-10-22",
-   "quote": "Houston Rockets @ San Antonio Spurs, Thursday October 23, 9:30 PM ET, Frost Bank Center"
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 HOU Rockets @ SA Spurs \u2014 9:30 PM ET, Moody Center, Austin (Prime Video)",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
   },
   "536041": {
    "date": "2026-10-23",
    "time": "16:00",
    "timezone": "ET",
    "kind": "exact",
-   "source": "https://www.nba.com/schedule?date=2026-10-22",
-   "quote": "NBA.com schedule: CHI Bulls at MIL Bucks on 2026-10-23, 4:00 PM ET.",
-   "checked_at": "2026-10-22T21:20:00Z"
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 CHI Bulls @ MIL Bucks \u2014 4:00 PM ET, Fiserv Forum",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
   },
   "609577": {
    "date": "2026-10-23",
@@ -771,9 +775,9 @@
    "timezone": "Irish time",
    "kind": "exact",
    "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
-   "quote": "Connacht v Zebre Parma \u2014 Dexcom Stadium, Galway, KO 19.45 IRE & UK / 20.45 ITA & SA",
-   "checked_at": "2026-10-22T21:55:00Z",
-   "note": "Official URC 2026/27 fixtures list, Round 4 (Friday 23 October). 19:45 Irish time (UTC+1) = 18:45 UTC."
+   "quote": "ROUND 4 \u2014 FRIDAY, OCTOBER 23 \u2014 Connacht v Zebre Parma, Dexcom Stadium, Galway, KO 19.45 IRE & UK",
+   "checked_at": "2026-10-23T17:02:00Z",
+   "note": "Re-observed 23 Oct 17:02Z. 19:45 Irish time (IST, UTC+1) = 18:45 UTC."
   },
   "609579": {
    "date": "2026-10-23",
@@ -781,9 +785,9 @@
    "timezone": "Irish time",
    "kind": "exact",
    "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
-   "quote": "Edinburgh v Lions \u2014 Hive Stadium, Edinburgh, KO 19.45 IRE & UK / 20.45 ITA & SA",
-   "checked_at": "2026-10-22T21:55:00Z",
-   "note": "Official URC 2026/27 fixtures list, Round 4 (Friday 23 October). 19:45 Irish time (UTC+1) = 18:45 UTC."
+   "quote": "Edinburgh v Lions, Hive Stadium, KO 19.45 IRE & UK",
+   "checked_at": "2026-10-23T17:02:00Z",
+   "note": "Re-observed 23 Oct 17:02Z. 19:45 Irish time = 18:45 UTC."
   },
   "609576": {
    "date": "2026-10-24",
@@ -791,18 +795,19 @@
    "timezone": "Irish time",
    "kind": "exact",
    "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
-   "quote": "Vodacom Bulls v Ulster \u2014 Loftus Versfeld, Pretoria, KO 12.45 IRE & UK / 13.45 ITA & SA",
-   "checked_at": "2026-10-22T21:55:00Z",
-   "note": "Official URC 2026/27 fixtures list, Round 4 (Saturday 24 October). 12:45 Irish time (UTC+1) = 11:45 UTC."
+   "quote": "SATURDAY, OCTOBER 24 \u2014 Vodacom Bulls v Ulster, Loftus Versfeld, Pretoria, KO 12.45 IRE & UK / 13.45 ITA & SA",
+   "checked_at": "2026-10-23T17:02:00Z",
+   "note": "Re-observed 23 Oct 17:02Z. 12:45 Irish time = 11:45 UTC."
   },
   "609580": {
-   "kind": "exact",
    "date": "2026-10-24",
    "time": "15:00",
-   "timezone": "UTC",
-   "checked_at": "2026-10-22T12:25:00Z",
-   "source": "https://www.leinsterrugby.ie",
-   "quote": "DHL Stormers vs Scarlets, URC Round 4, 24 Oct 15:00"
+   "timezone": "Irish time",
+   "kind": "exact",
+   "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+   "quote": "DHL Stormers v Scarlets, DHL Stadium, Cape Town, KO 15.00 IRE & UK / 16.00 ITA & SA",
+   "checked_at": "2026-10-23T17:02:00Z",
+   "note": "Re-observed 23 Oct 17:02Z on the competition's own fixtures list. 15:00 Irish time = 14:00 UTC. CORRECTS the 22 Oct 12:25Z entry, which recorded the same 15:00 clock as UTC (one hour late); see FL-147."
   },
   "12110": {
    "kind": "exact",
@@ -902,7 +907,8 @@
    "timezone": "CET",
    "checked_at": "2026-10-22T12:25:00Z",
    "source": "https://prod2.lnr.fr/calendrier-et-resultats",
-   "quote": "FC Grenoble vs Biarritz, J8 21:00 CET"
+   "quote": "FC Grenoble vs Biarritz, J8 21:00 CET",
+   "hold": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
   },
   "609562": {
    "kind": "exact",
@@ -911,16 +917,18 @@
    "timezone": "CET",
    "checked_at": "2026-10-22T12:25:00Z",
    "source": "https://prod2.lnr.fr/calendrier-et-resultats",
-   "quote": "Provence Rugby vs AS Beziers, J8 21:00 CET"
+   "quote": "Provence Rugby vs AS Beziers, J8 21:00 CET",
+   "hold": "The 22 Oct entry labelled this LNR clock CET, but LNR prints no zone label and France was on CEST (UTC+2) on 23 Oct, so the UTC start would be 19:00Z, not 20:00Z. The page was not re-read on 23 Oct; retained as analysis. See FL-148."
   },
   "609554": {
-   "kind": "exact",
    "date": "2026-10-25",
-   "time": "21:05",
-   "timezone": "CET",
-   "checked_at": "2026-10-22T12:25:00Z",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
    "source": "https://top14.lnr.fr/calendrier-et-resultats",
-   "quote": "Stade Rochelais vs Union Bordeaux-Begles, J7 21:05 CET"
+   "quote": "Journ\u00e9e 7 \u2014 dimanche 25 octobre \u2014 Stade Rochelais (4e) v Union Bordeaux-B\u00e8gles (3e) 21h05",
+   "checked_at": "2026-10-23T17:11:00Z",
+   "note": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
   },
   "12073": {
    "kind": "exact",
@@ -1060,8 +1068,238 @@
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
    "quote": "\"startTimeUTC\": \"2026-10-24T01:00:00Z\" \u2014 game id 2026020167, TBL Lightning @ COL Avalanche",
    "checked_at": "2026-10-23T16:28:04Z"
+  },
+  "609575": {
+   "date": "2026-10-23",
+   "time": "19:45",
+   "timezone": "Irish time",
+   "kind": "exact",
+   "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+   "quote": "Cardiff v Hollywoodbets Sharks, Cardiff Arms Park, KO 19.45 IRE & UK / 20.45 ITA & SA",
+   "checked_at": "2026-10-23T17:02:00Z",
+   "note": "Observed 23 Oct 17:02Z. 19:45 Irish time = 18:45 UTC."
+  },
+  "609564": {
+   "date": "2026-10-24",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://top14.lnr.fr/calendrier-et-resultats",
+   "quote": "Journ\u00e9e 7 \u2014 samedi 24 octobre \u2014 Aviron Bayonnais (5e) v LOU Rugby (8e) 16h35",
+   "checked_at": "2026-10-23T17:11:00Z",
+   "note": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
+  },
+  "609567": {
+   "date": "2026-10-24",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://top14.lnr.fr/calendrier-et-resultats",
+   "quote": "Journ\u00e9e 7 \u2014 samedi 24 octobre \u2014 Stade Toulousain (1e) v USA Perpignan (9e) 16h35",
+   "checked_at": "2026-10-23T17:11:00Z",
+   "note": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
+  },
+  "536036": {
+   "date": "2026-10-23",
+   "time": "19:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 MIN Timberwolves @ ORL Magic \u2014 7:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536034": {
+   "date": "2026-10-23",
+   "time": "19:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 TOR Raptors @ WAS Wizards \u2014 7:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536037": {
+   "date": "2026-10-23",
+   "time": "19:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 DAL Mavericks @ IND Pacers \u2014 7:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536035": {
+   "date": "2026-10-23",
+   "time": "19:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 ATL Hawks @ CHA Hornets \u2014 7:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536038": {
+   "date": "2026-10-23",
+   "time": "20:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 DET Pistons @ MIA Heat \u2014 8:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536040": {
+   "date": "2026-10-23",
+   "time": "21:30",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 NO Pelicans @ UTA Jazz \u2014 9:30 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536039": {
+   "date": "2026-10-23",
+   "time": "22:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 MEM Grizzlies @ GS Warriors \u2014 10:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536042": {
+   "date": "2026-10-23",
+   "time": "22:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 LA Clippers @ LA Lakers \u2014 10:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "536043": {
+   "date": "2026-10-23",
+   "time": "22:00",
+   "timezone": "ET",
+   "kind": "exact",
+   "source": "https://www.nba.com/schedule?date=2026-10-23",
+   "quote": "Friday, October 23 \u2014 12 Games \u2014 POR Trail Blazers @ SAC Kings \u2014 10:00 PM ET",
+   "checked_at": "2026-10-23T17:04:00Z",
+   "note": "Observed 23 Oct 17:04Z on the NBA.com schedule page; ET is EDT (UTC-4) on this date."
+  },
+  "9951": {
+   "date": "2026-10-23",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.wst.tv/matches/",
+   "quote": "Scheduled \u2014 Quarter Finals \u2014 Fri 23 Oct \u2014 Match 60 \u2014 Jak Jones v Scott Donaldson",
+   "checked_at": "2026-10-23T17:13:00Z",
+   "note": "WST renders the clock in the reader's zone with no label, so only the date is recorded; no UTC start is certified."
+  },
+  "9950": {
+   "date": "2026-10-23",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.wst.tv/matches/",
+   "quote": "Scheduled \u2014 Quarter Finals \u2014 Fri 23 Oct \u2014 Match 59 \u2014 David Gilbert v Mark Williams",
+   "checked_at": "2026-10-23T17:13:00Z",
+   "note": "Date-only for the same reason; no UTC start is certified."
+  },
+  "902157": {
+   "date": "2026-10-24",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+   "quote": "ORDER OF PLAY - SATURDAY, 24 OCTOBER 2026 \u2014 CENTER \u2014 Starting at 12:00 PM \u2014 SF \u2014 [1] Ann LI USA VS Ashlyn KRUEGER USA",
+   "checked_at": "2026-10-23T17:17:00Z",
+   "note": "Per FL-097 the Osaka order of play prints \"Starting at 12:00 PM\" without JST, so the zone is not guessed; date-only, no UTC start certified."
+  },
+  "902162": {
+   "date": "2026-10-24",
+   "time": "13:30",
+   "timezone": null,
+   "kind": "not_before",
+   "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+   "quote": "Not before 1:30 PM \u2014 SF \u2014 [8] Katie BOULTER GBR VS Katerina SINIAKOVA CZE",
+   "checked_at": "2026-10-23T17:17:00Z",
+   "note": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
+  },
+  "902160": {
+   "date": "2026-10-24",
+   "time": "15:00",
+   "timezone": null,
+   "kind": "not_before",
+   "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+   "quote": "ORDER OF PLAY - SATURDAY, 24 OCTOBER 2026 \u2014 CENTER COURT \u2014 Not before 3:00 PM \u2014 SF \u2014 Leylah FERNANDEZ CAN VS Marie BOUZKOVA CZE",
+   "checked_at": "2026-10-23T17:18:00Z",
+   "note": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
+  },
+  "902163": {
+   "date": "2026-10-24",
+   "time": "17:30",
+   "timezone": null,
+   "kind": "not_before",
+   "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+   "quote": "Not before 5:30 PM \u2014 SF \u2014 [1] Elena RYBAKINA KAZ VS [6] Diana SHNAIDER",
+   "checked_at": "2026-10-23T17:18:00Z",
+   "note": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
+  },
+  "3532": {
+   "date": "2026-10-25",
+   "time": "16:00",
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.maighcuilinn.com/",
+   "quote": "Am Nua \u00b7 New Time \u2014 Moved to Sunday due to the weather warning. Sunday 25 October \u2014 4pm \u00b7 Pearse Stadium",
+   "checked_at": "2026-10-23T17:21:00Z",
+   "note": "Club site (club-official tier) is not on the reviewed clock-host list and prints no zone label; date-only. Fixture moved from Sat 24 Oct 7pm."
+  },
+  "609570": {
+   "date": "2026-10-23",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+   "quote": "Fri Oct 23 \u2014 Gloucester Rugby v Bath Rugby \u2014 Kingsholm Stadium",
+   "checked_at": "2026-10-23T17:22:00Z",
+   "note": "PREM Rugby renders the clock in the reader's zone with no label; date-only, no UTC start certified."
+  },
+  "609573": {
+   "date": "2026-10-23",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+   "quote": "Fri Oct 23 \u2014 Newcastle Red Bulls v Sale Sharks \u2014 Kingston Park",
+   "checked_at": "2026-10-23T17:22:00Z",
+   "note": "PREM Rugby renders the clock in the reader's zone with no label; date-only, no UTC start certified."
+  },
+  "609572": {
+   "date": "2026-10-24",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+   "quote": "Sat Oct 24 \u2014 Leicester Tigers v Northampton Saints \u2014 Mattioli Woods Welford Road",
+   "checked_at": "2026-10-23T17:22:00Z",
+   "note": "PREM Rugby renders the clock in the reader's zone with no label; date-only, no UTC start certified."
+  },
+  "609569": {
+   "date": "2026-10-24",
+   "time": null,
+   "timezone": null,
+   "kind": "date_only",
+   "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+   "quote": "Sat Oct 24 \u2014 Bristol Bears v Exeter Chiefs",
+   "checked_at": "2026-10-23T17:22:00Z",
+   "note": "PREM Rugby renders the clock in the reader's zone with no label; date-only, no UTC start certified."
   }
  },
  "policy_20261023": "Exact UTC starts read directly from the league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state the start in UTC, so no zone is inferred.",
- "parallel_merge_note": "session-be917e0f's 2026-10-23 observations were merged in without alteration; where both sessions observed the same event the later checked_at wins."
+ "parallel_merge_note": "session-be917e0f's 2026-10-23 observations were merged in without alteration; where both sessions observed the same event the later checked_at wins. session-beb7787b (16:55Z\u201317:22Z) merged the same way: later checked_at wins per event; its date-only / held entries for un-zoned pages were kept as recorded."
 }
