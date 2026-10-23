@@ -1,0 +1,106 @@
+{
+  "session": "session-655b300a",
+  "observation_clock_utc": "2026-10-23T21:30:00Z",
+  "tool": "harness page-retrieval tool (the shell in this sandbox has no route to these hosts: curl -> SSL_ERROR_SYSCALL)",
+  "note": "One receipt per page actually read in this pass. 'established' records only what the page prints; nothing is inferred.",
+  "reads": [
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-30",
+      "established": "Six World Series games. Game 1 gamePk 849805, Tampa Bay Rays @ Milwaukee Brewers, American Family Field, gameDate 2026-10-24T00:00:00Z, status Pre-Game, scheduledInnings 9.",
+      "quote": "\"gameDate\":\"2026-10-24T00:00:00Z\" ... \"venue\":{\"id\":32,\"name\":\"American Family Field\"} ... \"description\":\"World Series Game 1\""
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/now",
+      "established": "Two NHL games on 2026-10-23: MTL @ CHI 2026-10-24T00:00:00Z (United Center) and TBL @ COL 2026-10-24T01:00:00Z (Ball Arena); 12 games listed for 2026-10-24.",
+      "quote": "\"startTimeUTC\":\"2026-10-24T00:00:00Z\" ... \"gameCenterLink\":\"/gamecenter/mtl-vs-chi/2026/10/23/2026020166\""
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/standings/2026-10-23",
+      "established": "Per-club standings. CHI 3-6-0, 21 goals for / 36 against, home 3-2-0. MTL 4-3-2, 30/34, home 3-2-1, road 1-1-1, streak OT1. TBL 7-2-0, 31/23, road 2-2-0, streak W3. COL 5-4-1, 41/31, home 3-1-1, streak L2. Payload header standingsDateTimeUtc 2026-10-23T21:28:15Z.",
+      "quote": "\"standingsDateTimeUtc\":\"2026-10-23T21:28:15Z\" ... \"placeName\":{\"default\":\"Montr\u00e9al\"} ... \"goalFor\":30,\"goalAgainst\":34 ... \"roadWins\":1,\"roadLosses\":1,\"roadOtLosses\":1"
+    },
+    {
+      "url": "https://api.nhle.com/stats/rest/en/team/summary?isAggregate=false&isGame=false&start=0&limit=10&cayenneExp=gameTypeId%3D2%20and%20seasonId%3D20262027%20and%20teamId%20in%20(8%2C16%2C21%2C14)",
+      "established": "The league's stats service reports different season goal totals from the standings service for three of the four clubs checked: MTL 28 goals for (standings: 30), COL 30 goals against (standings: 31), EDM 46 goals for (standings: 47). TBL 31/23 agrees in both. Recorded as a source conflict, not a repair.",
+      "quote": "\"teamFullName\":\"Montr\u00e9al Canadiens\",\"gamesPlayed\":9,\"goalsAgainst\":34,\"goalsFor\":28 ... \"teamFullName\":\"Colorado Avalanche\",\"goalsFor\":41,\"goalsAgainst\":30"
+    },
+    {
+      "url": "https://www.olbg.com/betting-tips",
+      "established": "The All-Sports tips listing renders no rows to the retriever: the page prints 'No tips found.' and 'No tournaments tips found.' between the filter menu and the explanatory copy. This is the same markup on every listing tested, while OLBG's event pages render in full.",
+      "quote": "Customise Tips / **All Sports** / Show Expired Events / No tips found. / No tournaments tips found."
+    },
+    {
+      "url": "https://www.olbg.com/betting-tips/Tennis/3",
+      "established": "Tennis listing renders 'No tips found.' \u2014 same client-side table as the All-Sports page.",
+      "quote": "**Tennis** / Show Expired Events / No tips found."
+    },
+    {
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+      "established": "Ice Hockey listing renders 'No tips found.' at a time when the NHL feed lists 14 upcoming games, so the empty table is a rendering behaviour rather than an absence of fixtures.",
+      "quote": "**Ice Hockey** / Show Expired Events / No tips found."
+    },
+    {
+      "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/MTL_Canadiens_@_CHI_Blackhawks/13?event_id=199984",
+      "established": "Event page renders in full: money line 7/10 tips on MTL Canadiens (70%), puck line MTL -1.50 and CHI +1.50, game total 6.50. Every market is labelled 'Expired' although the NHL start is 2026-10-24T00:00:00Z, i.e. still ahead of the read.",
+      "quote": "MTL Canadiens @ CHI Blackhawks / Most Popular Tip / MTL Canadiens / Money Line / Expired ... 7 / 10 Win Tips ... 70%"
+    },
+    {
+      "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "established": "Round 4: Fri 23 Oct Cardiff v Hollywoodbets Sharks, Connacht v Zebre Parma, Edinburgh v Lions all KO 19.45 IRE & UK; Sat 24 Oct Vodacom Bulls v Ulster 12.45, DHL Stormers v Scarlets 15.00, Benetton v Glasgow Warriors 15.00, Leinster v Munster 18.00 (TBC, Dublin), Ospreys v Dragons 19.45.",
+      "quote": "SATURDAY, OCTOBER 24 ... **Leinster v Munster** _TBC, Dublin, KO 18.00 IRE & UK / 19.00 ITA & SA_"
+    },
+    {
+      "url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+      "established": "Table as published 2026-10-23: Edinburgh 1st 19 pts (4 played), Sharks 2nd 15, Glasgow 3rd 13, Bulls 4th 11 (126/54), Stormers 5th 11 (81/54), Connacht 6th 10, Cardiff 7th 9, Lions 8th 9, Dragons 9th 9, Munster 10th 9 (72/74), Leinster 11th 8 (75/58), Ulster 12th 8 (88/93), Scarlets 13th 7 (68/85). Round 3 results reprinted: LEI 29-5 CAR, ULS 26-26 MUN, STO 39-22 SHA, SCA 27-26 BEN, BUL 57-15 LIO.",
+      "quote": "10 Munster | 9 | 3 | 1 | 1 | 1 | 3 | 72 | 74 | -2 ... 11 Leinster | 8 | 3 | 1 | 0 | 2 | 4 | 75 | 58 | 17"
+    },
+    {
+      "url": "https://www.legavolley.it/risultati/?IdCampionato=999",
+      "established": "SuperLega Giornata 1 set scores: Verona 0-3 Civitanova (20-25,19-25,26-28); Padova 0-3 Piacenza (19-25,21-25,16-25); Cuneo 2-3 Perugia (25-18,7-25,15-25,25-21,23-25); Prata 3-1 Monza (25-22,19-25,25-21,25-23). Cross-grid fixes Perugia v Prata, Civitanova v Padova and Monza v Verona on 25 October.",
+      "quote": "Acqua Sant'Anna Cuneo | 2-3 | 25 | 7 | 15 | 25 | 23 / Sir Susa Scai Perugia | 18 | 25 | 25 | 21 | 25"
+    },
+    {
+      "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+      "established": "Final Nemo Rangers v St Finbarrs, Sunday 25 October, 4.00pm, SuperValu P\u00e1irc U\u00ed Chaoimh; Nemo 1-15 to 0-16 v Carrigaline, 1-20 to 1-17 v Castlehaven; St Finbarrs 2-12 to 0-16 v Clonakilty and a 'convincing victory over Carbery'. Google Calendar link 20261025T160000/20261025T180000 with ctz=Europe/Dublin.",
+      "quote": "Nemo Rangers advanced after a closely contested 1-15 to 0-16 victory over Carrigaline ... St Finbarrs secured their final place with a 2-12 to 0-16 win over Clonakilty."
+    },
+    {
+      "url": "https://www.nba.com/schedule?date=2026-10-23",
+      "established": "12 games on Friday 23 October, including New York Knicks @ Boston Celtics at TD Garden 7:00 PM ET and Houston Rockets @ San Antonio Spurs at the Moody Center, Austin 9:30 PM ET.",
+      "quote": "New York Knicks / Boston Celtics / TD Garden / Boston, MA / 7:00 PM ET ... Houston Rockets / San Antonio Spurs / Moody Center / Austin, TX / 9:30 PM ET"
+    },
+    {
+      "url": "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup",
+      "established": "Game 1 preview: Rays 24-9 in Martinez starts including playoffs, three runs over nine road innings; Misiorowski regular-season leader in ERA 1.80, 252 strikeouts, 0.80 WHIP, first pitch of NLDS Game 1 at 104.8 mph, 11 days off, 4 1/3 innings in NLCS Game 1.",
+      "quote": "Rays have gone 24-9 in games started by Martinez this season, including playoffs ... MLB regular-season leader in ERA (1.80), strikeouts (252), WHIP (0.80)",
+      "note": "The retriever returned this article's body under the requested URL but with the title 'undefined' and a displayed canonical of .../pat-murphy-kevin-cash-1998-college-world-series. The body is the Game 1 pitching preview quoted above; the mismatch is recorded rather than hidden (see FL-182)."
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=104&season=2026",
+      "established": "Brewers regular season 103-59, 832 runs scored, 618 allowed, run differential 214, division champion.",
+      "quote": "\"runsAllowed\":618,\"runsScored\":832 ... \"wins\":103,\"losses\":59,\"runDifferential\":214"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-11&endDate=2026-10-22",
+      "established": "Postseason results: NLCS Brewers beat Dodgers in four (2-1, 7-4, 6-2, 6-4, the clincher on officialDate 2026-10-15); ALCS Rays won 4-2 after losing Game 1 at home 3-7.",
+      "quote": "\"date\":\"2026-10-15\" ... \"Los Angeles Dodgers\",\"score\":4 ... \"Milwaukee Brewers\",\"score\":6"
+    },
+    {
+      "url": "https://www.legavolley.it/calendario/?idCampionato=999",
+      "established": "The league's dated calendar prints a venue on every fixture, which settles home side and local clock for all three SuperLega picks: #7 Sir Susa Scai Perugia (Casa) v Tinet Prata, 25/10 18:00, Pala Barton Energy; #10 Cucine Lube Civitanova (Casa) v Pallavolo Padova, 25/10 18:00, Eurosuole Forum; #12 Vero Volley Monza (Casa) v Rana Verona, 25/10 18:00, OpiquadArena. Italy is back on CET on 25 October, so 18:00 local is 17:00Z - the value all three rows already carried.",
+      "quote": "| 7 | Domenica 25/10/2026<br>Ore 18:00 | Sir Susa Scai Perugia | 0-0 | Tinet Prata di Pordenone | ... Pala Barton Energy<br>Perugia (PG) | ... | 10 | Domenica 25/10/2026<br>Ore 18:00 | Cucine Lube Civitanova | 0-0 | Pallavolo Padova | ... Eurosuole Forum<br>Civitanova Marche (MC)",
+      "note": "Also resolves session-a87a3681's FL-181: Volleyball World's '(UTC)' line is the erroneous one. The andata matrix on /risultati invites the opposite reading and must not be used to derive home advantage."
+    }
+  ],
+  "failed_reads": [
+    {
+      "url": "https://cdn.nba.com/static/json/liveData/scoreboard/todaysScoreboard_00.json",
+      "result": "Failed to fetch page \u2014 the CDN host is not reachable from this sandbox, so NBA fixture times were taken from the www.nba.com schedule page instead."
+    },
+    {
+      "url": "https://www.olbg.com/betting-tips/golf",
+      "result": "404 Not Found. Golf's authoritative listing path is /betting-tips/Golf/5, not the slug alone \u2014 the same grammar already documented in docs/olbg-structure.md."
+    }
+  ],
+  "clock_note": "Single stamp for a read window that ran 21:28Z-21:36Z. An earlier revision of this file carried 22:40Z, 63 minutes ahead of the build clock; that stamp was withdrawn and is recorded as FL-190 (first drafted as FL-183, renumbered when session-a87a3681 published that id). Nothing else in the file changed."
+}

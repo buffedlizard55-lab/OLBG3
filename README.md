@@ -4,6 +4,60 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Five league-table ranks had gone stale, three SuperLega fixtures were settled, and OLBG's listings stopped rendering — `session-655b300a` (task-54)
+
+Full record: [`docs/audit-655b300a.md`](docs/audit-655b300a.md) · register: **FL-184 … FL-190** on
+[Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html) (raised as FL-177…FL-183,
+renumbered at merge because a sibling published those numbers first; `original_id` keeps the first draft)
+
+**Every official page behind every live high-confidence pick was re-read in a 21:28Z–21:36Z window.**
+Six of the eight root-track fixtures came back exactly as published — the Brewers' 103-59 record and
+832/618 run line, the Rays' 4-2 ALCS comeback, Misiorowski's 1.80 ERA and eleven days off, the
+Canadiens' and Avalanche's standings lines, all four SuperLega rally-point totals, and both Cork
+scorelines. The two basketball pieces had their fixtures and tip-off times confirmed; their season
+records were **not** re-read, and that gap is written down rather than glossed over.
+
+**What was wrong: five ordinals in four Rugby Union write-ups.** The URC table moved when the three
+Friday Round 4 matches finished, and the root-track piece still said Leinster were tenth (11th),
+Munster ninth (10th), the Stormers fourth (5th), the Scarlets twelfth (13th), the Bulls third (4th)
+and Ulster eleventh (12th). The points, points-for and points-against in the same sentences were all
+still right, and the six clubs behind the picks have identical figures in the old and new tables —
+only their rank moved, because four *other* clubs played. So the prose was corrected, the prices were
+not repriced, and the reason is recorded in `data/official.json`. The `/olbg/` copies were repaired
+independently by `session-a87a3681` in PR #156 and already agreed, ordinal for ordinal.
+
+**The open Volleyball question is now closed.** `VOL-27`, `VOL-28` and `VOL-29` had been carried since
+earlier passes with an unresolved doubt about which side was at home: the league's results matrix,
+read naively, appears to reverse two of them. The league's dated calendar prints a venue on every
+line and confirms all three as published — Perugia at the Pala Barton Energy, Civitanova at the
+Eurosuole Forum, Monza at the OpiquadArena — each at 18:00 local on 25 October. Italy is back on CET
+by then, so 18:00 local is 17:00Z, exactly what the rows carry. The same arithmetic settles a
+sibling's open flag about Volleyball World's three-zone clock print: the broadcaster's "(UTC)" line
+is the wrong one, not the committed starts.
+
+**Why no new fixtures were added.** OLBG's public listings render their tables client-side:
+`/betting-tips`, `/Tennis/3` and `/Ice_Hockey/13` all return *"No tips found"* while the same site's
+event pages render in full. With no readable listing there is no honest way to add a row, so the
+blocker is published as `FL-185` instead of papered over. The five-a-day target is re-measured on the
+merged board at the 21:37Z build clock: **17 distinct live picks against 75, one sport on target
+(Basketball), shortfall 58** (`FL-188`).
+
+**Further irregularities, disclosed rather than "fixed".** OLBG labels tonight's Canadiens–Blackhawks
+markets *Expired* more than an hour before the NHL's own start (`FL-186`). The NHL's two official
+services disagree on season goal totals — Montréal 30 v 28, Colorado 31 v 30, Edmonton 47 v 46 — so
+each write-up stays pinned to the endpoint it cites rather than being harmonised into a third version
+(`FL-187`, the over-correction lesson of FL-171). The retriever served the MLB Game 1 preview under
+the title "undefined"; the facts were corroborated against MLB's own feeds first (`FL-189`).
+
+**This pass also flagged itself.** Its first revision dated every receipt `22:40Z`, 63 minutes ahead
+of the build clock. The test written in the same pass — *the observation clock may not be later than
+the publication clock* — failed on its first run against the real clock, and the stamp was withdrawn
+and re-dated without touching a single quoted fact (`FL-190`). A stamp is a claim about when evidence
+existed; it gets read from the clock, never typed from memory.
+
+**Verification:** 271 tests (29 new), board/site/official-feed/link checks all PASS, 108 pages and
+2,260 local links with **0 broken**, and no value filled in that a source does not print.
+
 ## Late-evening 2026-10-23 pass — seven in-band picks added, three published claims repaired — `session-a87a3681`
 
 Full record: [`docs/audit-a87a3681.md`](docs/audit-a87a3681.md) · register: **FL-177 … FL-183** on

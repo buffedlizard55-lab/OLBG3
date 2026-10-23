@@ -75,6 +75,11 @@ ALLOWED_HOSTS = {
     # Hosts reviewed by session-af0789e6's 06:50Z sweep (official bodies / official data feeds).
     "api-web.nhle.com",
     "statsapi.mlb.com",
+    # 2026-10-23 (session-655b300a): the league's second published data service, api.nhle.com, is
+    # the same organisation as api-web.nhle.com (NHL stats REST service). It is cited only as the
+    # comparator in FL-180, where its season goal totals disagree with the standings service; it
+    # is not used for any fixture clock, price or grade. Host reviewed, structural only.
+    "api.nhle.com",
     "www.protennislive.com",
     "api.wtatennis.com",
     "www.euroleaguebasketball.net",
