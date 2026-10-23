@@ -171,8 +171,16 @@ class ArchiveIntegrity(unittest.TestCase):
                 self.assertEqual(len(rows), expected_rows, name)
 
     def test_live_capture_is_the_newest(self):
-        names = sorted(p.name for p in (ROOT / 'data/raw').glob('olbg-harvest-*.tsv'))
-        self.assertEqual(names[-1], 'olbg-harvest-20261023T1700Z.tsv')
+        # 2026-10-23T21:35Z (session-a87a3681): a later capture EXISTS but carries no tip cards, because
+        # OLBG rendered "No tips found." for all 18 in-scope listings (FL-180). The primary harvest is
+        # therefore the newest capture that actually carries rows, and the empty later capture is kept
+        # as evidence rather than deleted. Assert both halves so neither can drift silently.
+        paths = sorted((ROOT / 'data/raw').glob('olbg-harvest-*.tsv'), key=lambda p: p.name)
+        with_rows = [p for p in paths
+                     if [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
+        self.assertEqual(with_rows[-1].name, 'olbg-harvest-20261023T1700Z.tsv')
+        empty = [p.name for p in paths if p not in with_rows]
+        self.assertIn('olbg-harvest-20261023T2135Z.tsv', empty)
 
     def test_archived_files_are_not_reused_as_the_primary_harvest(self):
         meta = json.loads((ROOT / 'data/meta.json').read_text())
