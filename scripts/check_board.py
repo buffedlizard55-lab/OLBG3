@@ -181,7 +181,7 @@ def check_predictions(preds, refs, rows_by_ref):
             # market from the win price.
             _sel = p.get("selection", "")
             for q_dec, q_us_s in re.findall(
-                    r"(?:money line|\bat\b|\bPriced\b)\s*(?:an?\s+)?(\d\.\d{2})\s*(?:/|\()\s*([+-]\d{2,5})",
+                    r"(?:money line|\bat\b|\bPriced\b)\s*,?\s*(?:an?\s+)?(\d\.\d{2})\s*(?:/|\()\s*([+-]\d{2,5})",
                     _sel):
                 if float(q_dec) == 1.91 and re.search(r"handicap|total", _sel, re.I):
                     continue

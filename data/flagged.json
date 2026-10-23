@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T18:40:00Z",
+  "generated_at": "2026-10-23T19:20:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id).",
   "items": [
     {
@@ -3340,6 +3340,29 @@
         {
           "label": "OLBG — Handball listing, event 12107",
           "url": "https://www.olbg.com/betting-tips/Handball/20"
+        }
+      ]
+    },
+    {
+      "id": "FL-160",
+      "severity": "high",
+      "status": "corrected",
+      "sport": "Darts",
+      "title": "Two darts write-ups contradicted their own rows and the price-quote check could not see it, because the /olbg/ rule only recognised one of the three ways a price is written",
+      "summary": "DAR-32331 tipped Kevin Doets while its row named Michael van Gerwen, and DAR-32336 quoted 1.71 (-141) beside a row pricing 1.37 (-270). Both used the 'money line, 1.66 / -152' label form, which tools/check_site.py's single-pattern rule did not match.",
+      "detail": "Prose is hand-written while every row is re-priced on each rebuild, so the two drift; that is why both tracks enforce that any price quoted in a write-up equals the price its row actually carries. The root track's rule in scripts/check_board.py was widened on 2026-10-22 for precisely this reason and is pinned by tests/test_price_quote_rule.py, whose own docstring records that five snooker pieces had drifted before the gap was found. The /olbg/ track never received the same widening: tools/check_site.py matched only (\\d+\\.\\d{2})\\s*\\(([+-]\\d{2,5})\\), the '1.58 (-172)' form. Two darts pieces wrote their selection as 'Kevin Doets to win (money line, 1.66 / -152)', where the slash and comma sit between the decimal and the US odds, so the pattern did not fire and both passed the build. The defects were real, not cosmetic. DAR-32331 (Kevin Doets v Michael van Gerwen, European Championship Round 1) published a selection and a whole argument for Doets while its row named Michael van Gerwen at 1.71 (-141), priced from an OLBG consensus of three of five tips on van Gerwen — the piece tipped the opposite player to the one the row beside it carried. DAR-32336 (Josh Rock v Chris Dobey) quoted 1.71 (-141) while its row priced Josh Rock at 1.37 (-270) after the tip split firmed to seven of nine; that price is shorter than the -250 floor, which is the very fact the piece should have stated, since it is why the row is capped below HIGH. Both pieces also justified their calls with ranking movement, tournament results and scoring averages — 'dropping below 98', 'a first major semi-final', 'a top-twenty Order of Merit position', 'a scoring average of 99.2' — while citing only the PDC's schedule page, which carries the fixture list and format and no ranking or form data whatsoever. That is the same defect class as FL-159: a specific statistical claim attached to a source that cannot carry it. Repaired by bringing the /olbg/ rule up to the root track's standard — all three quote forms are now matched, with the 1.91 handicap/total exemption the root rule already carries — and by adding an optional comma to the root pattern too, since 'money line, 1.66' defeated it as well; the widened rule is what surfaced both rows. Both pieces were then rewritten so the selection agrees with the row, the price agrees with the row, and the unsourced ranking and average claims are removed rather than re-sourced, because no official PDC Order of Merit or results page could be retrieved in this pass (pdc.tv returns only a cookie-consent wall to this retrieval path, as FL-135 records). Both remain analysis: neither has a timezone-qualified official start, and DAR-32336 is outside the band on price as well. The retraction history is kept here and in each piece's correction_note rather than in the reader-facing prose. Handed on: the widened rule is now strict enough that any future piece quoting a price in a form it does not yet recognise will pass silently again, so the three patterns should be re-checked whenever a new selection-label style appears.",
+      "affected_rows": [
+        "DAR-32331",
+        "DAR-32336"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Darts listing, events 32331 and 32336",
+          "url": "https://www.olbg.com/betting-tips/Darts/15"
+        },
+        {
+          "label": "PDC — Machineseeker European Championship schedule of play (fixture and format only)",
+          "url": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
         }
       ]
     }
