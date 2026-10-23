@@ -36,7 +36,7 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T00:00:00Z",
       "checked_at": "2026-10-23T16:28:04Z",
       "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
@@ -83,7 +83,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T17:00:00Z",
       "checked_at": "2026-10-23T17:07:00Z",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
@@ -128,7 +128,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -175,7 +175,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:15:00Z",
       "checked_at": "2026-10-23T17:07:00Z",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
@@ -222,7 +222,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:45:00Z",
       "checked_at": "2026-10-23T17:07:00Z",
       "source": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/",
@@ -269,7 +269,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T20:00:00Z",
       "checked_at": "2026-10-23T17:04:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
@@ -283,7 +283,7 @@
     "event_name": "ATL Hawks @ CHA Hornets",
     "home": "CHA Hornets",
     "away": "ATL Hawks",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/ATL_Hawks_@_CHA_Hornets/4?event_id=536035",
     "inputs": {
@@ -292,34 +292,31 @@
       "olbg_tips": "2/2 Win Tips",
       "p_raw": 1.0,
       "p_shrunk": 0.6667,
-      "basis": "Sport home-court baseline (non-winner OLBG consensus excluded)"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NBA official standings 2026-10-23: ATL 1-0 (road 1-0, W1) at CHA 1-0 (road 1-0, W1); neither has played at home; OLBG spread 2/2 ATL -2.5"
     },
-    "our_match_probability": 0.5548,
-    "our_home_probability": 0.5548,
-    "our_pick": "CHA Hornets",
-    "our_pick_probability": 0.5548,
-    "our_fair_odds": 1.8,
-    "our_price_pick": 1.71,
-    "our_us_odds_pick": "-141",
-    "our_price_other": 2.13,
-    "our_handicap_line": -1.5,
-    "our_handicap_side": "CHA Hornets",
+    "our_match_probability": 0.585,
+    "our_home_probability": 0.415,
+    "our_pick": "ATL Hawks",
+    "our_pick_probability": 0.585,
+    "our_fair_odds": 1.71,
+    "our_price_pick": 1.62,
+    "our_us_odds_pick": "-161",
+    "our_price_other": 2.29,
+    "our_handicap_line": -2.5,
+    "our_handicap_side": "ATL Hawks",
     "our_handicap_unit": "pts",
-    "our_total_line": 163.5,
+    "our_total_line": 224.5,
     "our_total_side": "Over",
     "our_total_unit": "pts",
-    "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
-    "confidence": "low",
-    "flags": [
-      "non_win_or_tie_consensus_mapped",
-      "non_win_consensus_excluded_from_winner_probability"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T23:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-23T23:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -331,7 +328,7 @@
     "event_name": "DAL Mavericks @ IND Pacers",
     "home": "IND Pacers",
     "away": "DAL Mavericks",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DAL_Mavericks_@_IND_Pacers/4?event_id=536037",
     "inputs": {
@@ -340,33 +337,31 @@
       "olbg_tips": "3/3 Win Tips",
       "p_raw": 1.0,
       "p_shrunk": 0.7143,
-      "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NBA official standings 2026-10-23: IND 1-0 (road 1-0, W1) home vs DAL 0-1 (road 0-1, L1); OLBG 3/3 IND"
     },
-    "our_match_probability": 0.742,
-    "our_home_probability": 0.742,
+    "our_match_probability": 0.645,
+    "our_home_probability": 0.645,
     "our_pick": "IND Pacers",
-    "our_pick_probability": 0.742,
-    "our_fair_odds": 1.35,
-    "our_price_pick": 1.28,
-    "our_us_odds_pick": "-357",
-    "our_price_other": 3.68,
-    "our_handicap_line": -7.5,
+    "our_pick_probability": 0.645,
+    "our_fair_odds": 1.55,
+    "our_price_pick": 1.47,
+    "our_us_odds_pick": "-213",
+    "our_price_other": 2.68,
+    "our_handicap_line": -4.5,
     "our_handicap_side": "IND Pacers",
     "our_handicap_unit": "pts",
-    "our_total_line": 163.5,
-    "our_total_side": "Under",
+    "our_total_line": 228.5,
+    "our_total_side": "Over",
     "our_total_unit": "pts",
-    "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
-    "confidence": "low",
-    "flags": [
-      "heavy_chalk_above_70pct_excluded_from_high"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T23:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-23T23:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -378,7 +373,7 @@
     "event_name": "MIN Timberwolves @ ORL Magic",
     "home": "ORL Magic",
     "away": "MIN Timberwolves",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MIN_Timberwolves_@_ORL_Magic/4?event_id=536036",
     "inputs": {
@@ -387,33 +382,31 @@
       "olbg_tips": "5/5 Win Tips",
       "p_raw": 1.0,
       "p_shrunk": 0.7778,
-      "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NBA official standings 2026-10-23: MIN 1-0 (road 1-0, W1) at ORL 0-1 (home 0-1, L1); OLBG 5/5 MIN despite 2.05 listing price"
     },
-    "our_match_probability": 0.7527,
-    "our_home_probability": 0.2473,
+    "our_match_probability": 0.6,
+    "our_home_probability": 0.4,
     "our_pick": "MIN Timberwolves",
-    "our_pick_probability": 0.7527,
-    "our_fair_odds": 1.33,
-    "our_price_pick": 1.26,
-    "our_us_odds_pick": "-385",
-    "our_price_other": 3.84,
-    "our_handicap_line": -7.5,
+    "our_pick_probability": 0.6,
+    "our_fair_odds": 1.67,
+    "our_price_pick": 1.58,
+    "our_us_odds_pick": "-172",
+    "our_price_other": 2.37,
+    "our_handicap_line": -2.5,
     "our_handicap_side": "MIN Timberwolves",
     "our_handicap_unit": "pts",
-    "our_total_line": 163.5,
-    "our_total_side": "Under",
+    "our_total_line": 221.5,
+    "our_total_side": "Over",
     "our_total_unit": "pts",
-    "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
-    "confidence": "low",
-    "flags": [
-      "heavy_chalk_above_70pct_excluded_from_high"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T23:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-23T23:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -456,9 +449,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T23:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-23T23:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -470,7 +463,7 @@
     "event_name": "TOR Raptors @ WAS Wizards",
     "home": "WAS Wizards",
     "away": "TOR Raptors",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-23",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/TOR_Raptors_@_WAS_Wizards/4?event_id=536034",
     "inputs": {
@@ -479,33 +472,31 @@
       "olbg_tips": "4/4 Win Tips",
       "p_raw": 1.0,
       "p_shrunk": 0.75,
-      "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NBA official standings 2026-10-23: TOR 1-0 (home 1-0) at WAS 1-0 (home 1-0); OLBG 4/4 TOR"
     },
-    "our_match_probability": 0.7228,
-    "our_home_probability": 0.2772,
+    "our_match_probability": 0.615,
+    "our_home_probability": 0.385,
     "our_pick": "TOR Raptors",
-    "our_pick_probability": 0.7228,
-    "our_fair_odds": 1.38,
-    "our_price_pick": 1.31,
-    "our_us_odds_pick": "-323",
-    "our_price_other": 3.43,
-    "our_handicap_line": -6.5,
+    "our_pick_probability": 0.615,
+    "our_fair_odds": 1.63,
+    "our_price_pick": 1.54,
+    "our_us_odds_pick": "-185",
+    "our_price_other": 2.47,
+    "our_handicap_line": -3.5,
     "our_handicap_side": "TOR Raptors",
     "our_handicap_unit": "pts",
-    "our_total_line": 163.5,
-    "our_total_side": "Under",
+    "our_total_line": 226.5,
+    "our_total_side": "Over",
     "our_total_unit": "pts",
-    "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
-    "confidence": "low",
-    "flags": [
-      "heavy_chalk_above_70pct_excluded_from_high"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T23:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-23T23:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -517,7 +508,7 @@
     "event_name": "DET Pistons @ MIA Heat",
     "home": "MIA Heat",
     "away": "DET Pistons",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/DET_Pistons_@_MIA_Heat/4?event_id=536038",
     "inputs": {
@@ -526,33 +517,31 @@
       "olbg_tips": "3/3 Win Tips",
       "p_raw": 1.0,
       "p_shrunk": 0.7143,
-      "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NBA official standings 2026-10-23: DET 1-0 (home 1-0, W1) at MIA 0-1 (home 0-1, L1); OLBG 3/3 DET"
     },
-    "our_match_probability": 0.6849,
-    "our_home_probability": 0.3151,
+    "our_match_probability": 0.6,
+    "our_home_probability": 0.4,
     "our_pick": "DET Pistons",
-    "our_pick_probability": 0.6849,
-    "our_fair_odds": 1.46,
-    "our_price_pick": 1.39,
-    "our_us_odds_pick": "-256",
-    "our_price_other": 3.01,
-    "our_handicap_line": -5.5,
+    "our_pick_probability": 0.6,
+    "our_fair_odds": 1.67,
+    "our_price_pick": 1.58,
+    "our_us_odds_pick": "-172",
+    "our_price_other": 2.37,
+    "our_handicap_line": -2.5,
     "our_handicap_side": "DET Pistons",
     "our_handicap_unit": "pts",
-    "our_total_line": 163.5,
-    "our_total_side": "Under",
+    "our_total_line": 224.5,
+    "our_total_side": "Over",
     "our_total_unit": "pts",
-    "our_total_basis": "league scoring pace baseline (NBA 228.5, EuroLeague 169.5, domestic 163.5)",
-    "confidence": "low",
-    "flags": [
-      "heavy_chalk_above_70pct_excluded_from_high"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T00:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-24T00:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -595,9 +584,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T01:30:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-24T01:30:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -609,7 +598,7 @@
     "event_name": "NO Pelicans @ UTA Jazz",
     "home": "UTA Jazz",
     "away": "NO Pelicans",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/NO_Pelicans_@_UTA_Jazz/4?event_id=536040",
     "inputs": {
@@ -642,9 +631,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T01:30:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-24T01:30:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -656,7 +645,7 @@
     "event_name": "LA Clippers @ LA Lakers",
     "home": "LA Lakers",
     "away": "LA Clippers",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/LA_Clippers_@_LA_Lakers/4?event_id=536042",
     "inputs": {
@@ -690,9 +679,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T02:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-24T02:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -704,7 +693,7 @@
     "event_name": "MEM Grizzlies @ GS Warriors",
     "home": "GS Warriors",
     "away": "MEM Grizzlies",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/MEM_Grizzlies_@_GS_Warriors/4?event_id=536039",
     "inputs": {
@@ -738,9 +727,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T02:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-24T02:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -752,7 +741,7 @@
     "event_name": "POR Trail Blazers @ SAC Kings",
     "home": "SAC Kings",
     "away": "POR Trail Blazers",
-    "competition": null,
+    "competition": "NBA Regular Season 2026-27",
     "start": "2026-10-24",
     "olbg_url": "https://www.olbg.com/betting-tips/Basketball/NBA/NBA/POR_Trail_Blazers_@_SAC_Kings/4?event_id=536043",
     "inputs": {
@@ -786,9 +775,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T02:00:00Z",
-      "checked_at": "2026-10-23T17:04:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.nba.com/schedule?date=2026-10-23",
       "expires_at": "2026-10-24T02:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -831,7 +820,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -876,7 +865,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -921,7 +910,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -966,7 +955,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1011,7 +1000,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1058,7 +1047,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1103,7 +1092,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1148,7 +1137,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1195,7 +1184,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1242,7 +1231,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1289,7 +1278,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1337,7 +1326,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1384,7 +1373,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1431,7 +1420,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T17:00:00Z",
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -1476,7 +1465,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -1521,7 +1510,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -1566,7 +1555,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -1613,7 +1602,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -1658,7 +1647,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -1703,7 +1692,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T20:15:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship",
@@ -1748,14 +1737,14 @@
       "heavy_chalk_above_70pct_excluded_from_high"
     ],
     "release": {
-      "status": "stale_source",
+      "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T20:45:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship",
       "expires_at": "2026-10-23T12:25:00Z",
-      "reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     }
   },
   {
@@ -1795,7 +1784,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1840,7 +1829,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1885,7 +1874,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1930,7 +1919,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -1977,7 +1966,7 @@
     "release": {
       "status": "past_date",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T09:10:00Z",
       "source": "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/",
@@ -2025,7 +2014,7 @@
     "release": {
       "status": "stale_source",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-12-11T19:00:00Z",
       "checked_at": "2026-10-22T12:40:00Z",
       "source": "https://www.pdc.tv/WCFAQ",
@@ -2070,7 +2059,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:21:00Z",
       "source": "https://www.maighcuilinn.com/",
@@ -2093,7 +2082,7 @@
       "olbg_tips": "14/18 Win Tips",
       "p_raw": 0.7778,
       "p_shrunk": 0.7273,
-      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): Cork GAA 2026 Premier SFC complete 5-game championship record (gaacork.ie): St Finbarrs 3-2 (116 PF / 85 PA, +31) vs Nemo Rangers 4-1 (98 PF / 79 PA, +19) at neutral Pairc Ui Chaoimh"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): Cork GAA final page (gaacork.ie): St Finbarrs 2-12 to 0-16 semi-final win over Clonakilty, Nemo 1-15 to 0-16 over Carrigaline; neutral Pairc Ui Chaoimh"
     },
     "our_match_probability": 0.5864,
     "our_home_probability": 0.5864,
@@ -2115,11 +2104,11 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-25T16:00:00Z",
-      "checked_at": "2026-10-23T17:20:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-      "expires_at": "2026-10-24T17:20:00Z",
+      "expires_at": "2026-10-24T21:32:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
   },
@@ -2160,7 +2149,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2207,7 +2196,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2254,7 +2243,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2301,7 +2290,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2348,7 +2337,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2395,7 +2384,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2442,7 +2431,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2489,7 +2478,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2536,7 +2525,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2583,7 +2572,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2630,7 +2619,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2677,7 +2666,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2724,7 +2713,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2771,7 +2760,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2818,7 +2807,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2865,7 +2854,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2912,7 +2901,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -2959,7 +2948,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3006,7 +2995,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3053,7 +3042,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3100,7 +3089,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3147,7 +3136,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3194,7 +3183,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3241,7 +3230,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3288,7 +3277,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3335,7 +3324,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3382,7 +3371,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3429,7 +3418,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3476,7 +3465,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3523,7 +3512,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3570,7 +3559,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3617,7 +3606,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3664,7 +3653,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3711,7 +3700,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3758,7 +3747,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3805,7 +3794,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3852,7 +3841,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3900,7 +3889,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -3945,7 +3934,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T21:55:00Z",
       "source": "https://asobal.es/equipos/BID/",
@@ -3993,7 +3982,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4040,7 +4029,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4087,7 +4076,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4132,7 +4121,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:00:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://www.eurohandball.com",
@@ -4177,7 +4166,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4222,7 +4211,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4269,7 +4258,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4314,7 +4303,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4359,7 +4348,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4406,7 +4395,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4451,7 +4440,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4496,7 +4485,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4541,7 +4530,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4586,7 +4575,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4631,7 +4620,7 @@
     "release": {
       "status": "stale_source",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T17:00:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://www.eurohandball.com",
@@ -4676,7 +4665,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4723,7 +4712,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4768,7 +4757,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4816,7 +4805,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4864,7 +4853,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4911,7 +4900,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -4959,7 +4948,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5004,7 +4993,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5049,7 +5038,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5097,7 +5086,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5142,7 +5131,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5190,7 +5179,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5235,7 +5224,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5280,7 +5269,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5328,7 +5317,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5373,7 +5362,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5418,7 +5407,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5463,7 +5452,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5486,31 +5475,29 @@
       "olbg_tips": "3/3 Win Tips",
       "p_raw": 1.0,
       "p_shrunk": 0.7143,
-      "basis": "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NHL official standings 2026-10-23: MTL 4-3-2 (10 pts, 30 GF / 34 GA, road 1-1-1, OT1) at CHI 3-6-0 (6 pts, 21 GF / 36 GA, home 3-2-0, L1); OLBG 3/3 MTL"
     },
-    "our_match_probability": 0.6935,
-    "our_home_probability": 0.3065,
+    "our_match_probability": 0.645,
+    "our_home_probability": 0.355,
     "our_pick": "MTL Canadiens",
-    "our_pick_probability": 0.6935,
-    "our_fair_odds": 1.44,
-    "our_price_pick": 1.37,
-    "our_us_odds_pick": "-270",
-    "our_price_other": 3.1,
+    "our_pick_probability": 0.645,
+    "our_fair_odds": 1.55,
+    "our_price_pick": 1.47,
+    "our_us_odds_pick": "-213",
+    "our_price_other": 2.68,
     "our_handicap_line": -1.5,
     "our_handicap_side": "MTL Canadiens",
     "our_handicap_unit": "goals",
     "our_total_line": 5.5,
     "our_total_side": "Under",
     "our_total_unit": "goals",
-    "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
-    "confidence": "low",
-    "flags": [
-      "heavy_chalk_above_70pct_excluded_from_high"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T00:00:00Z",
       "checked_at": "2026-10-23T16:28:04Z",
       "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
@@ -5533,32 +5520,29 @@
       "olbg_tips": "1/2 Win Tips",
       "p_raw": 0.5,
       "p_shrunk": 0.5,
-      "basis": "Sport home-court baseline (non-winner OLBG consensus excluded)"
+      "basis": "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): NHL official standings 2026-10-23: COL 5-4-1 (11 pts, 41 GF / 31 GA, home 3-1-1, L2) vs TBL 7-2-0 (14 pts, 31 GF / 23 GA, road 2-2-0, W3); OLBG puck line 1/2 TBL +1.5"
     },
-    "our_match_probability": 0.5449,
-    "our_home_probability": 0.5449,
+    "our_match_probability": 0.57,
+    "our_home_probability": 0.57,
     "our_pick": "COL Avalanche",
-    "our_pick_probability": 0.5449,
-    "our_fair_odds": 1.84,
-    "our_price_pick": 1.74,
-    "our_us_odds_pick": "-135",
-    "our_price_other": 2.09,
+    "our_pick_probability": 0.57,
+    "our_fair_odds": 1.75,
+    "our_price_pick": 1.67,
+    "our_us_odds_pick": "-149",
+    "our_price_other": 2.21,
     "our_handicap_line": -1.5,
     "our_handicap_side": "COL Avalanche",
     "our_handicap_unit": "goals",
     "our_total_line": 5.5,
     "our_total_side": "Over",
     "our_total_unit": "goals",
-    "our_total_basis": "league goals-per-game baseline (SHL / Liiga / NHL)",
-    "confidence": "low",
-    "flags": [
-      "non_win_or_tie_consensus_mapped",
-      "non_win_consensus_excluded_from_winner_probability"
-    ],
+    "our_total_basis": "Editorial total/side assumption informed by source context; not a verified scoring rate or observed bookmaker line",
+    "confidence": "high",
+    "flags": [],
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T01:00:00Z",
       "checked_at": "2026-10-23T16:28:04Z",
       "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
@@ -5606,7 +5590,7 @@
     "release": {
       "status": "stale_source",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-25T20:00:00Z",
       "checked_at": "2026-10-22T12:10:00Z",
       "source": "https://www.formula1.com/en/racing/2026/united-states",
@@ -5653,7 +5637,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5700,7 +5684,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5747,7 +5731,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5794,7 +5778,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5842,7 +5826,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T12:10:00Z",
       "source": "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/",
@@ -5887,7 +5871,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -5934,7 +5918,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:30:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://prod2.lnr.fr/calendrier-et-resultats",
@@ -5981,7 +5965,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:30:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://prod2.lnr.fr/calendrier-et-resultats",
@@ -6026,7 +6010,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:30:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://prod2.lnr.fr/calendrier-et-resultats",
@@ -6071,7 +6055,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -6116,7 +6100,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:45:00Z",
       "checked_at": "2026-10-23T17:02:00Z",
       "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
@@ -6163,7 +6147,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:45:00Z",
       "checked_at": "2026-10-23T17:02:00Z",
       "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
@@ -6210,7 +6194,7 @@
     "release": {
       "status": "start_window_reached",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-23T18:45:00Z",
       "checked_at": "2026-10-23T17:02:00Z",
       "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
@@ -6257,7 +6241,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:22:00Z",
       "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
@@ -6302,7 +6286,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:22:00Z",
       "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
@@ -6349,7 +6333,7 @@
     "release": {
       "status": "source_conflict",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://prod2.lnr.fr/calendrier-et-resultats",
@@ -6396,7 +6380,7 @@
     "release": {
       "status": "source_conflict",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://prod2.lnr.fr/calendrier-et-resultats",
@@ -6441,7 +6425,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -6486,9 +6470,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T11:45:00Z",
-      "checked_at": "2026-10-23T17:02:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
       "expires_at": "2026-10-24T11:45:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -6531,9 +6515,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T14:00:00Z",
-      "checked_at": "2026-10-23T17:02:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
       "expires_at": "2026-10-24T14:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -6576,7 +6560,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:22:00Z",
       "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
@@ -6624,7 +6608,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:11:00Z",
       "source": "https://top14.lnr.fr/calendrier-et-resultats",
@@ -6671,7 +6655,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:11:00Z",
       "source": "https://top14.lnr.fr/calendrier-et-resultats",
@@ -6719,7 +6703,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:22:00Z",
       "source": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
@@ -6764,9 +6748,9 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T17:00:00Z",
-      "checked_at": "2026-10-23T17:02:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
       "expires_at": "2026-10-24T17:00:00Z",
       "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
@@ -6811,7 +6795,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -6856,7 +6840,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:13:00Z",
       "source": "https://www.wst.tv/matches/",
@@ -6901,7 +6885,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:13:00Z",
       "source": "https://www.wst.tv/matches/",
@@ -6946,7 +6930,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -6991,7 +6975,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7036,7 +7020,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7084,7 +7068,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:17:00Z",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
@@ -7129,7 +7113,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:17:00Z",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
@@ -7174,7 +7158,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:18:00Z",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
@@ -7222,7 +7206,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": "2026-10-23T17:18:00Z",
       "source": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
@@ -7270,7 +7254,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7315,7 +7299,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7362,7 +7346,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7407,7 +7391,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7452,7 +7436,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7497,7 +7481,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7545,7 +7529,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7590,7 +7574,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7638,7 +7622,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7683,7 +7667,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7731,7 +7715,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7776,7 +7760,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7823,7 +7807,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7871,7 +7855,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7919,7 +7903,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -7967,7 +7951,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -8012,7 +7996,7 @@
     "release": {
       "status": "stale_source",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-24T21:00:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://en.volleyballworld.com",
@@ -8059,7 +8043,7 @@
     "release": {
       "status": "stale_source",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-25T18:30:00Z",
       "checked_at": "2026-10-22T12:25:00Z",
       "source": "https://en.volleyballworld.com",
@@ -8102,14 +8086,14 @@
     "confidence": "medium",
     "flags": [],
     "release": {
-      "status": "stale_source",
-      "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "status": "upcoming",
+      "eligible": true,
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-25T16:00:00Z",
-      "checked_at": "2026-10-22T09:10:00Z",
+      "checked_at": "2026-10-23T21:32:00Z",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
-      "expires_at": "2026-10-23T09:10:00Z",
-      "reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "expires_at": "2026-10-24T21:32:00Z",
+      "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
   },
   {
@@ -8149,7 +8133,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -8194,7 +8178,7 @@
     "release": {
       "status": "upcoming",
       "eligible": true,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": "2026-10-25T17:00:00Z",
       "checked_at": "2026-10-23T19:36:00Z",
       "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
@@ -8239,7 +8223,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -8286,7 +8270,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,
@@ -8333,7 +8317,7 @@
     "release": {
       "status": "unverified_start",
       "eligible": false,
-      "as_of": "2026-10-23T20:21:00+00:00",
+      "as_of": "2026-10-23T21:33:00+00:00",
       "start_utc": null,
       "checked_at": null,
       "source": null,

@@ -2259,3 +2259,24 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - **What this pass adds that prior passes did not:** this sandbox *does* have a route to `olbg.com` and the governing bodies through the harness page retriever (confirmed by reading `https://www.olbg.com/betting-tips` and `https://www.olbg.com/betting-tips/Ice_Hockey/13` at 21:30Z), so official-source reads are made directly here and quoted with their URLs, not inherited.
 - **Known live constraint to be tested, not assumed:** both the retriever and the CI capture at 19:35Z saw OLBG's listings render `No tips found.` in the UK evening. The already-committed `20261023T1700Z` capture (177 rows, machine-readable `startDate` per row) is the fixture base until a fresh capture proves otherwise. A new CI capture is requested in this claim so the result is evidence either way.
 - **Hard boundary restated:** no fixture, price, kick-off, grade or statistic is invented to reach five per sport. Anything that cannot be confirmed from an official page is left blank and flagged, per the brief.
+
+### Result — `session-a87a3681` (2026-10-23T22:05Z)
+
+- **Sources read this pass** (all through the harness retriever, all quoted in the audit): OLBG hub and two
+  sport listings; NBA official schedule and standings; URC 2026/27 fixture list and league table; Cork GAA
+  Premier SFC final page; Volleyball World SuperLega match pages 30000 and 30003; PDC European Championship
+  schedule (consent wall); Premiership Rugby fixtures and an ESPN scoreboard payload (neither usable).
+- **Verification actually performed:** every published clock added or renewed in this pass is quoted from the
+  page named in `data/release_checks.json` with an explicit zone label (ET, Irish time, UTC). Three published
+  claims were contradicted by those pages and repaired (`FL-177`, `FL-178`, `FL-179`). Nothing was upgraded to
+  verified without a page read, and no page was re-stamped without retrieval.
+- **Net change:** `/olbg/` high-confidence rows 8 → 15; union across both tracks 12 → 17; Basketball now meets
+  the five-a-day target; shortfall 58 of 75 (published as `FL-182`).
+- **Gates:** `tools/check_site.py` PASS (20 pages, 180 fixtures, 15 HIGH, 38 pieces, 175 flags),
+  `scripts/check_board.py` PASS, `scripts/check_links.py` 0 broken / 108 pages, `242` unit tests OK (25 dated
+  pins skipped), and a second rebuild is byte-identical.
+- **Sibling pins updated, not bypassed:** `tests/test_audit_beb7787b.py` (URC observation stamp became a floor
+  after this pass re-read the same page) and `tests/test_audit_ebe6dc9c.py` (`VOL-26` joins the in-band,
+  verified, non-HIGH root candidates because the SuperLega clock was renewed; it is deliberately not promoted
+  — `FL-181`).
+- **Status:** `task-a87a3681-daily-20261024-coverage` **done** pending the PR/merge record appended below.

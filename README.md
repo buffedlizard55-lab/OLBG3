@@ -4,6 +4,32 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Late-evening 2026-10-23 pass — seven in-band picks added, three published claims repaired — `session-a87a3681`
+
+Full record: [`docs/audit-a87a3681.md`](docs/audit-a87a3681.md) · register: **FL-177 … FL-183** on
+[Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html)
+
+**What changed.** Seven new high-confidence picks, each with an official, timezone-qualified start and a
+written selection: five NBA games from the league's own 12-game Friday slate (Atlanta, Indiana,
+Minnesota, Toronto, Detroit — all 7:00–8:00 PM ET) and both NHL games the league's schedule API dates to
+`2026-10-24T00:00Z` and `01:00Z` (Montreal, Colorado). Live high-confidence picks move from 12 to **17
+distinct fixtures**, and **Basketball now meets the brief's five-a-day target**. Rugby Union 3,
+Volleyball 1, Ice Hockey 2, Baseball 1 and Gaelic Football 1 follow.
+
+**What was wrong and is now fixed.** The `/olbg/` Gaelic Football piece printed a Carbery quarter-final
+scoreline and a five-game aggregate that Cork GAA's page never carried — the same claim class as `FL-172`,
+which the root track had repaired but this track had not. The Leinster v Munster piece named Aviva
+Stadium where the URC fixture list still says **TBC, Dublin**. The Spurs piece quoted two individual
+scoring lines that neither cited NBA page contains. All three now state only what their sources print.
+
+**What this pass could not do.** OLBG's listings rendered "No tips found." for every sport in the UK
+evening (21:30Z, and on the CI runner at 19:35Z), so the fixture set is still the 17:00Z capture; a fresh
+capture was requested and its emptiness is published as `FL-180`. The PDC article is behind a consent
+wall, so the darts quarter-finals lost their clock. Handball's four leagues print unlabelled local times.
+Volleyball World's own three-zone print contradicts itself (`FL-181`). Five-per-sport therefore remains
+unmet — 17 against 75, shortfall 58, `FL-182` — and the five new NBA picks are disclosed as the thinnest
+evidence class on the board (`FL-183`).
+
 ## Evening re-verification pass, and the shortfall that comes with an honest clock — `session-4636f368` (task-53)
 
 Full record: [`docs/audit-4636f368.md`](docs/audit-4636f368.md) · register: **FL-168 … FL-175**

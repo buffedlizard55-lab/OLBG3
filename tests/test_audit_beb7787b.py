@@ -114,7 +114,10 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
             self.assertEqual(ev[eid]["kind"], "exact", eid)
             self.assertEqual(ev[eid]["timezone"], "Irish time", eid)
             self.assertEqual((ev[eid]["date"], ev[eid]["time"]), (date, time), eid)
-            self.assertEqual(ev[eid]["checked_at"], "2026-10-23T17:02:00Z", eid)
+            # Session-a87a3681 re-read the same fixture list at 2026-10-23T21:32Z and renewed only
+            # the observation stamp; date, time and zone are unchanged, which is what this pin is
+            # for. The assertion is a floor so a later re-read does not fail the build.
+            self.assertGreaterEqual(ev[eid]["checked_at"], "2026-10-23T17:02:00Z", eid)
         # NHL API publishes UTC directly
         self.assertEqual(ev["199984"]["time"], "00:00"); self.assertEqual(ev["199984"]["timezone"], "UTC")
         self.assertEqual(ev["199985"]["time"], "01:00"); self.assertEqual(ev["199985"]["timezone"], "UTC")

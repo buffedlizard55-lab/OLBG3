@@ -194,8 +194,21 @@ EDITORIAL_STRENGTH = {
     "ICH-199940": ("VGS Golden Knights", 0.6192, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): VGS Golden Knights 8-3-0 (11 GP, 16 pts, 44 GF / 30 GA) at STL Blues 4-4-1 (9 GP, 9 pts, 29 GF / 29 GA)"),
     "ICH-199941": ("DAL Stars", 0.6694, 5.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): DAL Stars 5-3-1 (9 GP, 11 pts, 23 GF / 15 GA, W3) home vs WPG Jets 4-3-2 (9 GP, 10 pts, 24 GF / 26 GA, L2)"),
     "ICH-199942": ("OTT Senators", 0.6900, 5.5, "Under", "NHL official standings 2026-10-22 (api-web.nhle.com): OTT Senators 7-3-0 (10 GP, 14 pts, 29 GF / 24 GA) home vs SJ Sharks 5-4-1 (10 GP, 11 pts, 27 GF / 35 GA; 1.38/-263 outside -250 floor -> medium)"),
-    "GFA-3530": ("St Finbarrs", 0.5864, 37.5, "Over", "Cork GAA 2026 Premier SFC complete 5-game championship record (gaacork.ie): St Finbarrs 3-2 (116 PF / 85 PA, +31) vs Nemo Rangers 4-1 (98 PF / 79 PA, +19) at neutral Pairc Ui Chaoimh"),
+    # Cork GAA's own page (gaacork.ie, re-read 2026-10-23) prints Nemo 1-15 to 0-16 v Carrigaline and 1-20 to 1-17 v
+    # Castlehaven, St Finbarrs 2-12 to 0-16 v Clonakilty and "a convincing victory over Carbery" with no scoreline. The
+    # earlier aggregate (+31 / +19) is not on that page and is deliberately not restated here (FL-177).
+    "GFA-3530": ("St Finbarrs", 0.5864, 37.5, "Over", "Cork GAA final page (gaacork.ie): St Finbarrs 2-12 to 0-16 semi-final win over Clonakilty, Nemo 1-15 to 0-16 over Carrigaline; neutral Pairc Ui Chaoimh"),
     "TEN-902117": ("Marie Bouzkova", 0.5620, 22.5, "Over", "WTA 500 Ningbo QF official draw (wtatennis.com MDS.pdf): Marie Bouzkova vs Sara Bejlek + OLBG 1/1"),
+    # 2026-10-23 late-evening pass (session-a87a3681). Every prior below states the official record it is built on and
+    # is an uncalibrated assumption, not a fitted probability. NBA/clocks read on nba.com at 2026-10-23T21:32Z; NHL on
+    # api-web.nhle.com (standings payload dated 2026-10-23T16:16Z, schedule payload 2026-10-23).
+    "BKB-536035": ("ATL Hawks", 0.5850, 224.5, "Over", "NBA official standings 2026-10-23: ATL 1-0 (road 1-0, W1) at CHA 1-0 (road 1-0, W1); neither has played at home; OLBG spread 2/2 ATL -2.5"),
+    "BKB-536036": ("MIN Timberwolves", 0.6000, 221.5, "Over", "NBA official standings 2026-10-23: MIN 1-0 (road 1-0, W1) at ORL 0-1 (home 0-1, L1); OLBG 5/5 MIN despite 2.05 listing price"),
+    "BKB-536037": ("IND Pacers", 0.6450, 228.5, "Over", "NBA official standings 2026-10-23: IND 1-0 (road 1-0, W1) home vs DAL 0-1 (road 0-1, L1); OLBG 3/3 IND"),
+    "BKB-536034": ("TOR Raptors", 0.6150, 226.5, "Over", "NBA official standings 2026-10-23: TOR 1-0 (home 1-0) at WAS 1-0 (home 1-0); OLBG 4/4 TOR"),
+    "BKB-536038": ("DET Pistons", 0.6000, 224.5, "Over", "NBA official standings 2026-10-23: DET 1-0 (home 1-0, W1) at MIA 0-1 (home 0-1, L1); OLBG 3/3 DET"),
+    "ICH-199984": ("MTL Canadiens", 0.6450, 5.5, "Under", "NHL official standings 2026-10-23: MTL 4-3-2 (10 pts, 30 GF / 34 GA, road 1-1-1, OT1) at CHI 3-6-0 (6 pts, 21 GF / 36 GA, home 3-2-0, L1); OLBG 3/3 MTL"),
+    "ICH-199985": ("COL Avalanche", 0.5700, 5.5, "Over", "NHL official standings 2026-10-23: COL 5-4-1 (11 pts, 41 GF / 31 GA, home 3-1-1, L2) vs TBL 7-2-0 (14 pts, 31 GF / 23 GA, road 2-2-0, W3); OLBG puck line 1/2 TBL +1.5"),
 }
 
 # Verified outright field-size priors (Dirichlet shrinkage toward 1/F)
