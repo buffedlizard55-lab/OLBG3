@@ -1,11 +1,12 @@
 name: Live OLBG listing capture
 
-# The agent sandbox that maintains this repo has no outbound route to olbg.com (FL-077), so the
-# bounded, robots-aware read of the public listings happens on a runner that does. The served
-# bytes are committed back as evidence so the extraction step can be reviewed line by line.
+# The agent sandbox that maintains this repo has no outbound route to olbg.com or to the
+# governing bodies (recorded as FL-077), so the bounded, robots-aware read of the public
+# listings and the official-source probe happen on a runner that does. Everything fetched is
+# committed back as evidence so the extraction and verification steps can be reviewed line by line.
 #
-# Trigger: a push that changes .harvest/request.json. This keeps the capture on demand without
-# needing actions:write, and means every capture is tied to a commit that states what was asked.
+# Trigger: a push that changes .harvest/request.json. That keeps the capture on demand without
+# needing actions:write, and ties every capture to a commit stating what was asked for.
 
 on:
   push:
@@ -36,27 +37,29 @@ jobs:
           import json
           req = json.load(open('.harvest/request.json'))
           print(f"out={req['out']}")
-          print(f"pages={req.get('pages', 'all')}")
+          print(f"capture={'true' if req.get('capture', True) else 'false'}")
+          print(f"probe={'true' if req.get('probe', True) else 'false'}")
           PY
       - name: Capture listings
+        if: steps.request.outputs.capture == 'true'
         run: |
-          mkdir -p "${{ steps.request.outputs.out }}"
+          OUT='${{ steps.request.outputs.out }}'
+          mkdir -p "$OUT"
           set +e
-          python scripts/live_harvest.py \
-            --out "${{ steps.request.outputs.out }}" \
-            --delay 3 > "${{ steps.request.outputs.out }}/run.log" 2>&1
-          echo "exit=$?" >> "${{ steps.request.outputs.out }}/run.log"
-          cat "${{ steps.request.outputs.out }}/run.log"
+          python scripts/live_harvest.py --out "$OUT" --delay 3 > "$OUT/run.log" 2>&1
+          echo "exit=$?" >> "$OUT/run.log"
+          cat "$OUT/run.log"
       - name: Probe official competition sources
-        if: ${{ always() }}
+        if: steps.request.outputs.probe == 'true'
         run: |
-          mkdir -p "data/raw/official-$(date -u +%Y%m%dT%H%MZ)"
+          STAMP="$(date -u +%Y%m%dT%H%MZ)"
+          OUT="data/raw/official-$STAMP"
+          mkdir -p "$OUT"
+          echo "out=$OUT" >> "$GITHUB_ENV"
           set +e
-          python scripts/official_probe.py \
-            --out "data/raw/official-$(date -u +%Y%m%dT%H%MZ)" \
-            --delay 2 > "data/raw/official-$(date -u +%Y%m%dT%H%MZ)/run.log" 2>&1
-          echo "exit=$?" >> "data/raw/official-$(date -u +%Y%m%dT%H%MZ)/run.log"
-          cat "data/raw/official-$(date -u +%Y%m%dT%H%MZ)/run.log"
+          python scripts/official_probe.py --out "$OUT" --delay 2 > "$OUT/run.log" 2>&1
+          echo "exit=$?" >> "$OUT/run.log"
+          cat "$OUT/run.log"
       - name: Show capture summary
         run: |
           python - <<'PY'
@@ -72,11 +75,11 @@ jobs:
         run: |
           git config user.name  'OLBG3 live harvest'
           git config user.email 'actions@users.noreply.github.com'
-          git add "${{ steps.request.outputs.out }}" data/raw/official-* 2>/dev/null || true
+          git add -A data/raw
           if git diff --cached --quiet; then
             echo 'nothing new to commit'
             exit 0
           fi
-          git commit -m "data(harvest): verbatim OLBG listing capture $(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -m "data(harvest): verbatim OLBG capture and official probe $(date -u +%Y-%m-%dT%H:%MZ)"
           git pull --rebase --autostash origin "${{ github.ref_name }}" || true
           git push origin "HEAD:${{ github.ref_name }}"

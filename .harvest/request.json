@@ -1,7 +1,8 @@
 {
-  "out": "data/raw/live-20261023T1725Z",
-  "requested_at_utc": "2026-10-23T17:25:00Z",
+  "out": "data/raw/live-20261023T1735Z",
+  "requested_at_utc": "2026-10-23T17:35:00Z",
   "requested_by": "session-22dbc477",
-  "why": "Second live listing capture of 2026-10-23 plus the first official-source probe (NHL/MLB/NBA endpoints and 14 governing-body pages).",
-  "pages": "all"
+  "why": "Official-source probe only (listings already captured at 17:00Z); fix the shell-stamp bug that failed the first probe step.",
+  "capture": false,
+  "probe": true
 }
