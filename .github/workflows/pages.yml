@@ -16,6 +16,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # contents: write is needed only so scheduled/manual runs on main can commit the regenerated
+    # board (see the commit step below). Push runs keep the stale-output gate and never commit.
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -24,7 +30,6 @@ jobs:
       - run: python scripts/update.py
       # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
       - run: python scripts/discovery.py
-      - run: python -m unittest discover -s tests -v
       - run: python scripts/build.py
       # Outright / race markets (Golf, Motor Racing, Greyhounds, Rugby League, Gaelic championship):
       # priced from the captured OLBG listings with a disclosed field-size prior.
@@ -60,7 +65,12 @@ jobs:
           if [ -n "$(git status --porcelain -- index.html predictions.html verification.html flagged.html method.html sports assets style.css data.json '*.html' .nojekyll)" ]; then
             echo "::warning::Root snapshot differs from the committed copy; run scripts/build_site.py --snapshot and commit."
           fi
-      - name: Fail if the committed OLBG track is stale
+      # Unit tests run AFTER the rebuild: several pins compare committed accounting with a fresh recompute,
+      # and the board is regenerated on every run, so running them first would fail on any hourly change.
+      - name: Unit tests (after the rebuild)
+        run: python -m unittest discover -s tests -v
+      - name: Fail if the committed OLBG track is stale (push events)
+        if: github.event_name == 'push'
         run: |
           if [ -n "$(git status --porcelain olbg-board data/matches.json data/lines.json data/predictions-olbg.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json data/gap_sports.json olbg)" ]; then
             echo "::error::OLBG lines track is out of date. Run the build scripts and commit."
@@ -69,6 +79,22 @@ jobs:
           fi
       - run: python scripts/check.py
       - run: python scripts/check_links.py
+      # Scheduled/manual runs on main: the board reads the wall clock (kick-off status, release gate), so every
+      # hourly rebuild legitimately differs from the last commit. Commit the regenerated output only AFTER every
+      # check above has passed, so main always carries exactly the bytes that were checked and deployed.
+      - name: Commit the regenerated board (scheduled or manual runs on main only)
+        if: github.ref == 'refs/heads/main' && github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Regenerated board is identical to main; nothing to commit."
+          else
+            git commit -m "Hourly board refresh (automated, after all checks passed)"
+            git push origin HEAD:main
+            echo "Committed and pushed the regenerated board."
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: source-evidence

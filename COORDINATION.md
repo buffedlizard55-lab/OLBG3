@@ -245,6 +245,7 @@ Baseline on this branch was `f55593f`; the branch was rebased onto `main` `29241
 
 | Task ID | Task Description | Scope / Files | Status | Owning Session | Notes / Verification Links |
 |---|---|---|---|---|---|
+| `task-46-hourly-pages-refresh-fix-20261023` | Scheduled "Verify and publish dashboard" runs on `main` have failed at the stale-output gate since the 2026-10-23 date roll (runs 39936419745, 39975101348), so the live Pages site has not been refreshed. Root cause: `scripts/board_dates.py` reads the wall clock, so each hourly rebuild re-grades kick-off-passed picks and the committed-output check fails. Fix: scheduled/dispatch runs on `main` regenerate, run all checks, then commit and push the regenerated root/`olbg`/data files before deploy; push-event stale gate unchanged. Regenerate committed outputs for 2026-10-23 with the documented offline pipeline. Then PR, merge, confirm Pages | `.github/workflows/pages.yml`, `COORDINATION.md`, regenerated outputs of the documented pipeline (root HTML, `olbg/`, `olbg-board/`, `data/*` build outputs) | in progress (PR pending) | `session-56f4da2b` (branch `arena/56f4da2b-olbg3`) | Claimed 2026-10-23 on `main` `46d8716`. No live OLBG harvest for 2026-10-23 is claimed here; see the log entry for this session. |
 | `task-45-evening-live-refresh-reverify-predict-integrate-20261022` | Parallel evening refresh re-applied through two `main` advances (`d3ed893`, `8609ab9`) after sibling PRs #100–#114 landed first: 21:30Z 15-sport harvest chained newest, the evening fixtures added as 30 curated root rows, 9 governing-body fixture confirmations, 22:10Z exact-clock re-observations (NHL/MLB/SuperLega), 5 new root pieces, FL-129/FL-130 (renumbered twice; duplicative drafts dropped to sibling FL-102/FL-107/FL-124), PR #112 merge + Pages | `COORDINATION.md`, `README.md`, `data/**`, `docs/audit-4b642f84.md`, `tests/test_audit_4b642f84.py`, `tests/test_audit_d3464fe4.py` (FL-130 exemption pin), regenerated root `*.html`, `sports/**`, `olbg/**`, `olbg-board/**` | done | `session-4b642f84` (branch `arena/4b642f84-olbg3`) | See session section above and `docs/audit-4b642f84.md`; merge collisions with five sibling evening sessions resolved by re-apply + rebase without discarding their work |
 | `task-44-evening-official-reverification-euroleague-conflict-and-integration-20261022` | Evening official re-verification: re-read the OLBG ice-hockey/basketball/baseball/darts/snooker listings and the NHL schedule + EuroLeague standings/game-centre pages at `20:58Z`–`21:45Z`, put the official 20-club standings table behind the `FL-069` resolution the release records already published, price `BKB-29`/`BKB-30` from official form, repair the `sync_predictions` downgrade reason, rebuild both tracks, PR + merge + Pages confirmation | `COORDINATION.md`, `README.md`, `data/official.json`, `data/predictions.json`, `data/flagged.json`, `scripts/release.py`, `docs/audit-1cdf1d14.md`, `docs/harvest-20261022-2055z.tsv`, `tests/**`, regenerated root `*.html` + `sports/**` + `olbg/**` + `olbg-board/**` | done (merge & Pages record below) | `session-1cdf1d14` (branch `arena/1cdf1d14-olbg3`) | Claimed `2026-10-22T20:55Z` atop `main` `13f31f4`; renumbered from `task-43` and rebased onto `main` `594a577` after two sibling sessions merged overlapping evening work with colliding flag numbers. Flags `FL-127`/`FL-128`, `FL-069` resolved. Basketball `1 → 3` live in-band `HIGH`; root board `15 → 21` on the merged tree (+2 from this change, +4 surfaced by the rebuild — see the correction below), `/olbg/` unchanged at `23` at the time of the merge. |
 | `task-39-midday-live-refresh-highpick-expansion-and-final-integration-20261022` | Parallel midday live 15-sport re-harvest (12:15Z–12:36Z), dual-track integration, official-source HIGH re-verification (NHL API, pdc.tv), Humphries-withdrawal handling, stale PR #76/#77 closure, PR + merge + Pages confirmation | whole-repo (regenerated via documented pipeline only) | closed as superseded | `session-bb34505f` (branch `arena/bb34505f-olbg3`) | PRs #76/#77 closed with handoff comments; integration PR [#96](https://github.com/buffedlizard55-lab/OLBG3/pull/96) closed UNMERGED after pre-merge cross-check found `main` @ `a9c01ec` already carried the equivalent sibling work (PRs #83–#95) and caught a mis-keyed NHL verification map in this branch; reusable evidence (corrected NHL eid↔game-id table, pdc.tv verbatim clocks) recorded in the session section above; record PR [#97](https://github.com/buffedlizard55-lab/OLBG3/pull/97) merged as `e8f4a59`, Pages deploy runs 39785718244 + 39785718233 success, live site confirmed 13:40Z |
@@ -1933,3 +1934,49 @@ built on (`594a577`). Measured on the merged tree it is **`15 → 21`**, and the
   `109/109` unit tests **OK**, `check_links.py` **PASS** (`110` pages, `2,432` links, `0` broken).
 - This correction is appended rather than edited into the earlier sentence so the audit trail shows both what was
   claimed at the time and what the merged tree actually measures.
+
+## Session `session-56f4da2b` — task-46 hourly Pages refresh fix (branch `arena/56f4da2b-olbg3`, 2026-10-23)
+
+**Why it was needed.** The scheduled `Verify and publish dashboard` runs on `main` failed at the stale-output gate
+(runs `39936419745`, `39975101348`, both `build failure`, `deploy skipped`). The live Pages site is a *legacy* build of
+the `main` root, so it only changes when committed files change; the hourly job had therefore not refreshed the site
+since the last successful push deploy. Root cause: `scripts/board_dates.py` reads the wall clock, so each hourly
+rebuild re-grades picks whose official start has passed (for example IHO-15 NHL `2026-10-23T01:00Z`) and the
+"committed output must equal a fresh build" check fails on any change. The unit-test step ran before the rebuild and
+would have failed the same way.
+
+**Changes.**
+- `.github/workflows/pages.yml`: the build job gets `contents: write`. The stale-output gate now runs on `push` events only.
+  The unit-test step moves after the rebuild. On `main` for `schedule` / `workflow_dispatch` runs, a new step commits the
+  regenerated board **after** `check.py` and `check_links.py` have passed, then the artifact deploys. Nothing is committed
+  if any check fails.
+- `tests/test_audit_a0a7003c.py`: five IHO pins asserted a frozen pre-game `HIGH`. They now assert that the public grade and
+  the written prediction's status agree, because the grade legitimately moves when a start passes.
+- Regenerated the committed board for 2026-10-23 with the documented offline pipeline (`build.py` → `build_gap_sports.py` →
+  `model.py` → `brief_coverage.py` → `build_site.py` → `check_board.py` → `tools/*` → `build_site.py --snapshot` → unit tests →
+  `check.py` → `check_links.py`). Results: `109/109` unit tests OK, `check_board` PASS, `tools/check_site` PASS,
+  `check.py` PASS (40 feed rows), `check_links` PASS (`110` pages, `2,392` links, `0` broken).
+
+**Live counts in the committed build (2026-10-23 16:18Z clock):** root live HIGH `16`, `/olbg/` live HIGH `17`, union `23`,
+shortfall to five-per-sport `52`, sports meeting target `2`. These are *not* a new harvest (see below).
+
+**Sources.** Pipeline inputs are the already-committed captures and official pages recorded in `data/events.json`,
+`data/lines.json` and `data/verifications.json` (NHL `api-web.nhle.com/v1/schedule/2026-10-22`, verified per row there). OLBG
+listing re-check used for this log: <https://www.olbg.com/betting-tips> (retrieved 2026-10-23; the list shows
+`Jonny Clayton vs Niko Springer` 14:45, `TB Rays @ MIL Brewers` 20:00, `Wessel Nijman vs Martin Schindler` 15:45 among others,
+which are **not** yet captured into the board and are not priced here).
+
+**Not done in this session (disclosed, not claimed).**
+- No new OLBG harvest for 2026-10-23. The board's captured listings are 21–22 Oct. A 23 Oct refresh needs per-row official
+  verification and writing, and was not completed here.
+- `scripts/update.py` and `scripts/discovery.py` were not run locally (no route from this sandbox to the NHL/NBA/OLBG hosts);
+  CI runs them on every scheduled and push run.
+- Five-per-sport target is not met (`shortfall 52`), as already disclosed on `brief.html`.
+
+**Irregularities flagged for review.** (1) The release clock depends on wall time, so a committed snapshot is only true at
+its build minute; the hourly commit makes this explicit rather than hiding it. (2) Pages is a legacy `main`-root build; the
+deploy artifact and the root must carry the same bytes or the site flaps. The scheduled commit keeps them equal by
+construction. (3) I could not read the failed job logs through the API (`EOF` on log download), so the root cause above was
+reproduced locally and not from the CI log text.
+
+**Status:** PR and merge pending at the time this entry was written; the result is recorded below once it lands.

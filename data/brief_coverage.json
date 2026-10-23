@@ -26,20 +26,20 @@
  "source_clocks": {
   "root_publication_clock": "2026-10-22T22:10:00+00:00",
   "root_capture": "2026-10-21",
-  "root_built": "2026-10-22",
+  "root_built": "2026-10-23",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. Live re-verification is blocked in this sandbox by the documented outbound allowlist (FL-077)."
  },
  "totals": {
   "sports_listed": 15,
   "sports_with_rows": 15,
-  "sports_meeting_target": 3,
-  "live_high_root": 21,
-  "live_high_olbg": 22,
-  "live_high_union": 28,
+  "sports_meeting_target": 2,
+  "live_high_root": 16,
+  "live_high_olbg": 17,
+  "live_high_union": 23,
   "root_rows": 295,
   "olbg_rows": 338,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 47
+  "shortfall_to_target": 52
  },
  "sports": [
   {
@@ -98,14 +98,14 @@
    "blocking": {
     "no_official_form": 22,
     "high_evidence_out_of_band": 1,
-    "start_or_source_gate": 24,
+    "start_or_source_gate": 26,
     "unpriced": 1,
     "unverified_or_corroborated": 2
    },
    "reasons": [
     "22 of 32 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "1 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "24 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "26 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "1 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "2 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
@@ -521,97 +521,31 @@
    "root_outright": 0,
    "root_handicap": 25,
    "root_total": 25,
-   "root_high": 5,
+   "root_high": 0,
    "olbg_rows": 32,
    "olbg_priced_win": 32,
    "olbg_handicap": 32,
    "olbg_total": 32,
-   "olbg_high": 5,
-   "live_high_union": 5,
+   "olbg_high": 0,
+   "live_high_union": 0,
    "target": 5,
-   "shortfall": 0,
-   "meets_target": true,
+   "shortfall": 5,
+   "meets_target": false,
    "blocking": {
     "no_official_form": 4,
     "high_evidence_out_of_band": 9,
-    "start_or_source_gate": 17,
+    "start_or_source_gate": 29,
     "unpriced": 1,
     "unverified_or_corroborated": 4
    },
    "reasons": [
     "4 of 29 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "9 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "17 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "29 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "1 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "4 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
-   "live_picks": [
-    {
-     "event_id": "199931",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-15",
-     "olbg_ref": "ICH-199931",
-     "selection": "EDM Oilers",
-     "price": 1.69,
-     "american": -145
-    },
-    {
-     "event_id": "199932",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-16",
-     "olbg_ref": "ICH-199932",
-     "selection": "NJ Devils",
-     "price": 1.68,
-     "american": -147
-    },
-    {
-     "event_id": "199933",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-17",
-     "olbg_ref": "ICH-199933",
-     "selection": "DET Red Wings",
-     "price": 1.59,
-     "american": -169
-    },
-    {
-     "event_id": "199940",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-23",
-     "olbg_ref": "ICH-199940",
-     "selection": "VGS Golden Knights",
-     "price": 1.53,
-     "american": -189
-    },
-    {
-     "event_id": "199941",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "IHO-24",
-     "olbg_ref": "ICH-199941",
-     "selection": "DAL Stars",
-     "price": 1.42,
-     "american": -238
-    }
-   ]
+   "live_picks": []
   },
   {
    "sport": "Motor Racing",
@@ -910,7 +844,7 @@
  "prose_evidence": {
   "root": {
    "pieces": 78,
-   "high": 21,
+   "high": 16,
    "words_min": 57,
    "words_median": 82.5,
    "words_max": 147,
@@ -938,7 +872,7 @@
   },
   "olbg": {
    "pieces": 94,
-   "high": 22,
+   "high": 17,
    "words_min": 46,
    "words_median": 81.0,
    "words_max": 163,
