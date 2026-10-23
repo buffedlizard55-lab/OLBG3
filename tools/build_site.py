@@ -503,6 +503,22 @@ def main() -> None:
         for k, v in ver.get("event_verifications", {}).items()
     )
 
+    # ---------- price-window study (brief item 5) ----------
+    def _implied(o: float) -> float:
+        o = float(o)
+        return (-o) / ((-o) + 100) if o < 0 else 100 / (o + 100)
+
+    def _in_band(o) -> bool:
+        o = float(o)
+        return (-250 <= o <= -100) or (100 <= o <= 10000)
+
+    _priced = [l for l in lines.values() if l.get("our_us_odds_pick")]
+    _band = [l for l in _priced if _in_band(l["our_us_odds_pick"])]
+    _band_70 = [l for l in _band if _implied(l["our_us_odds_pick"]) > 0.70]
+    _short = [l for l in _priced if float(l["our_us_odds_pick"]) < -250]
+    _band_probs = [l["our_pick_probability"] for l in _band] or [0.0]
+    _band_sports = sorted({l["sport"] for l in _band_70})
+
     method_body = f"""
 <section class="hero small">
   <h1>Method, model and sources</h1>
@@ -527,6 +543,30 @@ def main() -> None:
     <li><strong>Medium</strong> — winner market, at least five tips, and our probability is at least 0.08 from even money.</li>
     <li><strong>Low</strong> — small samples, rows where OLBG's market was not the winner market, or outrights with no field size.</li>
   </ul>
+</section>
+
+<section class="card" id="window">
+  <h2>1b · Does a 70%-plus pick exist inside the -250 to +10000 window?</h2>
+  <p>The brief asks whether high-confidence picks above roughly 70% implied win chance exist inside
+  <strong>-250 to +10000</strong> American odds, and to focus there. The window can only contain such a pick in one narrow slice:
+  -250 is 71.43% implied and a 70% implied chance is reached at about -233.33, so the whole above-70% region is the
+  <strong>16.7-point strip from -233.33 to -250</strong> — 6.7 percentage points of implied chance. Everything shorter than -250 (a -400 favourite, say, at 80%)
+  is outside the window by construction.</p>
+  <table class="tbl compact">
+    <thead><tr><th>Measure at this build</th><th class="num">Rows</th></tr></thead>
+    <tbody>
+      <tr><td>Fixtures with an originated price</td><td class="num">{len(_priced)}</td></tr>
+      <tr><td>Prices inside -250 to +10000</td><td class="num">{len(_band)}</td></tr>
+      <tr><td>…and implying more than 70%</td><td class="num">{len(_band_70)}{(' — ' + E(', '.join(_band_sports))) if _band_sports else ''}</td></tr>
+      <tr><td>Prices shorter than -250, therefore outside the window</td><td class="num">{len(_short)}</td></tr>
+      <tr><td>Our pick probabilities across the in-window rows</td><td class="num">{min(_band_probs)*100:.0f}% – {max(_band_probs)*100:.0f}%</td></tr>
+    </tbody>
+  </table>
+  <p>{len(_band_70)} of {len(_band)} in-window prices imply more than 70%, so the answer is <em>barely</em>: the above-70%
+  region is a narrow strip at the window's left edge, and a fixture priced there is a short-priced favourite whose edge
+  is thin. The five published HIGH picks sit at 58–67% instead, further out in the window where a price at our fair odds
+  actually pays. Nothing is padded to manufacture a 70% figure: implied probability above 70% is a statement about the
+  price, not about how likely the result is.</p>
 </section>
 
 <section class="card" id="verification">
