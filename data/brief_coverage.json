@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-23T19:56:00+00:00",
+  "root_publication_clock": "2026-10-23T20:21:00+00:00",
   "root_capture": "2026-10-23",
   "root_built": "2026-10-23",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. Live re-verification is blocked in this sandbox by the documented outbound allowlist (FL-077)."
@@ -99,14 +99,14 @@
    "blocking": {
     "no_official_form": 33,
     "high_evidence_out_of_band": 1,
-    "start_or_source_gate": 31,
+    "start_or_source_gate": 32,
     "unpriced": 5,
     "unverified_or_corroborated": 3
    },
    "reasons": [
     "33 of 43 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "1 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "31 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "32 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "5 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "3 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
