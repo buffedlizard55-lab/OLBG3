@@ -25,7 +25,8 @@ FIXED_ZONES = {'UTC': 0, 'GMT': 0, 'CEST': 2, 'CET': 1, 'EEST': 3,
 # This is a structural trust boundary, NOT verification of page contents.
 OFFICIAL_CLOCK_HOSTS = frozenset({
     'api-web.nhle.com', 'en.volleyballworld.com', 'gaacork.ie',
-    'www.eurohandball.com', 'www.euroleaguebasketball.net',
+    'www.eurohandball.com', 'ehfcl.eurohandball.com', 'ehfel.eurohandball.com',
+    'www.euroleaguebasketball.net',
     'www.formula1.com', 'www.icc-cricket.com', 'www.leinsterrugby.ie',
     'www.mlb.com', 'www.nrl.com', 'www.pdc.tv', 'www.pgatour.com',
     'www.shl.se', 'www.wst.tv',

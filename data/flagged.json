@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T19:20:00Z",
+  "generated_at": "2026-10-23T22:03:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -3707,8 +3707,8 @@
       "severity": "medium",
       "title": "The landing page says every high-confidence row is 'backed by official governing-body sources', but three of the eight rows show a single fixture-list link that carries none of the facts quoted",
       "detail": "The High-confidence picks table on the /olbg landing page renders only sources[0] for each row. For Leinster v Munster, Stormers v Scarlets and Vodacom Bulls v Ulster that first source is https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/, under a sentence stating that every high-confidence call is 'backed by official governing-body sources'. A fixture list settles opponent, round, venue and kick-off; it does not contain the league table, the Round 3 scorelines or the venue change that the write-ups quote. Those facts sit in the URC table page and the Round 4 Match Centre, which the row links do show but the landing page does not surface. Prices, probabilities and grades are unaffected.",
-      "status": "open",
-      "action": "Disclosed rather than papered over: the three write-ups were re-read in this pass and now state only what the table and Match Centre actually say (FL-164, FL-165), and the Leinster v Munster venue was corrected to Aviva Stadium from the Match Centre at 2026-10-23T19:58Z. The panel sentence is still wider than the visible citation for these rows; the fix is to render every source per row or narrow the sentence.",
+      "status": "resolved",
+      "action": "Disclosed rather than papered over: the three write-ups were re-read in this pass and now state only what the table and Match Centre actually say (FL-164, FL-165), and the Leinster v Munster venue was corrected to Aviva Stadium from the Match Centre at 2026-10-23T19:58Z. The panel sentence is still wider than the visible citation for these rows; the fix is to render every source per row or narrow the sentence. Resolved in session-b322f52e: tools/build_site.py now renders every source link in p['sources'] for each row on the /olbg/ landing-page High-confidence picks table rather than only sources[0].",
       "affected_ids": [
         "RGU-609576",
         "RGU-609578",
@@ -4090,6 +4090,126 @@
         {
           "label": "OLBG Tennis listing page as served (the URL both captures read)",
           "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ]
+    },
+    {
+      "id": "FL-194",
+      "original_id": "FL-177",
+      "severity": "high",
+      "title": "Evening OLBG listing responses switch from SSR tip cards to client-hydrated SvelteKit <script> payloads (expired:\"0\"), explaining the FL-180 / FL-185 / FL-193 zero-card captures",
+      "detail": "Across all 18 in-scope listing pages captured at 2026-10-23T19:35Z, 21:33:06Z (data/raw/svelte-b322f52e-20261023T2133Z), and 21:35Z (FL-180 / FL-185 / FL-193), OLBG returned HTTP 200 with 290-350 KB HTML whose <body> prints '<p>No tips found.</p>' and zero '<div class=\"grd tip content-visibility-auto\">' cards, while embedding the full active listing inside the SvelteKit hydration <script> block (123 unique expired:\"0\" rows across 12 sports at 21:33:06Z, including 43 upcoming events absent from the 16:21Z/16:30Z captures). Numeric fields in the evening payload are serialized as JSON string literals (expired:\"0\") rather than bare integers (expired:0).",
+      "status": "resolved",
+      "action": "Added opt-in --svelte-fallback to scripts/extract_listings.py alongside FL-191's EMPTY_CAPTURE=3 SSR guard (balanced-brace SvelteKit tips:[...] parser emitting only active expired == \"0\" rows while leaving default SSR-only extraction unchanged). Extracted data/raw/olbg-supplement-20261023T2133Z-b322f52e.tsv (123 rows), chained it in data/meta.json['supplementary_harvests'], and extended tools/check_site.py captured_event_hrefs() to verify SvelteKit eventUrl hrefs byte-for-byte.",
+      "affected_ids": [
+        "RGU-609581",
+        "VOL-36995",
+        "VOL-36996",
+        "HAN-12129",
+        "HAN-12130",
+        "HAN-12133",
+        "HAN-12134",
+        "HAN-12138",
+        "TEN-902165",
+        "TEN-902168"
+      ],
+      "sources": [
+        {
+          "label": "OLBG Handball listing (SvelteKit hydration payload captured at 21:33:06Z)",
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
+        },
+        {
+          "label": "OLBG Volleyball listing (SvelteKit hydration payload captured at 21:33:06Z)",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        }
+      ]
+    },
+    {
+      "id": "FL-195",
+      "original_id": "FL-178",
+      "severity": "medium",
+      "title": "OLBG's startDate on RGU-609581 (Ospreys v Dragons) is 45 minutes earlier than the official URC Round 4 kick-off",
+      "detail": "In data/raw/svelte-b322f52e-20261023T2133Z, OLBG event 609581 (Ospreys v Dragons) carries event_start_unix_timestamp 1792864800 -> 2026-10-24T18:00:00.000Z (19:00 BST). The official United Rugby Championship 2026/27 fixture list prints 'SATURDAY, OCTOBER 24 — Ospreys v Dragons, St. Helen's, Swansea, KO 19.45 IRE & UK / 20.45 ITA & SA', which is 2026-10-24T18:45:00Z.",
+      "status": "resolved",
+      "action": "Recorded the official 19:45 IRE & UK (18:45Z) kick-off in data/verifications.json and data/release_checks.json while preserving OLBG's raw 18:00:00.000Z timestamp untouched in olbg_start_utc for auditability.",
+      "affected_ids": [
+        "RGU-609581"
+      ],
+      "sources": [
+        {
+          "label": "United Rugby Championship — 2026/27 fixtures in full",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        },
+        {
+          "label": "OLBG — Ospreys v Dragons event page",
+          "url": "https://www.olbg.com/betting-tips/Rugby_Union/International_Club/United_Rugby_Championship/Ospreys_v_Dragons/9?event_id=609581"
+        }
+      ]
+    },
+    {
+      "id": "FL-196",
+      "original_id": "FL-179",
+      "severity": "high",
+      "title": "Unclassified cricket player-prop market 'Top Team1 Batsman' (CRI-188845) contains the home team name in parentheses and would leak into match-winner probability",
+      "detail": "Event 188845 (Toronto Kings vs Vancouver Guardians T20) in the 21:33:06Z capture carries market 'Top Team1 Batsman' with selection 'RRS Cornwall (Toronto Kings)' (2/3 tips at 5.50). Because 'Top Team1 Batsman' was not listed in OTHER_MARKETS / _non_win / NON_WIN_CONSENSUS_MARKETS, resolve_team_side() matched '(Toronto Kings)' to home side 'Toronto Kings' and treated a 5.50 batsman prop split as a two-way match-winner consensus.",
+      "status": "resolved",
+      "action": "Added 'Top Team1 Batsman' identically across tools/build_dataset.py (OTHER_MARKETS), tools/originate.py (_non_win), and scripts/model.py (NON_WIN_CONSENSUS_MARKETS), keeping the FL-157 cross-file market-set invariant intact.",
+      "affected_ids": [
+        "CRI-188845"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Toronto Kings vs Vancouver Guardians T20 event page",
+          "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845"
+        }
+      ]
+    },
+    {
+      "id": "FL-197",
+      "original_id": "FL-180",
+      "severity": "high",
+      "title": "SuperLega verifications for 36995 (Civitanova vs Padova) and 36996 (Monza vs Verona) carried wrong-city arenas and a contradicted Round 1 point tally",
+      "detail": "In data/verifications.json, event 36995 (Cucine Lube Civitanova vs Pallavolo Padova) stored venue 'BTS Arena, Trento', start_local '2026-10-25 17:00 CET' (off by one hour from 17:00 UTC = 18:00 CET), and Round 1 rally points '97:85' whereas Volleyball World's official SuperLega standings record Civitanova at 3-0 sets and 78:65 rally points. Event 36996 (Vero Volley Monza vs Rana Verona) stored venue 'Pala Barton Energy, Perugia' — the exact swapped-venue defect that FL-154 had fixed on 36997.",
+      "status": "resolved",
+      "action": "Cleared both unverified arena names on the Volleyball World verification entries to empty strings (schedule/30002/ prints cities 'Civitanova Marche, Italy' and 'Monza, Italy' without arena names), corrected 36995's local start to '18:00 Local Time (CET)', and replaced 97:85 with the official 78:65 Round 1 tally.",
+      "affected_ids": [
+        "VOL-36995",
+        "VOL-36996"
+      ],
+      "sources": [
+        {
+          "label": "Volleyball World — SuperLega Match #7 & Round 2 schedule",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        },
+        {
+          "label": "Volleyball World — official 2026/27 SuperLega standings",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+        }
+      ]
+    },
+    {
+      "id": "FL-198",
+      "original_id": "FL-181",
+      "severity": "high",
+      "title": "tools/originate.py computed inverted our_home_probability on five EDITORIAL_STRENGTH rows where the full official club name differed from OLBG's short home name",
+      "detail": "Line 412 of tools/originate.py computed p_home = p_pick if pick == home else round(1.0 - p_pick, 4). Whenever EDITORIAL_STRENGTH used the official full club name ('Vodacom Bulls', 'DHL Stormers', 'Sir Susa Scai Perugia', 'Itas Trentino', 'Olympiacos Piraeus') while matches.json held OLBG's short home name ('Bulls', 'Stormers', 'Perugia', 'Trentino', 'Olympiacos'), pick == home evaluated to False and our_home_probability published 1 - p_pick (e.g. 0.38 on Vodacom Bulls, 0.40 on DHL Stormers, 0.4005 on Perugia) even though the home side was our selected favourite.",
+      "status": "resolved",
+      "action": "Repaired tools/originate.py to match EDITORIAL_STRENGTH picks via resolve_team_side(pick, home, away) == home before computing our_home_probability, restoring exact p_home alignment across all affected rows.",
+      "affected_ids": [
+        "BKB-535925",
+        "RGU-609576",
+        "RGU-609580",
+        "VOL-36994",
+        "VOL-36997"
+      ],
+      "sources": [
+        {
+          "label": "United Rugby Championship — official 2026/27 table (Vodacom Bulls & DHL Stormers)",
+          "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        },
+        {
+          "label": "Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
         }
       ]
     }

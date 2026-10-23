@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-22T21:30:00Z",
+  "generated_utc": "2026-10-23T21:54:00Z",
   "odds_window_policy": "Every high-confidence selection sits strictly inside -250 to +10000 American odds (1.40 to 101.00 decimal odds) with model fair probability < 70%, filtering out trivial >70% moneyline chalk.",
   "predictions": [
     {
@@ -70,19 +70,22 @@
       "match": "USA Grand Prix",
       "selection": "Max Verstappen to Win Race (3.48 / +248)",
       "confidence": "high",
-      "text": "Max Verstappen to win the race is the selection for the Formula 1 MSC Cruises United States Grand Prix at the Circuit of the Americas in Austin. The official Formula 1 page confirms the weekend runs from Friday 23 to Sunday 25 October 2026, with practice on the 23rd, practice and qualifying on the 24th from 13:30 and 17:00, and the 56-lap race over a 5.513km circuit at 308.432km distance on the 25th, a start the same page records in its own payload as 2026-10-25T20:00:00.000Z. OLBG's race-winner market carries 34 tips and 12 of them, from three tracked motorsport experts, are on Verstappen, the most popular selection on the listing. Shrinking that 12/34 share toward the 22-car grid prior gives us a 27.3% chance and a price of 3.48 (+248), inside the -250 to +10000 window. A single safety car or weather swing decides a race like this, so the price is a worked-out probability rather than a forecast of the finish.",
+      "text": "Max Verstappen to win the race is the selection at 3.48 (+248) for Sunday's 56-lap Formula 1 MSC Cruises United States Grand Prix over 308.432 kilometres at the Circuit of The Americas in Austin. Formula 1's official Austin race hub shows Verstappen immediately on the pace in Friday first practice, slotting second at 0.084 seconds behind Charles Leclerc's 1:36.052 benchmark and ahead of Lando Norris (+0.245s) and George Russell (+0.326s). Combined with 12 of 34 captured OLBG race-winner tips backing the Red Bull driver against a 22-car grid prior, our 27.3% win estimate prices Verstappen at 3.48 (+248).",
       "sources": [
         {
-          "label": "Formula 1 — official United States Grand Prix 2026 race page",
+          "label": "Formula 1 — official 2026 United States Grand Prix race hub & FP1 classification",
           "url": "https://www.formula1.com/en/racing/2026/united-states"
+        },
+        {
+          "label": "Formula 1 — official 2026 United States Grand Prix full timetable (UTC-5 offset)",
+          "url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm"
         },
         {
           "label": "OLBG — USA Grand Prix race-winner market",
           "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "status": "high"
     },
     {
       "match_id": "BKB-535925",
@@ -759,7 +762,216 @@
         }
       ],
       "status": "high"
+    },
+    {
+      "match_id": "BKB-536039",
+      "sport": "Basketball",
+      "match": "MEM Grizzlies @ GS Warriors",
+      "selection": "GS Warriors Money Line (1.66 / -152)",
+      "confidence": "high",
+      "text": "Golden State Warriors on the money line at 1.66 (-152) is the selection for Friday night's Chase Center home opener against the Memphis Grizzlies. Golden State swept all three regular-season meetings with Memphis last year (131-118, 114-113, and 133-112) and returns to San Francisco eager to bounce back from Wednesday's 127-105 road loss at the Lakers in which Stephen Curry scored 23 points. Memphis beat Utah 123-103 behind Ty Jerome's career-best 45-point outburst, but the Grizzlies traded away Ja Morant in the offseason and dress only one player older than 30 in Jerami Grant. Back Golden State to win at home.",
+      "sources": [
+        {
+          "label": "NBA.com — Grizzlies @ Warriors official game preview, H2H & roster notes",
+          "url": "https://www.nba.com/game/mem-vs-gsw-0022600101"
+        },
+        {
+          "label": "NBA.com — October 23 official schedule",
+          "url": "https://www.nba.com/schedule?date=2026-10-23"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "BKB-536042",
+      "sport": "Basketball",
+      "match": "LA Clippers @ LA Lakers",
+      "selection": "LA Lakers Money Line (1.56 / -179)",
+      "confidence": "high",
+      "text": "Los Angeles Lakers on the money line at 1.56 (-179) is our selection at Crypto.com Arena as the Lakers have captured eight of the past twelve meetings with the Clippers, including a 125-122 home triumph in February. Opening post-LeBron play around Luka Doncic (28 points, eight rebounds, seven assists), the Lakers routed Golden State 127-105 on 56.8% shooting while converting 16 turnovers into 25 points, with center Walker Kessler shooting a spotless 12-for-12 for 26 points and nine rebounds alongside Austin Reaves' 23 points. Darius Garland scored 30 in the Clippers' 121-96 win over Sacramento, yet the Lakers' interior efficiency and playmaking edge point clearly to a Lakers win.",
+      "sources": [
+        {
+          "label": "NBA.com — Clippers @ Lakers official game preview, H2H & opener stats",
+          "url": "https://www.nba.com/game/lac-vs-lal-0022600102"
+        },
+        {
+          "label": "NBA.com — 2026-27 official standings",
+          "url": "https://www.nba.com/standings"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "BKB-536043",
+      "sport": "Basketball",
+      "match": "POR Trail Blazers @ SAC Kings",
+      "selection": "POR Trail Blazers Money Line (1.62 / -161)",
+      "confidence": "high",
+      "text": "Back the Portland Trail Blazers on the money line at 1.62 (-161) at Golden 1 Center in Sacramento. Portland swept all four regular-season games against the Kings in 2025-26 and opened Wednesday by hammering Phoenix 124-83 after jumping ahead 21-0, fuelled by Damian Lillard's 25 points and six three-pointers in his return from an Achilles tear, Deni Avdija's 18 points and 10 rebounds, Toumani Camara's 18 points, and Ja Morant's 14 points and eight assists. Sacramento lost 121-96 at the Clippers while shooting 8-of-28 from three, with rookie guard Darius Acuff Jr. going 5-for-24 and Keegan Murray hitting 1-of-8. Portland to win is the play.",
+      "sources": [
+        {
+          "label": "NBA.com — Trail Blazers @ Kings official game preview, H2H & opener shooting splits",
+          "url": "https://www.nba.com/game/por-vs-sac-0022600103"
+        },
+        {
+          "label": "NBA.com — October 23 official schedule",
+          "url": "https://www.nba.com/schedule?date=2026-10-23"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "VOL-36995",
+      "sport": "Volleyball",
+      "match": "Civitanova vs Padova",
+      "selection": "Cucine Lube Civitanova Match Winner (1.44 / -227)",
+      "confidence": "high",
+      "text": "Cucine Lube Civitanova to win the match at 1.44 (-227) is the selection for Sunday's SuperLega Round 2 fixture in Civitanova Marche against Pallavolo Padova. Volleyball World's official SuperLega table places Civitanova fourth on maximum three points after sweeping Rana Verona 3-0 in Round 1 with a 78-65 rally-point margin (1.200 point ratio). Padova sit eleventh on zero points and 0-3 in sets after managing only 56 total rally points against 75 conceded (0.746 ratio) in their opening defeat to Piacenza. Civitanova's serve-and-sideout superiority on home taraflex supports backing Lube to win.",
+      "sources": [
+        {
+          "label": "Volleyball World — SuperLega Match #10 schedule & UTC start",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        },
+        {
+          "label": "Volleyball World — official 2026/27 SuperLega Round 1 standings",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "VOL-36996",
+      "sport": "Volleyball",
+      "match": "Monza vs Verona",
+      "selection": "Vero Volley Monza Match Winner (1.61 / -164)",
+      "confidence": "high",
+      "text": "Back Vero Volley Monza to win the match at 1.61 (-164) when they host Rana Verona in Sunday's SuperLega Round 2 clash at 17:00 UTC. Both sides seek their first league points of 2026/27, but Volleyball World's Round 1 stats show Monza far closer to parity in their four-set road loss at Prata di Pordenone (22-25, 25-19, 21-25, 22-25), out-killing Prata 47-45 in attack behind Frascio (15 points) and Velichkov (13 points) for a 0.957 point ratio (90:94). Verona were swept 0-3 at Civitanova (65:78 points, 0.833 ratio). Home court in Monza makes Vero Volley Monza our pick.",
+      "sources": [
+        {
+          "label": "Volleyball World — SuperLega Match #12 schedule & UTC start",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        },
+        {
+          "label": "Volleyball World — official 2026/27 SuperLega standings & Match #6 box score",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "RGU-609581",
+      "sport": "Rugby Union",
+      "match": "Ospreys v Dragons",
+      "selection": "Ospreys to win (money line, 1.62 / -161)",
+      "confidence": "high",
+      "text": "Ospreys to win at 1.62 (-161) is the selection for Saturday evening's Welsh URC derby against Dragons RFC at St. Helen's in Swansea (19:45 IRE & UK, 18:45 UTC). These rivals met just fifteen days earlier in Round 3 at Rodney Parade on October 9, where Ospreys came away with a 38-31 road victory. On the URC table re-read after Friday's Round 4 matches, Dragons sit ninth on nine points (W1 D1 L1, 88 points for, 83 against) ahead of fourteenth-placed Ospreys on six points (W1 D0 L2, 81 for, 107 against), yet Ospreys' proven scoring edge in the reverse fixture and Swansea home advantage make Ospreys the call.",
+      "sources": [
+        {
+          "label": "United Rugby Championship — official 2026/27 fixtures & Round 4 kick-off",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        },
+        {
+          "label": "United Rugby Championship — official 2026/27 table & Round 3 results",
+          "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "HAN-12138",
+      "sport": "Handball",
+      "match": "Wisla Plock vs Nantes",
+      "selection": "Orlen Wisla Plock to win (money line, 1.64 / -156)",
+      "confidence": "high",
+      "text": "Take Orlen Wisla Plock to win at 1.64 (-156) in Wednesday's winner-advances EHF Champions League Group B finale against HBC Nantes at ORLEN Arena (18:45 CET). Plock, Melsungen, and Nantes sit locked in a three-way tie on 6 points through five rounds, with Plock holding top spot on a +5 goal difference (141:136) after edging Vardar 33:32 at home in Round 4 and battling Melsungen to a 28:26 road loss on Thursday despite four goals apiece from Frederik Bjerre and Sergei Mark Kosorotov. Nantes (-1, 142:143) collapsed 33:27 at home to previously winless Vardar in Round 5, with coach Gregory Cojean citing ongoing one-on-one finishing struggles. Plock at home are the pick.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men — official 2026/27 Group B standings & Plock vs Nantes match page",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101016/OrlenWislaPlock-HBCNantes/"
+        },
+        {
+          "label": "EHF Champions League Men — official Round 5 Wednesday & Thursday reviews",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "HAN-12130",
+      "sport": "Handball",
+      "match": "HC Vardar vs MT Melsungen",
+      "selection": "MT Melsungen to win (money line, 1.54 / -185)",
+      "confidence": "high",
+      "text": "Back MT Melsungen to win at 1.54 (-185) in Wednesday's Group B trip to SC Jane Sandanski in Skopje (18:45 CET). Melsungen sit second in Group B on 6 points (3-0-2, 138:138) with a Main Round berth on the line after defeating group leaders Wisla Plock 28:26 in Round 5 behind goalkeeper Nebojsa Simic's 11 saves (including three straight crunch-time stops) and six goals apiece from Eric Balenciaga (6/6) and Aaron Mensing. Fourth-placed HC Vardar 1961 (1-0-4, 2 points, 154:158) are already eliminated from Main Round contention despite upsetting Nantes 33:27 behind Leon Ljevar's 7/9 shooting, and Melsungen already beat Vardar at home in Round 1. Melsungen to win is our call.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men — official Group Phase playing-times PDF (18:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men — official 2026/27 standings & Round 5 review",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "HAN-12134",
+      "sport": "Handball",
+      "match": "PSG Handball vs Aalborg Handbold",
+      "selection": "Aalborg Handbold to win (money line, 1.71 / -141)",
+      "confidence": "high",
+      "text": "Aalborg Handbold to win at 1.71 (-141) is the selection for Wednesday night's Group C top-spot showdown at Stade Pierre de Coubertin in Paris (20:45 CET). Unbeaten Aalborg lead Group C on 9 points (4-1-0, 170:145, +25) after defeating RK Celje 34:30 in Round 5 while rotating their bench behind Thomas Arnoldsen (6/8) and Juri Knorr, and the Danish champions already beat Paris Saint-Germain in Round 1 at Aalborg. Second-placed PSG (3-1-1, 7 points, 182:157) let a four-goal half-time lead slip in Wednesday's 29:28 defeat at eliminated HC Zagreb despite Ferran Sole's 10/11 outing, struggling against Zagreb's second-half 5-1 defence. Back unbeaten Aalborg on the money line.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men — official Group Phase playing-times PDF (20:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men — official Group C standings & Round 5 review",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "HAN-12129",
+      "sport": "Handball",
+      "match": "GOG vs Sporting CP",
+      "selection": "Sporting CP to win (money line, 1.65 / -154)",
+      "confidence": "high",
+      "text": "Take Sporting Clube de Portugal to win at 1.65 (-154) when they visit GOG at Arena Svendborg on Thursday evening (18:45 CET) with Group D carryover points at stake. Unbeaten group leaders Sporting (4-1-0, 9 points, 191:165, +26) boast the highest-scoring attack in the competition at 38.2 goals per game, paced on Thursday by Francisco Costa's personal Champions League record 14 goals from 16 shots alongside brother Martim Costa in a 42:40 win over Kristianstad, having already beaten GOG in Lisbon in Round 1. Second-placed GOG (3-1-1, 7 points, 178:172) needed a buzzer-beating Kevin Moller save to salvage a 33:33 draw at Szeged after surrendering a 6:0 late run. Sporting to win is the pick.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men — official Group Phase playing-times PDF (18:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men — official Group D standings & Round 5 review",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "HAN-12133",
+      "sport": "Handball",
+      "match": "Montpellier vs Dinamo Bucuresti",
+      "selection": "Dinamo Bucuresti to win (money line, 1.70 / -143)",
+      "confidence": "high",
+      "text": "Back Dinamo Bucuresti to win at 1.70 (-143) in Thursday night's Group E finale at FDI Stadium in Montpellier (20:45 CET). Third-placed Dinamo (1-1-3, 3 points, 134:145) remain alive for the second Main Round berth after dismantling SAH - Aarhus 37:23 on Wednesday — the biggest Champions League victory in club history — led by Victor Iturizza (5/5), Haniel Langaro, and goalkeeper Ionut Iancu, and Dinamo also won the Round 1 meeting in Bucharest. Fourth-placed Montpellier (1-0-4, 2 points, 150:165) have lost four straight and are already eliminated following Thursday's 40:34 defeat at Barca, where centre back Pol Valera noted mounting player injuries and Benjamin Richert received a direct red card. Dinamo Bucuresti to win is our selection.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men — official Group Phase playing-times PDF (20:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men — official Group E Round 5 reviews & injury/red-card notes",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+        }
+      ],
+      "status": "high"
     }
   ],
-  "note": "15 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "27 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

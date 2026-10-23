@@ -1,8 +1,8 @@
 {
-  "out": "data/raw/live-20261023T2135Z",
-  "requested_at_utc": "2026-10-23T21:35:00Z",
-  "requested_by": "session-a87a3681",
-  "why": "Late-evening 2026-10-23 verification capture: all 15 in-scope OLBG sport listings + sub-league endpoints, official governing-body probes, and re-read of cited official pages, to test whether OLBG renders tip cards after the UK evening cut-off and to capture 2026-10-24 fixtures.",
+  "out": "data/raw/svelte-b322f52e-20261023T2133Z",
+  "requested_at_utc": "2026-10-23T21:33:00Z",
+  "requested_by": "session-b322f52e",
+  "why": "Evening 2026-10-23 verbatim 18-endpoint OLBG capture into session-scoped svelte-b322f52e directory + official governing-body probes + cited-page re-reads, to extract active upcoming 24-25 Oct fixtures from OLBG's inline SvelteKit hydration payload where SSR omits tip cards.",
   "capture": true,
   "probe": true,
   "cited": true

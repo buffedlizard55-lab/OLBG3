@@ -178,8 +178,8 @@ EDITORIAL_STRENGTH = {
     "TEN-902129": ("Stefanos Tsitsipas", 0.5739, 22.5, "Over", "ATP Almaty QF: #39 [7] Stefanos Tsitsipas (beat Kukushkin 6-1, 6-2) vs #73 James Duckworth"),
     "TEN-902133": ("Tommy Paul", 0.725, 21.5, "Under", "ATP Lyon QF: #15 [4] Tommy Paul (2575 pts) vs #94 Corentin Moutet (640 pts; >70% favorite -> medium)"),
     "VOL-36994": ("Itas Trentino", 0.5293, 185.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30003): Itas Trentino vs Cisterna Volley"),
-    "VOL-36995": ("Cucine Lube Civitanova", 0.6585, 181.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30005): Cucine Lube Civitanova (3-1, 97:85) vs Pallavolo Padova"),
-    "VOL-36996": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30007): Vero Volley Monza (91:94 at Prata) vs Rana Verona"),
+    "VOL-36995": ("Cucine Lube Civitanova", 0.6585, 181.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30005 & official R1 standings): #4 Cucine Lube Civitanova (1-0, 3 pts, 3-0 sets, 78:65) vs #11 Pallavolo Padova (0-1, 0 pts, 0-3 sets, 56:75)"),
+    "VOL-36996": ("Vero Volley Monza", 0.5914, 184.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30007 & official R1 standings): #8 Vero Volley Monza (0-1, 1-3 sets, 90:94) vs #9 Rana Verona (0-1, 0-3 sets, 65:78)"),
     "VOL-36997": ("Sir Susa Scai Perugia", 0.5995, 183.5, "Over", "SuperLega Giornata 2 (volleyballworld.com #30002): Sir Susa Scai Perugia (3-2 at Cuneo, 113:103) vs Tinet Prata di Pordenone"),
     "VOL-37005": ("Chaumont", 0.5674, 182.5, "Over", "LNV Alterna VOLSTAR J3 (lnv-web.dataproject.com): #2 Chaumont (2-0, 6 pts, sets 6:1, rally 173:146) at #13 Sete (0-2, 0 pts, sets 1:6, rally 165:194)"),
     "ICH-199931": ("EDM Oilers", 0.5612, 6.5, "Over", "NHL official standings 2026-10-22 (api-web.nhle.com): EDM Oilers 7-1-1 (9 GP, 15 pts, 41 GF / 27 GA) home vs CAR Hurricanes 8-2-1 (11 GP, 17 pts, 42 GF / 27 GA)"),
@@ -209,6 +209,16 @@ EDITORIAL_STRENGTH = {
     "BKB-536038": ("DET Pistons", 0.6000, 224.5, "Over", "NBA official standings 2026-10-23: DET 1-0 (home 1-0, W1) at MIA 0-1 (home 0-1, L1); OLBG 3/3 DET"),
     "ICH-199984": ("MTL Canadiens", 0.6450, 5.5, "Under", "NHL official standings 2026-10-23: MTL 4-3-2 (10 pts, 30 GF / 34 GA, road 1-1-1, OT1) at CHI 3-6-0 (6 pts, 21 GF / 36 GA, home 3-2-0, L1); OLBG 3/3 MTL"),
     "ICH-199985": ("COL Avalanche", 0.5700, 5.5, "Over", "NHL official standings 2026-10-23: COL 5-4-1 (11 pts, 41 GF / 31 GA, home 3-1-1, L2) vs TBL 7-2-0 (14 pts, 31 GF / 23 GA, road 2-2-0, W3); OLBG puck line 1/2 TBL +1.5"),
+    # 2026-10-23 SvelteKit evening supplement & multi-sport pass (session-b322f52e):
+    "BKB-536039": ("GS Warriors", 0.572, 233.5, "Under", "NBA official preview & standings (nba.com): GSW Chase Center home opener (3-0 H2H sweep vs MEM in 2025-26, Curry 23 pts in opener) vs retooled MEM 1-0"),
+    "BKB-536042": ("LA Lakers", 0.608, 229.5, "Over", "NBA official preview & standings (nba.com): LAL 1-0 after 127-105 win over GSW on 56.8% FG (Doncic 28/8/7, Kessler 26 pts on 12-for-12 FG, Reaves 23/6) + 8-4 in last 12 H2H vs LAC"),
+    "BKB-536043": ("POR Trail Blazers", 0.588, 231.5, "Over", "NBA official preview & standings (nba.com): POR 1-0 after 124-83 rout of PHX (Lillard 25 pts/6 3PM, Avdija 18/10, Morant 14/8) + 4-0 H2H sweep vs SAC in 2025-26; SAC 0-1 after 121-96 loss at LAC + OLBG 6/7 ML"),
+    "RGU-609581": ("Ospreys", 0.585, 49.5, "Over", "URC 2026/27 official R3 table & H2H (stats.unitedrugby.com): Ospreys beat Dragons 38-31 away at Rodney Parade on 9 Oct; Dragons 9th (9 pts, 88:83) at Ospreys 14th (6 pts, 81:107) at St. Helen's, Swansea"),
+    "HAN-12138": ("Orlen Wisla Plock", 0.580, 56.5, "Under", "EHF CL Men 2026/27 Group B official table (ehfcl.eurohandball.com): #1 Orlen Wisla Plock 3-0-2 (141:136, +5, 6 pts) home at ORLEN Arena vs #3 HBC Nantes 3-0-2 (142:143, -1, 6 pts; lost 33:27 to Vardar in R5)"),
+    "HAN-12130": ("MT Melsungen", 0.615, 58.5, "Under", "EHF CL Men 2026/27 Group B official table (ehfcl.eurohandball.com): #2 MT Melsungen 3-0-2 (138:138, 6 pts; beat Plock 28:26 in R5) visiting eliminated #4 HC Vardar 1961 1-0-4 (154:158, 2 pts)"),
+    "HAN-12134": ("Aalborg Handbold", 0.555, 63.5, "Over", "EHF CL Men 2026/27 Group C official table (ehfcl.eurohandball.com): unbeaten #1 Aalborg Handbold 4-1-0 (170:145, +25, 9 pts; beat PSG in R1) at #2 Paris Saint-Germain 3-1-1 (182:157, +25, 7 pts; lost 29:28 at Zagreb in R5) + OLBG 1/1 Aalborg"),
+    "HAN-12129": ("Sporting CP", 0.575, 66.5, "Over", "EHF CL Men 2026/27 Group D official table (ehfcl.eurohandball.com): unbeaten #1 Sporting CP 4-1-0 (191:165, +26, 9 pts; beat GOG in R1 & Kristianstad 42:40 in R5) visiting #2 GOG 3-1-1 (178:172, +6, 7 pts)"),
+    "HAN-12133": ("Dinamo Bucuresti", 0.560, 59.5, "Under", "EHF CL Men 2026/27 Group E official table (ehfcl.eurohandball.com): #3 Dinamo Bucuresti 1-1-3 (134:145, 3 pts; beat Aarhus 37:23 in R5 & beat Montpellier in R1) at eliminated #4 Montpellier Handball 1-0-4 (150:165, 2 pts) + OLBG 1/1 Dinamo"),
 }
 
 # Verified outright field-size priors (Dirichlet shrinkage toward 1/F)
@@ -429,7 +439,8 @@ def main() -> None:
         p_shrunk = round((won + 2) / (tot + 4), 4) if (won is not None and tot is not None) else 0.5
         if mid in EDITORIAL_STRENGTH:
             pick, p_pick, tot_override, tot_side_override, basis = EDITORIAL_STRENGTH[mid]
-            p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
+            resolved_side = resolve_team_side(pick, home, away)
+            p_home = p_pick if resolved_side == home else round(1.0 - p_pick, 4)
         else:
             # Must stay identical to tools/build_dataset.py OTHER_MARKETS (minus the blank label,
             # which is a Gaelic Football row that renders no market at all) and to
@@ -438,7 +449,7 @@ def main() -> None:
             # by fallback rather than by design, and a totals consensus whose text happened to
             # contain a player name would be reused as a match-winner probability. See FL-157.
             _non_win = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
-                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match"}
+                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match", "Top Team1 Batsman"}
             side = None if (m.get("olbg_market") in _non_win) else resolve_team_side(m["olbg_consensus_selection"], home, away)
             if side is None:
                 # e.g. Handball "Tie" consensus or totals-only listing -> lean home edge

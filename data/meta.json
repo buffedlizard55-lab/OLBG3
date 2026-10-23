@@ -75,7 +75,7 @@
   "harvest_timezone_note": "Format v3 captures the card's own <time itemprop=\"startDate\" datetime> attribute, so each row carries OLBG's machine-readable UTC start as well as the clock OLBG printed beside it. Across the 177 rows the printed clock is exactly one hour ahead of the attribute until the 25 October 2026 DST changeover and equal to it afterwards, which is why the printed label is still published verbatim and never converted.",
   "previous_harvest": null,
   "previous_harvests_extra": [],
-  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations)",
+  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations) + session-b322f52e (21:33Z SvelteKit supplementary capture & clock/form audit)",
   "supplementary_harvests": [
     {
       "file": "raw/olbg-harvest-20261023T1630Z.tsv",
@@ -83,6 +83,13 @@
       "olbg_locale_date": "2026-10-23",
       "harvest_completed_utc": "2026-10-23T16:40:00Z",
       "note": "session-beb7787b agent page-retrieval of all 15 in-scope listings, 16:16Z-16:40Z, 180 rows copied verbatim (v2: printed labels only, no startDate attribute). Same-day as the 16:21Z primary capture; adds only the 3 events the primary did not render (902147 Van Assche v Musetti, greyhound races 689803 and 689800). Never restates a row the primary already published."
+    },
+    {
+      "file": "raw/olbg-supplement-20261023T2133Z-b322f52e.tsv",
+      "format": "v3",
+      "olbg_locale_date": "2026-10-23",
+      "harvest_completed_utc": "2026-10-23T21:33:06Z",
+      "note": "session-b322f52e live runner capture (data/raw/svelte-b322f52e-20261023T2133Z) across all 18 in-scope listing pages at 21:33:06Z, extracted via --svelte-fallback (123 active expired=0 rows across 12 sports). Same-day supplementary source: adds only the 43 upcoming events absent from the 16:21Z primary and 16:30Z supplementary captures, never overwriting an earlier row."
     }
   ],
   "root_capture_20261023": {

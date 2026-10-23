@@ -74,7 +74,7 @@ NO_HANDICAP_REASON = {
     "Cricket": ("OLBG does not state the format (T20 / ODI / Test) uniformly and a runs handicap differs by an order of "
                 "magnitude between formats, so any line would be invented"),
 }
-NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match"}
+NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match", "Top Team1 Batsman"}
 MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
 
 # ---------- source tiers ----------
