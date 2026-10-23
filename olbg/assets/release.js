@@ -10,7 +10,13 @@
       node.setAttribute('data-clock-expired', 'true');
       node.setAttribute('data-conf', 'MEDIUM');
       node.setAttribute('data-release', 'release_expired');
+      // The pages use the `high` class for two different visible badges: the
+      // confidence label (HIGH) and the separate odds-band label (in band).
+      // Only the former is a publication state. Never relabel the band badge
+      // when a release expires.
       node.querySelectorAll('.pill.high, .badge-high').forEach(function (badge) {
+        var label = (badge.textContent || '').trim().toUpperCase();
+        if (!badge.classList.contains('badge-high') && label !== 'HIGH') return;
         badge.classList.remove('high', 'badge-high');
         badge.classList.add('medium');
         badge.textContent = 'ANALYSIS';
