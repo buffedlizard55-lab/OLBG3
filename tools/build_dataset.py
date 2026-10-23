@@ -89,6 +89,25 @@ def parse_tips(tips: str) -> tuple[int | None, int | None]:
     return int(m.group(1)), int(m.group(2))
 
 
+def event_url(prefix: str, slug: str, sport_id: int, eid: str) -> str:
+    """The event URL, built so that it equals the href the server actually rendered.
+
+    The two capture formats carry `path_prefix` at different depths, and the difference is the
+    whole defect this function exists to prevent (FL-161). A v2 row's prefix stops at the
+    competition - `Tennis/All_Tennis/All_Events` - so the slug still has to be appended. A v3
+    row's prefix already ends in the slug, because the extractor takes the href's path up to the
+    sport id: `Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers`. Appending the slug in that case produced
+    `.../TB_Rays_@_MIL_Brewers/TB_Rays_@_MIL_Brewers/12?event_id=160789`, which OLBG returns 404
+    for, on 177 of the 180 published rows. Nothing is inferred here: whichever branch is taken,
+    the resulting string is byte-identical to an href present in the committed capture, and
+    tests/test_audit_e6a228f9.py asserts exactly that against the served HTML.
+    """
+    prefix = prefix.strip("/")
+    if prefix.endswith("/" + slug) or prefix == slug:
+        return f"https://www.olbg.com/betting-tips/{prefix}/{sport_id}?event_id={eid}"
+    return f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
+
+
 def split_teams(event: str) -> tuple[str | None, str | None]:
     """Mechanical split only - OLBG's own separator, no inference."""
     if " @ " in event:
@@ -196,7 +215,7 @@ def main() -> None:
             seen_eids.add(eid)
             if carry_note is not None:
                 note = (note + "; " if note else "") + carry_note
-            url = f"https://www.olbg.com/betting-tips/{prefix}/{slug}/{sport_id}?event_id={eid}"
+            url = event_url(prefix, slug, sport_id, eid)
             event_name = slug.replace("_", " ")
             # The slug is lossy for "@" events; prefer the human name from the page where known.
             ev = ver["event_verifications"].get(eid, {})
