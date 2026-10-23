@@ -62,14 +62,31 @@ def competition_status(ev: dict) -> str:
     return "partial"
 
 
+_TIPS_RE = re.compile(r"^\s*(\d+)\s*/\s*(\d+)")
+
+
 def parse_tips(tips: str) -> tuple[int | None, int | None]:
-    if not tips or "/" not in tips:
+    """Read the leading N/M tip count out of OLBG's rendered label.
+
+    OLBG renders the tip count as part of a longer control label - "25/31 Win Tips" on the 2026-10-23
+    listings, bare "7/8" on earlier ones. Splitting on "/" and calling int() on the second half works
+    only for the bare form: int("31 Win Tips") raises, and the old code returned (None, None) on that
+    ValueError. The consequence was silent and large. With p_raw None, originate.py falls back to
+    p_shrunk = 0.5 plus the sport home-court logit, so the row is priced from nothing but which side
+    is at home - while inputs.basis still published "OLBG tip split shrunk with Beta(2,2) prior", and
+    inputs.p_raw/p_shrunk disclosed null/0.5. On the 2026-10-23 board that was 167 of 180 rows.
+
+    The count is not being inferred here: it is literally in the captured string, verbatim from the
+    source. This only reads what the harvest recorded, and it is anchored at the start of the label so
+    a stray fraction elsewhere in the text cannot be picked up. Anything that does not begin with
+    N/M still returns (None, None) and stays unpriced, exactly as before. See FL-156.
+    """
+    if not tips:
         return None, None
-    won, total = tips.split("/", 1)
-    try:
-        return int(won), int(total)
-    except ValueError:
+    m = _TIPS_RE.match(tips)
+    if not m:
         return None, None
+    return int(m.group(1)), int(m.group(2))
 
 
 def split_teams(event: str) -> tuple[str | None, str | None]:

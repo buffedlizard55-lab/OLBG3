@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T17:55:00Z",
+  "generated_at": "2026-10-23T18:40:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id).",
   "items": [
     {
@@ -3246,6 +3246,100 @@
         {
           "label": "NBA.com — games (Fri Oct 23 slate)",
           "url": "https://www.nba.com/games"
+        }
+      ]
+    },
+    {
+      "id": "FL-156",
+      "severity": "high",
+      "status": "corrected",
+      "sport": "Multiple",
+      "title": "The tip-count parser silently failed on OLBG's rendered \"N/M Win Tips\" label, so 167 of 180 rows were priced from a home-court baseline while disclosing a tip split that was never used",
+      "summary": "parse_tips() split on \"/\" and called int() on the second half, so int(\"31 Win Tips\") raised and the function returned (None, None). 167 of 180 /olbg/ rows lost their tip count: 25 published the wrong side, and every outright and race market in Motor Racing, Darts, Rugby League and two Cricket outrights was left entirely unpriced.",
+      "detail": "OLBG renders the tip count inside a longer control label. The 2026-10-23 captures record it verbatim as '25/31 Win Tips'; earlier captures recorded the bare '7/8'. tools/build_dataset.py parse_tips() did `won, total = tips.split('/', 1)` then `int(won), int(total)` inside a try/except ValueError that returned (None, None). For the bare form that is correct; for the rendered label int('31 Win Tips') raises and the count is lost. The failure was silent in both directions. First, `olbg_tips_won`/`olbg_tips_total` published as null, so the row showed a tip count in one column and nothing in the input columns beside it. Second, and more seriously, tools/originate.py then took the p_raw-is-None branch: p_shrunk fell back to 0.5 and the row was priced from the sport home-court logit alone, while inputs.basis still published 'OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment'. That methodology statement was false for 77 rows, and their probabilities clustered in a narrow band between 0.50 and 0.5646 that is the signature of the fallback rather than of any sporting judgement. Two consequences were visible on the published board. Twenty-five rows named the wrong side, because with no tip split the pick defaults to the home team regardless of what the crowd actually tipped: ICH-199984 read Chicago Blackhawks where OLBG's tips were 3/3 on Montreal; HAN-12107 read Villa De Aranda where both tips and the official ASOBAL table point to Puerto Sagunto; CRI-188832 read New Zealand where the tips were on India. And every outright and race market was left with no price at all — MTR-913, MTR-828, MTR-912, DAR-26023, CRI-182606, RGL-2695857, RGL-2801554 and RGL-2801600 all published our_pick with our_price_pick null, because the outright branch returns an unpriced row whenever the count is missing. Motor Racing, Darts and Rugby League therefore had no originated prices on the /olbg/ track at all. The fix reads the leading N/M with an anchored regex. This is not inference: the count is literally in the captured string, verbatim from the source, and the parser had simply failed to read it. Anything that does not begin with N/M still returns (None, None) and stays unpriced exactly as before. After the repair 179 of 180 rows parse (the remaining one rendered no count at all), 25 rows name the side OLBG's tips actually named, the eight outright rows above are priced for the first time, and 17 rows move from low to medium. All 12 live HIGH picks are unchanged in selection, probability and price, because every one of them carries an editorial prior from official form and never depended on the tip split — which is reassuring but was luck rather than design, and is recorded as such.",
+      "affected_rows": [
+        "all 180 /olbg/ rows",
+        "ICH-199984",
+        "HAN-12107",
+        "CRI-188832",
+        "MTR-913",
+        "MTR-828",
+        "MTR-912",
+        "DAR-26023",
+        "CRI-182606",
+        "RGL-2695857",
+        "RGL-2801554",
+        "RGL-2801600"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — betting-tips listings as captured 2026-10-23 (tips column reads 'N/M Win Tips')",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-157",
+      "severity": "medium",
+      "status": "corrected",
+      "sport": "Tennis",
+      "title": "The tennis market label \"Total Games\" was added to one of the three market-label sets that must stay in step, so the row classified by fallback rather than by design",
+      "summary": "tools/build_dataset.py OTHER_MARKETS lists 'Total Games' but scripts/model.py NON_WIN_CONSENSUS_MARKETS and tools/originate.py _non_win did not, so a totals-only consensus was not disclosed as excluded from winner probability.",
+      "detail": "OLBG's tennis listing renders event 902157 (Ann Li vs Ashlyn Krueger) under the market label 'Total Games' with the consensus 'Over 22.50' at 2/3. Three separate places classify market labels and they must agree: tools/build_dataset.py OTHER_MARKETS decides market_family, scripts/model.py NON_WIN_CONSENSUS_MARKETS decides whether the root board may reuse a consensus as a win probability, and tools/originate.py _non_win decides the same on the /olbg/ track and which disclosure flag is attached. 'Total Games' had been added to the first only. The practical effect on this row was small but real: resolve_team_side('Over 22.50', ...) matches neither player, so the row still fell through to the disclosed home-court baseline, but it was tagged only non_win_or_tie_consensus_mapped instead of also carrying non_win_consensus_excluded_from_winner_probability, so the published disclosure understated why the tip was not used. The genuine risk is prospective rather than present: a totals consensus whose text happens to contain a player name — 'Over 22.50 Ann Li' is a plausible rendering — would match resolve_team_side and be reused as a match-winner probability, pricing a totals tip as though it were a tip on the outcome. The related label 'Game Totals' was already present in all three sets, and the ice-hockey listing's own prose confirms totals markets are labelled per sport, so 'Total Games' is simply the tennis spelling of the same market. Added to both missing sets, and tests/test_audit_6327cf90.py now asserts the three sets are identical so a future label cannot be added to one and missed in the others.",
+      "affected_rows": [
+        "TEN-902157"
+      ],
+      "sources": [
+        {
+          "label": "OLBG — Tennis listing read 2026-10-23 (event 902157, market 'Total Games')",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ]
+    },
+    {
+      "id": "FL-158",
+      "severity": "high",
+      "status": "corrected",
+      "sport": "Volleyball",
+      "title": "Two Brazil Superliga verification records carried a DIFFERENT fixture's venue and local kick-off while published as confirmed against the national federation",
+      "summary": "OLBG events 37002 (Mackenzie W v Osasco W) and 37003 (Abel-Moda Brusque W v Praia Clube W) held the venue and clock of Sesi Vôlei Bauru v Fluminense and of Paulistano Barueri v Gerdau Minas respectively, and both rows published status verified. The prediction prose inherited the wrong venues.",
+      "detail": "All four /olbg/ rows citing source S-CBV-2627 (Confederação Brasileira de Voleibol, Superliga Feminina 2026/27) carry a facts field naming the fixture the transcribed line actually describes. For two of them the named fixture is not the event the record is keyed to. Event 37002 is the OLBG fixture 'Mackenzie W vs Osasco W' but its record held venue 'Arena Paulo Skaf, Bauru' and start_local '2026-10-24 21:00 BRT' with facts reading 'Sesi Vôlei Bauru vs Fluminense.' — Arena Paulo Skaf is Sesi Vôlei Bauru's home, and Mackenzie is a Belo Horizonte club. Event 37003 is 'Abel-Moda Brusque W vs Praia Clube W' but held venue 'Sportville, Barueri' and start_local '2026-10-25 18:30 BRT' with facts reading 'Paulistano Barueri vs Gerdau Minas (3-2 winners in Round 1).' — Sportville is Paulistano Barueri's home. The other two rows citing the same source (37000 Brasília Vôlei v Sesc RJ Flamengo at Ginásio Sesi Taguatinga, and 37001 Osasco v Sorocaba at Ginásio José Liberatti) do match their facts and are untouched, which suggests the Round 2 lines were transcribed one position out rather than that the source is unreliable. The consequence was not confined to two blank-looking fields: both rows published status 'verified', so a venue and a kick-off belonging to different matches were presented as confirmed against a governing body, and the prediction prose then reasoned from them — claiming 'Mackenzie's home-court familiarity in Bauru' and Brusque's 'home-court energy' at Barueri, in each case at an arena that is not that club's home. The repair follows the brief rather than the convenient option: the venue and local clock are BLANKED and the status downgraded, not corrected, because the federation listing could not be re-read in this pass and picking the right line from the neighbouring rows would be exactly the inference the brief forbids. The withdrawn values are retained inside each record as previous_venue and previous_start_local so the audit trail shows what was published and why it came off. Both write-ups were rewritten to state only what their sources support. The fixture identity itself — teams and competition — comes from the OLBG listing and is unaffected. This is the same defect class session-d0f5ca54 repaired on the SuperLega rows 36994/36997 as FL-154, found independently on two other rows; the shared lesson, recorded for future passes, is that a transcribed fixture list must be keyed back to the event id rather than to row position.",
+      "affected_rows": [
+        "VOL-37002",
+        "VOL-37003"
+      ],
+      "sources": [
+        {
+          "label": "Confederação Brasileira de Voleibol — Superliga Feminina 2026/27 (the lines for these two fixtures were not located on re-read)",
+          "url": "https://cbv.com.br/"
+        },
+        {
+          "label": "OLBG — Volleyball listing, events 37002 and 37003",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        }
+      ]
+    },
+    {
+      "id": "FL-159",
+      "severity": "high",
+      "status": "corrected",
+      "sport": "Handball, Volleyball",
+      "title": "Three analysis write-ups asserted form and statistics that no cited source supports, and one contradicted the official league table this project already holds",
+      "summary": "HAN-12107 claimed four home wins from five and a +18 differential for Villa de Aranda; the committed official ASOBAL table gives them 1 point from 6 and -34. All three pieces cited only a bare competition homepage, and the row had also picked the wrong side because of FL-156.",
+      "detail": "The brief requires that a value which cannot be confirmed from an official source is left blank and flagged, and that HIGH prose carries match-specific evidence. Three pieces on the /olbg/ track did the opposite: each cited a single root URL with no path — https://www.eurohandball.com, https://en.volleyballworld.com — while the prose made specific sporting claims that a homepage does not carry. HAN-12107 (Tubos Aranda Villa de Aranda v Fertiberia Puerto Sagunto, ASOBAL Jornada 7) is the serious case. Its write-up stated that Villa de Aranda 'have been strong at home this season with four wins from five home matches and a positive goal differential of plus 18' and that Puerto Sagunto were 'losing three of their four away fixtures'. The official ASOBAL standings this project already holds in data/official.json, read from asobal.es on 2026-10-22, give Tubos Aranda Villa de Aranda 1 point from 6 games with 177 goals for and 211 against, a -34 differential, and Fertiberia Puerto Sagunto 4 points from 6 with 182 for and 184 against, -2. Every figure in the prose is contradicted by the project's own committed source, and in the opposite direction. The citation compounded it: eurohandball.com is the European federation, not ASOBAL, so the source named could not have carried Spanish league standings even if a path had been given. The row had also selected Villa de Aranda, against both a unanimous 2/2 OLBG consensus on Puerto Sagunto and the official table; that was an artefact of FL-156, where the tip count '2/2 Win Tips' failed to parse and the pick defaulted to the home side. With the parser repaired the row now selects Puerto Sagunto at 1.52 (-192), agreeing with both the crowd and the table, and the write-up is rebuilt on the official ASOBAL numbers with the league's own site cited. VOL-37002 and VOL-37003 were the volleyball cases and also inherited the wrong venues described in FL-158; their claims about a young core developing chemistry in preseason, an opponent's roster still settling, building momentum and being near-unbeatable at home in preseason play are removed rather than replaced, since no retrieved source states any of them, and both now say plainly that standings, recent results and player availability are blank. All three remain analysis, not HIGH: each rests on a two- or three-tip sample, and none has a timezone-qualified official start. The general remedy for the class is a pass that replaces bare-homepage citations with the specific fixture or standings page and deletes any sentence that page does not support; the remaining bare-homepage citations elsewhere on the board are listed in the affected rows so a reviewer can discount their prose in the meantime.",
+      "affected_rows": [
+        "HAN-12107",
+        "VOL-37002",
+        "VOL-37003"
+      ],
+      "sources": [
+        {
+          "label": "Liga NEXUS ENERGÍA ASOBAL 2026/27 official standings (asobal.es, read 2026-10-22)",
+          "url": "https://asobal.es/liga/clasificacion/"
+        },
+        {
+          "label": "OLBG — Handball listing, event 12107",
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
         }
       ]
     }

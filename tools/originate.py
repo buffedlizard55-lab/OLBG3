@@ -418,8 +418,14 @@ def main() -> None:
             pick, p_pick, tot_override, tot_side_override, basis = EDITORIAL_STRENGTH[mid]
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
         else:
+            # Must stay identical to tools/build_dataset.py OTHER_MARKETS (minus the blank label,
+            # which is a Gaelic Football row that renders no market at all) and to
+            # scripts/model.py NON_WIN_CONSENSUS_MARKETS. tests/test_audit_6327cf90.py fails the
+            # build if they drift: a label present in one set and absent from another is classified
+            # by fallback rather than by design, and a totals consensus whose text happened to
+            # contain a player name would be reused as a match-winner probability. See FL-157.
             _non_win = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
-                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Games Won", "1st Set Winner", "Man Of The Match"}
+                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match"}
             side = None if (m.get("olbg_market") in _non_win) else resolve_team_side(m["olbg_consensus_selection"], home, away)
             if side is None:
                 # e.g. Handball "Tie" consensus or totals-only listing -> lean home edge

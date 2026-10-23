@@ -4,6 +4,58 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Seventh parallel 2026-10-23 pass, landed as a defect repair: the tip-count parser and three classes of unsourced claim — `session-6327cf90` (task-50)
+
+Full record: [`docs/audit-6327cf90.md`](docs/audit-6327cf90.md) · independent capture kept as evidence only: [`docs/harvest-20261023-1648z.tsv`](docs/harvest-20261023-1648z.tsv)
+
+**This session ran a complete 2026-10-23 daily pass and then discarded it, deliberately.** At rebase, PRs #119–#136 had already landed six parallel passes and `main` was strictly ahead on every axis — 311 root rows against our 250, 180 fresh `/olbg/` rows against our 141 fresh plus 265 carried, 10/12 live HIGH against our 6/8, a publication clock of `17:22Z` against our `16:48Z`, 147 register items against our 138 — and our drafted FL-131…FL-146 collided with six sessions' FL-131…FL-155. Merging would have regressed all of it and discarded sibling work, so the branch was reset to `origin/main` and only the net-new remainder re-applied, renumbered from **FL-156**. The superseded pass is preserved at branch tip `c01cb49`; its capture corroborates the siblings' rather than entering the harvest chain. Two findings converged independently with repairs already on `main` — the Stormers v Scarlets clock certified at 15:00 UTC where the URC's `KO 15.00 IRE & UK` means 14:00 UTC, and a live HIGH write-up reporting two URC Round 3 results backwards when both clubs won — which is weak evidence those repairs are right.
+
+### FL-156 — 167 of 180 rows were priced from a home-court baseline while disclosing a tip split that was never used
+
+`parse_tips()` in `tools/build_dataset.py` split the captured tips string on `/` and called `int()` on the second half. OLBG renders the count inside a longer control label — `'25/31 Win Tips'` on the 23 October captures, bare `'7/8'` on earlier ones — so `int("31 Win Tips")` raised, the `except ValueError` returned `(None, None)`, and **167 of 180 rows lost their tip count**. The failure was silent in both directions:
+
+- `inputs.basis` kept publishing *"OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment"* for **77 rows that had no tip split at all**. With `p_raw` null, `tools/originate.py` falls back to `p_shrunk = 0.5` plus the home-court logit, so those rows were priced from nothing but which side is at home. Their probabilities cluster between 0.50 and 0.5646 — the fingerprint of the fallback rather than of any sporting judgement.
+- **25 rows named the wrong side**, because with no split the pick defaults to the home team regardless of what the crowd tipped: `ICH-199984` read Chicago Blackhawks where OLBG's tips were 3/3 on Montreal; `HAN-12107` read Villa de Aranda against a unanimous 2/2 consensus *and* the official ASOBAL table; `CRI-188832` read New Zealand where the tips were on India.
+- **Every outright and race market was left with no price at all** — `MTR-913`, `MTR-828`, `MTR-912`, `DAR-26023`, `CRI-182606`, `RGL-2695857`, `RGL-2801554`, `RGL-2801600` each published `our_pick` with a null `our_price_pick`, because the outright branch returns an unpriced row when the count is missing. Motor Racing, Darts and Rugby League therefore had no originated prices on the `/olbg/` track.
+
+The fix reads the leading `N/M` with an anchored regex. **This is not inference**: the count is literally in the captured string, verbatim from the source, and the parser had failed to read it. Anything that does not begin `N/M` still returns `(None, None)` and stays unpriced exactly as before.
+
+**After the repair:** 179 of 180 rows parse (the last rendered no count at all); the 25 rows name the side OLBG's tips actually named; the eight outrights above are priced for the first time; 17 rows move `low` → `medium`; the brief's five-per-sport target is met by one sport for the first time (`meeting_5_target` 0 → 1, Rugby Union); and **all 12 live HIGH picks are unchanged in selection, probability and price**, because every one carries an editorial prior from official form and never depended on the tip split. That last point is reassuring but was luck rather than design, and is recorded as such.
+
+### FL-157 — a market label present in one of three sets that must agree
+
+OLBG's tennis listing renders event 902157 (Ann Li v Ashlyn Krueger) under the label `Total Games` with the consensus `Over 22.50`. Three places classify market labels and must stay in step: `tools/build_dataset.py` `OTHER_MARKETS`, `scripts/model.py` `NON_WIN_CONSENSUS_MARKETS`, and `tools/originate.py` `_non_win`. The label had been added to the first only. The effect on this row was small — `resolve_team_side("Over 22.50", …)` matches neither player, so it still fell through to the disclosed baseline — but the disclosure flag understated why the tip was unused. The genuine risk is prospective: a totals consensus whose text happens to contain a player name would be reused as a match-winner probability, pricing a totals tip as though it tipped the outcome. Added to both missing sets, and `tests/test_audit_6327cf90.py` now asserts all three are identical so a future label cannot be added to one and missed in the others.
+
+### FL-158 — two verification records held a different fixture's venue and kick-off while publishing as confirmed
+
+All four `/olbg/` rows citing `S-CBV-2627` (Confederação Brasileira de Voleibol, Superliga Feminina 2026/27) carry a `facts` field naming the fixture the transcribed line describes. For two of them it is not the event the record is keyed to:
+
+| event | the OLBG fixture | venue + clock it held | its own `facts` field |
+|---|---|---|---|
+| `37002` | Mackenzie W v Osasco W | Arena Paulo Skaf, Bauru · 2026-10-24 21:00 BRT | *"Sesi Vôlei Bauru vs Fluminense."* |
+| `37003` | Abel-Moda Brusque W v Praia Clube W | Sportville, Barueri · 2026-10-25 18:30 BRT | *"Paulistano Barueri vs Gerdau Minas (3-2 winners in Round 1)."* |
+
+Arena Paulo Skaf is Sesi Vôlei Bauru's home and Mackenzie is a Belo Horizonte club; Sportville is Paulistano Barueri's. The other two rows on the same source (`37000`, `37001`) match their facts and are untouched, which points to the Round 2 lines having been transcribed one position out rather than to an unreliable source. Both rows published `status: verified`, so a venue and kick-off belonging to different matches were presented as confirmed against a governing body — and the prediction prose reasoned from them, claiming *"Mackenzie's home-court familiarity in Bauru"* and Brusque's *"home-court energy"* at Barueri.
+
+The repair follows the brief rather than the convenient option: venue and local clock are **blanked** and status **downgraded**, not corrected, because the federation listing could not be re-read in this pass and choosing the right line from the neighbouring rows would be exactly the inference the brief forbids. The withdrawn values are retained inside each record as `previous_venue` / `previous_start_local`. Fixture identity — teams and competition — comes from the OLBG listing and is unaffected. Same defect class as FL-154 on SuperLega rows 36994/36997, found independently on two other rows; the shared lesson recorded for future passes is that a transcribed fixture list must be keyed back to the event id, never to row position.
+
+### FL-159 — three write-ups asserted form no cited source supports, and one contradicted a table this project already holds
+
+Three pieces cited a single root URL with no path — `https://www.eurohandball.com`, `https://en.volleyballworld.com` — while asserting specific sporting claims a homepage cannot carry. `HAN-12107` is the serious case: its prose stated Villa de Aranda *"have been strong at home this season with four wins from five home matches and a positive goal differential of plus 18"* and Puerto Sagunto were *"losing three of their four away fixtures"*. The official ASOBAL standings this project already holds in `data/official.json` (read from `asobal.es` on 2026-10-22) give:
+
+| club | GP | GF | GA | diff | pts |
+|---|---|---|---|---|---|
+| Tubos Aranda Villa de Aranda | 6 | 177 | 211 | **−34** | **1** |
+| Fertiberia Puerto Sagunto | 6 | 182 | 184 | −2 | 4 |
+
+Every figure in the prose is contradicted by the project's own committed source, in the opposite direction, and the cited host is the European federation rather than ASOBAL, so it could not have carried Spanish league standings even with a path. The row had also picked Villa de Aranda against both a unanimous 2/2 consensus and the table — an artefact of FL-156. With the parser repaired the row now selects **Puerto Sagunto at 1.52 (−192)**, agreeing with crowd and table alike, and the piece is rebuilt on the official numbers with the league's own site cited. `VOL-37002` and `VOL-37003` had their preseason-chemistry, roster-settling, momentum and home-court claims **removed rather than replaced**, since no retrieved source states any of them, and both now say plainly that standings, recent results and player availability are blank. All three remain `analysis`, not HIGH. The retraction history lives in the register and in each piece's `correction_note`, not in the reader-facing prose — an earlier draft narrated its own correction inline, and this session's own new audit test rejected it, because in a pick write-up that reads as hedging and buries the selection.
+
+### Gates after this pass
+
+unittest **167 OK** (25 dated pins skipped by the siblings' `archive_guard`; 18 new tests in `test_audit_6327cf90.py`) · `check_board.py` **PASS** (359 rows, 311 fixtures, 270 verified, 310 priced, 85 predictions) · `tools/check_site.py` **PASS** (20 pages, 180 fixtures, **12 HIGH**, 31 predictions, **151** flags) · `check.py` **PASS** · `check_links.py` **PASS** (108 pages, 2,266 links, **0 broken**) · two consecutive full rebuilds **byte-identical**. `.github/workflows/pages.yml` was not touched (`session-56f4da2b` still holds that task), nor the harvest chain, `data/raw/**`, `tests/archive_guard.py`, or any sibling's register item.
+
+**Handed on:** FL-143's five Pro D2 rows still carry `timezone: CET` on a date when France is on CEST — FL-148 holds two of the five and this pass did not widen it, since the LNR calendar could not be re-read here either. And FL-156's 25 side changes and 17 grade changes have had their *prices* checked but not their prose, so any piece written against a pre-repair pick on those rows should be re-read against the row it now sits on.
+
 ## Daily cycle 2026-10-23 (16:30Z capture, 16:55Z–17:22Z official re-observations, merged on top of PRs #119–#127) — `session-beb7787b`, 2026-10-23T17:22Z
 
 - **Capture.** All 15 in-scope OLBG listings re-read 16:16Z–16:40Z (180 rows, 0 excluded) into `data/raw/olbg-harvest-20261023T1630Z.tsv`; chained as a same-day supplementary source behind the 16:21Z v3 capture. 14 further root fixtures appended (NHL TB @ COL, NBA MEM @ GSW, PLK, Asobal/HBL, Swiss NL, PREM Rugby, Austrian/German volleyball), 66 tip-count syncs, OLBG label moves recorded with `start_prev` (Galway SFC final moved by the organisers to Sunday 25 Oct 4pm — FL-150).
@@ -18,7 +70,7 @@ At the real **2026-10-23T16:18Z** clock the previously committed `/olbg/` build 
 
 What the published numbers do and do not mean:
 
-- **Captured board, not a complete live feed.** 359 root rows (311 fixtures + 48 outright/race) captured 21–23 Oct 2026 (through `2026-10-23T17:22Z`), plus the **180-row** `/olbg/` live-probe track (`147` review-register items) refreshed by the 23 Oct captures, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
+- **Captured board, not a complete live feed.** 359 root rows (311 fixtures + 48 outright/race) captured 21–23 Oct 2026 (through `2026-10-23T17:22Z`), plus the **180-row** `/olbg/` live-probe track (`151` review-register items) refreshed by the 23 Oct captures, and the hourly NHL/MLB/NBA official-schedule feed. Public hourly OLBG discovery (`scripts/discovery.py`, robots-aware) records event links only and never invents fixtures, clocks or prices.
   These are repository counts, not a newly verified complete list of upcoming matches.
 - **Release gate.** A current `HIGH` pick requires an official fixture confirmation, a unique sourced write-up, an originated price inside **-250..+10000 US** (1.40–101.00 decimal, model price only — no bookmaker odds were verified), and a **recently checked, explicitly timezone-qualified official start** still ahead of the publication clock (`scripts/release.py`, `data/release_checks.json`). Expired, unverified-start, stale-source and source-conflict rows are published as analysis, not current picks; conflicts are also unpriced.
 - **No guessed timezones.** Bare OLBG clocks are published verbatim and never converted; only explicitly labelled official clocks (ET/CEST/…) are normalized to UTC. Pages re-check release expiry in the browser (`assets/release.js`).
