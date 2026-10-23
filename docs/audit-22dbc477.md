@@ -181,3 +181,20 @@ capture time (FL-141), so it has no rows to grade. The per-sport reason is a col
 table is in the methodology page: no live listing for that sport, no timezone-qualified official start, a fixture that has
 already started, or a price outside the window. Writing more than the evidence supports would mean inventing form,
 injuries or start times, so the shortfall stays visible.
+
+## 9. Follow-through after the merge
+
+| PR | What it changed | Evidence |
+| --- | --- | --- |
+| [#132](https://github.com/buffedlizard55-lab/OLBG3/pull/132) | Methodology section **1b**: the -250 to +10000 window worked through with the arithmetic (-250 = 71.43% implied, 70% at -233.33) and counts computed from the rows on every build | 130 priced, 126 in window, 2 above 70% (Darts, Rugby Union), 4 shorter than -250 |
+| [#133](https://github.com/buffedlizard55-lab/OLBG3/pull/133) | Removed the "stale" gate that turned ordinary merge pushes red and skipped `deploy`; the board is now committed after every main run once all checks pass | Run [39992194726](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39992194726) failed only at that step; [39994394754](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39994394754) is green end to end |
+| [#134](https://github.com/buffedlizard55-lab/OLBG3/pull/134) | The same question answered on `brief.html`, the page a reader lands on from the dashboard | Live: <https://buffedlizard55-lab.github.io/OLBG3/brief.html#window> |
+
+**Register.** `FL-145` records the drift-gate failure with the run links and the fix, so the irregularity is on
+Flagged for Review rather than only in this document. The register now holds 137 items.
+
+**Brief coverage, live at this build (2026-10-23T17:22Z board).** 16 of the 75 targeted picks, one sport meeting its
+five-pick target (Rugby Union), and 59 short. Per sport: Basketball 4, Volleyball 3, Ice Hockey 2, Baseball 1,
+Gaelic Football 1, Rugby Union 5, and 0 for Tennis, Golf, Cricket, Snooker, Rugby League, Motor Racing, Darts,
+Handball and Greyhounds. Each sport's shortfall is itemised with its mechanical reason on `brief.html`; the dominant
+reason is that most rows have no official current-form input for both sides, which is what a HIGH grade requires.

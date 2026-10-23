@@ -2076,3 +2076,14 @@ reproduced locally and not from the CI log text.
   `/OLBG3/` serves 345 captured rows and 5 current HIGH picks.
 - **Task state:** `task-46` **done**. Remaining irregularities are published on Flagged for Review with their sources; none
   blocks publication.
+
+#### Follow-up merges after the publication record
+
+| PR | Merged | What it settled |
+| --- | --- | --- |
+| [#132](https://github.com/buffedlizard55-lab/OLBG3/pull/132) | 2026-10-23 | `olbg/methodology.html` §1b: the -250 to +10000 window, with the 70% arithmetic and per-build counts |
+| [#133](https://github.com/buffedlizard55-lab/OLBG3/pull/133) | 2026-10-23 | The stale gate that made merge pushes red (and skipped `deploy`) is gone; every run on main commits its checked board |
+| [#134](https://github.com/buffedlizard55-lab/OLBG3/pull/134) | 2026-10-23 | The same window question answered on `brief.html`; `FL-145` records the drift-gate failure |
+
+Green after all three: run 39994394754 (`build` + `deploy`), pages build 39994436645. Live pages re-read:
+`brief.html` shows **16 of 75** targeted picks with the new window section, `olbg/methodology.html` carries §1b.

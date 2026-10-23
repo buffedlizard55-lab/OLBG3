@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">136 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">137 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -976,6 +976,13 @@
   <p>They are not deleted and not weakened: each class carries tests/archive_guard.pins(&#x27;&lt;harvest&gt;.tsv&#x27;), which runs the class when that file is the live harvest and skips it with a message naming the reason otherwise. tests/test_live_20261023.ArchiveIntegrity asserts every dated capture is still present with its row count, that the live capture is the newest, and that no archive is reused as the primary harvest.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw" rel="noopener nofollow" target="_blank">Archived dated captures (unchanged)</a></li></ul>
+</article>
+<article class="card flag" id="FL-145">
+  <div class="flag-head"><span class="tag">FL-145</span> <span class="sev sev-high">high</span></div>
+  <h2>A merge to main could leave CI red, and skip the deploy, without anything being wrong with the site</h2>
+  <p>Diagnosis is from the run and the API, not inferred: run 39992194726 failed only at step 16 (&#x27;Fail if the committed OLBG track is stale (push events)&#x27;) with every build step green, and the same job had passed for #128 and #130 minutes earlier. The workflow already committed its regenerated board after the checks passed, but only for schedule and workflow_dispatch runs. The gate has been removed and the commit step now runs for every run on main, after check.py, check_board.py, check_site.py, check_links.py and the unit tests, so main carries exactly the bytes that were checked. A separate, earlier failure — run 39989461574 — was actions/deploy-pages on a legacy-configured Pages site and is recorded as FL-138.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39992194726" rel="noopener nofollow" target="_blank">Run that failed at the stale gate</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/39994394754" rel="noopener nofollow" target="_blank">Run on main after the fix</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/pull/133" rel="noopener nofollow" target="_blank">PR #133 — commit the regenerated board on every main run</a></li></ul>
 </article>
 
 </main>
