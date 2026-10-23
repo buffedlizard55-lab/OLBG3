@@ -47,6 +47,16 @@ jobs:
             --delay 3 > "${{ steps.request.outputs.out }}/run.log" 2>&1
           echo "exit=$?" >> "${{ steps.request.outputs.out }}/run.log"
           cat "${{ steps.request.outputs.out }}/run.log"
+      - name: Probe official competition sources
+        if: ${{ always() }}
+        run: |
+          mkdir -p "data/raw/official-$(date -u +%Y%m%dT%H%MZ)"
+          set +e
+          python scripts/official_probe.py \
+            --out "data/raw/official-$(date -u +%Y%m%dT%H%MZ)" \
+            --delay 2 > "data/raw/official-$(date -u +%Y%m%dT%H%MZ)/run.log" 2>&1
+          echo "exit=$?" >> "data/raw/official-$(date -u +%Y%m%dT%H%MZ)/run.log"
+          cat "data/raw/official-$(date -u +%Y%m%dT%H%MZ)/run.log"
       - name: Show capture summary
         run: |
           python - <<'PY'
@@ -62,7 +72,7 @@ jobs:
         run: |
           git config user.name  'OLBG3 live harvest'
           git config user.email 'actions@users.noreply.github.com'
-          git add "${{ steps.request.outputs.out }}"
+          git add "${{ steps.request.outputs.out }}" data/raw/official-* 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'nothing new to commit'
             exit 0
