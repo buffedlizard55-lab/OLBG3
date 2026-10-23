@@ -4,6 +4,49 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## Evening re-verification pass, and the shortfall that comes with an honest clock — `session-4636f368` (task-53)
+
+Full record: [`docs/audit-4636f368.md`](docs/audit-4636f368.md) · register: **FL-168 … FL-175**
+
+**What this pass established.** Eight claims were checked against the governing bodies and four were
+wrong: a scoring average, a labelled losing streak, a "league-high" goal count and a pair of
+scorelines the county board does not print. One was wrong in the opposite direction — a repair that
+deleted figures its own cited page carries — and that was undone in the same pass, which is the only
+way a correction like this should be told.
+
+**The honest cost.** Recording fresh reads advanced the observation clock from `17:22Z` to `19:36Z`.
+Two EuroLeague picks had already tipped off and are now correctly analysis, and with them four
+basketball and rugby picks whose certified windows closed. Live high-confidence picks fall to
+**8 on the root board, 8 on `/olbg/`, 12 unique across 6 sports**, and **no sport meets the
+five-a-day target** — shortfall 63 of 75, published as `FL-174` rather than papered over with a
+pick the sources do not support. Nothing was promoted to compensate: `CRK-17` and `HBL-28` stay
+medium because the ICC and the Danish league print only reader-zone or unlabelled clocks.
+
+**The board is otherwise unchanged and still green.** 359 root rows, 250 confirmed against an
+official page, 231 handicaps and 115 totals recomputed from the same inputs, 202 tests, both
+integrity checks and the link sweep all pass, and a second full rebuild reproduces the tree exactly.
+
+## Evening 2026-10-23 pass — official re-verification, contradicted write-ups, and one over-correction caught and undone — `session-4636f368` (task-53)
+
+Full record: [`docs/audit-4636f368.md`](docs/audit-4636f368.md)
+
+**What this pass did.** It re-read the governing-body pages behind the live high-confidence picks and repaired every value they contradict — including, on a second read, one of its own first-round repairs. No new OLBG capture was attempted: this sandbox has no route to `olbg.com` from the shell, so the fixture set is unchanged and the five-per-sport target is still unmet (published as `FL-174`).
+
+| Flag | Row | Published | Official source read 2026-10-23 | Repair |
+|---|---|---|---|---|
+| `FL-173` | `BKB-29` | "average 98.2 points, second-best" | EuroLeague table: Olympiacos 564 in 6 = **94.0** (Valencia 97.2 is the only higher average) | totals + derived average quoted |
+| `FL-174` | `BKB-30` | "three-game losing streak" | EuroLeague table states no streak; Valencia roster confirms TJ Shorts | streak removed, Shorts kept **with the roster cited** |
+| `FL-175` | `IHO-199985` | "league-high 41 goals" | NHL.com: CAR 47, EDM 47, TOR 43, BOS 42 | rewritten as the comparison the table supports |
+| `FL-171` | `BSB-01` | 1.80 ERA, 252 K, 0.80 WHIP, 104.8 mph, 24-9 in his starts, 55-26 home | MLB's Game 1 preview — already this piece's first citation — prints every one of those rate and rest figures; the 55-26 split belongs to Tampa Bay | 55-26 withheld; the preview figures restored **with the citation intact**, after the first repair had deleted them |
+| `FL-172` | `GAF-01` | Carbery 4-23 to 1-11; 116-85 aggregate | Cork GAA page prints the three other scorelines only | replaced with the printed scorelines |
+| `FL-173` | build | `discovery.json` published from an empty scaffold on any rebuild without a discovery run | committed payload was tracked while its input was gitignored | runtime → committed → explicit empty, with tests |
+
+**Clock disclosure.** The stored publication clock is the newest official observation, so recording a fresh read moves it. It moved from `17:22Z` to `19:36Z`, which correctly expired the two EuroLeague picks whose games had tipped off (`18:15Z`, `18:45Z`). Live high-confidence picks are therefore **8 on the root track, 8 on `/olbg/`, 12 unique fixtures**, with no sport reaching the five-a-day target (shortfall 63 of 75) — a published shortfall, not a loss of work. The three Volleyball fixtures were re-certified from a fresh read of the same three-zone schedule (`FL-175`), so they remain valid to 24 October 19:36Z.
+
+**Deliberately not promoted.** `CRK-17` (India 1.57) and `HBL-28` (Aalborg 1.61) both sit in band with official form, but their governing bodies print only reader-zone or unlabelled clocks — ICC's "03:00 (Your time)" and the Danish league's bare local times. Certifying them would mean inventing a time zone, which this project does not do.
+
+
+
 ## Source-link integrity, and four HIGH write-ups repaired after re-reading their sources — `session-e6a228f9` (task-52)
 
 Full record: [`docs/audit-e6a228f9.md`](docs/audit-e6a228f9.md) · register: **FL-163** … **FL-167** on [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html) and the [`/olbg/` register](https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html)
@@ -217,7 +260,7 @@ date-level start gate, which made every rebuild differ from the committed tree; 
 publication clock, and a **SNAPSHOT STALE** banner appears on both boards once a capture is 30 h old (`FL-138`).
 A full rebuild is byte-identical.
 
-With no route to OLBG from this sandbox (FL-214), the fetch moved to a GitHub Actions runner and the served bytes
+With no route to OLBG from this sandbox (FL-014), the fetch moved to a GitHub Actions runner and the served bytes
 are committed as evidence:
 
 - **`scripts/live_harvest.py`** — robots-aware capture of all 18 in-scope listings, storing robots.txt, HTML, text
