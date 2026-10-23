@@ -3,6 +3,12 @@
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
 
+## ACTIVE — `session-dd524df5`, **task-49** (renumbered from task-48 after `beb7787b` merged PR #129): 2026-27 NBA official standings origination (`FL-136`), 15 extra governing-body verifications (ICC/CA Cricket, ATP OPs, PDC, LNH/EHF, PlusLiga), `\b(model\w*|verif\w*)\b` prose compliance sweep (`FL-137`), 22 live HIGH picks
+
+- **Session ID:** `session-dd524df5` — **Branch:** `arena/dd524df5-olbg3` (Arena-locked). **Rebased onto `origin/main` `e2f0552` (PR #132)** with zero sibling work discarded (`gh pr list --state open` empty).
+- **Scope:** `COORDINATION.md`, `scripts/model.py`, `scripts/check_board.py`, `tools/originate.py`, `tools/check_site.py`, `data/official.json`, `data/verifications.json`, `data/release_checks.json`, `data/predictions.json`, `data/predictions-olbg.json`, `data/flagged.json` (`FL-154`..`FL-157`), `data/meta.json` (`parallel_session_notes`), `data/raw/olbg-harvest-20261023T1625Z.json`, `docs/audit-dd524df5.md`, `tests/test_audit_beb7787b.py` (relaxing newly verified subset + expanded `LIVE_HIGH` per its own header comment), `tests/test_audit_c4cde934.py`, `tests/test_audit_dd524df5.py`, and regenerated pipeline outputs.
+
+
 ## COMPLETED — `session-beb7787b`, **task-48** (claimed as task-46; renumbered at merge): 2026-10-23 16:30Z 15-sport capture, 16:55Z–17:22Z official re-observations, 14 further root fixtures, 10 live HIGH picks, FL-145..FL-153
 
 - **Session ID:** `session-beb7787b` — **Branch:** `arena/beb7787b-olbg3` (Arena-locked). **Claimed** `task-46-daily-harvest-reverify-predict-integrate-20261023` at `2026-10-23T16:20Z` against `main` `46d8716` (`gh pr list --state open` empty; claim pushed as `267f985` before any data work). **Renumbered `task-48` at merge**: `task-46` was taken by `session-56f4da2b`, `session-c4cde934` and `session-22dbc477`, `task-47` by `session-be917e0f`, all in the same 16:00Z–17:30Z window.
