@@ -5933,5 +5933,26 @@
     "conclusion": "No change to VOL-27, VOL-28 or VOL-29: selection, side, venue and UTC clock all confirmed.",
     "resolves": "FL-181 (session-a87a3681): Volleyball World's three-zone print contradicts itself for the same fixtures. The league calendar settles it. VW's Match 30003 header reads 'Trento, Italy - 25 Oct 2026 - 17:00 Local Time' and its other rows read '17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time)'. Lega Pallavolo lista Trentino v Cisterna at 17:00 local and Perugia v Prata at 18:00 local on 25 October, a date on which Italy has already returned to CET (UTC+1). That makes 16:00Z and 17:00Z respectively - exactly the two values already committed for VOL-36994 and VOL-36997. So VW's '(UTC)' label is the wrong line, not the stored clocks, and no kick-off needs moving.",
     "settlement": "Committed UTC starts stand: VOL-36994 16:00Z, VOL-36997 17:00Z, VOL-27/28/29 17:00Z. Recorded at 2026-10-23T21:30Z from the league's own calendar."
+  },
+  "runner_probe_20261023T2144Z": {
+    "observation_clock_utc": "2026-10-23T21:44:34Z",
+    "session": "session-655b300a",
+    "origin": "Captured by the repository's own GitHub Actions runner via the live-harvest workflow triggered by this session's push, not by the sandbox retriever.",
+    "probe": "data/raw/official-20261023T2144Z",
+    "purpose": "Independent, runner-side confirmation of the three clock-critical fixtures behind tonight's high-confidence picks, after the earlier 16:28Z probe.",
+    "facts": {
+      "IHO-199984": "NHL game 2026020166, MTL @ CHI, startTimeUTC 2026-10-24T00:00:00Z, gameState FUT",
+      "IHO-199985": "NHL game 2026020167, TBL @ COL, startTimeUTC 2026-10-24T01:00:00Z, gameState FUT",
+      "BSB-01": "MLB gamePk 849805, Tampa Bay Rays @ Milwaukee Brewers, gameDate 2026-10-24T00:00:00Z, American Family Field"
+    },
+    "additional": {
+      "world_series_game_2": "gamePk 849802, Tampa Bay Rays @ Milwaukee Brewers, 2026-10-25T00:00:00Z, American Family Field",
+      "nhl_after_tonight": "TBL @ UTA 2026-10-25T01:00:00Z; FLA @ CHI 2026-10-25T19:00:00Z; MTL @ WPG 2026-10-25T23:00:00Z"
+    },
+    "failed_in_same_probe": {
+      "nba_schedule": "HTTP 403 — the same block recorded earlier as FL-046"
+    },
+    "harvest_in_same_run": "data/raw/live-20261023T2135Z carried 0 tip rows across all 18 in-scope listings (6 comment lines, 0 data rows in olbg-harvest-20261023T2135Z.tsv), which is why scripts/verify_live.py reports 'matched fixtures: 0' and no release clock was renewed from this run.",
+    "conclusion": "All three clock-critical fixtures are confirmed twice, from two independent official reads 76 minutes apart. No price, grade or clock changed as a result."
   }
 }

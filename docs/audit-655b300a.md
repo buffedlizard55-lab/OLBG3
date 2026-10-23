@@ -180,7 +180,30 @@ only clock this environment has; the CI runner advances `data/publication.json` 
 of every build, which is why a hand-written stamp can disagree with it by an hour and go unnoticed
 until a test asks the question.
 
-## 10. Publication
+## 10. A second, independent read — from the repository's own runner
+
+This session's push triggered the `Live OLBG listing capture` workflow, which committed a probe of its own:
+`data/raw/official-20261023T2144Z`. That gave a second official read of the three clock-critical fixtures,
+76 minutes after the retriever pass and from a completely different network:
+
+| Row | 16:28Z probe | 21:44Z runner probe | Verdict |
+|---|---|---|---|
+| `IHO-199984` | MTL @ CHI `2026-10-24T00:00:00Z` | game 2026020166, same start, `gameState FUT` | **confirmed twice** |
+| `IHO-199985` | TBL @ COL `2026-10-24T01:00:00Z` | game 2026020167, same start, `gameState FUT` | **confirmed twice** |
+| `BSB-01` | gamePk 849805, `2026-10-24T00:00:00Z` | gamePk 849805, same start, American Family Field | **confirmed twice** |
+
+The same probe yields the next fixtures for those clubs — Game 2 of the World Series (`849802`) is
+`2026-10-25T00:00:00Z` at the same ballpark, and the Canadiens, Avalanche and Blackhawks all play again on
+25–26 October — none of which is used here, because a fixture the OLBG capture does not carry cannot be
+priced. The probe's `nba_schedule` request returned **403**, the same block recorded elsewhere as FL-046.
+
+**Why no release clock was renewed from it.** `scripts/verify_live.py` only writes a certified clock when a
+fixture in the probe matches a row in the harvest it is given, and the 21:35Z harvest carried **zero tip
+rows** (six comment lines, no data) because OLBG rendered nothing. It reported `matched fixtures: 0`, so
+nothing was renewed — correctly. The 16:28Z–19:36Z observations remain the newest certified readings and are
+well inside their 24-hour window, so every live pick is still eligible on the evidence it cites.
+
+## 11. Publication
 
 - **PR:** [#157](https://github.com/buffedlizard55-lab/OLBG3/pull/157) — CI `Verify and publish dashboard` success on
   head `d9b480a` (run 40028859199); `Live OLBG listing capture` run 40028660939 ran alongside it.
