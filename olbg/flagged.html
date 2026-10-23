@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">152 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">154 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1089,11 +1089,25 @@
   <p class="muted small">Affected rows: DAR-32331, DAR-32336</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Darts/15" rel="noopener nofollow" target="_blank">OLBG — Darts listing, events 32331 and 32336</a></li><li><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship" rel="noopener nofollow" target="_blank">PDC — Machineseeker European Championship schedule of play (fixture and format only)</a></li></ul>
 </article>
+<article class="card flag" id="FL-161">
+  <div class="flag-head"><span class="tag">FL-161</span> <span class="sev sev-high">high — corrected</span></div>
+  <h2>Hourly rebuild reused a frozen source clock for publication expiry</h2>
+  <p>At the 19:20 UTC scheduled build on 23 October, the release clock was still 17:22 UTC, the newest committed source observation. Static data therefore retained HIGH for Olympiacos–Paris (18:15 UTC), Valencia–Maccabi (18:45 UTC), Connacht–Zebre (18:45 UTC) and Edinburgh–Lions (18:45 UTC). Browser badge expiry did not correct committed JSON or static counts. Publication time now lives in data/publication.json and advances once per CI build. Each official checked_at stays unchanged. The shared integrity checks independently recompute HIGH eligibility; an old eligible boolean is not enough. A passed scheduled start does not establish a match result.</p>
+  <p class="muted small">Affected rows: BKB-29, BKB-30, BKB-535925, BKB-535926, RGU-609577, RGU-609579</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">Official EuroLeague round-seven clock source (existing observation, not re-read in this pass)</a></li><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">Official URC fixture clock source (existing observation, not re-read in this pass)</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/arena/d6b030fc-olbg3/docs/audit-d6b030fc.md" rel="noopener nofollow" target="_blank">Audit, reproduction and limitations</a></li></ul>
+</article>
+<article class="card flag" id="FL-162">
+  <div class="flag-head"><span class="tag">FL-162</span> <span class="sev sev-review">review — editorial update</span></div>
+  <h2>Game 1 injury context added; separate Over 6.5 recommendation withdrawn</h2>
+  <p>Re-read MLB’s Game 1 preview and schedule in this session. The previous Milwaukee write-ups omitted the preview’s reported postseason absence of Shane McClanahan and the shoulder-related risk around Brandon Woodruff’s roster inclusion. Both pieces now include that context, recent player form, the starting pitchers and bullpen statistics actually stated in the preview. The OLBG-track Over 6.5 supporting lean was removed: this pass establishes no independent totals edge. The money-line selection and originated price are unchanged. Lineups in the article are proposed rather than confirmed and are not presented as starters. No bookmaker price, betting edge or calibrated win probability was established. Retrieval also reported an unexpected MLB final URL/title for the preview while returning its Game 1 text; this mismatch is documented in the audit for manual review and no source timestamp was renewed.</p>
+  <p class="muted small">Affected rows: BSB-01, BSB-160789</p>
+  <ul class="srclist"><li><a href="https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup" rel="noopener nofollow" target="_blank">MLB official Game 1 preview — Any injuries of note? and bullpen sections</a></li><li><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-23&amp;endDate=2026-10-25&amp;hydrate=team,linescore,probablePitcher" rel="noopener nofollow" target="_blank">MLB official schedule — Game 1 teams, time and probable pitchers</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T17:22:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T19:29:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
