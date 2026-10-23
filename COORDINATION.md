@@ -2397,3 +2397,10 @@ predictions, verification and lines pages. A regression suite for this session's
 `tests/test_followup_e6a228f9.py` (8 cases: FL-164 reversed Round 3 result, FL-165 Lions venue, FL-166 NBA schedule
 citation date, FL-167 verbatim-venue claim, plus flag-register uniqueness and https-source checks). Full suite after it:
 **225 tests OK** (25 archival skips).
+**Merge record (task-53).** PR [#152](https://github.com/buffedlizard55-lab/OLBG3/pull/152) merged
+**2026-10-23T19:49:04Z** as `ccca329`, and the regression follow-up PR
+[#153](https://github.com/buffedlizard55-lab/OLBG3/pull/153) merged as `23fefd8`; branch `build` check passed before each
+merge, and main's `Verify and publish dashboard` run finished **success** with Pages API `built` at `605371a`.
+Live re-read after the deploy: <https://buffedlizard55-lab.github.io/OLBG3/olbg/flagged.html> serves **168 register
+items**, and <https://buffedlizard55-lab.github.io/OLBG3/olbg/sports/rugby-union.html> shows the Leinster v Munster row
+with the Round 4 Match Centre among its sources. Test count on the merged tree: **225 OK** (25 archival skips).
