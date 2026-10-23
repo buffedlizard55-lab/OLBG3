@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">168 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">175 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1201,11 +1201,60 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship - 2026/27 fixtures in full</a></li><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship - table after Round 3</a></li><li><a href="https://stats.unitedrugby.com/match-centre/2026-27/4" rel="noopener nofollow" target="_blank">United Rugby Championship - Round 4 Match Centre (venues and local kick-off times)</a></li></ul>
 </article>
+<article class="card flag" id="FL-177">
+  <div class="flag-head"><span class="tag">FL-177</span> <span class="sev sev-high">high</span></div>
+  <h2>GFA-3530 published a Carbery scoreline and a five-game scoring aggregate that Cork GAA&#x27;s own final page does not print</h2>
+  <p>Cork GAA&#x27;s McCarthy Insurance Group Premier Senior Football Championship Final page was re-read at 2026-10-23T21:50Z. It prints four scorelines: Nemo Rangers 1-15 to 0-16 Carrigaline (semi-final), Nemo Rangers 1-20 to 1-17 Castlehaven (quarter-final), St Finbarrs 2-12 to 0-16 Clonakilty (semi-final), and for St Finbarrs&#x27; quarter-final only the words &#x27;a convincing victory over Carbery&#x27;. The published /olbg/ piece carried &#x27;defeating Carbery 4-23 to 1-11 in the quarter-final&#x27; and &#x27;a +31 scoring differential (116 for, 85 against)&#x27;. Neither figure is on the source. This is the same claim class recorded as FL-172 on the root track, so the repair applied there did not reach the /olbg/ piece. Repaired in this pass: the prose now quotes only the printed scorelines and states that the Carbery margin is not printed. The pick (St Finbarrs to win), price 1.62 and grade are unchanged; nothing else in the piece was re-sourced.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener nofollow" target="_blank">Cork GAA — Premier Senior Football Championship Final (re-read 2026-10-23T21:50Z)</a></li></ul>
+</article>
+<article class="card flag" id="FL-178">
+  <div class="flag-head"><span class="tag">FL-178</span> <span class="sev sev-medium">medium</span></div>
+  <h2>RGU-609578 named Aviva Stadium for Leinster v Munster while the competition&#x27;s own fixture list still marks the venue TBC</h2>
+  <p>Re-read at 2026-10-23T21:44Z, the URC&#x27;s 2026/27 fixtures-in-full page lists Round 4 Saturday 24 October as &#x27;Leinster v Munster — TBC, Dublin — KO 18.00 IRE &amp; UK / 19.00 ITA &amp; SA&#x27;. The piece published &#x27;Saturday&#x27;s Aviva Stadium derby&#x27;. A venue the governing body has not confirmed is an inference, so the prose was rewritten to say the fixture is at a Dublin venue the URC still lists as TBC. Kick-off 18.00 Irish and UK time, the opponent, the competition and the selection are unaffected.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship — 2026/27 fixtures in full (re-read 2026-10-23T21:44Z)</a></li></ul>
+</article>
+<article class="card flag" id="FL-179">
+  <div class="flag-head"><span class="tag">FL-179</span> <span class="sev sev-medium">medium</span></div>
+  <h2>BKB-534841 quoted two individual scoring lines that neither cited NBA page contains</h2>
+  <p>The piece cited only nba.com/schedule?date=2026-10-23 and nba.com/standings?date=2026-10-22. Both were re-read on 2026-10-23T21:47Z; the schedule page carries fixtures, venues and tip-off times, and the standings page carries W-L, conference/division, home/road, last-10 and streak columns. Neither prints individual player scoring lines. The two player claims were therefore removed rather than re-sourced, and the write-up now rests on the records, streaks, venue and OLBG tip split that the cited pages do show. Selection (San Antonio Spurs), price 1.72 and grade are unchanged. If a game-notes or box-score source is added later, the player detail can be restored with that citation.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-23" rel="noopener nofollow" target="_blank">NBA.com — official 12-game Friday 23 October slate (re-read 2026-10-23T21:47Z)</a></li><li><a href="https://www.nba.com/standings" rel="noopener nofollow" target="_blank">NBA.com — official 2026-27 standings (re-read 2026-10-23T21:47Z)</a></li></ul>
+</article>
+<article class="card flag" id="FL-180">
+  <div class="flag-head"><span class="tag">FL-180</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG&#x27;s sport listings returned no tip cards at 21:30Z, so the board still rests on the 2026-10-23T17:00Z capture</h2>
+  <p>Read through the page retriever at 2026-10-23T21:30Z, https://www.olbg.com/betting-tips/Ice_Hockey/13 and https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13 both served &#x27;No tips found.&#x27; inside an otherwise complete page, and the hub page at https://www.olbg.com/betting-tips rendered the same placeholder. This matches the CI capture requested at 19:35Z, where all 18 listings returned HTTP 200 with zero tip cards (run 40012642116). A fresh capture was nevertheless requested for this pass (.harvest/request.json, 21:35Z) so the observation is evidenced on the runner too. Consequence: the fixture set, prices and tip counts on the board are the 16:20Z capture&#x27;s and are not restated as tonight&#x27;s listings. No row, price or grade was inferred from the empty pages, and the five-per-sport target cannot be closed from an evening render that carries no fixtures. A second, independent capture confirms it on the repository&#x27;s own runner: the `.harvest/request.json` push at 21:35Z produced `data/raw/live-20261023T2135Z`, in which all 18 in-scope listings returned HTTP 200 with 0 tip-card blocks each (committed as c784266). The same run&#x27;s cited-page probe did capture useful official text (Top 14 journee 7, Pro D2 journee 8, ASOBAL, WTA order-of-play PDFs, SuperLega 30002/30003), but the Top 14 page prints bare &#x27;14h30 / 16h35 / 21h00&#x27; with no zone label, which the release gate rejects by design, so no additional fixture could be certified from it.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips hub, rendered &quot;No tips found.&quot; at 21:30Z</a></li><li><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13" rel="noopener nofollow" target="_blank">OLBG — Ice Hockey listing, rendered &quot;No tips found.&quot; at 21:30Z</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261023T2135Z" rel="noopener nofollow" target="_blank">data/raw/live-20261023T2135Z/manifest.json — runner capture, 18 listings, 0 tip cards (commit c784266)</a></li></ul>
+</article>
+<article class="card flag" id="FL-181">
+  <div class="flag-head"><span class="tag">FL-181</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Volleyball World&#x27;s three-zone clock print is internally inconsistent, and the two SuperLega records derived from it differ by an hour for matches at the same local time</h2>
+  <p>Re-read at 2026-10-23T21:56Z, https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/ heads the Itas Trentino v Cisterna Volley page &#x27;Trento, Italy - 25 Oct 2026 - 17:00 Local Time&#x27; and lists the other Round 2 fixtures in three zones as &#x27;17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time)&#x27;. The first two agree with each other; the third does not, because an Italian venue on 25 October is on CEST (UTC+2), so 17:00 UTC is 19:00 local. The committed release records inherit that disagreement: VOL-36994 (Trentino, local 17:00) is stored at 16:00 UTC while VOL-36997 (Perugia, local 17:00) is stored at 17:00 UTC. Both cannot be right. Nothing was restated as a fresh observation for VOL-36997, and VOL-36994 was re-certified only at the UTC figure the page itself prints, with this flag attached. Recommended resolution: prefer a federation or league page that prints one zone (Lega Pallavolo Serie A) before either pick is treated as clock-certain. The picks&#x27; selections and prices are unaffected; the start times may be an hour out.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #30003 (re-read 2026-10-23T21:56Z)</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #30002</a></li></ul>
+</article>
+<article class="card flag" id="FL-182">
+  <div class="flag-head"><span class="tag">FL-182</span> <span class="sev sev-high">high</span></div>
+  <h2>Five high-confidence picks per sport remain unmet: 17 distinct live picks against a target of 75, shortfall 58</h2>
+  <p>At the 2026-10-23T21:33Z publication clock the /olbg/ track publishes 15 high-confidence rows and the root track 8, which de-duplicate to 17 distinct fixtures across six sports. The brief asks for five per covered sport per day, i.e. 75. The binding constraints, counted from the rows themselves rather than asserted: (1) only 82 of the 177 captured OLBG rows have a start after the clock, and they are concentrated — Volleyball 15, Cricket 12, Basketball 12, Handball 9, Rugby Union 9, Darts 6, Gaelic Football 5, Tennis 5, Motor Racing 3, Rugby League 3, Ice Hockey 2, Baseball 1, Golf 0, Snooker 0, Greyhounds 0; (2) a high-confidence row additionally needs an official timezone-qualified clock, and only 19 fixtures in the whole capture have one; (3) the -250 to +10000 band excludes any pick whose fair probability exceeds 70%, which removes the strongest favourites in lopsided leagues. Nothing was promoted to close the gap: the Darts quarter-finals lost their clock when the PDC article could not be re-read through a consent wall, Handball&#x27;s Danish, German, French and Spanish leagues print unlabelled local times, and the ICC and WTA/ATP pages print reader-zone or &#x27;not before&#x27; clocks. This pass added the picks the sources support (seven), and publishes the shortfall instead of manufacturing six more.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/brief.html" rel="noopener nofollow" target="_blank">Published per-sport coverage accounting (brief.html)</a></li></ul>
+</article>
+<article class="card flag" id="FL-183">
+  <div class="flag-head"><span class="tag">FL-183</span> <span class="sev sev-low">low</span></div>
+  <h2>The five new NBA picks rest on one or two games of 2026-27 evidence, which is all the league has played</h2>
+  <p>The NBA&#x27;s own standings, read 2026-10-23T21:47Z, show Philadelphia and Oklahoma City at 2-0 and the remaining 28 clubs at 1-0 or 0-1. The five new selections (Atlanta, Indiana, Minnesota, Toronto, Detroit) are therefore supported by record, home/road split, streak, venue and the OLBG tip split, and by nothing longer-run. No injury report, rotation news or season-long rate statistic is quoted, because none was read. The probabilities assigned (0.585 to 0.645) are disclosure-bearing assumptions in tools/originate.py, not calibrated estimates, and every one of them sits inside the brief&#x27;s price band only because of that assumption. Treat these five as the weakest evidence class on the board until the season develops.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/standings" rel="noopener nofollow" target="_blank">NBA.com — official 2026-27 standings (re-read 2026-10-23T21:47Z)</a></li><li><a href="https://www.nba.com/schedule?date=2026-10-23" rel="noopener nofollow" target="_blank">NBA.com — official 12-game Friday 23 October slate (re-read 2026-10-23T21:47Z)</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T20:21:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-23T21:36:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
