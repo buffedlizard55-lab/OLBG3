@@ -1,5 +1,5 @@
 {
-  "note": "10 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "8 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -41,7 +41,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "RGU-07",
@@ -196,7 +196,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "RGU-10",
@@ -338,24 +338,16 @@
     },
     {
       "selection": "Milwaukee Brewers to win Game 1 (money line, 1.67 / -149)",
-      "headline": "Milwaukee’s sweep meets Tampa Bay’s late ALCS surge",
-      "body": "Milwaukee to win Game 1 is the money-line selection. The Brewers finished 103–59, scored 832 runs and allowed 618, then swept the Dodgers in four NLCS games, closing with a 6–4 win on October 15. Tampa Bay deserve respect after winning the last three ALCS games against Cleveland to take that series 4–2. Milwaukee’s 55–26 regular-season home record supplies the preference, not a guarantee. MLB.com's Game 1 preview now names the starters. Brewers right-hander Jacob Misiorowski led the majors with a 1.80 ERA, 252 strikeouts and a 0.80 WHIP, threw the fastest pitch of this postseason at 104.8 mph and goes on eleven full days of rest. The Rays counter with right-hander Nick Martinez — Tampa Bay are 24-9 in his starts this year including the playoffs, and he has allowed three runs across nine postseason innings, all on the road. That matchup tempers, but does not overturn, the home preference.",
+      "headline": "Milwaukee’s bullpen depth is the edge in a demanding Game 1 matchup",
+      "body": "Milwaukee to win Game 1 is the money-line selection. The Brewers swept the Dodgers in four NLCS games, and William Contreras enters the World Series hitting .367 with five RBIs in eight postseason games. Jacob Misiorowski led the regular season with a 1.80 ERA and 252 strikeouts, but the Dodgers made him throw 94 pitches in just 4⅓ innings in his last start. Eleven full days of rest offer a reset, not assurance of a long outing. Tampa Bay counter with Nick Martinez: the Rays are 24–9 in his starts including the playoffs, and he has allowed three runs in nine postseason innings. Availability matters too: Shane McClanahan is out for the postseason, while Milwaukee have added Brandon Woodruff despite the shoulder-related uncertainty described by MLB. The Brewers’ bullpen has a 1.33 postseason ERA; that depth, rather than an assumption of an easy pitching matchup, underpins the home preference.",
       "sources": [
         {
-          "label": "MLB official 2026 standings",
-          "url": "https://www.mlb.com/standings/2026"
-        },
-        {
-          "label": "MLB official postseason results and World Series schedule",
-          "url": "https://www.mlb.com/news/2026-mlb-playoff-and-world-series-schedule"
-        },
-        {
-          "label": "OLBG event page — TB Rays @ MIL Brewers (25/31 tips at 16:30Z)",
-          "url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160789"
-        },
-        {
-          "label": "MLB official World Series Game 1 preview (starters Nick Martinez vs Jacob Misiorowski)",
+          "label": "MLB Game 1 preview — pitching, recent form, bullpen and injury/roster report",
           "url": "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup"
+        },
+        {
+          "label": "MLB official schedule — Game 1, teams and probable pitchers",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher"
         }
       ],
       "ref": "BSB-01",
@@ -385,7 +377,7 @@
       ],
       "ref": "RGU-02",
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "selection": "Soyaux-Angouleme to win (3-way match betting, 1.46 / -217)",
@@ -411,7 +403,7 @@
       ],
       "ref": "RGU-03",
       "status": "analysis",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "selection": "Valence Romans to win (3-way match betting, 1.72 / -139)",
@@ -1014,7 +1006,8 @@
           "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Olympiacos_vs_Fenerbahce/4?event_id=535925"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "BKB-30",
@@ -1035,7 +1028,8 @@
           "url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Paris_vs_Valencia/4?event_id=535926"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "HBL-28",
@@ -1594,7 +1588,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "GAF-02",

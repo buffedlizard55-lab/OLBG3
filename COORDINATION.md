@@ -2176,8 +2176,17 @@ reproduced locally and not from the CI log text.
 - Branch naming follows Arena's fixed session branch restriction rather than creating another branch. No other session's branch is modified.
 - Plan: inspect existing data/release/publication checks, re-read reachable official sources, demonstrate any defect with regressions, publish explicit gaps without claiming a complete current feed, rebuild/check the site, then PR/merge/deployment confirmation. No source timestamp will be renewed without retrieval.
 
-### Scope extension and reproduced finding — 2026-10-23T19:40Z
+### Scope extension and reproduced finding — 2026-10-23T19:29Z
 
 The hourly build at 19:20Z still labels Olympiacos (official start 18:15Z), Valencia (18:45Z), Connacht (18:45Z) and Edinburgh (18:45Z) HIGH in committed JSON because `snapshot_utc()` is frozen to the newest *source* observation (17:22Z). Browser JavaScript expires some badges, but the feed, static counts and non-JavaScript pages remain stale. A build timestamp must not impersonate a new source check. Extend this task to a separate reproducible publication-clock file, its advance script, `.github/workflows/pages.yml` (one clock step only), `tests/test_freshness.py` / affected clock assertions, and generated output. This supersedes only the clock portion of the completed hourly-refresh task (PR #119); no active publishing-workflow implementation PR exists. No source-observation timestamp is renewed by the clock step.
 
 Official MLB schedule and Game 1 preview were fetched successfully in this pass. Extend editorial scope to the two Game 1 prediction records only: add the preview's actual injury/roster context and keep its uncertain lineups out. Other prediction entries are untouched.
+
+### Implementation / local verification — `session-d6b030fc`
+
+- Files actually added to scope: `scripts/publication_clock.py`, `data/publication.json`, `tests/test_audit_beb7787b.py` (only its expiry-dependent HIGH candidate pin), `tests/test_live_20261023.py` (age helper mock), `README.md`. Scope extension timestamp above corrected from an accidental future `19:40Z` to `19:29Z`; no source observation was involved.
+- `FL-161` fixes frozen publication expiry, strengthens both publication integrity gates and fixes accounting order. `FL-162` documents the Game 1 injury-context addition, removal of the extra totals recommendation and the retrieval tool's unexpected official-MLB final URL/title. Both are on the public Flagged for Review page. Full source/claim matrix: `docs/audit-d6b030fc.md`.
+- The official MLB schedule and the first two chunks of its Game 1 preview were actually read. All other historical source statuses remain inherited, not re-certified. `data/release_checks.json`, `data/verifications.json`, `data/official.json`, all captured payloads and the harvest chain are byte-unchanged. Origination probabilities/prices were not adjusted to meet a quota.
+- Local publication clock 19:29Z: root 359 rows, 8 HIGH; OLBG 180 rows, 8 HIGH; deduplicated union 12; **0/15 sports meet five, shortfall 63**. Four distinct selections were withdrawn from live HIGH at their existing official scheduled starts, without inferring outcomes.
+- Local tests: 181 total, 156 passed and 25 existing archival skips; board checker PASS; OLBG site checker PASS; official-feed checker PASS (53 rows); link checker PASS (108 pages / 2,246 links / zero broken before final documentation additions).
+- Final integration is owned by this session for these scoped changes only. Open PR #137 belongs to another session and is not merged or altered here. Next: deterministic rebuild check, branch CI, explicit PR merge and observed Pages confirmation.
