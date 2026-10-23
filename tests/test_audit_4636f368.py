@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Pins for session-4636f368's repairs (FL-163 to FL-170).
+"""Pins for session-4636f368's repairs (FL-168 to FL-175).
 
 Four published write-ups carried values that the official source read for that match
 contradicts or does not state, one build step could silently replace the published
 discovery payload with an empty scaffold, and three Volleyball clocks were re-certified
 from a fresh read of the same official page.
 
-  FL-163  BKB-29 quoted a 98.2 points-per-game average; the EuroLeague table gives 94.0.
-  FL-164  BKB-30 asserted a transfer and a losing streak the cited table does not carry.
-  FL-165  IHO-199985 called 41 goals a league high when four clubs had scored more.
-  FL-166  BSB-01 published rate stats, a pitch speed and a rest-days claim with no source
+  FL-168  BKB-29 quoted a 98.2 points-per-game average; the EuroLeague table gives 94.0.
+  FL-169  BKB-30 asserted a transfer and a losing streak the cited table does not carry.
+  FL-170  IHO-199985 called 41 goals a league high when four clubs had scored more.
+  FL-171  BSB-01 published rate stats, a pitch speed and a rest-days claim with no source
           read for the match; only the confirmed facts are kept.
-  FL-167  GAF-01 printed a quarter-final score and a five-match aggregate the Cork GAA page
+  FL-172  GAF-01 printed a quarter-final score and a five-match aggregate the Cork GAA page
           does not carry.
-  FL-168  build_site.py fell back to an empty discovery document on a clean checkout.
-  FL-169  five-per-sport target unmet; the reasons are structural, not claims.
-  FL-170  the three Volleyball clocks were re-read and re-certified.
+  FL-173  build_site.py fell back to an empty discovery document on a clean checkout.
+  FL-174  five-per-sport target unmet; the reasons are structural, not claims.
+  FL-175  the three Volleyball clocks were re-read and re-certified.
 
 The tests are deliberately narrow: they assert the specific claims cannot come back, not
 that this session's wording is the only acceptable wording. scripts/build_site.py executes
@@ -165,12 +165,12 @@ class TestDiscoveryPayloadCannotBeBlanked(unittest.TestCase):
 class TestRegisterEntriesExist(unittest.TestCase):
     def test_items_161_to_168_are_published(self):
         ids = {i["id"] for i in load("flagged.json")["items"]}
-        for number in range(163, 171):
+        for number in range(168, 176):
             self.assertIn(f"FL-{number:03d}", ids)
 
     def test_every_new_item_carries_a_source_link(self):
         items = {i["id"]: i for i in load("flagged.json")["items"]}
-        for number in range(163, 171):
+        for number in range(168, 176):
             item = items[f"FL-{number:03d}"]
             self.assertTrue(item.get("sources"), item["id"])
             for source in item["sources"]:
@@ -186,7 +186,7 @@ class TestRegisterReferencesResolve(unittest.TestCase):
 
     README cross-references the register ~90 times, and renumbering at rebase is exactly
     how a reference comes loose (this pass renumbered its own eight items from FL-161 to
-    FL-163 after two siblings had published FL-161/162). Ranges like FL-131..FL-146 are
+    FL-168 after two siblings had published FL-161/162). Ranges like FL-131..FL-146 are
     written with an ellipsis and are not matched by this pattern.
     """
 
@@ -200,7 +200,7 @@ class TestRegisterReferencesResolve(unittest.TestCase):
 
     def test_this_pass_kept_the_numbers_it_was_given(self):
         register = {item["id"]: item for item in load("flagged.json")["items"]}
-        for number in range(163, 171):
+        for number in range(168, 176):
             key = f"FL-{number:03d}"
             self.assertIn(key, register, "this pass's own item was renumbered away")
-            self.assertEqual(register[key].get("original_id"), f"FL-{number - 2:03d}", key)
+            self.assertEqual(register[key].get("original_id"), f"FL-{number - 7:03d}", key)
