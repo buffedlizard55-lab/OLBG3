@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # contents: write is needed only so scheduled/manual runs on main can commit the regenerated
-    # board (see the commit step below). Push runs keep the stale-output gate and never commit.
+    # board (see the commit step below). Every run on main commits its regenerated output after the checks pass.
     permissions:
       contents: write
       pages: write
@@ -51,7 +51,7 @@ jobs:
         run: |
           # Extract the newest committed live capture and re-certify whichever fixtures the newest
           # official probe can actually match. Both steps are deterministic: a re-run of the same
-          # capture rewrites byte-identical files, which is what the staleness check below relies on.
+          # capture rewrites byte-identical files, which is what makes the commit step below stable.
           python3 scripts/live_refresh.py
           python3 tools/build_dataset.py
           python3 tools/originate.py
@@ -73,21 +73,15 @@ jobs:
       # and the board is regenerated on every run, so running them first would fail on any hourly change.
       - name: Unit tests (after the rebuild)
         run: python -m unittest discover -s tests -v
-      - name: Fail if the committed OLBG track is stale (push events)
-        if: github.event_name == 'push'
-        run: |
-          if [ -n "$(git status --porcelain olbg-board data/matches.json data/lines.json data/predictions-olbg.json data/flagged.json data/raw data/verifications.json data/meta.json data/excluded.json data/gap_sports.json olbg)" ]; then
-            echo "::error::OLBG lines track is out of date. Run the build scripts and commit."
-            git --no-pager diff --stat olbg-board data
-            exit 1
-          fi
       - run: python scripts/check.py
       - run: python scripts/check_links.py
-      # Scheduled/manual runs on main: the board reads the wall clock (kick-off status, release gate), so every
-      # hourly rebuild legitimately differs from the last commit. Commit the regenerated output only AFTER every
-      # check above has passed, so main always carries exactly the bytes that were checked and deployed.
-      - name: Commit the regenerated board (scheduled or manual runs on main only)
-        if: github.ref == 'refs/heads/main' && github.event_name != 'push'
+      # Every run on main commits its regenerated board, whatever triggered it. The board reads the wall clock
+      # (kick-off status, release gate), so a rebuild a few minutes after the last commit legitimately differs; a
+      # hard "stale" gate therefore turned ordinary merge pushes red without anything being wrong with the site.
+      # Committing here, only after every check above has passed, keeps one rule instead of two: main always
+      # carries exactly the bytes that were checked and deployed, and the legacy branch publisher serves them.
+      - name: Commit the regenerated board (main only)
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -95,8 +89,9 @@ jobs:
           if git diff --cached --quiet; then
             echo "Regenerated board is identical to main; nothing to commit."
           else
-            git commit -m "Hourly board refresh (automated, after all checks passed)"
-            git push origin HEAD:main
+            git status --porcelain | head -40
+            git commit -m "Board refresh after checks passed (${{ github.event_name }} run)"
+            git push origin HEAD:main || (git pull --rebase origin main && git push origin HEAD:main)
             echo "Committed and pushed the regenerated board."
           fi
       - uses: actions/upload-artifact@v4
