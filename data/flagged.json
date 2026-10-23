@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T16:18:00Z",
+  "generated_at": "2026-10-23T16:45:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose.",
   "items": [
     {
@@ -2736,6 +2736,100 @@
         {
           "label": "OLBG - Ice Hockey tips",
           "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+        }
+      ]
+    },
+    {
+      "id": "FL-132",
+      "severity": "coverage",
+      "status": "needs review",
+      "sport": "Golf",
+      "title": "Golf listing carried no live market at the 2026-10-23 capture",
+      "summary": "OLBG's Golf listing (https://www.olbg.com/betting-tips/Golf/5) rendered 'No tips found.' at 2026-10-23T16:12Z. The page header still names this week's tournaments, but no tournament market was on the server-rendered listing, so no new golf row could be captured and golf contributes no pick for the day.",
+      "detail": "The rows already on the board (GLF-101904 Bermuda Championship, GLF-101905 Genesis Championship and the other outright/race rows in data/gap_sports.json) are the 21-22 October capture and are carried as dated analysis. Re-reading the listing later in the day is the only way to add today's golf markets; nothing was inferred from the tournament names.",
+      "sources": [
+        {
+          "label": "OLBG Golf listing",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ]
+    },
+    {
+      "id": "FL-133",
+      "severity": "coverage",
+      "status": "needs review",
+      "sport": "Rugby League",
+      "title": "Rugby League listing again carries only 2027 outrights, no two-sided fixture",
+      "summary": "At 2026-10-23T16:14Z the Rugby League listing showed State of Origin 2027 (27 May 2027), Super League 2027 (02 Oct 2027) and NRL 2027 (03 Oct 2027) and no upcoming match. Those three outright rows are already on the board and are priced on the outright/race track, so Rugby League cannot contribute a match pick while the season is between fixtures.",
+      "detail": "This repeats the finding first recorded in FL-102 and is restated with today's read so the shortfall accounting is dated rather than assumed.",
+      "sources": [
+        {
+          "label": "OLBG Rugby League listing",
+          "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
+        }
+      ]
+    },
+    {
+      "id": "FL-134",
+      "severity": "source-conflict",
+      "status": "needs review",
+      "sport": "Greyhounds",
+      "title": "Greyhound race-card time and OLBG listing clock differ by about five hours",
+      "summary": "The Greyhounds listing names each race by its card time (e.g. '8:33 Romford', '9:13 Romford') and prints a different listing clock beside it ('Today 15:33' and 'Today 16:13'). Both values are copied verbatim into the 16:20Z capture; neither is converted.",
+      "detail": "It is not established which clock, if either, is local track time, so no start can be certified and no greyhound race is boarded as a pick. The two Romford rows (event ids 689846 and 689717) are recorded in data/raw/olbg-harvest-20261023T1620Z.json under a sport that is priced on the outright/race track.",
+      "sources": [
+        {
+          "label": "OLBG Greyhounds listing",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-135",
+      "severity": "unverified",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "49 fixtures captured on 2026-10-23 publish unverified (no official source read in this pass)",
+      "summary": "The 16:20Z capture added 50 previously uncaptured OLBG events to data/sports/*.json (tennis 9, ice hockey 14, basketball 15, cricket 7, volleyball 14, handball 15, rugby union 15, darts 12, snooker 2). One (ice hockey event 199984) was confirmed on the NHL's own schedule; the other 49 carry only the verbatim OLBG listing, so their official fields are blank and their verification status is unverified.",
+      "detail": "Affected refs are pinned in tests/test_audit_d3464fe4.py (CAPTURE_20261023_UNVERIFIED) so the list cannot grow without a test change. Blank fields are intentional: no date, time, venue or competition was inferred from the team names. Rows that already existed on the board were not re-added, and no row was overwritten.",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-136",
+      "severity": "model-input",
+      "status": "needs review",
+      "sport": "Basketball",
+      "title": "NBA games cannot be graded HIGH: no official NBA form table is in the model inputs",
+      "summary": "The basketball pricing branch uses the EuroLeague's own standings. NBA rows (CHI @ MIL, MIN @ ORL, HOU @ SA, TOR @ WAS, DAL @ IND, ATL @ CHA, DET @ MIA, NO @ UTA, LA Clippers @ LA Lakers, POR @ SAC on 2026-10-23/24) have no official form input in data/official.json, so they fall back to the OLBG consensus share and are capped at LOW confidence by the model's own rule.",
+      "detail": "The brief asks for five high-confidence picks per sport per day. For Basketball that is only reachable through EuroLeague/domestic-league rows whose official tables are already in the dataset; the NBA portion of OLBG's basketball listing is published as analysis. Adding an NBA standings input is a separate, reviewable change (the NBA's own site is a JS application, so the value would have to come from a documented JSON endpoint).",
+      "sources": [
+        {
+          "label": "OLBG Basketball listing",
+          "url": "https://www.olbg.com/betting-tips/Basketball/4"
+        },
+        {
+          "label": "EuroLeague official standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        }
+      ]
+    },
+    {
+      "id": "FL-137",
+      "severity": "editorial",
+      "status": "needs review",
+      "sport": "Multiple",
+      "title": "Published prediction prose still contains the words 'model' and 'verified'",
+      "summary": "The brief requires that published predictions avoid the words 'model' and 'verified' (modelling and verification being internal). 78 written pieces were committed by earlier sessions and a number of them use those words in the body (for example 'the model's money-line selection'). Today's new piece does not use either word.",
+      "detail": "The wording is left in place rather than mass-rewritten in a data-only pass, because rewriting 78 hand-written pieces risks changing their meaning or their quoted prices. It is published here so the owner can decide whether to commission an editorial rewrite. No price, selection, source or grade is affected.",
+      "sources": [
+        {
+          "label": "OLBG — betting tips listings hub",
+          "url": "https://www.olbg.com/betting-tips"
         }
       ]
     }

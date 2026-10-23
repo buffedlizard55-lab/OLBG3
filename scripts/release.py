@@ -44,6 +44,11 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     # Evening 2026-10-22: the league's own schedule page is the canonical source for NBA tip-off
     # times, which it states explicitly as 'ET'. Reviewed session-cab97f19; structural only.
     'www.nba.com',
+    # 2026-10-23 (session-be917e0f): MLB's own schedule service publishes the World Series start
+    # as an explicit gameDate UTC timestamp (2026-10-24T00:00:00Z). Same organisation and dataset
+    # as www.mlb.com, served directly, so the host is reviewed here rather than inferring a value
+    # from a rendered page. Structural trust boundary only.
+    'statsapi.mlb.com',
 })
 
 

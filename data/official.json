@@ -1940,6 +1940,15 @@
       "source": "https://www.icc-cricket.com/matches/271647/new-zealand-vs-india",
       "source_label": "ICC official Match Centre — Match #271647 (New Zealand vs India)",
       "note": "ICC official match page is titled \"New Zealand vs. India | IND in NZ, 5 T20Is, 2026\" and the ICC fixtures strip lists NZ v IND T20 as UPCOMING; the match-centre body did not render a date/clock in this retrieval, so no start time is certified here."
+    },
+    "IHO-199984": {
+      "status": "verified",
+      "olbg": "Today 20:07",
+      "official": "Sat 24 Oct 2026, 00:00 UTC (Fri 23 Oct, 20:00 ET), United Center, Chicago",
+      "competition": "NHL 2026-27 regular season",
+      "source": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "source_label": "NHL official schedule API, 23 Oct 2026 gameweek",
+      "note": "The NHL's own payload names both clubs (Montreal Canadiens at Chicago Blackhawks) and states startTimeUTC 2026-10-24T00:00:00Z. OLBG event 199984 prints the same fixture as 'Today 20:07'."
     }
   },
   "form_data": {

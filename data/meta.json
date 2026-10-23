@@ -146,5 +146,18 @@
       "harvest_completed_utc": "2026-10-22T21:12:00Z",
       "note": "Evening listing read across Tennis, Basketball, Cricket, Darts, Rugby Union, Volleyball and Handball. Adds only events absent from the earlier captures; never restates a row those captures already published."
     }
-  ]
+  ],
+  "root_capture_20261023": {
+    "capture": "2026-10-23T16:20Z",
+    "file": "raw/olbg-harvest-20261023T1620Z.json",
+    "format": "v3-json (rows verbatim; every label copied, no clock converted)",
+    "session": "session-be917e0f",
+    "rows_captured": 107,
+    "appended_to_board": 50,
+    "already_on_board": 55,
+    "non_board_track": 2,
+    "excluded_sport_rows": 0,
+    "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
+    "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
+  }
 }
