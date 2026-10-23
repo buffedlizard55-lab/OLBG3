@@ -19,7 +19,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">122 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">123 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -877,6 +877,13 @@
   <p>Leagues involved: Brazil NBB and NBA (basketball), South African domestic T20 (cricket), French/German/Danish/Spanish domestic handball, Danish Metal Ligaen and win2day ICE Hockey League (ice hockey), URC Edinburgh v Lions and Premiership Newcastle v Sale (rugby union), and Finnish/Austrian/German domestic volleyball. The nine other evening fixtures (eight tennis quarter-finals and NZ v India) were verified against ATP/WTA/ICC pages read that evening. This is the root-track counterpart of FL-101/FL-126 (the /olbg/-only evening rows). tests/test_audit_d3464fe4.py pins this exact exemption set so the list cannot grow silently.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG — betting tips listings hub</a></li></ul>
+</article>
+<article class="card flag" id="FL-131">
+  <div class="flag-head"><span class="tag">FL-131</span> <span class="sev sev-freshness">freshness</span></div>
+  <h2>2026-10-23 clock: 22-Oct HIGH picks expired; no new 23-Oct OLBG harvest verified this session</h2>
+  <p>Session-c4cde934, 2026-10-23. Evidence: pre-rebuild `python3 tools/check_site.py` FAILED listing the five expired ICH ids above; post-rebuild it passes with high=17, all dated 2026-10-23 or later in data/lines.json. Remaining /olbg/ HIGH by sport: Basketball 5, Rugby Union 5, Baseball 1, Cricket 1, Darts 1, Gaelic Football 1, Golf 1, Motor Racing 1, Volleyball 1; Tennis, Snooker, Handball, Rugby League, Greyhounds and Ice Hockey have 0 current /olbg/ HIGH. Root-track measurement is an audit measurement only (OLBG_NOW_UTC override), not a committed root rebuild, because the committed root build is byte-reproducible against its stored observation clock by design (see FL-067/FL-099 history). OLBG&#x27;s own all-sports page was re-read this session and still rendered the 22-Oct slate labelled &#x27;Today&#x27;, which is itself inconsistent with the 2026-10-23 calendar clock; no fixture was re-dated from that label.</p>
+  <p class="muted small">Affected rows: ICH-199931, ICH-199932, ICH-199933, ICH-199940, ICH-199941</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG - all-sports betting tips (re-read 2026-10-23; labels not re-dated from)</a></li><li><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13" rel="noopener nofollow" target="_blank">OLBG - Ice Hockey tips</a></li></ul>
 </article>
 
 </main>
