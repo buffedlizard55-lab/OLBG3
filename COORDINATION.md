@@ -2361,3 +2361,33 @@ re-read and verified in this pass rather than the version first read (see the au
 
 - Closure rebase: PR #147 (`session-e6a228f9`) landed during the follow-up. Retained its entire append-only audit record and all source-link/prose repairs. Resolved another EOF-only coordination conflict by keeping both entries; the duplicated scheduled-output commit was automatically recognized as already upstream and skipped by Git. This session makes no claim to have performed that sibling's official re-reads. Rechecked the combined suite before the closure merge.
 - Combined closure result after PR #147: **201 tests, 176 passed / 25 existing archival skips**, no failures; root and OLBG integrity checks PASS; internal links 108 pages / 2,246 links / zero broken. All five sibling review-register additions (FL-163..FL-167) are retained, bringing the register to 159 items.
+
+### Follow-up — `session-e6a228f9`, task-53 (claim + result, 2026-10-23T20:0xZ)
+
+**Claim.** Scope: `data/verifications.json`, `data/official.json`, `data/events.json`, `data/matches.json` (regenerated),
+`data/flagged.json` (one new item), the generated pages, and this log. Nothing outside those files.
+**Task id:** `task-53-urc-venue-confirmation-20261023`. No other session claims it; taken because the URC Match Centre
+now states a fact the dataset still marks unknown.
+
+**What changed (one fact, verified twice).** `RGU-609578` Leinster v Munster was published with venue `TBC, Dublin`,
+carried as an open limitation for two days. The URC Match Centre Round 4 page, re-read 2026-10-23T19:58Z, lists
+`Leinster … 13:00 … Munster` at **Aviva Stadium** on a page that states *All times shown are Local*; 13:00 US Eastern =
+17:00 UTC = 18:00 Irish, which agrees independently with the fixtures-in-full list's `KO 18.00 IRE & UK` and with the
+start this dataset already published. Two official pages now name Aviva (Match Centre + Leinster Rugby's fixtures page,
+read 22 Oct), so the venue is filled rather than left blank. The superseded `TBC, Dublin` wording is kept inside the
+observation notes so the change is auditable; the dated 17:02Z quote in `data/release_checks.json` is retained as a
+quote and its note already records the corroboration.
+
+**New register item.** `FL-176` (medium): the landing page states that every high-confidence row is *backed by official
+governing-body sources*, while three of the eight rows render a single fixture-list link that carries none of the table,
+scoreline or venue facts their write-ups quote. Disclosed, not hidden; the affected write-ups themselves were re-read
+and repaired earlier under FL-164/FL-165.
+
+**Not claimed here.** No price, selection, probability, grade or start clock was changed. No new fixture was added —
+OLBG's listings still render client-side in this sandbox (FL-008/FL-077), and the five-per-sport target remains unmet
+(FL-174).
+
+**Gates on the merged tree:** 217 tests OK (25 skipped archival pins); `check_board.py` PASS (359 rows / 311 fixtures /
+270 verified / 310 priced / 85 pieces); `tools/check_site.py` PASS (20 pages / 180 fixtures / 180 lines / 8 HIGH / 31
+pieces); `check.py` PASS (53 fixture rows); `check_links.py` 108 pages / 2 246 links / **0 broken**; both tracks rebuilt
+from data.
