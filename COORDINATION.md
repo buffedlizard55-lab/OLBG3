@@ -2039,5 +2039,26 @@ reproduced locally and not from the CI log text.
 
 ### MERGE & PAGES RECORD — `task-46` (session-22dbc477)
 
-- PR into `main` from `arena/22dbc477-olbg3`, merged without waiting for review after the branch check went green.
-- Merge commit, CI run ids and the post-deploy live-URL re-read are appended in the PR description and the audit doc.
+- **PR [#127](https://github.com/buffedlizard55-lab/OLBG3/pull/127) MERGED** into `main` as
+  [`1786427`](https://github.com/buffedlizard55-lab/OLBG3/commit/1786427) at 2026-10-23T16:45:42Z. Branch check `build`
+  **success** on head `6fa0969` (run 39989161377).
+- **Collision disclosed:** `origin/main` had advanced to `a1e72a6` (PRs #122–#126, session `be917e0f`) with its own
+  2026-10-23 capture and its own `FL-131`…`FL-137`. `main` was merged into this branch; the other session's capture,
+  register items and pages were kept, generated outputs were rebuilt from this branch's inputs, and **this session's seven
+  items were renumbered `FL-138`…`FL-144`**. Nothing of theirs was deleted or reworded; `data/meta.json` carries the
+  arrangement under `parallel_session_notes`.
+- **Post-merge findings, and what was done about them:**
+  1. The `build` job on `main` is now **green** — the staleness check that had failed hourly since midnight passes
+     (run 39989461574, steps 1–21 all success).
+  2. The `deploy` job failed at `actions/deploy-pages` because this repository's Pages site is configured
+     `build_type: "legacy"` (branch `main`, path `/`): the branch publisher does the publishing and `deploy-pages` cannot
+     succeed. The site was nevertheless live and current — it was re-read after the merge and serves the 2026-10-23 board
+     (executive summary, 177 fixtures / 14 sports, 5 HIGH picks, 136 register items).
+  3. Two fixes were merged in the follow-up: the deploy job now attempts `deploy-pages` with `continue-on-error` and its
+     smoke tests fall back to the known Pages URL, so a legacy-published site cannot leave `main` red; and the capture
+     workflow is scoped to `arena/**` branches so a merge can no longer trigger a bot commit on `main`.
+- **Live confirmation (fetched after the deploy, not inferred):**
+  <https://buffedlizard55-lab.github.io/OLBG3/olbg/> renders `EXECUTIVE SUMMARY · build 2026-10-23 16:45Z`, *177 fixtures
+  across 14 sports*, *5 picks currently pass every gate* (Baseball 1.62/-161, Volleyball 1.58/-172, Rugby Union 1.42/-238,
+  1.44/-227, 1.53/-189) and the per-sport "why fewer than five live HIGH picks" column;
+  <https://buffedlizard55-lab.github.io/OLBG3/> renders 345 captured rows, 5 current HIGH picks and the brief-coverage line.
