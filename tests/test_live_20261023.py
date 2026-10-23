@@ -175,12 +175,29 @@ class ArchiveIntegrity(unittest.TestCase):
         # OLBG rendered "No tips found." for all 18 in-scope listings (FL-180). The primary harvest is
         # therefore the newest capture that actually carries rows, and the empty later capture is kept
         # as evidence rather than deleted. Assert both halves so neither can drift silently.
+        #
+        # 2026-10-23T22:10Z (session-d26daaf0, FL-191): the same intent, asserted one level stronger,
+        # and the cause fixed rather than tolerated. FL-180 made THIS test filter out harvest files
+        # with no rows; the two places that produced the empty file were untouched, so
+        # scripts/extract_listings.py still wrote a zero-row TSV for an empty capture and
+        # scripts/live_refresh.py still chose captures by name alone ("the newest one by name wins").
+        # Any resolver using "newest harvest TSV" instead of data/meta.json["harvest_file"] would
+        # still have picked the empty one and published zero rows over the board. Both are now fixed
+        # at the source, so the evidence this test protected lives where it belongs — the committed
+        # capture directory (18 served HTML pages + manifest + extract-report.json) — and no zero-row
+        # harvest file exists to be picked up by name.
         paths = sorted((ROOT / 'data/raw').glob('olbg-harvest-*.tsv'), key=lambda p: p.name)
-        with_rows = [p for p in paths
-                     if [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
-        self.assertEqual(with_rows[-1].name, 'olbg-harvest-20261023T1700Z.tsv')
-        empty = [p.name for p in paths if p not in with_rows]
-        self.assertIn('olbg-harvest-20261023T2135Z.tsv', empty)
+        empty = [p.name for p in paths
+                 if not [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
+        self.assertEqual(empty, [],
+                         'a zero-row harvest file is selectable by name, so none may be committed')
+        self.assertEqual(paths[-1].name, 'olbg-harvest-20261023T1700Z.tsv',
+                         'with the guard in place, newest by name IS newest with rows')
+        # The empty 21:35Z capture is still evidence — as a capture, not as a derived empty TSV.
+        capture = ROOT / 'data/raw/live-20261023T2135Z'
+        self.assertTrue((capture / 'manifest.json').exists(), capture)
+        self.assertTrue((capture / 'extract-report.json').exists(), capture)
+        self.assertEqual(len(list((capture / 'listings').glob('*.html'))), 18, capture)
 
     def test_archived_files_are_not_reused_as_the_primary_harvest(self):
         meta = json.loads((ROOT / 'data/meta.json').read_text())
