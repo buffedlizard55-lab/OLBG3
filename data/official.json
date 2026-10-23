@@ -5910,5 +5910,28 @@
       "detail": "Six clubs behind this project's rugby picks (Leinster, Munster, Bulls, Stormers, Scarlets, Ulster) have identical points, points-for and points-against in the stored 21 October table and the 23 October table; only their ordinal position moved, because Edinburgh, Cardiff, Connacht and Zebre played Round 4 on 23 October.",
       "consequence": "The model inputs behind the published rugby probabilities are unchanged, so no price was repriced. The ordinals in the prose were still wrong and were corrected (FL-177)."
     }
+  },
+  "superlega_2026_27_round2_20261023T2130": {
+    "observation_clock_utc": "2026-10-23T21:30:00Z",
+    "session": "session-655b300a",
+    "purpose": "Close the open question from earlier passes about whether VOL-27, VOL-28 and VOL-29 name the correct home side and clock. Answered from the league's own calendar, which prints a venue for every fixture; no row was repriced.",
+    "source": "https://www.legavolley.it/calendario/?idCampionato=999",
+    "findings": {
+      "VOL-27": "2ª Giornata #7, Domenica 25/10/2026 Ore 18:00, Sir Susa Scai Perugia (Casa) v Tinet Prata di Pordenone, Pala Barton Energy, Perugia (PG). 18:00 CET on 25 October = 17:00Z, matching the published kickoff_utc.",
+      "VOL-28": "2ª Giornata #10, Domenica 25/10/2026 Ore 18:00, Cucine Lube Civitanova (Casa) v Pallavolo Padova, Eurosuole Forum, Civitanova Marche (MC). 17:00Z, matching the published kickoff_utc.",
+      "VOL-29": "2ª Giornata #12, Domenica 25/10/2026 Ore 18:00, Vero Volley Monza (Casa) v Rana Verona, OpiquadArena, Monza (MB). 17:00Z, matching the published kickoff_utc."
+    },
+    "round1_results_confirmed": [
+      "17/10 Rana Verona 0-3 Cucine Lube Civitanova (Pala MAGIS)",
+      "18/10 Valsa Group Modena 0-3 Itas Trentino (PalaPanini)",
+      "18/10 Pallavolo Padova 0-3 Gas Sales Bluenergy Piacenza (Kioene Arena)",
+      "18/10 Cisterna Volley 3-0 Allianz Milano (Cisterna di Latina)",
+      "18/10 Acqua Sant'Anna Cuneo 2-3 Sir Susa Scai Perugia (Cuneo)",
+      "18/10 Tinet Prata di Pordenone 3-1 Vero Volley Monza (Pordenone)"
+    ],
+    "grid_reading_note": "The andata grid on /risultati prints dates in a matrix whose rows and columns are both clubs; reading a cell as 'venue v opponent' inverts home and away. Read that way, the grid appears to put Padova at home to Civitanova and Verona at home to Monza. The dated calendar entries above are the authority: both are the reverse. Nobody should re-derive home advantage from the grid.",
+    "conclusion": "No change to VOL-27, VOL-28 or VOL-29: selection, side, venue and UTC clock all confirmed.",
+    "resolves": "FL-181 (session-a87a3681): Volleyball World's three-zone print contradicts itself for the same fixtures. The league calendar settles it. VW's Match 30003 header reads 'Trento, Italy - 25 Oct 2026 - 17:00 Local Time' and its other rows read '17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time)'. Lega Pallavolo lista Trentino v Cisterna at 17:00 local and Perugia v Prata at 18:00 local on 25 October, a date on which Italy has already returned to CET (UTC+1). That makes 16:00Z and 17:00Z respectively - exactly the two values already committed for VOL-36994 and VOL-36997. So VW's '(UTC)' label is the wrong line, not the stored clocks, and no kick-off needs moving.",
+    "settlement": "Committed UTC starts stand: VOL-36994 16:00Z, VOL-36997 17:00Z, VOL-27/28/29 17:00Z. Recorded at 2026-10-23T21:30Z from the league's own calendar."
   }
 }

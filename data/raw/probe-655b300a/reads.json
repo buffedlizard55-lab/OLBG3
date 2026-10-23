@@ -84,6 +84,12 @@
       "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-11&endDate=2026-10-22",
       "established": "Postseason results: NLCS Brewers beat Dodgers in four (2-1, 7-4, 6-2, 6-4, the clincher on officialDate 2026-10-15); ALCS Rays won 4-2 after losing Game 1 at home 3-7.",
       "quote": "\"date\":\"2026-10-15\" ... \"Los Angeles Dodgers\",\"score\":4 ... \"Milwaukee Brewers\",\"score\":6"
+    },
+    {
+      "url": "https://www.legavolley.it/calendario/?idCampionato=999",
+      "established": "The league's dated calendar prints a venue on every fixture, which settles home side and local clock for all three SuperLega picks: #7 Sir Susa Scai Perugia (Casa) v Tinet Prata, 25/10 18:00, Pala Barton Energy; #10 Cucine Lube Civitanova (Casa) v Pallavolo Padova, 25/10 18:00, Eurosuole Forum; #12 Vero Volley Monza (Casa) v Rana Verona, 25/10 18:00, OpiquadArena. Italy is back on CET on 25 October, so 18:00 local is 17:00Z - the value all three rows already carried.",
+      "quote": "| 7 | Domenica 25/10/2026<br>Ore 18:00 | Sir Susa Scai Perugia | 0-0 | Tinet Prata di Pordenone | ... Pala Barton Energy<br>Perugia (PG) | ... | 10 | Domenica 25/10/2026<br>Ore 18:00 | Cucine Lube Civitanova | 0-0 | Pallavolo Padova | ... Eurosuole Forum<br>Civitanova Marche (MC)",
+      "note": "Also resolves session-a87a3681's FL-181: Volleyball World's '(UTC)' line is the erroneous one. The andata matrix on /risultati invites the opposite reading and must not be used to derive home advantage."
     }
   ],
   "failed_reads": [
@@ -96,5 +102,5 @@
       "result": "404 Not Found. Golf's authoritative listing path is /betting-tips/Golf/5, not the slug alone \u2014 the same grammar already documented in docs/olbg-structure.md."
     }
   ],
-  "clock_note": "Single stamp for a read window that ran 21:28Z-21:36Z. An earlier revision of this file carried 22:40Z, 63 minutes ahead of the build clock; that stamp was withdrawn and is recorded as FL-183. Nothing else in the file changed."
+  "clock_note": "Single stamp for a read window that ran 21:28Z-21:36Z. An earlier revision of this file carried 22:40Z, 63 minutes ahead of the build clock; that stamp was withdrawn and is recorded as FL-190 (first drafted as FL-183, renumbered when session-a87a3681 published that id). Nothing else in the file changed."
 }

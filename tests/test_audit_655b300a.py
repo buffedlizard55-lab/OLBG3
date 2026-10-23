@@ -1,11 +1,13 @@
-"""Regression pins for session-655b300a (task-54, 2026-10-23T22:40Z pass).
+"""Regression pins for session-655b300a (task-54, 2026-10-23 21:28Z-21:36Z pass).
 
 The pass found five league-table ordinals in four Rugby Union write-ups that the URC table had
-overtaken after the three Friday Round 4 matches, and recorded five further irregularities rather
-than repairing them. These tests pin both directions: the corrected ordinals, and the disclosure
+overtaken after the three Friday Round 4 matches, confirmed all three SuperLega fixtures against the
+league's own dated calendar, and recorded six further irregularities rather than repairing them.
+These tests pin both directions: the corrected ordinals and confirmed fixtures, and the disclosure
 items that must stay published instead of being silently dropped.
 
-Nothing here depends on the wall clock, the network, or a sibling's register numbering.
+Nothing here depends on the wall clock, the network, or a sibling's register numbering: the
+ids were renumbered from FL-177..FL-183 when session-a87a3681 published those numbers first.
 """
 import json
 import pathlib
@@ -21,7 +23,7 @@ def load(name):
 
 
 class TestUrcOrdinals(unittest.TestCase):
-    """FL-177: the table published on 23 October puts Leinster 11th, Munster 10th, Bulls 4th,
+    """FL-184: the table published on 23 October puts Leinster 11th, Munster 10th, Bulls 4th,
     Stormers 5th, Ulster 12th and Scarlets 13th. Four write-ups had the pre-Round-4 order."""
 
     STALE = {
@@ -30,23 +32,23 @@ class TestUrcOrdinals(unittest.TestCase):
             "Munster are ninth on 9",
         ],
         "predictions-olbg.json": [
-            "puts Leinster tenth on eight points",
-            "Munster sit ninth on nine points",
+            "Leinster tenth on eight points",
+            "Munster ninth on nine points",
             "places the Stormers fourth on 11 points",
-            "Scarlets sit twelfth on 7 points",
-            "has the Bulls third on 11 points",
-            "Ulster are eleventh on 8 points",
+            "the Scarlets twelfth on seven points",
+            "the Bulls are third on 11 points",
+            "Ulster are eleventh on eight points",
         ],
     }
     FRESH = {
         "predictions.json": ["sit 11th on 8 points", "Munster are 10th on 9"],
         "predictions-olbg.json": [
-            "puts Leinster 11th on eight points",
-            "Munster sit 10th on nine points",
+            "Leinster eleventh on eight points",
+            "Munster tenth on nine points",
             "places the Stormers fifth on 11 points",
-            "Scarlets sit 13th on 7 points",
-            "has the Bulls fourth on 11 points",
-            "Ulster are 12th on 8 points",
+            "the Scarlets thirteenth on seven points",
+            "the Bulls are fourth on 11 points",
+            "Ulster are twelfth on eight points",
         ],
     }
 
@@ -71,9 +73,8 @@ class TestUrcOrdinals(unittest.TestCase):
 
     def test_positions_are_attributed_to_the_table_date(self):
         """A rank without a date decays silently; the replacement must date the snapshot."""
-        for name in ("predictions.json", "predictions-olbg.json"):
-            body = self._bodies(name)
-            self.assertIn("published on 23 October", body)
+        self.assertIn("published on 23 October", self._bodies("predictions.json"))
+        self.assertIn("re-read after Friday's Round 4", self._bodies("predictions-olbg.json"))
 
     def test_urc_evidence_block_matches_the_correction(self):
         evidence = load("official.json")["reread_20261023T2130"]["fixtures"]
@@ -99,10 +100,46 @@ class TestUrcOrdinals(unittest.TestCase):
                         self.assertGreaterEqual(len(text.split()), 30)
 
 
-class TestRegisterItems(unittest.TestCase):
-    """FL-177..FL-182 must exist, carry a reviewable source and stay published."""
+class TestVolleyballFixtures(unittest.TestCase):
+    """The league's own dated calendar closes the identity/home-away question for VOL-27/28/29."""
 
-    IDS = ["FL-177", "FL-178", "FL-179", "FL-180", "FL-181", "FL-182", "FL-183"]
+    def setUp(self):
+        self.block = load("official.json")["superlega_2026_27_round2_20261023T2130"]
+
+    def test_home_sides_match_the_league_calendar(self):
+        self.assertIn("Perugia (Casa) v Tinet Prata", self.block["findings"]["VOL-27"])
+        self.assertIn("Civitanova (Casa) v Pallavolo Padova", self.block["findings"]["VOL-28"])
+        self.assertIn("Monza (Casa) v Rana Verona", self.block["findings"]["VOL-29"])
+
+    def test_clocks_are_the_published_ones(self):
+        for ref in ("VOL-27", "VOL-28", "VOL-29"):
+            with self.subTest(ref=ref):
+                self.assertIn("17:00Z", self.block["findings"][ref])
+
+    def test_grid_reading_trap_is_recorded(self):
+        note = self.block["grid_reading_note"]
+        self.assertIn("inverts home and away", note)
+        self.assertIn("calendar", note)
+
+    def test_round_one_results_are_kept(self):
+        rows = " ".join(self.block["round1_results_confirmed"])
+        for fragment in ("Verona 0-3", "Cuneo 2-3", "Prata di Pordenone 3-1"):
+            with self.subTest(fragment=fragment):
+                self.assertIn(fragment, rows)
+
+    def test_rows_still_carry_the_confirmed_sides(self):
+        rows = {row["ref"]: row for row in load("events.json")["events"]}
+        expect = {"VOL-27": "Perugia", "VOL-28": "Civitanova", "VOL-29": "Monza"}
+        for ref, needle in expect.items():
+            with self.subTest(ref=ref):
+                self.assertIn(needle, rows[ref]["home"])
+                self.assertEqual(rows[ref]["pick"]["kickoff_utc"], "2026-10-25T17:00:00Z")
+
+
+class TestRegisterItems(unittest.TestCase):
+    """FL-184..FL-189 must exist, carry a reviewable source and stay published."""
+
+    IDS = ["FL-184", "FL-185", "FL-186", "FL-187", "FL-188", "FL-189", "FL-190"]
 
     def setUp(self):
         self.items = {item["id"]: item for item in load("flagged.json")["items"]}
@@ -124,17 +161,17 @@ class TestRegisterItems(unittest.TestCase):
             self.assertGreater(len(item["action"]), 60, flag)
 
     def test_fl177_names_the_four_repaired_writes(self):
-        affected = set(self.items["FL-177"]["affected_ids"])
+        affected = set(self.items["FL-184"]["affected_ids"])
         self.assertEqual(affected, {"RGU-14", "RGU-609578", "RGU-609580", "RGU-609576"})
 
     def test_fl178_records_the_three_listing_reads(self):
-        urls = {source["url"] for source in self.items["FL-178"]["sources"]}
+        urls = {source["url"] for source in self.items["FL-185"]["sources"]}
         self.assertIn("https://www.olbg.com/betting-tips", urls)
         self.assertIn("https://www.olbg.com/betting-tips/Tennis/3", urls)
         self.assertIn("https://www.olbg.com/betting-tips/Ice_Hockey/13", urls)
 
     def test_fl180_keeps_both_nhl_endpoints(self):
-        urls = {source["url"] for source in self.items["FL-180"]["sources"]}
+        urls = {source["url"] for source in self.items["FL-187"]["sources"]}
         self.assertTrue(any("api-web.nhle.com/v1/standings" in u for u in urls), urls)
         self.assertTrue(any("api.nhle.com/stats/rest" in u for u in urls), urls)
 
@@ -179,7 +216,7 @@ class TestReadReceipts(unittest.TestCase):
             self.assertGreater(len(entry["result"]), 20)
 
     def test_observation_clock_is_dated_and_not_in_the_future(self):
-        """FL-183: the first draft stamped these receipts 63 minutes ahead of the build clock.
+        """FL-190: the first draft stamped these receipts 63 minutes ahead of the build clock.
         This is the assertion that caught it, so it stays even though the stamp it guards has moved."""
         publication = load("publication.json")["publication_as_of"]
         self.assertRegex(self.doc["observation_clock_utc"], r"^2026-10-23T21:30:00Z$")
@@ -187,18 +224,18 @@ class TestReadReceipts(unittest.TestCase):
 
 
 class TestSelfDatedStamp(unittest.TestCase):
-    """FL-183 must stay in the register, and the withdrawal must stay visible in the receipts."""
+    """FL-190 must stay in the register, and the withdrawal must stay visible in the receipts."""
 
-    def test_fl183_exists_and_is_corrected(self):
+    def test_fl190_exists_and_is_corrected(self):
         items = {item["id"]: item for item in load("flagged.json")["items"]}
-        self.assertIn("FL-183", items)
-        self.assertEqual(items["FL-183"]["status"], "corrected")
-        self.assertIn("22:40", items["FL-183"]["detail"])
+        self.assertIn("FL-190", items)
+        self.assertEqual(items["FL-190"]["status"], "corrected")
+        self.assertIn("22:40", items["FL-190"]["detail"])
 
     def test_receipts_admit_the_withdrawn_stamp(self):
         doc = json.loads((DATA / "raw" / "probe-655b300a" / "reads.json").read_text())
         self.assertIn("22:40", doc["clock_note"])
-        self.assertIn("FL-183", doc["clock_note"])
+        self.assertIn("FL-190", doc["clock_note"])
 
     def test_no_receipt_payload_still_claims_the_withdrawn_time(self):
         doc = json.loads((DATA / "raw" / "probe-655b300a" / "reads.json").read_text())
@@ -209,11 +246,11 @@ class TestSelfDatedStamp(unittest.TestCase):
     def test_published_register_page_shows_fl183(self):
         for page in (ROOT / "flagged.html", ROOT / "olbg" / "flagged.html"):
             with self.subTest(page=str(page)):
-                self.assertIn("FL-183", page.read_text())
+                self.assertIn("FL-190", page.read_text())
 
 
 class TestReviewedHostAllowlist(unittest.TestCase):
-    """The comparator link in FL-180 must stay reviewable by the site checker."""
+    """The comparator link in FL-187 must stay reviewable by the site checker."""
 
     def test_api_nhle_host_is_allowlisted_with_a_reason(self):
         source = (ROOT / "tools" / "check_site.py").read_text()

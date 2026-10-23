@@ -1,4 +1,4 @@
-# Audit — session-655b300a, task-54 (2026-10-23, 21:26Z–21:36Z)
+# Audit — session-655b300a, task-54 (2026-10-23, 21:26Z–22:05Z)
 
 Evening re-read of every official page behind the live high-confidence picks, one repair, five
 disclosures, and a plainly stated reason why no new fixture was added.
@@ -10,7 +10,7 @@ disclosures, and a plainly stated reason why no new fixture was added.
   `data/raw/probe-655b300a/reads.json`.
 - **Build clock:** the pipeline's own `scripts/publication_clock.py` value, `21:37Z` when this pass
   was written. **The first draft of this document, and every receipt behind it, carried `22:40Z` —
-  63 minutes into the future. It was withdrawn and re-dated; see §8 and `FL-183`.**
+  63 minutes into the future. It was withdrawn and re-dated; see §8 and `FL-190`.**
 
 ## 1. Retrieval boundary (what this sandbox can and cannot reach)
 
@@ -22,13 +22,13 @@ well as OLBG's HTML, which is what made a real re-verification possible:
 |---|---|---|
 | `statsapi.mlb.com` | yes | World Series schedule, club standings, postseason results |
 | `api-web.nhle.com` | yes | NHL schedule (`/v1/schedule/now`) and standings for 2026-10-23 |
-| `api.nhle.com` | yes | league stats service, as the comparator in FL-180 |
+| `api.nhle.com` | yes | league stats service, as the comparator in FL-187 |
 | `www.unitedrugby.com` / `stats.unitedrugby.com` | yes | Round 4 kick-offs and the league table |
 | `www.legavolley.it` | yes | SuperLega Giornata 1 set scores |
 | `gaacork.ie` | yes | Cork PSFC final page |
 | `www.nba.com` | yes | 23 October schedule |
 | `cdn.nba.com` | **no** | failed; fixture times taken from `www.nba.com` instead |
-| `www.olbg.com` | HTML yes, listing rows **no** | see FL-178 |
+| `www.olbg.com` | HTML yes, listing rows **no** | see FL-185 |
 
 ## 2. The eight live selections, re-read line by line
 
@@ -39,9 +39,9 @@ Root track and `/olbg/` track share fixtures; the table below is by unique fixtu
 | TB Rays @ MIL Brewers, World Series Game 1 | `BSB-01`, `BSB-160789` | `gamePk 849805`, `gameDate 2026-10-24T00:00:00Z`, American Family Field; Brewers 103-59, 832 scored, 618 allowed; NLCS 4-0 over the Dodgers (clincher 6-4 on 15 Oct); ALCS Rays 4-2 after losing Game 1; preview's Martinez 24-9 and Misiorowski 1.80/252/0.80/104.8 mph/11 days/4⅓ innings | **all verified, no change** |
 | MTL Canadiens @ CHI Blackhawks | `IHO-199984` | `startTimeUTC 2026-10-24T00:00:00Z`, United Center; MTL 4-3-2, 30/34, home 3-2-1, road 1-1-1, streak OT1; CHI 3-6-0, 21/36, home 3-2-0 | **all verified, no change** |
 | TBL Lightning @ COL Avalanche | `IHO-199985` | `startTimeUTC 2026-10-24T01:00:00Z`, Ball Arena; COL 5-4-1, 41/31, home 3-1-1, streak L2; TBL 7-2-0, 31/23, road 2-2-0, streak W3; goals-for leaderboard CAR 47, EDM 47, TOR 43, BOS 42 | **all verified, no change** |
-| Leinster v Munster | `RGU-14`, `RGU-609578` | Round 4, Sat 24 Oct, KO 18.00 IRE & UK; Leinster 8 pts (75/58), Munster 9 pts (72/74); Round 3 LEI 29-5 CAR, ULS 26-26 MUN | **ordinals wrong — repaired (FL-177)** |
-| DHL Stormers v Scarlets | `RGU-609580` | Sat 24 Oct 15.00 IRE & UK, DHL Stadium; Stormers 11 pts (81/54); Scarlets 7 pts (68/85); Round 3 STO 39-22 SHA, SCA 27-26 BEN | **ordinals wrong — repaired (FL-177)** |
-| Vodacom Bulls v Ulster | `RGU-609576` | Sat 24 Oct 12.45 IRE & UK, Loftus Versfeld; Bulls 11 pts (126/54); Ulster 8 pts (88/93); Round 3 BUL 57-15 LIO, ULS 26-26 MUN | **ordinals wrong — repaired (FL-177)** |
+| Leinster v Munster | `RGU-14`, `RGU-609578` | Round 4, Sat 24 Oct, KO 18.00 IRE & UK; Leinster 8 pts (75/58), Munster 9 pts (72/74); Round 3 LEI 29-5 CAR, ULS 26-26 MUN | **ordinals wrong — repaired (FL-184)** |
+| DHL Stormers v Scarlets | `RGU-609580` | Sat 24 Oct 15.00 IRE & UK, DHL Stadium; Stormers 11 pts (81/54); Scarlets 7 pts (68/85); Round 3 STO 39-22 SHA, SCA 27-26 BEN | **ordinals wrong — repaired (FL-184)** |
+| Vodacom Bulls v Ulster | `RGU-609576` | Sat 24 Oct 12.45 IRE & UK, Loftus Versfeld; Bulls 11 pts (126/54); Ulster 8 pts (88/93); Round 3 BUL 57-15 LIO, ULS 26-26 MUN | **ordinals wrong — repaired (FL-184)** |
 | Perugia v Prata (and the other two SuperLega ties) | `VOL-27`, `VOL-36997`, `VOL-28`, `VOL-29` | Giornata 1: Cuneo 2-3 Perugia (Perugia 114 points to 95); Prata 3-1 Monza (94 to 91); Verona 0-3 Civitanova (78 to 65); Padova 0-3 Piacenza (56 to 75); all three fixtures fixed for 25 October | **all verified, no change** |
 | Nemo Rangers v St Finbarrs | `GAF-01`, `GFA-3530` | Sunday 25 Oct, 4.00pm, SuperValu Páirc Uí Chaoimh (calendar `20261025T160000`, `ctz=Europe/Dublin`); Nemo 1-15 to 0-16 and 1-20 to 1-17; Barrs 2-12 to 0-16 plus the quoted "convincing" Carbery win | **all verified, no change** |
 | NY Knicks @ BOS Celtics; HOU Rockets @ SA Spurs | `BKB-534842`, `BKB-534841` | TD Garden 7:00 PM ET; Moody Center, Austin 9:30 PM ET | **fixtures and times verified; records and scoring lines not re-read — stated, not implied** |
@@ -50,7 +50,7 @@ The two basketball pieces are the one gap in this pass: their win-loss records, 
 opener and Castle's 24 points were not re-read, because the standings page was not fetched inside
 the budget. That is written down here and in `data/official.json` rather than left to look verified.
 
-## 3. The repair (FL-177)
+## 3. The repair (FL-184)
 
 Five ordinals, four write-ups. They were correct when written and were overtaken at about 21:00Z,
 when the three Friday Round 4 matches finished and moved the table:
@@ -76,16 +76,16 @@ the published prices are therefore unchanged. That check is recorded in
 
 | Flag | What it is | Why it is not a repair |
 |---|---|---|
-| `FL-178` | OLBG's public listings render their tables client-side: `/betting-tips`, `/Tennis/3` and `/Ice_Hockey/13` all return "No tips found" while the same site's event pages render in full | A repair would mean inventing fixtures. Recorded with the three URLs and the exact page text |
-| `FL-179` | OLBG marks every market on tonight's Canadiens–Blackhawks page "Expired" at 21:30Z, with the NHL start still 1h20m away | OLBG's label is not evidence of a start; our clock comes from the NHL's UTC timestamp |
-| `FL-180` | The NHL's standings service and its stats service disagree on season totals (MTL 30 v 28 goals for, COL 31 v 30 against, EDM 47 v 46) | Moving a quoted figure to match a *different* official source is exactly the over-correction recorded as FL-171. Both write-ups stay pinned to the endpoint they cite |
-| `FL-181` | Five-a-day target re-measured at 21:35Z: 0 of 15 sports reach it, shortfall 63 of 75, 12 unique live fixtures in 6 sports | Nothing was promoted to close it. `CRK-17` and `HBL-28` stay medium because the ICC and the Danish league print only reader-zone or unlabelled clocks |
-| `FL-182` | The retriever served the MLB Game 1 preview under the title "undefined" and a different canonical path | The facts were corroborated against MLB's own schedule and standings feeds before use |
+| `FL-185` | OLBG's public listings render their tables client-side: `/betting-tips`, `/Tennis/3` and `/Ice_Hockey/13` all return "No tips found" while the same site's event pages render in full | A repair would mean inventing fixtures. Recorded with the three URLs and the exact page text |
+| `FL-186` | OLBG marks every market on tonight's Canadiens–Blackhawks page "Expired" at 21:30Z, with the NHL start still 1h20m away | OLBG's label is not evidence of a start; our clock comes from the NHL's UTC timestamp |
+| `FL-187` | The NHL's standings service and its stats service disagree on season totals (MTL 30 v 28 goals for, COL 31 v 30 against, EDM 47 v 46) | Moving a quoted figure to match a *different* official source is exactly the over-correction recorded as FL-171. Both write-ups stay pinned to the endpoint they cite |
+| `FL-188` | Five-a-day target re-measured at 21:35Z: 0 of 15 sports reach it, shortfall 63 of 75, 12 unique live fixtures in 6 sports | Nothing was promoted to close it. `CRK-17` and `HBL-28` stay medium because the ICC and the Danish league print only reader-zone or unlabelled clocks |
+| `FL-189` | The retriever served the MLB Game 1 preview under the title "undefined" and a different canonical path | The facts were corroborated against MLB's own schedule and standings feeds before use |
 
 ## 5. What was deliberately not done
 
 - **No new fixtures.** With no readable listing, adding a fixture would mean claiming an OLBG row
-  that cannot be pointed at. `FL-178` publishes the blocker instead.
+  that cannot be pointed at. `FL-185` publishes the blocker instead.
 - **No clock renewal.** `scripts/verify_live.py` rebuilds `data/release_checks.json` deterministically
   from the committed probe payload, so an editorial renewal is overwritten on the next build. Rather
   than fake durability, the file was left byte-identical; the 16:28Z–19:36Z observations were already
@@ -97,16 +97,17 @@ the published prices are therefore unchanged. That check is recorded in
 ## 6. Verification performed
 
 ```
-python3 -m unittest discover -s tests        → 251 tests, OK, 25 skips (20 new in this pass)
+python3 -m unittest discover -s tests        → 271 tests, OK, 25 skips (29 new in this pass)
 python3 scripts/check_board.py               → PASS (359 rows / 311 fixtures / 48 outright / 270 verified / 310 priced / 85 predictions)
 python3 tools/check_site.py                  → PASS (20 pages / 180 fixtures / 8 HIGH / 31 pieces / 174 flags)
 python3 scripts/check.py                     → PASS (53 fixture rows)
-python3 scripts/check_links.py               → PASS (108 pages / 2,246 local links / 0 broken)
+python3 scripts/check_links.py               → PASS (108 pages / 2,260 local links / 0 broken)
 python3 scripts/build_site.py --snapshot     → root snapshot refreshed; "11th on 8 points" present in predictions.html
 ```
 
 ## 7. Sources read (all https, all quoted in `data/raw/probe-655b300a/reads.json`)
 
+- Lega Pallavolo Serie A, regular-season calendar (the authority on home side and local clock) — <https://www.legavolley.it/calendario/?idCampionato=999>
 - MLB schedule service — <https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-30>
 - MLB standings, NL — <https://statsapi.mlb.com/api/v1/standings?leagueId=104&season=2026>
 - MLB postseason results — <https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-11&endDate=2026-10-22>
@@ -119,9 +120,38 @@ python3 scripts/build_site.py --snapshot     → root snapshot refreshed; "11th 
 - SuperLega results — <https://www.legavolley.it/risultati/?IdCampionato=999>
 - Cork GAA final — <https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/>
 - NBA schedule, 23 October — <https://www.nba.com/schedule?date=2026-10-23>
-- OLBG all-sports listing, Tennis and Ice Hockey listings, and the MTL @ CHI event page (see FL-178, FL-179)
+- OLBG all-sports listing, Tennis and Ice Hockey listings, and the MTL @ CHI event page (see FL-185, FL-186)
 
-## 8. This pass's own defect: a stamp written from memory, not from the clock
+## 8. The SuperLega home-away question, settled from the league's own calendar
+
+Earlier passes left one item open: whether `VOL-27`, `VOL-28` and `VOL-29` named the right home side.
+The matrix on `legavolley.it/risultati` puts the date of a fixture in the cell where that row's team
+hosts that column's team. Read as "venue v opponent" it appears to put Padova at home to Civitanova
+and Verona at home to Monza — the reverse of what is published. That reading is wrong, and acting on
+it would have flipped two high-confidence picks.
+
+The dated calendar settles it, because it prints a venue on every line:
+
+| Row | Official calendar entry | Published | Verdict |
+|---|---|---|---|
+| `VOL-27` | 2ª Giornata #7, Sun 25/10 18:00, **Sir Susa Scai Perugia (Casa)** v Tinet Prata, Pala Barton Energy, Perugia | Perugia at home | **confirmed** |
+| `VOL-28` | #10, Sun 25/10 18:00, **Cucine Lube Civitanova (Casa)** v Pallavolo Padova, Eurosuole Forum, Civitanova Marche | Civitanova at home | **confirmed** |
+| `VOL-29` | #12, Sun 25/10 18:00, **Vero Volley Monza (Casa)** v Rana Verona, OpiquadArena, Monza | Monza at home | **confirmed** |
+
+**The clocks were right too, and that resolves a sibling's open flag.** Italy returns to CET on 25
+October, so 18:00 local is 17:00Z — exactly what all three rows carry. The same arithmetic resolves
+`FL-181` (`session-a87a3681`): Volleyball World prints "17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local
+Time)" for the same round, and its own page header says "25 Oct 2026 – 17:00 Local Time" for the tie
+the league lists at 17:00 local, i.e. 16:00Z. The two committed starts — `VOL-36994` at 16:00Z and
+`VOL-36997` at 17:00Z — are the league's times; the broadcaster's "(UTC)" line is the one that is
+wrong. Nothing was moved, and the note was added to `FL-181` as an additive cross-reference rather
+than by editing that session's entry.
+
+Round 1 was re-read at the same time and agrees with every figure already published: Verona 0-3
+Civitanova, Modena 0-3 Trentino, Padova 0-3 Piacenza, Cisterna 3-0 Milano, Cuneo 2-3 Perugia, Prata
+3-1 Monza.
+
+## 9. This pass's own defect: a stamp written from memory, not from the clock
 
 The first revision of every receipt, register entry and audit line in this pass carried the
 observation stamp `2026-10-23T22:40Z`. The build clock was `21:37Z`. The stamp was therefore a
@@ -139,8 +169,8 @@ AssertionError: '2026-10-23T22:40:00Z' not less than or equal to '2026-10-23T21:
 
 **What was re-dated, and what was not.** The stamp, and only the stamp: `reads.json`, the
 `data/official.json` block (renamed `reread_20261023T2240` → `reread_20261023T2130`), the
-`FL-177`–`FL-182` entries, this document and the README paragraph. Every quoted figure, source URL
-and prose repair stands unchanged, because each was read before it was written. `FL-183` records it
+`FL-184`–`FL-189` entries, this document and the README paragraph. Every quoted figure, source URL
+and prose repair stands unchanged, because each was read before it was written. `FL-190` records it
 in the register rather than letting a silent edit hide it — the same standard this project applies
 to every other session's dated evidence.
 
