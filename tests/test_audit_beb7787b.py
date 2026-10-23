@@ -81,7 +81,6 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
         # stay true is that every row still graded HIGH passes every gate, and that a row
         # which dropped out of the set carries the release reason for it.
         high = {ref for ref, r in self.events.items() if r["pick"]["confidence"] == "HIGH"}
-<<<<<<< HEAD
         # Keep the original candidate-set pin, but independently recompute expiry.
         expected = {ref for ref in LIVE_HIGH
                     if assess(self.events[ref]['olbg_event_id'])['eligible']}
@@ -89,14 +88,6 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
         for ref in LIVE_HIGH - expected:
             self.assertEqual(self.preds[ref]['status'], 'analysis', ref)
         for ref in expected:
-=======
-        self.assertTrue(high)
-        self.assertTrue(LIVE_HIGH <= set(self.events), "a pinned ref disappeared from the board")
-        for ref in LIVE_HIGH - high:
-            self.assertNotEqual(self.events[ref]["pick"]["release"]["status"], "upcoming",
-                                f"{ref} lost HIGH without its release evidence expiring")
-        for ref in high:
->>>>>>> 9c97a95 (Official re-verification pass: repair four contradicted write-ups and stop the discovery payload being blanked)
             pk = self.events[ref]["pick"]
             self.assertEqual(pk["release"]["status"], "upcoming", ref)
             self.assertTrue(1.40 <= pk["price"] <= 101.0, ref)

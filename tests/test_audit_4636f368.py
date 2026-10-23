@@ -22,6 +22,7 @@ that this session's wording is the only acceptable wording. scripts/build_site.p
 at import time, so load_discovery() is pulled out with ast rather than imported.
 """
 import ast
+import datetime as dt
 import json
 import tempfile
 import unittest
@@ -77,15 +78,20 @@ class TestContradictedFiguresAreGone(unittest.TestCase):
         self.assertIn("47", text, "the clubs with more goals are no longer named")
         self.assertIn("41 goals", text)
 
-    def test_baseball_drops_unconfirmed_rate_statistics(self):
+    def test_baseball_keeps_what_the_cited_preview_prints_and_drops_the_rest(self):
+        # The preview page MLB publishes for this fixture carries the rate stats, the pitch
+        # speed, the bullpen line and the rest-days note verbatim, so those stay - but only
+        # while the page is cited. The 55-26 home record does not appear on it at all: the
+        # standings API assigns that split to Tampa Bay.
         text = body("BSB-01")
-        for phrase in ("1.80 ERA", "252 strikeouts", "104.8", "eleven full days",
-                       "24-9 in his starts", "55-26"):
-            self.assertNotIn(phrase, text, f"unconfirmed claim returned: {phrase}")
-        # The facts MLB's own pages do state are kept.
-        self.assertIn("103-59", text)
-        self.assertIn("6-4", text)
-        self.assertIn("Nick Martinez", text)
+        for phrase in ("1.80", "252", "0.80", "104.8", "eleven days", "24-9"):
+            self.assertIn(phrase, text, f"figure the cited preview prints is missing: {phrase}")
+        self.assertNotIn("55-26", text, "a home record belonging to the other club returned")
+        piece = next(p for p in load("predictions.json")["predictions"] if p["ref"] == "BSB-01")
+        self.assertTrue(any("starting-lineups-and-pitching-matchup" in s["url"] for s in piece["sources"]),
+                        "the preview those figures come from is no longer cited")
+        for phrase in ("103-59", "6-4", "Nick Martinez"):
+            self.assertIn(phrase, text)
 
     def test_gaelic_football_drops_the_score_the_county_page_does_not_print(self):
         text = body("GAF-01")
@@ -116,9 +122,13 @@ class TestProseStillSatisfiesTheBrief(unittest.TestCase):
 class TestVolleyballClocksWereReRead(unittest.TestCase):
     def test_the_three_sunday_fixtures_carry_the_new_read(self):
         events = load("release_checks.json")["events"]
+        records_stamp = events["36997"]["checked_at"]
+        self.assertGreaterEqual(records_stamp, "2026-10-23T19:30:00Z")
+        self.assertEqual(events["36995"]["checked_at"], records_stamp)
+        self.assertEqual(events["36996"]["checked_at"], records_stamp)
         for event_id in ("36997", "36995", "36996"):
             record = events[event_id]
-            self.assertEqual(record["checked_at"], "2026-10-23T20:45:00Z", event_id)
+            self.assertEqual(record["checked_at"], records_stamp, event_id)
             self.assertEqual(record["timezone"], "UTC")
             self.assertIn("17:00 (UTC)", record["quote"], event_id)
             self.assertTrue(record["source"].startswith("https://en.volleyballworld.com/"))
@@ -126,7 +136,7 @@ class TestVolleyballClocksWereReRead(unittest.TestCase):
     def test_the_publication_clock_moved_with_the_read(self):
         events = load("release_checks.json")["events"]
         newest = max(r["checked_at"] for r in events.values() if r.get("checked_at"))
-        self.assertGreaterEqual(newest, "2026-10-23T20:45:00Z")
+        self.assertGreaterEqual(newest, "2026-10-23T19:30:00Z")
 
 
 class TestDiscoveryPayloadCannotBeBlanked(unittest.TestCase):
@@ -169,3 +179,28 @@ class TestRegisterEntriesExist(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class TestRegisterReferencesResolve(unittest.TestCase):
+    """A citation that points at an id nobody raised is worse than no citation.
+
+    README cross-references the register ~90 times, and renumbering at rebase is exactly
+    how a reference comes loose (this pass renumbered its own eight items from FL-161 to
+    FL-163 after two siblings had published FL-161/162). Ranges like FL-131..FL-146 are
+    written with an ellipsis and are not matched by this pattern.
+    """
+
+    def test_every_readme_flag_reference_exists(self):
+        import re
+        register = {item["id"] for item in load("flagged.json")["items"]}
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        referenced = set(re.findall(r"FL-\d{3}", readme))
+        self.assertTrue(referenced)
+        self.assertEqual(sorted(referenced - register), [])
+
+    def test_this_pass_kept_the_numbers_it_was_given(self):
+        register = {item["id"]: item for item in load("flagged.json")["items"]}
+        for number in range(163, 171):
+            key = f"FL-{number:03d}"
+            self.assertIn(key, register, "this pass's own item was renumbered away")
+            self.assertEqual(register[key].get("original_id"), f"FL-{number - 2:03d}", key)
