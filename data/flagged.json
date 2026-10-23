@@ -3206,6 +3206,48 @@
         "BKB-17"
       ],
       "original_id": "FL-139"
+    },
+    {
+      "id": "FL-154",
+      "severity": "data quality",
+      "status": "resolved",
+      "sport": "Volleyball",
+      "title": "SuperLega verification venue/clock fields were mixed between Sunday fixtures (36994, 36997)",
+      "summary": "The /olbg/ verification for 36994 (Itas Trentino v Cisterna, Sunday) carried venue \"Eurosuole Forum, Civitanova Marche\" and start_local \"18:00 CET\" — both belong to a different Sunday fixture. The official match #30003 page (re-read 2026-10-23) gives \"Trento, Italy - 25 Oct 2026 - 17:00 Local Time\"; venue and local clock corrected, the stored 16:00 UTC start was always right.",
+      "detail": "For 36997 (Perugia v Tinet Prata di Pordenone) the venue read \"OpiquadArena, Monza\" although Perugia is the home side and Monza was Prata's previous opponent; the arena was not captured from match page #30002 in this pass, so the field is blanked rather than guessed. The 17:00 UTC start is unchanged. Found while reconciling a parallel 2026-10-23 pass (session-d0f5ca54) onto the merged main.",
+      "sources": [
+        {
+          "label": "Volleyball World — SuperLega match #30003",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/"
+        },
+        {
+          "label": "Volleyball World — SuperLega match #30002",
+          "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        }
+      ]
+    },
+    {
+      "id": "FL-155",
+      "severity": "data quality",
+      "status": "resolved",
+      "sport": "Multiple",
+      "title": "Parallel-pass leftovers completed: /olbg/ Round 8 labels, a BKB-30 factual slip, residual banned words, SAS venue",
+      "summary": "Reconciling an independent 2026-10-23 pass (session-d0f5ca54) onto the day's merged main surfaced four leftovers from the parallel sessions, all fixed here: (1) /olbg/ verifications 535925/535926 and pieces BKB-535925/BKB-535926 still said \"Round 8\" (FL-151 fixed the root prose only) and the verifications lacked a certified start_utc — corrected to Round 7 with 18:15Z/18:45Z; (2) root piece BKB-30 said Paris \"get point guard TJ Shorts back\" and priced a \"5-1\" Valencia — Shorts now plays FOR Valencia against his former club, and the official table says 4-2 (the 5-1/98.3 figures are the pre-round article snapshot; per FL-069 the table governs) — body replaced; (3) 12 more published fields still contained \"model\"/\"verified\" after FL-152's root-track scrub (11 on /olbg/, incl. the BKB-534841/42 selections, plus SNK-09) — swept, with a regression test; (4) verification 534841 still said Frost Bank Center after FL-153 established Moody Center — aligned.",
+      "detail": "Also landed in the same reconciliation: BSB-01/BSB-160789 now name the World Series Game 1 starters (Nick Martinez vs Jacob Misiorowski — 1.80 ERA, 252 K, eleven days' rest — from MLB.com's Game 1 preview); BKB-534841 rewritten with the Game 1 scoring leaders (Durant 30, Castle 24) and today's 4/6 tip split; a new analysis piece for TEN-902162 (Boulter, Osaka SF) from the WTA order of play. Session-d0f5ca54's independent 16:30Z capture is kept as evidence at docs/harvest-20261023-1630z-d0f5ca54.tsv; its duplicate findings (its own FL-131..FL-140 numbering on the unmerged branch) were dropped in favour of the merged FL-141..FL-153.",
+      "sources": [
+        {
+          "label": "EuroLeague — Round 7 game centre (\"Three games close out Round 7 tonight\")",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "MLB — World Series Game 1 preview (starters)",
+          "url": "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup"
+        },
+        {
+          "label": "NBA.com — games (Fri Oct 23 slate)",
+          "url": "https://www.nba.com/games"
+        }
+      ]
     }
   ]
 }
