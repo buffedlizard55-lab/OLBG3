@@ -55,8 +55,20 @@ the publication clock* — failed on its first run against the real clock, and t
 and re-dated without touching a single quoted fact (`FL-190`). A stamp is a claim about when evidence
 existed; it gets read from the clock, never typed from memory.
 
+**Confirmed a second time, by the runner.** The push also triggered the repository's own capture workflow,
+which committed `data/raw/official-20261023T2144Z` — a probe from GitHub's network, 76 minutes after the
+retriever pass. It reproduces all three clock-critical fixtures exactly (NHL games 2026020166 and 2026020167
+at `00:00Z` and `01:00Z`, MLB gamePk 849805 at `00:00Z` in American Family Field) and its `nba_schedule`
+request returned 403. Its harvest carried zero tip rows, so `verify_live.py` reported `matched fixtures: 0`
+and no release clock was renewed — the 16:28Z–19:36Z readings stand and are inside their 24-hour window.
+
 **Verification:** 271 tests (29 new), board/site/official-feed/link checks all PASS, 108 pages and
 2,260 local links with **0 broken**, and no value filled in that a source does not print.
+
+**Published:** [PR #157](https://github.com/buffedlizard55-lab/OLBG3/pull/157), merged
+2026-10-23T21:46:30Z as `88d8ed8`; `main`'s `Verify and publish dashboard` and
+`pages-build-deployment` both succeeded and Pages reports built at `8f91051`. The deployed
+`flagged.html` and `olbg/flagged.html` were re-read from `main` to confirm they carry FL-184…FL-190.
 
 ## Late-evening 2026-10-23 pass — seven in-band picks added, three published claims repaired — `session-a87a3681`
 
