@@ -4297,6 +4297,130 @@
           "url": "https://github.com/buffedlizard55-lab/OLBG3/pull/165"
         }
       ]
+    },
+    {
+      "id": "FL-202",
+      "original_id": "FL-199",
+      "severity": "high",
+      "title": "A dated test pin turned main’s scheduled build red for three consecutive runs",
+      "detail": "tests/test_audit_ebe6dc9c.py::HighCandidateScan pinned the exact list [\"BKB-17\",\"VOL-26\"] of verified, upcoming, in-band, non-HIGH rows. BKB-17 kicked off on 2026-10-23, so from the next hourly run the list no longer described the board and `Verify and publish dashboard` failed at \"Unit tests (after the rebuild)\" on runs 40103014276, 40088120634 and 40068077765. Nothing on the site was wrong; the assertion was a clock. Registered three times at merge time (FL-199, then FL-201) because sibling sessions published those ids first; this is the surviving number.",
+      "status": "resolved",
+      "action": "The class now asserts the grading rule instead of the snapshot, and main carries the equivalent time-pinned repair from session-68d57005.",
+      "affected_ids": [
+        "BKB-17",
+        "VOL-26"
+      ],
+      "sources": [
+        {
+          "label": "GitHub Actions run 40103014276 (failed unit-test step)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40103014276"
+        }
+      ]
+    },
+    {
+      "id": "FL-203",
+      "original_id": "FL-200",
+      "severity": "low",
+      "title": "OLBG’s rugby card prints 18:00Z for Ospreys v Dragons where the URC says 19:45 IRE & UK (18:45Z)",
+      "detail": "The 2026-10-24T17:07Z capture carries startDate 2026-10-24T18:00:00.000Z for event_id 609581. The competition’s own fixtures page lists \"Ospreys v Dragons — St. Helen’s, Swansea, KO 19.45 IRE & UK / 20.45 ITA & SA\". Ireland and the UK are on UTC+1 on 24 October, so the official start is 18:45Z, 45 minutes later than OLBG prints. Same defect class as FL-195.",
+      "status": "open",
+      "action": "The published row keeps OLBG’s stamp verbatim in `start` and records the official clock in the release evidence, so the pick expires against the competition’s own time rather than OLBG’s. No value was harmonised.",
+      "affected_ids": [
+        "RGU-609581"
+      ],
+      "sources": [
+        {
+          "label": "United Rugby Championship — 2026/27 fixtures in full",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        }
+      ]
+    },
+    {
+      "id": "FL-204",
+      "original_id": "FL-201",
+      "severity": "medium",
+      "title": "Golf returned zero tip cards in the 2026-10-24T17:07Z capture, so no golf pick is live",
+      "detail": "All 18 in-scope listings returned HTTP 200 and a rendered table except /betting-tips/Golf/5, which carried no tip card at all (the extractor records it under \"listings with zero tip cards\"). The 17:07Z capture was the first afternoon capture in three days to render cards server-side.",
+      "status": "open",
+      "action": "No golf fixture, price or clock was inferred. Golf rows already on the board stay as archived outright markets and golf is reported as a zero-pick sport in the five-per-sport accounting.",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "OLBG Golf listing (captured 2026-10-24T17:07Z)",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        }
+      ]
+    },
+    {
+      "id": "FL-205",
+      "original_id": "FL-202",
+      "severity": "high",
+      "title": "Five high-confidence picks per sport remains unmet on 2026-10-24: 17 distinct live picks against 75",
+      "detail": "Measured at the 17:19Z build clock: 12 live high-confidence rows on the main board (Ice Hockey 5, Volleyball 3, Baseball 1, Rugby Union 1, Handball 1, Gaelic Football 1, Motor Racing 1) and 11 on the OLBG lines board, 17 distinct fixtures across 8 sports. Ice Hockey and Handball meet the five-pick target; the remaining shortfall is 58.",
+      "status": "open",
+      "action": "Every blocker is itemised per sport on Brief coverage rather than closed by promoting a pick: no certified clock (Tennis, Cricket, Snooker, Darts, Rugby League), no official form for both sides (Basketball, Tennis), a price outside the -250..+10000 band, or no fixture at all (Golf, Greyhounds today).",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "Brief coverage accounting",
+          "url": "https://buffedlizard55-lab.github.io/OLBG3/brief.html"
+        }
+      ]
+    },
+    {
+      "id": "FL-206",
+      "original_id": "FL-203",
+      "severity": "medium",
+      "title": "Four in-scope sports had fixtures on OLBG today that could not be given a certified start clock",
+      "detail": "Darts (European Championship first round), Snooker (Northern Ireland Open), Tennis (WTA/ATP order of play) and Cricket (Pakistan v England ODI) all had OLBG rows on 2026-10-24/25. The PDC tournament page served a cookie-consent wall with no schedule; the WST matches page prints times without stating a zone; the WTA and ProTennisLive order-of-play PDFs were retrieved as raw PDF bytes this environment cannot decode; and the ICC ratings table has no Pakistan entry, so a two-sided official form input is missing there.",
+      "status": "open",
+      "action": "Those rows stay unverified_start or unpriced and are excluded from HIGH. No clock, price or rating was inferred to fill the gap.",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "PDC European Championship (consent wall)",
+          "url": "https://www.pdc.tv/tournaments/machineseeker-european-championship"
+        },
+        {
+          "label": "WST matches (times without a zone)",
+          "url": "https://www.wst.tv/matches/"
+        }
+      ]
+    },
+    {
+      "id": "FL-207",
+      "original_id": "FL-204",
+      "severity": "medium",
+      "title": "verify_live.py overwrote the provenance of every earlier clock probe and re-encoded the file",
+      "detail": "scripts/verify_live.py set release_checks.json[\"session\"] and verifications.json[\"session\"] to the single hard-coded string \"session-22dbc477 (live 2026-10-23 probe)\". Any later probe therefore erased the record of who read what. It also wrote JSON with indent=1 and no ensure_ascii flag, escaping every non-ASCII character in a 166-record file, so a one-field re-observation produced a whole-file diff and hid what had actually changed.",
+      "status": "resolved",
+      "action": "The field is now append-only through _append_session(), which adds a dated probe note once and never removes an earlier one, and both files are written with ensure_ascii=False. Provenance for the 2026-10-24 probes is restored on the record.",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "scripts/verify_live.py",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/verify_live.py"
+        }
+      ]
+    },
+    {
+      "id": "FL-208",
+      "original_id": "FL-205",
+      "severity": "low",
+      "title": "The OLBG lines audit board replays the 2026-10-23 capture while the newest capture is 2026-10-24T17:07Z",
+      "detail": "data/meta.json pins harvest_file to raw/olbg-harvest-20261023T1700Z.tsv. The 2026-10-24T17:07Z capture rendered 197 rows across 14 sports and is published on the main board through this session’s applied batch, but the /olbg/ audit track still replays the earlier capture. Promoting the newer capture was tested end to end and rejected for this pass: cricket event id 188845 resolves to a different market in the newer capture, and volleyball card 37002 restated its tip split (2/3 to 2/4), which silently changed a published line from 1.57 to 1.78.",
+      "status": "open",
+      "action": "The audit board is labelled with the fetch time of the capture it replays (2026-10-23T16:21Z) so the two tracks cannot be mistaken for one another. Promotion is queued as a separate change with the id-reuse and restated-card diffs reviewed first.",
+      "affected_ids": [
+        "CRI-188845",
+        "VOL-37002"
+      ],
+      "sources": [
+        {
+          "label": "OLBG lines audit board (published capture time)",
+          "url": "https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html"
+        }
+      ]
     }
   ]
 }

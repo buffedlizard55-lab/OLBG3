@@ -29,7 +29,7 @@
 
 
 <section class="card" id="executive-summary" style="border-left:6px solid #0b9482">
-  <p class="eyebrow" style="margin:0 0 4px">EXECUTIVE SUMMARY · build 2026-10-24 17:44Z</p>
+  <p class="eyebrow" style="margin:0 0 4px">EXECUTIVE SUMMARY · build 2026-10-24 17:50Z</p>
   <h2 style="margin-top:0">Today's highest-confidence picks</h2>
   <p class="muted">This build publishes only the <strong>2026-10-23T16:21:00Z</strong> listing capture
   (223 fixtures across 14 sports). 9 fixtures start on
@@ -53,7 +53,7 @@
   <div class="stat"><span class="stat-value">220</span><span class="stat-label">fixtures with our own price</span><span class="stat-hint">money line, both sides</span></div>
   <div class="stat"><span class="stat-value">162</span><span class="stat-label">with a handicap line</span><span class="stat-hint">167 with a total line</span></div>
   <div class="stat"><span class="stat-value">11</span><span class="stat-label">current HIGH research picks</span><span class="stat-hint">official-start &amp; source-age gate</span></div>
-  <div class="stat"><span class="stat-value">193</span><span class="stat-label">items flagged</span><span class="stat-hint">see register</span></div>
+  <div class="stat"><span class="stat-value">200</span><span class="stat-label">items flagged</span><span class="stat-hint">see register</span></div>
 </section>
 
 <section class="grid2">
@@ -171,10 +171,10 @@
 
 <section class="card">
   <h2>Flagged for review</h2>
-  <p class="muted">193 items need a human eye: unlabelled timezones, two conflicting dates for one golf tournament, missing competition names, truncated rows, and the Gaelic football inclusion question. Nothing here blocks publication.</p>
+  <p class="muted">200 items need a human eye: unlabelled timezones, two conflicting dates for one golf tournament, missing competition names, truncated rows, and the Gaelic football inclusion question. Nothing here blocks publication.</p>
   <table class="tbl compact">
     <thead><tr><th>ID</th><th>Severity</th><th>Item</th></tr></thead>
-    <tbody><tr><td><a href="flagged.html#FL-201">FL-201</a></td><td>medium</td><td>Dated live-data scan pin (HighCandidateScan) turned four consecutive scheduled main builds red after BKB-17 tipped off - independently diagnosed by session-68d57005, repaired on main by session-aa934191 (PR #165) via a frozen-clock pin</td></tr><tr><td><a href="flagged.html#FL-200">FL-200</a></td><td>medium</td><td>Scope ambiguity: current board includes Gaelic football but excludes hurling, while the request names Gaelic Sports</td></tr><tr><td><a href="flagged.html#FL-199">FL-199</a></td><td>high</td><td>Live OLBG Baseball and Tennis listings have advanced beyond the last committed capture; current match coverage is not complete</td></tr><tr><td><a href="flagged.html#FL-198">FL-198</a></td><td>high</td><td>tools/originate.py computed inverted our_home_probability on five EDITORIAL_STRENGTH rows where the full official club name differed from OLBG&#x27;s short home name</td></tr><tr><td><a href="flagged.html#FL-197">FL-197</a></td><td>high</td><td>SuperLega verifications for 36995 (Civitanova vs Padova) and 36996 (Monza vs Verona) carried wrong-city arenas and a contradicted Round 1 point tally</td></tr><tr><td><a href="flagged.html#FL-196">FL-196</a></td><td>high</td><td>Unclassified cricket player-prop market &#x27;Top Team1 Batsman&#x27; (CRI-188845) contains the home team name in parentheses and would leak into match-winner probability</td></tr></tbody>
+    <tbody><tr><td><a href="flagged.html#FL-208">FL-208</a></td><td>low</td><td>The OLBG lines audit board replays the 2026-10-23 capture while the newest capture is 2026-10-24T17:07Z</td></tr><tr><td><a href="flagged.html#FL-207">FL-207</a></td><td>medium</td><td>verify_live.py overwrote the provenance of every earlier clock probe and re-encoded the file</td></tr><tr><td><a href="flagged.html#FL-206">FL-206</a></td><td>medium</td><td>Four in-scope sports had fixtures on OLBG today that could not be given a certified start clock</td></tr><tr><td><a href="flagged.html#FL-205">FL-205</a></td><td>high</td><td>Five high-confidence picks per sport remains unmet on 2026-10-24: 17 distinct live picks against 75</td></tr><tr><td><a href="flagged.html#FL-204">FL-204</a></td><td>medium</td><td>Golf returned zero tip cards in the 2026-10-24T17:07Z capture, so no golf pick is live</td></tr><tr><td><a href="flagged.html#FL-203">FL-203</a></td><td>low</td><td>OLBG’s rugby card prints 18:00Z for Ospreys v Dragons where the URC says 19:45 IRE &amp; UK (18:45Z)</td></tr></tbody>
   </table>
   <p><a class="btn" href="flagged.html">Open the register →</a></p>
 </section>
@@ -182,7 +182,7 @@
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T17:44:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T17:50:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

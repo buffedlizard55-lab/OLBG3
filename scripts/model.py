@@ -110,6 +110,7 @@ ALIASES = {
     "Bulls": "Vodacom Bulls",
     "Stormers": "DHL Stormers",
     "BUF Sabres": "Buffalo Sabres",
+    "WAS Capitals": "Washington Capitals",
     "PHI Flyers": "Philadelphia Flyers",
     "FLA Panthers": "Florida Panthers",
     "OTT Senators": "Ottawa Senators",
@@ -145,6 +146,7 @@ ALIASES = {
     "Lions": "10bet Lions",
     "Sharks": "Hollywoodbets Sharks",
     "Cardiff": "Cardiff Rugby",
+    "Dragons": "Dragons RFC",
     # Pro D2 (OLBG short name -> official LNR club name)
     "Montauban": "US Montauban",
     "Oyonnax": "Oyonnax Rugby",
@@ -376,12 +378,51 @@ hbl_dk_src = hbl_dk.get("source", "")
 hbl_es = off["form_data"].get("Handball_Spain_ASOBAL_2026_27", {})
 hbl_es_tbl = hbl_es.get("teams", {})
 hbl_es_src = hbl_es.get("source", "")
+# Dated EHF Champions League group-phase tables. A fixture is priced from the newest table
+# observed on or before its own calendar date, so the archived rows keep the values they were
+# published from and a new round uses the fresh observation (session-a30d9bdb, 2026-10-24).
+_ehf_keys = sorted(k for k in off["form_data"] if k.startswith("EHF_CL_2026_27_"))
+
+
+def ehf_table_for(event_date_iso):
+    """(teams, source) of the newest EHF CL group-phase table dated on or before the fixture date."""
+    chosen = None
+    for k in _ehf_keys:
+        tbl_date = k[len("EHF_CL_2026_27_"):].replace("_", "-")
+        if event_date_iso and tbl_date <= event_date_iso:
+            chosen = k
+    if chosen is None:
+        return {}, ""
+    return off["form_data"][chosen].get("teams", {}), off["form_data"][chosen].get("source", "")
+
+
 handball_tables = {}
 handball_tables.update(hbl_dk_tbl)
 handball_tables.update(hbl_es_tbl)
 handball_tables.update(hbl_fr_tbl)
 handball_tables.update(hbl_se_tbl)
 handball_tables.update(hbl_tbl)
+
+def handball_rows_for(home, away, event_date_iso):
+    """(home row, away row, home source, away source) or None when either side lacks an official row.
+
+    Country tables are preferred pair-by-pair; otherwise the newest EHF Champions League table
+    dated on or before the fixture is used, so archived rows keep the values they were priced from.
+    """
+    hn, an = handball_name(home), handball_name(away)
+    for tbl, src in ((hbl_dk_tbl, hbl_dk_src), (hbl_es_tbl, hbl_es_src),
+                     (hbl_fr_tbl, hbl_fr_src), (hbl_se_tbl, hbl_se_src)):
+        if hn in tbl and an in tbl:
+            return tbl[hn], tbl[an], src, src
+    ehf_tbl, ehf_src = ehf_table_for(event_date_iso)
+    merged = dict(handball_tables)
+    merged.update(ehf_tbl)
+    if hn in merged and an in merged:
+        h_src = ehf_src if hn in ehf_tbl else hbl_src
+        a_src = ehf_src if an in ehf_tbl else hbl_src
+        return merged[hn], merged[an], h_src, a_src
+    return None
+
 
 snk_tbl = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("players", {})
 snk_src = off["form_data"].get("WST_NI_Open_2026_seeds", {}).get("source", "")
@@ -412,6 +453,12 @@ HANDBALL_ALIASES = {
     "Aalborg Handbold": "Aalborg Håndbold",
     "Bidasoa Irun": "IRUDEK Bidasoa Irun",
     "Caserio Ciudad Real": "BM Caserío Ciudad Real",
+    # EHF Champions League (OLBG short name -> the EHF competition site's own club name)
+    "HC Vardar": "HC Vardar 1961",
+    "KS Kielce": "Industria Kielce",
+    "Fuchse Berlin": "Füchse Berlin",
+    "RK Partizan": "RK Partizan AdmiralBet",
+    "HC Kriens Luzern": "HC Kriens-Luzern",
 }
 
 
@@ -471,6 +518,7 @@ for e in events:
     if official_name(e["home"]) in nhl_dated and official_name(e["away"]) in nhl_dated:
         nhl_home = nhl_dated[official_name(e["home"])]; nhl_away = nhl_dated[official_name(e["away"])]
 
+    _hbl = handball_rows_for(e["home"], e["away"], _ev_date) if e["sport"] == "Handball" else None
     probs = None; margin = None; total = None; basis = None
     if e["sport"] == "Rugby Union" and home_row and away_row:
         probs, margin, total = rugby_model(home_row, away_row)
@@ -556,18 +604,8 @@ for e in events:
         probs = {"home": p_home, "away": 1.0 - p_home}
         basis = "official-standings"
         model["notes"].append(f"Official October 2026 ATP/WTA Tour ranking points used ({ten_src}).")
-    elif e["sport"] == "Handball" and handball_name(e["home"]) in handball_tables and handball_name(e["away"]) in handball_tables:
-        _hn, _an = handball_name(e["home"]), handball_name(e["away"])
-        if _hn in hbl_dk_tbl and _an in hbl_dk_tbl:
-            hr, ar, _hsrc, _asrc = hbl_dk_tbl[_hn], hbl_dk_tbl[_an], hbl_dk_src, hbl_dk_src
-        elif _hn in hbl_es_tbl and _an in hbl_es_tbl:
-            hr, ar, _hsrc, _asrc = hbl_es_tbl[_hn], hbl_es_tbl[_an], hbl_es_src, hbl_es_src
-        elif _hn in hbl_fr_tbl and _an in hbl_fr_tbl:
-            hr, ar, _hsrc, _asrc = hbl_fr_tbl[_hn], hbl_fr_tbl[_an], hbl_fr_src, hbl_fr_src
-        elif _hn in hbl_se_tbl and _an in hbl_se_tbl:
-            hr, ar, _hsrc, _asrc = hbl_se_tbl[_hn], hbl_se_tbl[_an], hbl_se_src, hbl_se_src
-        else:
-            hr, ar, _hsrc, _asrc = handball_tables[_hn], handball_tables[_an], hbl_src, hbl_src
+    elif e["sport"] == "Handball" and _hbl:
+        hr, ar, _hsrc, _asrc = _hbl
         exp_h = (hr["gf"] / hr["gp"] + ar["ga"] / ar["gp"]) / 2.0 + 1.4
         exp_a = (ar["gf"] / ar["gp"] + hr["ga"] / hr["gp"]) / 2.0
         margin = exp_h - exp_a

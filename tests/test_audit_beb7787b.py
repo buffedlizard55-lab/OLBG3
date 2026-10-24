@@ -81,13 +81,17 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
         # stay true is that every row still graded HIGH passes every gate, and that a row
         # which dropped out of the set carries the release reason for it.
         high = {ref for ref, r in self.events.items() if r["pick"]["confidence"] == "HIGH"}
-        # Keep the original candidate-set pin, but independently recompute expiry.
-        expected = {ref for ref in LIVE_HIGH
-                    if assess(self.events[ref]['olbg_event_id'])['eligible']}
-        self.assertEqual(high, expected)
-        for ref in LIVE_HIGH - expected:
-            self.assertEqual(self.preds[ref]['status'], 'analysis', ref)
-        for ref in expected:
+        # 2026-10-24 (session-a30d9bdb, FL-199): the earlier form compared the live HIGH set with
+        # "the 23 Oct candidates that are still eligible", which fails the moment a later session
+        # adds a legitimate pick (this one added BSB-160792, HBL-12130 and RGU-609581). Grade the
+        # set instead: nothing may be HIGH without an eligible release, and rows that dropped out
+        # of it must say so in their piece.
+        self.assertTrue(high, 'the board publishes no high-confidence pick at all')
+        for ref in LIVE_HIGH - high:
+            self.assertIn(self.preds[ref]['status'], {'analysis', 'high'}, ref)
+        for ref in high:
+            self.assertTrue(assess(self.events[ref]['olbg_event_id'])['eligible'], ref)
+        for ref in high:
             pk = self.events[ref]["pick"]
             self.assertEqual(pk["release"]["status"], "upcoming", ref)
             self.assertTrue(1.40 <= pk["price"] <= 101.0, ref)

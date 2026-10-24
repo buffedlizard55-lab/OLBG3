@@ -226,13 +226,23 @@ class LiveRefreshFallback(unittest.TestCase):
         self.assertEqual(len(chosen), 1, result.stdout)
         self.assertNotIn(EMPTY_CAPTURE, chosen[0],
                          'an empty capture must never be selected as the harvest')
-        if (RAW / EMPTY_CAPTURE / 'extract-report.json').exists():
-            self.assertIn(POPULATED_CAPTURE, chosen[0])
+        # 2026-10-24 (session-a30d9bdb, FL-199): this used to require the literal 23 Oct capture.
+        # The rule is what the resolver promises — the chosen capture is a live capture whose
+        # extract report shows cards — not the name of the one that happened to be newest then.
+        selected = Path(chosen[0].split('harvest :')[-1].strip().split(' ->')[0])
+        self.assertTrue(selected.name.startswith('live-'), chosen[0])
+        self.assertGreater(live_refresh.cards_in(selected) or 0, 0, chosen[0])
 
     def test_the_live_primary_harvest_is_unchanged_by_an_empty_capture(self):
         """The whole point: the board keeps the rows the populated capture produced."""
         meta = json.loads((ROOT / 'data' / 'meta.json').read_text(encoding='utf-8'))
-        self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv')
+        # Date-free restatement (session-a30d9bdb, FL-199): the primary must be a committed
+        # harvest with rows, and the capture it maps back to must not be the empty one.
+        primary = ROOT / 'data' / meta['harvest_file']
+        self.assertTrue(primary.exists(), meta['harvest_file'])
+        self.assertTrue([l for l in primary.read_text(encoding='utf-8').splitlines()
+                         if l.strip() and not l.startswith('#')])
+        self.assertNotEqual(live_refresh.live_primary_capture(), EMPTY_CAPTURE)
         matches = json.loads((ROOT / 'data' / 'matches.json').read_text(encoding='utf-8'))
         # Same-day SvelteKit supplementary captures (session-b322f52e) may add rows above 180,
         # never reduce below the 180-row primary + 16:30Z floor.
@@ -240,7 +250,9 @@ class LiveRefreshFallback(unittest.TestCase):
                                 'an empty capture must not reduce the published /olbg/ row count')
 
     def test_live_primary_capture_maps_the_pinned_harvest_back_to_its_capture(self):
-        self.assertEqual(live_refresh.live_primary_capture(), 'live-20261023T1700Z')
+        meta = json.loads((ROOT / 'data' / 'meta.json').read_text(encoding='utf-8'))
+        expected = meta['harvest_file'].split('/')[-1][len('olbg-harvest-'):-len('.tsv')]
+        self.assertEqual(live_refresh.live_primary_capture(), f'live-{expected}')
 
     def test_live_primary_capture_is_none_when_the_pin_is_not_a_live_capture(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -259,12 +271,22 @@ class LiveRefreshFallback(unittest.TestCase):
         capture that is already the live primary adds no fact, so it must not re-verify."""
         if not (RAW / EMPTY_CAPTURE / 'extract-report.json').exists():
             self.skipTest('empty capture not yet extracted')
+        primary = live_refresh.live_primary_capture()
+        newest = live_refresh.candidates('live-*')[0].name
+        if (live_refresh.cards_in(RAW / newest) or 0) > 0:
+            self.skipTest(f'{newest} carries cards, so the fallback path is not exercised '
+                          'today; the guard below only applies when the resolver falls back')
+        # session-a30d9bdb (FL-199): this test used to *run the pipeline* against the real tree,
+        # so on a day when the newest capture is populated it rewrote data/release_checks.json as
+        # a side effect of `unittest discover`. The invariant is unchanged; it is now only
+        # asserted in the state that exercises it.
         before = (ROOT / 'data' / 'release_checks.json').read_bytes()
         result = run('live_refresh.py')
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn('verification skipped', result.stdout, result.stdout)
         self.assertEqual((ROOT / 'data' / 'release_checks.json').read_bytes(), before,
                          'release evidence must not be rewritten by a fallback that adds nothing')
+        self.assertEqual(live_refresh.live_primary_capture(), primary)
 
     def test_the_primary_harvest_is_reextracted_byte_identically(self):
         """Determinism: choosing the older capture again must not alter the committed harvest."""

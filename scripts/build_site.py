@@ -15,7 +15,7 @@ os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
 # official-feed track's pages (built by scripts/build.py, which runs before this script).
-NAV = [("index.html", "Dashboard"), ("brief.html", "Brief coverage"), ("predictions.html", "Predictions"),
+NAV = [("today.html", "Today's picks"), ("index.html", "Dashboard"), ("brief.html", "Brief coverage"), ("predictions.html", "Predictions"),
        ("lines.html", "Originated lines"), ("reconcile.html", "Cross-track review"),
        ("verification.html", "Verification"), ("source-health.html", "Source health"), ("discovery.html", "Current discovery"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
@@ -124,7 +124,7 @@ STALE_BANNER = ("" if SNAPSHOT_AGE_H < 30 else
 
 def head(title, depth=0):
     p = "../" * depth
-    primary = {"index.html", "brief.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
+    primary = {"today.html", "index.html", "brief.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
     mainlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f in primary)
     morelinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f not in primary)
     navlinks = mainlinks + '<details class="nav-more"><summary>Data &amp; method</summary><div>' + morelinks + '</div></details>' 
@@ -559,10 +559,13 @@ index = head("Dashboard") + f"""
 <section class="hero">
   <p class="eyebrow">INDEPENDENT SPORTS RESEARCH · NOT AFFILIATED WITH OLBG</p>
   <h1>Find the match. Check the evidence.</h1>
-  <p class="lede">A source-linked workspace for fixtures, independent model lines and candid verification notes.
+  <p class="lede"><strong>Looking for today's picks?</strong> The <a href="today.html">executive summary</a> puts every live
+  high-confidence pick in one table with its match, price, confidence grade, write-up and official source.
+  This dashboard is the full board behind it. A source-linked workspace for fixtures, independent model lines and candid verification notes.
   {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
   Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
-  <p class="hero-actions"><a class="button" href="olbg/index.html">Today's executive summary &amp; picks</a>
+  <p class="hero-actions"><a class="button" href="today.html">Today's picks — executive summary</a>
+  <a class="button secondary" href="olbg/index.html">OLBG board summary</a>
   <a class="button secondary" href="olbg/picks.html">All originated lines &amp; markets</a>
   <a class="button secondary" href="olbg/predictions.html">Read the written predictions</a>
   <a class="button secondary" href="#research-board">Explore all captured records ↓</a></p>
@@ -653,6 +656,148 @@ digest, next to our model output with a label. Its current snapshot holds <stron
   (<a href="method.html">method</a>). They are opinions priced off disclosed inputs, not facts, and not bookmaker prices.</p></div>
 </div>
 """ + foot(0)
+
+# ---------- executive summary (today.html) ----------
+# One page that answers the three questions the board has to answer at a glance:
+# what are the matches, what is the pick, and where does the evidence live.
+from datetime import date as _date, timedelta as _td
+
+BC = json.load(open(os.path.join(ROOT, "data/brief_coverage.json")))
+OLBG_PREDS = json.load(open(os.path.join(ROOT, "data/predictions-olbg.json")))["predictions"]
+OLBG_HIGH = [p for p in OLBG_PREDS if p.get("status") == "high"]
+TODAY = AS_OF.isoformat()
+HORIZON = (AS_OF + _td(days=3)).isoformat()
+
+
+def _kick(r):
+    return (r["pick"].get("release") or {}).get("start_utc") or r["pick"].get("kickoff_utc") or ""
+
+
+def _hhmm(iso):
+    return iso[11:16] + "Z" if len(iso) >= 16 else ""
+
+
+LIVE_HIGH = sorted([r for r in EVENTS if r["pick"]["confidence"] == "HIGH"
+                    and (r["pick"].get("release") or {}).get("status") == "upcoming"],
+                   key=lambda r: (_kick(r), r["sport"], r["ref"]))
+
+
+def _high_row(r):
+    p = r["pick"]
+    pred = PREDS.get(r["ref"])
+    src = r["verification"]
+    link = (f"<a href='predictions.html#{e(r['ref'])}'>read the write-up</a>" if pred
+            else "<span class='dim'>no write-up</span>")
+    return (f"<tr><td><a href='sports/{r['sport_slug']}.html'>{e(r['sport'])}</a>"
+            f"<br><span class='dim small'>{e(r.get('competition') or '')}</span></td>"
+            f"<td><strong>{e(r['home'])} v {e(r['away'])}</strong><br>"
+            f"<span class='small'>{e(r['start'])} listed &middot; {e(_hhmm(_kick(r)))} UTC official</span></td>"
+            f"<td class='pick'>{e(p['label'])}<br><span class='small'>{e(r['olbg_market'])}</span></td>"
+            f"<td class='num'>{money(p['price'])}<br><span class='small'>{usd(p['price'])}</span></td>"
+            f"<td class='num'>{p['prob']*100:.0f}%</td>"
+            f"<td>{conf_pill(p['confidence'])}</td>"
+            f"<td>{link}<br>{ver_cell(r)}</td></tr>")
+
+
+TODAY_UPCOMING = sorted([r for r in EVENTS if r["pick"].get("start_iso")
+                         and TODAY <= r["pick"]["start_iso"] <= HORIZON],
+                        key=lambda r: (r["pick"]["start_iso"], r["sport"], r["ref"]))
+by_sport_up = defaultdict(list)
+for _r in TODAY_UPCOMING:
+    by_sport_up[_r["sport"]].append(_r)
+up_rows = ""
+for _s in SPORT_ORDER:
+    _rows = by_sport_up.get(_s) or []
+    if not _rows:
+        continue
+    _hi = len([x for x in _rows if x["pick"]["confidence"] == "HIGH"])
+    _pr = len([x for x in _rows if x["pick"]["price"]])
+    _next = sorted(_rows, key=lambda r: r["pick"]["start_iso"])[0]
+    up_rows += (f"<tr><td><a href='sports/{_next['sport_slug']}.html'>{e(_s)}</a></td>"
+                f"<td class='num'>{len(_rows)}</td><td class='num'>{_pr}</td><td class='num'>{_hi}</td>"
+                f"<td>{e(_next['home'])} v {e(_next['away'])}<br><span class='small'>{e(_next['start'])}</span></td></tr>")
+if not up_rows:
+    up_rows = "<tr><td colspan='5'>No dated fixture inside the next three days.</td></tr>"
+
+cov_rows2 = ""
+for _s in SPORT_ORDER:
+    _c = next((x for x in BC["sports"] if x["sport"] == _s), None)
+    if not _c:
+        continue
+    _state = ("<span class='pill high'>target met</span>" if _c["meets_target"]
+              else f"<span class='pill med'>short by {_c['shortfall']}</span>")
+    cov_rows2 += (f"<tr><td><a href='sports/{SPORT_META.get(_s, {}).get('slug', '')}.html'>{e(_s)}</a></td>"
+                  f"<td class='num'>{_c['root_high']}</td><td class='num'>{_c['olbg_high']}</td>"
+                  f"<td class='num'>{_c['live_high_union']} / {_c['target']}</td><td>{_state}</td></tr>")
+
+olbg_high_rows = "".join(
+    f"<tr><td>{e(p['sport'])}</td><td>{e(p['match'])}</td><td class='pick'>{e(p['selection'])}</td>"
+    f"<td><a href='olbg/predictions.html'>OLBG lines board write-up</a></td></tr>"
+    for p in OLBG_HIGH) or "<tr><td colspan='4'>No high-confidence pick on the OLBG lines board.</td></tr>"
+
+today_page = head("Today's picks — executive summary") + f"""
+<section class="hero">
+  <p class="eyebrow">EXECUTIVE SUMMARY &middot; {TODAY} &middot; BUILD {CLOCK}</p>
+  <h1>Today’s picks, in one place.</h1>
+  <p class="lede">Every high-confidence pick we are currently publishing, with the match, the selection, the price,
+  the confidence grade, the written prediction and the official source, on one page. {len(LIVE_HIGH)} live picks on the
+  main board and {len(OLBG_HIGH)} on the OLBG lines board.</p>
+  <p class="hero-actions"><a class="button" href="#live-high">Jump to the picks ↓</a>
+  <a class="button secondary" href="sports/basketball.html">Browse a sport</a>
+  <a class="button secondary" href="method.html">How a pick is graded</a></p>
+</section>
+
+<div class="notice">
+  <strong>How to read this page.</strong> A pick is <em>live</em> only while its official start is ahead of the build clock
+  and its source observation is under 24 hours old. Prices are <strong>our own originated lines</strong>, not bookmaker odds.
+  Every row links to the official source used to confirm the fixture and to the full written prediction.
+  Anything we could not confirm is left blank and published on <a href="flagged.html">Flagged for Review</a>.
+</div>
+
+<h2 id="live-high">High-confidence picks live now</h2>
+<p class="dim">Sorted by official start time. “Listed” is what OLBG printed; “UTC” is the competition’s own clock, converted only when the source states its zone.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th>Match &amp; start</th><th>Selection</th><th class="num">Our price</th><th class="num">Chance</th><th>Conf.</th><th>Prediction &amp; source</th></tr></thead>
+<tbody>{''.join(_high_row(r) for r in LIVE_HIGH) or "<tr><td colspan='7'>No live high-confidence pick at this build.</td></tr>"}</tbody></table></div>
+
+<h2>What is coming up in the next three days</h2>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Priced</th><th class="num">High conf.</th><th>Next fixture</th></tr></thead>
+<tbody>{up_rows}</tbody></table></div>
+<p class="dim">Every captured fixture, with our win price, handicap and total, is on <a href="index.html#research-board">the dashboard</a>
+and on the sport pages. <a href="lines.html">Handicaps and totals →</a></p>
+
+<h2>Five-per-sport accounting</h2>
+<p class="dim">The brief asks for five high-confidence picks for every sport we cover, every day. This table is the honest count:
+it includes both boards and it does not promote a pick to close a gap. The blocker for each shortfall is itemised on
+<a href="brief.html">Brief coverage</a>.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th class="num">Main board HIGH</th><th class="num">OLBG board HIGH</th><th class="num">Distinct live</th><th>Status</th></tr></thead>
+<tbody>{cov_rows2}</tbody></table></div>
+<div class="notice brief-summary"><strong>Against the brief:</strong> {BC['totals']['live_high_union']} distinct live high-confidence picks
+today across {BC['totals']['sports_listed']} covered sports, against a daily target of {BC['totals']['target_picks_if_all_sports_met']}.
+{BC['totals']['sports_meeting_target']} sport(s) meet the five-pick target; shortfall {BC['totals']['shortfall_to_target']}.
+<a href="brief.html">See the per-sport blockers →</a></div>
+
+<details class="research-details"><summary>High-confidence picks on the OLBG lines board ({len(OLBG_HIGH)})</summary>
+<p class="dim">The second board prices the same OLBG capture with a different method and its own release gate. These are its current high-confidence pieces.</p>
+<div class="tablewrap"><table class="board"><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th>Write-up</th></tr></thead>
+<tbody>{olbg_high_rows}</tbody></table></div>
+<p class="dim"><a href="olbg/index.html">Open the OLBG lines board →</a></p>
+</details>
+
+<h2>Where everything lives</h2>
+<div class="grid2">
+  <div class="panel"><h3>Picks</h3><p>This page is the short list. The full written set is on
+  <a href="predictions.html">Predictions</a>; our win prices, handicaps and totals for every captured fixture are on
+  <a href="lines.html">Originated lines</a>.</p></div>
+  <div class="panel"><h3>Evidence</h3><p><a href="verification.html">Verification</a> records what each official source confirmed,
+  <a href="source-health.html">Source health</a> shows how old each observation is, and <a href="flagged.html">Flagged for Review</a>
+  lists every conflict and unverified field.</p></div>
+</div>
+""" + foot(0)
+open(os.path.join(OUT, "today.html"), "w").write(today_page)
+
 open(os.path.join(OUT, "index.html"), "w").write(index)
 
 # ---------- predictions ----------
