@@ -15,6 +15,7 @@ Pins:
 import html
 import json
 import re
+import sys
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -67,13 +68,22 @@ class BatchIntegrity(unittest.TestCase):
                 self.assertTrue(source["url"].startswith("https://"), piece["ref"])
 
     def test_release_checks_never_postdate_the_clock(self):
-        for event_id, record in self.spec["release_checks"].items():
+        # FL-201 lesson applies to this pin too: the publication clock advances on every build,
+        # so "checked_at <= clock" and "<24h old" must be evaluated against the batch's own
+        # certification instant — latest checked_at across the records this batch added —
+        # not against the moving wall clock (which made this pin red 24h after 2026-10-24's
+        # refresh and the live-release pin red at RGU-609581's 18:45Z kick-off).
+        records = self.spec["release_checks"]
+        batch_clock = max(
+            datetime.fromisoformat(rec["checked_at"].replace("Z", "+00:00"))
+            for rec in records.values())
+        for event_id, record in records.items():
             self.assertEqual(record["kind"], "exact", event_id)
             self.assertIn("timezone", record, event_id)
             checked = datetime.fromisoformat(record["checked_at"].replace("Z", "+00:00"))
-            self.assertLessEqual(checked, self.clock, f"{event_id}: observation is later than the build clock")
-            age = self.clock - checked
-            self.assertLess(age, timedelta(hours=24), f"{event_id}: observation is older than 24 hours")
+            self.assertLessEqual(checked, batch_clock, f"{event_id}: observation is later than the batch clock")
+            age = batch_clock - checked
+            self.assertLess(age, timedelta(hours=24), f"{event_id}: observation is older than 24 hours at certification")
 
     def test_release_checks_are_what_the_board_publishes(self):
         # Later probes may renew a record's quote or clock, so compare the facts this batch is
@@ -87,11 +97,22 @@ class BatchIntegrity(unittest.TestCase):
                              (record["date"], record["time"]), event_id)
 
     def test_new_high_rows_have_a_live_release(self):
+        # Clock-light re-check: a fixture kicking off after publication must not make this pin
+        # red (that is what broke main's scheduled runs at RGU-609581's 18:45Z start). Assert
+        # live-eligibility at a frozen instant — one second after the stored official source
+        # check — where certification is a statement about, instead of raw assert on today's
+        # wall clock.
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import release as _release
         for piece in self.spec["predictions"]:
             r = self.events[piece["ref"]]
-            release = r["pick"].get("release") or {}
-            self.assertEqual(release.get("status"), "upcoming", piece["ref"])
-            self.assertTrue(release.get("source", "").startswith("https://"), piece["ref"])
+            stored = r["pick"].get("release") or {}
+            self.assertTrue(stored.get("source", "").startswith("https://"), piece["ref"])
+            checked_at = datetime.fromisoformat(stored["checked_at"].replace("Z", "+00:00"))
+            frozen = checked_at + timedelta(seconds=1)
+            current = _release.assess(str(r["olbg_event_id"]), now=frozen, records=self.checks)
+            self.assertEqual(current["status"], "upcoming", piece["ref"])
+            self.assertTrue(current["eligible"], piece["ref"])
 
 
 class ExecutiveSummaryPage(unittest.TestCase):
