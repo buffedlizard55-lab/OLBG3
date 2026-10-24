@@ -11,7 +11,7 @@ nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
 nav a{color:var(--muted);font-weight:600}nav a.active{color:var(--brand)}
 main{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
 h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 12px;letter-spacing:-.02em}
-h2{font-size:22px;margin:38px 0 10px}h3{font-size:17px;margin:0 0 6px}
+h2{font-size:22px;margin:38px 0 10px}h3{font-size:17px;margin:0 0 6px}h3.sub{font-size:15px;color:#3c4655;margin:22px 0 8px}
 .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:700;color:var(--brand);margin:0 0 4px}
 .intro{font-size:18px;color:#2b333f;max-width:70ch}
 .stamp,.muted{color:var(--muted);font-size:14px}

@@ -387,10 +387,13 @@ def build_index(board):
     capture = board.meta.get("harvest_completed_utc") or "not recorded"
     built = board.now.strftime("%Y-%m-%d %H:%M UTC")
 
-    top = "".join(pick_row(board, r) for r in high)
+    today = [r for r in high if board.start(r) and board.start(r).date() == board.now.date()]
+    later = [r for r in high if r not in today]
+    top = "".join(pick_row(board, r) for r in today)
     if not top:
-        top = ('<tr><td colspan="8">No high-confidence selection is live at this build clock. '
-               'Every captured fixture is listed on <a href="matches.html">All matches</a> with its grade.</td></tr>')
+        top = ('<tr><td colspan="8">No high-confidence selection kicks off today at this build clock. '
+               'The rest of the captured week is listed below.</td></tr>')
+    later_rows = "".join(pick_row(board, r) for r in later)
 
     kpis = f"""
 <section class="kpis">
@@ -436,11 +439,17 @@ def build_index(board):
   <p class="muted">A pick is graded <strong>HIGH</strong> only when its official start is checked and ahead of now,
   its price sits inside the -250 to +10000 band, its win probability is below 70%, and a written prediction with
   sources exists. <strong>Our price</strong> is the line we originated; <strong>OLBG price</strong> is what the
-  listing printed. The two differ on purpose.</p>
+  listing printed — labelled with the side when the listing priced the other team. The two differ on purpose.</p>
+  <h3 class="sub">Today, {board.now.strftime('%d %B')} <span class="count">{len(today)}</span></h3>
   <div class="table-wrap"><table>
   <thead><tr><th>Starts (UTC)</th><th>Sport</th><th>Match</th><th>Our pick</th>
   <th>Our price</th><th>OLBG price</th><th>Confidence</th><th>Sources</th></tr></thead>
   <tbody>{top}</tbody></table></div>
+  <h3 class="sub">Later in the captured week <span class="count">{len(later)}</span></h3>
+  <div class="table-wrap"><table>
+  <thead><tr><th>Starts (UTC)</th><th>Sport</th><th>Match</th><th>Our pick</th>
+  <th>Our price</th><th>OLBG price</th><th>Confidence</th><th>Sources</th></tr></thead>
+  <tbody>{later_rows or '<tr><td colspan="8">Nothing further out has cleared every gate.</td></tr>'}</tbody></table></div>
 </section>
 <section>
   <h2>Coverage, sport by sport</h2>
@@ -700,7 +709,7 @@ nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
 nav a{color:var(--muted);font-weight:600}nav a.active{color:var(--brand)}
 main{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
 h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 12px;letter-spacing:-.02em}
-h2{font-size:22px;margin:38px 0 10px}h3{font-size:17px;margin:0 0 6px}
+h2{font-size:22px;margin:38px 0 10px}h3{font-size:17px;margin:0 0 6px}h3.sub{font-size:15px;color:#3c4655;margin:22px 0 8px}
 .eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:700;color:var(--brand);margin:0 0 4px}
 .intro{font-size:18px;color:#2b333f;max-width:70ch}
 .stamp,.muted{color:var(--muted);font-size:14px}
