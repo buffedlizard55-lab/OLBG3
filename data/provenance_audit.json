@@ -2,7 +2,7 @@
   "schema_version": 1,
   "audit": "capture-to-publication provenance",
   "scope": "Internal fidelity to committed captures, verification records, overrides, line arithmetic and prediction metadata. This report does not assert that any official sporting fact is current or that any linked page was retrieved during the audit.",
-  "publication_as_of": "2026-10-24T18:10:00Z",
+  "publication_as_of": "2026-10-24T18:32:00Z",
   "source_precedence": [
     "raw/olbg-harvest-20261023T1700Z.tsv",
     "raw/olbg-harvest-20261023T1630Z.tsv",
@@ -10,16 +10,16 @@
   ],
   "input_sha256": {
     "meta.json": "8855a0bdcab818b3c5a690f0381bae546347f0fa41e739fc03b2d07f67561b1c",
-    "publication.json": "10e7e99738537f6b0aee48f4b9ce5dd9d6ce482eb54c9dab88090f69af5ca85c",
+    "publication.json": "b07434897081be8901b2aad35daa17c7768e843409095f7a2e5bd1decaea074d",
     "matches.json": "9bad586fb5b7f973a601d38c6b5541ec76bcc5971b3c47882e7ad3d63b775d83",
-    "lines.json": "5aad816490f5e20bc641b228e1233f72c067aaf09c4b1a46782c9c7a299c055c",
+    "lines.json": "36936803029b2a780c037dd541f5848c7ce060f28a62fc0ad94ea93ea60bd0a3",
     "verifications.json": "b9abf05641436ea563ce14d4b378c1b8db7219e324c75fa042fb43e3681f1ec8",
     "official.json": "857514e1455594bf71e7c8da253452ca7ab1f8f51cd1756932e3199a1c33369e",
     "live_overrides.json": "d60a6381bb4b839779303257f6e09f81504d29a693c1e6d4779f293c4f96e640",
-    "events.json": "b17d62942b146864111d845a509fde5fe8a5f33471e6b585c1085b341e95255c",
-    "gap_sports.json": "9aab036cf3e99f504aaa0910e21a0cb1a178dd1e98991ffe74684cc7e684c717",
-    "predictions.json": "b5bab9bb47cb1ae398cd960408ee7ac7863d92cfe5aa962017f1c35d174e662e",
-    "predictions-olbg.json": "d32fca3bdf85a2f3210393abc89cd5338e6a0ec5577bdccad1f6473410299d10",
+    "events.json": "e3238a96152173e9ec1e9cfcf7fd2c08b14e1dad83fb8b7f997f3e9f8cb9da24",
+    "gap_sports.json": "e00bf9e06672d966f81978256bc4fca0839965ab7eb77a3a5800b7daee5c9717",
+    "predictions.json": "72808bfa72a75a153a9280ee12e577c1ade192104b4ad273966297cfe5fdc326",
+    "predictions-olbg.json": "732c4192ede18216c92b3a7d9813a095d330baf8b8e9502612a65aefda6bebc1",
     "schema.md": "1135719be588e5b85a7d476ad161ae6233f3232ce46f38f63c178f4adc0a954e",
     "raw/olbg-harvest-20261023T1700Z.tsv": "a476a2210a2f8cb3c46f965c7c9824284e803dbf456e5d14b8fcb11c36c6f84c",
     "raw/olbg-harvest-20261023T1630Z.tsv": "8768c6aa9c868db036afba32124d1cb4cb505918c853683534747643c4cd7abe",
@@ -28,7 +28,7 @@
   "summary": {
     "status": "review",
     "errors": 0,
-    "warnings": 14,
+    "warnings": 13,
     "informational": 46,
     "capture_observations": 480,
     "distinct_capture_events": 223,
@@ -1548,24 +1548,6 @@
       "track": "root",
       "match_id": "BSB-160792",
       "event_url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160792"
-    },
-    {
-      "severity": "warning",
-      "code": "cross_track_prediction_duplicate",
-      "message": "BKB-535928 duplicates root prediction BKB-22 word for word",
-      "match_id": "BKB-535928",
-      "duplicate_of": "BKB-22",
-      "event_url": "https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Zalgiris_vs_Asvel_Lyon_Villeurbanne/4?event_id=535928",
-      "sources": [
-        {
-          "label": "EuroLeague official round-7 preview (dated fixture, players, recent games)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
-        },
-        {
-          "label": "EuroLeague official standings (conflicts explicitly held where noted)",
-          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
-        }
-      ]
     }
   ],
   "event_lineage": [
