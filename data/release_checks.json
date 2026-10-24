@@ -1,6 +1,6 @@
 {
  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label. Daily refresh 2026-10-23T16:55Z-17:22Z (session-beb7787b): clocks re-observed on the competition's own pages (URC, NBA.com, MLB.com, EuroLeague news article with CEST clocks, LNR Top 14 (date-only: no zone printed), NHL API, WTA order-of-play PDFs (date-only / not-before: no zone printed), Cork GAA); pages that render clocks in the reader's zone without a label (WST matches, EuroLeague game-center, PREM Rugby) are recorded date-only; prior Pro D2 entries that labelled an unlabelled LNR clock as CET are held.",
- "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe; 2026-10-24T17:10Z-17:14Z URC/EHF/SuperLega match pages) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe)",
+ "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe; 2026-10-24T17:10Z-17:14Z URC/EHF/SuperLega match pages) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z)",
  "checked_at": "2026-10-24T22:30:00Z",
  "events": {
   "160789": {
@@ -1453,7 +1453,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020172, NSH Predators @ PIT Penguins",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200003": {
    "date": "2026-10-24",
@@ -1462,7 +1462,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020173, BUF Sabres @ WSH Capitals",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200002": {
    "date": "2026-10-24",
@@ -1471,7 +1471,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020175, CAR Hurricanes @ STL Blues",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200010": {
    "date": "2026-10-24",
@@ -1480,7 +1480,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020176, TOR Maple Leafs @ EDM Oilers",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200005": {
    "date": "2026-10-25",
@@ -1489,7 +1489,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-25T02:00:00Z\" — game id 2026020179, MIN Wild @ SEA Kraken",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "160792": {
    "date": "2026-10-25",
@@ -1498,7 +1498,7 @@
    "kind": "exact",
    "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher",
    "quote": "\"gameDate\": \"2026-10-25T00:00:00Z\" — game id 849802, Tampa Bay Rays @ Milwaukee Brewers",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "199999": {
    "date": "2026-10-24",
@@ -1525,7 +1525,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020171, NYR Rangers @ OTT Senators",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200007": {
    "date": "2026-10-24",
@@ -1534,7 +1534,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020170, SJS Sharks @ BOS Bruins",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200001": {
    "date": "2026-10-24",
@@ -1543,7 +1543,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020174, VGK Golden Knights @ CBJ Blue Jackets",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200009": {
    "date": "2026-10-25",
@@ -1552,7 +1552,7 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-25T01:00:00Z\" — game id 2026020177, TBL Lightning @ UTA Mammoth",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
   },
   "200004": {
    "date": "2026-10-25",
@@ -1561,7 +1561,43 @@
    "kind": "exact",
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-25T02:00:00Z\" — game id 2026020178, DET Red Wings @ CGY Flames",
-   "checked_at": "2026-10-24T19:08:16Z"
+   "checked_at": "2026-10-24T22:26:19Z"
+  },
+  "200076": {
+   "date": "2026-10-25",
+   "time": "22:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-25T22:00:00Z\" — game id 2026020181, NYI Islanders @ DAL Stars",
+   "checked_at": "2026-10-24T22:26:19Z"
+  },
+  "200074": {
+   "date": "2026-10-25",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-25T23:00:00Z\" — game id 2026020182, MTL Canadiens @ WPG Jets",
+   "checked_at": "2026-10-24T22:26:19Z"
+  },
+  "200072": {
+   "date": "2026-10-26",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-26T00:00:00Z\" — game id 2026020183, COL Avalanche @ NSH Predators",
+   "checked_at": "2026-10-24T22:26:19Z"
+  },
+  "200075": {
+   "date": "2026-10-26",
+   "time": "02:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-26T02:00:00Z\" — game id 2026020184, MIN Wild @ VAN Canucks",
+   "checked_at": "2026-10-24T22:26:19Z"
   }
  },
  "policy_20261023": "Exact UTC starts read directly from the league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state the start in UTC, so no zone is inferred.",

@@ -10,6 +10,16 @@
       node.setAttribute('data-clock-expired', 'true');
       node.setAttribute('data-conf', 'MEDIUM');
       node.setAttribute('data-release', 'release_expired');
+      // Unified cards and shortlist rows share the same conservative cutoff.
+      if (node.getAttribute('data-state') === 'pick') {
+        node.setAttribute('data-state', 'analysis');
+        node.classList.add('analysis-card');
+        node.querySelectorAll('.pill.pick').forEach(function (badge) {
+          badge.classList.remove('pick');
+          badge.classList.add('analysis');
+          badge.textContent = 'NOT A PICK';
+        });
+      }
       // The pages use the `high` class for two different visible badges: the
       // confidence label (HIGH) and the separate odds-band label (in band).
       // Only the former is a publication state. Never relabel the band badge

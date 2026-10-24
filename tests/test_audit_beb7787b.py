@@ -50,8 +50,11 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
     def test_23_oct_capture_is_chained_as_same_day_supplementary(self):
         # Merge arrangement: the sibling 16:21Z v3 capture is the primary; this session's 16:16Z-16:40Z
         # read is chained as a same-day supplementary source (adds only events the primary lacked).
-        self.assertEqual(self.meta["harvest_file"], "raw/olbg-harvest-20261023T1700Z.tsv")
-        self.assertEqual(self.meta["olbg_locale_date"], "2026-10-23")
+        # The 23 October primary is immutable evidence, not a permanent live pointer.
+        old_primary = DATA / "raw/olbg-harvest-20261023T1700Z.tsv"
+        self.assertTrue(old_primary.exists())
+        self.assertGreaterEqual(self.meta["olbg_locale_date"], "2026-10-23")
+        self.assertTrue((DATA / self.meta["harvest_file"]).exists())
         supp = {s["file"]: s for s in self.meta["supplementary_harvests"]}
         self.assertIn("raw/olbg-harvest-20261023T1630Z.tsv", supp)
         self.assertEqual(supp["raw/olbg-harvest-20261023T1630Z.tsv"]["olbg_locale_date"], "2026-10-23")
