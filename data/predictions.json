@@ -1,5 +1,5 @@
 {
-  "note": "12 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "8 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -1656,7 +1656,7 @@
     },
     {
       "ref": "IHO-200006",
-      "status": "high",
+      "status": "analysis",
       "selection": "Pittsburgh Penguins to win the money line at 1.53 (-189)",
       "headline": "Penguins’ home split and Nashville’s 23-goal start point to Pittsburgh at 1.53",
       "body": "Pittsburgh Penguins to win at 1.53 (-189) against Nashville, a 23:00 UTC face-off at PPG Paints Arena on 24 October. The Penguins are 3-1-0 on home ice and 4-6-1 overall, with 37 goals scored and 38 conceded across eleven games. Nashville are 3-3-3 and have managed only 23 goals in nine starts, and they lost their most recent game. Pittsburgh’s 3-6-1 run over the last ten is the obvious caveat, and the Predators’ 1-1-2 road line says they travel respectably, so the case rests on the home split and Nashville’s lowest-in-the-match scoring output rather than on recent momentum.",
@@ -1670,11 +1670,12 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
       ],
-      "correction_note": ""
+      "correction_note": "",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-200003",
-      "status": "high",
+      "status": "analysis",
       "selection": "Washington Capitals to win the money line at 1.44 (-227)",
       "headline": "Washington’s 4-2-0 home record makes the Capitals the call against a leaky Buffalo side",
       "body": "Washington Capitals to win at 1.44 (-227) when Buffalo visit Capital One Arena at 23:00 UTC on 24 October. Washington are 4-2-0 at home and 5-4-0 overall with 30 goals for and 29 against in nine games. Buffalo are 1-1-2 on the road and have conceded 37 goals in ten matches, the heaviest defensive figure in this matchup, and they enter off a defeat. Both clubs sit on ten points, which is why the Capitals are not priced shorter, but the Sabres have allowed an average above three and a half goals per game and that is the difference the price has to carry.",
@@ -1688,11 +1689,12 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
       ],
-      "correction_note": ""
+      "correction_note": "",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-200002",
-      "status": "high",
+      "status": "analysis",
       "selection": "Carolina Hurricanes to win the money line at 1.70 (-143)",
       "headline": "Carolina’s 6-1-1 road record is the standout number behind the 1.70 price in St. Louis",
       "body": "Carolina Hurricanes to win at 1.70 (-143) in St. Louis at 23:00 UTC on 24 October. The Hurricanes have 18 points from twelve games with 47 goals scored and 33 conceded, and their 6-1-1 road record is the strongest away line in the standings. St. Louis are 3-0-1 at home and arrive on a two-game winning run, so the venue is real, but the Blues are 5-4-1 overall with 35 goals and sit seven points behind Carolina. The visitors’ 8-1-1 stretch over ten games against St. Louis’s 5-4-1 is the gap the price is paying for.",
@@ -1706,11 +1708,12 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
       ],
-      "correction_note": "2026-10-24 session-1815f0b1: standings reread gives Carolina 18 points and St Louis 11; the gap is seven, not eight. Other quoted records and splits agree with official-20261024T2226Z/json/nhl_standings.json."
+      "correction_note": "2026-10-24 session-1815f0b1: standings reread gives Carolina 18 points and St Louis 11; the gap is seven, not eight. Other quoted records and splits agree with official-20261024T2226Z/json/nhl_standings.json.",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-200010",
-      "status": "high",
+      "status": "analysis",
       "selection": "Edmonton Oilers to win the money line at 1.41 (-244)",
       "headline": "Goal difference of plus 15 separates Edmonton from Toronto, even with both on three-game runs",
       "body": "Edmonton Oilers to win at 1.41 (-244) against Toronto at Rogers Place, 23:00 UTC on 24 October. Edmonton are 8-1-1 with 47 goals for and 32 against, a goal difference of plus 15, and they have won three straight. Toronto are 6-4-2 with 43 scored and 39 conceded, plus four, and they are also on a three-game run, while their 2-1-1 road record shows they are not easy visitors. The Oilers’ 3-1-1 home split and the eleven-goal gap in goal difference are what justify a price this short.",
@@ -1724,7 +1727,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
       ],
-      "correction_note": "2026-10-24 session-1815f0b1: official standings print goal differentials +15 and +4; their difference is eleven, not twelve. Reread from official-20261024T2226Z/json/nhl_standings.json."
+      "correction_note": "2026-10-24 session-1815f0b1: official standings print goal differentials +15 and +4; their difference is eleven, not twelve. Reread from official-20261024T2226Z/json/nhl_standings.json.",
+      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
     },
     {
       "ref": "IHO-200005",

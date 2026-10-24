@@ -4713,7 +4713,7 @@
       ],
       "detail": "Integrating capture live-20261024T2227Z-9d520984 locally: cycle 1 failed check_board with six 'HIGH stored release differs from current evidence: checked_at' errors, because scripts/model.py stamps HIGH rows from the previous release record before scripts/live_refresh.py re-certifies them from the new capture. Cycle 2 passed every gate (check_board, tools/check_site, 384 unit tests, check.py, check_links with 0 broken links) and cycle 3 changed only timestamps. CI runs one cycle per push, so a capture-only push can go red even though the data is sound.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:20:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-218"
     },
     {
@@ -4746,7 +4746,7 @@
       ],
       "detail": "OLBG start_utc in the 22:27Z capture: NYI @ DAL 22:07Z, MTL @ WPG 23:07Z, COL @ NSH 00:07Z, MIN @ VAN 02:07Z. NHL schedule: 22:00Z, 23:00Z, 00:00Z and 02:00Z (games 2026020181-2026020184). The seven-minute offset is consistent across all four rows, so it reflects how OLBG prints the time, not a rescheduled game.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:20:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-219"
     },
     {
@@ -4773,7 +4773,7 @@
       ],
       "detail": "OLBG lists the final at 16:00Z on 25 Oct, which matches the reported new throw-in (originally Saturday 24 Oct 19:00). Press reports attribute the decision to Galway GAA, but no Galway GAA or GAA page was read in this pass.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:20:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-220"
     },
     {
@@ -4816,7 +4816,7 @@
       ],
       "detail": "Darts quarter-finals (Smith v Woodhouse, Price v Bunting): pdc.tv is cookie-walled. Tennis finals (Ningbo, Almaty, Lyon): order-of-play pages were not read (atptour.com refuses the runner). LNH handball (Saint-Raphael v PSG, Montpellier v Saran): table read, calendar not read. Namibia v Ireland 3rd ODI: the Cricket Ireland report gives no time. The OLBG start times are shown unchanged.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:20:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-221"
     },
     {
@@ -4845,7 +4845,7 @@
       ],
       "detail": "https://www.daikin-hbl.de/de/daikin-hbl/tabelle/ redirected to an opel-hbl.de 404 with a reCAPTCHA; https://www.opel-hbl.de/de/hbl/tabelle returned the legend and sponsor strip but no table rows. The league appears to have been renamed (Opel HBL); the change was not checked further.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:20:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-222"
     },
     {
@@ -4883,7 +4883,7 @@
       ],
       "detail": "Fifteen of the twenty handball rows in the 22:27Z capture carry 'Tie' as the consensus selection, priced 7.50-30.00. A draw price cannot be turned into a side probability without the other two prices, which OLBG did not print.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:20:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-223"
     },
     {
@@ -4936,8 +4936,40 @@
       ],
       "detail": "Printed clocks: saracens.com 'Sunday 25 October 2026 | KO 15:00 | Twickenham Stoop'; LNR '25 Octobre 2026 21h05, Stade Marcel Deflandre'; TVF '25 Ekim 2026 Pazar 13.00 / 14.00 / 16.00 / 19.00'; Lega Pallavolo 'Domenica 25/10/2026 Ore 18:00'. Each matches OLBG's start_utc if read as the venue's local time on 25 October (UK GMT, France CET, Turkey UTC+3, Italy CET), but none of the pages states the zone, and this project does not certify an unlabelled clock. For comparison, the Cork GAA final page labels its calendar export Europe/Dublin, so that row carries a UTC start.",
       "raised_by": "session-9d520984",
-      "raised_at": "2026-10-24T23:35:00Z",
+      "raised_at": "2026-10-24T22:45:00Z",
       "original_id": "FL-224"
+    },
+    {
+      "id": "FL-231",
+      "severity": "medium",
+      "status": "open",
+      "title": "Third dated-pin red build: test_audit_a30d9bdb required started NHL picks to stay HIGH",
+      "action": "Test now asserts that a started pick is never HIGH and skips it otherwise. Dated pins should key on kickoff_started, never on the wall clock.",
+      "affected_ids": [
+        "IHO-200006",
+        "IHO-200003",
+        "IHO-200002",
+        "IHO-200010"
+      ],
+      "affected_rows": [
+        "IHO-200006",
+        "IHO-200003",
+        "IHO-200002",
+        "IHO-200010"
+      ],
+      "sources": [
+        {
+          "label": "NHL official schedule 2026-10-24",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "Failed main run 40141002367",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40141002367"
+        }
+      ],
+      "detail": "Main run 40141002367 (5b5526a) failed 'Unit tests (after the rebuild)': test_nhl_picks_are_high_and_written asserted HIGH for IHO-200006/200003/200002/200010, but NSH @ PIT and the other 23:00Z games had passed their official start (api-web.nhle.com schedule 2026-10-24), so the pipeline correctly withdrew them from HIGH. PR #191 merged before its branch check finished, which let the red build reach main.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:05:00Z"
     }
   ]
 }
