@@ -1,9 +1,9 @@
 {
   "project": "OLBG3",
-  "run_id": "S-20261023-A",
-  "run_started_utc": "2026-10-23T16:00:00Z",
-  "harvest_completed_utc": "2026-10-23T16:21:00Z",
-  "olbg_locale_date": "2026-10-23",
+  "run_id": "S-20261024-1815f0b1",
+  "run_started_utc": "2026-10-24T22:25:15Z",
+  "harvest_completed_utc": "2026-10-24T22:25:15Z",
+  "olbg_locale_date": "2026-10-24",
   "excluded_sports_verbatim": [
     "soccer",
     "boxing",
@@ -70,13 +70,25 @@
     "granularity": "177 live listing rows read from 17 of 18 in-scope listing pages at 2026-10-23T16:21Z from the served HTML of a single capture (data/raw/live-20261023T1700Z). Golf/5 returned \"No tips found.\"; Snooker/8 returned 2 rows; Greyhounds/28 returned 34.",
     "values_inferred": "none - blank when not stated by the serving page or an official source"
   },
-  "harvest_file": "raw/olbg-harvest-20261023T1700Z.tsv",
+  "harvest_file": "raw/olbg-harvest-20261024T2225Z-1815f0b1.tsv",
   "harvest_format": "v3",
-  "harvest_timezone_note": "Format v3 captures the card's own <time itemprop=\"startDate\" datetime> attribute, so each row carries OLBG's machine-readable UTC start as well as the clock OLBG printed beside it. Across the 177 rows the printed clock is exactly one hour ahead of the attribute until the 25 October 2026 DST changeover and equal to it afterwards, which is why the printed label is still published verbatim and never converted.",
-  "previous_harvest": null,
+  "harvest_timezone_note": "Machine-readable UTC starts and printed labels are separate copied source fields. They disagree on some cards; never infer a timezone from the printed label.",
+  "previous_harvest": {
+    "file": "raw/olbg-harvest-20261023T1700Z.tsv",
+    "format": "v3",
+    "harvest_completed_utc": "2026-10-23T16:21:00Z",
+    "olbg_locale_date": "2026-10-23"
+  },
   "previous_harvests_extra": [],
-  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations) + session-b322f52e (21:33Z SvelteKit supplementary capture & clock/form audit)",
+  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations) + session-b322f52e (21:33Z SvelteKit supplementary capture & clock/form audit) + session-1815f0b1 (22:25Z primary refresh)",
   "supplementary_harvests": [
+    {
+      "file": "raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv",
+      "format": "v3",
+      "harvest_completed_utc": "2026-10-24T17:07:26Z",
+      "olbg_locale_date": "2026-10-24",
+      "note": "Earlier same-day capture, carry-only; newest primary wins on repeated event ids."
+    },
     {
       "file": "raw/olbg-harvest-20261023T1630Z.tsv",
       "format": "v2",
@@ -105,7 +117,7 @@
     "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
     "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
   },
-  "archive_note": "This build publishes ONLY the 2026-10-23 captures: the 16:21Z primary (177 rows, 14 sports) plus the 3 events only the same-day 16:16Z-16:40Z supplementary capture rendered. The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick.",
+  "archive_note": "Newest readable primary: 124 rows from 18 OLBG listing responses at 2026-10-24T22:25:15Z. Older captures are retained as explicitly dated carry-only research; absence from this capture is not evidence of cancellation or market closure. Source availability is not guaranteed by a stored listing.",
   "parallel_session_notes": [
     {
       "session": "be917e0f",

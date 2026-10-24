@@ -4564,6 +4564,124 @@
           "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
         }
       ]
+    },
+    {
+      "id": "FL-218",
+      "severity": "medium",
+      "title": "Fresh listing capture is partial; five written picks per sport is not achieved",
+      "detail": "The 22:25:15Z primary contains 124 distinct OLBG events from 18 readable listing responses across 12 sports. Golf, Snooker and Motor Racing have no readable event cards in this capture. The integrated lines board retains 416 rows: 124 primary observations and 292 explicitly older carries. The current written shortlist excludes events absent from the latest capture, even if their official start is still ahead. This does not establish cancellation or market closure. The five-per-sport target (75) remains unmet and current tip acceptance/market settlement rules are not established by a saved listing. Gaelic coverage here is Gaelic Football; no complete hurling coverage is claimed.",
+      "status": "needs review",
+      "raised_by": "session-1815f0b1",
+      "raised_at": "2026-10-24T22:34:31Z",
+      "sources": [
+        {
+          "label": "OLBG official tips directory",
+          "url": "https://www.olbg.com/betting-tips"
+        },
+        {
+          "label": "Capture manifest and raw listing responses",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261024T2225Z-1815f0b1"
+        }
+      ]
+    },
+    {
+      "id": "FL-219",
+      "severity": "medium",
+      "title": "Winner selections inherited unrelated featured-market labels — corrected",
+      "detail": "The unified cards and root executive table displayed Game Totals for the Edmonton winner selection and Handicap for the St Finbarrs winner selection. The source field described OLBG’s featured card market, not the selection independently priced here. The selected market is now explicitly Match winner / Race winner / Outright winner; the raw featured label is preserved separately. No available handicap number, over/under threshold or settlement rule is inferred.",
+      "status": "fixed; history retained",
+      "raised_by": "session-1815f0b1",
+      "raised_at": "2026-10-24T22:34:31Z",
+      "sources": [
+        {
+          "label": "OLBG ice hockey listing",
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13"
+        },
+        {
+          "label": "Cork GAA final fixture",
+          "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
+        }
+      ]
+    },
+    {
+      "id": "FL-220",
+      "severity": "medium",
+      "title": "Fixture matching required both teams, not two words from one team — corrected",
+      "detail": "The previous automatic clock matcher accepted two overlapping tokens from the union of both club names, which did not establish the opponent. The new matcher requires explicit official identifiers for both sides and respects away/home order for @ fixtures, rejecting undelimited and ambiguous labels. It reproduced all 13 old probe matches, then matched 15 rows against the fresh official NHL/MLB responses. Generic one-line JSON context scans are no longer permitted to renew clocks; structured payloads use the game-level matcher. Probe provenance now names the actual probe rather than a hard-coded earlier session.",
+      "status": "fixed; history retained",
+      "raised_by": "session-1815f0b1",
+      "raised_at": "2026-10-24T22:34:31Z",
+      "sources": [
+        {
+          "label": "NHL official schedule",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "MLB official schedule",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher"
+        }
+      ]
+    },
+    {
+      "id": "FL-221",
+      "severity": "medium",
+      "title": "Greyhound SP is not a confirmed numeric price",
+      "detail": "The new 11:04 Doncaster event 690043 prints SP rather than a decimal quote. Numeric conversion previously crashed the dataset builder. The decimal field is now blank, the raw SP string is retained, and no starting price is guessed. Any independently originated price remains an estimate, not an observed market price.",
+      "status": "parser fixed; numeric source price unconfirmed",
+      "raised_by": "session-1815f0b1",
+      "raised_at": "2026-10-24T22:34:31Z",
+      "sources": [
+        {
+          "label": "OLBG greyhound listing",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-222",
+      "severity": "medium",
+      "title": "Current prediction arithmetic and unsupported prose repaired",
+      "detail": "Official standings give Carolina 18 points and St Louis 11 (gap seven, not eight); Edmonton +15 and Toronto +4 goal differentials (gap eleven, not twelve). The MLB piece confused Milwaukee’s own +214 run differential with the gap between the teams; that sentence and an unsupported first-time World Series starter claim have been removed. Unsourced volleyball serve/receive characterizations and an older Gaelic crowd-handicap observation have been removed from current winner recommendations. Original prose remains in Git history; corrected pieces state only sourced records, scorelines and separately identified judgments.",
+      "status": "corrected; final source receipts linked in session audit",
+      "raised_by": "session-1815f0b1",
+      "raised_at": "2026-10-24T22:34:31Z",
+      "sources": [
+        {
+          "label": "NHL official standings",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        },
+        {
+          "label": "MLB official standings",
+          "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026"
+        },
+        {
+          "label": "Official SuperLega standings",
+          "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+        }
+      ]
+    },
+    {
+      "id": "FL-223",
+      "severity": "medium",
+      "title": "Binary PDF evidence and unavailable source data remain separate from confirmation",
+      "detail": "The earlier cited-page probe decoded PDFs as HTML text, so the stored .txt bytes could not reproduce the response SHA-256 or be parsed as the original schedule. The probe now preserves PDFs byte-for-byte; older damaged observations remain identifiable history. NBA schedule returned HTTP 403, ATP 403, EuroLeague 429, Super League 500, URC’s generic fixtures endpoint 404 and the generic volleyball schedule 404 in this pass. MLB’s date-filtered standings response was HTTP 200 with an empty records array: that is not confirmation of any season figure. Exact prose-source URLs are requested separately. No clock or statistic is renewed merely because a response was HTTP 200.",
+      "status": "needs review",
+      "raised_by": "session-1815f0b1",
+      "raised_at": "2026-10-24T22:34:31Z",
+      "sources": [
+        {
+          "label": "EHF official playing-times PDF",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "MLB date-filtered standings",
+          "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&date=2026-10-24&hydrate=team"
+        },
+        {
+          "label": "Official response manifest",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/official-20261024T2226Z/manifest.json"
+        }
+      ]
     }
   ]
 }
