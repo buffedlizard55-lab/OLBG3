@@ -778,7 +778,12 @@ def build_report(root: Path = ROOT) -> dict:
     for event_id, source_row in selected.items():
         verification = event_verifications.get(event_id, {})
         provisional_id = f"{ID_PREFIX.get(source_row['sport'], 'UNK')}-{event_id}"
-        expected = expected_match(source_row, verification, overrides_by_id.get(provisional_id))
+        override = overrides_by_id.get(provisional_id)
+        if override and source_row.get("source_role") == "primary":
+            override_at = override.get("checked_at") or override.get("captured_at") or overrides.get("captured_at") or ""
+            if not override_at or source_row["fetched_at"] > override_at:
+                override = None
+        expected = expected_match(source_row, verification, override)
         match_id = expected["id"]
         expected_by_id[match_id] = expected
         selected_source_by_id[match_id] = source_row

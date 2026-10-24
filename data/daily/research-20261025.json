@@ -681,7 +681,7 @@
   "board_flags": [
     "NHL: OLBG lists every puck drop seven minutes after the NHL's scheduled start (for example NYI @ DAL 22:07Z on OLBG, 22:00Z on api-web.nhle.com). The official time is shown and the OLBG time is kept as captured.",
     "Galway SFC final: the move to Sunday 16:00 is reported by RTE and HoganStand only; galwaygaa.ie was not read, so the official start is blank.",
-    "Pipeline: after a new capture, the first CI cycle fails check_board because the pricing step runs before live_refresh re-certifies the HIGH rows; a second full cycle passes (see FL-218).",
-    "Zone-less official clocks (Saracens, LNR, TVF, Lega Pallavolo): the UTC start is left blank under the FL-148 rule, which caps three written picks at MEDIUM (see FL-224)."
+    "Pipeline: after a new capture, the first CI cycle fails check_board because the pricing step runs before live_refresh re-certifies the HIGH rows; a second full cycle passes (see FL-224).",
+    "Zone-less official clocks (Saracens, LNR, TVF, Lega Pallavolo): the UTC start is left blank under the FL-148 rule, which caps three written picks at MEDIUM (see FL-230)."
   ]
 }

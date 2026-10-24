@@ -240,7 +240,11 @@ class NoVenueIsAttributedToASourceThatDoesNotStateIt(unittest.TestCase):
         piece = olbg_pieces()["VOL-36997"]["text"]
         self.assertIn("in Perugia", piece)
         self.assertIn("17:00 UTC", piece)
-        self.assertIn("Reggers", piece)
+        # The current prose cites the league calendar/table, not individual player data.
+        self.assertNotIn("Reggers", piece)
+        self.assertIn("114-95", piece)
+        sources = olbg_pieces()["VOL-36997"]["sources"]
+        self.assertTrue(any('legavolley.it/classifica/' in row['url'] for row in sources))
         self.assertNotIn("PalaBarton", piece)
         self.assertNotIn("newly promoted", piece)
 

@@ -1,9 +1,14 @@
 {
-  "out": "data/raw/live-20261024T2227Z-9d520984",
-  "requested_at_utc": "2026-10-24T22:27:00Z",
-  "requested_by": "session-9d520984",
-  "why": "2026-10-25 daily refresh: fresh verbatim OLBG listing capture for the 15 in-scope sports plus official governing-body probes and cited-page re-reads, so the 25-26 Oct fixtures can be boarded from committed evidence.",
-  "capture": true,
-  "probe": true,
-  "cited": true
+  "out": "data/raw/live-20261024T2225Z-1815f0b1",
+  "requested_at_utc": "2026-10-24T22:32:35Z",
+  "requested_by": "session-1815f0b1",
+  "why": "Final reread of current written-prediction facts: exact MLB standings and official SuperLega calendar/standings, plus existing official clock sources; retain PDF bytes faithfully.",
+  "capture": false,
+  "probe": false,
+  "cited": true,
+  "cited_urls": [
+    "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+    "https://www.legavolley.it/calendario/?idCampionato=999",
+    "https://www.legavolley.it/classifica/?IdCampionato=999"
+  ]
 }

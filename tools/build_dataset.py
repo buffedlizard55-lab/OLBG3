@@ -13,6 +13,7 @@ Rules enforced here:
 from __future__ import annotations
 
 import json
+import math
 import re
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -87,6 +88,15 @@ def parse_tips(tips: str) -> tuple[int | None, int | None]:
     if not m:
         return None, None
     return int(m.group(1)), int(m.group(2))
+
+
+def parse_decimal(value: str | None) -> float | None:
+    """SP/blank is not an observed numeric price; never fabricate one."""
+    try:
+        price = float(value)
+    except (TypeError, ValueError):
+        return None
+    return price if math.isfinite(price) and price > 1 else None
 
 
 def event_url(prefix: str, slug: str, sport_id: int, eid: str) -> str:
@@ -253,7 +263,8 @@ def main() -> None:
                 "date_iso": ((v3.get("start_utc") or "")[:10] or None) or resolve_date(date_label, src_day),
                 "olbg_start_utc": v3.get("start_utc") or None,
                 "olbg_start_basis": ("OLBG <time itemprop=\"startDate\"> attribute" if v3.get("start_utc") else None),
-                "olbg_odds_decimal": float(v3["odds_decimal"]) if v3.get("odds_decimal") else None,
+                "olbg_odds_decimal": parse_decimal(v3.get("odds_decimal")),
+                "olbg_odds_raw": v3.get("odds_decimal") or None,
                 "olbg_odds_american": v3.get("odds_american") or None,
                 "olbg_odds_displayed_note": ("Price OLBG printed for this selection at capture time; not our line "
                                              "and not a bookmaker sheet read by this project." if v3.get("odds_decimal") else None),
@@ -300,6 +311,12 @@ def main() -> None:
     for m in matches:
         u = by_id.get(m["id"])
         if not u:
+            continue
+        # A historical live correction is not fresher than a new primary capture.
+        # Do not apply an undated/older override over a timestamped newer row.
+        override_at = u.get("checked_at") or u.get("captured_at") or ov.get("captured_at") or ""
+        if (m.get("fetched_at") == meta.get("harvest_completed_utc")
+                and (not override_at or m["fetched_at"] > override_at)):
             continue
         if u.get("olbg_consensus_selection"):
             m["olbg_consensus_selection"] = u["olbg_consensus_selection"]
