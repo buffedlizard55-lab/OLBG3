@@ -1,8 +1,8 @@
 # Capture-to-publication provenance audit
 
-Publication clock audited: **2026-10-24T22:37:00Z**. This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.
+Publication clock audited: **2026-10-24T22:41:00Z**. This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.
 
-**Result: REVIEW — 0 errors, 16 warnings, 100 informational observations.**
+**Result: REVIEW — 0 errors, 16 warnings, 116 informational observations.**
 
 A clean lineage result means the published data can be reproduced from the declared inputs. It does not prove that an old listing is still available, that a start time is officially confirmed, or that a selection is advisable. Blank source values remain blank; conflicting observations remain visible.
 
@@ -10,11 +10,11 @@ A clean lineage result means the published data can be reproduced from the decla
 
 | Measure | Count |
 |---|---:|
-| Raw capture observations | 801 |
-| Distinct captured events | 416 |
-| Observations not selected by first-capture-wins | 385 |
-| Published match rows accounted for | 416 |
-| Published originated-line rows accounted for | 416 |
+| Raw capture observations | 977 |
+| Distinct captured events | 418 |
+| Observations not selected by first-capture-wins | 559 |
+| Published match rows accounted for | 418 |
+| Published originated-line rows accounted for | 418 |
 | Root written predictions / HIGH rows | 93 / 12 |
 | OLBG-board written predictions / HIGH rows | 49 / 4 |
 | Verification source-register entries | 260 |
@@ -39,6 +39,7 @@ The auditor performs no network requests. Official-host classification comes fro
 | [raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv](../data/raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv) | 111 |
 | [raw/olbg-harvest-20261023T1630Z.tsv](../data/raw/olbg-harvest-20261023T1630Z.tsv) | 3 |
 | [raw/olbg-supplement-20261023T2133Z-b322f52e.tsv](../data/raw/olbg-supplement-20261023T2133Z-b322f52e.tsv) | 23 |
+| [raw/olbg-harvest-20261024T1755Z-30053696.tsv](../data/raw/olbg-harvest-20261024T1755Z-30053696.tsv) | 2 |
 
 ## Warnings for manual review
 
@@ -51,6 +52,7 @@ Both observations are retained. The selected publication value follows the decla
 - **2026-10-24T23:00:00.000Z** — [raw/olbg-harvest-20261024T2225Z-1815f0b1.tsv#L18](../data/raw/olbg-harvest-20261024T2225Z-1815f0b1.tsv#L18), fetched 2026-10-24T22:25:15Z; [OLBG event](https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845).
 - **2026-10-24T23:00:00.000Z** — [raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv#L18](../data/raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv#L18), fetched 2026-10-24T17:07:26Z; [OLBG event](https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845).
 - **2026-10-23T23:00:00.000Z** — [raw/olbg-supplement-20261023T2133Z-b322f52e.tsv#L25](../data/raw/olbg-supplement-20261023T2133Z-b322f52e.tsv#L25), fetched 2026-10-23T21:33:06Z; [OLBG event](https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845).
+- **2026-10-24T23:00:00.000Z** — [raw/olbg-harvest-20261024T1755Z-30053696.tsv#L17](../data/raw/olbg-harvest-20261024T1755Z-30053696.tsv#L17), fetched 2026-10-24T17:55:00Z; [OLBG event](https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Toronto_Kings_vs_Vancouver_Guardians_T20/7?event_id=188845).
 
 #### [32383](https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Cameron_Menzies_vs_Gerwyn_Price/15?event_id=32383)
 
@@ -76,6 +78,7 @@ Both observations are retained. The selected publication value follows the decla
 
 - **2026-10-25T13:15:00.000Z** — [raw/olbg-harvest-20261024T2225Z-1815f0b1.tsv#L34](../data/raw/olbg-harvest-20261024T2225Z-1815f0b1.tsv#L34), fetched 2026-10-24T22:25:15Z; [OLBG event](https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Stephen_Bunting/15?event_id=32407).
 - **2026-10-25T11:00:00.000Z** — [raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv#L36](../data/raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv#L36), fetched 2026-10-24T17:07:26Z; [OLBG event](https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Stephen_Bunting/15?event_id=32407).
+- **2026-10-25T11:00:00.000Z** — [raw/olbg-harvest-20261024T1755Z-30053696.tsv#L34](../data/raw/olbg-harvest-20261024T1755Z-30053696.tsv#L34), fetched 2026-10-24T17:55:00Z; [OLBG event](https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Stephen_Bunting/15?event_id=32407).
 
 Manual review lead for the European Championship rows: the [official PDC schedule announcement](https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/) was attempted, but the retrieved content contained cookie/privacy boilerplate rather than usable schedule evidence. It therefore does not resolve these clocks.
 
@@ -112,8 +115,8 @@ These differences are retained for review but are not publication errors by them
 
 | Code | Count | Meaning |
 |---|---:|---|
-| `capture_market_changed` | 25 | Nonempty headline-market labels differ across captures. |
-| `capture_price_changed` | 74 | Displayed decimal prices differ across captures; no independent bookmaker price is inferred. |
+| `capture_market_changed` | 26 | Nonempty headline-market labels differ across captures. |
+| `capture_price_changed` | 89 | Displayed decimal prices differ across captures; no independent bookmaker price is inferred. |
 | `prediction_near_duplicate_review` | 1 | Normalized word-trigram similarity merits a human prose review; it is not proof of duplication. |
 
 ## Review boundary and reproduction
