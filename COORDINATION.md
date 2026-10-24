@@ -4,6 +4,19 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+## `session-9d520984` — **task-9d520984-daily-20261025-refresh** (CLAIMED 2026-10-24T22:27Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-9d520984-daily-20261025-refresh` | in progress | `session-9d520984` on Arena-fixed `arena/9d520984-olbg3` | `COORDINATION.md`; `.harvest/request.json` (this session's capture request only); `data/raw/live-20261024T2227Z-9d520984/**`, `data/raw/official-*`/`cited-*` dirs written by the runner for this request, and `data/raw/probe-9d520984/**` (new paths only); `data/predictions.json`, `data/predictions-olbg.json`, `data/official.json`, `data/verifications.json`, `data/release_checks.json`, `data/flagged.json` (append-only), `data/batches/20261025-9d520984.json` (new); `docs/audit-9d520984.md` (new); `tests/test_audit_9d520984.py` (new); and the generated pages the documented pipeline regenerates |
+
+- **Pre-claim checks (2026-10-24T22:23Z):** `git fetch origin` → `origin/main` = `cc4357f` (scheduled board refresh 20:50Z), equal to this branch's base. No claim on the board is `in progress` with a commit inside the last 60 minutes; the last session activity was `session-68d57005`'s PR #180 (merged 19:25Z). Open PRs: #173 (`session-30053696`, idle since 18:13Z), #169 (`session-09ecce40`, idle since 17:58Z), #137 (stale since 2026-10-23) — none is touched here (their scopes are not taken over; closing them is the user's decision).
+- **Why:** at 22:2xZ almost every fixture on the 2026-10-24 board has started. The brief asks for upcoming matches; this pass boards the next day (25–26 Oct) from a fresh OLBG capture and writes official-source HIGH pieces where the evidence exists.
+- **Branch note:** Arena fixes this session's branch name, so no `session-<id>/<task>` branch or worktree is created.
+- **Hard boundary:** nothing is invented. Every clock, record, score, injury or form statement must come from a page read in this pass, linked with its URL; anything unconfirmed stays blank and is published on Flagged for Review. No pick is promoted to meet the five-per-sport target.
+
+---
+
 ## COMPLETED — `session-4e26d590`, **task-4e26d590-capture-to-publication-provenance-audit** (claimed 2026-10-24T17:56Z; PR #171 merged 2026-10-24T18:14:59Z)
 
 | Task | Status | Owner | File scope |
