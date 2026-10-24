@@ -1600,9 +1600,45 @@
    "class": "official",
    "name": "LNR Top 14 official Journee 7 calendar & standings",
    "url": "https://top14.lnr.fr/calendrier-et-resultats"
+  },
+  {
+   "id": "S-ECB-PAKENG-WATCH",
+   "class": "official",
+   "name": "ECB — How to watch and follow the England Men v Pakistan and Sri Lanka",
+   "url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka"
+  },
+  {
+   "id": "S-ICC-ODI-RANK-20261024",
+   "class": "official",
+   "name": "ICC Men's ODI Team Rankings (rank date 24 October 2026)",
+   "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+  },
+  {
+   "id": "S-ICC-MINHAS-PAKENG",
+   "class": "official",
+   "name": "ICC news — Pakistan youngster joins elite ODI group with superb haul",
+   "url": "https://www.icc-cricket.com/news/pakistan-youngster-joins-elite-odi-group-with-superb-haul"
   }
  ],
  "event_verifications": {
+  "188838": {
+   "competition": "England Men v Pakistan, Lahore ODI (25 October 2026)",
+   "venue": "Gaddafi Stadium, Lahore",
+   "start_local": "2026-10-25 08:00 GMT",
+   "start_utc": "2026-10-25T08:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-ECB-PAKENG-WATCH",
+    "S-ICC-ODI-RANK-20261024",
+    "S-ICC-MINHAS-PAKENG"
+   ],
+   "facts": [
+    "ECB how-to-watch schedule: '25 October - England Men v Pakistan, Lahore (8.00am GMT)'.",
+    "ICC Men's ODI Team Rankings, rank date 24 October 2026: Pakistan 103, England 93.",
+    "ICC news on the Rawalpindi meeting: Arafat Minhas 59 off 58 and 6 for 40; Pakistan 302/9 beat England by 87 runs."
+   ],
+   "note": "Clock quoted from the England and Wales Cricket Board how-to-watch page. Ratings from the ICC men's ODI table dated 24 October 2026. Rawalpindi scorecard from ICC news on that match."
+  },
   "828": {
    "competition": "2026 FIA Formula One World Championship — Drivers' Standings",
    "venue": null,

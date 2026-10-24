@@ -181,7 +181,6 @@ class Phase2BoardIntegrationTest(unittest.TestCase):
             "BKB-536040",
             "BKB-536042",
             "BKB-536043",
-            "CRK-188838",
             "CRK-188839",
             "CRK-188840",
             "CRK-188841",

@@ -4421,6 +4421,157 @@
           "url": "https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html"
         }
       ]
+    },
+    {
+      "id": "FL-209",
+      "severity": "coverage gap",
+      "title": "Cricket live HIGH shortfall: only Pakistan v England clears the clock, table and band gates on 24 Oct",
+      "detail": "The 17:55Z OLBG cricket listing and the committed harvest both carry several white-ball cards, but only event 188838 (Pakistan v England, Lahore) has an allowlisted, timezone-qualified official start (ECB: 25 October, 8.00am GMT) plus both sides on the ICC men's ODI table dated 24 October 2026 (Pakistan 103, England 93). CSA T20 cards for 25 Oct are not on Cricket South Africa's upcoming list with a zone label. NZC scoring lists BLACKCAPS v India 3rd T20I as Tue 27 Oct 3:00am at Wellington without a zone printed on the retrieved page. NCL GT20 Canada prints Toronto Kings v Vancouver Guardians Sat 24 Oct 7:00 PM EDT, but there is no official franchise rating table that can price that row inside the HIGH band without inventing a probability. India W v Zimbabwe W is listed as Top Team1 Batsman, not a match winner. Shortfall versus five HIGH cricket write-ups is published, not closed by inference.",
+      "affected_rows": [
+        "CRI-188845",
+        "CRI-188851",
+        "CRI-188850",
+        "CRI-188852",
+        "CRI-188847",
+        "CRI-188848",
+        "CRI-188849",
+        "CRI-188835",
+        "CRK-188838"
+      ],
+      "sources": [
+        {
+          "label": "ECB how-to-watch (Lahore 8.00am GMT)",
+          "url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka"
+        },
+        {
+          "label": "ICC Men's ODI Team Rankings",
+          "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi"
+        },
+        {
+          "label": "CSA upcoming",
+          "url": "https://www.cricket.co.za/upcoming/"
+        },
+        {
+          "label": "OLBG Cricket listing",
+          "url": "https://www.olbg.com/betting-tips/Cricket/7"
+        }
+      ]
+    },
+    {
+      "id": "FL-210",
+      "severity": "unverified start",
+      "title": "Tennis 25 Oct finals exist on allowlisted order-of-play PDFs but none print a timezone, so no HIGH",
+      "detail": "WTA Osaka OP lists F Sun 25 Oct Center 1:30 PM Krueger vs Siniakova with no zone. WTA Ningbo OP lists F Not before 5:00 PM Rybakina vs Fernandez with no zone; 'Not before' is not kind=exact. ATP Almaty daily-schedule lists Sun 25 Oct Day 9 Center 12:00 doubles final then singles final Not Before 15:00 Medvedev vs Basilashvili, local toggle, no ALMT/UTC. WTA Osaka /matches returned 404. These cards stay unverified_start. Fernandez, Basilashvili and Krueger are also absent from the stored ATP/WTA October 2026 ranking table, so even a clock would not yield official form for both sides.",
+      "affected_rows": [
+        "TEN-902207",
+        "TEN-902171",
+        "TEN-902251"
+      ],
+      "sources": [
+        {
+          "label": "WTA Osaka order of play PDF",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf"
+        },
+        {
+          "label": "WTA Ningbo order of play PDF",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf"
+        },
+        {
+          "label": "ATP Almaty order of play PDF",
+          "url": "https://www.protennislive.com/posting/2026/496/op.pdf"
+        },
+        {
+          "label": "OLBG Tennis listing",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        }
+      ]
+    },
+    {
+      "id": "FL-211",
+      "severity": "unverified start",
+      "title": "Darts: pdc.tv consent wall; 24 Oct European Championship cards already past on OLBG stamps",
+      "detail": "The official PDC probe text is empty (cookie wall). OLBG's 17:55Z listing still showed Aspinall v Littler Today 15:15, Clayton v Rock Today 16:15 and Schindler v Wattimena Today 14:15; at 18:00Z those stamps are in the past even before converting a zone we do not have. Price v Bunting Tomorrow 07:00 and the 2027 World Championship outright cannot be HIGH without an official, timezone-qualified start.",
+      "affected_rows": [
+        "DAR-32397",
+        "DAR-32400",
+        "DAR-32398",
+        "DAR-32407",
+        "DAR-26023",
+        "DAR-32338"
+      ],
+      "sources": [
+        {
+          "label": "PDC.tv",
+          "url": "https://www.pdc.tv/"
+        },
+        {
+          "label": "OLBG Darts listing",
+          "url": "https://www.olbg.com/betting-tips/Darts/15"
+        }
+      ]
+    },
+    {
+      "id": "FL-212",
+      "severity": "unverified start",
+      "title": "Snooker Northern Ireland Open: semi-final in play and final opponent unknown; WST times have no zone",
+      "detail": "WST /matches listed Match 62 Williams vs Jones as Live Now (14:00 Sat 24 Oct) and the Final at 08:00 Sun 25 Oct as Wilson vs winner, with no timezone on the retrieved page. A live semi-final cannot be a pre-match HIGH pick. The final pairing is not yet known, so no selection can be written.",
+      "affected_rows": [
+        "SNO-9950",
+        "SNO-9951"
+      ],
+      "sources": [
+        {
+          "label": "World Snooker Tour matches",
+          "url": "https://www.wst.tv/matches/"
+        },
+        {
+          "label": "OLBG Snooker listing",
+          "url": "https://www.olbg.com/betting-tips/Snooker/8"
+        }
+      ]
+    },
+    {
+      "id": "FL-213",
+      "severity": "coverage gap",
+      "title": "Golf OLBG listing has no tip cards on 24 Oct, so no originated lines and no HIGH",
+      "detail": "The 17:55Z OLBG Golf listing and the committed harvest captured the Golf page with no match-winner cards. PGA Tour schedule text was probed; nothing is priced or tipped without a captured fixture.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "OLBG Golf listing",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        },
+        {
+          "label": "PGA Tour schedule",
+          "url": "https://www.pgatour.com/schedule"
+        }
+      ]
+    },
+    {
+      "id": "FL-214",
+      "severity": "unverified start",
+      "title": "Greyhounds: UK cards are OLBG-only; GBGB clocks are not on the official-clock allowlist",
+      "detail": "The harvest captured a full UK greyhound card list. OLBG times are not converted. No GBGB (or equivalent governing-body) host is in OFFICIAL_CLOCK_HOSTS, so no row can receive an upcoming official start. HIGH is withheld for the whole sport on this pass.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "OLBG Greyhounds listing",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        }
+      ]
+    },
+    {
+      "id": "FL-215",
+      "severity": "coverage gap",
+      "title": "Rugby League listing is 2027 outrights only; no 24-25 Oct match-winner HIGH",
+      "detail": "OLBG Rugby League on 24 Oct 17:55Z is ante-post 2027 tournament markets, not this week's matches. An outright field cannot be a match-winner HIGH without a certified kick-off and two-sided form table for a specific game.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "OLBG Rugby League listing",
+          "url": "https://www.olbg.com/betting-tips/Rugby_League/10"
+        }
+      ]
     }
   ]
 }

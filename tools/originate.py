@@ -126,6 +126,7 @@ EDITORIAL_STRENGTH = {
     "CRI-188828": ("Ireland", 0.617, 455.5, "Over", "ICC Men's ODI rankings (#12 Ireland led by Paul Stirling vs #16 Namibia in Windhoek) + OLBG 7/11 (2 experts)"),
     "CRI-188826": ("Australia W", 0.730, 310.5, "Over", "Cricket Australia Women's T20I series at North Sydney Oval (>70% favorite -> medium)"),
     "CRI-188831": ("Afghanistan", 0.642, 472.5, "Over", "ICC ODI rankings (#8 Afghanistan 92 rating vs #11 Zimbabwe 64 rating; beat Zimbabwe 294 vs 136 on Oct 19 in UAE)"),
+    "CRI-188838": ("Pakistan", 0.594, 515.5, "Over", "ICC Men's ODI rankings rank date 24 Oct 2026 (Pakistan 103 vs England 93) + Rawalpindi 87-run win (Minhas 59 off 58 and 6/40); ECB Lahore clock 8.00am GMT 25 Oct"),
     # Darts — PDC Machineseeker European Championship Dortmund (Best of 11 R1)
     "DAR-32330": ("Danny Noppert", 0.580, 9.5, "Over", "PDC European Championship R1: #5 Noppert (Maastricht finalist Oct 18) vs #28 Bunting (Maastricht SF); OLBG 9/13 ML & 5/5 Over 9.5 legs"),
     "DAR-32334": ("Niels Zonneveld", 0.625, 9.5, "Over", "PDC European Championship R1: #4 Zonneveld (won Dutch Darts Championship Oct 18) vs #29 Menzies + OLBG 11/14"),
