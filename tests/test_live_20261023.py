@@ -202,7 +202,7 @@ class ArchiveIntegrity(unittest.TestCase):
         self.assertTrue(pinned.exists(), meta['harvest_file'])
         self.assertTrue([l for l in pinned.read_text(encoding='utf-8').splitlines()
                          if l.strip() and not l.startswith('#')])
-        self.assertIn('2026-10-23T16:21:00Z',
+        self.assertIn(meta['harvest_completed_utc'],
                       (ROOT / 'site' / 'olbg' / 'index.html').read_text(encoding='utf-8'),
                       'the audit board must publish the fetch time of the capture it replays')
         # The empty 21:35Z capture is still evidence — as a capture, not as a derived empty TSV.
@@ -244,8 +244,12 @@ class PublishedState(unittest.TestCase):
     def test_no_pick_is_published_from_a_carried_older_harvest(self):
         meta = json.loads((ROOT / 'data/meta.json').read_text())
         self.assertEqual(meta['harvest_format'], 'v3')
-        self.assertIsNone(meta['previous_harvest'])
-        self.assertEqual(meta['previous_harvests_extra'], [])
+        # Carries may remain visible as research, but may never produce a current HIGH.
+        matches = {m['id']: m for m in json.loads((ROOT / 'data/matches.json').read_text())}
+        for row in json.loads((ROOT / 'data/lines.json').read_text()):
+            if row['confidence'] == 'high':
+                self.assertEqual(matches[row['match_id']]['fetched_at'], meta['harvest_completed_utc'])
+                self.assertNotIn('carried from', matches[row['match_id']].get('row_notes') or '')
 
     def test_verified_events_cite_an_official_payload(self):
         ver = json.loads((ROOT / 'data/verifications.json').read_text())

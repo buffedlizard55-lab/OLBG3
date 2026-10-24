@@ -47,12 +47,23 @@ EVENTS = FIXTURES + GAP_ROWS
 PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/predictions.json")))["predictions"]}
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 
+# session-9d520984: next-day board (every OLBG row of the latest capture with our own line).
+# build_daily reads committed data only and is deterministic for a given publication clock.
+import build_daily as _daily
+DAILY = _daily.build(OUT)
+_DAILY_RES = _daily.latest_research() or {}
+_DAILY_DATE = html.escape(str(_DAILY_RES.get("board_date", "")))
+DAILY_LINK = f'<a class="button" href="daily/index.html">Next-day board &middot; {_DAILY_DATE}</a>' if DAILY else ""
+DAILY_NOTE = (f'<p class="lede"><strong>Next day:</strong> the <a href="daily/index.html">next-day board for '
+              f'{_DAILY_DATE}</a> prices every OLBG row in the capture and carries '
+              f'{DAILY["high"]} HIGH picks with full write-ups.</p>') if DAILY else ""
+
 # ---------- unified pick surface (both boards, written predictions only) ----------
 # session-3271b876: the two boards each published their own HIGH table, so a reader had to visit
 # both to learn what the picks were, and a bare selection with no write-up sat in the same table
 # style as a sourced piece. scripts/pick_surface.py merges the boards on the OLBG event id, keeps
 # the prose on the card, and labels everything that is not a pick. It reads committed data only.
-from pick_surface import collect as _collect_picks, card_html as _pick_card
+from pick_surface import collect as _collect_picks, card_html as _pick_card, summary_table as _pick_table, selection_market as _selection_market
 from pick_surface import summary_line as _pick_summary_line, words as _wc, prose_problems as _prose_problems
 
 OLBG_LINES = {r["match_id"]: r for r in json.load(open(os.path.join(ROOT, "data/lines.json")))}
@@ -60,7 +71,12 @@ OLBG_MATCHES = {r["id"]: r for r in json.load(open(os.path.join(ROOT, "data/matc
 _olbg_pred_doc = json.load(open(os.path.join(ROOT, "data/predictions-olbg.json")))
 OLBG_PREDS_BY_ID = {p["match_id"]: p for p in _olbg_pred_doc["predictions"]}
 
-PICKS = _collect_picks(EVENTS, PREDS, OLBG_LINES, OLBG_MATCHES, OLBG_PREDS_BY_ID)
+_capture_meta = json.load(open(os.path.join(ROOT, "data/meta.json")))
+with open(os.path.join(ROOT, "data", _capture_meta["harvest_file"])) as _capture_stream:
+    _active_event_ids = {line.split("|")[4] for line in _capture_stream
+                         if line.strip() and not line.startswith("#")}
+PICKS = _collect_picks(EVENTS, PREDS, OLBG_LINES, OLBG_MATCHES, OLBG_PREDS_BY_ID,
+                       active_event_ids=_active_event_ids)
 PICK_LIVE = [x for x in PICKS if x["state"] == "pick"]
 PICK_HELD = [x for x in PICKS if x["state"] != "pick"]
 PICK_SUMMARY = _pick_summary_line(PICKS)
@@ -666,11 +682,13 @@ for _x in PICK_LIVE[:12]:
     _t = _x["tracks"].get("root") or _x["tracks"].get("olbg") or {}
     _price = _t.get("price")
     _strip_items.append(
-        "<a class='strip-item' href='today.html#pick-{k}'>"
+        "<a class='strip-item' data-state='pick' data-expires-at='{cut}' href='today.html#pick-{k}'>"
         "<span class='strip-sport'>{sp}</span><span class='strip-match'>{mt}</span>"
         "<span class='strip-pick'>{sel}</span><span class='strip-price'>{pr}</span>"
         "<span class='strip-when'>{wh}</span></a>".format(
             k=e(_x["key"]), sp=e(_x["sport"]), mt=e(_x["match"]),
+            cut=e(min((t.get('expires_at') or t.get('start_utc') or '9999')
+                      for t in _x['tracks'].values() if t['state'] == 'pick')),
             sel=e(_t.get("selection") or ""),
             pr=(money(_price) + " (" + usd(_price) + " US)") if _price else "no price originated",
             wh=e((_x.get("start_utc") or "")[:16].replace("T", " ") + "Z" if _x.get("start_utc")
@@ -699,11 +717,12 @@ index = head("Dashboard") + f"""
   {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
   Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
   <p class="hero-actions"><a class="button" href="today.html">Today's picks — executive summary</a>
+  {DAILY_LINK}
   <a class="button secondary" href="predictions.html">Read the written predictions</a>
   <a class="button secondary" href="lines.html">All originated lines &amp; markets</a>
   <a class="button secondary" href="olbg/picks.html">The second board's lines</a>
   <a class="button secondary" href="#research-board">Explore all captured records ↓</a></p>
-  <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
+  <p class="stamp">Build {CLOCK} · Listing capture: {e(json.load(open(os.path.join(ROOT, "data/meta.json"))).get("harvest_completed_utc") or "unconfirmed")} · <a href="source-health.html">Check source age</a></p>
 </section>
 
 <section class="pick-strip" id="picks-strip">
@@ -729,9 +748,10 @@ index = head("Dashboard") + f"""
 </div>
 
 <div class="notice brief-summary">
-  <strong>Against the brief:</strong> {BT['live_high_union']} distinct live HIGH picks today across {BT['sports_listed']} covered sports,
+  <strong>Against the brief:</strong> {len(PICK_LIVE)} current written picks across {BT['sports_listed']} covered sports,
   against the daily target of {BT['target_picks_if_all_sports_met']} (five per sport).
-  {BT['sports_meeting_target']} sport(s) meet the five-pick target.
+  {sum(len(v) >= 5 for v in PICK_BY_SPORT.values())} sport(s) meet the target; shortfall {max(0, 75-len(PICK_LIVE))}.
+  Raw research HIGH counts elsewhere can include entries held from this current shortlist.
   <a href="brief.html">See the per-sport accounting and every blocker &rarr;</a>
 </div>
 
@@ -832,7 +852,7 @@ def _high_row(r):
             f"<br><span class='dim small'>{e(r.get('competition') or '')}</span></td>"
             f"<td><strong>{e(r['home'])} v {e(r['away'])}</strong><br>"
             f"<span class='small'>{e(r['start'])} listed &middot; {e(_hhmm(_kick(r)))} UTC official</span></td>"
-            f"<td class='pick'>{e(p['label'])}<br><span class='small'>{e(r['olbg_market'])}</span></td>"
+            f"<td class='pick'>{e(p['label'])}<br><span class='small'>{e(_selection_market(r.get('market_type', 'fixture')))}</span></td>"
             f"<td class='num'>{money(p['price'])}<br><span class='small'>{usd(p['price'])}</span></td>"
             f"<td class='num'>{p['prob']*100:.0f}%</td>"
             f"<td>{conf_pill(p['confidence'])}</td>"
@@ -942,8 +962,9 @@ today_page = head("Today's picks — executive summary") + f"""
   priced by both boards, so the two lists fold into <strong>{len(PICK_LIVE)} distinct written picks</strong> below — one card per
   match, each board's own call and price on it. A fixture with a selection but no written prediction is not counted
   as a pick, whatever its grade, and is listed further down with the reason.</p>
-  <p class="hero-actions"><a class="button" href="#live-high">Jump to the picks ↓</a>
-  <a class="button secondary" href="sports/basketball.html">Browse a sport</a>
+  {DAILY_NOTE}
+  <p class="hero-actions"><a class="button" href="#shortlist">Jump to the picks ↓</a>
+  <a class="button secondary" href="#per-sport">Browse all 15 sports</a>
   <a class="button secondary" href="method.html">How a pick is graded</a></p>
 </section>
 
@@ -954,20 +975,32 @@ today_page = head("Today's picks — executive summary") + f"""
   Anything we could not confirm is left blank and published on <a href="flagged.html">Flagged for Review</a>.
 </div>
 
+<h2 id="shortlist">Executive shortlist — what to pick and where to read it</h2>
+<p class="legend">Ordered by official UTC start. These are research selections with independent estimated prices,
+not bookmaker quotes or proof that OLBG currently accepts a tip. HIGH describes evidence confidence, not a guaranteed
+outcome or a 70% win probability. An official fixture link confirms scheduling, not every claim in the analysis.
+Injury information is not assumed when an official match-specific report is absent. The selected market is separate
+from OLBG&rsquo;s captured featured market; current availability and settlement rules are unconfirmed.</p>
+{_pick_table(PICKS)}
 <h2 id="written-picks">The picks, written out &mdash; both boards, one list</h2>
 <p class="lede">{PICK_SUMMARY} Every entry below is de&#8209;dupicated on the OLBG event id, so a fixture priced by both
 boards appears once, with each board&rsquo;s own price and its own written piece underneath it. A selection with no written
 prediction is not a pick and is listed separately, not promoted.</p>
+<p class="notice"><strong>{sum(x.get('start_utc', '')[:10] == TODAY for x in PICK_LIVE)} current written picks start today (UTC);
+{sum(x.get('start_utc', '')[:10] != TODAY for x in PICK_LIVE)} start on later dates.</strong>
+The five-per-sport counts below include all upcoming starts, not five fixtures in every sport today.</p>
 {today_prose_note}
 <section class="pick-grid">{picks_sport_sections(PICK_BY_SPORT)}</section>
 {today_held_block}
 {today_shortfall_block}
-<h2 id="live-high">High-confidence picks live now</h2>
-<p class="dim">Sorted by official start time. “Listed” is what OLBG printed; “UTC” is the competition’s own clock, converted only when the source states its zone.</p>
+<details><summary>Inspect the main board’s research grades</summary>
+<h2 id="live-high">Root-track HIGH research rows</h2>
+<p class="dim">Raw grading rows below may include selections held from the executive shortlist because current OLBG availability is unconfirmed. The shortlist above is the current written-pick list. Counts are as of the build clock; expired browser labels override them. Sorted by official start time. “Listed” is what OLBG printed; “UTC” is the competition’s own clock, converted only when the source states its zone.</p>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Sport</th><th>Match &amp; start</th><th>Selection</th><th class="num">Our price</th><th class="num">Chance</th><th>Conf.</th><th>Prediction &amp; source</th></tr></thead>
 <tbody>{''.join(_high_row(r) for r in LIVE_HIGH) or "<tr><td colspan='7'>No live high-confidence pick at this build.</td></tr>"}</tbody></table></div>
 
+</details>
 <h2>What is coming up in the next three days</h2>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Priced</th><th class="num">High conf.</th><th>Next fixture</th></tr></thead>
@@ -975,8 +1008,9 @@ prediction is not a pick and is listed separately, not promoted.</p>
 <p class="dim">Every captured fixture, with our win price, handicap and total, is on <a href="index.html#research-board">the dashboard</a>
 and on the sport pages. <a href="lines.html">Handicaps and totals →</a></p>
 
-<h2>Five-per-sport accounting</h2>
-<p class="dim">The brief asks for five high-confidence picks for every sport we cover, every day. This table is the honest count:
+<details><summary>Raw research-grade accounting (not the current shortlist)</summary>
+<h2>Five-per-sport research accounting</h2>
+<p class="dim">Current written-pick counts are in the per-sport table above; the figures below are independent-track grading totals, including held-back listing entries. The brief asks for five high-confidence picks for every sport we cover, every day. This table is the honest count:
 it includes both boards and it does not promote a pick to close a gap. The blocker for each shortfall is itemised on
 <a href="brief.html">Brief coverage</a>.</p>
 <div class="tablewrap"><table class="board">
@@ -987,6 +1021,7 @@ today across {BC['totals']['sports_listed']} covered sports, against a daily tar
 {BC['totals']['sports_meeting_target']} sport(s) meet the five-pick target; shortfall {BC['totals']['shortfall_to_target']}.
 <a href="brief.html">See the per-sport blockers →</a></div>
 
+</details>
 <details class="research-details"><summary>High-confidence picks on the OLBG lines board ({len(OLBG_HIGH)})</summary>
 <p class="dim">The second board prices the same OLBG capture with a different method and its own release gate. These are its current high-confidence pieces.</p>
 <div class="tablewrap"><table class="board"><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th>Write-up</th></tr></thead>

@@ -33,7 +33,7 @@ class Page(HTMLParser):
 def published_pages(root):
     """Legacy publisher serves root, sports/ and olbg/; artifact serves site/."""
     pages = set(root.glob('*.html'))
-    for directory in ('sports', 'olbg', 'site'):
+    for directory in ('sports', 'olbg', 'site', 'daily'):
         pages.update((root / directory).rglob('*.html'))
     return sorted(pages)
 

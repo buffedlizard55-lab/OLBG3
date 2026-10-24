@@ -85,9 +85,16 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
         cls.flagged = {i["id"]: i for i in json.loads((DATA / "flagged.json").read_text(encoding="utf-8"))["items"]}
 
     def test_cri_188845_top_batsman_is_classified_as_non_winner(self):
-        self.assertEqual(self.matches["CRI-188845"]["olbg_market"], "Top Team1 Batsman")
-        self.assertEqual(self.matches["CRI-188845"]["market_family"], "other")
-        self.assertIn("non_win_consensus_excluded_from_winner_probability", self.lines["CRI-188845"]["flags"])
+        # Pin the historical defect to its source; the same event's featured market can change.
+        capture = DATA / "raw/olbg-supplement-20261023T2133Z-b322f52e.tsv"
+        archived = [line.split('|') for line in capture.read_text().splitlines()
+                    if line and not line.startswith('#') and '|188845|' in line]
+        self.assertTrue(archived)
+        self.assertTrue(any('Top Team1 Batsman' in row for row in archived))
+        for mid, match in self.matches.items():
+            if match.get('olbg_market') == 'Top Team1 Batsman':
+                self.assertEqual(match['market_family'], 'other')
+                self.assertIn('non_win_consensus_excluded_from_winner_probability', self.lines[mid]['flags'])
 
     def test_no_row_has_inverted_home_probability(self):
         for mid, l in self.lines.items():

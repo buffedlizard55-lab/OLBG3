@@ -250,8 +250,11 @@ def main() -> None:
 <section class="card" id="executive-summary" style="border-left:6px solid #0b9482">
   <p class="eyebrow" style="margin:0 0 4px">EXECUTIVE SUMMARY · build {E(_clock.strftime('%Y-%m-%d %H:%MZ'))}</p>
   <h2 style="margin-top:0">Today's highest-confidence picks</h2>
-  <p class="muted">This build publishes only the <strong>{E(RUN['harvest_completed_utc'])}</strong> listing capture
-  ({len(matches)} fixtures across {len({m['sport'] for m in matches})} sports). {len(today_rows)} fixtures start on
+  <p class="muted">The newest primary listing capture is <strong>{E(RUN['harvest_completed_utc'])}</strong>:
+  {sum(m.get('fetched_at') == RUN['harvest_completed_utc'] for m in matches)} current-capture rows,
+  plus {sum(m.get('fetched_at') != RUN['harvest_completed_utc'] for m in matches)} older carried research rows
+  ({len(matches)} total rows across {len({m['sport'] for m in matches})} sports). Absence from the latest listing
+  does not establish cancellation or current tip availability. {len(today_rows)} fixtures start on
   {E(_today)} and {len(next24)} start within the next 24 hours of the publication clock.
   <strong>{len(high_rows)}</strong> picks currently pass every gate (official-start, price band, verified write-up);
   {len(today_high)} of them are today's. {len(verified_rows)} fixtures have a competition confirmed from an official source;

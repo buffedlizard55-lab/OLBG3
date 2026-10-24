@@ -41,6 +41,7 @@ jobs:
           print(f"capture={'true' if req.get('capture', True) else 'false'}")
           print(f"probe={'true' if req.get('probe', True) else 'false'}")
           print(f"cited={'true' if req.get('cited', False) else 'false'}")
+          print(f"urls={req.get('urls', '')}")
           PY
       - name: Capture listings
         if: steps.request.outputs.capture == 'true'
@@ -70,6 +71,16 @@ jobs:
           mkdir -p "$OUT"
           set +e
           python scripts/probe_cited.py --out "$OUT" --delay 2 > "$OUT/run.log" 2>&1
+          echo "exit=$?" >> "$OUT/run.log"
+          cat "$OUT/run.log"
+      - name: Fetch an explicit official URL list (byte-faithful)
+        if: steps.request.outputs.urls != ''
+        run: |
+          STAMP="$(date -u +%Y%m%dT%H%MZ)"
+          OUT="data/raw/urls-$STAMP"
+          mkdir -p "$OUT"
+          set +e
+          python scripts/probe_urls.py --list '${{ steps.request.outputs.urls }}' --out "$OUT" --delay 1.5 > "$OUT/run.log" 2>&1
           echo "exit=$?" >> "$OUT/run.log"
           cat "$OUT/run.log"
       - name: Show capture summary

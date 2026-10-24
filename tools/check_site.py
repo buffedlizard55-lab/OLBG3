@@ -29,6 +29,14 @@ DOCS = ROOT / "olbg-board"
 DATA = ROOT / "data"
 
 ALLOWED_HOSTS = {
+    # session-9d520984 (2026-10-24): FL-220 cites two Irish broadcasters/GAA press for the Galway
+    # re-fixture (labelled press, not official); FL-222 cites the HBL's own table page.
+    "www.rte.ie",
+    "www.hoganstand.com",
+    "www.opel-hbl.de",
+    # FL-224 cites the club and federation schedule pages whose clocks carry no zone.
+    "saracens.com",
+    "tvf.org.tr",
     "www.olbg.com",
     "www.pdc.tv",
     "www.mlb.com",
