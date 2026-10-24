@@ -47,6 +47,17 @@ EVENTS = FIXTURES + GAP_ROWS
 PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/predictions.json")))["predictions"]}
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 
+# session-9d520984: next-day board (every OLBG row of the latest capture with our own line).
+# build_daily reads committed data only and is deterministic for a given publication clock.
+import build_daily as _daily
+DAILY = _daily.build(OUT)
+_DAILY_RES = _daily.latest_research() or {}
+_DAILY_DATE = html.escape(str(_DAILY_RES.get("board_date", "")))
+DAILY_LINK = f'<a class="button" href="daily/index.html">Next-day board &middot; {_DAILY_DATE}</a>' if DAILY else ""
+DAILY_NOTE = (f'<p class="lede"><strong>Next day:</strong> the <a href="daily/index.html">next-day board for '
+              f'{_DAILY_DATE}</a> prices every OLBG row in the capture and carries '
+              f'{DAILY["high"]} HIGH picks with full write-ups.</p>') if DAILY else ""
+
 # ---------- unified pick surface (both boards, written predictions only) ----------
 # session-3271b876: the two boards each published their own HIGH table, so a reader had to visit
 # both to learn what the picks were, and a bare selection with no write-up sat in the same table
@@ -703,6 +714,7 @@ index = head("Dashboard") + f"""
   {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
   Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
   <p class="hero-actions"><a class="button" href="today.html">Today's picks — executive summary</a>
+  {DAILY_LINK}
   <a class="button secondary" href="predictions.html">Read the written predictions</a>
   <a class="button secondary" href="lines.html">All originated lines &amp; markets</a>
   <a class="button secondary" href="olbg/picks.html">The second board's lines</a>
@@ -947,6 +959,7 @@ today_page = head("Today's picks — executive summary") + f"""
   priced by both boards, so the two lists fold into <strong>{len(PICK_LIVE)} distinct written picks</strong> below — one card per
   match, each board's own call and price on it. A fixture with a selection but no written prediction is not counted
   as a pick, whatever its grade, and is listed further down with the reason.</p>
+  {DAILY_NOTE}
   <p class="hero-actions"><a class="button" href="#shortlist">Jump to the picks ↓</a>
   <a class="button secondary" href="#per-sport">Browse all 15 sports</a>
   <a class="button secondary" href="method.html">How a pick is graded</a></p>

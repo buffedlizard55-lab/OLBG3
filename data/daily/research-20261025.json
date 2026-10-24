@@ -1,0 +1,687 @@
+{
+  "board_date": "2026-10-25",
+  "session": "session-9d520984",
+  "capture": "data/raw/olbg-harvest-20261024T2227Z-9d520984.tsv",
+  "captured_at_utc": "2026-10-24T22:24:45Z",
+  "researched_at_utc": "2026-10-24T22:30:00Z/2026-10-24T23:10:00Z",
+  "policy": [
+    "Every number in a row's inputs was read from the source listed on that row; nothing is estimated to fill a gap.",
+    "official_start_utc is filled only when the official page states the time zone (UTC, GMT, or a named zone such as Europe/Dublin in the page's calendar export). A local clock printed without a zone is shown as printed and left out of the UTC column, following the project's FL-148 rule; such rows cannot be graded HIGH.",
+    "Press sources (BBC, RTE, HoganStand, Tuam Herald) are listed as press, never as official, and are used only for team news.",
+    "Rows without an entry here are published as market-anchored LOW lines: OLBG's printed price, de-margined, with no form input."
+  ],
+  "rows": {
+    "188852": {
+      "official_start_utc": "2026-10-27T07:00:00Z",
+      "official_sources": [
+        {
+          "label": "BCCI - 3rd T20I New Zealand v India, match details (27 Oct, 07:00 UTC, Wellington)",
+          "url": "https://www.bcci.tv/matches/242110/new-zealand-vs-india/match-details"
+        },
+        {
+          "label": "BCCI - 1st T20I scorecard: India 230/6 beat New Zealand 225/4",
+          "url": "https://www.bcci.tv/matches/b8a52270-eedc-48ff-93f1-b925941e67b7/new-zealand-vs-india/match-details"
+        },
+        {
+          "label": "BCCI - 2nd T20I: India 181/6 beat New Zealand 180/5",
+          "url": "https://www.bcci.tv/matches/7375b7c1-9f64-4288-8b10-c837481b2744/new-zealand-vs-india/video"
+        },
+        {
+          "label": "New Zealand Cricket scoring centre - 3rd T20I",
+          "url": "https://scoring.nzc.nz/match/35de7c5e-f734-4003-89db-59d7081e9d29"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "India",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 2,
+        "pick_g": 2,
+        "opp_w": 0,
+        "opp_g": 2,
+        "edge": -0.04,
+        "basis": "results in this T20I series (BCCI scorecards); edge -0.04 because New Zealand are at home"
+      },
+      "form_text": "India lead the series 2-0: 230/6 chasing 225/4 in the 1st T20I, 181/6 chasing 180/5 in the 2nd.",
+      "prose": "India go to Wellington 2-0 up and have now chased targets of 226 and 181 in this series, which tells you their batting depth holds up under scoreboard pressure. Sanju Samson's 67 set up the first chase and Tilak Varma's unbeaten 51 finished the second, so the runs are not resting on one player. New Zealand have been close both times and Mitchell Santner's 4-21 shows they can squeeze the middle overs, but a home side that has lost two tight finishes needs more than spin to turn this around. India to complete the sweep.",
+      "official_clock_printed": "27 Oct 07:00 UTC (BCCI)"
+    },
+    "188838": {
+      "official_start_utc": "2026-10-25T08:00:00Z",
+      "official_sources": [
+        {
+          "label": "ECB - England men v Pakistan and Sri Lanka: Pakistan v England, Lahore, 25 Oct 8.00am GMT",
+          "url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka"
+        },
+        {
+          "label": "PCB - Arafat Minhas 6-40 and 59 sink England (Pakistan 302-9 beat England 215)",
+          "url": "https://www.pcb.com.pk/news-detail/arafat-minhas-6-40-and-59-sink-england-as-pakistan-win-consecutive-games-in-odi-tri-series.html"
+        },
+        {
+          "label": "PCB - Salman Ali Agha 107 as Pakistan beat Sri Lanka by 37 runs",
+          "url": "https://www.pcb.com.pk/news-detail/salman-hits-century-pacers-restrict-sri-lanka-as-pakistan-begin-tri-series-on-winning-note.html"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Pakistan",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 2,
+        "pick_g": 2,
+        "opp_w": 0,
+        "opp_g": 2,
+        "edge": 0.04,
+        "basis": "tri-series results (PCB reports); England also lost to Sri Lanka by two wickets on 22 Oct; edge +0.04 for Pakistan at home in Lahore"
+      },
+      "form_text": "Pakistan 2-0 in the tri-series (beat Sri Lanka by 37, England by 87); England 0-2.",
+      "prose": "Pakistan have won both tri-series games at home, beating England by 87 runs on 20 October when Arafat Minhas took 6-40 and made 59. England then lost to Sri Lanka despite posting 429-4. The form points to Pakistan, and OLBG's 2.35 is generous, but England's batting ceiling keeps this below our top tier.",
+      "official_clock_printed": "25 Oct 8.00am GMT (ECB)"
+    },
+    "188854": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "Cricket Ireland - Series leveller: Namibia 321-6 (Erasmus 156*) beat Ireland 290 by 31 runs",
+          "url": "https://cricketireland.ie/news/series-leveller"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Ireland",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 1,
+        "pick_g": 2,
+        "opp_w": 1,
+        "opp_g": 2,
+        "edge": -0.04,
+        "basis": "series level 1-1 (Cricket Ireland); edge -0.04 because Namibia are at home"
+      },
+      "form_text": "Series 1-1 after Namibia won the 2nd ODI by 31 runs (Gerhard Erasmus 156*).",
+      "prose": "The series is 1-1 after Gerhard Erasmus made 156 not out to level it. The OLBG price makes Ireland favourites, but our read is much closer to a coin flip in Namibian conditions. A small lean only. The start time was not printed on an official page we could read, so that field is left blank."
+    },
+    "609571": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "PREM Rugby - Gallagher PREM standings (Saracens P3 W2 L1 PD +21; Harlequins P3 L3 PD -68)",
+          "url": "https://www.premiershiprugby.com/standings"
+        },
+        {
+          "label": "Saracens - Harlequins v Saracens, Sunday 25 October 2026, KO 15:00, Twickenham Stoop",
+          "url": "https://saracens.com/5-must-attend-saracens-fixtures/"
+        }
+      ],
+      "press_sources": [
+        {
+          "label": "BBC Sport - Marcus Smith set for 200th appearance as Fin Baxter returns (21 Oct 2026)",
+          "url": "https://www.bbc.co.uk/sport/rugby-union/articles/c50mexw1gy11o"
+        }
+      ],
+      "market": "Match winner",
+      "selection": "Saracens",
+      "market_relation": "complement",
+      "form": {
+        "type": "log5",
+        "pick_w": 2,
+        "pick_g": 3,
+        "opp_w": 0,
+        "opp_g": 3,
+        "edge": -0.04,
+        "basis": "Gallagher PREM table after round 3 for these two clubs; edge -0.04 because Harlequins are at home"
+      },
+      "form_text": "Saracens 2-1 (PD +21, 11 pts); Harlequins 0-3 (PD -68, 2 pts, bottom).",
+      "prose": "Harlequins are bottom of the PREM after three straight defeats and a points difference of minus 68, so even a London derby at the Stoop looks a tall order. Saracens have won two of their three and sit fourth on plus 21. Quins do get England prop Fin Baxter back from a ten-month lay-off, and Marcus Smith marks his 200th appearance, but tighthead Titi Lamositele is still out and the scrum has to hold against a strong Saracens pack. Saracens to win.",
+      "official_clock_printed": "Sun 25 Oct, KO 15:00 (saracens.com; no time zone printed)"
+    },
+    "609554": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "LNR - Top 14 classement 2026-27 (La Rochelle P6 W4 L2 +9; Bordeaux-Begles P6 W4 L2 +64)",
+          "url": "https://top14.lnr.fr/classement"
+        },
+        {
+          "label": "LNR - Feuille de match J7 Stade Rochelais v Union Bordeaux-Begles, 25 Oct 2026 21h05, Stade Marcel Deflandre",
+          "url": "https://top14.lnr.fr/feuille-de-match/2026-2027/j7/11864-la-rochelle-bordeaux-begles"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "La Rochelle",
+      "market_relation": "complement",
+      "form": {
+        "type": "log5",
+        "pick_w": 4,
+        "pick_g": 6,
+        "opp_w": 4,
+        "opp_g": 6,
+        "edge": 0.04,
+        "basis": "Top 14 table before J7 for both clubs; edge +0.04 for La Rochelle at Marcel Deflandre"
+      },
+      "form_text": "Both 4-2. La Rochelle won their last two (Clermont, at Lyon); Bordeaux-Begles lost away at Toulouse and Perpignan and won at Clermont.",
+      "prose": "Both sides are 4-2, but the venue tips it. Bordeaux-Begles have the better points difference at plus 64, yet away from home they have lost at Toulouse and at Perpignan, with only the win at Clermont on the road. La Rochelle have won their last two, at home to Clermont and away at Lyon, and the league sheet names Gregory Alldritt at number eight with Antoine Hastoy at ten. Back La Rochelle at home on Sunday night.",
+      "official_clock_printed": "25 Octobre 2026, 21h05 (top14.lnr.fr; no time zone printed)"
+    },
+    "200076": {
+      "official_start_utc": "2026-10-25T22:00:00Z",
+      "official_sources": [
+        {
+          "label": "NHL - schedule 2026-10-25 (game 2026020181 NYI @ DAL 22:00Z, American Airlines Center)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-25"
+        },
+        {
+          "label": "NHL - standings as of 2026-10-24 22:25Z (DAL GF 26 GA 17 in 10; NYI GF 29 GA 23 in 10)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "press_sources": [],
+      "market": "Game total",
+      "selection": "Under 5.5",
+      "market_relation": "same",
+      "form": {
+        "type": "poisson_total",
+        "lam_home": 2.45,
+        "lam_away": 2.3,
+        "line": 5.5,
+        "side": "Under",
+        "basis": "home rate = (DAL GF/GP 2.60 + NYI GA/GP 2.30)/2; away rate = (NYI GF/GP 2.90 + DAL GA/GP 1.70)/2; NHL standings at 24 Oct 22:25Z"
+      },
+      "form_text": "DAL 6-3-1, 26 for / 17 against in 10; NYI 5-3-2, 29 for / 23 against in 10. Expected total about 4.75.",
+      "prose": "Dallas have allowed 17 goals in ten games, the fewest of any team on Sunday's NHL slate, and they have won four straight. The Islanders score at 2.9 a game, but their road output is low: eight goals in four away games. Put those rates together and the expected total comes out near 4.75, comfortably below the line. Note that OLBG lists the puck drop at 22:07 against the NHL's 22:00 scheduled start. Under 5.5 goals."
+    },
+    "200074": {
+      "official_start_utc": "2026-10-25T23:00:00Z",
+      "official_sources": [
+        {
+          "label": "NHL - schedule 2026-10-25 (game 2026020182 MTL @ WPG 23:00Z, Heritage Classic, Princess Auto Stadium)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-25"
+        },
+        {
+          "label": "NHL - standings as of 2026-10-24 22:25Z (MTL GF 34 GA 35; WPG GF 26 GA 29)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "press_sources": [],
+      "market": "Game total",
+      "selection": "Over 5.5",
+      "market_relation": "same",
+      "form": {
+        "type": "poisson_total",
+        "lam_home": 3.05,
+        "lam_away": 3.15,
+        "line": 5.5,
+        "side": "Over",
+        "basis": "home rate = (WPG GF/GP 2.60 + MTL GA/GP 3.50)/2; away rate = (MTL GF/GP 3.40 + WPG GA/GP 2.90)/2"
+      },
+      "form_text": "Montreal games average 6.9 total goals (34 for, 35 against in 10); Winnipeg 5.5 (26/29 in 10). Outdoor Heritage Classic.",
+      "prose": "Montreal games have averaged almost seven goals, and the scoring rates point to about 6.2 here. We lean Over, but it is an outdoor game at Princess Auto Stadium and the weather and ice are unknowns, so this stays a lean."
+    },
+    "200072": {
+      "official_start_utc": "2026-10-26T00:00:00Z",
+      "official_sources": [
+        {
+          "label": "NHL - schedule 2026-10-25 (game 2026020183 COL @ NSH 26 Oct 00:00Z, Bridgestone Arena); NSH at PIT 24 Oct 23:00Z",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-25"
+        },
+        {
+          "label": "NHL - standings as of 2026-10-24 22:25Z (COL 6-4-1 GF 47 GA 34; NSH 3-3-3 GF 23 GA 30)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "press_sources": [],
+      "market": "Money line",
+      "selection": "Colorado Avalanche",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 6,
+        "pick_g": 11,
+        "opp_w": 3,
+        "opp_g": 9,
+        "edge": -0.04,
+        "basis": "NHL wins / games played; edge -0.04 for Colorado on the road"
+      },
+      "form_text": "COL 6-4-1 (+13); NSH 3-3-3 (-7). Nashville play at Pittsburgh the night before.",
+      "prose": "Colorado are the better side and Nashville are on the second night of a back-to-back after playing in Pittsburgh. Still, our fair price for Colorado is about 1.64, so OLBG's 1.40 is too short to be a top pick."
+    },
+    "200075": {
+      "official_start_utc": "2026-10-26T02:00:00Z",
+      "official_sources": [
+        {
+          "label": "NHL - schedule 2026-10-25 (game 2026020184 MIN @ VAN 26 Oct 02:00Z, Rogers Arena); MIN at SEA 25 Oct 02:00Z",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-25"
+        },
+        {
+          "label": "NHL - standings as of 2026-10-24 22:25Z (MIN GF 32 GA 27 in 11; VAN GF 35 GA 56 in 12)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "press_sources": [],
+      "market": "Game total",
+      "selection": "Over 6.5",
+      "market_relation": "same",
+      "form": {
+        "type": "poisson_total",
+        "lam_home": 2.686,
+        "lam_away": 3.788,
+        "line": 6.5,
+        "side": "Over",
+        "basis": "home rate = (VAN GF/GP 2.917 + MIN GA/GP 2.455)/2; away rate = (MIN GF/GP 2.909 + VAN GA/GP 4.667)/2"
+      },
+      "form_text": "Vancouver 2-9-1 with 56 goals against in 12; Minnesota 6-3-2. Expected total about 6.5, right on the line.",
+      "prose": "Vancouver have conceded 56 goals in 12 games, but the scoring rates put the expected total right on 6.5. Seven or more goals is slightly less likely than not, so we lean Under. Minnesota are also on the second night of a back-to-back after playing in Seattle."
+    },
+    "37114": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings (Fenerbahce Medicana 3-0, sets 9-2; Eczacibasi 3-1, sets 11-5)",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 25 Oct 19.00 Fenerbahce Medicana v Eczacibasi Peron Istanbul (TVF Burhan Felek Vestel)",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Fenerbahce W",
+      "market_relation": "complement",
+      "form": {
+        "type": "log5",
+        "pick_w": 3,
+        "pick_g": 3,
+        "opp_w": 3,
+        "opp_g": 4,
+        "edge": 0.04,
+        "basis": "Sultanlar Ligi results after week 4 (TVF table); edge +0.04 for the listed home side"
+      },
+      "form_text": "Fenerbahce 3-0, sets 9-2, points ratio 1.351 (best in the league); Eczacibasi 3-1, sets 11-5, ratio 1.189.",
+      "prose": "Fenerbahce Medicana are unbeaten after three matches and have dropped only two sets. Their points ratio of 1.351 is the best in the Sultanlar Ligi, ahead of Eczacibasi's 1.189. Eczacibasi are good too, 3-1 with two straight-set wins, but they have already lost once and Fenerbahce have played the cleaner volleyball. With the home billing at Burhan Felek on Sunday evening, take Fenerbahce.",
+      "official_clock_printed": "25 Ekim 2026 19.00 (tvf.org.tr; no time zone printed)"
+    },
+    "37108": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 13.00 Besiktas v Goztepe Yuppo",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Besiktas W",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 1,
+        "pick_g": 4,
+        "opp_w": 1,
+        "opp_g": 3,
+        "edge": 0.04,
+        "basis": "TVF table after week 4"
+      },
+      "form_text": "Besiktas 1-3 (sets 8-10); Goztepe 1-2 (sets 4-6).",
+      "prose": "Both sides have one win, and nothing in the table justifies Besiktas at 1.40. We still slightly favour the home side, but the price is too short.",
+      "official_clock_printed": "25 Ekim 2026 13.00 (tvf.org.tr; no time zone printed)"
+    },
+    "37109": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 14.00 Kuzeyboru v Nilufer Bld. Eker (Aksaray)",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Kuzeyboru W",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 2,
+        "pick_g": 4,
+        "opp_w": 1,
+        "opp_g": 4,
+        "edge": 0.04,
+        "basis": "TVF table after week 4"
+      },
+      "form_text": "Kuzeyboru 2-2 (sets 9-9, points 396-396); Nilufer 1-3 (sets 7-9).",
+      "prose": "Kuzeyboru are at home in Aksaray and have the better record, so they are the right side. At 1.44, though, the price is shorter than our fair line.",
+      "official_clock_printed": "25 Ekim 2026 14.00 (tvf.org.tr; no time zone printed)"
+    },
+    "37110": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 14.00 VakifBank v Galatasaray Daikin",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Vakifbank W",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 4,
+        "pick_g": 4,
+        "opp_w": 2,
+        "opp_g": 4,
+        "edge": 0.04,
+        "basis": "TVF table after week 4"
+      },
+      "form_text": "VakifBank 4-0 (sets 12-3); Galatasaray 2-2 (sets 10-8).",
+      "prose": "VakifBank are 4-0 and should win. At 1.10, however, the price is far outside the -250 floor for top picks.",
+      "official_clock_printed": "25 Ekim 2026 14.00 (tvf.org.tr; no time zone printed)"
+    },
+    "37111": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 16.00 Aras Kargo v Turk Hava Yollari",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "THY W",
+      "market_relation": "complement",
+      "form": {
+        "type": "log5",
+        "pick_w": 3,
+        "pick_g": 4,
+        "opp_w": 3,
+        "opp_g": 4,
+        "edge": -0.04,
+        "basis": "TVF table after week 4; THY are the away side"
+      },
+      "form_text": "Both 3-1. THY points 383-350 (ratio 1.094); Aras Kargo 322-317 (1.016).",
+      "prose": "Both teams are 3-1, but THY have the stronger points ratio. Our lean is THY, though the gap is small.",
+      "official_clock_printed": "25 Ekim 2026 16.00 (tvf.org.tr; no time zone printed)"
+    },
+    "37112": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 16.00 Ilbank v Sinnada Hotels Afyon Bld. Yuntas",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Ilbank W",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 1,
+        "pick_g": 4,
+        "opp_w": 1,
+        "opp_g": 4,
+        "edge": 0.04,
+        "basis": "TVF table after week 4"
+      },
+      "form_text": "Ilbank 1-3 (sets 5-10); Afyon 1-3 (sets 5-11).",
+      "prose": "Both sides are 1-3 and near the bottom. Ilbank deserve to be slight favourites at home, but 1.40 is too short.",
+      "official_clock_printed": "25 Ekim 2026 16.00 (tvf.org.tr; no time zone printed)"
+    },
+    "37113": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "TVF - Vodafone Sultanlar Ligi standings",
+          "url": "https://tvf.org.tr/lig/sultanlar-ligi"
+        },
+        {
+          "label": "TVF - Week 5 schedule: 16.00 Manisa B.Sehir Bld. v Zeren Spor",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        }
+      ],
+      "press_sources": [],
+      "market": "Correct set score",
+      "selection": "Manisa BBSK W to win 3-1",
+      "market_relation": "none",
+      "form": null,
+      "form_text": "Manisa 1-3 (sets 4-10); Zeren 1-3 (sets 3-10).",
+      "prose": "These are two of the league's lowest-scoring sides. A correct-score market at 8.00 is not a confidence play.",
+      "official_clock_printed": "25 Ekim 2026 16.00 (tvf.org.tr; no time zone printed)"
+    },
+    "36996": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "Lega Pallavolo - SuperLega calendario: Vero Volley Monza v Rana Verona, 25/10/2026 18:00, OpiquadArena",
+          "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+        },
+        {
+          "label": "Lega Pallavolo - SuperLega classifica (round 1: Monza lost 1-3 at Prata; Verona lost 0-3 to Civitanova)",
+          "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Rana Verona",
+      "market_relation": "complement",
+      "form": null,
+      "form_text": "One round played: Monza lost 1-3 at Prata di Pordenone; Verona lost 0-3 at home to Civitanova.",
+      "prose": "Both sides lost in round one, and one match is too little to price from. This line follows OLBG's price, which makes Verona clear favourites away at Monza.",
+      "official_clock_printed": "Domenica 25/10/2026 Ore 18:00 (legavolley.it; no time zone printed)"
+    },
+    "32408": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "PDC - European Championship round one report (Woodhouse v van Veen set-up)",
+          "url": "https://www.pdc.tv/news/2026/october/22/nine-dart-star-woodhouse-sets-up-van-veen-clash-dortmund/"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Ross Smith",
+      "market_relation": "same",
+      "form": null,
+      "form_text": "Round two: Ross Smith 10-7 Heta (average 96.19); Woodhouse 10-6 van Veen (95.34).",
+      "prose": "Their round-two averages were less than a point apart, so this is close to a coin flip. The quarter-final start time was not readable on an official page and is left blank."
+    },
+    "902251": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "ATP Tour - Medvedev reaches Almaty final (37 hard-court wins in 2026; won only previous meeting 6-2 6-2)",
+          "url": "https://www.atptour.com/en/news/medvedev-bublik-almaty-2026-saturday"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Daniil Medvedev",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 1,
+        "pick_g": 1,
+        "opp_w": 0,
+        "opp_g": 1,
+        "edge": 0.0,
+        "basis": "head-to-head per ATP Tour"
+      },
+      "form_text": "Medvedev 10-1 in Almaty finals and 37 hard-court wins in 2026; Basilashvili came through qualifying.",
+      "prose": "Medvedev has the form and won their only previous meeting easily. At 1.25, though, the price is outside the -250 floor and shorter than our fair line."
+    },
+    "902207": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "WTA - Rybakina survives Shnaider test, sets up Ningbo final with Fernandez",
+          "url": "https://www.wtatennis.com/news/4598225/rybakina-survives-shnaider-test-sets-up-ningbo-final-with-fernandez"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Elena Rybakina",
+      "market_relation": "same",
+      "form": null,
+      "form_text": "Rybakina is world No.1 and defending champion, 7-0 in Ningbo; Fernandez is in her tenth final.",
+      "prose": "Rybakina is the right side, but 1.30 is outside the -250 floor. The order-of-play time was not read from an official page."
+    },
+    "902253": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "ATP Tour - Fritz d. Paul, Musetti d. Cobolli; Lyon final set; Musetti leads head-to-head 4-3",
+          "url": "https://www.atptour.com/en/news/fritz-paul-cobolli-musetti-lyon-2026-sfs"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Taylor Fritz",
+      "market_relation": "same",
+      "form": {
+        "type": "log5",
+        "pick_w": 3,
+        "pick_g": 7,
+        "opp_w": 4,
+        "opp_g": 7,
+        "edge": 0.0,
+        "basis": "head-to-head per ATP Tour"
+      },
+      "form_text": "Musetti leads head-to-head 4-3 but needed 2h32 and saved four match points in the semi-final after a late quarter-final; Fritz beat Paul 6-3 7-5.",
+      "prose": "Fritz arrives fresher, but Musetti leads the head-to-head. Fritz is a small lean only."
+    },
+    "3530": {
+      "official_start_utc": "2026-10-25T16:00:00Z",
+      "official_sources": [
+        {
+          "label": "Cork GAA - Premier Senior Football Championship Final, Nemo Rangers v St Finbarrs, Sunday 25 Oct 4.00pm, SuperValu Pairc Ui Chaoimh",
+          "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
+        }
+      ],
+      "press_sources": [],
+      "market": "Handicap",
+      "selection": "Nemo Rangers +1.5",
+      "market_relation": "same",
+      "form": null,
+      "form_text": "Nemo beat Carrigaline 1-15 to 0-16 (semi-final) and Castlehaven 1-20 to 1-17 (quarter-final); St Finbarrs beat Clonakilty 2-12 to 0-16 and Carbery.",
+      "prose": "Both of Nemo's knockout wins were by three points or fewer, so the +1.5 start matters in a city derby final. It is a lean, not a strong call.",
+      "official_clock_printed": "Sunday, October 25, 4.00pm; the page's calendar export is labelled Europe/Dublin (20261025T160000, ctz=Europe/Dublin)"
+    },
+    "3532": {
+      "official_start_utc": "",
+      "official_sources": [],
+      "press_sources": [
+        {
+          "label": "RTE - Storm Boelo prompts Sunday switch for Galway final (now Sunday 4pm, Pearse Stadium)",
+          "url": "https://www.rte.ie/sport/football/2026/1023/1596637-storm-boelo-prompts-sunday-switch-for-galway-final/"
+        },
+        {
+          "label": "HoganStand - Galway and Leitrim SFC finals switched to Sunday",
+          "url": "https://www.hoganstand.com/Article/Index/342217"
+        }
+      ],
+      "market": "Handicap",
+      "selection": "Salthill-Knocknacarra +3.5",
+      "market_relation": "same",
+      "form": null,
+      "form_text": "Moycullen are defending champions and beat Annaghdown by 30 points in the semi-final; they beat Salthill-Knocknacarra in the 2022 (1-10 to 1-9) and 2025 finals by narrow margins (press reports).",
+      "prose": "The last two finals between these clubs were decided by a point or two, and storm weather usually keeps scores down. The rescheduled 16:00 throw-in comes only from press reports, so the official start is left blank and flagged."
+    },
+    "12084": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "LNH - Classement Daikin StarLigue 2026-27 (PSG 7-0, 239-190; Saint-Raphael 2-5, 207-225)",
+          "url": "https://www.lnh.fr/daikin-starligue/classement"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "PSG Handball",
+      "market_relation": "none",
+      "form": {
+        "type": "log5",
+        "pick_w": 7,
+        "pick_g": 7,
+        "opp_w": 2,
+        "opp_g": 7,
+        "edge": -0.04,
+        "draw": 0.08,
+        "basis": "LNH table; PSG away; 8% draw allowance"
+      },
+      "form_text": "PSG 7-0 (+49); Saint-Raphael 2-5 (-18), 14th.",
+      "prose": "PSG are 7-0 and should win. OLBG only printed a price for the draw, so there is no side price to check our line against, and that keeps this out of the top tier."
+    },
+    "12081": {
+      "official_start_utc": "",
+      "official_sources": [
+        {
+          "label": "LNH - Classement Daikin StarLigue 2026-27 (Montpellier 4-2-1, 234-205; Saran 3-4, 202-216)",
+          "url": "https://www.lnh.fr/daikin-starligue/classement"
+        }
+      ],
+      "press_sources": [],
+      "market": "Match winner",
+      "selection": "Montpellier",
+      "market_relation": "none",
+      "form": {
+        "type": "log5",
+        "pick_w": 4,
+        "pick_g": 7,
+        "opp_w": 3,
+        "opp_g": 7,
+        "edge": 0.04,
+        "draw": 0.08,
+        "basis": "LNH table; Montpellier at home; 8% draw allowance"
+      },
+      "form_text": "Montpellier 4 wins, 2 draws, 1 loss (+29); Saran 3-4 (-14).",
+      "prose": "Montpellier have the better goal difference by 43 and are at home. OLBG printed only a draw price, so this stays a lean."
+    }
+  },
+  "shortfall": {
+    "Golf": "OLBG's Golf tips page listed no tips in the capture (\"No tips found\"), so there was nothing to price.",
+    "Snooker": "OLBG's Snooker tips page listed no tips in the capture.",
+    "Motor Racing": "OLBG's Motor Racing tips page listed no tips in the capture.",
+    "Baseball": "The only OLBG row (World Series TB @ MIL, 00:00Z on 25 Oct) was not researched this cycle, so it is a market-anchored LOW line; no other baseball row was listed.",
+    "Basketball": "All ten rows (NBA and KBL) tip off between 23:30Z on 24 Oct and 07:30Z on 25 Oct. No form was read (the NBA's own feed refused the runner with HTTP 403), so they are market-anchored LOW lines.",
+    "Greyhounds": "One OLBG row, priced SP; there is no price to anchor and no official race card was read.",
+    "Rugby League": "OLBG lists only 2027 outrights (State of Origin, Super League, NRL); no fixtures.",
+    "Gaelic Football": "Two county finals on 25 Oct. Cork has an official start but no form table; the Galway re-fixture is confirmed only by press, so both stay below HIGH.",
+    "Darts": "Quarter-final starts were not readable on pdc.tv (cookie wall), and the two players' round-two averages are less than a point apart.",
+    "Tennis": "The Sunday finals favourites are priced shorter than -250 (Rybakina 1.30, Medvedev 1.25), official order-of-play times were not read, and the Paris first-round placeholders have no official schedule yet.",
+    "Handball": "OLBG printed a price only for the draw on most handball rows, so a side cannot be anchored; the Bundesliga table page is captcha-walled.",
+    "Volleyball": "The TVF and Lega Pallavolo schedules print local clocks with no time zone, so no volleyball row can carry an official UTC start (FL-148 rule). Fenerbahce W v Eczacibasi W has a full write-up and passes every other test. Most other favourites are priced shorter than our fair line or below -250.",
+    "Ice Hockey": "European league tables were not read this cycle. Of the four NHL rows, only NYI @ DAL Under 5.5 passed both the probability test and the price test.",
+    "Cricket": "The CSA provincial T20s had no official table read; Pakistan v England fell just under the 58% bar; the other rows are outrights or player markets.",
+    "Rugby Union": "The two 25 October fixtures both have full write-ups (Saracens, La Rochelle), but neither official page states a time zone for the kick-off (saracens.com 'KO 15:00', LNR '21h05'). Under the FL-148 rule the UTC start stays blank, so both are capped at MEDIUM. USA v Australia A (23:00Z on 24 Oct) was not researched, and the Six Nations row is an outright."
+  },
+  "board_flags": [
+    "NHL: OLBG lists every puck drop seven minutes after the NHL's scheduled start (for example NYI @ DAL 22:07Z on OLBG, 22:00Z on api-web.nhle.com). The official time is shown and the OLBG time is kept as captured.",
+    "Galway SFC final: the move to Sunday 16:00 is reported by RTE and HoganStand only; galwaygaa.ie was not read, so the official start is blank.",
+    "Pipeline: after a new capture, the first CI cycle fails check_board because the pricing step runs before live_refresh re-certifies the HIGH rows; a second full cycle passes (see FL-224).",
+    "Zone-less official clocks (Saracens, LNR, TVF, Lega Pallavolo): the UTC start is left blank under the FL-148 rule, which caps three written picks at MEDIUM (see FL-230)."
+  ]
+}

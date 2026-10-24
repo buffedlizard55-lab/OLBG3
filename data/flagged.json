@@ -4682,6 +4682,262 @@
           "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/official-20261024T2226Z/manifest.json"
         }
       ]
+    },
+    {
+      "id": "FL-224",
+      "severity": "medium",
+      "status": "open",
+      "title": "Pipeline order: after a new OLBG capture the first CI cycle fails check_board; a second full cycle passes",
+      "action": "Not patched here (live_refresh/workflow belong to other sessions). Run the full gate sequence twice after integrating a capture, or move live_refresh ahead of the model step.",
+      "affected_ids": [
+        "BSB-160792",
+        "IHO-200006",
+        "IHO-200003",
+        "IHO-200002",
+        "IHO-200010",
+        "IHO-200005"
+      ],
+      "affected_rows": [
+        "BSB-160792",
+        "IHO-200006",
+        "IHO-200003",
+        "IHO-200002",
+        "IHO-200010",
+        "IHO-200005"
+      ],
+      "sources": [
+        {
+          "label": "Workflow that runs the gate sequence (.github/workflows/pages.yml)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/.github/workflows/pages.yml"
+        }
+      ],
+      "detail": "Integrating capture live-20261024T2227Z-9d520984 locally: cycle 1 failed check_board with six 'HIGH stored release differs from current evidence: checked_at' errors, because scripts/model.py stamps HIGH rows from the previous release record before scripts/live_refresh.py re-certifies them from the new capture. Cycle 2 passed every gate (check_board, tools/check_site, 384 unit tests, check.py, check_links with 0 broken links) and cycle 3 changed only timestamps. CI runs one cycle per push, so a capture-only push can go red even though the data is sound.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:20:00Z",
+      "original_id": "FL-218"
+    },
+    {
+      "id": "FL-225",
+      "severity": "low",
+      "status": "open",
+      "title": "NHL: OLBG lists every puck drop seven minutes after the NHL's scheduled start",
+      "action": "The next-day board shows the official time next to OLBG's time and marks the difference; OLBG's value is kept exactly as captured.",
+      "affected_ids": [
+        "NX-ICE-200076",
+        "NX-ICE-200074",
+        "NX-ICE-200072",
+        "NX-ICE-200075"
+      ],
+      "affected_rows": [
+        "NX-ICE-200076",
+        "NX-ICE-200074",
+        "NX-ICE-200072",
+        "NX-ICE-200075"
+      ],
+      "sources": [
+        {
+          "label": "NHL schedule 2026-10-25 (api-web.nhle.com)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-25"
+        },
+        {
+          "label": "OLBG NHL tips listing",
+          "url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13"
+        }
+      ],
+      "detail": "OLBG start_utc in the 22:27Z capture: NYI @ DAL 22:07Z, MTL @ WPG 23:07Z, COL @ NSH 00:07Z, MIN @ VAN 02:07Z. NHL schedule: 22:00Z, 23:00Z, 00:00Z and 02:00Z (games 2026020181-2026020184). The seven-minute offset is consistent across all four rows, so it reflects how OLBG prints the time, not a rescheduled game.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:20:00Z",
+      "original_id": "FL-219"
+    },
+    {
+      "id": "FL-226",
+      "severity": "medium",
+      "status": "open",
+      "title": "Galway SFC final (Moycullen v Salthill-Knocknacarra) moved to Sunday 16:00 because of Storm Boelo; confirmed by press only",
+      "action": "Official start left blank on the next-day board and the row is graded LOW until galwaygaa.ie or gaa.ie confirms the time.",
+      "affected_ids": [
+        "NX-GAE-3532"
+      ],
+      "affected_rows": [
+        "NX-GAE-3532"
+      ],
+      "sources": [
+        {
+          "label": "RTE - Storm Boelo prompts Sunday switch for Galway final",
+          "url": "https://www.rte.ie/sport/football/2026/1023/1596637-storm-boelo-prompts-sunday-switch-for-galway-final/"
+        },
+        {
+          "label": "HoganStand - Galway and Leitrim SFC finals switched to Sunday",
+          "url": "https://www.hoganstand.com/Article/Index/342217"
+        }
+      ],
+      "detail": "OLBG lists the final at 16:00Z on 25 Oct, which matches the reported new throw-in (originally Saturday 24 Oct 19:00). Press reports attribute the decision to Galway GAA, but no Galway GAA or GAA page was read in this pass.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:20:00Z",
+      "original_id": "FL-220"
+    },
+    {
+      "id": "FL-227",
+      "severity": "low",
+      "status": "open",
+      "title": "Next-day board: official start time not readable for seven researched rows",
+      "action": "Official start left blank; these rows cannot be graded HIGH until an official page prints the time.",
+      "affected_ids": [
+        "NX-DAR-32408",
+        "NX-TEN-902207",
+        "NX-TEN-902251",
+        "NX-TEN-902253",
+        "NX-HAN-12084",
+        "NX-HAN-12081",
+        "NX-CRI-188854"
+      ],
+      "affected_rows": [
+        "NX-DAR-32408",
+        "NX-TEN-902207",
+        "NX-TEN-902251",
+        "NX-TEN-902253",
+        "NX-HAN-12084",
+        "NX-HAN-12081",
+        "NX-CRI-188854"
+      ],
+      "sources": [
+        {
+          "label": "PDC European Championship report (pdc.tv; pages render only a cookie banner to our reader)",
+          "url": "https://www.pdc.tv/news/2026/october/22/nine-dart-star-woodhouse-sets-up-van-veen-clash-dortmund/"
+        },
+        {
+          "label": "LNH Daikin StarLigue table (read) - calendar not read",
+          "url": "https://www.lnh.fr/daikin-starligue/classement"
+        },
+        {
+          "label": "Cricket Ireland - series leveller report (no start time printed)",
+          "url": "https://cricketireland.ie/news/series-leveller"
+        }
+      ],
+      "detail": "Darts quarter-finals (Smith v Woodhouse, Price v Bunting): pdc.tv is cookie-walled. Tennis finals (Ningbo, Almaty, Lyon): order-of-play pages were not read (atptour.com refuses the runner). LNH handball (Saint-Raphael v PSG, Montpellier v Saran): table read, calendar not read. Namibia v Ireland 3rd ODI: the Cricket Ireland report gives no time. The OLBG start times are shown unchanged.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:20:00Z",
+      "original_id": "FL-221"
+    },
+    {
+      "id": "FL-228",
+      "severity": "low",
+      "status": "open",
+      "title": "Handball Bundesliga table unreadable: daikin-hbl.de redirects to opel-hbl.de, which returns 404 or a reCAPTCHA wall",
+      "action": "HBL rows (Rhein-Neckar Lowen v Magdeburg, Bergischer v Hamburg, Fuchse v Wetzlar, Gummersbach v Flensburg) published as market-anchored LOW lines.",
+      "affected_ids": [
+        "NX-HAN-12092",
+        "NX-HAN-12087",
+        "NX-HAN-12089",
+        "NX-HAN-12095"
+      ],
+      "affected_rows": [
+        "NX-HAN-12092",
+        "NX-HAN-12087",
+        "NX-HAN-12089",
+        "NX-HAN-12095"
+      ],
+      "sources": [
+        {
+          "label": "Opel HBL table (renders a reCAPTCHA, no rows)",
+          "url": "https://www.opel-hbl.de/de/hbl/tabelle"
+        }
+      ],
+      "detail": "https://www.daikin-hbl.de/de/daikin-hbl/tabelle/ redirected to an opel-hbl.de 404 with a reCAPTCHA; https://www.opel-hbl.de/de/hbl/tabelle returned the legend and sponsor strip but no table rows. The league appears to have been renamed (Opel HBL); the change was not checked further.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:20:00Z",
+      "original_id": "FL-222"
+    },
+    {
+      "id": "FL-229",
+      "severity": "low",
+      "status": "open",
+      "title": "OLBG handball listings print only the draw ('Tie') price for most fixtures; no side price exists to anchor a line",
+      "action": "Handball sides are priced from the official table only and capped at MEDIUM; the tipster 'Tie' consensus is shown as captured and is not treated as a signal.",
+      "affected_ids": [
+        "NX-HAN-12106",
+        "NX-HAN-12102",
+        "NX-HAN-12152",
+        "NX-HAN-12084",
+        "NX-HAN-12144",
+        "NX-HAN-12087",
+        "NX-HAN-12089",
+        "NX-HAN-12149",
+        "NX-HAN-12081",
+        "NX-HAN-12147",
+        "NX-HAN-12154",
+        "NX-HAN-12095",
+        "NX-HAN-12132",
+        "NX-HAN-12136",
+        "NX-HAN-12128"
+      ],
+      "affected_rows": [
+        "NX-HAN-12084",
+        "NX-HAN-12081"
+      ],
+      "sources": [
+        {
+          "label": "OLBG handball tips listing",
+          "url": "https://www.olbg.com/betting-tips/Handball/20"
+        }
+      ],
+      "detail": "Fifteen of the twenty handball rows in the 22:27Z capture carry 'Tie' as the consensus selection, priced 7.50-30.00. A draw price cannot be turned into a side probability without the other two prices, which OLBG did not print.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:20:00Z",
+      "original_id": "FL-223"
+    },
+    {
+      "id": "FL-230",
+      "severity": "medium",
+      "status": "open",
+      "title": "Next-day board: official clocks printed without a time zone (Saracens, LNR, TVF, Lega Pallavolo); UTC start left blank and three written picks capped at MEDIUM",
+      "action": "Apply the FL-148 rule: show the printed local clock, leave the UTC column blank, and do not grade the row HIGH. Saracens v Harlequins, La Rochelle v Bordeaux-Begles and Fenerbahce W v Eczacibasi W pass every other HIGH test and become HIGH once a zone-labelled official source is found.",
+      "affected_ids": [
+        "NX-RUG-609571",
+        "NX-RUG-609554",
+        "NX-VOL-37108",
+        "NX-VOL-37109",
+        "NX-VOL-37110",
+        "NX-VOL-37111",
+        "NX-VOL-37112",
+        "NX-VOL-37113",
+        "NX-VOL-37114",
+        "NX-VOL-36996"
+      ],
+      "affected_rows": [
+        "NX-RUG-609571",
+        "NX-RUG-609554",
+        "NX-VOL-37108",
+        "NX-VOL-37109",
+        "NX-VOL-37110",
+        "NX-VOL-37111",
+        "NX-VOL-37112",
+        "NX-VOL-37113",
+        "NX-VOL-37114",
+        "NX-VOL-36996"
+      ],
+      "sources": [
+        {
+          "label": "Saracens - Harlequins v Saracens 'KO 15:00'",
+          "url": "https://saracens.com/5-must-attend-saracens-fixtures/"
+        },
+        {
+          "label": "LNR - J7 Stade Rochelais v UBB '21h05'",
+          "url": "https://top14.lnr.fr/feuille-de-match/2026-2027/j7/11864-la-rochelle-bordeaux-begles"
+        },
+        {
+          "label": "TVF - Sultanlar Ligi week 5 schedule",
+          "url": "https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak"
+        },
+        {
+          "label": "Lega Pallavolo - SuperLega calendario",
+          "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+        }
+      ],
+      "detail": "Printed clocks: saracens.com 'Sunday 25 October 2026 | KO 15:00 | Twickenham Stoop'; LNR '25 Octobre 2026 21h05, Stade Marcel Deflandre'; TVF '25 Ekim 2026 Pazar 13.00 / 14.00 / 16.00 / 19.00'; Lega Pallavolo 'Domenica 25/10/2026 Ore 18:00'. Each matches OLBG's start_utc if read as the venue's local time on 25 October (UK GMT, France CET, Turkey UTC+3, Italy CET), but none of the pages states the zone, and this project does not certify an unlabelled clock. For comparison, the Cork GAA final page labels its calendar export Europe/Dublin, so that row carries a UTC start.",
+      "raised_by": "session-9d520984",
+      "raised_at": "2026-10-24T23:35:00Z",
+      "original_id": "FL-224"
     }
   ]
 }
