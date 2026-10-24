@@ -28,28 +28,20 @@ jobs:
         with:
           python-version: '3.12'
       - name: Advance publication time (not source verification)
-        continue-on-error: true
-        run: python scripts/publication_clock.py 2>&1 | tee /tmp/s3.log; exit ${PIPESTATUS[0]}
-      - continue-on-error: true
-        run: python scripts/update.py 2>&1 | tee /tmp/s4.log; exit ${PIPESTATUS[0]}
+        run: python scripts/publication_clock.py
+      - run: python scripts/update.py
       # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
-      - continue-on-error: true
-        run: python scripts/discovery.py 2>&1 | tee /tmp/s5.log; exit ${PIPESTATUS[0]}
-      - continue-on-error: true
-        run: python scripts/build.py 2>&1 | tee /tmp/s6.log; exit ${PIPESTATUS[0]}
+      - run: python scripts/discovery.py
+      - run: python scripts/build.py
       # Outright / race markets (Golf, Motor Racing, Greyhounds, Rugby League, Gaelic championship):
       # priced from the captured OLBG listings with a disclosed field-size prior.
-      - continue-on-error: true
-        run: python scripts/build_gap_sports.py 2>&1 | tee /tmp/s7.log; exit ${PIPESTATUS[0]}
-      - continue-on-error: true
-        run: python scripts/model.py 2>&1 | tee /tmp/s8.log; exit ${PIPESTATUS[0]}
+      - run: python scripts/build_gap_sports.py
+      - run: python scripts/model.py
       # OLBG lines track (/olbg): the 06:50Z harvest (189 rows incl. rows carried for sports not
       # re-listed) with per-row source URLs, our own shrink+home-edge model, sourced HIGH predictions
       # and the shared flag register (data/flagged.json).
       - name: Rebuild the OLBG lines track
-        continue-on-error: true
         run: |
-          exec > >(tee /tmp/s9.log) 2>&1
           # Extract the newest committed live capture and re-certify whichever fixtures the newest
           # official probe can actually match. Both steps are deterministic: a re-run of the same
           # capture rewrites byte-identical files, which is what makes the commit step below stable.
@@ -63,16 +55,12 @@ jobs:
           python3 tools/build_site.py
           python3 tools/check_site.py
       - name: Publish the OLBG lines track inside the shared artifact
-        continue-on-error: true
         run: |
-          exec > >(tee /tmp/s10.log) 2>&1
           mkdir -p site/olbg
           cp -r olbg-board/. site/olbg/
           ls site/olbg
       - name: Refresh the root snapshot (the legacy Pages publisher serves the repo root)
-        continue-on-error: true
         run: |
-          exec > >(tee /tmp/s11.log) 2>&1
           python scripts/build_site.py --snapshot
           git status --porcelain | head -40
           if [ -n "$(git status --porcelain -- index.html predictions.html verification.html flagged.html method.html sports assets style.css data.json '*.html' .nojekyll)" ]; then
@@ -83,24 +71,11 @@ jobs:
         # page from site/ into the repository root, so writing the summary before it would let the
         # snapshot overwrite the landing page. The builder writes both trees itself, which keeps a
         # local rebuild byte-identical regardless of the order the two builders are run in.
-        continue-on-error: true
-        run: python tools/build_dashboard.py 2>&1 | tee /tmp/dash.log; exit ${PIPESTATUS[0]}
+        run: python tools/build_dashboard.py
       # Unit tests run AFTER the rebuild: several pins compare committed accounting with a fresh recompute,
       # and the board is regenerated on every run, so running them first would fail on any hourly change.
       - name: Unit tests (after the rebuild)
-        continue-on-error: true
-        run: python -m unittest discover -s tests -v 2>&1 | tee /tmp/unit.log; exit ${PIPESTATUS[0]}
-      - name: Upload the failing test log to the branch (temporary diagnostic)
-        if: always() && github.ref != 'refs/heads/main'
-        run: |
-          git config user.name  'OLBG3 ci-debug'
-          git config user.email 'actions@users.noreply.github.com'
-          for n in 3 4 5 6 7 8 9 10 11; do echo "### step $n"; cat /tmp/s$n.log 2>/dev/null || echo 'not created'; echo; done > ci-unit-failure.log
-          { echo '### dashboard'; cat /tmp/dash.log 2>/dev/null || echo 'not created'; echo; echo '### unit tests'; cat /tmp/unit.log 2>/dev/null || echo 'not created'; } >> ci-unit-failure.log
-          git add ci-unit-failure.log
-          git commit -m "ci-debug: captured build output" || true
-          git pull --rebase --autostash origin "${{ github.ref_name }}" || true
-          git push origin "HEAD:${{ github.ref_name }}" || true
+        run: python -m unittest discover -s tests -v
       - run: python scripts/check.py
       - run: python scripts/check_links.py
       # Every run on main commits its regenerated board, whatever triggered it. The board reads the wall clock

@@ -33,6 +33,9 @@ ALLOWED_HOSTS = {
     "www.mlb.com",
     "www.espn.com",
     "www.nba.com",
+    # The NBA publishes its daily injury report as a PDF on its static CDN; the report is the
+    # official source for the availability claims in the Basketball write-ups.
+    "ak-static.cms.nba.com",
     "www.cbssports.com",
     "www.snooker.org",
     "www.wst.tv",

@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">190 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">194 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1355,11 +1355,39 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship — official 2026/27 table (Vodacom Bulls &amp; DHL Stormers)</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)</a></li></ul>
 </article>
+<article class="card flag" id="FL-199">
+  <div class="flag-head"><span class="tag">FL-199</span> <span class="sev sev-high">high</span></div>
+  <h2>Basketball totals are originated at a fixed 163.5 points, which is not a plausible NBA game total and is printed beside NBA fixtures</h2>
+  <p>tools/originate.py takes TOTAL_CFG[&#x27;Basketball&#x27;] as a flat base line and only varies it for Europe (169.5) versus other competitions (163.5). For the 2026-10-24 NBA slate every row therefore carries &#x27;Over 163.5 pts&#x27; as our originated total, even though NBA games typically land near 220-230. The money line, the confidence grade and every published write-up are unaffected — no piece quotes a total — but the &#x27;our total&#x27; column on matches.html publishes a number that is not fit to bet. It is left in place rather than replaced by an invented figure, because a defensible total needs a scoring-rate input the current capture does not supply.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-24" rel="noopener nofollow" target="_blank">NBA official schedule, 24 October 2026</a></li></ul>
+</article>
+<article class="card flag" id="FL-200">
+  <div class="flag-head"><span class="tag">FL-200</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Two low-graded Volleyball analysis pieces share 31 verbatim eight-word runs</h2>
+  <p>VOL-37002 (Mackenzie W vs Osasco W) and VOL-37003 (Abel-Moda Brusque W vs Praia Clube W) are both &#x27;analysis&#x27; pieces published by an earlier pass, not high-confidence picks. A shingle comparison run while building this session&#x27;s regression test found 31 shared eight-word runs between them, i.e. templated prose. They are labelled analysis on the site and are not promoted to picks. They are reported rather than rewritten here because they are another session&#x27;s published text and the fix is to re-report those two fixtures, not to edit the record silently.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG Volleyball listing captured 2026-10-24T17:08Z</a></li></ul>
+</article>
+<article class="card flag" id="FL-201">
+  <div class="flag-head"><span class="tag">FL-201</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG&#x27;s own startDate attribute runs one hour late for the late NBA games and 7 minutes late for NHL games</h2>
+  <p>For the 2026-10-24 slate OLBG&#x27;s machine-readable startDate said 02:00Z for GSW@PHX and 03:00Z for the same game&#x27;s neighbours, while the NBA&#x27;s own schedule prints 10:00 PM ET = 02:00Z for GSW@PHX and 9:00 PM ET = 01:00Z for NOP@DEN; OLBG therefore sits exactly one hour ahead on those two rows. The NHL rows carry a seven-minute offset (23:07Z against the league&#x27;s 23:00Z). Neither is corrected in the capture — the OLBG value is stored verbatim as olbg_start_utc — but every row we grade publishes the official clock, and the difference is recorded in data/verifications.json.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-24" rel="noopener nofollow" target="_blank">NBA official schedule, 24 October 2026</a></li><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule, 24 October 2026</a></li></ul>
+</article>
+<article class="card flag" id="FL-202">
+  <div class="flag-head"><span class="tag">FL-202</span> <span class="sev sev-medium">medium</span></div>
+  <h2>The five-written-predictions-per-sport target is not met for any sport on 2026-10-24</h2>
+  <p>The board captured 197 fixtures across 14 sports at 17:08Z. Fifteen selections cleared every gate and carry a written prediction: Basketball 4, Ice Hockey 3, Volleyball 3, Handball 2, Rugby Union 1, Gaelic Football 1, Motor Racing 1. Golf&#x27;s listing served no card; Rugby League offered outright markets only; Greyhounds offered 83 race cards with no form source we can check; Tennis, Cricket, Darts and Snooker fixtures are captured and priced but their official clocks were not certified in this pass, so they stay below HIGH rather than being promoted on an unverified start.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG listings captured 2026-10-24T17:08Z (data/raw/live-20261024T1715Z)</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-24T17:08:24Z; publication clock 2026-10-24T17:16:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-24T17:08:24Z; publication clock 2026-10-24T17:50:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
