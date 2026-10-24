@@ -14,6 +14,7 @@ between source observations).  Informational entries describe ordinary market mo
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import itertools
 import json
@@ -70,7 +71,67 @@ def normalise_space(value: str | None) -> str:
 
 
 def normalise_name(value: str | None) -> str:
-    return " ".join(re.findall(r"[a-z0-9]+", (value or "").lower()))
+    # Unicode letters are preserved (Brynäs/Brynäs); punctuation only separates tokens.
+    return " ".join(re.findall(r"[^\W\d_]+|\d+", (value or "").casefold()))
+
+
+def load_name_aliases(root: Path) -> dict[str, str]:
+    """Read the repository's declared name-normalisation tables without executing the builder."""
+    path = root / "scripts" / "model.py"
+    if not path.exists():
+        return {}
+    tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    tables: dict[str, dict] = {}
+    for node in tree.body:
+        if not isinstance(node, ast.Assign):
+            continue
+        for target in node.targets:
+            if isinstance(target, ast.Name) and target.id in ("ALIASES", "PICK_NAME_ALIASES"):
+                try:
+                    tables[target.id] = ast.literal_eval(node.value)
+                except (ValueError, TypeError):
+                    tables[target.id] = {}
+    aliases = dict(tables.get("ALIASES", {}))
+    # PICK_NAME_ALIASES runs full name -> OLBG abbreviation; compare in the other direction too.
+    for full_name, abbreviation in tables.get("PICK_NAME_ALIASES", {}).items():
+        aliases.setdefault(abbreviation, full_name)
+    return aliases
+
+
+def selection_names_pick(pick: str, selection: str, aliases: dict[str, str]) -> bool:
+    """Conservative textual identity check, including declared aliases and common club abbreviation.
+
+    A nickname alone is not enough: an abbreviated prefix must expand by initials or by its
+    letters (PIT -> Pittsburgh, MIL -> Milwaukee) and every remaining nickname token must
+    match.  Thus 'PIT Penguins' cannot silently match 'Nashville Penguins'.
+    """
+    pick_norm = normalise_name(pick)
+    selection_norm = normalise_name(selection)
+    if pick_norm and pick_norm in selection_norm:
+        return True
+    alias = aliases.get(pick)
+    if alias and normalise_name(alias) in selection_norm:
+        return True
+
+    candidate = re.split(
+        r"\s+(?:to\s+win\b|match\s+winner\b|money\s*line\b|win\s+match\b)",
+        selection.strip(), maxsplit=1, flags=re.I,
+    )[0]
+    pick_raw_tokens = pick.strip().split()
+    pick_tokens = normalise_name(pick).split()
+    candidate_tokens = normalise_name(candidate).split()
+    if len(pick_raw_tokens) < 2 or len(pick_tokens) < 2:
+        return False
+    abbreviation = pick_raw_tokens[0].strip(".")
+    nickname = pick_tokens[1:]
+    if not abbreviation.isupper() or not 2 <= len(abbreviation) <= 3:
+        return False
+    if len(candidate_tokens) <= len(nickname) or candidate_tokens[-len(nickname):] != nickname:
+        return False
+    prefix = candidate_tokens[:-len(nickname)]
+    abbr = abbreviation.casefold()
+    initials = "".join(token[0] for token in prefix if token)
+    return bool(prefix) and (initials == abbr or prefix[0].startswith(abbr))
 
 
 def parse_tips(label: str | None) -> tuple[int | None, int | None]:
@@ -514,6 +575,7 @@ def audit_prediction_track(
     rows: dict[str, dict],
     adapters: dict,
     official_hosts: set[str],
+    name_aliases: dict[str, str],
 ) -> tuple[list[dict], dict]:
     issues: list[dict] = []
     seen_ids: set[str] = set()
@@ -585,7 +647,7 @@ def audit_prediction_track(
                 ))
         if confidence == "high":
             pick = adapters["pick"](row) or ""
-            if not pick or normalise_name(pick) not in normalise_name(selection):
+            if not pick or not selection_names_pick(pick, selection, name_aliases):
                 issues.append(make_issue(
                     "error", "high_prediction_selection_mismatch",
                     f"{ref} prediction selection does not name the published pick {pick!r}",
@@ -866,6 +928,7 @@ def build_report(root: Path = ROOT) -> dict:
         ))
 
     official_hosts = official_host_register(verifications, official, root_rows_list)
+    name_aliases = load_name_aliases(root)
     olbg_adapters = {
         "id": "match_id", "text": "text",
         "confidence": lambda row: str(row.get("confidence") or "").lower(),
@@ -874,7 +937,7 @@ def build_report(root: Path = ROOT) -> dict:
         "release_source": lambda row: (row.get("release") or {}).get("source"),
     }
     prediction_issues, olbg_prediction_summary = audit_prediction_track(
-        "olbg", olbg_predictions, line_by_id, olbg_adapters, official_hosts,
+        "olbg", olbg_predictions, line_by_id, olbg_adapters, official_hosts, name_aliases,
     )
     issues.extend(prediction_issues)
 
@@ -892,7 +955,7 @@ def build_report(root: Path = ROOT) -> dict:
         "release_source": lambda row: ((row.get("pick") or {}).get("release") or {}).get("source"),
     }
     prediction_issues, root_prediction_summary = audit_prediction_track(
-        "root", root_predictions, root_by_ref, root_adapters, official_hosts,
+        "root", root_predictions, root_by_ref, root_adapters, official_hosts, name_aliases,
     )
     issues.extend(prediction_issues)
 

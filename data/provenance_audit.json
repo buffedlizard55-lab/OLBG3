@@ -2,7 +2,7 @@
   "schema_version": 1,
   "audit": "capture-to-publication provenance",
   "scope": "Internal fidelity to committed captures, verification records, overrides, line arithmetic and prediction metadata. This report does not assert that any official sporting fact is current or that any linked page was retrieved during the audit.",
-  "publication_as_of": "2026-10-24T17:44:00Z",
+  "publication_as_of": "2026-10-24T17:59:00Z",
   "source_precedence": [
     "raw/olbg-harvest-20261023T1700Z.tsv",
     "raw/olbg-harvest-20261023T1630Z.tsv",
@@ -10,15 +10,15 @@
   ],
   "input_sha256": {
     "meta.json": "8855a0bdcab818b3c5a690f0381bae546347f0fa41e739fc03b2d07f67561b1c",
-    "publication.json": "fe5508d0f6173cde5a93c062b79144edc581e764029f43613aa098bd7c8862a8",
+    "publication.json": "351c2ff21e1c69cf71cb306cc37646b01b68f0ad0dbadc64e1a042e1624e6cf3",
     "matches.json": "9bad586fb5b7f973a601d38c6b5541ec76bcc5971b3c47882e7ad3d63b775d83",
-    "lines.json": "a26d4319b76f3a71eb0fab62a04d0b8073d6a10fc55f911ad2519b68db509eeb",
-    "verifications.json": "f7d8500ee2a938ddad1afec3c897daa4b71cf5b0f8e7a207e2cd68476124d96f",
-    "official.json": "53a0053b7f95d296ebd4470c012088bd3086ebaf409e1bdced10b5acbecf26cf",
+    "lines.json": "f4b7cf99150380f3fd1cfcd18c6408431feeb43373ece2967855def730d72b8b",
+    "verifications.json": "b9abf05641436ea563ce14d4b378c1b8db7219e324c75fa042fb43e3681f1ec8",
+    "official.json": "857514e1455594bf71e7c8da253452ca7ab1f8f51cd1756932e3199a1c33369e",
     "live_overrides.json": "d60a6381bb4b839779303257f6e09f81504d29a693c1e6d4779f293c4f96e640",
-    "events.json": "3fa6bbb36ffad3dcd6f83b644c0367937d08fff2883a6b9a29d1532426ee6ed8",
-    "gap_sports.json": "022e43771c3e29177802bd691da6dbe932d021b2102876bb1c4c2a6a27db7ac7",
-    "predictions.json": "bc22070752bd58575f8412ccccfb33cb0af230daa7eb4bcd4812709eb2881010",
+    "events.json": "0fbacf4e52bc5dfb7f774c3da12a32fdfdf3cca0ed94c2e4813322691c9385b4",
+    "gap_sports.json": "28a9789e4e988b57c6afab8b53c9fa9eb4c9f38817b373760e921bca59977487",
+    "predictions.json": "b5bab9bb47cb1ae398cd960408ee7ac7863d92cfe5aa962017f1c35d174e662e",
     "predictions-olbg.json": "d32fca3bdf85a2f3210393abc89cd5338e6a0ec5577bdccad1f6473410299d10",
     "schema.md": "1135719be588e5b85a7d476ad161ae6233f3232ce46f38f63c178f4adc0a954e",
     "raw/olbg-harvest-20261023T1700Z.tsv": "a476a2210a2f8cb3c46f965c7c9824284e803dbf456e5d14b8fcb11c36c6f84c",
@@ -28,7 +28,7 @@
   "summary": {
     "status": "review",
     "errors": 0,
-    "warnings": 11,
+    "warnings": 14,
     "informational": 15,
     "capture_observations": 480,
     "distinct_capture_events": 223,
@@ -43,8 +43,8 @@
     "withdrawn_selected_events": 0,
     "source_register_entries": 260,
     "root_prediction_rows": {
-      "predictions": 85,
-      "high_rows": 5
+      "predictions": 93,
+      "high_rows": 13
     },
     "olbg_prediction_rows": {
       "predictions": 49,
@@ -694,6 +694,24 @@
     {
       "severity": "warning",
       "code": "release_source_not_listed_in_prediction",
+      "message": "VOL-36995 release-evidence URL is not repeated in its prediction source list",
+      "release_source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+      "track": "olbg",
+      "match_id": "VOL-36995",
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995"
+    },
+    {
+      "severity": "warning",
+      "code": "release_source_not_listed_in_prediction",
+      "message": "VOL-36996 release-evidence URL is not repeated in its prediction source list",
+      "release_source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+      "track": "olbg",
+      "match_id": "VOL-36996",
+      "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996"
+    },
+    {
+      "severity": "warning",
+      "code": "release_source_not_listed_in_prediction",
       "message": "HAN-12138 release-evidence URL is not repeated in its prediction source list",
       "release_source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
       "track": "olbg",
@@ -733,7 +751,7 @@
       "severity": "warning",
       "code": "release_source_not_listed_in_prediction",
       "message": "VOL-28 release-evidence URL is not repeated in its prediction source list",
-      "release_source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+      "release_source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
       "track": "root",
       "match_id": "VOL-28",
       "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Civitanova_vs_Padova/21?event_id=36995"
@@ -742,10 +760,19 @@
       "severity": "warning",
       "code": "release_source_not_listed_in_prediction",
       "message": "VOL-29 release-evidence URL is not repeated in its prediction source list",
-      "release_source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+      "release_source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
       "track": "root",
       "match_id": "VOL-29",
       "event_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Monza_vs_Verona/21?event_id=36996"
+    },
+    {
+      "severity": "warning",
+      "code": "release_source_not_listed_in_prediction",
+      "message": "BSB-160792 release-evidence URL is not repeated in its prediction source list",
+      "release_source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher",
+      "track": "root",
+      "match_id": "BSB-160792",
+      "event_url": "https://www.olbg.com/betting-tips/Baseball/MLB/MLB/TB_Rays_@_MIL_Brewers/12?event_id=160792"
     },
     {
       "severity": "warning",
