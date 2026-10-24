@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "audit_date_utc": "2026-10-24",
+  "owner": "session-58ac0957",
+  "receipt_type": "Structured official-page read receipts and short factual excerpts; not byte-for-byte page captures.",
+  "timestamp_note": "The page reader exposes retrieval content but not exact per-request timestamps. Only the exact UTC audit date is recorded; no retrieval times are invented.",
+  "read_policy": "A source entry confirms only the listed facts from the listed chunks. It is not a claim that every chunk or every fact on the page was reviewed.",
+  "sources": [
+    {
+      "id": "F1-HUB",
+      "url": "https://www.formula1.com/en/racing/2026/united-states",
+      "chunks_read": [0],
+      "confirmed": [
+        "Austin/Circuit of The Americas; 56 laps, 5.513 km and 308.432 km.",
+        "At this re-read the hub results module had advanced to FP2 (Leclerc 1:35.291, Antonelli +0.042, Verstappen +0.189), so it no longer displayed the FP1 figures quoted by MTR-913."
+      ]
+    },
+    {
+      "id": "F1-TIMETABLE",
+      "url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+      "chunks_read": [0],
+      "confirmed": [
+        "Sunday 25 October race at 15:00 local in Austin (published UTC-5 offset), hence the already-recorded 20:00Z start; 56 laps and 5.513 km."
+      ]
+    },
+    {
+      "id": "F1-FP1",
+      "url": "https://www.formula1.com/en/latest/article/fp1-leclerc-fastest-in-first-practice-for-the-united-states-gp-ahead-of-verstappen-and-norris.125WlaFK7K1mXXyLgb93ui",
+      "chunks_read": [0],
+      "confirmed": [
+        "Official FP1 report and classification: Leclerc 1:36.052; Verstappen +0.084; Norris +0.245; Russell +0.326; Antonelli +0.481.",
+        "This directly supports the FP1 facts in MTR-913, but that direct report is not one of the pick's current source URLs."
+      ]
+    },
+    {
+      "id": "CORK-FINAL",
+      "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Nemo Rangers v St Finbarrs, 25 October at 16:00, SuperValu Páirc Uí Chaoimh.",
+        "Nemo route: Castlehaven 1-20 to 1-17 and Carrigaline 1-15 to 0-16. St Finbarrs route: Clonakilty 2-12 to 0-16 and a quarter-final described as convincing over Carbery; no Carbery scoreline was read."
+      ]
+    },
+    {
+      "id": "CORK-RESULTS",
+      "url": "https://gaacork.ie/results/",
+      "chunks_read": [0],
+      "confirmed": [
+        "The official results index was reachable. Only chunk 0 was read; this receipt does not claim a whole-index audit or supply the missing Carbery scoreline."
+      ]
+    },
+    {
+      "id": "URC-FIXTURES",
+      "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Ospreys v Dragons on 24 October at St. Helen's, Swansea, 19:45 IRE & UK.",
+        "The reverse Dragons v Ospreys fixture was listed on 9 October at Rodney Parade."
+      ]
+    },
+    {
+      "id": "URC-TABLE",
+      "url": "https://stats.unitedrugby.com/match-centre/table/2026-27",
+      "chunks_read": [0],
+      "confirmed": [
+        "Round 3 result Dragons 31-38 Ospreys.",
+        "Published table at re-read: Dragons ninth, 9 points, 88:83; Ospreys 14th, 6 points, 81:107."
+      ]
+    },
+    {
+      "id": "VB-30002",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Perugia v Prata di Pordenone on 25 October in Perugia at 18:00 local.",
+        "The same returned schedule lists Civitanova v Padova and Monza v Verona on 25 October at 17:00 UTC / 18:00 local."
+      ]
+    },
+    {
+      "id": "VB-30003-SCHEDULE",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Supplementary official schedule view explicitly lists Perugia v Prata at 17:00 UTC / 18:00 local on 25 October."
+      ]
+    },
+    {
+      "id": "VB-30000",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Cuneo v Perugia on 18 October finished 2-3; set scores 25-18, 7-25, 15-25, 25-21, 23-25.",
+        "Team totals 95:114; Reggers 18 and Semeniuk 13 for Perugia; Perugia block 7."
+      ]
+    },
+    {
+      "id": "VB-30001",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30001/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Prata di Pordenone beat Monza 3-1 on 18 October; Prata attack 45 and Monza attack 47; Prata block 13 and Monza block 2.",
+        "Best scorers include D'heer 19, Frascio 15 and Velichkov 13.",
+        "Official-page irregularity: the four set scores sum to 90 Monza points and the standings also carry 90, while this page's Match Team Stats row prints Monza Total 91. The audit does not choose or alter a value."
+      ]
+    },
+    {
+      "id": "VB-STANDINGS",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/",
+      "chunks_read": [0],
+      "confirmed": [
+        "Civitanova fourth: 1-0, 3 points, 3-0 sets, 78:65. Padova 11th: 0-1, 0 points, 0-3 sets, 56:75.",
+        "Monza eighth: 0-1, 0 points, 1-3 sets, 90:94, ratio 0.957. Verona ninth: 0-1, 0 points, 0-3 sets, 65:78, ratio 0.833."
+      ]
+    },
+    {
+      "id": "EHF-PLN",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101016/OrlenWislaPlock-HBCNantes/",
+      "chunks_read": [0, 1],
+      "confirmed": [
+        "Plock v Nantes on Wednesday 28 October at 18:45 CET, ORLEN Arena, Plock."
+      ]
+    },
+    {
+      "id": "EHF-ROUND5-THU",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/",
+      "chunks_read": [0, 1, 2, 3],
+      "confirmed": [
+        "Melsungen 28:26 Plock; Simić 11 saves including three straight late stops; Balenciaga and Mensing six each.",
+        "Sporting 42:40 Kristianstad; Francisco Costa 14/16; GOG 33:33 Szeged and Kevin Møller's final save.",
+        "Barça 40:34 Montpellier; Pol Valera's injury comment and Benjamin Richert's direct red card.",
+        "Kolstad 32:35 Magdeburg and the perfect-record context."
+      ]
+    },
+    {
+      "id": "EHF-ROUND5-WED",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse/",
+      "chunks_read": [1, 2, 3, 4],
+      "confirmed": [
+        "Nantes 27:33 Vardar; Leon Ljevar 7/9 and Gregory Cojean's one-on-one finishing quote.",
+        "Zagreb 29:28 PSG after PSG's four-goal half-time lead; Ferran Solé 10/11 and the 5-1 defence quote.",
+        "Aalborg 34:30 Celje; Thomas Arnoldsen 6/8 and the bench-rotation account.",
+        "Dinamo 37:23 Aarhus, described as Dinamo's biggest EHF Champions League win."
+      ]
+    },
+    {
+      "id": "EHF-STANDINGS",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "chunks_read": [0, 1],
+      "confirmed": [
+        "Group B: Plock 3-0-2, 141:136, 6 points; Melsungen 3-0-2, 138:138, 6; Nantes 3-0-2, 142:143, 6; Vardar 1-0-4, 154:158, 2.",
+        "Group C: Aalborg 4-1-0, 170:145, 9; PSG 3-1-1, 182:157, 7.",
+        "Group D: Sporting 4-1-0, 191:165, 9; GOG 3-1-1, 178:172, 7.",
+        "Group E: Dinamo 1-1-3, 134:145, 3; Montpellier 1-0-4, 150:165, 2."
+      ]
+    },
+    {
+      "id": "EHF-TIMES",
+      "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+      "chunks_read": [0, 1],
+      "confirmed": [
+        "Round 6 playing times include Plock-Nantes and Vardar-Melsungen at 18:45 CET on 28 October; PSG-Aalborg at 20:45 CET on 28 October; GOG-Sporting at 18:45 CET and Montpellier-Dinamo at 20:45 CET on 29 October.",
+        "The PDF also lists the Round 1 pairings but is a schedule, not a result source."
+      ]
+    },
+    {
+      "id": "EHF-ROUND4",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/magdeburg-aalborg-and-paris-in-main-round-four-clubs-out/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Official Round 4 review reports Plock 33:32 Vardar and Vardar's elimination."
+      ]
+    },
+    {
+      "id": "EHF-PLV",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101023/OrlenWislaPlock-HCVardar1961/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Direct match page: Plock 33:32 Vardar on 14 October at ORLEN Arena."
+      ]
+    },
+    {
+      "id": "EHF-DIN-ARH",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101059/DinamoBucuresti-SAHAarhus/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Direct match page: Dinamo 37:23 Aarhus on 21 October; Victor Iturizza 5/5 and goalkeeper Ionuț Iancu listed."
+      ]
+    },
+    {
+      "id": "EHF-SPO-GOG",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101039/SportingClubedePortugal-GOG/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Direct Round 1 match page: Sporting 43:33 GOG on 10 September in Lisboa. This confirms, but does not excuse the absence of a direct result link from, HAN-12129's Round 1 claim."
+      ]
+    },
+    {
+      "id": "EHF-MEL-VAR",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101021/MTMelsungen-HCVardar1961/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Direct Round 1 match page: Melsungen 33:31 Vardar on 10 September in Kassel. This confirms HAN-12130's head-to-head statement."
+      ]
+    },
+    {
+      "id": "EHF-AAL-PSG",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101025/AalborgH%C3%A5ndbold-ParisSaintGermain/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Direct Round 1 match page contradicts HAN-12134: Aalborg 33:33 Paris Saint-Germain on 9 September, not an Aalborg win."
+      ]
+    },
+    {
+      "id": "EHF-DIN-MON",
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101056/DinamoBucuresti-MontpellierHandball/",
+      "chunks_read": [1],
+      "confirmed": [
+        "Direct Round 1 match page contradicts HAN-12133: Dinamo 23:27 Montpellier on 10 September, not a Dinamo win."
+      ]
+    }
+  ],
+  "picks": [
+    {
+      "id": "MTR-913",
+      "status": "supported_with_citation_drift",
+      "sources_read": ["F1-HUB", "F1-TIMETABLE", "F1-FP1"],
+      "finding": "The quoted FP1 figures are correct on the direct official FP1 report. The currently linked race hub has advanced to FP2 and no longer displays those FP1 figures; add the direct FP1 report as a citation."
+    },
+    {
+      "id": "GFA-3530",
+      "status": "supported",
+      "sources_read": ["CORK-FINAL", "CORK-RESULTS"],
+      "finding": "Fixture, venue and published knockout-route claims agree. Leaving the Carbery scoreline/margin unstated is correct."
+    },
+    {
+      "id": "VOL-36997",
+      "status": "supported",
+      "sources_read": ["VB-30002", "VB-30003-SCHEDULE", "VB-30000"],
+      "finding": "Fixture clock, opener score, deciding set, Reggers/Semeniuk points and Perugia block agree with official pages."
+    },
+    {
+      "id": "VOL-36995",
+      "status": "review_surface_wording",
+      "sources_read": ["VB-30002", "VB-STANDINGS"],
+      "finding": "Fixture, table and recent-result claims agree. The specific phrase 'home taraflex' was not present in the cited schedule or standings reads; retain only with an official surface source or remove it."
+    },
+    {
+      "id": "VOL-36996",
+      "status": "supported_with_citation_gap",
+      "sources_read": ["VB-30002", "VB-STANDINGS", "VB-30001"],
+      "finding": "The Match #6 facts are supported by direct official page 30001, but the pick links only the standings URL while its label says 'standings & Match #6 box score'. Add the direct box-score link. The official 90/91 total discrepancy is recorded in VB-30001 and no replacement value is inferred."
+    },
+    {
+      "id": "RGU-609581",
+      "status": "supported",
+      "sources_read": ["URC-FIXTURES", "URC-TABLE"],
+      "finding": "Fixture, venue, reverse result and table figures agree with the official competition sources."
+    },
+    {
+      "id": "HAN-12138",
+      "status": "supported_with_citation_gap",
+      "sources_read": ["EHF-PLN", "EHF-ROUND5-THU", "EHF-ROUND5-WED", "EHF-STANDINGS", "EHF-TIMES", "EHF-ROUND4", "EHF-PLV"],
+      "finding": "The checked fixture, table, Round 4 and Round 5 claims are supported. The current two links do not directly carry all of them; add the Wednesday review and Round 4 result/review rather than labelling the Thursday review as both reviews."
+    },
+    {
+      "id": "HAN-12130",
+      "status": "supported_with_citation_gap",
+      "sources_read": ["EHF-ROUND5-THU", "EHF-ROUND5-WED", "EHF-STANDINGS", "EHF-TIMES", "EHF-MEL-VAR"],
+      "finding": "Round 5, table and 33:31 Round 1 claims are supported. The current standings URL is labelled as standings & Round 5 review although it is not the review; add the review and direct head-to-head result links."
+    },
+    {
+      "id": "HAN-12134",
+      "status": "contradicted_high",
+      "sources_read": ["EHF-ROUND5-WED", "EHF-STANDINGS", "EHF-TIMES", "EHF-AAL-PSG"],
+      "finding": "Round 5 and table claims agree, but the statement that Aalborg beat PSG in Round 1 is false: the official match page records 33:33. Correct or flag the HIGH prose; do not repeat the claimed head-to-head win."
+    },
+    {
+      "id": "HAN-12129",
+      "status": "supported_with_citation_gap",
+      "sources_read": ["EHF-ROUND5-THU", "EHF-STANDINGS", "EHF-TIMES", "EHF-SPO-GOG"],
+      "finding": "Recent result, table and Round 1 claims are supported; the direct Round 1 page records Sporting 43:33 GOG. Add direct standings/result links because the current review-only URL is also labelled as standings."
+    },
+    {
+      "id": "HAN-12133",
+      "status": "contradicted_high",
+      "sources_read": ["EHF-ROUND5-THU", "EHF-ROUND5-WED", "EHF-STANDINGS", "EHF-TIMES", "EHF-DIN-ARH", "EHF-DIN-MON"],
+      "finding": "Round 5, injury/red-card and table claims agree, but the statement that Dinamo won Round 1 in Bucharest is false: the official match page records Dinamo 23:27 Montpellier. Correct or flag the HIGH prose."
+    }
+  ],
+  "analysis_findings": [
+    {
+      "id": "BKB-22/BKB-535928",
+      "status": "non_blocking_duplicate_review",
+      "finding": "The root and /olbg archived analysis bodies are byte-identical. Existing per-track exact-duplicate checks cannot see this cross-track pair; the new gate reports it as a warning because neither piece is HIGH."
+    }
+  ],
+  "handoff": {
+    "pr": 169,
+    "comment_url": "https://github.com/buffedlizard55-lab/OLBG3/pull/169#issuecomment-6387685549",
+    "reason": "The active shared-data owner was given both direct EHF contradiction receipts and asked to correct or explicitly flag the HIGH prose. This session did not edit claimed prediction, flag or generated-output files."
+  }
+}

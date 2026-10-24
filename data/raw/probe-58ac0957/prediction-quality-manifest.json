@@ -1,0 +1,2959 @@
+{
+  "counts": {
+    "analysis": 118,
+    "errors": 0,
+    "high": 24,
+    "predictions": 142,
+    "warnings": 1
+  },
+  "picks": [
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "abd91212e1dc8126fedc14040f76c85d1ed9b435ee2090ae8f3485bad89591fb",
+      "id": "BKB-534841",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings?date=2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 111
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "f09b3387771ea2983fcc199bea692016f65c081e9a919aa6751261014c16fd93",
+      "id": "BKB-534842",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings?date=2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 104
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "38905e758a32899c676aae701dfc950a0b6444d83c2c3a74c884ea9a9bd33a11",
+      "id": "BKB-535925",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 149
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "8a340a35655849b5a04bc187e1972e417c50dcbef500c02d57f29d8803ae7e31",
+      "id": "BKB-535926",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 144
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "f2ded01627a04f3185adc6bec7468ad75195aec5fa1dce45cba2881e68f4222d",
+      "id": "BKB-535928",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [
+        {
+          "id": "BKB-22",
+          "sequence_ratio": 1.0,
+          "severity": "warning",
+          "shingle_jaccard": 1.0,
+          "track": "root"
+        }
+      ],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 73
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "4993e4ffdb07ab7eaf7ac82a9936d92a076c4f299cce040ba90b80da047149d6",
+      "id": "BKB-536034",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 116
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "9aa1af312d4463d76dc227678ef4b495790c643970840098554a8cd8d34b3479",
+      "id": "BKB-536035",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 125
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "80e15d70dc05c4c2bcd4c8d44f598450b9ceee8f964589e69e1a4e64bed795d1",
+      "id": "BKB-536036",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 116
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "2d8f52473fb4ef57d5d00a1036f9430e2b2a18fe3558e609ec9e532ab227c2ee",
+      "id": "BKB-536037",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 119
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "df9a9de3c479dd5e59d79bbb46e5b7b30631eb41c7b7e578f380623b330f576a",
+      "id": "BKB-536038",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/schedule?date=2026-10-23",
+        "https://www.nba.com/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 115
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "74db21ea0682990e64ac847475b78932ef0797bb48fe812111ea148c606bbe2a",
+      "id": "BKB-536039",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/game/mem-vs-gsw-0022600101",
+        "https://www.nba.com/schedule?date=2026-10-23"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 101
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "828b596504e299222cbfb8bdae6d2a5a910d16efae965c61344cd615017cd0f9",
+      "id": "BKB-536042",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/game/lac-vs-lal-0022600102",
+        "https://www.nba.com/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 109
+    },
+    {
+      "all_source_hosts": [
+        "www.nba.com"
+      ],
+      "body_sha256": "dba003b17d608cb8881a0e4293a05f3ff6e04fbe010367c570d5427a6b0cfa2a",
+      "id": "BKB-536043",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.nba.com/game/por-vs-sac-0022600103",
+        "https://www.nba.com/schedule?date=2026-10-23"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 105
+    },
+    {
+      "all_source_hosts": [
+        "statsapi.mlb.com",
+        "www.mlb.com"
+      ],
+      "body_sha256": "e49844b8026352496c9bd545dc5f5954a0c4d4705ff419c19e3a362970f59fb1",
+      "id": "BSB-160789",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+        "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 145
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "46537c11b184ad2dcff969888febd940a7a62acd09d2f8b1f7af36a9d9432e7a",
+      "id": "DAR-26023",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/WCFAQ"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 108
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "dd195eaf206c94e4b40c3b515276abdf67b8068d3632e09bbe766b097d9bd809",
+      "id": "DAR-32331",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 196
+    },
+    {
+      "all_source_hosts": [
+        "www.pdc.tv"
+      ],
+      "body_sha256": "1c922f35466d90c91ab3572d2ed28365721e55c556c6fa00d3967e8f2c0fe606",
+      "id": "DAR-32332",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 86
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "10dfb3694a13a3780eeaaef287843b161dda750c7f4532d8761cf55a1ea9df09",
+      "id": "DAR-32336",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 207
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "3c0dcac31dedb1d3b8ba145ff4ed67bccf7737295ad2ba409500127fa11b18c9",
+      "id": "DAR-32338",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 101
+    },
+    {
+      "all_source_hosts": [
+        "gaacork.ie"
+      ],
+      "body_sha256": "f9d3da8286c525940d3a1d025f158964024707f1d301232cbd78cdbcab4d3e28",
+      "id": "GFA-3530",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final",
+        "https://gaacork.ie/results"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 134
+    },
+    {
+      "all_source_hosts": [
+        "aalborghaandbold.dk",
+        "tophaandbold.dk",
+        "www.olbg.com"
+      ],
+      "body_sha256": "5a7eb3798a33acbd40bf7bb7d423ae4ac6ed76391228e04ba9f3c55fe9ce2be0",
+      "id": "HAN-12076",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://aalborghaandbold.dk/kampprogram/skive-fh-aalborg-haandbold-2"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 56
+    },
+    {
+      "all_source_hosts": [
+        "asobal.es",
+        "www.olbg.com"
+      ],
+      "body_sha256": "769b34bddffb01eae1875aa0d759f8d229ff70dcc56c06dabb0750acd9b858fe",
+      "id": "HAN-12101",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://asobal.es/equipos/BID"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 150
+    },
+    {
+      "all_source_hosts": [
+        "asobal.es",
+        "www.olbg.com"
+      ],
+      "body_sha256": "74b0eba8fe253495b9734f74d6719060a6dec640477edeb8bcde8cac941ddefd",
+      "id": "HAN-12107",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://asobal.es/liga/clasificacion"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 221
+    },
+    {
+      "all_source_hosts": [
+        "www.eurohandball.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "35d21b07b23334d176a570f444f7c24bb5a6c4778fba6048bc4f28c95344c871",
+      "id": "HAN-12110",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.eurohandball.com/en/competitions/national-team-competitions/women/2027-ihf-womens-world-championship-qualification-europe"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 158
+    },
+    {
+      "all_source_hosts": [
+        "ehfcl.eurohandball.com",
+        "ehfel.eurohandball.com"
+      ],
+      "body_sha256": "bbe4888f8fb432ec573e2412f28a3c003b11fa67a3ba01e25ae77fba0199c3fb",
+      "id": "HAN-12129",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out",
+        "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 115
+    },
+    {
+      "all_source_hosts": [
+        "ehfcl.eurohandball.com",
+        "ehfel.eurohandball.com"
+      ],
+      "body_sha256": "48e456e7bbc0816aec24db4f65c656488065cee3e7cd8504a7416cad77ec9824",
+      "id": "HAN-12130",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://ehfcl.eurohandball.com/men/2026-27/standings",
+        "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 112
+    },
+    {
+      "all_source_hosts": [
+        "ehfcl.eurohandball.com",
+        "ehfel.eurohandball.com"
+      ],
+      "body_sha256": "6ecd02915795a7ba596a85617789f75294ac618fca14012a71b44a83ffac501e",
+      "id": "HAN-12133",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out",
+        "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 118
+    },
+    {
+      "all_source_hosts": [
+        "ehfcl.eurohandball.com",
+        "ehfel.eurohandball.com"
+      ],
+      "body_sha256": "e7e02f15efe2f34fc0a2c3188733a87405d863ee0626418b14f3c7b785d90945",
+      "id": "HAN-12134",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse",
+        "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 107
+    },
+    {
+      "all_source_hosts": [
+        "ehfcl.eurohandball.com"
+      ],
+      "body_sha256": "986f375f74f41425d24e25cc27e3355d2d83d2c84dd095ca0b427b1fa4242d9b",
+      "id": "HAN-12138",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101016/OrlenWislaPlock-HBCNantes",
+        "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 112
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "566e814227e4bb3da47ccf57de50465812f1d8add60196756202685926543ed8",
+      "id": "ICH-199984",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "https://api-web.nhle.com/v1/standings/2026-10-23"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 113
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "acb311f25532df956d69835006eb1b1053297c85f6744cbeb0dd75159aaf2b43",
+      "id": "ICH-199985",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "https://api-web.nhle.com/v1/standings/2026-10-23"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 116
+    },
+    {
+      "all_source_hosts": [
+        "www.formula1.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "ee8845d1293b3289840e4c6ef64a91d49b3a13027dcb8943f11f66ce88d63a1d",
+      "id": "MTR-913",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+        "https://www.formula1.com/en/racing/2026/united-states"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 98
+    },
+    {
+      "all_source_hosts": [
+        "www.nrl.com"
+      ],
+      "body_sha256": "6019efdc9074402971e841862a2dbd9d6aea67bc98df528c5cc6fd66ae5f6040",
+      "id": "RGL-2801600",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 66
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "8eb2d95d6de1a2b26c2a28a21068d00ff711bde3a9a7389e523a7d06c2a61129",
+      "id": "RGU-609558",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 78
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "510c8de9fa1d648ee36f87e1b1884000c281dd59d2c875d4db1384a7e42b434a",
+      "id": "RGU-609560",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 82
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "b1faf38cd0f0fe04b9d155b2dba64cd0c701cc414853cfb99cde1ce2f9ce03a8",
+      "id": "RGU-609561",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 83
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "7889686f9fa3a486d65d089a5917b0074df7b3721d4f614c0948351a6ac0e908",
+      "id": "RGU-609562",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 76
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "f6e7132c2242e4999ef6416c8fe3797ab81ebe95b872540003409b7464ba8a67",
+      "id": "RGU-609563",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 82
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "d3921fd7fb61c38c3c9da82146067c6e091728f33e3393ebe76b9e2e3bd00357",
+      "id": "RGU-609576",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 133
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "fe8f6b739b3a31d284e69699bb24bd5383a98750c5a165c17df9b564a1f7e8b6",
+      "id": "RGU-609577",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 149
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.olbg.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "a1d974d09c644c08af21eb75bffb5e0ebecb79496f4ff14b39ec88b33e0ddc4f",
+      "id": "RGU-609578",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 131
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "8f83dfa1bd05af84f5e78c37d94682b59c1fdfeeecbc7067a73621273e749aac",
+      "id": "RGU-609579",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 153
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "e9c3372b59c1d2dd0e62c26b289b3f0318ebbe417161a13974270ab69fc7cdcf",
+      "id": "RGU-609580",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 137
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "3d77543de13408faaf46cab6b8d4d76b4849753fb01e7ea51c74207b75e60ac7",
+      "id": "RGU-609581",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 109
+    },
+    {
+      "all_source_hosts": [
+        "en.volleyballworld.com"
+      ],
+      "body_sha256": "547760232a1ac632d97f687c554e6b06e6cd3e21b856b24e9d1f85ba977b2571",
+      "id": "VOL-36995",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002",
+        "https://en.volleyballworld.com/volleyball/competitions/superlega/standings"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 92
+    },
+    {
+      "all_source_hosts": [
+        "en.volleyballworld.com"
+      ],
+      "body_sha256": "91cb1d5450e6c087866426abe54ce1daef6dd22b030158e72d645fa4c679cb35",
+      "id": "VOL-36996",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002",
+        "https://en.volleyballworld.com/volleyball/competitions/superlega/standings"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 98
+    },
+    {
+      "all_source_hosts": [
+        "en.volleyballworld.com"
+      ],
+      "body_sha256": "fea946d8d1fd4c75077fa695718e2f661e72d7fd29e16577283abdda1c459502",
+      "id": "VOL-36997",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000",
+        "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "olbg",
+      "word_count": 102
+    },
+    {
+      "all_source_hosts": [
+        "cbv.com.br",
+        "www.olbg.com"
+      ],
+      "body_sha256": "d3cdc1275f18139fe4b7f8b91c8968ffb148aca1e3f00a0a004cd74a4e610852",
+      "id": "VOL-37002",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://cbv.com.br/"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 254
+    },
+    {
+      "all_source_hosts": [
+        "cbv.com.br",
+        "www.olbg.com"
+      ],
+      "body_sha256": "a65840f30a90010373c2d42df0f50c9ebcf8f8852120f8e9345cb5b1d5d03f65",
+      "id": "VOL-37003",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://cbv.com.br/"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "olbg",
+      "word_count": 237
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "3d6ed4af26df14d89920b2f726c9d3d17d898e3d6bfea061718dbce46d8dabd9",
+      "id": "BKB-11",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 77
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "c44f756b503c0fc5e92fdcd358c8427e5551fc608a30d55d04f9719a9618cf34",
+      "id": "BKB-20",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 100
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "4f8a3cd792041fd5a059dd1716984debda63675555332b0c728aca69e0be9d7b",
+      "id": "BKB-21",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/game-center/2026-27/maccabi-rapyd-tel-aviv-real-madrid/E2026/62",
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 104
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "f2ded01627a04f3185adc6bec7468ad75195aec5fa1dce45cba2881e68f4222d",
+      "id": "BKB-22",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [
+        {
+          "id": "BKB-535928",
+          "sequence_ratio": 1.0,
+          "severity": "warning",
+          "shingle_jaccard": 1.0,
+          "track": "olbg"
+        }
+      ],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 73
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "e0b51a72e7da539394dfade7c11165e60f91387c10f2fcc49cc90b0e8003d738",
+      "id": "BKB-26",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 100
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net",
+        "www.olbg.com"
+      ],
+      "body_sha256": "415e7db89c408ed7b1615ec0a95ea6c7df8139e9e497c6d86cf93c6b0adde010",
+      "id": "BKB-29",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627",
+        "https://www.euroleaguebasketball.net/en/euroleague/standings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 114
+    },
+    {
+      "all_source_hosts": [
+        "www.euroleaguebasketball.net"
+      ],
+      "body_sha256": "8bffd4500ca3e4971019fa8ad75da7caf52e398db6c41d40babb1fa9763347d9",
+      "id": "BKB-30",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.euroleaguebasketball.net/en/euroleague/standings",
+        "https://www.euroleaguebasketball.net/en/euroleague/teams/valencia-basket/roster/pam"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 123
+    },
+    {
+      "all_source_hosts": [
+        "statsapi.mlb.com",
+        "www.mlb.com"
+      ],
+      "body_sha256": "ed59ff5e2cda7006754c2ac852e25539363e124f9090f6e732c003d3ef93a662",
+      "id": "BSB-01",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+        "https://www.mlb.com/news/rays-brewers-world-series-game-1-starting-lineups-and-pitching-matchup"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 176
+    },
+    {
+      "all_source_hosts": [
+        "statsapi.mlb.com"
+      ],
+      "body_sha256": "78d0534a55c30d9385cd43b7956535cfa3f1915faa152467c96afce299ebe127",
+      "id": "BSB-160792",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+        "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 98
+    },
+    {
+      "all_source_hosts": [
+        "www.nzc.nz",
+        "www.olbg.com"
+      ],
+      "body_sha256": "75774a5dd16a66d68993aff2824a13793f85f48a100c7f4d6902e0b21db2299c",
+      "id": "CRK-04",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.nzc.nz/international-cricket"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 78
+    },
+    {
+      "all_source_hosts": [
+        "cricketireland.ie",
+        "www.icc-cricket.com"
+      ],
+      "body_sha256": "8f2a729926a490ce58b1352553d72597cebdbcdb7bed27efdaaaf671cc709875",
+      "id": "CRK-06",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://cricketireland.ie/tour-of-namibia-2026",
+        "https://www.icc-cricket.com/news/paul-stirling-to-lead-ireland-for-the-namibia-tour"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 82
+    },
+    {
+      "all_source_hosts": [
+        "www.ecb.co.uk",
+        "www.icc-cricket.com"
+      ],
+      "body_sha256": "dde1eec3dc4562656345575c9d27eafbc669c7f673bcd01e71631239b1353dd2",
+      "id": "CRK-07",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.ecb.co.uk/news/4562387/pakistan-to-host-sri-lanka-and-england-in-odi-triseries",
+        "https://www.icc-cricket.com/news/pakistan-youngster-joins-elite-odi-group-with-superb-haul"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 89
+    },
+    {
+      "all_source_hosts": [
+        "www.icc-cricket.com"
+      ],
+      "body_sha256": "4b72515d199e9d2292322bcb6bcda0c08c6c40012e7770c99f7dc743e9595159",
+      "id": "CRK-10",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.icc-cricket.com/matches/274659/afghanistan-vs-zimbabwe",
+        "https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 70
+    },
+    {
+      "all_source_hosts": [
+        "www.icc-cricket.com",
+        "www.nzc.nz"
+      ],
+      "body_sha256": "005e80ad1b3b98c941784422b92a046077e892273c2b9712ab90b7686c89cbee",
+      "id": "CRK-17",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.icc-cricket.com/matches/271647/new-zealand-vs-india",
+        "https://www.icc-cricket.com/rankings/team-rankings/mens/t20i",
+        "https://www.nzc.nz/chapman-and-foulkes-ruled-out-of-india-t20is-clarkson-and-tickner-called-in"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 168
+    },
+    {
+      "all_source_hosts": [
+        "www.pdc.tv"
+      ],
+      "body_sha256": "1aa55f3a18449a321a8825300bde203add108f16f58a10a4e1a93decb34dcfca",
+      "id": "DRT-03",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 76
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "480aa157c0717e203a54e7333d776c13b97c0c19af16bf07d70fc4772c01cf20",
+      "id": "DRT-09",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 101
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "54949df2de5f39ddec8e65383223c3daca7fd69a6f3419ab8801e39f161d882b",
+      "id": "DRT-10",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 99
+    },
+    {
+      "all_source_hosts": [
+        "www.pdc.tv"
+      ],
+      "body_sha256": "332438beff8ca63650acefa5994da07744638c05eaadacbd769a7e683a3f73b5",
+      "id": "DRT-11",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed",
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 72
+    },
+    {
+      "all_source_hosts": [
+        "www.pdc.tv"
+      ],
+      "body_sha256": "15540e9e9e652c357a74d31af562289119f1e470113655059962ba3504e4a2e0",
+      "id": "DRT-15",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/15/2026-european-championship-race-ahead-of-et15",
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 68
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "ec15418c10dda4ba8fbd449c2e465f773508d4f73dbbdcd059450628409e001c",
+      "id": "DRT-17",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed",
+        "https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 115
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "a75761c5751cbcd7bcb4a98767f985ca2f5f755bec43f0111517edbb33f8916d",
+      "id": "DRT-18",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/WCFAQ"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 82
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pdc.tv"
+      ],
+      "body_sha256": "303a3a35970d978daebf07879f2e1e694d093434736bf6229e9ac209eb958371",
+      "id": "DRT-32383",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pdc.tv/news/2026/october/18/2026-Machineseeker-European-Championship-field---draw-confirmed"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 102
+    },
+    {
+      "all_source_hosts": [
+        "gaacork.ie"
+      ],
+      "body_sha256": "b960300086c43c22de137a949c771162aaeaa5416bf0e586473e552e3052d712",
+      "id": "GAF-01",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final",
+        "https://gaacork.ie/results"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 136
+    },
+    {
+      "all_source_hosts": [
+        "www.maighcuilinn.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "c0c8ddeeb7a6a4e8c6f6964df42f50f00fc0b7deff20b5d9a697b3283833ea63",
+      "id": "GAF-02",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.maighcuilinn.com/"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 109
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.pgatour.com"
+      ],
+      "body_sha256": "6255c4b71d83e8a4df1278903d454d2fa0be4cb07019a8f19324bd8ed9eabd3e",
+      "id": "GLF-02",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.pgatour.com/tournaments/2026/butterfield-bermuda-championship/R2026528/overview"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 64
+    },
+    {
+      "all_source_hosts": [
+        "ehfcl.eurohandball.com",
+        "ehfel.eurohandball.com"
+      ],
+      "body_sha256": "4e8cbc7b48c0040b5fd91e1b4e1a6679b00a102fff753a420be896736b28ed13",
+      "id": "HBL-12130",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://ehfcl.eurohandball.com/men/2026-27/standings",
+        "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 109
+    },
+    {
+      "all_source_hosts": [
+        "www.eurohandball.com"
+      ],
+      "body_sha256": "9fdfd65772785aaae014f9cbc08992d44adf4e608d04b2a8eac5e586ca860c7e",
+      "id": "HBL-15",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.eurohandball.com/en/news/en/five-main-round-tickets-still-on-the-line-as-round-5-begins"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 82
+    },
+    {
+      "all_source_hosts": [
+        "handbollsligan.se"
+      ],
+      "body_sha256": "913561533a027a8072dcaa6e9337363031e2121f83699580d6127d997be53f64",
+      "id": "HBL-21",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://handbollsligan.se/herr",
+        "https://handbollsligan.se/herr/tabell"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 142
+    },
+    {
+      "all_source_hosts": [
+        "www.lnh.fr"
+      ],
+      "body_sha256": "09a2d264399e4fcf65d33fbe2bc53915c89c2dd836f1604e59f51f061aa6d0f4",
+      "id": "HBL-23",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.lnh.fr/daikin-starligue/calendrier",
+        "https://www.lnh.fr/daikin-starligue/classement"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 143
+    },
+    {
+      "all_source_hosts": [
+        "aalborghaandbold.dk",
+        "tophaandbold.dk"
+      ],
+      "body_sha256": "1066661b8682fc3c1e883549693d46984f10f5d5ebb2d0bd7cf8c118802181a7",
+      "id": "HBL-28",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://aalborghaandbold.dk/kampprogram/skive-fh-aalborg-haandbold-2"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 57
+    },
+    {
+      "all_source_hosts": [
+        "handbollsligan.se"
+      ],
+      "body_sha256": "9f5be9b13884595684b2fce17d1480394221aea4dda4a801c9b0c14972bc0490",
+      "id": "HBL-30",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://handbollsligan.se/herr",
+        "https://handbollsligan.se/herr/tabell"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 134
+    },
+    {
+      "all_source_hosts": [
+        "www.eishockey.at",
+        "www.hcpustertal.com"
+      ],
+      "body_sha256": "6283f3183c703d03dcbb15a67a0554c4c60326eca970231e6e3e7d67341c660e",
+      "id": "IHO-01",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.eishockey.at/game-center/ice/tabelle?saison=2026",
+        "https://www.eishockey.at/game-center/ice?diviID=1280"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 93
+    },
+    {
+      "all_source_hosts": [
+        "www.hcb.net",
+        "www.ice.hockey"
+      ],
+      "body_sha256": "492574d93ad134602657803ec15ed5ff75b91e0cfb4d376798f59d741b5aea32",
+      "id": "IHO-02",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.hcb.net/de",
+        "https://www.hcb.net/de/luca-frigo-ist-der-20-kapitaen-in-der-geschichte-des-hcb-gazley-und-schneider-seine-assistenten",
+        "https://www.ice.hockey/saison/tabelle"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 95
+    },
+    {
+      "all_source_hosts": [
+        "stats.swehockey.se",
+        "www.eliteprospects.com"
+      ],
+      "body_sha256": "e0f6cda46db26dedc0000191a0d45fb196f4c3fd7239a84fafd662b8a55566b0",
+      "id": "IHO-03",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 97
+    },
+    {
+      "all_source_hosts": [
+        "www.ice.hockey",
+        "www.kac.at",
+        "www.laola1.at"
+      ],
+      "body_sha256": "4a8928d185025358ee020bcd357ffef6747363ebef19aa8fd159dd2c04503fe8",
+      "id": "IHO-05",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.ice.hockey/saison/tabelle",
+        "https://www.kac.at/spiele"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 80
+    },
+    {
+      "all_source_hosts": [
+        "www.nhl.com"
+      ],
+      "body_sha256": "af2df0b0777183dc3fda3c993b26c4c9edbe66916a29537b87e33cd0d0c4c475",
+      "id": "IHO-06",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.nhl.com/news/florida-panthers-buffalo-sabres-game-recap-october-12-2026",
+        "https://www.nhl.com/schedule/2026-10-21",
+        "https://www.nhl.com/standings/2026-10-20/wildcard"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 99
+    },
+    {
+      "all_source_hosts": [
+        "www.shl.se"
+      ],
+      "body_sha256": "1ae5bbaf4d2c4b76c0a43d0dfbd81d327a04e82239bcf8ea9bedd0c3e6111006",
+      "id": "IHO-10",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.shl.se/game-center/zvcj2so1am/qa98unlbd6?state=pre-game"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 86
+    },
+    {
+      "all_source_hosts": [
+        "stats.swehockey.se"
+      ],
+      "body_sha256": "8a5c0877a16183424507b62617070c29516c165a99e720fcd7c9194d3643c936",
+      "id": "IHO-12",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://stats.swehockey.se/ScheduleAndResults/Overview/20961"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 69
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "b1b8ecc386ca5db968abd6c90846f5ad0c384578b9efe846425515408b5bd6b2",
+      "id": "IHO-14",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 74
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "b149e7d538ddb867208b159378cd5ad77812f30231954010cf47e96f2ec0176d",
+      "id": "IHO-15",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 147
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "9422a35f9145d3971e231012d1f32b91f77040457e05e84f1328b21453bc0dbd",
+      "id": "IHO-16",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 96
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "07def7190c7604858219f3dfee8ed7f9bec2aac1603712da55598521b349e9d3",
+      "id": "IHO-17",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 127
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "dafccc8218488e6e586dc2c5bca465f61edc93fa0b97f2503e76fa319f2eaf46",
+      "id": "IHO-199984",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 110
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "cc02ca531bedb9753dc07e7cbe94706f7e41f308a0ba451cc72997ffb32df8e3",
+      "id": "IHO-199985",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-23",
+        "https://api-web.nhle.com/v1/standings/2026-10-23"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 156
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "c3695d0767a2b11371c5e21dd277928c1c72ca0b3a3c0476c7f93decdf0e8670",
+      "id": "IHO-200002",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-24",
+        "https://api-web.nhle.com/v1/standings/2026-10-24"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 96
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "b521653863f1f54a1178382ee7e841592a9a193df60717c9f7b14157e7fb235f",
+      "id": "IHO-200003",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-24",
+        "https://api-web.nhle.com/v1/standings/2026-10-24"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 104
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "4f647d1410f773c1eb9d1e06990045787e52ba7e152ccbe8eb9c45d128e71038",
+      "id": "IHO-200005",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-24",
+        "https://api-web.nhle.com/v1/standings/2026-10-24"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 98
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "e0346ea4e757aba7f95f74f9122fc64755750147aaa178feeff5a9686041b9f2",
+      "id": "IHO-200006",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-24",
+        "https://api-web.nhle.com/v1/standings/2026-10-24"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 98
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "6fd13824951452631783475d5b95a350eee5b054102150b3a0672127d8c23724",
+      "id": "IHO-200010",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-24",
+        "https://api-web.nhle.com/v1/standings/2026-10-24"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 88
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "44c68e07a08cd10ffea717a000891168e4b624e10899057b07b9a5e0cd1b9a01",
+      "id": "IHO-23",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 111
+    },
+    {
+      "all_source_hosts": [
+        "api-web.nhle.com"
+      ],
+      "body_sha256": "e2c770d494413cdace8c571c5fe92dbf03706dc7096516131c89b96efd7a88ad",
+      "id": "IHO-24",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://api-web.nhle.com/v1/schedule/2026-10-22",
+        "https://api-web.nhle.com/v1/standings/2026-10-22"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 104
+    },
+    {
+      "all_source_hosts": [
+        "www.formula1.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "c7ee771ac030f1c9044eadd392ed64d02ed48709f9717550d458aea99b1334ba",
+      "id": "MTR-01",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO",
+        "https://www.formula1.com/en/racing/2026/united-states"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 97
+    },
+    {
+      "all_source_hosts": [
+        "www.nrl.com"
+      ],
+      "body_sha256": "b7a756c8bd5740566a627f13d68d26bbdc54c8bcfd6bf6f8fbb93702fa366c8b",
+      "id": "RGL-03",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 73
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr",
+        "www.lequipe.fr"
+      ],
+      "body_sha256": "0f4c318274b6ef56f9bb43208a81b120c9354097948a2d094548ff373a8959d2",
+      "id": "RGU-01",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats/2026-2027/j7",
+        "https://prod2.lnr.fr/classement"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 99
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "134c4dbc2a118103447a2823a2d4f5557e4123ea90ecc1c7ebdea2ca9b7d8e65",
+      "id": "RGU-02",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 4,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/classement",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j6/12047-agen-dax",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12060-nevers-agen",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12061-nice-provence-rugby"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 69
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "35ad8610756f41684c2847d81ac42d77b8b81adce138959c7030f53c0282bfc3",
+      "id": "RGU-03",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 4,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/classement",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12056-biarritz-angouleme",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12059-dax-montauban",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12065-angouleme-dax"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 59
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.bbc.com"
+      ],
+      "body_sha256": "d55884ec3524f4417685aa7ca869cdd7d6d5f6cc9a913ca697ea5326d08deaf5",
+      "id": "RGU-04",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 102
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr",
+        "www.rugbyrama.fr"
+      ],
+      "body_sha256": "e04c11cda661aab47cd5da351e6296d96307e2b7bbbc2d46e7866b1125249833",
+      "id": "RGU-05",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats/2026-2027/j7",
+        "https://prod2.lnr.fr/classement"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 95
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr",
+        "www.lequipe.fr"
+      ],
+      "body_sha256": "10f9f703c7296493845a8b762d7811071a5d6ce00f2d4a6c72e4c1f089880020",
+      "id": "RGU-06",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats/2026-2027/j7",
+        "https://prod2.lnr.fr/classement"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 101
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.bbc.com"
+      ],
+      "body_sha256": "37b892c80f60d86fecfeb2a3a5133cf7c60051f1992ed5c5cbdde89912aa1031",
+      "id": "RGU-07",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 102
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "96033d32dd09d47dcb48fc20847d96a50031e20bc13a0ca0111155202f0c73ec",
+      "id": "RGU-08",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 4,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/classement",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12058-colomiers-narbonne",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12062-oyonnax-valence-romans",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12070-valence-romans-colomiers"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 67
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr"
+      ],
+      "body_sha256": "acf6af85c8aa4dd502c5afea8a0fef30064a51a2c1904c20b4e23e7c6b3ac524",
+      "id": "RGU-09",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/classement",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j7/12056-biarritz-angouleme",
+        "https://prod2.lnr.fr/feuille-de-match/2026-2027/j8/12067-grenoble-biarritz"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 64
+    },
+    {
+      "all_source_hosts": [
+        "prod2.lnr.fr",
+        "www.sports.fr"
+      ],
+      "body_sha256": "6ba21e65c1111095b9b1331394664894f65b1c97bd9443ed8fbb762f7ca9d2bb",
+      "id": "RGU-10",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://prod2.lnr.fr/calendrier-et-resultats/2026-2027/j7",
+        "https://prod2.lnr.fr/classement"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 94
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.bbc.co.uk"
+      ],
+      "body_sha256": "d9b6d9b89c612717d5ae885a9e85580369f2ddabd5a8b2d56452208bd93612b2",
+      "id": "RGU-11",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 95
+    },
+    {
+      "all_source_hosts": [
+        "top14.lnr.fr",
+        "www.planetrugby.com",
+        "www.sudouest.fr"
+      ],
+      "body_sha256": "58a2bf6c16b69e413aad515424d21fe9deabb2ea25092d48d818372def56fcef",
+      "id": "RGU-13",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://top14.lnr.fr/classement"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 93
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com"
+      ],
+      "body_sha256": "2ddf720e0b9da4efa698d0b6aa77a5d811e97474d3c632c4d6704128fab432ee",
+      "id": "RGU-14",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/2026-27/4",
+        "https://stats.unitedrugby.com/match-centre/table/2026-27"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 74
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.olbg.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "cd912ae79555cb3bae7be05d613cae542505a2487cfb50636d3210a37c7d42cc",
+      "id": "RGU-17",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 126
+    },
+    {
+      "all_source_hosts": [
+        "stats.unitedrugby.com",
+        "www.unitedrugby.com"
+      ],
+      "body_sha256": "11eec9b0976fad883a11b16dd494fce586e02ea17e458ac43a3bf2041260d359",
+      "id": "RGU-609581",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://stats.unitedrugby.com/match-centre/table/2026-27",
+        "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 112
+    },
+    {
+      "all_source_hosts": [
+        "www.wst.tv"
+      ],
+      "body_sha256": "d6d27d7ca082a499f585becb93d4166e89e0f6d4968cbf8e4d3ed5726846fff4",
+      "id": "SNK-07",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.wst.tv/matches"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 73
+    },
+    {
+      "all_source_hosts": [
+        "www.wst.tv"
+      ],
+      "body_sha256": "acf2e5f1e988b522863488ea0b5a1fe5421ea6a51686a4777e3b3b6bf0129ceb",
+      "id": "SNK-09",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.wst.tv/matches"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 70
+    },
+    {
+      "all_source_hosts": [
+        "www.wst.tv"
+      ],
+      "body_sha256": "a535ef8515fed17af31ffc6fe705aa8ce8b21e5936990196c3629b0c42c9f72a",
+      "id": "SNK-10",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.wst.tv/matches"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 67
+    },
+    {
+      "all_source_hosts": [
+        "www.wst.tv"
+      ],
+      "body_sha256": "5d661146d49312402e0e16132b0a51462e7eb1b2c4e25d5a5bb9770026e5a2d8",
+      "id": "SNK-11",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.wst.tv/matches"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 72
+    },
+    {
+      "all_source_hosts": [
+        "www.olbg.com",
+        "www.wst.tv"
+      ],
+      "body_sha256": "6e6e20f5a3b009eddc0089f52abb583eed8ee6dac72359f19c88472b6283c500",
+      "id": "SNK-12",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.wst.tv/matches"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 103
+    },
+    {
+      "all_source_hosts": [
+        "wtafiles.wtatennis.com"
+      ],
+      "body_sha256": "8dfb2c7f5c10af4b073a4fc733b7f71853b0fe30346ec6e845571305de503085",
+      "id": "TEN-20",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 85
+    },
+    {
+      "all_source_hosts": [
+        "wtafiles.wtatennis.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "a8115806b6ea1629e8dd053b3da9f5fd0e6e1b5c2481b5a23b084f74827c6094",
+      "id": "TEN-21",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/1020/MDS.pdf",
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/405/MDS.pdf"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 76
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "ee4a77f773baa45437983097ccf69969f7806595e130638f226149e2b1861790",
+      "id": "TEN-23",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.atptour.com/en/news/almaty-brussels-lyon-2026-scouting-report",
+        "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 67
+    },
+    {
+      "all_source_hosts": [
+        "wtafiles.wtatennis.com",
+        "www.wtatennis.com"
+      ],
+      "body_sha256": "32b0b458236373d2e69e021f2623a72d8466df60f12a81c5c8dbbc206cd1dbf5",
+      "id": "TEN-24",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/MDS.pdf",
+        "https://www.wtatennis.com/tournaments/2092/ningbo/2026/draws",
+        "https://www.wtatennis.com/tournaments/2092/ningbo/2026/player-list"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 66
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "056e3ed27ef18f278b1e6b9586faa474a40d036ce5fca1ec74c6be00a27800e3",
+      "id": "TEN-27",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.atptour.com/en/rankings/singles?rankDate=2026-10-19&rankRange=1-100",
+        "https://www.atptour.com/en/scores/current",
+        "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 78
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "3f3e46362d5eb965b1dae90644ca3cc14cb1ffbd495282d68ca4f806ebc30da4",
+      "id": "TEN-28",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule",
+        "https://www.atptour.com/en/scores/current/lyon/496/results"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 65
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "efb7c3204aec7ee507d8ad5e6e60b6a9712be36ff9c313e495d576585f322b68",
+      "id": "TEN-30",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+        "https://www.atptour.com/en/scores/current/brussels/7485/results"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 68
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "775d80f3c1b7ef34430922e9affd3565946c5e5281a19572ebf976d956df52dd",
+      "id": "TEN-31",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.atptour.com/en/news/almaty-brussels-lyon-2026-scouting-report",
+        "https://www.atptour.com/en/rankings/singles?rankDate=2026-10-19&rankRange=1-100",
+        "https://www.atptour.com/en/scores/current/almaty/9410/daily-schedule"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 69
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "685c9c22d76632a8da849afd77201a71bed2b48cce6ecd5d59e84bd1d2b35cb8",
+      "id": "TEN-32",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.atptour.com/en/rankings/singles?rankDate=2026-10-19&rankRange=1-100",
+        "https://www.atptour.com/en/scores/current/brussels/7485/daily-schedule",
+        "https://www.atptour.com/en/scores/current/brussels/7485/results"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 68
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "a7c26bc38b117e2ebddfc57ba63dd60b8943ac255f84ae2b9f66afae0a1b6346",
+      "id": "TEN-33",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 3,
+      "official_document_urls": [
+        "https://www.atptour.com/en/news/almaty-brussels-lyon-2026-scouting-report",
+        "https://www.atptour.com/en/rankings/singles?rankDate=2026-10-19&rankRange=1-100",
+        "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 62
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "9844e63d5ccf8d0b44e2a68c6b5950c09ec7d6c0facd70595d4a112445f2b9f9",
+      "id": "TEN-34",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 66
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "85c0e2657d82c3be57961648b00d66e7ae0bb139d965aa724cd85ba23af273d9",
+      "id": "TEN-35",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.atptour.com/en/rankings/singles",
+        "https://www.atptour.com/en/scores/current/almaty/9410/draws"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 62
+    },
+    {
+      "all_source_hosts": [
+        "wtafiles.wtatennis.com",
+        "www.atptour.com"
+      ],
+      "body_sha256": "1b5307a61b2c83ee5518d907ff74297712534610f15882162825de9da16194b3",
+      "id": "TEN-42",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+        "https://www.atptour.com/en/scores/current"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 104
+    },
+    {
+      "all_source_hosts": [
+        "www.atptour.com"
+      ],
+      "body_sha256": "b9950f5beb6cd3473954cdb00078fa982ac2674359bbc94962af20e621cd0f93",
+      "id": "TEN-47",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.atptour.com/en/scores/current",
+        "https://www.atptour.com/en/scores/current/lyon/496/daily-schedule"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 129
+    },
+    {
+      "all_source_hosts": [
+        "wtafiles.wtatennis.com",
+        "www.wtatennis.com"
+      ],
+      "body_sha256": "248f3413538805fe8f2a240c87f8f4a3e5a54b2baf6f67e7d770f9c74cd63685",
+      "id": "TEN-902162",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+        "https://www.wtatennis.com/tournaments/405/osaka/2026/draws"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 91
+    },
+    {
+      "all_source_hosts": [
+        "wtafiles.wtatennis.com",
+        "www.olbg.com"
+      ],
+      "body_sha256": "c4206be7da8afc56211a896628528f7efc526c2d415707ee2a2560f9256242d2",
+      "id": "TEN-902163",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 1,
+      "official_document_urls": [
+        "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 113
+    },
+    {
+      "all_source_hosts": [
+        "www.legavolley.it"
+      ],
+      "body_sha256": "f65cfcc472f93827af137c77f5acc187325bc3f6eb1fe25f8e8cce774678233a",
+      "id": "VOL-27",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.legavolley.it/calendario?idCampionato=999",
+        "https://www.legavolley.it/classifica?IdCampionato=999"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 60
+    },
+    {
+      "all_source_hosts": [
+        "www.legavolley.it"
+      ],
+      "body_sha256": "0c1ff95cca9441733989c1431b3a975264d7e17e381872606029b31b5d8e1589",
+      "id": "VOL-28",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.legavolley.it/calendario?idCampionato=999",
+        "https://www.legavolley.it/classifica?IdCampionato=999"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 60
+    },
+    {
+      "all_source_hosts": [
+        "www.legavolley.it"
+      ],
+      "body_sha256": "5c30d3f5ef635dfbafbf7e45c4d972aa8b8a4a366965a14bce1c7f8e3d869759",
+      "id": "VOL-29",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://www.legavolley.it/calendario?idCampionato=999",
+        "https://www.legavolley.it/classifica?IdCampionato=999"
+      ],
+      "official_source_diversity": "pass",
+      "prohibited_terms": [],
+      "selection_body_agreement": "pass",
+      "status": "high",
+      "track": "root",
+      "word_count": 60
+    },
+    {
+      "all_source_hosts": [
+        "lnv-web.dataproject.com",
+        "www.lnv.fr"
+      ],
+      "body_sha256": "dc54575334a8762a08eac00a68bc86e419aa11fc91024ca83bb5f74dbb578088",
+      "id": "VOL-30",
+      "meets_existing_30_word_floor": true,
+      "near_duplicates": [],
+      "official_document_count": 2,
+      "official_document_urls": [
+        "https://lnv-web.dataproject.com/CompetitionStandings.aspx?ID=137&PID=192",
+        "https://www.lnv.fr/actualites/2026-10-12/programmation-tv-alterna-volstar-x-bein-sports-j1-j8"
+      ],
+      "official_source_diversity": "not_applicable_analysis",
+      "prohibited_terms": [],
+      "selection_body_agreement": "not_applicable_analysis",
+      "status": "analysis",
+      "track": "root",
+      "word_count": 105
+    }
+  ],
+  "rules": {
+    "analysis_near_duplicate_severity": "warning",
+    "existing_checks_not_replaced": [
+      "30-word floor",
+      "source URL syntax",
+      "price quotes",
+      "confidence/status agreement",
+      "release eligibility",
+      "exact duplicates within each track"
+    ],
+    "high_min_distinct_official_documents": 2,
+    "near_duplicate_jaccard_threshold": 0.6,
+    "near_duplicate_sequence_threshold": 0.92,
+    "near_duplicate_shingle_words": 4,
+    "non_official_hosts": [
+      "apnews.com",
+      "en.wikipedia.org",
+      "news.sbs.co.kr",
+      "scores24.live",
+      "www.bbc.co.uk",
+      "www.bbc.com",
+      "www.cbssports.com",
+      "www.cricinfo.com",
+      "www.espn.com",
+      "www.olbg.com",
+      "www.snooker.org",
+      "www.sportsgambler.com"
+    ],
+    "official_source_classes": [
+      "official",
+      "primary"
+    ],
+    "prohibited_whole_words": [
+      "model",
+      "verified"
+    ],
+    "prohibited_word_scope": [
+      "headline",
+      "selection",
+      "body"
+    ],
+    "selection_body_agreement": "HIGH predictions"
+  },
+  "schema_version": 1
+}
