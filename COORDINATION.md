@@ -4,6 +4,19 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+## `session-2f1b3baa` — **task-2f1b3baa-post-refresh-clarity-audit-and-final-integration** (CLAIMED 2026-10-24T17:56Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-2f1b3baa-post-refresh-clarity-audit-and-final-integration` | in progress | `session-2f1b3baa` on Arena-fixed `arena/2f1b3baa-olbg3` | `COORDINATION.md` (append-only); `docs/audit-2f1b3baa.md` (new); `tests/test_audit_2f1b3baa.py` (new); after the sibling 2026-10-24 refresh PR(s) merge (final-integration half per the brief): regenerated site/board outputs, shared `data/*.json` appends (flag register, audit data), and integration repairs only where the audit demonstrates a defect against the brief |
+
+- **Pre-claim checks (2026-10-24T17:53Z):** `git fetch --all --prune` → `origin/main` at `f74b95c` (= this branch's base, clean tree). Open PRs: **#167** (`arena/a30d9bdb-olbg3`, "2026-10-24 refresh: executive summary page, 12 live HIGH picks, four stale pins repaired", green `build` check, last commit 17:50Z — session still in flight) and stale #137 (not touching; user decision). Active sibling claims read and respected: `session-a30d9bdb` (daily refresh + harvest, PR #167 in flight), `session-1c6981d1` (exec-summary/daily refresh on the root track, claimed 17:10Z, last branch commit 17:21Z), `session-68d57005` (CI repair + integration — its PR #168 merge was recorded at 17:50:45Z).
+- **Why this task exists, mapped to the brief:** the brief demands (a) an executive summary where the picks are obvious, (b) full-match lists with originated lines per match for the 15 covered OLBG sports, (c) HIGH picks strictly inside −250..+10000 with unique ≥30-word written predictions, ~5 per sport daily where verified fixtures exist, (d) line-by-line verification against official sources with unconfirmed values left blank and flagged, (e) a clean GitHub Pages dashboard with subpages per category, and (f) a final integration session that merges sibling branches, re-verifies combined data, confirms 0 broken links, PRs, merges, and confirms Pages — recording PR + deploy evidence here.
+- **Boundaries while sibling claims are fresh:** this session does **not** run a new OLBG capture, does not touch the daily-refresh data, root-track exec-summary rendering, or any file a sibling claim covers. This session's early phase is read-only analysis plus its own audit/test/flag files. The integration half runs only after the 2026-10-24 refresh PR(s) are merged (or a sibling claim passes the 60-minute no-commits threshold, taken over per protocol with a logged note).
+- **Hard boundary:** no fixture, price, kick-off, statistic, confidence grade or prediction is invented. Unconfirmable values stay blank and are flagged unverified with the attempted source noted.
+
+---
+
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
 | Task | Status | Owner | File scope |
