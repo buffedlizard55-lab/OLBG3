@@ -4,6 +4,24 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+## `session-30053696` — **task-30053696-zero-high-sports-tennis-cricket-darts-snooker-golf-greyhounds-rugbyleague** (CLAIMED 2026-10-24T17:55Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-30053696-zero-high-sports-tennis-cricket-darts-snooker-golf-greyhounds-rugbyleague` | in progress | `session-30053696` on Arena-fixed `arena/30053696-olbg3` | `COORDINATION.md` (this claim/result only); `.harvest/request.json`; `data/raw/live-20261024T1755Z-30053696/**` (new); `data/raw/official-*30053696*/**` and `data/raw/cited-*30053696*/**` if the runner writes them; `docs/audit-30053696.md` (new); `tests/test_audit_30053696.py` (new); `data/sports/tennis.json`, `data/sports/cricket.json`, `data/sports/darts.json`, `data/sports/snooker.json`, `data/sports/golf.json`, `data/sports/rugby_league.json` (append upcoming rows only); additive keys only in `data/predictions-olbg.json`, `data/predictions.json`, `data/official.json`, `data/release_checks.json`, `data/verifications.json`, `data/flagged.json` (new FL items, start numbering at FL-209 / renumber at merge), `tools/originate.py` (`EDITORIAL_STRENGTH` / form aliases for the seven sports only), `scripts/model.py` (form tables for those sports only). Does **not** edit `scripts/build_site.py`, root `index.html`, `today.html`, `summary.html`, NBA/NHL/baseball/handball/rugby-union/volleyball/gaelic sports files, or `.github/workflows/*`. Generated publication outputs only after the harvest lands, and only as needed to publish the seven-sport write-ups. |
+
+- **Pre-claim checks (2026-10-24T17:55Z):** Read this board and `gh pr list --state open`. Active sibling work respected and not duplicated:
+  - `session-a30d9bdb` PR **#167** (2026-10-24 harvest + `today.html` exec summary + Baseball/Handball/Rugby Union HIGH) — **open, CI green**. Not merged or edited here.
+  - `session-1c6981d1` (`task-1c6981d1-exec-summary-and-daily-refresh`, last commit 17:21Z) owns root landing / `summary.html` / Baseball HIGH. **Not touched.**
+  - `session-09ecce40` (NBA/NHL written pieces, last commit 17:52Z). **Not touched.**
+  - `session-68d57005` (CI pin + final-integration claim, last commit 17:50Z recording PR #168). **Not taken over.**
+  - Stale open PR **#137** left untouched.
+- **Why this task exists:** on current `main` (`f74b95c`) the brief's five-HIGH-per-sport target is unmet for Tennis, Cricket, Darts, Snooker, Golf, Greyhounds and Rugby League (all 0 live HIGH). Sibling sessions are filling Baseball / Handball / Rugby Union / NBA / NHL and the exec-summary pages. This session fills the remaining zero-HIGH sports from a session-scoped OLBG capture plus official clocks, without inventing fixtures or bending prices into the −250/+10000 band.
+- **Hard boundary:** no fixture, price, kick-off, grade, statistic, injury or prediction is invented. Anything not confirmed against an official page is left blank and flagged unverified. Prose will not contain the words “model” or “verified”. HIGH requires an allowlisted official timezone-qualified start, observation &lt; 24 h, originated price inside 1.40–101.00 and fair probability &lt; 0.70, plus a ≥30-word unique write-up. Shortfall vs the five-a-day target is published, not closed by inference.
+- **Landing-page request logged, not executed:** the brief asks for a pick-first executive summary. That surface is claimed (`summary.html` / `today.html` / root landing). Request: keep the first screen a compact table of live HIGH picks (sport, match, selection, our price US+decimal, official clock, write-up link, official source). This session will not edit those files.
+
+---
+
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
 | Task | Status | Owner | File scope |
