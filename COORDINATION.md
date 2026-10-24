@@ -58,6 +58,16 @@ This document serves as the shared task board coordinating parallel sessions and
   cover exactly the published page set, pages regenerate byte-identically, every cross-page `#anchor` resolves).
   Audit: `docs/audit-3271b876.md`. No `scripts/model.py`, `scripts/build.py`, `tools/build_dataset.py`,
   `scripts/check_board.py` or workflow change was needed, and no sibling row, flag or register item was edited.
+- **Follow-up after the merges of #170 and #171 (18:2xZ):** rebased over `main`'s board-refresh commit and re-ran
+  the whole CI order — **Ran 375 OK (skipped=26)**, `tools/check_site.py` all passed, `check_links`
+  `pages=110 local_links_checked=2862 broken=0`. `session-58ac0957`'s new `scripts/check_prediction_quality.py`
+  warned on one cross-track copy: root `BKB-22` and `/olbg/` `BKB-535928` carried the same 73-word paragraph.
+  It is recorded as **FL-212** (medium) and repaired here — the `/olbg/` piece was rewritten to 119 words from the
+  two sources already pinned to it, with that track's own price (1.45 / -222) and the archive caveat, and a new
+  test (`test_no_two_writeups_share_prose_across_the_tracks`) asserts the rule across tracks so the within-track
+  blind spot cannot recur; the gate now reports `errors=0 warnings=0`. The second runner capture (`8bbfa37`,
+  18:21Z) was again merged for preservation and reverted out of the tree, so the PR diff carries no
+  `data/raw/**` path.
 - **Harvest reconciliation (same convention as `session-4e26d590`):** the live-capture automation pushed
   `66ee004` (74 `data/raw/**` files from the 17:58Z request this session filed) onto this session's branch, and
   the lease-protected push correctly refused to overwrite it. The commit was merged for preservation
