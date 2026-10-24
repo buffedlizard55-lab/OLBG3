@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from board_dates import build_date  # noqa: E402
 from release import high_release_errors  # noqa: E402
+from check_prediction_quality import run_quality_gate  # noqa: E402
 
 BUILD_DATE = build_date()  # real UTC today, never a frozen constant
 DOCS = ROOT / "olbg-board"
@@ -351,6 +352,17 @@ def main() -> int:
         for bad in (">None<", ">nan<", "{{", "}}", "&lt;class"):
             if bad in text:
                 errors.append(f"{f.name}: placeholder {bad!r} found")
+
+    # Independent written-pick prose quality (both tracks). Existing checks above stay in force;
+    # this adds selection/body agreement, prohibited terms, official-document diversity and
+    # cross-track near-duplicate detection without rewriting any prediction input.
+    quality = run_quality_gate(ROOT)
+    errors.extend(quality.errors)
+    quality_counts = quality.manifest["counts"]
+    print(f"written-pick quality: predictions={quality_counts['predictions']} "
+          f"high={quality_counts['high']} warnings={quality_counts['warnings']}")
+    for warning in quality.warnings:
+        print(f"written-pick quality WARN: {warning}")
 
     # warnings only
     for m in matches:
