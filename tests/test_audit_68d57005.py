@@ -29,12 +29,17 @@ shared root cause and pin the invariants both sessions agree on:
 
 import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 DOCS = ROOT / "docs"
+
+# discover -s tests puts tests/ on sys.path; direct unittest module invocation does not.
+sys.path.insert(0, str(ROOT / "tests"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
 
 def live_scan_candidates():
@@ -111,10 +116,68 @@ class Bkb17ExpiryIsDocumented(unittest.TestCase):
             self.assertEqual((row.get("verification") or {}).get("status"), "verified", ref)
 
 
+class SecondDatedPinInstance(unittest.TestCase):
+    """Corroborates PR #178's repair of the same defect class on tests/test_audit_a30d9bdb.py
+    (FL-217): post-merge main run 40122281198 failed at unit tests when RGU-609581 kicked off
+    18:45Z and the release gate correctly moved the row to 'start_window_reached'. Same
+    protective-direction rule as FL-201: assert the sibling mechanism is present and passing,
+    never replace it."""
+
+    SRC = ROOT / "tests" / "test_audit_a30d9bdb.py"
+
+    def test_recency_pin_uses_batch_certification_instant(self):
+        src = self.SRC.read_text()
+        self.assertIn("batch_clock = max(", src)  # certification instant, not wall clock
+        self.assertIn("observation is older than 24 hours at certification", src)
+
+    def test_live_release_pin_uses_frozen_assess_instant(self):
+        src = self.SRC.read_text()
+        self.assertIn("checked_at + timedelta(seconds=1)", src)
+        self.assertIn("_release.assess(", src)
+        self.assertIn('now=frozen', src)
+
+    def test_repaired_batch_methods_pass_on_this_tree(self):
+        import test_audit_a30d9bdb as upstream
+        for method in ("test_release_checks_never_postdate_the_clock",
+                       "test_new_high_rows_have_a_live_release"):
+            case = upstream.BatchIntegrity(method)
+            case.setUp()
+            try:
+                getattr(case, method)()
+            except unittest.SkipTest:
+                pass  # a fully-expired batch legitimately skips; failing asserts still fail
+
+    def test_rgu609581_expiry_is_documented(self):
+        events = {r["ref"]: r for r in json.loads((DATA / "events.json").read_text())["events"]}
+        rel = (events["RGU-609581"].get("pick") or {}).get("release") or {}
+        # The gate's own words, not a paraphrase; accepts the current and any later settled state.
+        if rel.get("status") == "start_window_reached":
+            self.assertIn("Official scheduled start has passed", rel.get("reason", ""))
+            self.assertIn("not a pre-match pick", rel.get("reason", ""))
+        else:
+            self.assertIn(rel.get("status"),
+                          {"started", "in_progress", "live", "final", "settled", "past_date", "expired"})
+        self.assertTrue(rel.get("source", "").startswith("https://"))
+
+
 class FlagRegisterIntegrity(unittest.TestCase):
     def setUp(self):
         doc = json.loads((DATA / "flagged.json").read_text())
         self.items = doc["items"]
+
+    def test_fl217_second_instance_registered(self):
+        fl217 = [i for i in self.items if i["id"] == "FL-217"]
+        self.assertEqual(len(fl217), 1)
+        item = fl217[0]
+        self.assertEqual(item["status"], "resolved")
+        self.assertEqual(item["affected_ids"], ["RGU-609581"])
+        self.assertIn("40122281198", item["detail"])
+        self.assertIn("PR #178", item["detail"])
+        ids = [i["id"] for i in self.items]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertGreaterEqual(max(int(i.split("-")[1]) for i in ids), 217)  # floor, never a dated maximum
+        for src in item["sources"]:
+            self.assertTrue(src["url"].startswith("https://"), src)
 
     def test_fl201_registered_and_highest(self):
         ids = [i["id"] for i in self.items]
