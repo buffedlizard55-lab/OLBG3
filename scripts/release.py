@@ -55,6 +55,11 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     # as www.mlb.com, served directly, so the host is reviewed here rather than inferring a value
     # from a rendered page. Structural trust boundary only.
     'statsapi.mlb.com',
+    # 2026-10-24 (session-30053696): the England and Wales Cricket Board how-to-watch schedule
+    # prints the Lahore ODI as '25 October - England Men v Pakistan, Lahore (8.00am GMT)'.
+    # ecb.co.uk is already an official source_tiers host; the www-prefix is required here
+    # because official_clock_url matches the hostname exactly.
+    'www.ecb.co.uk',
 })
 
 

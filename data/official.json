@@ -2282,6 +2282,16 @@
       "source_label": "United Rugby Championship official — 2026/27 fixtures in full (Round 4)",
       "note": "Re-read 2026-10-24T17:10Z: \"Ospreys v Dragons — St. Helen’s, Swansea, KO 19.45 IRE & UK / 20.45 ITA & SA\". The OLBG card prints 18:00Z, 45 minutes early; the official clock is recorded and the OLBG stamp kept verbatim (FL-195 standing).",
       "checked_at": "2026-10-24T17:10:00Z"
+    },
+    "CRK-188838": {
+      "status": "verified",
+      "olbg": "25 Oct 08:00 / Tomorrow 08:00",
+      "official": "25 October - England Men v Pakistan, Lahore (8.00am GMT)",
+      "competition": "England Men v Pakistan, Lahore ODI (25 October 2026)",
+      "source": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka",
+      "source_label": "ECB — How to watch and follow the England Men v Pakistan and Sri Lanka",
+      "note": "Quoted 2026-10-24T18:00Z from the England and Wales Cricket Board how-to-watch schedule: '25 October - England Men v Pakistan, Lahore (8.00am GMT)'. Same page lists 20/22 October Rawalpindi at 9.00am BST and 29/31 October Lahore at 8.00am GMT.",
+      "checked_at": "2026-10-24T18:00:00Z"
     }
   },
   "form_data": {
@@ -3829,32 +3839,70 @@
       "comment": "Re-read on 2026-10-22: Tampa Bay corrected from 755 RS / 645 RA to 736 RS / 650 RA (+86, matching MLB.com). Milwaukee unchanged at 832 / 618."
     },
     "ICC_WhiteBall_2026_ratings": {
-      "source": "https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings",
-      "retrieved": "2026-10-22",
+      "source": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+      "retrieved": "2026-10-24",
+      "rank_date": "24 October 2026",
+      "note": "Men's ODI team rankings table read 2026-10-24T17:58Z from icc-cricket.com. Ratings only; matches/points columns were not copied because the fetch listed rating figures. Replaces the 22 Oct news-article fragment that omitted Pakistan.",
       "teams": {
-        "England": {
-          "rating": 98
-        },
-        "Sri Lanka": {
-          "rating": 90
-        },
-        "Afghanistan": {
-          "rating": 92
-        },
-        "Zimbabwe": {
-          "rating": 64
-        },
-        "Ireland": {
-          "rating": 55
-        },
-        "Namibia": {
-          "rating": 32
+        "India": {
+          "rating": 115
         },
         "New Zealand": {
+          "rating": 109
+        },
+        "South Africa": {
           "rating": 104
         },
-        "India": {
-          "rating": 124
+        "Pakistan": {
+          "rating": 103
+        },
+        "Australia": {
+          "rating": 102
+        },
+        "Sri Lanka": {
+          "rating": 95
+        },
+        "Afghanistan": {
+          "rating": 94
+        },
+        "England": {
+          "rating": 93
+        },
+        "Bangladesh": {
+          "rating": 81
+        },
+        "West Indies": {
+          "rating": 79
+        },
+        "Zimbabwe": {
+          "rating": 63
+        },
+        "Ireland": {
+          "rating": 49
+        },
+        "Scotland": {
+          "rating": 45
+        },
+        "Netherlands": {
+          "rating": 44
+        },
+        "USA": {
+          "rating": 41
+        },
+        "Namibia": {
+          "rating": 34
+        },
+        "Nepal": {
+          "rating": 30
+        },
+        "Oman": {
+          "rating": 23
+        },
+        "UAE": {
+          "rating": 14
+        },
+        "Canada": {
+          "rating": 12
         }
       }
     },
@@ -6215,6 +6263,36 @@
           "gf": 143,
           "ga": 178,
           "pts": 0
+        }
+      }
+    },
+    "ICC_WhiteBall_2026_ratings_20261022": {
+      "source": "https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings",
+      "retrieved": "2026-10-22",
+      "teams": {
+        "England": {
+          "rating": 98
+        },
+        "Sri Lanka": {
+          "rating": 90
+        },
+        "Afghanistan": {
+          "rating": 92
+        },
+        "Zimbabwe": {
+          "rating": 64
+        },
+        "Ireland": {
+          "rating": 55
+        },
+        "Namibia": {
+          "rating": 32
+        },
+        "New Zealand": {
+          "rating": 104
+        },
+        "India": {
+          "rating": 124
         }
       }
     }

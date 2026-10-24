@@ -4029,34 +4029,34 @@
     "note": "Upgraded from cricinfo.com to ICC official schedule page confirming 21 October, Afghanistan v Bangladesh in Abu Dhabi (11:30 UTC = 07:30 EDT on OLBG)."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
+     "win_home": 1.55,
+     "draw": null,
+     "win_away": 2.46
     },
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.98,
-     "away": 0.02
+     "home": 0.6131,
+     "away": 0.3869
     }
    },
    "pick": {
     "side": "home",
     "label": "Afghanistan",
-    "prob": 0.98,
+    "prob": 0.6131,
     "confidence": "MEDIUM",
-    "score": 4,
+    "score": 6,
     "factors": {
      "fixture_verified": 2,
-     "official_form": 0,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
+    "price": 1.55,
+    "american": -182,
+    "in_band": true,
     "band": [
      -250,
      10000
@@ -4067,8 +4067,8 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "MEDIUM",
-    "note": "",
+    "evidence_grade": "HIGH",
+    "note": "The listed kick-off date 2026-10-21 has passed at the 2026-10-24 build, so the pick is archived rather than presented as a live high-confidence selection. The recorded fixture date has passed; archive only. Outcome not inferred.",
     "release": {
      "status": "past_date",
      "eligible": false,
@@ -4266,31 +4266,31 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 2.42,
+     "win_home": 1.95,
      "draw": null,
-     "win_away": 1.57
+     "win_away": 1.85
     },
     "notes": [
-     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.3933,
-     "away": 0.6067
+     "home": 0.4865,
+     "away": 0.5135
     }
    },
    "pick": {
     "side": "away",
     "label": "India",
-    "prob": 0.6067,
+    "prob": 0.5135,
     "confidence": "MEDIUM",
-    "score": 6,
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.57,
-    "american": -175,
+    "price": 1.85,
+    "american": -118,
     "in_band": true,
     "band": [
      -250,
@@ -4302,8 +4302,8 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "HIGH",
-    "note": "The listed kick-off date 2026-10-22 has passed at the 2026-10-24 build, so the pick is archived rather than presented as a live high-confidence selection. The recorded fixture date has passed; archive only. Outcome not inferred.",
+    "evidence_grade": "MEDIUM",
+    "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
@@ -4424,22 +4424,22 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 2.54,
+     "win_home": 2.23,
      "draw": null,
-     "win_away": 1.52
+     "win_away": 1.66
     },
     "notes": [
-     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.3741,
-     "away": 0.6259
+     "home": 0.4261,
+     "away": 0.5739
     }
    },
    "pick": {
     "side": "away",
     "label": "Ireland",
-    "prob": 0.6259,
+    "prob": 0.5739,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -4447,8 +4447,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.52,
-    "american": -192,
+    "price": 1.66,
+    "american": -152,
     "in_band": true,
     "band": [
      -250,
@@ -4503,31 +4503,31 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.64,
+     "win_home": 1.85,
      "draw": null,
-     "win_away": 2.26
+     "win_away": 1.95
     },
     "notes": [
-     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.5806,
-     "away": 0.4194
+     "home": 0.5135,
+     "away": 0.4865
     }
    },
    "pick": {
     "side": "home",
     "label": "England",
-    "prob": 0.5806,
+    "prob": 0.5135,
     "confidence": "MEDIUM",
-    "score": 6,
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.64,
-    "american": -156,
+    "price": 1.85,
+    "american": -118,
     "in_band": true,
     "band": [
      -250,
@@ -4539,8 +4539,8 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": true,
-    "evidence_grade": "HIGH",
-    "note": "The listed kick-off date 2026-10-22 has passed at the 2026-10-24 build, so the pick is archived rather than presented as a live high-confidence selection. The recorded fixture date has passed; archive only. Outcome not inferred.",
+    "evidence_grade": "MEDIUM",
+    "note": "",
     "release": {
      "status": "past_date",
      "eligible": false,
@@ -4738,22 +4738,22 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 1.45,
+     "win_home": 1.42,
      "draw": null,
-     "win_away": 2.76
+     "win_away": 2.89
     },
     "notes": [
-     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.6558,
-     "away": 0.3442
+     "home": 0.6712,
+     "away": 0.3288
     }
    },
    "pick": {
     "side": "home",
     "label": "Afghanistan",
-    "prob": 0.6558,
+    "prob": 0.6712,
     "confidence": "MEDIUM",
     "score": 6,
     "factors": {
@@ -4761,8 +4761,8 @@
      "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.45,
-    "american": -222,
+    "price": 1.42,
+    "american": -238,
     "in_band": true,
     "band": [
      -250,
@@ -4888,31 +4888,31 @@
    "model": {
     "basis": "official-standings",
     "prices": {
-     "win_home": 2.42,
+     "win_home": 1.95,
      "draw": null,
-     "win_away": 1.57
+     "win_away": 1.85
     },
     "notes": [
-     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/news/afghanistan-spinner-boosts-lead-at-top-of-odi-bowler-rankings)."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.3933,
-     "away": 0.6067
+     "home": 0.4865,
+     "away": 0.5135
     }
    },
    "pick": {
     "side": "away",
     "label": "India",
-    "prob": 0.6067,
+    "prob": 0.5135,
     "confidence": "MEDIUM",
-    "score": 6,
+    "score": 4,
     "factors": {
      "fixture_verified": 2,
      "official_form": 2,
-     "model_edge": 2
+     "model_edge": 0
     },
-    "price": 1.57,
-    "american": -175,
+    "price": 1.85,
+    "american": -118,
     "in_band": true,
     "band": [
      -250,
@@ -4924,8 +4924,8 @@
     "clock_basis": "Official UTC start unverified; OLBG clock not converted",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "HIGH",
-    "note": "No recently checked official, timezone-qualified exact start. Retained as analysis.",
+    "evidence_grade": "MEDIUM",
+    "note": "",
     "release": {
      "status": "unverified_start",
      "eligible": false,
@@ -5407,77 +5407,78 @@
    "ref": "CRK-188838",
    "sport": "Cricket",
    "sport_slug": "cricket",
-   "competition": "",
+   "competition": "England Men v Pakistan, Lahore ODI (25 October 2026)",
    "home": "Pakistan",
    "away": "England",
-   "start": "25 Oct 04:00",
-   "captured_at": "2026-10-23",
+   "start": "25 Oct 08:00",
+   "captured_at": "2026-10-24",
    "olbg_market": "Win Match",
    "olbg_pick": "Pakistan",
-   "olbg_tips": "1/1",
-   "olbg_pct": 100,
+   "olbg_tips": "5/10",
+   "olbg_pct": 50,
    "olbg_event_url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Pakistan_vs_England_One_Day_Match/7?event_id=188838",
    "olbg_event_id": 188838,
    "olbg_listing_url": "https://www.olbg.com/betting-tips/Cricket/7",
    "verification": {
-    "status": "unverified",
-    "official_url": "",
-    "official_label": "",
-    "official_datetime": "",
-    "source_tier": "",
+    "status": "verified",
+    "official_url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka",
+    "official_label": "ECB — How to watch and follow the England Men v Pakistan and Sri Lanka",
+    "official_datetime": "25 October - England Men v Pakistan, Lahore (8.00am GMT)",
+    "competition_official": "England Men v Pakistan, Lahore ODI (25 October 2026)",
+    "source_tier": "official",
     "tier_note": "",
-    "note": "No official competition source retrieved and confirmed for this fixture in this pass."
+    "note": "Quoted 2026-10-24T18:00Z from the England and Wales Cricket Board how-to-watch schedule: '25 October - England Men v Pakistan, Lahore (8.00am GMT)'. Same page lists 20/22 October Rawalpindi at 9.00am BST and 29/31 October Lahore at 8.00am GMT."
    },
    "model": {
-    "basis": "consensus",
+    "basis": "official-standings",
     "prices": {
-     "win_home": 1.02,
-     "win_away": 47.5
+     "win_home": 1.6,
+     "draw": null,
+     "win_away": 2.34
     },
     "notes": [
-     "OLBG consensus is 100%, which cannot be priced, so it is capped at 98%.",
-     "Probability equals the OLBG consensus tip share; the draw is not priced."
+     "Official ICC 2026 white-ball team ratings used (https://www.icc-cricket.com/rankings/team-rankings/mens/odi)."
     ],
     "probs": {
-     "home": 0.98,
-     "away": 0.02
+     "home": 0.5937,
+     "away": 0.4063
     }
    },
    "pick": {
     "side": "home",
     "label": "Pakistan",
-    "prob": 0.98,
-    "confidence": "LOW",
-    "score": 2,
+    "prob": 0.5937,
+    "confidence": "HIGH",
+    "score": 6,
     "factors": {
-     "fixture_verified": 0,
-     "official_form": 0,
+     "fixture_verified": 2,
+     "official_form": 2,
      "model_edge": 2
     },
-    "price": 1.02,
-    "american": -5000,
-    "in_band": false,
+    "price": 1.6,
+    "american": -167,
+    "in_band": true,
     "band": [
      -250,
      10000
     ],
     "start_iso": "2026-10-25",
     "start_basis": "derived from capture year",
-    "kickoff_utc": null,
-    "clock_basis": "Official UTC start unverified; OLBG clock not converted",
+    "kickoff_utc": "2026-10-25T08:00:00Z",
+    "clock_basis": "UTC conversion of cited official clock",
     "kickoff_started": false,
     "kickoff_passed": false,
-    "evidence_grade": "LOW",
+    "evidence_grade": "HIGH",
     "note": "",
     "release": {
-     "status": "unverified_start",
-     "eligible": false,
+     "status": "upcoming",
+     "eligible": true,
      "as_of": "2026-10-24T18:10:00+00:00",
-     "start_utc": null,
-     "checked_at": null,
-     "source": null,
-     "expires_at": null,
-     "reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+     "start_utc": "2026-10-25T08:00:00Z",
+     "checked_at": "2026-10-24T18:00:00Z",
+     "source": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka",
+     "expires_at": "2026-10-25T08:00:00Z",
+     "reason": "Official scheduled start is ahead of this build; observation is under 24 hours old. Not a live score or a proven betting edge."
     }
    }
   },

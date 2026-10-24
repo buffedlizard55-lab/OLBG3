@@ -3,7 +3,8 @@
   "requested_at_utc": "2026-10-24T17:07:26Z",
   "requested_by": "session-a30d9bdb",
   "why": "2026-10-24 daily refresh: fresh verbatim 18-endpoint OLBG listing capture (SSR + SvelteKit hydration fallback) for the 15 in-scope sports, plus official governing-body probes and cited-page re-reads, so today's and tomorrow's fixtures can be boarded from committed evidence.",
-  "capture": true,
-  "probe": true,
-  "cited": true
+  "capture": false,
+  "probe": false,
+  "cited": false,
+  "note": "session-30053696 harvest already committed at data/raw/live-20261024T1755Z-30053696; do not re-run a sibling out path on this branch."
 }
