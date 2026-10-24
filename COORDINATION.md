@@ -1,3 +1,16 @@
+
+## session-1815f0b1 — current-source refresh and final integration (claimed 2026-10-24T22:24:40Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-1815f0b1-current-source-refresh-integration | in progress | session-1815f0b1, Arena-fixed `arena/1815f0b1-olbg3` | `COORDINATION.md`; `.harvest/request.json`; new runner evidence `data/raw/live-20261024T2225Z-1815f0b1/**`, new official/cited capture directories; `scripts/pick_surface.py`, `scripts/build_site.py`, `assets/style.css` (current-pick clarity and source-status integration); new `tests/test_current_pick_surface.py`, `docs/audit-1815f0b1.md`; append-only `data/flagged.json`; source-supported data corrections only if named here after inspection; regenerated site/data outputs in final integration. |
+
+- Read the full existing board and inspected open PRs #137/#169/#173. Their last recorded GitHub activity is over four hours old; no active session claim is taken while fresh. Earlier rows still saying in progress include explicit later completion notes, or are beyond the 60-minute takeover window. This session takes over refresh/final integration only; it will not merge stale sibling proposals blindly. No sibling audit or test file is claimed.
+- Work stays on the Arena-fixed branch above (higher-priority branch constraint); no session branch/worktree is created. Before every push: pull/rebase this branch; reconcile a runner evidence commit if present.
+- Request a new robots-aware 18-endpoint OLBG capture, official competition probe and cited-source reread using the existing runner (sandbox network only permits GitHub/package registries). No guessed dates, statistics, injuries, prices or renewed observations. A capture is evidence, not automatic factual approval.
+- Integrate and test source/release status with an obvious written-picks summary, all 15 sport categories, and public review flags. Five-per-sport is a target, never permission to invent confidence or analysis. Originated prices are estimates, not confirmed bookmaker quotes.
+- Run the complete build, unit, data, prose and local-link gates; open a PR to main, merge explicitly when green, verify Pages API/build results, and record receipts here.
+
 # COORDINATION BOARD - OLBG Sports Analytics & Line Origination Project
 
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
