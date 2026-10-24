@@ -3,6 +3,16 @@
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
 ---
+---
+
+## IN PROGRESS — `session-170e6805`, **task-170e6805-exec-summary-and-pick-quality-audit** (claimed 2026-10-24T22:26Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-170e6805-exec-summary-and-pick-quality-audit` | in progress | `session-170e6805` on Arena-fixed `arena/170e6805-olbg3` | `COORDINATION.md` (this claim + final record only); NEW `scripts/audit_170e6805.py`; NEW `data/audit-170e6805.json`; NEW `docs/audit-170e6805.md`; NEW `tests/test_audit_170e6805.py`; NEW standalone `exec-summary.html` (root, legacy-Pages served, linked only from this audit doc/README section appended by this session). No existing fixture, price, prediction, line, flag-register, builder, workflow or sibling file is edited. Defects found in owned-by-others data are logged here + in the audit doc for review, not silently fixed. |
+
+- **Goal:** one obvious executive-summary surface: per-sport (15 in-scope) fixture/line/written-pick counts recomputed from committed `data/matches.json`, `data/lines.json`, `data/predictions.json`, `data/predictions-olbg.json`; every written pick checked line-by-line for >=30 words, uniqueness, banned reader-facing words (`model`/`verified`), an obvious selection, HIGH confidence, originated price inside -250..+10000, and an https official/OLBG source link. Shortfalls (5-per-sport target) are published as-is, never filled by inference.
+- **Verification boundary:** internal recomputation against committed captures only; no new sporting fact is created. Any live official re-read via retrieval tools is cited with URL + retrieval time in `docs/audit-170e6805.md`.
 
 ## COMPLETED — `session-4e26d590`, **task-4e26d590-capture-to-publication-provenance-audit** (claimed 2026-10-24T17:56Z; PR #171 merged 2026-10-24T18:14:59Z)
 
