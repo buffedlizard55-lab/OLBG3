@@ -80,6 +80,15 @@ This document serves as the shared task board coordinating parallel sessions and
   `pages=110 local_links_checked=2862 broken=0`, and `python -m unittest discover -s tests` → **Ran 353 OK
   (skipped=26)**, which includes `session-4e26d590`'s 20 new provenance tests. Surface after the rebuild: 17
   written-pick cards, 49 `/olbg/` piece anchors, the landing strip and the `n / 5` block on all 15 sport pages.
+- **Post-merge wording fix (18:4xZ, follow-up PR):** reading the *published* `today.html` after PR #174 merged
+  showed the opening lede still said "13 live picks on the main board and 11 on the OLBG lines board" — true per
+  track, but it read as two more lists above the merged one. The builder now states the relation it computes
+  (13 rows, 11 rows, 7 fixtures priced by both, folding into 17 distinct written picks, and no written
+  prediction means no pick). `check_board` PASS, `tools/check_site.py` all passed,
+  `check_prediction_quality.py` errors=0 warnings=0, `check_links` pages=110 local_links_checked=2862 broken=0,
+  **Ran 379 OK (skipped=26)**. Pages confirmed serving the surface: the live `today.html` carries the 17 merged
+  cards with inline prose, ref links into `predictions.html#<ref>` and per-card official sources.
+
 ## `session-58ac0957` — **task-58ac0957-written-pick-quality-gate** (CLAIMED 2026-10-24T18:00Z)
 
 | Task | Status | Owner | File scope |

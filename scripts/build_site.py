@@ -676,6 +676,7 @@ if not _strip_items:
     _strip_items.append("<p class='dim'>No pick passes every gate at this build. The HIGH rows held back, "
                         "and the mechanical reason for each, are on <a href='today.html#written-picks'>"
                         "Today&rsquo;s picks</a>.</p>")
+pick_paired = sum(1 for _x in PICK_LIVE if len(_x["tracks"]) > 1)
 _shown = len(PICK_LIVE[:12])
 pick_strip_note = (f"{len(PICK_LIVE)} live, every one a written prediction &mdash; in start order"
                    if len(PICK_LIVE) <= _shown
@@ -933,8 +934,11 @@ today_page = head("Today's picks — executive summary") + f"""
   <p class="eyebrow">EXECUTIVE SUMMARY &middot; {TODAY} &middot; BUILD {CLOCK}</p>
   <h1>Today’s picks, in one place.</h1>
   <p class="lede">Every high-confidence pick we are currently publishing, with the match, the selection, the price,
-  the confidence grade, the written prediction and the official source, on one page. {len(LIVE_HIGH)} live picks on the
-  main board and {len(OLBG_HIGH)} on the OLBG lines board.</p>
+  the confidence grade, the written prediction and the official source, on one page. The main board carries
+  {len(LIVE_HIGH)} live high-confidence rows and the OLBG lines board {len(OLBG_HIGH)}; {pick_paired} of those fixtures are
+  priced by both boards, so the two lists fold into <strong>{len(PICK_LIVE)} distinct written picks</strong> below — one card per
+  match, each board's own call and price on it. A fixture with a selection but no written prediction is not counted
+  as a pick, whatever its grade, and is listed further down with the reason.</p>
   <p class="hero-actions"><a class="button" href="#live-high">Jump to the picks ↓</a>
   <a class="button secondary" href="sports/basketball.html">Browse a sport</a>
   <a class="button secondary" href="method.html">How a pick is graded</a></p>
