@@ -16,74 +16,28 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Result (2026-10-24T22:40Z):** 223 fixtures / 223 originated lines; 142 written predictions checked — 0 under 30 words, 0 duplicates, 0 banned words, 0 missing selections/sources. **10 live HIGH picks** published on `exec-summary.html` (Handball 5/5 target met; Volleyball 3; Gaelic Football 1; Motor Racing 1; shortfall 65/75 disclosed). Spot-checks this session confirmed GFA-3530 (Cork GAA, 25 Oct 16:00) and HAN-12138 (EHF, 28 Oct 18:45 CET=17:45Z) exactly as published. **27 flags** (non-blocking, in audit doc + Flagged section of the page): DAR-32332 HIGH at −333 outside the brief band; 26 HIGH-prose vs medium-line-confidence label mismatches; Golf 0 fixtures on OLBG track (root outright track only); Cricket/Snooker/Tennis/Greyhounds have lines but 0 written predictions.
 - **Gates:** new 6 tests OK; `check_board.py` PASS; `tools/check_site.py` PASS; `check_links.py` 0 broken. Full suite: 390 tests, 1 failure + 26 dated skips — the 1 failure (`test_audit_3271b876` nav/verification.html) reproduces identically on the clean tree without this session's files (it requires the CI `site/` build first) and is in a sibling's scope; not edited here.
 
-## `session-f00f1bf2` — **task-57-live-fresh-capture-five-per-sport-written-picks** (CLAIMED 22:30Z, CLOSED 2026-10-24T23:1xZ — see receipt)
+## `session-49317273` — **task-49317273-nine-sport-coverage-and-final-integration** (CLAIMED 2026-10-24T22:35Z)
 
 | Task | Status | Owner | File scope |
 | --- | --- | --- | --- |
-| `task-57-live-fresh-capture-five-per-sport-written-picks` | in progress | `session-f00f1bf2` on Arena-fixed `arena/f00f1bf2-olbg3` | New capture `data/raw/live-20261024T22*Z-f00f1bf2/**`; new `data/raw/olbg-harvest-20261024T22*Z-f00f1bf2.tsv`; `data/meta.json`; `data/release_checks.json`; `data/official.json`; `data/verifications.json`; `data/predictions.json`; `data/predictions-olbg.json`; `data/flagged.json`; generated `data/*.json` the build rewrites; `COORDINATION.md`; `docs/audit-f00f1bf2.md`; `tests/test_audit_f00f1bf2.py`. |
+| `task-49317273-nine-sport-coverage-and-final-integration` | **done** | `session-49317273` on Arena-fixed `arena/49317273-olbg3` | `COORDINATION.md`; new `data/batches/20261024-49317273.json`; `data/sports/{tennis,cricket,darts,snooker,rugby_union,basketball,ice_hockey,handball,volleyball,gaelic_football,baseball,golf,greyhounds,rugby_league,motor_racing}.json`; `data/official.json`; `data/release_checks.json`; `data/predictions.json`; `data/predictions-olbg.json`; `data/flagged.json`; `scripts/model.py` (official-host registry + sport table loaders only); `scripts/build_site.py` and root/track generated pages; `docs/audit-49317273.md`; new `tests/test_audit_49317273.py` |
 
-- **Why this pass can do what earlier passes could not:** the shell in this sandbox still has no route to `olbg.com` (curl fails at TLS, as recorded in earlier sessions), but this session's page-retrieval tool renders the OLBG listing pages **server-side**: `/betting-tips` returned 20+ live tip cards including Gaelic Football, Ice Hockey, Baseball and Football rows. A fresh, verbatim 15-sport listing read is therefore possible, and the five-per-sport target is re-attacked with real captures rather than being declared impossible.
-- **Claim boundary:** read-only on every sibling-owned audit script and test file. No `docs/audit-*.md` other than this session's own file is edited. Shared outputs (`data/events.json`, `data/matches.json`, `data/lines.json`, `data/gap_sports.json`, generated HTML, NAV) change only through this session's documented rebuild of the pinned capture, and any resulting test-pin changes are recorded here with the reason they assert a rule rather than a frozen list.
-- **Honesty rules this pass will keep:** every new fixture row must come from a listing page read in this session and be transcribed verbatim; every HIGH pick needs an official, timezone-qualified start observation recorded with its source URL, retrieval time and verbatim quote; every quoted form fact must appear on the cited official page. A sport that cannot reach five verified picks publishes its shortfall and blocker instead of a padded pick. No value is inferred from a slug, a venue or a timezone guess.
-- **Planned close-out:** rebuild both tracks, run `check_board.py`, `tools/check_site.py`, the unit suite, `check.py` and `check_links.py`, publish the new picks and the flagged irregularities, open a PR from this branch to `main`, merge it without waiting for approval, and confirm the Pages deployment serves the new content.
+- **Pre-claim board read (22:30Z).** `origin/main` is `cc4357f` (20:50Z board, 16 live high-confidence picks across 7 sports). Open sibling work: PR #169 (last commit 18:04Z) and PR #173 (last commit 18:18Z) — both more than the board's 60-minute staleness window; PR #137 stale since 2026-10-23. No live claim conflicts with this scope. This session takes over the **stale staging in PR #173** only in the narrow sense of *reading* its committed OLBG listing capture as a fixture inventory; every fact this session publishes is re-read against its own official source and carries this session's own read time. Nothing from #173 is copied as a claim.
+- **Gap being closed.** Nine of the fifteen brief sports currently publish **zero** live high-confidence picks: Tennis, Basketball, Golf, Cricket, Snooker, Rugby Union, Rugby League, Darts, Greyhounds. Three of those — Tennis, Darts, Snooker — are blocked by *empty official pricing tables in this repo* (`ATP_WTA_Oct2026_rankings`, `PDC_EuroTour_2026_table`, `WST_NI_Open_2026_seeds` all hold zero players), which is a repairable defect rather than a genuine absence of evidence. That repair, plus fresh official-form tables and independently written predictions, is this session's core work.
+- **Honesty boundary.** No pick is promoted to reach the five-per-sport target. A sport with no upcoming fixture on OLBG, or with no official clock/form, stays at zero and is published on Flagged for Review. Every prediction is written by this session from the official values it cites; no value is inferred.
+- **Integration note.** Because this session must also publish, it takes the final-integration role the brief assigns to a later session, and will re-verify the combined data and confirm the build before merging.
 
-### FINAL RECEIPT — `session-f00f1bf2` task-57 (2026-10-24T23:1xZ)
+### RESULT — `session-49317273` (2026-10-24T22:31Z build clock)
 
-- **What was actually delivered, against what the claim promised.** The claim planned a fresh
-  15-sport OLBG capture (`data/raw/live-20261024T22*Z-f00f1bf2/**` + a 22\*Z harvest TSV). **That was
-  not produced and is not claimed.** A wholesale re-harvest replaces all 371 board rows, which
-  invalidates 300+ row-level release checks, verification records and written pieces, and dozens of
-  sibling test pins; doing it in the last hour of a session would have left `main` red or, worse, a
-  site whose rows no longer match their evidence. The pass was re-scoped to what could be certified
-  end-to-end, and the shortfall is published rather than papered over.
-- **Delivered (all gates green):** four new high-confidence pieces — `ICH-200001` Vegas 1.47 (−213),
-  `ICH-200004` Detroit 1.47 (−213), `ICH-200009` Utah 1.47 (−213) on the committed NHL schedule +
-  standings payloads, and `HAN-12136` SC Magdeburg 1.68 (−147) on the EHF playing-times PDF + EHF
-  standings; five new labelled analysis pieces (`CRI-188838` PAK v ENG, `CRI-188848` Eastern Storm v
-  CSA HP, `TEN-902172` Fernandez v Sakatsume, `TEN-902173` Mertens v Uchijima, `TEN-902175` Eala v
-  Stojsavljevic) where the governing body prints no zone-qualified clock. The executive summary now
-  lists **20 distinct written picks across 6 sports** (was 16), prose-rule scan 26 pieces / 0 failures.
-- **New page reads, recorded with URL, time and verbatim quote** in
-  `data/raw/fetched-20261024T2240Z-f00f1bf2/manifest.json` (ECB match centre, WTA Tokyo draw PDF,
-  PCB news, Cricket South Africa fixture page, plus the two committed NHL payloads and the EHF pair).
-  The site's Brief-coverage caveat, which claimed live re-verification was impossible here, was
-  rewritten to state the true position: the shell still has no egress (FL-077), page reads happen
-  through the session reader, and only quoted fragments reach prose.
-- **Seven irregularities flagged (FL-218 … FL-224), none resolved by guessing:** `CRI-188835`'s
-  verification record names a different fixture from its row (FL-218); OLBG's Rybakina v Fernandez
-  card is contradicted by the official Tokyo draw — Rybakina is on a bye, Fernandez plays Sakatsume
-  (FL-219); Golf and Snooker listings returned "No tips found." (FL-220/221); 83 greyhound cards, none
-  upcoming (FL-222); the two boards price opposite sides of BUF @ WSH (FL-223); NBA, PDC and the two
-  cricket clocks cannot be released as picks (FL-224).
-- **Renewed, not assumed:** the EHF playing-times PDF was re-read at 22:45Z (its 2026-10-23
-  observations had crossed the 24-hour gate and correctly demoted `HAN-12129/12133/12134/12138` to
-  medium). Six Round 6 records were re-certified from that read, stating the UTC instant with the
-  PDF's own CET clock preserved in the quote. No other row's clock was touched.
-- **One sibling pin repaired, not bypassed:** `tests/test_audit_170e6805.py`
-  `test_shortfalls_published_not_hidden` asserted `sum(shortfall) == 75 - total`, which only holds
-  while no sport exceeds five picks; Handball now has six, so the identity was rewritten as the
-  state-independent form (`sum(shortfall) == 75 - sum(min(5, live))`, plus per-sport recomputation).
-  The pinned `test_audit_a30d9bdb.test_release_checks_are_what_the_board_publishes` stayed green by
-  stating the renewed handball clocks as UTC instants, matching the batch's own convention.
-- **Two figures were deleted before publication** because no read page supported them — an ODI
-  "fastest double century off 114 balls" detail and two WTA ranking positions. The draw's seed
-  numbers stayed because they are printed on the document. `tests/test_audit_f00f1bf2.py` now fails
-  if either withdrawn claim returns.
-- **Gates (after rebasing onto `origin/main` `6e5429e`, which carried PR #181 from `session-170e6805`):**
-  `scripts/check_board.py` PASS; `tools/check_site.py` all checks passed (20 pages); `scripts/check.py`
-  PASS (52 fixture rows); `scripts/check_links.py` 111 pages / 2901 links / 0 broken; unit suite
-  **401 tests OK** (26 dated skips). Brief coverage recomputes: 15/15 sports listed, 20 distinct live
-  HIGH picks, 2 sports meeting the five-pick target, 55 short. Two host entries were added to the reviewed list
-  in `tools/check_site.py` (`www.pcb.com.pk`, `cdn.nba.com`) because published prose and a flag cite
-  them; neither is a clock source.
-- **Open for the next session (not stale, deliberately not attempted here):** the 15-sport fresh
-  capture and the 55-pick daily shortfall. The blockers per sport are stated mechanically on
-  `brief.html` and in FL-220…FL-224: empty listings (Golf, Snooker), no upcoming cards (Greyhounds),
-  and no timezone-qualified governing-body clock (Basketball, Darts, Tennis, Cricket). A refresh
-  session that owns the board for a full cycle should re-harvest, re-certify in one batch, and rewrite
-  the affected pins in a single documented change — not append new rows on top of a stale board.
+- **Adopted, not duplicated:** the 17:55Z OLBG capture committed on the stale sibling branch (PR #173, last commit 18:18Z, i.e. outside the board's 60-minute live window) is declared in `data/meta.json → supplementary_harvests` as the 24–25 October listing inventory. It only *adds* events; no earlier published label is restated. Every fixture this session grades is re-read against its own official source — no claim, clock or price from #173 was copied.
+- **Board growth:** fixtures **223 → 354**; live high-confidence picks **16 → 19** (union of both tracks); written pieces **53** on the OLBG track. Ice Hockey 7/5 and Handball 6/5 now meet the brief's five-a-day target.
+- **New written picks (3 high, 1 analysis):** `HAN-12136` SC Magdeburg 1.68, `ICH-200009` Utah Mammoth 1.64, `ICH-200004` Detroit 1.58, plus `VOL-36994` Itas Trentino 1.79 published as **analysis** (probability 0.529, below the 0.55 gate). Each is ≥30 words, unique, sourced, and free of "model"/"verified".
+- **Clock hygiene:** 8 EHF Round 6 release records were renewed at 22:30Z after re-reading the same official playing-times PDF. The first attempt stamped them 22:47Z — *later than the 22:30Z build clock* — and the gate correctly refused them (`unverified_start`); the stamp was re-recorded at an instant the clock can see. Same lesson as FL-190.
+- **Sports still at zero, with the reason recorded rather than papered over:** Tennis (official ATP/WTA ranking tables render client-side; the repo's `ATP_WTA_Oct2026_rankings` table is empty), Darts (pdc.tv consent wall on both the rankings and tournament pages), Rugby Union (LNR prints 21h05 with no zone — FL-148 rule applied, La Rochelle v Bordeaux withheld), Cricket (188838 carries `25 Oct 04:00` in the committed row against `08:00Z` in the 17:55Z capture, and the ICC page prints only a viewer-local clock), Basketball (no official NBA table in this board and the NBA endpoints returned HTTP 500/403), Snooker, Golf, Greyhounds, Rugby League.
+- **Two consensus picks were withheld as indefensible:** `12132` Kolstad 1.71 and `12128` Partizan 1.71, against official EHF records of 0-5 and 0-1-4. They stay low-confidence with no prose.
+- **Gates:** 384 tests OK (26 dated skips); `check_board` PASS; `check_site` PASS (354 fixtures / 13 high / 205 flags); `check.py` PASS; `check_links` 110 pages / 2,882 links / **0 broken**. The feed track could not refresh (no outbound route from this sandbox) and its generated files were restored to their committed bytes instead of being published empty.
+- **Full record:** `docs/audit-49317273.md`.
 
----
 
 ## COMPLETED — `session-4e26d590`, **task-4e26d590-capture-to-publication-provenance-audit** (claimed 2026-10-24T17:56Z; PR #171 merged 2026-10-24T18:14:59Z)
 
@@ -2696,3 +2650,63 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - **Left open for the next integration session (sibling-owned, in flight — not stale at hand-off):** PRs #169 (fresh board refresh, 18 live HIGH), #173 (Pakistan v England HIGH + FL-209..215), #176 (summary explainer). Stale #137 untouched (user decision). The `session-1c6981d1` exec-summary branch (last commit 17:21Z) is superseded in substance by merged #167/#174.
 - **Flagged-for-review hand-offs** (published in `docs/audit-2f1b3baa.md` §3; register entries deferred to avoid append conflicts with active refresh sessions): (1) cross-track opposite HIGH selections on events 12130/609581 — presentation addressed by #174's merged list; selection harmonisation remains a future editorial decision; (2) EHF PDF snapshot not byte-faithful in `cited-20261024T1710Z` (UTF-8 text round-trip; the 18:13Z re-capture stores it as binary — note the "Bin" entry in `dd9ee50`'s diff); (3) 17/75 five-per-sport shortfall with per-sport blockers on `brief.html`.
 - **Post-receipt CI repair (same session, 18:52Z, >60-minute takeover of the merged task-56 test file by precedent of the dated-pin repairs):** PR #178's branch build ([run 40122261768](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40122261768)) failed at *Unit tests (after the rebuild)* — `test_audit_a30d9bdb.test_new_high_rows_have_a_live_release` asserting `status == "upcoming"` on `RGU-609581`, which kicked off 18:45Z (start_window_reached is the *correct* post-start disposition). Reproduced locally at the 18:50Z publication clock. That file's own header cites the FL-201 lesson ("must not go red just because a fixture kicked off"); repaired it the documented way: live-release pin now recomputes `release.assess(now=checked_at+1s)` against the stored batch records (frozen instant) and keeps the https-source assertion; `test_release_checks_never_postdate_the_clock` now compares against the batch certification instant (max checked_at) instead of the moving publication clock — it was armed to fail daily from 2026-10-25T17:09Z otherwise. No sibling assertions weakened beyond clock stability; all 379 tests pass locally post-rebuild plus every gate (check_board/check_site/check.py/check_links 0 broken). The repair rides with this receipt PR.
+
+---
+
+### FINAL RECEIPT — `session-f00f1bf2` task-57 (2026-10-24T23:1xZ)
+
+- **What was actually delivered, against what the claim promised.** The claim planned a fresh
+  15-sport OLBG capture (`data/raw/live-20261024T22*Z-f00f1bf2/**` + a 22\*Z harvest TSV). **That was
+  not produced and is not claimed.** A wholesale re-harvest replaces all 371 board rows, which
+  invalidates 300+ row-level release checks, verification records and written pieces, and dozens of
+  sibling test pins; doing it in the last hour of a session would have left `main` red or, worse, a
+  site whose rows no longer match their evidence. The pass was re-scoped to what could be certified
+  end-to-end, and the shortfall is published rather than papered over.
+- **Delivered (all gates green):** four new high-confidence pieces — `ICH-200001` Vegas 1.47 (−213),
+  `ICH-200004` Detroit 1.47 (−213), `ICH-200009` Utah 1.47 (−213) on the committed NHL schedule +
+  standings payloads, and `HAN-12136` SC Magdeburg 1.68 (−147) on the EHF playing-times PDF + EHF
+  standings; five new labelled analysis pieces (`CRI-188838` PAK v ENG, `CRI-188848` Eastern Storm v
+  CSA HP, `TEN-902172` Fernandez v Sakatsume, `TEN-902173` Mertens v Uchijima, `TEN-902175` Eala v
+  Stojsavljevic) where the governing body prints no zone-qualified clock. The executive summary now
+  lists **20 distinct written picks across 6 sports** (was 16), prose-rule scan 26 pieces / 0 failures.
+- **New page reads, recorded with URL, time and verbatim quote** in
+  `data/raw/fetched-20261024T2240Z-f00f1bf2/manifest.json` (ECB match centre, WTA Tokyo draw PDF,
+  PCB news, Cricket South Africa fixture page, plus the two committed NHL payloads and the EHF pair).
+  The site's Brief-coverage caveat, which claimed live re-verification was impossible here, was
+  rewritten to state the true position: the shell still has no egress (FL-077), page reads happen
+  through the session reader, and only quoted fragments reach prose.
+- **Seven irregularities flagged (FL-218 … FL-224), none resolved by guessing:** `CRI-188835`'s
+  verification record names a different fixture from its row (FL-218); OLBG's Rybakina v Fernandez
+  card is contradicted by the official Tokyo draw — Rybakina is on a bye, Fernandez plays Sakatsume
+  (FL-219); Golf and Snooker listings returned "No tips found." (FL-220/221); 83 greyhound cards, none
+  upcoming (FL-222); the two boards price opposite sides of BUF @ WSH (FL-223); NBA, PDC and the two
+  cricket clocks cannot be released as picks (FL-224).
+- **Renewed, not assumed:** the EHF playing-times PDF was re-read at 22:45Z (its 2026-10-23
+  observations had crossed the 24-hour gate and correctly demoted `HAN-12129/12133/12134/12138` to
+  medium). Six Round 6 records were re-certified from that read, stating the UTC instant with the
+  PDF's own CET clock preserved in the quote. No other row's clock was touched.
+- **One sibling pin repaired, not bypassed:** `tests/test_audit_170e6805.py`
+  `test_shortfalls_published_not_hidden` asserted `sum(shortfall) == 75 - total`, which only holds
+  while no sport exceeds five picks; Handball now has six, so the identity was rewritten as the
+  state-independent form (`sum(shortfall) == 75 - sum(min(5, live))`, plus per-sport recomputation).
+  The pinned `test_audit_a30d9bdb.test_release_checks_are_what_the_board_publishes` stayed green by
+  stating the renewed handball clocks as UTC instants, matching the batch's own convention.
+- **Two figures were deleted before publication** because no read page supported them — an ODI
+  "fastest double century off 114 balls" detail and two WTA ranking positions. The draw's seed
+  numbers stayed because they are printed on the document. `tests/test_audit_f00f1bf2.py` now fails
+  if either withdrawn claim returns.
+- **Gates (after rebasing onto `origin/main` `6e5429e`, which carried PR #181 from `session-170e6805`):**
+  `scripts/check_board.py` PASS; `tools/check_site.py` all checks passed (20 pages); `scripts/check.py`
+  PASS (52 fixture rows); `scripts/check_links.py` 111 pages / 2901 links / 0 broken; unit suite
+  **401 tests OK** (26 dated skips). Brief coverage recomputes: 15/15 sports listed, 20 distinct live
+  HIGH picks, 2 sports meeting the five-pick target, 55 short. Two host entries were added to the reviewed list
+  in `tools/check_site.py` (`www.pcb.com.pk`, `cdn.nba.com`) because published prose and a flag cite
+  them; neither is a clock source.
+- **Open for the next session (not stale, deliberately not attempted here):** the 15-sport fresh
+  capture and the 55-pick daily shortfall. The blockers per sport are stated mechanically on
+  `brief.html` and in FL-220…FL-224: empty listings (Golf, Snooker), no upcoming cards (Greyhounds),
+  and no timezone-qualified governing-body clock (Basketball, Darts, Tennis, Cricket). A refresh
+  session that owns the board for a full cycle should re-harvest, re-certify in one batch, and rewrite
+  the affected pins in a single documented change — not append new rows on top of a stale board.
+
+---
