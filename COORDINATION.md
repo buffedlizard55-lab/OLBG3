@@ -4,6 +4,19 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+## `session-4e7360c1` — **task-4e7360c1-daily-refresh-and-pick-clarity** (CLAIMED 2026-10-24T18:05Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-4e7360c1-daily-refresh-and-pick-clarity` | in progress | `session-4e7360c1` on Arena branch `arena/4e7360c1-olbg3` | `COORDINATION.md`; `.harvest/request.json`; new `data/raw/**` capture and probe directories only (never edited, never rewritten); `data/sports/*.json` (append-new-fixtures only); `data/predictions-olbg.json` and `data/predictions.json` (new pieces only, no sibling's text rewritten); `data/release_checks.json`; `data/official.json`; `data/verifications.json`; `data/flagged.json` (own register items only); `data/publication.json`; `docs/audit-4e7360c1.md` (new); `tests/test_audit_4e7360c1.py` (new); regenerated root, `sports/**` and `olbg/**` build output |
+
+- **Pre-claim checks (2026-10-24T18:00Z):** `git fetch origin` → `origin/main` is `f74b95c`, which is also this Arena branch's base, working tree clean. `gh pr list --state open` shows #167 (`session-a30d9bdb`, 2026-10-24 refresh, 183 files) and stale #137. Active siblings read and respected: `session-68d57005` (CI repair + final integration) and `session-09ecce40` (NBA injury-report CDN + `VOL-37002`). **This task will not edit `scripts/**`, `tools/**`, `.github/workflows/**`, the shared templates, the navigation or the executive-summary renderer that `session-a30d9bdb`'s open PR owns** — where those need a change, the request is logged here instead.
+- **Why this task exists:** the brief's first complaint is that the published board does not make it obvious *what* the picks are or *where* they are, and the second is that five written HIGH picks per covered sport are still not met. This pass therefore (a) requests one fresh 15-sport OLBG capture through the repository's own runner workflow (`.harvest/request.json`), (b) verifies candidate fixtures against the governing body's own committed probe output, and (c) writes new unique >=30-word pieces only for rows where the official page actually prints the form, streak, stat or team-news fact being quoted. No value is inferred; anything unconfirmed stays blank and is flagged.
+- **Row-level boundary restated:** every new HIGH row must carry an official, timezone-qualified start from the governing body, a price inside the requested -250..+10000 window on **our** originated line, and a written selection naming the market. Rows that fail a gate stay MEDIUM/LOW with the reason, or are published as analysis.
+- **Coordination note on captures:** if the runner's capture lands after a sibling's, this pass chains it as the newest capture via the existing mechanism instead of rewriting theirs. If `session-a30d9bdb`'s capture `data/raw/live-20261024T1707Z-a30d9bdb` is still the newest when this pass starts, it is read as evidence read-only and cited as such.
+
+---
+
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
 | Task | Status | Owner | File scope |
