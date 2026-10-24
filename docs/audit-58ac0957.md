@@ -1,7 +1,9 @@
 # Written-pick quality audit — session-58ac0957
 
-**Audit date:** 2026-10-24 (UTC)  
-**Owner:** `session-58ac0957` / `task-58ac0957-written-pick-quality-gate`  
+**Audit date:** 2026-10-24 (UTC)
+
+**Owner:** `session-58ac0957` / `task-58ac0957-written-pick-quality-gate`
+
 **Scope:** independent prose-quality checks across both tracks, plus fresh official-source reads for the 11 `/olbg/` HIGH predictions. No fixture, price, confidence, prediction, harvest, rendering or generated-HTML input was edited by this task.
 
 ## Executive result
