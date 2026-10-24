@@ -1,7 +1,10 @@
 {
   "session": "session-f00f1bf2",
   "retrieved_by": "session page reader (arbitrary-host HTTPS GET available to the agent session; the shell sandbox itself has no egress — see FL-077)",
-  "retrieved_window_utc": ["2026-10-24T22:20:00Z", "2026-10-24T22:40:00Z"],
+  "retrieved_window_utc": [
+    "2026-10-24T22:20:00Z",
+    "2026-10-24T22:50:00Z"
+  ],
   "note": "Text-only reads. Nothing here is a machine capture: each entry records the URL that was read, when, and the exact fragments that a published row or review flag relies on. Fragments are copied verbatim from the page returned at that URL.",
   "pages": [
     {
@@ -76,12 +79,17 @@
     {
       "id": "f00f-ehfcl-2026-27",
       "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-      "retrieved_at_utc": "2026-10-23T19:38Z",
+      "retrieved_at_utc": "2026-10-24T22:45Z",
       "quotes": [
-        "Round 6, 28.10.2026, 20:45 CET — SC Magdeburg vs HC Kriens-Luzern",
-        "GETEC Arena, Magdeburg"
+        "B | SC Magdeburg vs HC Kriens-Luzern GETEC Arena (Magdeburg, GER) | Wednesday 28.10.2026 | 20:45h",
+        "B | HC Vardar 1961 vs MT Melsungen SC Jane Sandanski (Skopje, MKD) | Wednesday 28.10.2026 | 18:45h",
+        "D | GOG vs Sporting CP Arena Svendborg (Svendborg, DEN) | Thursday 29.10.2026 | 18:45h",
+        "E | Montpellier HB vs CS Dinamo Bucuresti FDI Stadium (Montpellier, FRA) | Thursday 29.10.2026 | 20:45h",
+        "C | Paris Saint-Germain Handball vs Aalborg Handbold Stade Pierre de Coubertin (Paris, FRA) | Wednesday 28.10.2026 | 20:45h",
+        "B | Orlen Wisla Plock vs HBC Nantes Orlen Arena (Plock, POL) | Wednesday 28.10.2026 | 18:45h",
+        "ROUND 6 | DATE | TO TIME (CET)"
       ],
-      "clock_effect": "Already committed as S-EHFCL-TIMES-PDF-20261023; the Magdeburg throw-off is CET-qualified."
+      "clock_effect": "Re-read at 22:45Z for the 24 October publication, which renewed six Round 6 release records after the 2026-10-23 observations crossed the 24-hour gate. The PDF states the Round 6 clock in CET; each record stores the UTC instant with the source clock kept in the quote, so the gate sees an explicit zone and a reviewer sees the source label."
     }
   ]
 }
