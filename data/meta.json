@@ -102,6 +102,13 @@
       "olbg_locale_date": "2026-10-23",
       "harvest_completed_utc": "2026-10-23T21:33:06Z",
       "note": "session-b322f52e live runner capture (data/raw/svelte-b322f52e-20261023T2133Z) across all 18 in-scope listing pages at 21:33:06Z, extracted via --svelte-fallback (123 active expired=0 rows across 12 sports). Same-day supplementary source: adds only the 43 upcoming events absent from the 16:21Z primary and 16:30Z supplementary captures, never overwriting an earlier row."
+    },
+    {
+      "file": "raw/olbg-harvest-20261024T1755Z-30053696.tsv",
+      "format": "v3",
+      "olbg_locale_date": "2026-10-24",
+      "harvest_completed_utc": "2026-10-24T17:55:00Z",
+      "note": "session-30053696 agent page-retrieval capture of the 18 in-scope listings, taken 2026-10-24 17:55Z and committed on its branch (PR #173, stale under the board's 60-minute rule). Adopted by session-49317273 as the 24-25 October listing inventory because OLBG re-lists each day and the primary capture is 2026-10-23. It only ADDS events the primary capture does not contain, so no earlier published label is restated. Every fixture this session grades HIGH is re-read against its own official source, separately from this listing row."
     }
   ],
   "root_capture_20261023": {

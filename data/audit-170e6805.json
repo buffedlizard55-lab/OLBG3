@@ -1,6 +1,6 @@
 {
   "session": "170e6805",
-  "publication_clock": "2026-10-24T22:37:00Z",
+  "publication_clock": "2026-10-24T22:41:00Z",
   "brief": {
     "band_us": [
       -250,
@@ -10,12 +10,12 @@
     "target_per_sport": 5
   },
   "totals": {
-    "fixtures": 416,
-    "lines": 416,
+    "fixtures": 418,
+    "lines": 418,
     "written_olbg": 49,
     "written_root": 93,
-    "live_high_upcoming": 6,
-    "sports_meeting_target": 0,
+    "live_high_upcoming": 10,
+    "sports_meeting_target": 1,
     "issues": 33
   },
   "per_sport": {
@@ -34,12 +34,12 @@
       "shortfall": 5
     },
     "Volleyball": {
-      "fixtures": 49,
-      "lines": 49,
+      "fixtures": 50,
+      "lines": 50,
       "markets": {
-        "win": 49,
-        "handicap": 49,
-        "total": 49
+        "win": 50,
+        "handicap": 50,
+        "total": 50
       },
       "written_predictions": 5,
       "written_high": 3,
@@ -174,18 +174,18 @@
       "shortfall": 4
     },
     "Handball": {
-      "fixtures": 51,
-      "lines": 51,
+      "fixtures": 52,
+      "lines": 52,
       "markets": {
-        "win": 51,
-        "handicap": 51,
-        "total": 51
+        "win": 52,
+        "handicap": 52,
+        "total": 52
       },
       "written_predictions": 9,
       "written_high": 6,
-      "live_high_upcoming": 1,
+      "live_high_upcoming": 5,
       "target": 5,
-      "shortfall": 4
+      "shortfall": 0
     },
     "Ice Hockey": {
       "fixtures": 49,
@@ -258,6 +258,32 @@
       "total": 37.5
     },
     {
+      "match_id": "HAN-12129",
+      "sport": "Handball",
+      "match": "GOG vs Sporting CP",
+      "selection": "Sporting CP to win (money line, 1.65 / -154)",
+      "confidence": "high",
+      "text": "Take Sporting Clube de Portugal to win at 1.65 (-154) when they visit GOG at Arena Svendborg on Thursday evening (18:45 CET) with Group D carryover points at stake. Unbeaten group leaders Sporting (4-1-0, 9 points, 191:165, +26) boast the highest-scoring attack in the competition at 38.2 goals per game, paced on Thursday by Francisco Costa's personal Champions League record 14 goals from 16 shots alongside brother Martim Costa in a 42:40 win over Kristianstad, having already beaten GOG in Lisbon in Round 1. Second-placed GOG (3-1-1, 7 points, 178:172) needed a buzzer-beating Kevin Moller save to salvage a 33:33 draw at Szeged after surrendering a 6:0 late run. Sporting to win is the pick.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (18:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men \u2014 official Group D standings & Round 5 review",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row.",
+      "price": "-154",
+      "decimal": 1.65,
+      "start_utc": "2026-10-29T17:45:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/GOG_vs_Sporting_CP/20?event_id=12129",
+      "handicap": -1.5,
+      "total": 66.5
+    },
+    {
       "match_id": "HAN-12130",
       "sport": "Handball",
       "match": "HC Vardar vs MT Melsungen",
@@ -282,6 +308,84 @@
       "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130",
       "handicap": -1.5,
       "total": 58.5
+    },
+    {
+      "match_id": "HAN-12133",
+      "sport": "Handball",
+      "match": "Montpellier vs Dinamo Bucuresti",
+      "selection": "Dinamo Bucuresti to win (money line, 1.70 / -143)",
+      "confidence": "high",
+      "text": "Back Dinamo Bucuresti to win at 1.70 (-143) in Thursday night's Group E finale at FDI Stadium in Montpellier (20:45 CET). Third-placed Dinamo (1-1-3, 3 points, 134:145) remain alive for the second Main Round berth after dismantling SAH - Aarhus 37:23 on Wednesday \u2014 the biggest Champions League victory in club history \u2014 led by Victor Iturizza (5/5), Haniel Langaro, and goalkeeper Ionut Iancu, and Dinamo also won the Round 1 meeting in Bucharest. Fourth-placed Montpellier (1-0-4, 2 points, 150:165) have lost four straight and are already eliminated following Thursday's 40:34 defeat at Barca, where centre back Pol Valera noted mounting player injuries and Benjamin Richert received a direct red card. Dinamo Bucuresti to win is our selection.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (20:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men \u2014 official Group E Round 5 reviews & injury/red-card notes",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row.",
+      "price": "-143",
+      "decimal": 1.7,
+      "start_utc": "2026-10-29T19:45:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Montpellier_vs_Dinamo_Bucuresti/20?event_id=12133",
+      "handicap": -1.5,
+      "total": 59.5
+    },
+    {
+      "match_id": "HAN-12134",
+      "sport": "Handball",
+      "match": "PSG Handball vs Aalborg Handbold",
+      "selection": "Aalborg Handbold to win (money line, 1.71 / -141)",
+      "confidence": "high",
+      "text": "Aalborg Handbold to win at 1.71 (-141) is the selection for Wednesday night's Group C top-spot showdown at Stade Pierre de Coubertin in Paris (20:45 CET). Unbeaten Aalborg lead Group C on 9 points (4-1-0, 170:145, +25) after defeating RK Celje 34:30 in Round 5 while rotating their bench behind Thomas Arnoldsen (6/8) and Juri Knorr, and the Danish champions already beat Paris Saint-Germain in Round 1 at Aalborg. Second-placed PSG (3-1-1, 7 points, 182:157) let a four-goal half-time lead slip in Wednesday's 29:28 defeat at eliminated HC Zagreb despite Ferran Sole's 10/11 outing, struggling against Zagreb's second-half 5-1 defence. Back unbeaten Aalborg on the money line.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (20:45 CET)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League Men \u2014 official Group C standings & Round 5 review",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse/"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row.",
+      "price": "-141",
+      "decimal": 1.71,
+      "start_utc": "2026-10-28T19:45:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/PSG_Handball_vs_Aalborg_Handbold/20?event_id=12134",
+      "handicap": -1.5,
+      "total": 63.5
+    },
+    {
+      "match_id": "HAN-12138",
+      "sport": "Handball",
+      "match": "Wisla Plock vs Nantes",
+      "selection": "Orlen Wisla Plock to win (money line, 1.64 / -156)",
+      "confidence": "high",
+      "text": "Take Orlen Wisla Plock to win at 1.64 (-156) in Wednesday's winner-advances EHF Champions League Group B finale against HBC Nantes at ORLEN Arena (18:45 CET). Plock, Melsungen, and Nantes sit locked in a three-way tie on 6 points through five rounds, with Plock holding top spot on a +5 goal difference (141:136) after edging Vardar 33:32 at home in Round 4 and battling Melsungen to a 28:26 road loss on Thursday despite four goals apiece from Frederik Bjerre and Sergei Mark Kosorotov. Nantes (-1, 142:143) collapsed 33:27 at home to previously winless Vardar in Round 5, with coach Gregory Cojean citing ongoing one-on-one finishing struggles. Plock at home are the pick.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men \u2014 official 2026/27 Group B standings & Plock vs Nantes match page",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101016/OrlenWislaPlock-HBCNantes/"
+        },
+        {
+          "label": "EHF Champions League Men \u2014 official Round 5 Wednesday & Thursday reviews",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row.",
+      "price": "-156",
+      "decimal": 1.64,
+      "start_utc": "2026-10-28T17:45:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Wisla_Plock_vs_Nantes/20?event_id=12138",
+      "handicap": -1.5,
+      "total": 56.5
     },
     {
       "match_id": "MTR-913",
