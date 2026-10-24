@@ -52,7 +52,7 @@ OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 # both to learn what the picks were, and a bare selection with no write-up sat in the same table
 # style as a sourced piece. scripts/pick_surface.py merges the boards on the OLBG event id, keeps
 # the prose on the card, and labels everything that is not a pick. It reads committed data only.
-from pick_surface import collect as _collect_picks, card_html as _pick_card
+from pick_surface import collect as _collect_picks, card_html as _pick_card, summary_table as _pick_table, selection_market as _selection_market
 from pick_surface import summary_line as _pick_summary_line, words as _wc, prose_problems as _prose_problems
 
 OLBG_LINES = {r["match_id"]: r for r in json.load(open(os.path.join(ROOT, "data/lines.json")))}
@@ -700,7 +700,7 @@ index = head("Dashboard") + f"""
   <a class="button secondary" href="lines.html">All originated lines &amp; markets</a>
   <a class="button secondary" href="olbg/picks.html">The second board's lines</a>
   <a class="button secondary" href="#research-board">Explore all captured records ↓</a></p>
-  <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
+  <p class="stamp">Build {CLOCK} · Listing capture: {e(json.load(open(os.path.join(ROOT, "data/meta.json"))).get("harvest_completed_utc") or "unconfirmed")} · <a href="source-health.html">Check source age</a></p>
 </section>
 
 <section class="pick-strip" id="picks-strip">
@@ -829,7 +829,7 @@ def _high_row(r):
             f"<br><span class='dim small'>{e(r.get('competition') or '')}</span></td>"
             f"<td><strong>{e(r['home'])} v {e(r['away'])}</strong><br>"
             f"<span class='small'>{e(r['start'])} listed &middot; {e(_hhmm(_kick(r)))} UTC official</span></td>"
-            f"<td class='pick'>{e(p['label'])}<br><span class='small'>{e(r['olbg_market'])}</span></td>"
+            f"<td class='pick'>{e(p['label'])}<br><span class='small'>{e(_selection_market(r.get('market_type', 'fixture')))}</span></td>"
             f"<td class='num'>{money(p['price'])}<br><span class='small'>{usd(p['price'])}</span></td>"
             f"<td class='num'>{p['prob']*100:.0f}%</td>"
             f"<td>{conf_pill(p['confidence'])}</td>"
@@ -939,8 +939,8 @@ today_page = head("Today's picks — executive summary") + f"""
   priced by both boards, so the two lists fold into <strong>{len(PICK_LIVE)} distinct written picks</strong> below — one card per
   match, each board's own call and price on it. A fixture with a selection but no written prediction is not counted
   as a pick, whatever its grade, and is listed further down with the reason.</p>
-  <p class="hero-actions"><a class="button" href="#live-high">Jump to the picks ↓</a>
-  <a class="button secondary" href="sports/basketball.html">Browse a sport</a>
+  <p class="hero-actions"><a class="button" href="#shortlist">Jump to the picks ↓</a>
+  <a class="button secondary" href="#per-sport">Browse all 15 sports</a>
   <a class="button secondary" href="method.html">How a pick is graded</a></p>
 </section>
 
@@ -951,6 +951,13 @@ today_page = head("Today's picks — executive summary") + f"""
   Anything we could not confirm is left blank and published on <a href="flagged.html">Flagged for Review</a>.
 </div>
 
+<h2 id="shortlist">Executive shortlist — what to pick and where to read it</h2>
+<p class="legend">Ordered by official UTC start. These are research selections with independent estimated prices,
+not bookmaker quotes or proof that OLBG currently accepts a tip. HIGH describes evidence confidence, not a guaranteed
+outcome or a 70% win probability. An official fixture link confirms scheduling, not every claim in the analysis.
+Injury information is not assumed when an official match-specific report is absent. The selected market is separate
+from OLBG&rsquo;s captured featured market; current availability and settlement rules are unconfirmed.</p>
+{_pick_table(PICKS)}
 <h2 id="written-picks">The picks, written out &mdash; both boards, one list</h2>
 <p class="lede">{PICK_SUMMARY} Every entry below is de&#8209;dupicated on the OLBG event id, so a fixture priced by both
 boards appears once, with each board&rsquo;s own price and its own written piece underneath it. A selection with no written

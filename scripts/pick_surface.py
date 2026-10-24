@@ -27,6 +27,8 @@ Two states, and only one of them is a pick
 from __future__ import annotations
 
 import html
+import math
+import re
 
 MIN_WORDS = 30
 BANNED_TERMS = ("model", "verified")
@@ -72,6 +74,74 @@ def _money(p) -> str:
     return f"{p:.2f}" if isinstance(p, (int, float)) else ""
 
 
+def selection_market(market_type: str = "fixture") -> str:
+    """Label what WE price, never reuse OLBG's unrelated featured market.
+
+    Both originators select the match winner (or one outright/race entrant).
+    The captured featured market remains separately visible for provenance.
+    """
+    return {"race": "Race winner", "outright": "Outright winner"}.get(
+        market_type, "Match winner")
+
+
+def pick_problem(confidence, release, price, text, sources) -> str:
+    """Fail closed at the display boundary even if upstream data drift.
+
+    Structural checks only: source contents still require a human/recorded read.
+    """
+    from release import official_clock_url
+    rel = release or {}
+    if str(confidence).upper() != "HIGH":
+        return f"graded {str(confidence).lower() or 'ungraded'}, not high"
+    if not rel.get("eligible"):
+        return rel.get("reason") or "the release gate does not pass this fixture"
+    if not text:
+        return "no written prediction exists for this selection"
+    problems = prose_problems(text)
+    if problems:
+        return "; ".join(problems)
+    if (isinstance(price, bool) or not isinstance(price, (int, float))
+            or not math.isfinite(price) or not 1.40 <= price <= 101.00):
+        return "originated price is missing or outside -250 to +10000 US"
+    if not official_clock_url(rel.get("source")):
+        return "no reviewed official clock-source URL"
+    if not sources or not any(official_clock_url(s.get("url")) for s in sources):
+        return "written prediction has no reviewed official source link"
+    return ""
+
+
+def summary_table(entries: list[dict], pre: str = "") -> str:
+    """Start-ordered shortlist with direct official links and exact write-up anchors."""
+    live = [x for x in entries if x["state"] == "pick"]
+    rows = []
+    for x in live:
+        choices, sources = [], []
+        for key, t in x["tracks"].items():
+            if t["state"] != "pick":
+                continue
+            choices.append(f"<strong>{esc(t['selection'])}</strong> — {esc(t['market'])}"
+                           f"<br>{price_bits(t)} · HIGH · {esc(key)} board")
+            url = t.get("clock_source")
+            if url and url not in sources:
+                sources.append(url)
+        links = " · ".join(f"<a href='{esc(u)}' rel='noopener'>Official fixture source</a>" for u in sources)
+        selections = {re.sub(r"[^a-z0-9]", "", t["selection"].lower())
+                      for t in x["tracks"].values() if t["state"] == "pick"}
+        conflict = ("<br><strong class='conflict-note'>Selections disagree — review both analyses; "
+                    "not a unified recommendation.</strong>" if len(selections) > 1 else "")
+        rows.append(f"<tr><td>{esc(x['sport'])}</td><td>{esc(x['match'])}<br>"
+                    f"<span class='small'>{esc(x['start_utc'])} (UTC)</span></td>"
+                    f"<td>{'<hr>'.join(choices)}{conflict}</td>"
+                    f"<td><a href='{pre}today.html#pick-{esc(x['key'])}'>Read full prediction ↓</a>"
+                    f"<br>{links}</td></tr>")
+    if not rows:
+        rows.append("<tr><td colspan='4'>No written pick passes every publication gate at this build.</td></tr>")
+    return ("<div class='tablewrap'><table class='board written-shortlist'>"
+            "<thead><tr><th>Sport</th><th>Match / official UTC start</th>"
+            "<th>Selection / our price / confidence</th><th>Analysis &amp; official source</th>"
+            "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
+
+
 def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[dict]:
     """Merge both tracks into one list of entries, one per OLBG fixture.
 
@@ -88,19 +158,9 @@ def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[di
                                    "competition": "", "start_utc": "", "olbg_label": "",
                                    "olbg_url": "", "tracks": {}, "sources": [], "texts": []})
 
-    def state_of(confidence, release, price, text) -> tuple[str, str]:
-        rel = release or {}
-        if str(confidence).upper() != "HIGH":
-            return "analysis", f"graded {str(confidence).lower() or 'ungraded'}, not high"
-        if not rel.get("eligible"):
-            return "analysis", rel.get("reason") or "the release gate does not pass this fixture"
-        if not text:
-            return "analysis", "no written prediction exists for this selection"
-        if words(text) < MIN_WORDS:
-            return "analysis", f"written prediction is under {MIN_WORDS} words"
-        if price is None:
-            return "analysis", "no originated price, so the band cannot be checked"
-        return "pick", ""
+    def state_of(confidence, release, price, text, sources) -> tuple[str, str]:
+        problem = pick_problem(confidence, release, price, text, sources)
+        return ("analysis", problem) if problem else ("pick", "")
 
     for r in events:
         p = r.get("pick") or {}
@@ -118,12 +178,13 @@ def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[di
         x["olbg_url"] = x["olbg_url"] or (r.get("olbg_event_url") or "")
         x["slug"] = x.get("slug") or r.get("sport_slug", "")
         x["root_ref"] = r["ref"]
-        state, reason = state_of(p.get("confidence"), p.get("release"), p.get("price"), text)
+        state, reason = state_of(p.get("confidence"), p.get("release"), p.get("price"), text, piece.get("sources"))
         ver = r.get("verification") or {}
         x["tracks"]["root"] = {
             "ref": r["ref"],
             "selection": p.get("label") or "",
-            "market": r.get("olbg_market") or "market not stated by OLBG",
+            "market": selection_market(r.get("market_type", "fixture")),
+            "captured_market": r.get("olbg_market") or "",
             "price": p.get("price"),
             "american": p.get("american"),
             "prob": p.get("prob"),
@@ -141,6 +202,7 @@ def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[di
             "total": (r.get("model") or {}).get("total"),
             "checked_at": (p.get("release") or {}).get("checked_at") or "",
             "clock_source": (p.get("release") or {}).get("source") or "",
+            "expires_at": (p.get("release") or {}).get("expires_at") or "",
         }
         if text:
             x["texts"].append(text)
@@ -164,11 +226,12 @@ def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[di
         x["competition"] = x["competition"] or (l.get("competition") or m.get("competition") or "")
         x["olbg_url"] = x["olbg_url"] or (l.get("olbg_url") or m.get("olbg_url") or "")
         x["olbg_ref"] = mid
-        state, reason = state_of(l.get("confidence"), rel, l.get("our_price_pick"), text)
+        state, reason = state_of(l.get("confidence"), rel, l.get("our_price_pick"), text, piece.get("sources"))
         x["tracks"]["olbg"] = {
             "ref": mid,
             "selection": l.get("our_pick") or "",
-            "market": (m.get("olbg_market") or "market not stated by OLBG"),
+            "market": selection_market("race" if l.get("sport") in ("Motor Racing", "Greyhounds") else "outright" if not l.get("home") else "fixture"),
+            "captured_market": (l.get("inputs") or {}).get("olbg_market") or "",
             "price": l.get("our_price_pick"),
             "american": american(l.get("our_price_pick")),
             "prob": l.get("our_pick_probability"),
@@ -186,6 +249,7 @@ def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[di
             "total": None,
             "checked_at": rel.get("checked_at") or "",
             "clock_source": rel.get("source") or "",
+            "expires_at": rel.get("expires_at") or "",
         }
         if text:
             x["texts"].append(text)
@@ -236,7 +300,12 @@ def card_html(x: dict, pre: str = "") -> str:
             f"<span class='dim small'>{esc(t['market'])}</span> "
             f"<span class='price'>{price_bits(t)}</span> {pill} "
             f"<span class='dim small'>our estimate "
-            f"{(t['prob'] * 100):.0f}%</span></div>")
+            f"{(t['prob'] * 100):.0f}%</span>"
+            f"<p class='small dim'>Official clock observed {esc(t.get('checked_at'))}; "
+            f"release expires {esc(t.get('expires_at'))}. "
+            f"<a href='{esc(t.get('clock_source'))}' rel='noopener'>Official start source</a>. "
+            f"Captured OLBG featured market: {esc(t.get('captured_market')) or 'not recorded'} "
+            f"(not necessarily our selected market).</p></div>")
     when = ""
     if x.get("start_utc"):
         when = f"<span class='when'>{esc(x['start_utc'])}</span> <span class='dim small'>official UTC</span>"

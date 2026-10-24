@@ -9,6 +9,7 @@
 - Work stays on the Arena-fixed branch above (higher-priority branch constraint); no session branch/worktree is created. Before every push: pull/rebase this branch; reconcile a runner evidence commit if present.
 - Request a new robots-aware 18-endpoint OLBG capture, official competition probe and cited-source reread using the existing runner (sandbox network only permits GitHub/package registries). No guessed dates, statistics, injuries, prices or renewed observations. A capture is evidence, not automatic factual approval.
 - Integrate and test source/release status with an obvious written-picks summary, all 15 sport categories, and public review flags. Five-per-sport is a target, never permission to invent confidence or analysis. Originated prices are estimates, not confirmed bookmaker quotes.
+- Additional diagnosed scope (22:28Z): `scripts/verify_live.py`, new `tests/test_fixture_identity.py`. Its two-token union rule does not prove both teams match (two words may belong to one side), and its hard-coded session note misattributes later rereads. Replace it with explicit two-side identities, retain official URLs/quotes and derive the receipt label from the actual probe.
 - Run the complete build, unit, data, prose and local-link gates; open a PR to main, merge explicitly when green, verify Pages API/build results, and record receipts here.
 
 # COORDINATION BOARD - OLBG Sports Analytics & Line Origination Project
