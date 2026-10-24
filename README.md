@@ -1,5 +1,31 @@
 # OLBG3 — reverse-engineered multi-sport board, originated lines & sourced research picks
 
+## 2026-10-24 evening — 131 fresh fixtures, three new written picks, and an honest account of the nine sports still empty — `session-49317273`
+
+Full record: [`docs/audit-49317273.md`](docs/audit-49317273.md)
+
+**The board now carries 354 fixtures and 19 live high-confidence picks** (up from 223 and 16). The
+24–25 October OLBG inventory was adopted from the 17:55Z capture already committed on a stale
+sibling branch and declared in `data/meta.json`; it only ever *adds* events. Every pick this pass
+grades was re-read against its own official source that evening.
+
+**Three new written picks:** SC Magdeburg to win at 1.68 (EHF Group F, 5-0 record against 2-3),
+Utah Mammoth at 1.64 and Detroit at 1.58 (NHL standings and home/road splits), plus Itas Trentino at
+1.79 published as analysis because its probability sits below the 0.55 gate. Ice Hockey (7) and
+Handball (6) now meet the brief's five-a-day target.
+
+**Nine sports still show zero live picks, and the reasons are published rather than hidden.** Tennis
+has six upcoming OLBG markets but both official ranking tables render client-side and this repo's
+tennis table is empty. Darts is behind a consent wall on pdc.tv. Rugby Union's only upcoming fixture
+prints "21h05" with no timezone, so it cannot be certified and is withheld. Cricket's Pakistan v
+England row carries two conflicting clocks (`04:00` against `08:00Z`), and the ICC page prints only
+a viewer-local time. Basketball has no official NBA table in this build and the NBA endpoints
+returned HTTP 500/403. Snooker, Golf, Greyhounds and Rugby League have no fixture with both an
+official clock and an official form source.
+
+**Two consensus picks were withheld rather than written up:** Kolstad and Partizan at 1.71, against
+official EHF records of 0-5 and 0-1-4. No pick was promoted to reach a quota.
+
 A static research dashboard built from captured [OLBG.com](https://www.olbg.com/betting-tips) listings across **15 in-scope sports**, with independently originated model lines (win/money line, handicap/spread, totals and outright/race priors), `LOW`/`MEDIUM`/`HIGH` model confidence grades, sourced written predictions (>= 30 words) and a row-level publication (release) gate.
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
