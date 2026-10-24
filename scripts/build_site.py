@@ -15,7 +15,7 @@ os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
 # One navigation for the whole published site: this track's pages first, then the
 # official-feed track's pages (built by scripts/build.py, which runs before this script).
-NAV = [("index.html", "Dashboard"), ("brief.html", "Brief coverage"), ("predictions.html", "Predictions"),
+NAV = [("index.html", "Dashboard"), ("summary.html", "Today's picks"), ("brief.html", "Brief coverage"), ("predictions.html", "Predictions"),
        ("lines.html", "Originated lines"), ("reconcile.html", "Cross-track review"),
        ("verification.html", "Verification"), ("source-health.html", "Source health"), ("discovery.html", "Current discovery"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
@@ -124,7 +124,8 @@ STALE_BANNER = ("" if SNAPSHOT_AGE_H < 30 else
 
 def head(title, depth=0):
     p = "../" * depth
-    primary = {"index.html", "brief.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
+    primary = {"index.html", "summary.html", "brief.html", "predictions.html", "lines.html",
+               "source-health.html", "flagged.html"}
     mainlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f in primary)
     morelinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f not in primary)
     navlinks = mainlinks + '<details class="nav-more"><summary>Data &amp; method</summary><div>' + morelinks + '</div></details>' 
@@ -272,6 +273,129 @@ PE = BRIEF["prose_evidence"]
 
 def pct(n, d):
     return f"{100.0 * n / d:.0f}%" if d else "&mdash;"
+
+
+# ---------- executive summary (one merged pick list across both tracks) ----------
+# scripts/exec_summary.py merges data/events.json + data/gap_sports.json (root board) with
+# data/lines.json (/olbg/ audit track), de-duplicates on the OLBG event id and keeps only
+# rows whose own pipeline graded HIGH *and* whose own release object says "upcoming".
+# It is recomputed here so the page can never disagree with the committed data.
+from exec_summary import build as build_exec_summary  # noqa: E402
+
+ES = build_exec_summary()
+with open(os.path.join(ROOT, "data/exec_summary.json"), "w") as _es:
+    json.dump(ES, _es, indent=1)
+    _es.write("\n")
+ESC = ES["counts"]
+
+
+def es_source_cell(p):
+    """The official link the fixture was confirmed against, or an explicit unverified note."""
+    if p.get("official_url"):
+        label = p.get("official_label") or "official source"
+        return (f'<a class="ok" href="{e(p["official_url"])}" rel="noopener">&#10003; {e(label)}</a>')
+    if p.get("sources"):
+        first = p["sources"][0]
+        return (f'<a class="ok" href="{e(first["url"])}" rel="noopener">{e(first["label"])}</a>'
+                f'<div class="small dim">{len(p["sources"])} source(s) cited in the write-up</div>')
+    return '<span class="unver">no source link recorded</span>'
+
+
+def es_rows(picks, depth=0, anchor_page=""):
+    if not picks:
+        return ('<tr><td colspan="8" class="dim">No HIGH-confidence pick meets every release gate '
+                'for this window. The per-sport section below says what is on instead.</td></tr>')
+    out = ""
+    for p in picks:
+        sel = e(p["selection"])
+        market = f' <span class="dim small">({e(p["market"])})</span>' if p.get("market") else ""
+        price = money(p["price"]) if p.get("price") else '<span class="dim">&mdash;</span>'
+        us = e(p["us"] or "")
+        anchor = "pick-" + p["slug"] + "-" + p["id"].split("-")[-1]
+        back = "../" if depth else ""
+        band_tag = "" if p.get("in_band") else " <span class='tag'>outside band</span>"
+        out += (f'<tr><td><a href="{back}sports/{p["slug"]}.html">{e(p["sport"])}</a></td>'
+                f'<td class="small">{e(p["start_label"] or "start not certified")}</td>'
+                f'<td><a href="{anchor_page}#{e(anchor)}"><strong>{e(p["match"])}</strong></a>'
+                f'<div class="small dim">{e(p["competition"] or "")}</div></td>'
+                f'<td class="pick">{sel}{market}</td>'
+                f'<td class="num">{price}</td><td class="num">{us}</td>'
+                f'<td>{conf_pill(p["confidence"])}{band_tag}</td>'
+                f'<td class="small">{es_source_cell(p)}</td></tr>')
+    return out
+
+
+def es_writeup_cards(picks, depth=0):
+    if not picks:
+        return '<p class="dim">No released pick in this window.</p>'
+    out = ""
+    for p in picks:
+        w = p.get("writeup") or {}
+        anchor = p["slug"] + "-" + p["id"].split("-")[-1]
+        if w.get("text"):
+            body = '<p class="writeup">' + e(w["text"]) + '</p>'
+        else:
+            body = ('<p class="unver">No written prediction is attached to this row yet, so it is listed as a '
+                    'selection without a published analysis. Flagged for review rather than padded.</p>')
+        srcs = "".join('<li><a href="%s" rel="noopener">%s</a></li>' % (e(s["url"]), e(s["label"]))
+                       for s in p.get("sources") or [])
+        other = ""
+        for alt in p.get("also_published") or []:
+            if alt.get("selection") and alt["selection"] != p["selection"]:
+                other = ('<p class="small dim">The other track prices this fixture as <strong>%s</strong> at %s. '
+                         'Both versions stay published; see <a href="reconcile.html">cross-track review</a>.</p>'
+                         % (e(alt["selection"]), money(alt.get("price"))))
+        market_bit = " &middot; " + e(p["market"]) if p.get("market") else ""
+        outside_bit = "" if p.get("in_band") else " &middot; <span class='tag'>price outside -250/+10000</span>"
+        srcs_html = srcs or "<li>No source recorded.</li>"
+        out += ('<article class="pickcard" id="pick-%s">' % e(anchor)
+                + '<p class="eyebrow">%s &middot; %s</p>' % (e(p["sport"]), e(p["start_label"] or "start not certified"))
+                + '<h3>%s</h3>' % e(p["match"])
+                + '<p class="meta"><strong>Selection: %s</strong>%s &middot; our price %s (%s) &middot; %s%s</p>'
+                  % (e(p["selection"]), market_bit, money(p["price"]), e(p["us"] or ""),
+                     conf_pill(p["confidence"]), outside_bit)
+                + body + other
+                + '<p class="small"><strong>Sources cited in this write-up</strong></p>'
+                + '<ul class="small srclist">%s</ul>' % srcs_html
+                + '</article>')
+    return out
+
+
+def es_sport_table(depth=0):
+    out = ""
+    prefix = "../" if depth else ""
+    for s in ES["sports"]:
+        nxt = s.get("next")
+        if nxt:
+            nextcell = (f'{e(nxt["match"])} <span class="small dim">{e(nxt["start_label"] or "")}</span>'
+                        f'<div class="small">our line: {e(nxt["selection"] or "")} {money(nxt["price"])} '
+                        f'({e(nxt["us"] or "")}) &mdash; <span class="dim">held: {e(nxt["hold_reason"])}</span></div>')
+        else:
+            nextcell = '<span class="dim">no upcoming priced fixture in this capture</span>'
+        status = ('<span class="pill high">5+ picks</span>' if s["meets_target"]
+                  else f'<span class="pill low">{s["high"]} of 5</span>')
+        out += (f'<tr><td><a href="{prefix}sports/{s["slug"]}.html">{e(s["sport"])}</a></td>'
+                f'<td class="num">{s["events"]}</td><td class="num">{s["today_events"]}</td>'
+                f'<td class="num">{s["upcoming"]}</td><td class="num">{s["priced"]}</td>'
+                f'<td class="num"><strong>{s["high"]}</strong></td><td>{status}</td>'
+                f'<td class="small">{nextcell}</td></tr>')
+    return out
+
+
+def es_where_map(depth=0):
+    prefix = "../" if depth else ""
+    rows = [
+        ("summary.html", "Executive summary", "Every released HIGH pick for today and the next seven days, the full write-up for each, and the per-sport position. Start here."),
+        (f'{prefix}predictions.html', "Predictions", "All written previews, including the ones now held as analysis because the start passed or the source is stale."),
+        (f'{prefix}lines.html', "Originated lines", "Our win, handicap and total prices for every captured fixture."),
+        (f'{prefix}index.html#coverage', "Sport pages", "One page per sport (linked from the coverage table): every captured match, our line for it, and the pick or the reason there is none."),
+        (f'{prefix}brief.html', "Brief coverage", "How many picks exist against the five-per-sport brief, and why each sport is short."),
+        (f'{prefix}olbg/picks.html', "/olbg/ track", "The independent OLBG-listing pipeline with its own picks and prices."),
+        (f'{prefix}reconcile.html', "Cross-track review", "Fixtures where the two pipelines name different selections."),
+        (f'{prefix}flagged.html', "Flagged for Review", "Every unverified value, source conflict and known limitation, with its source link."),
+    ]
+    return "".join(f'<tr><td><a href="{link}">{e(name)}</a></td><td class="small">{e(what)}</td></tr>'
+                   for link, name, what in rows)
 
 
 # ---------- sport pages ----------
@@ -512,6 +636,96 @@ and are not treated as disagreements.</div>
 """ + foot(0)
 open(os.path.join(OUT, "reconcile.html"), "w").write(recpage)
 
+# ---------- executive summary page (the "start here" page) ----------
+def _es_note_if_empty(picks, what):
+    if picks:
+        return ""
+    return (f'<div class="notice warnbox"><strong>Nothing qualifies for {what}.</strong> '
+            'A release needs all four of: an official, timezone-qualified start that is still ahead; '
+            'a source observation newer than 24 hours; a price inside -250 to +10000 US; and a written '
+            'prediction. Every row that failed one of those tests is still listed below with the reason, '
+            'rather than deleted or relabelled.</div>')
+
+
+summarypage = head("Executive summary") + f"""
+<section class="pagehead">
+  <p class="eyebrow">EXECUTIVE SUMMARY &middot; {e(ES['today_utc'])}</p>
+  <h1>{ESC['picks_high']} released high-confidence picks &mdash; {ESC['picks_today']} today, {ESC['picks_next_7_days']} in the next seven days</h1>
+  <p class="lede">This is the one page to start from. It merges <strong>both</strong> line-origination pipelines in this
+  repository into a single de-duplicated list, so a fixture appears once even when the root board and the
+  <code>/olbg/</code> audit track both price it. The <strong>Selection</strong> column is the pick. Every row links to the
+  match, to the full written prediction below, and to the official page the fixture was confirmed against.</p>
+  <p class="stamp">Publication clock {e(ES['publication_clock'])} &middot; matches dated today in UTC &middot;
+  {ESC['events_today']} captured events carry today's date &middot; <a href="source-health.html">check source age</a></p>
+</section>
+
+<div class="cards overview-stats">
+  <div class="card"><span class="k">{ESC['picks_today']}</span><span class="l">picks today</span></div>
+  <div class="card"><span class="k">{ESC['picks_next_7_days']}</span><span class="l">picks, next 7 days</span></div>
+  <div class="card"><span class="k">{ESC['sports_with_a_pick']} / {ESC['sports_covered']}</span><span class="l">sports with a released pick</span></div>
+  <div class="card warn"><span class="k">{ESC['sports_meeting_five']}</span><span class="l">sports meeting the 5-a-day target</span></div>
+</div>
+
+<div class="panel howto">
+  <h2 style="margin-top:0">Read this page in three steps</h2>
+  <ol class="steps">
+    <li><strong>The shortlist is the table below.</strong> One row per pick: sport, start in UTC, match, the
+    <em>Selection</em> (that is the bet), our own price in decimal and US odds, and the official source.</li>
+    <li><strong>The reasoning is one click away.</strong> Every pick is written out in full under
+    <a href="#writeups">The reasoning</a> &mdash; at least 30 words, with the form, recent results, statistics and any
+    confirmed injury or selection news, and the sources it rests on.</li>
+    <li><strong>Nothing is hidden when a sport has no pick.</strong> The <a href="#sports">per-sport position</a> table
+    shows, for all {ESC['sports_covered']} covered sports, how many matches are captured, what our line is for the next one,
+    and exactly why it is being held rather than released.</li>
+  </ol>
+</div>
+
+<h2 id="today">Today&rsquo;s high-confidence picks &mdash; {e(ES['today_utc'])}</h2>
+<p class="legend">Times are the official start converted to UTC, shown only where the competition&rsquo;s own page carried an
+explicit time zone. <strong>Our price</strong> is our own originated line, never a bookmaker quote.</p>
+{_es_note_if_empty(ES['today'], "today")}
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th>Start (UTC)</th><th>Match</th><th>Selection (the pick)</th><th class="num">Our price</th>
+<th class="num">US odds</th><th>Confidence</th><th>Official source</th></tr></thead>
+<tbody>{es_rows(ES['today'])}</tbody></table></div>
+
+<h2 id="upcoming">Upcoming high-confidence picks &mdash; {e(ES['today_utc'])} to {e(ES['window_end_utc'])}</h2>
+{_es_note_if_empty(ES['next_7_days'], "the next seven days")}
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th>Start (UTC)</th><th>Match</th><th>Selection (the pick)</th><th class="num">Our price</th>
+<th class="num">US odds</th><th>Confidence</th><th>Official source</th></tr></thead>
+<tbody>{es_rows(ES['next_7_days'])}</tbody></table></div>
+{('<h2 id="later">Beyond the next seven days</h2><div class="tablewrap"><table class="board"><thead><tr><th>Sport</th><th>Start (UTC)</th><th>Match</th><th>Selection</th><th class="num">Our price</th><th class="num">US odds</th><th>Confidence</th><th>Official source</th></tr></thead><tbody>' + es_rows(ES['later']) + '</tbody></table></div>') if ES['later'] else ''}
+
+<h2 id="writeups">The reasoning: every released pick in full</h2>
+<p class="legend">Each write-up is unique to its match. Where a claim could not be confirmed on an official page it is either
+left out or explicitly marked as unconfirmed; the source list under each card is what the claims were checked against.
+A row with no write-up is shown as such instead of being padded.</p>
+{es_writeup_cards(ES['picks'])}
+
+<h2 id="sports">Every covered sport: what is on, what our line is, and why a pick is held</h2>
+<p class="legend">The last column always shows the next priced fixture in that sport and the specific gate that stops it
+being released as a pick. This is the honest position, not a target.</p>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Sport</th><th class="num">Captured</th><th class="num">Dated today</th><th class="num">Released upcoming</th>
+<th class="num">Priced</th><th class="num">HIGH picks</th><th>Against the 5-a-day brief</th><th>Next fixture with our line</th></tr></thead>
+<tbody>{es_sport_table()}</tbody></table></div>
+
+<h2 id="where">Where everything lives</h2>
+<div class="tablewrap"><table class="board">
+<thead><tr><th>Page</th><th>What you will find there</th></tr></thead>
+<tbody>{es_where_map()}</tbody></table></div>
+
+<div class="notice">
+  <strong>What this page does not claim.</strong> These are our own prices and our own grades, not bookmaker odds and not a
+  calibrated win probability. A HIGH grade means the fixture, the official start and the form inputs passed the published
+  checks &mdash; it is not a guarantee of the result. Unverified values are blank, and every known irregularity is published on
+  <a href="flagged.html">Flagged for Review</a> with its source link.
+  <span class="small">{e(ES['note'])}</span>
+</div>
+""" + foot(0)
+open(os.path.join(OUT, "summary.html"), "w").write(summarypage)
+
 # ---------- index ----------
 cov_rows = ""
 for sport in SPORT_ORDER:
@@ -558,15 +772,43 @@ if not band_blocked_rows:
 index = head("Dashboard") + f"""
 <section class="hero">
   <p class="eyebrow">INDEPENDENT SPORTS RESEARCH · NOT AFFILIATED WITH OLBG</p>
-  <h1>Find the match. Check the evidence.</h1>
-  <p class="lede">A source-linked workspace for fixtures, independent model lines and candid verification notes.
-  {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
-  Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
-  <p class="hero-actions"><a class="button" href="#research-board">Explore the board ↓</a>
-  <a class="button secondary" href="predictions.html">Read the sourced predictions</a>
-  <a class="button secondary" href="discovery.html">Latest public discovery →</a></p>
-  <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
+  <h1>Today&rsquo;s picks, in one place.</h1>
+  <p class="lede">The shortlist is the table immediately below: <strong>{ESC['picks_today']} released pick(s) today</strong> and
+  <strong>{ESC['picks_next_7_days']} in the next seven days</strong>, merged across both of this repository&rsquo;s
+  independent pipelines and de-duplicated so each fixture appears once. {n_events} captured rows across {len(by_sport)} sports
+  sit underneath as the evidence board. Our prices are our own lines, never bookmaker odds, and unconfirmed facts stay blank.</p>
+  <p class="hero-actions"><a class="button" href="summary.html">Open the executive summary &rarr;</a>
+  <a class="button secondary" href="#today-picks">Today&rsquo;s picks below &darr;</a>
+  <a class="button secondary" href="#research-board">Full captured board</a></p>
+  <p class="stamp">Build {CLOCK} &middot; publication clock {e(ES['publication_clock'])} &middot;
+  <a href="source-health.html">Check source age</a></p>
 </section>
+
+<div class="panel exec-panel" id="today-picks">
+  <p class="eyebrow">EXECUTIVE SUMMARY &middot; WHAT THE PICKS ARE</p>
+  <h2 style="margin-top:.2rem">Today&rsquo;s high-confidence picks</h2>
+  <p class="legend"><strong>The pick is the Selection column.</strong> Our price is our own originated line in decimal odds,
+  the column beside it is the same price in US odds. Each match links to its full written prediction; each row ends in the
+  official page the fixture was confirmed against. A blank cell is unknown, never filled in.</p>
+  <div class="tablewrap"><table class="board">
+  <thead><tr><th>Sport</th><th>Start (UTC)</th><th>Match</th><th>Selection (the pick)</th><th class="num">Our price</th>
+  <th class="num">US odds</th><th>Confidence</th><th>Official source</th></tr></thead>
+  <tbody>{es_rows(ES['today'], anchor_page="summary.html")}</tbody></table></div>
+  <h3>Next seven days</h3>
+  <div class="tablewrap"><table class="board">
+  <thead><tr><th>Sport</th><th>Start (UTC)</th><th>Match</th><th>Selection (the pick)</th><th class="num">Our price</th>
+  <th class="num">US odds</th><th>Confidence</th><th>Official source</th></tr></thead>
+  <tbody>{es_rows(ES['next_7_days'], anchor_page="summary.html")}</tbody></table></div>
+  <p class="small"><a href="summary.html"><strong>Full executive summary</strong></a> &mdash; every pick written out in full,
+  the per-sport position for all {ESC['sports_covered']} sports, and a map of where each kind of evidence lives.</p>
+</div>
+
+<div class="panel">
+  <h2 style="margin-top:0">Where the picks are</h2>
+  <div class="tablewrap"><table class="board">
+  <thead><tr><th>Page</th><th>What you will find there</th></tr></thead>
+  <tbody>{es_where_map()}</tbody></table></div>
+</div>
 
 <div class="notice clock-notice">
   <strong>Publication clock: {CLOCK}.</strong> This is a captured research board, not a complete live fixture feed.
@@ -591,7 +833,7 @@ index = head("Dashboard") + f"""
   <a href="brief.html">See the per-sport accounting and every blocker &rarr;</a>
 </div>
 
-<h2>Coverage by sport</h2>
+<h2 id="coverage">Coverage by sport</h2>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Sport</th><th class="num">Rows</th><th class="num">of which outright/race</th><th class="num">Verified</th><th class="num">Corroborated</th><th class="num">High conf.</th><th class="num">Priced</th><th class="num">Handicaps</th><th class="num">Totals</th><th>Source</th></tr></thead>
 <tbody>{cov_rows}</tbody></table></div>
@@ -616,6 +858,10 @@ they do not fit.</p>
 <tbody>{band_blocked_rows}</tbody></table></div>
 
 </details><h2 id="research-board">Every captured record</h2>
+<p class="legend">The evidence board: every fixture we captured from OLBG, with our prices, our grade and the source for each
+row. It is collapsed because it is long &mdash; open it to audit a specific match. The picks themselves are in the
+<a href="#today-picks">executive summary</a> above and on <a href="summary.html">summary.html</a>.</p>
+<details class="research-details"><summary>Open the full captured-record table ({n_events} rows)</summary>
 <div class="tools">
   <input id="q" type="search" placeholder="Search team, competition or sport&hellip;" aria-label="Search fixtures">
   <select id="fsport" aria-label="Filter by sport"><option value="">All sports</option>
@@ -633,6 +879,7 @@ they do not fit.</p>
 The -250..+10000 badge applies to the originated price only. <strong>Official source</strong> refers to the recorded fixture confirmation,
 not a guarantee of current form. <a href="lines.html">Handicaps, totals and both outcome prices →</a></p>
 {table(EVENTS, 'tbl-all')}
+</details>
 
 <h2>The other track: the official feed</h2>
 <div class="panel"><p>A second, independent pipeline in this repo pulls official NHL / MLB / NBA schedule feeds hourly

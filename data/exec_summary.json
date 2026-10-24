@@ -1,0 +1,1442 @@
+{
+ "generated_utc": "2026-10-24T17:08:00Z",
+ "publication_clock": "2026-10-24T17:08:00Z",
+ "today_utc": "2026-10-24",
+ "window_end_utc": "2026-10-31",
+ "note": "Merged from data/events.json, data/gap_sports.json, data/lines.json and the two prediction files. A row is a pick only when its own pipeline graded it HIGH and its own release object says upcoming. Nothing was fetched, re-graded or renewed by this build; blank means unknown.",
+ "counts": {
+  "picks_high": 11,
+  "picks_today": 1,
+  "picks_next_7_days": 10,
+  "picks_later": 0,
+  "picks_without_start": 0,
+  "sports_covered": 15,
+  "sports_with_a_pick": 5,
+  "sports_meeting_five": 1,
+  "events_merged": 435,
+  "events_today": 9
+ },
+ "picks": [
+  {
+   "id": "RUG-609581",
+   "sport": "Rugby Union",
+   "slug": "rugby_union",
+   "match": "Ospreys v Dragons",
+   "competition": "BKT United Rugby Championship 2026-27, Round 4",
+   "start_utc": "2026-10-24T18:45:00Z",
+   "start_label": "Sat 24 Oct, 18:45 UTC",
+   "selection": "Ospreys",
+   "market": "To Win",
+   "price": 1.62,
+   "us": "-161",
+   "probability_pct": 58.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Ospreys to win at 1.62 (-161) is the selection for Saturday evening's Welsh URC derby against Dragons RFC at St. Helen's in Swansea (19:45 IRE & UK, 18:45 UTC). These rivals met just fifteen days earlier in Round 3 at Rodney Parade on October 9, where Ospreys came away with a 38-31 road victory. On the URC table re-read after Friday's Round 4 matches, Dragons sit ninth on nine points (W1 D1 L1, 88 points for, 83 against) ahead of fourteenth-placed Ospreys on six points (W1 D0 L2, 81 for, 107 against), yet Ospreys' proven scoring edge in the reverse fixture and Swansea home advantage make Ospreys the call.",
+    "words": 111,
+    "track": "olbg",
+    "ref": "RGU-609581",
+    "selection": "Ospreys to win (money line, 1.62 / -161)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "United Rugby Championship \u2014 official 2026/27 fixtures & Round 4 kick-off",
+     "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+    },
+    {
+     "label": "United Rugby Championship \u2014 official 2026/27 table & Round 3 results",
+     "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "RGU-609581",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "GAE-3530",
+   "sport": "Gaelic Football",
+   "slug": "gaelic_football",
+   "match": "St Finbarrs v Nemo Rangers",
+   "competition": "McCarthy Insurance Group Premier Senior Football Championship Final",
+   "start_utc": "2026-10-25T16:00:00Z",
+   "start_label": "Sun 25 Oct, 16:00 UTC",
+   "selection": "St Finbarrs",
+   "market": "Handicap",
+   "price": 1.62,
+   "us": -161,
+   "probability_pct": 58.6,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "St Finbarrs to win at 1.62 (-161) is our selection for Sunday's McCarthy Insurance Group Cork Premier Senior Football Championship Final at SuperValu Pairc Ui Chaoimh, which the county board's event page fixes for 4.00pm on 25 October. The same page records St Finbarrs' run to the final: a 2-12 to 0-16 semi-final win over Clonakilty, after a quarter-final victory over Carbery that the county board calls convincing. Nemo Rangers reached the decider by beating Castlehaven 1-20 to 1-17 and then Carrigaline 1-15 to 0-16, so both clubs arrive off knockout wins and the Barrs conceded 16 points in their semi-final. The OLBG crowd leans the other way, with 14 of 18 tips on Nemo Rangers +1.5, so this is a selection against the public line, backed by the scoring record rather than the tip count.",
+    "words": 139,
+    "track": "root",
+    "ref": "GAF-01",
+    "selection": "St Finbarrs to win (60-minute match betting, 1.62 / -161; St Finbarrs -1.5 handicap angle)",
+    "headline": "St Finbarrs' superior Cork championship scoring differential backs -161 county final line"
+   },
+   "sources": [
+    {
+     "label": "Cork GAA official Premier SFC Final event page",
+     "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
+    },
+    {
+     "label": "Cork GAA official championship results",
+     "url": "https://gaacork.ie/results/"
+    },
+    {
+     "label": "Cork GAA official results hub",
+     "url": "https://gaacork.ie/results/"
+    }
+   ],
+   "official_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+   "official_label": "Cork GAA official \u2014 county final event page",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "GFA-3530",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "GAF-01",
+     "page": "../sports/gaelic_football.html#row-GAF-01"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "GFA-3530",
+     "selection": "St Finbarrs",
+     "price": 1.62,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "VOL-36997",
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "match": "Perugia vs Pordenone",
+   "competition": "SuperLega",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "start_label": "Sun 25 Oct, 17:00 UTC",
+   "selection": "Sir Susa Scai Perugia",
+   "market": "Win Match",
+   "price": 1.58,
+   "us": -172,
+   "probability_pct": 60.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Sir Susa Scai Perugia return to Pala Barton Energy after outscoring Cuneo 114-95 in total rally points during a 3-2 opening-round SuperLega win. Visitors Tinet Prata di Pordenone took maximum points in a narrow 3-1 home victory (94:91), yet Perugia's heavy jump-serve pressure at home exposes side-out reception quickly. Back Sir Susa Scai Perugia to win outright at 1.58 (-172).",
+    "words": 62,
+    "track": "root",
+    "ref": "VOL-27",
+    "selection": "Sir Susa Scai Perugia to win at 1.58 (-172)",
+    "headline": "Pala Barton serving power backs Perugia rally-point dominance against Prata"
+   },
+   "sources": [
+    {
+     "label": "Lega Pallavolo Serie A SuperLega calendar",
+     "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+    },
+    {
+     "label": "Lega Pallavolo Serie A SuperLega standings",
+     "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+    },
+    {
+     "label": "Volleyball World official Match #30002",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+    },
+    {
+     "label": "Volleyball World Round 1 boxscore #30000",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/"
+    }
+   ],
+   "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+   "official_label": "Volleyball World / FIVB SuperLega official Match #30002",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36997",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "VOL-27",
+     "page": "../sports/volleyball.html#row-VOL-27"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36997",
+     "selection": "Sir Susa Scai Perugia",
+     "price": 1.58,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "VOL-36995",
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "match": "Civitanova vs Padova",
+   "competition": "SuperLega",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "start_label": "Sun 25 Oct, 17:00 UTC",
+   "selection": "Cucine Lube Civitanova",
+   "market": "Win Match",
+   "price": 1.44,
+   "us": -227,
+   "probability_pct": 65.8,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Giornata 2 at Eurosuole Forum pairs one of SuperLega's cleanest opening-round winners against a side swept off the floor on debut. Cucine Lube Civitanova dismantled Rana Verona 3-0 while outscoring them 78-65, whereas Pallavolo Padova fell 0-3 at Piacenza managing just 56 total points across three sets (56:75). Back Cucine Lube Civitanova on the match winner line at 1.44 (-227).",
+    "words": 62,
+    "track": "root",
+    "ref": "VOL-28",
+    "selection": "Cucine Lube Civitanova to win at 1.44 (-227)",
+    "headline": "Unbeaten Civitanova overpower straight-set losers Padova at Eurosuole Forum"
+   },
+   "sources": [
+    {
+     "label": "Lega Pallavolo Serie A SuperLega calendar",
+     "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+    },
+    {
+     "label": "Lega Pallavolo Serie A SuperLega standings",
+     "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+    },
+    {
+     "label": "Volleyball World \u2014 SuperLega Match #10 schedule & UTC start",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+    },
+    {
+     "label": "Volleyball World \u2014 official 2026/27 SuperLega Round 1 standings",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+    }
+   ],
+   "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+   "official_label": "Volleyball World / FIVB SuperLega official Match #30005",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36995",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "VOL-28",
+     "page": "../sports/volleyball.html#row-VOL-28"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36995",
+     "selection": "Cucine Lube Civitanova",
+     "price": 1.44,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "VOL-36996",
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "match": "Monza vs Verona",
+   "competition": "SuperLega",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "start_label": "Sun 25 Oct, 17:00 UTC",
+   "selection": "Vero Volley Monza",
+   "market": "Win Match",
+   "price": 1.61,
+   "us": -164,
+   "probability_pct": 59.1,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Both sides seek their first SuperLega victory on Sunday evening at OpiquadArena, but Giornata 1 performance levels pointed in very different directions. Vero Volley Monza battled point-for-point on the road in a tight four-set loss at Prata (91:94), whereas Rana Verona were swept 0-3 at Civitanova (65:78) and struggled in serve-receive. Back Vero Volley Monza to win at 1.61 (-164).",
+    "words": 63,
+    "track": "root",
+    "ref": "VOL-29",
+    "selection": "Vero Volley Monza to win at 1.61 (-164)",
+    "headline": "Competitive Giornata 1 side-out play gives Monza home edge over Verona"
+   },
+   "sources": [
+    {
+     "label": "Lega Pallavolo Serie A SuperLega calendar",
+     "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+    },
+    {
+     "label": "Lega Pallavolo Serie A SuperLega standings",
+     "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+    },
+    {
+     "label": "Volleyball World \u2014 SuperLega Match #12 schedule & UTC start",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+    },
+    {
+     "label": "Volleyball World \u2014 official 2026/27 SuperLega standings & Match #6 box score",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+    }
+   ],
+   "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
+   "official_label": "Volleyball World / FIVB SuperLega official Match #30007",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36996",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "VOL-29",
+     "page": "../sports/volleyball.html#row-VOL-29"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36996",
+     "selection": "Vero Volley Monza",
+     "price": 1.61,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "MOT-913",
+   "sport": "Motor Racing",
+   "slug": "motor_racing",
+   "match": "USA Grand Prix",
+   "competition": "Formula 1",
+   "start_utc": "2026-10-25T20:00:00Z",
+   "start_label": "Sun 25 Oct, 20:00 UTC",
+   "selection": "Max Verstappen",
+   "market": "Win Race",
+   "price": 3.48,
+   "us": 248,
+   "probability_pct": 27.3,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Circuit of the Americas in Austin demands high-speed front-axle commitment through Sector 1's sweeping esses and traction management out of Turn 11, and the official Formula 1 page confirms a 5.513km circuit run over 56 laps for 308.432km with the race on Sunday 25 October, a start the same page records in its own payload as 2026-10-25T20:00:00.000Z. Backed by 12 of 34 OLBG race-winner tips including three tracked motorsport experts, Verstappen also leads Saturday qualifying support (5/7 tips). Priced at +248 (3.48) against the 22-car grid prior, Max Verstappen to Win Race is our premier motorsport call.",
+    "words": 104,
+    "track": "root",
+    "ref": "MTR-01",
+    "selection": "Max Verstappen to win Race (+248 / 3.48)",
+    "headline": "Four-time Austin winner Max Verstappen leads expert race-winner support at Circuit of the Americas"
+   },
+   "sources": [
+    {
+     "label": "Formula 1 \u2014 Official 2026 United States Grand Prix Page",
+     "url": "https://www.formula1.com/en/racing/2026/united-states"
+    },
+    {
+     "label": "OLBG \u2014 USA Grand Prix Race Winner Tips (12/34 Max Verstappen, 3 experts)",
+     "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
+    },
+    {
+     "label": "Formula 1 \u2014 Facts and Stats: Verstappen first driver to win seven Grands Prix in the United States (four in Austin)",
+     "url": "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO"
+    },
+    {
+     "label": "Formula 1 \u2014 official 2026 United States Grand Prix race hub & FP1 classification",
+     "url": "https://www.formula1.com/en/racing/2026/united-states"
+    },
+    {
+     "label": "Formula 1 \u2014 official 2026 United States Grand Prix full timetable (UTC-5 offset)",
+     "url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm"
+    },
+    {
+     "label": "OLBG \u2014 USA Grand Prix race-winner market",
+     "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
+    }
+   ],
+   "official_url": "https://www.formula1.com/en/racing/2026/united-states",
+   "official_label": "Formula 1 \u2014 United States Grand Prix 2026 (official race page)",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "MTR-913",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "MTR-01",
+     "page": "../sports/motor_racing.html#row-MTR-01"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "MTR-913",
+     "selection": "Max Verstappen",
+     "price": 3.48,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "HAN-12130",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "HC Vardar vs MT Melsungen",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group B, Round 6",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "start_label": "Wed 28 Oct, 17:45 UTC",
+   "selection": "MT Melsungen",
+   "market": "Money Line",
+   "price": 1.54,
+   "us": "-185",
+   "probability_pct": 61.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Back MT Melsungen to win at 1.54 (-185) in Wednesday's Group B trip to SC Jane Sandanski in Skopje (18:45 CET). Melsungen sit second in Group B on 6 points (3-0-2, 138:138) with a Main Round berth on the line after defeating group leaders Wisla Plock 28:26 in Round 5 behind goalkeeper Nebojsa Simic's 11 saves (including three straight crunch-time stops) and six goals apiece from Eric Balenciaga (6/6) and Aaron Mensing. Fourth-placed HC Vardar 1961 (1-0-4, 2 points, 154:158) are already eliminated from Main Round contention despite upsetting Nantes 33:27 behind Leon Ljevar's 7/9 shooting, and Melsungen already beat Vardar at home in Round 1. Melsungen to win is our call.",
+    "words": 120,
+    "track": "olbg",
+    "ref": "HAN-12130",
+    "selection": "MT Melsungen to win (money line, 1.54 / -185)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (18:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official 2026/27 standings & Round 5 review",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12130",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12138",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "Wisla Plock vs Nantes",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group B, Round 6",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "start_label": "Wed 28 Oct, 17:45 UTC",
+   "selection": "Orlen Wisla Plock",
+   "market": "Money Line",
+   "price": 1.64,
+   "us": "-156",
+   "probability_pct": 58.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Take Orlen Wisla Plock to win at 1.64 (-156) in Wednesday's winner-advances EHF Champions League Group B finale against HBC Nantes at ORLEN Arena (18:45 CET). Plock, Melsungen, and Nantes sit locked in a three-way tie on 6 points through five rounds, with Plock holding top spot on a +5 goal difference (141:136) after edging Vardar 33:32 at home in Round 4 and battling Melsungen to a 28:26 road loss on Thursday despite four goals apiece from Frederik Bjerre and Sergei Mark Kosorotov. Nantes (-1, 142:143) collapsed 33:27 at home to previously winless Vardar in Round 5, with coach Gregory Cojean citing ongoing one-on-one finishing struggles. Plock at home are the pick.",
+    "words": 119,
+    "track": "olbg",
+    "ref": "HAN-12138",
+    "selection": "Orlen Wisla Plock to win (money line, 1.64 / -156)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official 2026/27 Group B standings & Plock vs Nantes match page",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101016/OrlenWislaPlock-HBCNantes/"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Round 5 Wednesday & Thursday reviews",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12138",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12134",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "PSG Handball vs Aalborg Handbold",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group C, Round 6",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "start_label": "Wed 28 Oct, 19:45 UTC",
+   "selection": "Aalborg Handbold",
+   "market": "Money Line",
+   "price": 1.71,
+   "us": "-141",
+   "probability_pct": 55.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Aalborg Handbold to win at 1.71 (-141) is the selection for Wednesday night's Group C top-spot showdown at Stade Pierre de Coubertin in Paris (20:45 CET). Unbeaten Aalborg lead Group C on 9 points (4-1-0, 170:145, +25) after defeating RK Celje 34:30 in Round 5 while rotating their bench behind Thomas Arnoldsen (6/8) and Juri Knorr, and the Danish champions already beat Paris Saint-Germain in Round 1 at Aalborg. Second-placed PSG (3-1-1, 7 points, 182:157) let a four-goal half-time lead slip in Wednesday's 29:28 defeat at eliminated HC Zagreb despite Ferran Sole's 10/11 outing, struggling against Zagreb's second-half 5-1 defence. Back unbeaten Aalborg on the money line.",
+    "words": 115,
+    "track": "olbg",
+    "ref": "HAN-12134",
+    "selection": "Aalborg Handbold to win (money line, 1.71 / -141)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (20:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Group C standings & Round 5 review",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12134",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12129",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "GOG vs Sporting CP",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group D, Round 6",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "start_label": "Thu 29 Oct, 17:45 UTC",
+   "selection": "Sporting CP",
+   "market": "Money Line",
+   "price": 1.65,
+   "us": "-154",
+   "probability_pct": 57.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Take Sporting Clube de Portugal to win at 1.65 (-154) when they visit GOG at Arena Svendborg on Thursday evening (18:45 CET) with Group D carryover points at stake. Unbeaten group leaders Sporting (4-1-0, 9 points, 191:165, +26) boast the highest-scoring attack in the competition at 38.2 goals per game, paced on Thursday by Francisco Costa's personal Champions League record 14 goals from 16 shots alongside brother Martim Costa in a 42:40 win over Kristianstad, having already beaten GOG in Lisbon in Round 1. Second-placed GOG (3-1-1, 7 points, 178:172) needed a buzzer-beating Kevin Moller save to salvage a 33:33 draw at Szeged after surrendering a 6:0 late run. Sporting to win is the pick.",
+    "words": 123,
+    "track": "olbg",
+    "ref": "HAN-12129",
+    "selection": "Sporting CP to win (money line, 1.65 / -154)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (18:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Group D standings & Round 5 review",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12129",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12133",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "Montpellier vs Dinamo Bucuresti",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group E, Round 6",
+   "start_utc": "2026-10-29T19:45:00Z",
+   "start_label": "Thu 29 Oct, 19:45 UTC",
+   "selection": "Dinamo Bucuresti",
+   "market": "Money Line",
+   "price": 1.7,
+   "us": "-143",
+   "probability_pct": 56.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Back Dinamo Bucuresti to win at 1.70 (-143) in Thursday night's Group E finale at FDI Stadium in Montpellier (20:45 CET). Third-placed Dinamo (1-1-3, 3 points, 134:145) remain alive for the second Main Round berth after dismantling SAH - Aarhus 37:23 on Wednesday \u2014 the biggest Champions League victory in club history \u2014 led by Victor Iturizza (5/5), Haniel Langaro, and goalkeeper Ionut Iancu, and Dinamo also won the Round 1 meeting in Bucharest. Fourth-placed Montpellier (1-0-4, 2 points, 150:165) have lost four straight and are already eliminated following Thursday's 40:34 defeat at Barca, where centre back Pol Valera noted mounting player injuries and Benjamin Richert received a direct red card. Dinamo Bucuresti to win is our selection.",
+    "words": 123,
+    "track": "olbg",
+    "ref": "HAN-12133",
+    "selection": "Dinamo Bucuresti to win (money line, 1.70 / -143)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (20:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Group E Round 5 reviews & injury/red-card notes",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12133",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  }
+ ],
+ "today": [
+  {
+   "id": "RUG-609581",
+   "sport": "Rugby Union",
+   "slug": "rugby_union",
+   "match": "Ospreys v Dragons",
+   "competition": "BKT United Rugby Championship 2026-27, Round 4",
+   "start_utc": "2026-10-24T18:45:00Z",
+   "start_label": "Sat 24 Oct, 18:45 UTC",
+   "selection": "Ospreys",
+   "market": "To Win",
+   "price": 1.62,
+   "us": "-161",
+   "probability_pct": 58.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Ospreys to win at 1.62 (-161) is the selection for Saturday evening's Welsh URC derby against Dragons RFC at St. Helen's in Swansea (19:45 IRE & UK, 18:45 UTC). These rivals met just fifteen days earlier in Round 3 at Rodney Parade on October 9, where Ospreys came away with a 38-31 road victory. On the URC table re-read after Friday's Round 4 matches, Dragons sit ninth on nine points (W1 D1 L1, 88 points for, 83 against) ahead of fourteenth-placed Ospreys on six points (W1 D0 L2, 81 for, 107 against), yet Ospreys' proven scoring edge in the reverse fixture and Swansea home advantage make Ospreys the call.",
+    "words": 111,
+    "track": "olbg",
+    "ref": "RGU-609581",
+    "selection": "Ospreys to win (money line, 1.62 / -161)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "United Rugby Championship \u2014 official 2026/27 fixtures & Round 4 kick-off",
+     "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+    },
+    {
+     "label": "United Rugby Championship \u2014 official 2026/27 table & Round 3 results",
+     "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "RGU-609581",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  }
+ ],
+ "next_7_days": [
+  {
+   "id": "GAE-3530",
+   "sport": "Gaelic Football",
+   "slug": "gaelic_football",
+   "match": "St Finbarrs v Nemo Rangers",
+   "competition": "McCarthy Insurance Group Premier Senior Football Championship Final",
+   "start_utc": "2026-10-25T16:00:00Z",
+   "start_label": "Sun 25 Oct, 16:00 UTC",
+   "selection": "St Finbarrs",
+   "market": "Handicap",
+   "price": 1.62,
+   "us": -161,
+   "probability_pct": 58.6,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "St Finbarrs to win at 1.62 (-161) is our selection for Sunday's McCarthy Insurance Group Cork Premier Senior Football Championship Final at SuperValu Pairc Ui Chaoimh, which the county board's event page fixes for 4.00pm on 25 October. The same page records St Finbarrs' run to the final: a 2-12 to 0-16 semi-final win over Clonakilty, after a quarter-final victory over Carbery that the county board calls convincing. Nemo Rangers reached the decider by beating Castlehaven 1-20 to 1-17 and then Carrigaline 1-15 to 0-16, so both clubs arrive off knockout wins and the Barrs conceded 16 points in their semi-final. The OLBG crowd leans the other way, with 14 of 18 tips on Nemo Rangers +1.5, so this is a selection against the public line, backed by the scoring record rather than the tip count.",
+    "words": 139,
+    "track": "root",
+    "ref": "GAF-01",
+    "selection": "St Finbarrs to win (60-minute match betting, 1.62 / -161; St Finbarrs -1.5 handicap angle)",
+    "headline": "St Finbarrs' superior Cork championship scoring differential backs -161 county final line"
+   },
+   "sources": [
+    {
+     "label": "Cork GAA official Premier SFC Final event page",
+     "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/"
+    },
+    {
+     "label": "Cork GAA official championship results",
+     "url": "https://gaacork.ie/results/"
+    },
+    {
+     "label": "Cork GAA official results hub",
+     "url": "https://gaacork.ie/results/"
+    }
+   ],
+   "official_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+   "official_label": "Cork GAA official \u2014 county final event page",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "GFA-3530",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "GAF-01",
+     "page": "../sports/gaelic_football.html#row-GAF-01"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "GFA-3530",
+     "selection": "St Finbarrs",
+     "price": 1.62,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "VOL-36997",
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "match": "Perugia vs Pordenone",
+   "competition": "SuperLega",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "start_label": "Sun 25 Oct, 17:00 UTC",
+   "selection": "Sir Susa Scai Perugia",
+   "market": "Win Match",
+   "price": 1.58,
+   "us": -172,
+   "probability_pct": 60.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Sir Susa Scai Perugia return to Pala Barton Energy after outscoring Cuneo 114-95 in total rally points during a 3-2 opening-round SuperLega win. Visitors Tinet Prata di Pordenone took maximum points in a narrow 3-1 home victory (94:91), yet Perugia's heavy jump-serve pressure at home exposes side-out reception quickly. Back Sir Susa Scai Perugia to win outright at 1.58 (-172).",
+    "words": 62,
+    "track": "root",
+    "ref": "VOL-27",
+    "selection": "Sir Susa Scai Perugia to win at 1.58 (-172)",
+    "headline": "Pala Barton serving power backs Perugia rally-point dominance against Prata"
+   },
+   "sources": [
+    {
+     "label": "Lega Pallavolo Serie A SuperLega calendar",
+     "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+    },
+    {
+     "label": "Lega Pallavolo Serie A SuperLega standings",
+     "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+    },
+    {
+     "label": "Volleyball World official Match #30002",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+    },
+    {
+     "label": "Volleyball World Round 1 boxscore #30000",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/"
+    }
+   ],
+   "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+   "official_label": "Volleyball World / FIVB SuperLega official Match #30002",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36997",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "VOL-27",
+     "page": "../sports/volleyball.html#row-VOL-27"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36997",
+     "selection": "Sir Susa Scai Perugia",
+     "price": 1.58,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "VOL-36995",
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "match": "Civitanova vs Padova",
+   "competition": "SuperLega",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "start_label": "Sun 25 Oct, 17:00 UTC",
+   "selection": "Cucine Lube Civitanova",
+   "market": "Win Match",
+   "price": 1.44,
+   "us": -227,
+   "probability_pct": 65.8,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Giornata 2 at Eurosuole Forum pairs one of SuperLega's cleanest opening-round winners against a side swept off the floor on debut. Cucine Lube Civitanova dismantled Rana Verona 3-0 while outscoring them 78-65, whereas Pallavolo Padova fell 0-3 at Piacenza managing just 56 total points across three sets (56:75). Back Cucine Lube Civitanova on the match winner line at 1.44 (-227).",
+    "words": 62,
+    "track": "root",
+    "ref": "VOL-28",
+    "selection": "Cucine Lube Civitanova to win at 1.44 (-227)",
+    "headline": "Unbeaten Civitanova overpower straight-set losers Padova at Eurosuole Forum"
+   },
+   "sources": [
+    {
+     "label": "Lega Pallavolo Serie A SuperLega calendar",
+     "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+    },
+    {
+     "label": "Lega Pallavolo Serie A SuperLega standings",
+     "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+    },
+    {
+     "label": "Volleyball World \u2014 SuperLega Match #10 schedule & UTC start",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+    },
+    {
+     "label": "Volleyball World \u2014 official 2026/27 SuperLega Round 1 standings",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+    }
+   ],
+   "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+   "official_label": "Volleyball World / FIVB SuperLega official Match #30005",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36995",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "VOL-28",
+     "page": "../sports/volleyball.html#row-VOL-28"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36995",
+     "selection": "Cucine Lube Civitanova",
+     "price": 1.44,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "VOL-36996",
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "match": "Monza vs Verona",
+   "competition": "SuperLega",
+   "start_utc": "2026-10-25T17:00:00Z",
+   "start_label": "Sun 25 Oct, 17:00 UTC",
+   "selection": "Vero Volley Monza",
+   "market": "Win Match",
+   "price": 1.61,
+   "us": -164,
+   "probability_pct": 59.1,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Both sides seek their first SuperLega victory on Sunday evening at OpiquadArena, but Giornata 1 performance levels pointed in very different directions. Vero Volley Monza battled point-for-point on the road in a tight four-set loss at Prata (91:94), whereas Rana Verona were swept 0-3 at Civitanova (65:78) and struggled in serve-receive. Back Vero Volley Monza to win at 1.61 (-164).",
+    "words": 63,
+    "track": "root",
+    "ref": "VOL-29",
+    "selection": "Vero Volley Monza to win at 1.61 (-164)",
+    "headline": "Competitive Giornata 1 side-out play gives Monza home edge over Verona"
+   },
+   "sources": [
+    {
+     "label": "Lega Pallavolo Serie A SuperLega calendar",
+     "url": "https://www.legavolley.it/calendario/?idCampionato=999"
+    },
+    {
+     "label": "Lega Pallavolo Serie A SuperLega standings",
+     "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
+    },
+    {
+     "label": "Volleyball World \u2014 SuperLega Match #12 schedule & UTC start",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+    },
+    {
+     "label": "Volleyball World \u2014 official 2026/27 SuperLega standings & Match #6 box score",
+     "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/"
+    }
+   ],
+   "official_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30007/",
+   "official_label": "Volleyball World / FIVB SuperLega official Match #30007",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36996",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "VOL-29",
+     "page": "../sports/volleyball.html#row-VOL-29"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "VOL-36996",
+     "selection": "Vero Volley Monza",
+     "price": 1.61,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "MOT-913",
+   "sport": "Motor Racing",
+   "slug": "motor_racing",
+   "match": "USA Grand Prix",
+   "competition": "Formula 1",
+   "start_utc": "2026-10-25T20:00:00Z",
+   "start_label": "Sun 25 Oct, 20:00 UTC",
+   "selection": "Max Verstappen",
+   "market": "Win Race",
+   "price": 3.48,
+   "us": 248,
+   "probability_pct": 27.3,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Circuit of the Americas in Austin demands high-speed front-axle commitment through Sector 1's sweeping esses and traction management out of Turn 11, and the official Formula 1 page confirms a 5.513km circuit run over 56 laps for 308.432km with the race on Sunday 25 October, a start the same page records in its own payload as 2026-10-25T20:00:00.000Z. Backed by 12 of 34 OLBG race-winner tips including three tracked motorsport experts, Verstappen also leads Saturday qualifying support (5/7 tips). Priced at +248 (3.48) against the 22-car grid prior, Max Verstappen to Win Race is our premier motorsport call.",
+    "words": 104,
+    "track": "root",
+    "ref": "MTR-01",
+    "selection": "Max Verstappen to win Race (+248 / 3.48)",
+    "headline": "Four-time Austin winner Max Verstappen leads expert race-winner support at Circuit of the Americas"
+   },
+   "sources": [
+    {
+     "label": "Formula 1 \u2014 Official 2026 United States Grand Prix Page",
+     "url": "https://www.formula1.com/en/racing/2026/united-states"
+    },
+    {
+     "label": "OLBG \u2014 USA Grand Prix Race Winner Tips (12/34 Max Verstappen, 3 experts)",
+     "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
+    },
+    {
+     "label": "Formula 1 \u2014 Facts and Stats: Verstappen first driver to win seven Grands Prix in the United States (four in Austin)",
+     "url": "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO"
+    },
+    {
+     "label": "Formula 1 \u2014 official 2026 United States Grand Prix race hub & FP1 classification",
+     "url": "https://www.formula1.com/en/racing/2026/united-states"
+    },
+    {
+     "label": "Formula 1 \u2014 official 2026 United States Grand Prix full timetable (UTC-5 offset)",
+     "url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm"
+    },
+    {
+     "label": "OLBG \u2014 USA Grand Prix race-winner market",
+     "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913"
+    }
+   ],
+   "official_url": "https://www.formula1.com/en/racing/2026/united-states",
+   "official_label": "Formula 1 \u2014 United States Grand Prix 2026 (official race page)",
+   "verification_status": "verified",
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "MTR-913",
+     "page": "../olbg/picks.html"
+    },
+    {
+     "track": "root",
+     "ref": "MTR-01",
+     "page": "../sports/motor_racing.html#row-MTR-01"
+    }
+   ],
+   "also_published": [
+    {
+     "track": "olbg",
+     "ref": "MTR-913",
+     "selection": "Max Verstappen",
+     "price": 3.48,
+     "page": "../olbg/picks.html"
+    }
+   ]
+  },
+  {
+   "id": "HAN-12130",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "HC Vardar vs MT Melsungen",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group B, Round 6",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "start_label": "Wed 28 Oct, 17:45 UTC",
+   "selection": "MT Melsungen",
+   "market": "Money Line",
+   "price": 1.54,
+   "us": "-185",
+   "probability_pct": 61.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Back MT Melsungen to win at 1.54 (-185) in Wednesday's Group B trip to SC Jane Sandanski in Skopje (18:45 CET). Melsungen sit second in Group B on 6 points (3-0-2, 138:138) with a Main Round berth on the line after defeating group leaders Wisla Plock 28:26 in Round 5 behind goalkeeper Nebojsa Simic's 11 saves (including three straight crunch-time stops) and six goals apiece from Eric Balenciaga (6/6) and Aaron Mensing. Fourth-placed HC Vardar 1961 (1-0-4, 2 points, 154:158) are already eliminated from Main Round contention despite upsetting Nantes 33:27 behind Leon Ljevar's 7/9 shooting, and Melsungen already beat Vardar at home in Round 1. Melsungen to win is our call.",
+    "words": 120,
+    "track": "olbg",
+    "ref": "HAN-12130",
+    "selection": "MT Melsungen to win (money line, 1.54 / -185)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (18:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official 2026/27 standings & Round 5 review",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12130",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12138",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "Wisla Plock vs Nantes",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group B, Round 6",
+   "start_utc": "2026-10-28T17:45:00Z",
+   "start_label": "Wed 28 Oct, 17:45 UTC",
+   "selection": "Orlen Wisla Plock",
+   "market": "Money Line",
+   "price": 1.64,
+   "us": "-156",
+   "probability_pct": 58.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Take Orlen Wisla Plock to win at 1.64 (-156) in Wednesday's winner-advances EHF Champions League Group B finale against HBC Nantes at ORLEN Arena (18:45 CET). Plock, Melsungen, and Nantes sit locked in a three-way tie on 6 points through five rounds, with Plock holding top spot on a +5 goal difference (141:136) after edging Vardar 33:32 at home in Round 4 and battling Melsungen to a 28:26 road loss on Thursday despite four goals apiece from Frederik Bjerre and Sergei Mark Kosorotov. Nantes (-1, 142:143) collapsed 33:27 at home to previously winless Vardar in Round 5, with coach Gregory Cojean citing ongoing one-on-one finishing struggles. Plock at home are the pick.",
+    "words": 119,
+    "track": "olbg",
+    "ref": "HAN-12138",
+    "selection": "Orlen Wisla Plock to win (money line, 1.64 / -156)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official 2026/27 Group B standings & Plock vs Nantes match page",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101016/OrlenWislaPlock-HBCNantes/"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Round 5 Wednesday & Thursday reviews",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12138",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12134",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "PSG Handball vs Aalborg Handbold",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group C, Round 6",
+   "start_utc": "2026-10-28T19:45:00Z",
+   "start_label": "Wed 28 Oct, 19:45 UTC",
+   "selection": "Aalborg Handbold",
+   "market": "Money Line",
+   "price": 1.71,
+   "us": "-141",
+   "probability_pct": 55.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Aalborg Handbold to win at 1.71 (-141) is the selection for Wednesday night's Group C top-spot showdown at Stade Pierre de Coubertin in Paris (20:45 CET). Unbeaten Aalborg lead Group C on 9 points (4-1-0, 170:145, +25) after defeating RK Celje 34:30 in Round 5 while rotating their bench behind Thomas Arnoldsen (6/8) and Juri Knorr, and the Danish champions already beat Paris Saint-Germain in Round 1 at Aalborg. Second-placed PSG (3-1-1, 7 points, 182:157) let a four-goal half-time lead slip in Wednesday's 29:28 defeat at eliminated HC Zagreb despite Ferran Sole's 10/11 outing, struggling against Zagreb's second-half 5-1 defence. Back unbeaten Aalborg on the money line.",
+    "words": 115,
+    "track": "olbg",
+    "ref": "HAN-12134",
+    "selection": "Aalborg Handbold to win (money line, 1.71 / -141)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (20:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Group C standings & Round 5 review",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12134",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12129",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "GOG vs Sporting CP",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group D, Round 6",
+   "start_utc": "2026-10-29T17:45:00Z",
+   "start_label": "Thu 29 Oct, 17:45 UTC",
+   "selection": "Sporting CP",
+   "market": "Money Line",
+   "price": 1.65,
+   "us": "-154",
+   "probability_pct": 57.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Take Sporting Clube de Portugal to win at 1.65 (-154) when they visit GOG at Arena Svendborg on Thursday evening (18:45 CET) with Group D carryover points at stake. Unbeaten group leaders Sporting (4-1-0, 9 points, 191:165, +26) boast the highest-scoring attack in the competition at 38.2 goals per game, paced on Thursday by Francisco Costa's personal Champions League record 14 goals from 16 shots alongside brother Martim Costa in a 42:40 win over Kristianstad, having already beaten GOG in Lisbon in Round 1. Second-placed GOG (3-1-1, 7 points, 178:172) needed a buzzer-beating Kevin Moller save to salvage a 33:33 draw at Szeged after surrendering a 6:0 late run. Sporting to win is the pick.",
+    "words": 123,
+    "track": "olbg",
+    "ref": "HAN-12129",
+    "selection": "Sporting CP to win (money line, 1.65 / -154)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (18:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Group D standings & Round 5 review",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12129",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "HAN-12133",
+   "sport": "Handball",
+   "slug": "handball",
+   "match": "Montpellier vs Dinamo Bucuresti",
+   "competition": "EHF Champions League Men 2026/27 \u2014 Group E, Round 6",
+   "start_utc": "2026-10-29T19:45:00Z",
+   "start_label": "Thu 29 Oct, 19:45 UTC",
+   "selection": "Dinamo Bucuresti",
+   "market": "Money Line",
+   "price": 1.7,
+   "us": "-143",
+   "probability_pct": 56.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Back Dinamo Bucuresti to win at 1.70 (-143) in Thursday night's Group E finale at FDI Stadium in Montpellier (20:45 CET). Third-placed Dinamo (1-1-3, 3 points, 134:145) remain alive for the second Main Round berth after dismantling SAH - Aarhus 37:23 on Wednesday \u2014 the biggest Champions League victory in club history \u2014 led by Victor Iturizza (5/5), Haniel Langaro, and goalkeeper Ionut Iancu, and Dinamo also won the Round 1 meeting in Bucharest. Fourth-placed Montpellier (1-0-4, 2 points, 150:165) have lost four straight and are already eliminated following Thursday's 40:34 defeat at Barca, where centre back Pol Valera noted mounting player injuries and Benjamin Richert received a direct red card. Dinamo Bucuresti to win is our selection.",
+    "words": 123,
+    "track": "olbg",
+    "ref": "HAN-12133",
+    "selection": "Dinamo Bucuresti to win (money line, 1.70 / -143)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "EHF Champions League Men \u2014 official Group Phase playing-times PDF (20:45 CET)",
+     "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+    },
+    {
+     "label": "EHF Champions League Men \u2014 official Group E Round 5 reviews & injury/red-card notes",
+     "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "HAN-12133",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  }
+ ],
+ "later": [],
+ "sports": [
+  {
+   "sport": "Tennis",
+   "slug": "tennis",
+   "events": 59,
+   "upcoming": 0,
+   "priced": 59,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Basketball",
+   "slug": "basketball",
+   "events": 48,
+   "upcoming": 0,
+   "priced": 60,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "events": 44,
+   "upcoming": 0,
+   "priced": 55,
+   "high": 0,
+   "today_events": 4,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Cricket",
+   "slug": "cricket",
+   "events": 25,
+   "upcoming": 0,
+   "priced": 35,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Baseball",
+   "slug": "baseball",
+   "events": 1,
+   "upcoming": 0,
+   "priced": 2,
+   "high": 0,
+   "today_events": 2,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Volleyball",
+   "slug": "volleyball",
+   "events": 50,
+   "upcoming": 8,
+   "priced": 60,
+   "high": 3,
+   "today_events": 2,
+   "next": {
+    "match": "Trentino vs Cisterna",
+    "start_utc": "2026-10-25T16:00:00Z",
+    "start_label": "Sun 25 Oct, 16:00 UTC",
+    "selection": "Itas Trentino",
+    "market": "Win Match",
+    "price": 1.79,
+    "us": -127,
+    "confidence": "MEDIUM",
+    "hold_reason": "not released as a pick",
+    "track": "root",
+    "page": "../sports/volleyball.html#row-VOL-26",
+    "ref": "VOL-26"
+   },
+   "meets_target": false,
+   "shortfall": 2
+  },
+  {
+   "sport": "Darts",
+   "slug": "darts",
+   "events": 21,
+   "upcoming": 0,
+   "priced": 35,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Snooker",
+   "slug": "snooker",
+   "events": 16,
+   "upcoming": 0,
+   "priced": 17,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Rugby Union",
+   "slug": "rugby_union",
+   "events": 26,
+   "upcoming": 1,
+   "priced": 43,
+   "high": 1,
+   "today_events": 7,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 4
+  },
+  {
+   "sport": "Rugby League",
+   "slug": "rugby_league",
+   "events": 3,
+   "upcoming": 0,
+   "priced": 6,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Handball",
+   "slug": "handball",
+   "events": 64,
+   "upcoming": 12,
+   "priced": 74,
+   "high": 5,
+   "today_events": 2,
+   "next": {
+    "match": "FC Porto vs Veszprem",
+    "start_utc": "2026-10-28T17:45:00Z",
+    "start_label": "Wed 28 Oct, 17:45 UTC",
+    "selection": "FC Porto",
+    "market": "Money Line",
+    "price": 1.48,
+    "us": "-208",
+    "confidence": "LOW",
+    "hold_reason": "not released as a pick",
+    "track": "olbg",
+    "page": "../olbg/picks.html",
+    "ref": "HAN-12127"
+   },
+   "meets_target": true,
+   "shortfall": 0
+  },
+  {
+   "sport": "Gaelic Football",
+   "slug": "gaelic_football",
+   "events": 6,
+   "upcoming": 2,
+   "priced": 9,
+   "high": 1,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 4
+  },
+  {
+   "sport": "Golf",
+   "slug": "golf",
+   "events": 10,
+   "upcoming": 0,
+   "priced": 10,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  },
+  {
+   "sport": "Motor Racing",
+   "slug": "motor_racing",
+   "events": 4,
+   "upcoming": 2,
+   "priced": 7,
+   "high": 1,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 4
+  },
+  {
+   "sport": "Greyhounds",
+   "slug": "greyhounds",
+   "events": 58,
+   "upcoming": 0,
+   "priced": 58,
+   "high": 0,
+   "today_events": 0,
+   "next": null,
+   "meets_target": false,
+   "shortfall": 5
+  }
+ ]
+}
