@@ -1,8 +1,8 @@
 # Capture-to-publication provenance audit
 
-Publication clock audited: **2026-10-24T18:10:00Z**. This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.
+Publication clock audited: **2026-10-24T18:32:00Z**. This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.
 
-**Result: REVIEW — 0 errors, 14 warnings, 46 informational observations.**
+**Result: REVIEW — 0 errors, 13 warnings, 46 informational observations.**
 
 A clean lineage result means the published data can be reproduced from the declared inputs. It does not prove that an old listing is still available, that a start time is officially confirmed, or that a selection is advisable. Blank source values remain blank; conflicting observations remain visible.
 
@@ -86,14 +86,6 @@ These rows have an official release-evidence URL on the board, but that exact UR
 data/schema.md says our_match_probability describes the OLBG consensus selection, but generated rows set it equal to our_pick_probability even when the selection differs. The report identifies **68 affected rows**. The schema owner must choose and document the intended meaning; this audit does not rewrite either the schema or generated lines.
 
 Review [data/schema.md](../data/schema.md#linesjson-fields) and [data/lines.json](../data/lines.json).
-
-### Repeated prose across dashboard tracks
-
-The same fixture can legitimately appear on both tracks, but word-for-word reuse still needs an editorial decision under the uniqueness requirement.
-
-| OLBG-board row | Root row | Official sources on the written piece | Listing |
-|---|---|---|---|
-| BKB-535928 | BKB-22 | [EuroLeague official round-7 preview (dated fixture, players, recent games)](https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/); [EuroLeague official standings (conflicts explicitly held where noted)](https://www.euroleaguebasketball.net/en/euroleague/standings/) | [OLBG event](https://www.olbg.com/betting-tips/Basketball/European/Euroleague/Zalgiris_vs_Asvel_Lyon_Villeurbanne/4?event_id=535928) |
 
 ## Informational differences
 
