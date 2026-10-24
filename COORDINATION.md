@@ -4,6 +4,19 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+## `session-f00f1bf2` — **task-57-live-fresh-capture-five-per-sport-written-picks** (CLAIMED 2026-10-24T22:30Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-57-live-fresh-capture-five-per-sport-written-picks` | in progress | `session-f00f1bf2` on Arena-fixed `arena/f00f1bf2-olbg3` | New capture `data/raw/live-20261024T22*Z-f00f1bf2/**`; new `data/raw/olbg-harvest-20261024T22*Z-f00f1bf2.tsv`; `data/meta.json`; `data/release_checks.json`; `data/official.json`; `data/verifications.json`; `data/predictions.json`; `data/predictions-olbg.json`; `data/flagged.json`; generated `data/*.json` the build rewrites; `COORDINATION.md`; `docs/audit-f00f1bf2.md`; `tests/test_audit_f00f1bf2.py`. |
+
+- **Why this pass can do what earlier passes could not:** the shell in this sandbox still has no route to `olbg.com` (curl fails at TLS, as recorded in earlier sessions), but this session's page-retrieval tool renders the OLBG listing pages **server-side**: `/betting-tips` returned 20+ live tip cards including Gaelic Football, Ice Hockey, Baseball and Football rows. A fresh, verbatim 15-sport listing read is therefore possible, and the five-per-sport target is re-attacked with real captures rather than being declared impossible.
+- **Claim boundary:** read-only on every sibling-owned audit script and test file. No `docs/audit-*.md` other than this session's own file is edited. Shared outputs (`data/events.json`, `data/matches.json`, `data/lines.json`, `data/gap_sports.json`, generated HTML, NAV) change only through this session's documented rebuild of the pinned capture, and any resulting test-pin changes are recorded here with the reason they assert a rule rather than a frozen list.
+- **Honesty rules this pass will keep:** every new fixture row must come from a listing page read in this session and be transcribed verbatim; every HIGH pick needs an official, timezone-qualified start observation recorded with its source URL, retrieval time and verbatim quote; every quoted form fact must appear on the cited official page. A sport that cannot reach five verified picks publishes its shortfall and blocker instead of a padded pick. No value is inferred from a slug, a venue or a timezone guess.
+- **Planned close-out:** rebuild both tracks, run `check_board.py`, `tools/check_site.py`, the unit suite, `check.py` and `check_links.py`, publish the new picks and the flagged irregularities, open a PR from this branch to `main`, merge it without waiting for approval, and confirm the Pages deployment serves the new content.
+
+---
+
 ## COMPLETED — `session-4e26d590`, **task-4e26d590-capture-to-publication-provenance-audit** (claimed 2026-10-24T17:56Z; PR #171 merged 2026-10-24T18:14:59Z)
 
 | Task | Status | Owner | File scope |
