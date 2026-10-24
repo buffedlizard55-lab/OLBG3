@@ -1746,8 +1746,8 @@
       "ref": "BSB-160792",
       "status": "high",
       "selection": "Milwaukee Brewers to win the money line at 1.67 (-149)",
-      "headline": "Brewers’ 103-win season and 214-run scoring edge carry the 1.67 home price",
-      "body": "Milwaukee Brewers to win at 1.67 (-149) in the World Series game at American Family Field that MLB's schedule service starts at 00:00 UTC on 25 October. The Brewers finished the regular season 103-59, scoring 832 runs and allowing 618. Tampa Bay were 98-64 with 736 scored and 650 conceded, so the two clubs are close on wins but 214 runs apart on run differential. Milwaukee's home setting adds the small edge our line prices in, and the Rays' lower scoring output is the reason the home side is favoured rather than the teams being treated as level.",
+      "headline": "Brewers' 103-win season, a 214-run edge and a 1-0 series lead behind the 1.67 home price",
+      "body": "Milwaukee Brewers to win at 1.67 (-149) in World Series Game 2 at American Family Field, which MLB's schedule service starts at 00:00 UTC on 25 October with Logan Henderson against Drew Rasmussen. Milwaukee lead this best-of-seven one game to none, the record printed beside Game 2 in the same schedule payload. The Brewers finished the regular season 103-59, scoring 832 runs and allowing 618. Tampa Bay were 98-64 with 736 scored and 650 conceded, so the two clubs are close on wins but 214 runs apart on run differential. Milwaukee's home setting adds the small edge our line prices in, and the Rays' lower scoring output is the reason the home side is favoured rather than the teams being treated as level. Henderson is a first-time World Series starter, which is the one number that argues for patience on the price rather than against the selection.",
       "sources": [
         {
           "label": "MLB official schedule API — gamePk 849802",
@@ -1756,9 +1756,13 @@
         {
           "label": "MLB official standings (162-game season)",
           "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026"
+        },
+        {
+          "label": "MLB official schedule API re-read 2026-10-24T18:05Z (Game 2 gamePk 849802, 00:00 UTC start, probable pitchers Henderson and Rasmussen, series record 1-0)",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-28&hydrate=probablePitcher,linescore"
         }
       ],
-      "correction_note": ""
+      "correction_note": "Rewritten by session-3271b876 at 2026-10-24T18:05Z: the piece published by session-a30d9bdb carried the two clubs' full-season scoring but not the series state or tonight's starters, both of which the same MLB schedule service now prints. No earlier claim was contradicted, so none was removed; the price and the selection are unchanged."
     },
     {
       "ref": "HBL-12130",

@@ -13,14 +13,25 @@ BUILT = AS_OF.isoformat()  # this rebuild
 CLOCK = snapshot_utc().isoformat().replace("+00:00", "Z")
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
 
-# One navigation for the whole published site: this track's pages first, then the
-# official-feed track's pages (built by scripts/build.py, which runs before this script).
-NAV = [("today.html", "Today's picks"), ("index.html", "Dashboard"), ("brief.html", "Brief coverage"), ("predictions.html", "Predictions"),
-       ("lines.html", "Originated lines"), ("reconcile.html", "Cross-track review"),
-       ("verification.html", "Verification"), ("source-health.html", "Source health"), ("discovery.html", "Current discovery"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
-       ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
-       ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review"),
-       ("olbg/index.html", "OLBG picks dashboard")]
+# One navigation for the whole published site, grouped into four labelled shelves so the
+# answer to "where are the picks?" is the first thing the bar says. NAV stays a flat list of
+# (file, label) because head() and the tests read it; NAV_GROUPS is what the header renders and
+# NAV is derived from it, so a page can never be in one and missing from the other. Every file the
+# previous flat list linked is still linked here: this is a regrouping, not a removal, and
+# scripts/check_links.py would fail on a page that survived only as a link target.
+NAV_GROUPS = [
+    ("Picks", [("today.html", "Today's picks"), ("predictions.html", "Written predictions"),
+               ("lines.html", "Originated lines & markets")]),
+    ("Board", [("index.html", "Dashboard"), ("brief.html", "Brief coverage"),
+               ("olbg/index.html", "OLBG lines board")]),
+    ("Evidence", [("verification.html", "Verification"), ("source-health.html", "Source health"),
+                  ("reconcile.html", "Cross-track review"), ("audit.html", "Audit"),
+                  ("discovery.html", "Current discovery"), ("feed-overview.html", "Official feed"),
+                  ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"),
+                  ("review.html", "Feed review")]),
+    ("Review", [("flagged.html", "Flagged for Review"), ("method.html", "Method & Scope")]),
+]
+NAV = [(f, t) for _g, _links in NAV_GROUPS for f, t in _links]
 ev = json.load(open(os.path.join(ROOT, "data/events.json")))
 FIXTURES = ev["events"]
 ASSUMPTIONS = ev["assumptions"]
@@ -35,6 +46,87 @@ for _r in FIXTURES:
 EVENTS = FIXTURES + GAP_ROWS
 PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/predictions.json")))["predictions"]}
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
+
+# ---------- unified pick surface (both boards, written predictions only) ----------
+# session-3271b876: the two boards each published their own HIGH table, so a reader had to visit
+# both to learn what the picks were, and a bare selection with no write-up sat in the same table
+# style as a sourced piece. scripts/pick_surface.py merges the boards on the OLBG event id, keeps
+# the prose on the card, and labels everything that is not a pick. It reads committed data only.
+from pick_surface import collect as _collect_picks, card_html as _pick_card
+from pick_surface import summary_line as _pick_summary_line, words as _wc, prose_problems as _prose_problems
+
+OLBG_LINES = {r["match_id"]: r for r in json.load(open(os.path.join(ROOT, "data/lines.json")))}
+OLBG_MATCHES = {r["id"]: r for r in json.load(open(os.path.join(ROOT, "data/matches.json")))}
+_olbg_pred_doc = json.load(open(os.path.join(ROOT, "data/predictions-olbg.json")))
+OLBG_PREDS_BY_ID = {p["match_id"]: p for p in _olbg_pred_doc["predictions"]}
+
+PICKS = _collect_picks(EVENTS, PREDS, OLBG_LINES, OLBG_MATCHES, OLBG_PREDS_BY_ID)
+PICK_LIVE = [x for x in PICKS if x["state"] == "pick"]
+PICK_HELD = [x for x in PICKS if x["state"] != "pick"]
+PICK_SUMMARY = _pick_summary_line(PICKS)
+PICK_BY_SPORT = {}
+for _x in PICK_LIVE:
+    PICK_BY_SPORT.setdefault(_x["sport"], []).append(_x)
+# The brief's output rule, checked rather than asserted: every published piece is at least 30 words
+# and free of the two internal words. Anything that fails is not hidden; it is printed on the page.
+PROSE_DEFECTS = []
+for _x in PICKS:
+    for _k, _t in _x["tracks"].items():
+        if _t.get("text"):
+            _bad = _prose_problems(_t["text"])
+            if _bad:
+                PROSE_DEFECTS.append((_x["sport"], _t["ref"], ", ".join(_bad)))
+
+
+def picks_cards(entries, pre=""):
+    return "".join(_pick_card(x, pre) for x in entries)
+
+
+def sport_picks_block(sport, meta):
+    """The picks for one sport, written out, at the top of that sport's page.
+
+    A reader who arrives from the OLBG listing for one sport should not have to hunt the board
+    to find out whether we are publishing a pick for it. If we are, the write-up is here. If we
+    are not, the mechanical reason is here, taken from the same accounting the brief-coverage
+    page publishes, and it links to the register rather than to silence.
+    """
+    rows = PICK_BY_SPORT.get(sport) or []
+    if rows:
+        return (f'<h2>Written picks for {e(sport)} ({len(rows)})</h2>'
+                f'<p class="legend">Selection, price and the full write-up are on the card; the price is our own '
+                f'originated line, not a bookmaker quote. Older pieces for this sport are on '
+                f'<a href="../predictions.html">Written predictions</a>, and the second board&rsquo;s own '
+                f'line for every fixture it prices is on <a href="../olbg/picks.html">the OLBG lines board</a>.</p>'
+                + picks_cards(rows, "../"))
+    held = [x for x in PICK_HELD if x["sport"] == sport]
+    why = ""
+    try:
+        acct = next((x for x in BRIEF["sports"] if x["sport"] == sport), None)
+        if acct and acct.get("reasons"):
+            why = acct["reasons"][0]
+    except Exception:
+        why = ""
+    return ('<h2>Written picks for ' + e(sport) + ' (0)</h2>'
+            '<p class="legend">No high-confidence written pick for this sport passes the release gates at this build.'
+            + (f' The board&rsquo;s own accounting gives the mechanical reason: {e(why)}.' if why else '')
+            + (' Graded HIGH and held back: ' + str(len(held)) + ' fixture(s), each listed with its reason on '
+               '<a href="../today.html#written-picks">Today&rsquo;s picks</a>.' if held else '')
+            + ' Nothing here is promoted to fill a quota; unconfirmed values stay blank and are on '
+              '<a href="../flagged.html">Flagged for Review</a>.</p>')
+
+
+def picks_sport_sections(entries_by_sport, order=None):
+    out = []
+    for sport in (order or SPORT_ORDER):
+        rows = entries_by_sport.get(sport) or []
+        if not rows:
+            continue
+        out.append(f'<h3 class="pick-sport-head">{e(sport)} '
+                   f'<span class="dim small">{len(rows)} written pick(s)</span></h3>'
+                   + picks_cards(rows))
+    for sport in sorted(set(entries_by_sport) - set(order or SPORT_ORDER)):
+        out.append(f'<h3 class="pick-sport-head">{e(sport)}</h3>' + picks_cards(entries_by_sport[sport]))
+    return "".join(out)
 
 SPORT_ORDER = ["Tennis","Basketball","Ice Hockey","Cricket","Baseball","Volleyball","Darts",
                "Snooker","Rugby Union","Rugby League","Handball","Gaelic Football",
@@ -124,10 +216,18 @@ STALE_BANNER = ("" if SNAPSHOT_AGE_H < 30 else
 
 def head(title, depth=0):
     p = "../" * depth
-    primary = {"today.html", "index.html", "brief.html", "predictions.html", "lines.html", "source-health.html", "flagged.html"}
-    mainlinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f in primary)
-    morelinks = "".join(f'<a href="{p}{f}">{e(t)}</a>' for f, t in NAV if f not in primary)
-    navlinks = mainlinks + '<details class="nav-more"><summary>Data &amp; method</summary><div>' + morelinks + '</div></details>' 
+    # The Picks shelf is rendered inline and always visible; the two evidence shelves collapse
+    # under one disclosure each so the bar stays a single line on a laptop.
+    shelves = []
+    for i, (label, links) in enumerate(NAV_GROUPS):
+        items = "".join('<a href="{0}{1}"{2}>{3}</a>'.format(p, f, ' class="nav-pick"' if f == "today.html" else "", e(t))
+                        for f, t in links)
+        if i == 0:
+            shelves.append(f'<span class="navgrp navgrp-picks">{items}</span>')
+        else:
+            shelves.append(f'<details class="navgrp navgrp-more navgrp-{i}"><summary>{e(label)}</summary>'
+                           f'<div>{items}</div></details>')
+    navlinks = "".join(shelves)
     return f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -307,6 +407,7 @@ for sport in [x for x in SPORT_ORDER if x in SPORT_META]:
   <a href="../flagged.html">Flagged for Review</a> page.</p>
   <p class="note">{e(meta['note'])}</p>
 </section>
+{sport_picks_block(sport, meta)}
 <div class="cards">
   <div class="card"><span class="k">{len(rows)}</span><span class="l">rows</span></div>
   <div class="card"><span class="k">{len([r for r in rows if r['verification']['status']=='verified'])}</span><span class="l">officially verified</span></div>
@@ -555,21 +656,56 @@ for r in sorted(blocked, key=lambda x: (x["pick"].get("in_band"), x["sport"], x[
 if not band_blocked_rows:
     band_blocked_rows = "<tr><td colspan='7'>None.</td></tr>"
 
+# The landing-page answer to "what are the picks?": one line per live written pick, in start
+# order, each linking straight to its card on the executive summary. No card, no line.
+_strip_items = []
+for _x in PICK_LIVE[:12]:
+    _t = _x["tracks"].get("root") or _x["tracks"].get("olbg") or {}
+    _price = _t.get("price")
+    _strip_items.append(
+        "<a class='strip-item' href='today.html#pick-{k}'>"
+        "<span class='strip-sport'>{sp}</span><span class='strip-match'>{mt}</span>"
+        "<span class='strip-pick'>{sel}</span><span class='strip-price'>{pr}</span>"
+        "<span class='strip-when'>{wh}</span></a>".format(
+            k=e(_x["key"]), sp=e(_x["sport"]), mt=e(_x["match"]),
+            sel=e(_t.get("selection") or ""),
+            pr=(money(_price) + " (" + usd(_price) + " US)") if _price else "no price originated",
+            wh=e((_x.get("start_utc") or "")[:16].replace("T", " ") + "Z" if _x.get("start_utc")
+                 else (_x.get("olbg_label") or "start unverified"))))
+if not _strip_items:
+    _strip_items.append("<p class='dim'>No pick passes every gate at this build. The HIGH rows held back, "
+                        "and the mechanical reason for each, are on <a href='today.html#written-picks'>"
+                        "Today&rsquo;s picks</a>.</p>")
+_shown = len(PICK_LIVE[:12])
+pick_strip_note = (f"{len(PICK_LIVE)} live, every one a written prediction &mdash; in start order"
+                   if len(PICK_LIVE) <= _shown
+                   else f"{len(PICK_LIVE)} live, every one a written prediction &mdash; "
+                        f"the first {_shown} in start order are listed here; all {len(PICK_LIVE)} are on the summary page")
+index_pick_strip = "".join(_strip_items)
+
 index = head("Dashboard") + f"""
 <section class="hero">
   <p class="eyebrow">INDEPENDENT SPORTS RESEARCH · NOT AFFILIATED WITH OLBG</p>
   <h1>Find the match. Check the evidence.</h1>
-  <p class="lede"><strong>Looking for today's picks?</strong> The <a href="today.html">executive summary</a> puts every live
-  high-confidence pick in one table with its match, price, confidence grade, write-up and official source.
+  <p class="lede"><strong>Looking for today's picks?</strong> <a href="today.html">Today's picks, written out</a> is one
+  list, one card per match: the fixture and its official start, who we have picked on each board and at what price,
+  our probability for that pick, the full written prediction, and the source behind every claim. A fixture with no
+  written prediction is not on that list, and its page says why.
   This dashboard is the full board behind it. A source-linked workspace for fixtures, independent model lines and candid verification notes.
   {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
   Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
   <p class="hero-actions"><a class="button" href="today.html">Today's picks — executive summary</a>
-  <a class="button secondary" href="olbg/index.html">OLBG board summary</a>
-  <a class="button secondary" href="olbg/picks.html">All originated lines &amp; markets</a>
-  <a class="button secondary" href="olbg/predictions.html">Read the written predictions</a>
+  <a class="button secondary" href="predictions.html">Read the written predictions</a>
+  <a class="button secondary" href="lines.html">All originated lines &amp; markets</a>
+  <a class="button secondary" href="olbg/picks.html">The second board's lines</a>
   <a class="button secondary" href="#research-board">Explore all captured records ↓</a></p>
   <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
+</section>
+
+<section class="pick-strip" id="picks-strip">
+  <h2>The picks right now <span class="dim small">{pick_strip_note}</span>
+      <a class="strip-more" href="today.html#written-picks">read them in full &rarr;</a></h2>
+  {index_pick_strip}
 </section>
 
 <div class="notice clock-notice">
@@ -735,6 +871,63 @@ olbg_high_rows = "".join(
     f"<td><a href='olbg/predictions.html'>OLBG lines board write-up</a></td></tr>"
     for p in OLBG_HIGH) or "<tr><td colspan='4'>No high-confidence pick on the OLBG lines board.</td></tr>"
 
+# Blocks the merged pick surface needs, computed once so the page and its counts cannot drift.
+today_prose_note = (
+    '<div class="notice"><strong>Prose rule check.</strong> '
+    + str(len([1 for x in PICK_LIVE for _k in x["tracks"] if x["tracks"][_k].get("text")]))
+    + ' published piece(s) on the live list were measured against the brief&rsquo;s two output rules '
+      '(at least 30 words; no internal vocabulary in the reader-facing text). '
+    + (f'{len(PROSE_DEFECTS)} fail: ' + "; ".join(f"{e(a)} {e(b)} ({e(c)})" for a, b, c in PROSE_DEFECTS[:6])
+       + ' — published rather than quietly reworded.' if PROSE_DEFECTS else
+       'None fails: every card you can read below satisfies both, and <code>tools/check_site.py</code> and '
+       '<code>scripts/check_board.py</code> re-check the same rule on every build.')
+    + '</div>')
+
+_disagree = [x for x in PICK_LIVE if len({(t.get("selection") or "").lower() for t in x["tracks"].values()}) > 1]
+today_held_block = (
+    '<details class="research-details"><summary>Held back from the pick list '
+    + str(len(PICK_HELD)) + ' row(s) graded HIGH that we are not publishing as a pick)</summary>'
+    '<p class="legend">These carry a HIGH evidence grade and are not shown as picks: the official start has '
+    'passed, the source observation is over 24 hours old, the price sits outside -250 to +10000, or no written '
+    'prediction exists for the selection. They stay visible so the count cannot be inflated by a bare name.</p>'
+    + (picks_cards(PICK_HELD) or "<p class='dim'>Nothing is being held back at this build.</p>")
+    + '</details>')
+
+# Per-sport scoreboard: what the brief asks for, what this merged list can actually support,
+# and the board's own mechanical reason for every gap (from data/brief_coverage.json).
+_sf_rows = []
+for _s in SPORT_ORDER:
+    _acct = next((x for x in BC["sports"] if x["sport"] == _s), None)
+    _n = len(PICK_BY_SPORT.get(_s) or [])
+    _slug = (SPORT_META.get(_s) or {}).get("slug", "")
+    if _n >= 5:
+        _state = '<span class="pill high">target met</span>'
+    elif _n:
+        _state = f'<span class="pill med">short by {5 - _n}</span>'
+    else:
+        _state = '<span class="pill low">no written pick today</span>'
+    _reason = ((_acct or {}).get("reasons") or [""])[0]
+    _sf_rows.append(f"<tr><td><a href='sports/{_slug}.html'>{e(_s)}</a></td>"
+                    f"<td class='num'>{_n} / 5</td><td>{_state}</td>"
+                    f"<td class='num'>{(_acct or {}).get('root_high', 0)}</td>"
+                    f"<td class='num'>{(_acct or {}).get('olbg_high', 0)}</td>"
+                    f"<td class='small'>{e(_reason) or 'not itemised by the accounting step'}</td></tr>")
+today_shortfall_block = (
+    '<h2 id="per-sport">Five written picks per sport, counted honestly</h2>'
+    '<p class="dim">The brief asks for the five highest-confidence written picks for every covered sport, every day. '
+    'The count below is what this merged list can actually support: the same fixture priced by both boards is one '
+    'entry, a selection without a write-up is not counted, and nothing is promoted to close a gap. The last column '
+    'is the board&rsquo;s own mechanical reason for the shortfall, recomputed by <code>scripts/brief_coverage.py</code> '
+    'and re-checked by <code>scripts/check_board.py</code>.</p>'
+    '<div class="tablewrap"><table class="board"><thead><tr><th>Sport</th><th class="num">Written picks</th>'
+    '<th>Against the five-a-day target</th><th class="num">Main board HIGH</th><th class="num">OLBG board HIGH</th>'
+    '<th>Why it falls short</th></tr></thead><tbody>' + "".join(_sf_rows) + '</tbody></table></div>'
+    + (f'<p class="legend"><strong>Where the two boards disagree on a live fixture:</strong> {len(_disagree)} '
+       'of the entries above carries a different selection on each board. Both are published on the card, and the '
+       'pair sits on <a href="reconcile.html">Cross-track review</a> for a human to judge.</p>' if _disagree else ''))
+
+
+
 today_page = head("Today's picks — executive summary") + f"""
 <section class="hero">
   <p class="eyebrow">EXECUTIVE SUMMARY &middot; {TODAY} &middot; BUILD {CLOCK}</p>
@@ -754,6 +947,14 @@ today_page = head("Today's picks — executive summary") + f"""
   Anything we could not confirm is left blank and published on <a href="flagged.html">Flagged for Review</a>.
 </div>
 
+<h2 id="written-picks">The picks, written out &mdash; both boards, one list</h2>
+<p class="lede">{PICK_SUMMARY} Every entry below is de&#8209;dupicated on the OLBG event id, so a fixture priced by both
+boards appears once, with each board&rsquo;s own price and its own written piece underneath it. A selection with no written
+prediction is not a pick and is listed separately, not promoted.</p>
+{today_prose_note}
+<section class="pick-grid">{picks_sport_sections(PICK_BY_SPORT)}</section>
+{today_held_block}
+{today_shortfall_block}
 <h2 id="live-high">High-confidence picks live now</h2>
 <p class="dim">Sorted by official start time. “Listed” is what OLBG printed; “UTC” is the competition’s own clock, converted only when the source states its zone.</p>
 <div class="tablewrap"><table class="board">

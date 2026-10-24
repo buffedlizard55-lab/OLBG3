@@ -20,6 +20,66 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Later sibling boundary:** PR [#170](https://github.com/buffedlizard55-lab/OLBG3/pull/170) (`session-58ac0957`) now owns a separate written-pick quality/content gate and fresh official-content review. This earlier-claimed task remains capture-to-publication lineage and does not edit or adopt that session's scripts, receipts, factual corrections, or generated files. The two audits are complementary; no current-truth claim is inferred from this task's zero internal errors.
 - **Automation/scope note:** the rebase carried PR #167's already-merged `.harvest/request.json` change into this branch's push diff, which automatically triggered duplicate harvest run [`40118985207`](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40118985207). An attempted cancellation was denied by GitHub (`HTTP 403 Resource not accessible by integration`). This session did not request or edit a harvest and will preserve `main`'s existing capture bytes during reconciliation; any bot-side commit will be disclosed rather than hidden. No fresh capture is used to upgrade the audit's internal-lineage result into current sporting verification.
 - **Harvest reconciliation:** the automation pushed `669ceb0` onto this session branch after the lease-protected push correctly refused to overwrite it. The commit was merged for preservation and its duplicate out-of-scope raw changes were then reverted explicitly as `5604f35`; the final tree therefore keeps `main`'s capture bytes and the PR diff contains no `data/raw/**` path. Merge conflicts were limited to this task's own three earlier-version files (`COORDINATION.md`, audit JSON, audit Markdown); the later local versions were retained. The bot's evidence remains in branch history rather than being silently discarded or presented as a manual capture by this task.
+## `session-3271b876` — **task-3271b876-picks-surface-clarity-and-written-prediction-expansion** (CLAIMED 2026-10-24T17:58Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-3271b876-picks-surface-clarity-and-written-prediction-expansion` | in progress | `session-3271b876` on Arena-fixed `arena/3271b876-olbg3` | `COORDINATION.md`; `.harvest/request.json` (this session's capture request only); `data/raw/live-20261024T1758Z-3271b876/**` and `data/raw/olbg-harvest-20261024T1758Z-3271b876.tsv` (runner-written, new paths only); `scripts/build_site.py` (**root landing + nav + the new `picks.html` surface only** — no change to any other page's content); `assets/style.css` (new rules appended); `tools/build_site.py` (the `/olbg/` executive-summary block and its nav labels only); `data/predictions-olbg.json` (append/repair of this session's pieces), `data/verifications.json` (append: only events whose official page this session read), `data/release_checks.json` (only the events this session re-read), `data/flagged.json` (**append-only**), `tools/originate.py` (`EDITORIAL_STRENGTH` append-only entries for the fixtures this session verified), `docs/audit-3271b876.md` (new), `tests/test_audit_3271b876.py` (new), and regenerated site outputs. **Not touched:** `scripts/model.py`, `scripts/check_board.py`, `scripts/build.py`, `tools/build_dataset.py`, `.github/workflows/**`, and every sibling's audit doc, test module and register item. |
+
+- **Pre-claim checks (2026-10-24T17:5xZ):** `git fetch origin` → `origin/main` = `f74b95c`, working tree clean and equal to it. `gh pr list --state open` → **#167** (`session-a30d9bdb`, 2026-10-24 daily refresh: new capture, `brief.html` accounting, 17 distinct live HIGH, stale-pin repairs) and stale **#137** (left alone; closing another session's PR is the user's decision). `gh run list` → `session-68d57005`'s board/CI task already landed as **#168 (MERGED 17:33Z)**; `session-09ecce40` was pushing an instrumented CI run at 17:44Z on `arena/09ecce40-olbg3` with no PR yet.
+- **Overlap adjudication.** `session-1c6981d1`'s row for `task-1c6981d1-exec-summary-and-daily-refresh` (claimed 17:10Z, landing + exec-summary on the root track) has **no pull request and no commits on `arena/1c6981d1-olbg3` since the claim** (branch tip `9498e95`, not ahead of `main` on the root build), so it is taken over here under the >60-minute rule and recorded as such rather than silently duplicated. `session-a30d9bdb`'s open **#167 is a *data* pass** (capture, board data, `brief.html` accounting) and does **not** edit `scripts/build_site.py`, `assets/style.css` or `tools/build_site.py`, which is where this session's presentation work lives; the shared files are the data files, resolved by rebasing onto `main` after #167 merges and regenerating every page from the merged inputs, so no sibling row, flag or register item is discarded. `.harvest/request.json` is a single shared pointer: at rebase the newer request (whichever session pushed last) is kept and this is recorded, because the file is only a trigger, not evidence.
+- **Why this task exists (user-reported):** the published site does not answer *"what are the picks and where are they?"*. The root landing page opens with a research caveat and buries the pick table below six statistics and a coverage grid; navigation is 16 flat links across two tracks (`Dashboard, Brief coverage, Predictions, Originated lines, Source health, Flagged for Review, Data & method, Cross-track review, Verification, Current discovery, Audit, Method & Scope, Official feed, Feed matches, Feed coverage, Feed review, OLBG picks dashboard`); and a bare winner selection with no written analysis is presented in the same table style as a sourced write-up. The brief the user re-stated is explicit: only **fully written unique predictions** count, five per covered sport per day, inside **-250 to +10000**.
+- **Plan (no manual input, single session, start to finish):** (1) same-day 18-endpoint capture request; (2) rebuild the root landing page as an executive summary whose first block is *what to pick* — sport, match, official UTC start, selection + market, our price in decimal and US, confidence, and the **written prediction inline** — for the union of both tracks de-duplicated on the OLBG event id, with an explicit `no written analysis — not published as a pick` state so a bare name can never read as a pick; (3) one obvious destination for the full set (`picks.html`, grouped by sport, target count per sport, every row carrying its source links) wired into the nav, which is regrouped into *Picks / Coverage / Evidence / Review*; (4) verify upcoming fixtures line by line against the official competition pages read in this session and write new HIGH predictions where that evidence exists, leaving blanks + register entries where it does not; (5) run every gate, rebuild twice for byte-stability, PR to `main`, merge without waiting, confirm Pages, record it all here.
+- **Hard boundary:** nothing is invented. A published clock, score, ranking, injury or form line must come from a page this session actually retrieved, quoted with its URL and the retrieval minute; `checked_at` is renewed **only** for events re-read in this pass. Anything else stays blank and is published on Flagged for Review.
+
+- **COMPLETED 2026-10-24T18:3xZ — merged as a pull request into `main`.** Landed: `scripts/pick_surface.py`
+  (new) — the two boards merged on the OLBG event id into **one card per fixture, written predictions only**; a
+  fixture with a selection but no ≥30-word piece is demoted and its mechanical reason printed, so "nothing
+  written" and "nothing picked" are never confused. Rendered on `today.html` (now led by "The picks, written
+  out"), as a start-ordered strip on `index.html` with the count stated, and as a `n / 5` block at the top of all
+  15 `sports/*.html` pages. Nav regrouped from 16 flat links into Picks / Board / Evidence / Review shelves
+  (`NAV` is derived from `NAV_GROUPS`, so `scripts/check_links.py` and the existing nav pins are untouched).
+  `/olbg/` track: nav entry "Today's picks, written out", a **Where the picks are** paragraph on `olbg/picks.html`,
+  and an `id` per written piece on `olbg/predictions.html` so summary cards deep-link to the exact twin
+  (`local_links_checked` 2818 → 2862, `broken=0`). Dead `../olbg/sports/<slug>.html` links on the four sports the
+  second board does not list are repointed at `../olbg/picks.html`. Content: `BSB-160792` rewritten (147 words) to
+  carry the verified Game 1 result, series state and announced probables from the MLB Stats API read at 18:05Z,
+  with a `correction_note`; register items **FL-209** (both boards live HIGH on `RGU-609581` from opposite sides —
+  reported, not arbitrated), **FL-210** (darts/snooker/tennis/cricket five-a-day capped by official-clock
+  availability; `CRI-188838` unpriceable because `ICC_WhiteBall_2026_ratings` has no `Pakistan` key) and
+  **FL-211** (independent re-test of the 2026-10-24 harvest promotion: HIGH 11 → 8 and `VOL-37002` prose/price
+  drift — promotion **dropped**, not retried). Gates at clock `2026-10-24T18:20:00Z`: `rows=367 fixtures=319
+  verified=278 priced=318 predictions=93`, `scripts/check_board.py` PASS, `tools/check_site.py` "All checks
+  passed", `python -m unittest discover -s tests` → **Ran 333 OK (skipped=26)** including the new
+  `tests/test_audit_3271b876.py` (16 tests: published card count recomputes, every live entry carries prose that
+  passes the banned-reason rules, a bare selection is not a pick, every sport page states its count, nav groups
+  cover exactly the published page set, pages regenerate byte-identically, every cross-page `#anchor` resolves).
+  Audit: `docs/audit-3271b876.md`. No `scripts/model.py`, `scripts/build.py`, `tools/build_dataset.py`,
+  `scripts/check_board.py` or workflow change was needed, and no sibling row, flag or register item was edited.
+- **Follow-up after the merges of #170 and #171 (18:2xZ):** rebased over `main`'s board-refresh commit and re-ran
+  the whole CI order — **Ran 375 OK (skipped=26)**, `tools/check_site.py` all passed, `check_links`
+  `pages=110 local_links_checked=2862 broken=0`. `session-58ac0957`'s new `scripts/check_prediction_quality.py`
+  warned on one cross-track copy: root `BKB-22` and `/olbg/` `BKB-535928` carried the same 73-word paragraph.
+  It is recorded as **FL-212** (medium) and repaired here — the `/olbg/` piece was rewritten to 119 words from the
+  two sources already pinned to it, with that track's own price (1.45 / -222) and the archive caveat, and a new
+  test (`test_no_two_writeups_share_prose_across_the_tracks`) asserts the rule across tracks so the within-track
+  blind spot cannot recur; the gate now reports `errors=0 warnings=0`. The second runner capture (`8bbfa37`,
+  18:21Z) was again merged for preservation and reverted out of the tree, so the PR diff carries no
+  `data/raw/**` path.
+- **Harvest reconciliation (same convention as `session-4e26d590`):** the live-capture automation pushed
+  `66ee004` (74 `data/raw/**` files from the 17:58Z request this session filed) onto this session's branch, and
+  the lease-protected push correctly refused to overwrite it. The commit was merged for preservation
+  (`3f0321b`) and its out-of-scope raw changes were then reverted explicitly (`8145467`), so the final tree keeps
+  `main`'s capture bytes and the PR diff contains no `data/raw/**` path. The bot's evidence stays in branch
+  history; it is not presented as a manual capture and not promoted into the board (FL-211 records why promotion
+  was dropped: HIGH 11 → 8 and one pinned `/olbg/` price drifted). Conflicts were limited to `COORDINATION.md`
+  and `.harvest/request.json`, both resolved by keeping the later `main` versions so no sibling text was lost.
+- **Final gate run (clock `2026-10-24T18:40:00Z`, after the rebase onto `main` `542afc2`):** the whole CI order
+  re-run from the merged tree — `rows=367 fixtures=319 verified=278 priced=318 predictions=93`, `check_board.py`
+  PASS, `tools/check_site.py` "All checks passed", `check.py` PASS, `check_links.py`
+  `pages=110 local_links_checked=2862 broken=0`, and `python -m unittest discover -s tests` → **Ran 353 OK
+  (skipped=26)**, which includes `session-4e26d590`'s 20 new provenance tests. Surface after the rebuild: 17
+  written-pick cards, 49 `/olbg/` piece anchors, the landing strip and the `n / 5` block on all 15 sport pages.
 ## `session-58ac0957` — **task-58ac0957-written-pick-quality-gate** (CLAIMED 2026-10-24T18:00Z)
 
 | Task | Status | Owner | File scope |
