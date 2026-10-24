@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">203 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">204 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1445,6 +1445,13 @@
   <p>FL-208 records that promotion was tested and rejected because cricket event 188845 resolves to a different market and volleyball card 37002 restated its tip split. This session ran the same promotion independently at 18:08Z and measured a further consequence: with the 2026-10-24T1707Z capture as primary and the 2026-10-23 captures carried forward, matches.json grows from 223 rows to 371 and the OLBG board&#x27;s HIGH count falls from 11 to 8 - three published write-ups lose their HIGH grade because the newer card carries a different tip split, and tools/check_site.py then fails on the price quoted inside the surviving prose. The row count also doubles the archived fixtures shown on the board, because a carry-forward keeps every event the newer capture did not re-list. The promotion is therefore a genuine re-pricing, not a refresh, and it must land with the prose repairs in the same change.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261024T1707Z-a30d9bdb" rel="noopener nofollow" target="_blank">Same-day capture (203 rows) committed by session-a30d9bdb</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">OLBG lines board as published from the pinned 2026-10-23 capture</a></li></ul>
+</article>
+<article class="card flag" id="FL-212">
+  <div class="flag-head"><span class="tag">FL-212</span> <span class="sev sev-medium">medium</span></div>
+  <h2>The two boards published byte-identical prose for one fixture (Zalgiris v ASVEL); the /olbg/ piece was rewritten</h2>
+  <p>Root piece BKB-22 and /olbg/ piece BKB-535928 are the same EuroLeague round-7 fixture, and both carried the same 73-word paragraph word for word. The within-track duplicate rule in scripts/check_board.py cannot see it, because it only compares pieces inside one track; session-58ac0957&#x27;s new scripts/check_prediction_quality.py reported it as a cross-track warning (4-word shingle Jaccard 1.000) rather than an error, since neither piece is HIGH. The brief asks for unique written predictions, and a reader who follows a card link from the summary into /olbg/ and back would find the same sentences twice, so the /olbg/ piece was rewritten (119 words) around the same two official sources - the EuroLeague round-7 game-centre preview and the official standings - stating the price that piece accompanies (1.45 / -222, which differs from the root board&#x27;s 1.48 because each track prices independently), and adding that the recorded start of 23 October has passed so the write-up is an archive of the pre-tip-off call, with the result not inferred. No fact was added or removed: the selections, the 0-2 home record, the 2-4 records, the 572 and 517 points conceded and Patty Mills all come from the sources already pinned to both pieces.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/" rel="noopener nofollow" target="_blank">EuroLeague official round-7 preview (the source both pieces cite)</a></li><li><a href="https://www.euroleaguebasketball.net/en/euroleague/standings/" rel="noopener nofollow" target="_blank">EuroLeague official standings</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/olbg/predictions.html#BKB-535928" rel="noopener nofollow" target="_blank">The rewritten /olbg/ piece</a></li></ul>
 </article>
 
 </main>

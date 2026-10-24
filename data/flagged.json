@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T18:12:00Z",
+  "generated_at": "2026-10-24T18:26:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4512,6 +4512,33 @@
       "original_id": "FL-211",
       "raised_by": "session-3271b876",
       "raised_at": "2026-10-24T18:12:00Z"
+    },
+    {
+      "id": "FL-212",
+      "severity": "medium",
+      "title": "The two boards published byte-identical prose for one fixture (Zalgiris v ASVEL); the /olbg/ piece was rewritten",
+      "detail": "Root piece BKB-22 and /olbg/ piece BKB-535928 are the same EuroLeague round-7 fixture, and both carried the same 73-word paragraph word for word. The within-track duplicate rule in scripts/check_board.py cannot see it, because it only compares pieces inside one track; session-58ac0957's new scripts/check_prediction_quality.py reported it as a cross-track warning (4-word shingle Jaccard 1.000) rather than an error, since neither piece is HIGH. The brief asks for unique written predictions, and a reader who follows a card link from the summary into /olbg/ and back would find the same sentences twice, so the /olbg/ piece was rewritten (119 words) around the same two official sources - the EuroLeague round-7 game-centre preview and the official standings - stating the price that piece accompanies (1.45 / -222, which differs from the root board's 1.48 because each track prices independently), and adding that the recorded start of 23 October has passed so the write-up is an archive of the pre-tip-off call, with the result not inferred. No fact was added or removed: the selections, the 0-2 home record, the 2-4 records, the 572 and 517 points conceded and Patty Mills all come from the sources already pinned to both pieces.",
+      "affected": [
+        "BKB-22",
+        "BKB-535928"
+      ],
+      "sources": [
+        {
+          "label": "EuroLeague official round-7 preview (the source both pieces cite)",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/news/game-center-round-7-el2627/"
+        },
+        {
+          "label": "EuroLeague official standings",
+          "url": "https://www.euroleaguebasketball.net/en/euroleague/standings/"
+        },
+        {
+          "label": "The rewritten /olbg/ piece",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/olbg/predictions.html#BKB-535928"
+        }
+      ],
+      "status": "fixed in this pass",
+      "raised_by": "session-3271b876",
+      "raised_at": "2026-10-24T18:26:00Z"
     }
   ]
 }

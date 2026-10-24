@@ -148,13 +148,36 @@ class PickSurfaceTest(unittest.TestCase):
 class FlagRegisterTest(unittest.TestCase):
     """The three irregularities found in this pass must be on the published review page."""
 
+    def test_no_two_writeups_share_prose_across_the_tracks(self):
+        """The within-track duplicate rule cannot see the same paragraph published on both boards,
+        which is what a reader who follows a card link would find. FL-212 was raised for exactly
+        this on BKB-22 / BKB-535928, so the rule is asserted here across tracks too."""
+        root = {p["ref"]: p.get("body") or p.get("text") or ""
+                for p in json.loads((ROOT / "data/predictions.json").read_text())["predictions"]}
+        olbg = {p["match_id"]: p.get("text") or p.get("body") or ""
+                for p in json.loads((ROOT / "data/predictions-olbg.json").read_text())["predictions"]}
+        def shingles(text):
+            words = text.lower().replace("\u2019", "'").split()
+            return {tuple(words[i:i + 8]) for i in range(max(0, len(words) - 7))}
+        seen = {}
+        for ref, text in list(root.items()) + list(olbg.items()):
+            if len(text.split()) < 30:
+                continue
+            key = frozenset(shingles(text))
+            if not key:
+                continue
+            for other in seen.get(key, []):
+                self.fail(f"{other} and {ref} carry identical prose across the two boards")
+            seen.setdefault(key, []).append(ref)
+
     def test_the_pass_s_findings_are_published(self):
         items = {i["id"]: i for i in json.loads((ROOT / "data/flagged.json").read_text())["items"]}
-        for ref, severity in (("FL-209", "high"), ("FL-210", "medium"), ("FL-211", "low")):
+        for ref, severity in (("FL-209", "high"), ("FL-210", "medium"), ("FL-211", "low"),
+                              ("FL-212", "medium")):
             self.assertIn(ref, items, f"{ref} is missing from the register")
             self.assertEqual(items[ref]["severity"], severity)
         page = (ROOT / "flagged.html").read_text()
-        for ref in ("FL-209", "FL-210", "FL-211"):
+        for ref in ("FL-209", "FL-210", "FL-211", "FL-212"):
             self.assertIn(ref, page, f"{ref} is in the register but not on the review page")
 
 
