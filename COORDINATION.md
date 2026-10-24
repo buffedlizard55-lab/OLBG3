@@ -58,6 +58,20 @@ This document serves as the shared task board coordinating parallel sessions and
   cover exactly the published page set, pages regenerate byte-identically, every cross-page `#anchor` resolves).
   Audit: `docs/audit-3271b876.md`. No `scripts/model.py`, `scripts/build.py`, `tools/build_dataset.py`,
   `scripts/check_board.py` or workflow change was needed, and no sibling row, flag or register item was edited.
+- **Harvest reconciliation (same convention as `session-4e26d590`):** the live-capture automation pushed
+  `66ee004` (74 `data/raw/**` files from the 17:58Z request this session filed) onto this session's branch, and
+  the lease-protected push correctly refused to overwrite it. The commit was merged for preservation
+  (`3f0321b`) and its out-of-scope raw changes were then reverted explicitly (`8145467`), so the final tree keeps
+  `main`'s capture bytes and the PR diff contains no `data/raw/**` path. The bot's evidence stays in branch
+  history; it is not presented as a manual capture and not promoted into the board (FL-211 records why promotion
+  was dropped: HIGH 11 → 8 and one pinned `/olbg/` price drifted). Conflicts were limited to `COORDINATION.md`
+  and `.harvest/request.json`, both resolved by keeping the later `main` versions so no sibling text was lost.
+- **Final gate run (clock `2026-10-24T18:40:00Z`, after the rebase onto `main` `542afc2`):** the whole CI order
+  re-run from the merged tree — `rows=367 fixtures=319 verified=278 priced=318 predictions=93`, `check_board.py`
+  PASS, `tools/check_site.py` "All checks passed", `check.py` PASS, `check_links.py`
+  `pages=110 local_links_checked=2862 broken=0`, and `python -m unittest discover -s tests` → **Ran 353 OK
+  (skipped=26)**, which includes `session-4e26d590`'s 20 new provenance tests. Surface after the rebuild: 17
+  written-pick cards, 49 `/olbg/` piece anchors, the landing strip and the `n / 5` block on all 15 sport pages.
 
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
