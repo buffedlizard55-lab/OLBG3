@@ -1,6 +1,6 @@
 # Capture-to-publication provenance audit
 
-Publication clock audited: **2026-10-24T17:59:00Z**. This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.
+Publication clock audited: **2026-10-24T18:10:00Z**. This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.
 
 **Result: REVIEW — 0 errors, 14 warnings, 46 informational observations.**
 
