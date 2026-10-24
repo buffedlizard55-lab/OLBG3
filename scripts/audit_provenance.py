@@ -496,13 +496,18 @@ def decimal_to_american(price: float) -> str:
 def observation_view(row: dict) -> dict:
     return {
         "capture": row["source_file"], "line": row["source_line"], "role": row["source_role"],
-        "fetched_at": row["fetched_at"], "sport": row["sport"], "market": row["market"] or None,
-        "selection": row["consensus"] or None, "tips": row["tips"] or None,
+        "fetched_at": row["fetched_at"], "source_day": row["source_day"] or None,
+        "sport": row["sport"], "league_label": row["league_label"] or None,
+        "path_prefix": row["prefix"] or None, "slug": row["slug"] or None,
+        "market": row["market"] or None, "selection": row["consensus"] or None,
+        "tips": row["tips"] or None, "note": row["note"] or None,
+        "carry_note": row["carry_note"] or None,
         "tip_share_pct": int(row["tip_share"]) if row["tip_share"].isdigit() else None,
         "start_utc": row["start_utc"] or None, "date_label": row["date_label"] or None,
         "time_label": row["time_label"] or None, "event_title": row["event_title"] or None,
         "odds_decimal": numeric_or_none(row["odds_decimal"]),
         "odds_american": row["odds_american"] or None,
+        "odds_fractional": row["odds_fractional"] or None,
         "event_url": row["event_url"], "listing_url": row["listing_url"] or None,
     }
 
@@ -518,14 +523,18 @@ def conflict_issues(observations: dict[str, list[dict]]) -> list[dict]:
             ("event_url", "capture_url_conflict", "warning", "event URL"),
             ("sport", "capture_sport_conflict", "error", "sport"),
             ("market", "capture_market_changed", "info", "headline market"),
+            ("odds_decimal", "capture_price_changed", "info", "displayed decimal price"),
         ):
-            values = {row[field] for row in rows if row.get(field)}
+            def value(row):
+                return numeric_or_none(row[field]) if field == "odds_decimal" else row[field]
+
+            values = {value(row) for row in rows if row.get(field)}
             if len(values) > 1:
                 issues.append(make_issue(
                     severity, code,
                     f"Event {event_id} has {len(values)} different {label} values across committed captures",
                     event_id=event_id, field=field,
-                    observations=[source_reference(row) | {"value": row[field]} for row in rows if row.get(field)],
+                    observations=[source_reference(row) | {"value": value(row)} for row in rows if row.get(field)],
                 ))
     return issues
 
@@ -874,6 +883,20 @@ def build_report(root: Path = ROOT) -> dict:
                 ))
         probability = line.get("our_pick_probability")
         price = line.get("our_price_pick")
+        if line.get("our_match_probability") != probability:
+            issues.append(make_issue(
+                "error", "line_match_probability_mismatch",
+                f"{match_id} our_match_probability differs from our_pick_probability",
+                expected=probability, actual=line.get("our_match_probability"), **base,
+            ))
+        tips_won, tips_total = match.get("olbg_tips_won"), match.get("olbg_tips_total")
+        expected_raw = round(tips_won / tips_total, 4) if tips_won is not None and tips_total else None
+        if inputs.get("p_raw") != expected_raw:
+            issues.append(make_issue(
+                "error", "line_raw_probability_mismatch",
+                f"{match_id} inputs.p_raw does not recompute from the captured tip count",
+                expected=expected_raw, actual=inputs.get("p_raw"), **base,
+            ))
         if probability is not None and not 0 < probability < 1:
             issues.append(make_issue(
                 "error", "line_probability_invalid", f"{match_id} pick probability is outside (0,1)",
@@ -906,6 +929,17 @@ def build_report(root: Path = ROOT) -> dict:
                 issues.append(make_issue("error", "line_priced_without_pick", f"{match_id} has a price but no selection", **base))
         elif line.get("our_us_odds_pick") is not None or line.get("our_fair_odds") is not None:
             issues.append(make_issue("error", "line_unpriced_with_odds", f"{match_id} is unpriced but carries odds", **base))
+        is_outright = match.get("market_family") == "outright" or match.get("sport") == "Greyhounds"
+        expected_other = (
+            round(0.95 / (1 - probability), 2)
+            if probability is not None and 0 < probability < 1 and not is_outright else None
+        )
+        if line.get("our_price_other") != expected_other:
+            issues.append(make_issue(
+                "error", "line_other_price_mismatch",
+                f"{match_id} opposing price does not recompute from the complementary probability",
+                expected=expected_other, actual=line.get("our_price_other"), **base,
+            ))
         if line.get("confidence") not in ("high", "medium", "low"):
             issues.append(make_issue(
                 "error", "line_confidence_invalid", f"{match_id} has invalid confidence {line.get('confidence')!r}", **base,
@@ -970,6 +1004,8 @@ def build_report(root: Path = ROOT) -> dict:
                 "warning", "cross_track_prediction_duplicate",
                 f"{prediction['match_id']} duplicates root prediction {root_body_map[body]} word for word",
                 match_id=prediction["match_id"], duplicate_of=root_body_map[body],
+                event_url=(line_by_id.get(prediction["match_id"]) or {}).get("olbg_url"),
+                sources=prediction.get("sources") or [],
             ))
 
     lineage = []
@@ -1002,7 +1038,7 @@ def build_report(root: Path = ROOT) -> dict:
         "errors": severity_counts["error"], "warnings": severity_counts["warning"],
         "informational": severity_counts["info"],
         "capture_observations": len(observations), "distinct_capture_events": len(selected),
-        "superseded_observations": len(observations) - len(selected),
+        "unselected_observations": len(observations) - len(selected),
         "published_matches": len(matches), "published_lines": len(lines),
         "selected_events_by_capture": dict(sorted(selected_counts.items())),
         "withdrawn_selected_events": sum(1 for match_id in expected_by_id if match_id in retired),
@@ -1027,23 +1063,219 @@ def build_report(root: Path = ROOT) -> dict:
     }
 
 
+def markdown_text(value) -> str:
+    return normalise_space(value).replace("|", "\\|")
+
+
+def markdown_link(label: str, url: str | None) -> str:
+    return f"[{markdown_text(label)}]({url})" if url else markdown_text(label)
+
+
+def render_markdown(report: dict) -> str:
+    """Render a concise human review index; the JSON remains the complete evidence record."""
+    summary = report["summary"]
+    issues = report["issues"]
+    lines = [
+        "# Capture-to-publication provenance audit",
+        "",
+        f"Publication clock audited: **{markdown_text(report.get('publication_as_of') or 'not stated')}**. "
+        "This is a deterministic reread of committed files, not a fresh capture or a certification of current sporting facts.",
+        "",
+        f"**Result: {summary['status'].upper()} — {summary['errors']} errors, "
+        f"{summary['warnings']} warnings, {summary['informational']} informational observations.**",
+        "",
+        "A clean lineage result means the published data can be reproduced from the declared inputs. "
+        "It does not prove that an old listing is still available, that a start time is officially confirmed, "
+        "or that a selection is advisable. Blank source values remain blank; conflicting observations remain visible.",
+        "",
+        "## Coverage",
+        "",
+        "| Measure | Count |",
+        "|---|---:|",
+        f"| Raw capture observations | {summary['capture_observations']} |",
+        f"| Distinct captured events | {summary['distinct_capture_events']} |",
+        f"| Observations not selected by first-capture-wins | {summary['unselected_observations']} |",
+        f"| Published match rows accounted for | {summary['published_matches']} |",
+        f"| Published originated-line rows accounted for | {summary['published_lines']} |",
+        f"| Root written predictions / HIGH rows | {summary['root_prediction_rows']['predictions']} / {summary['root_prediction_rows']['high_rows']} |",
+        f"| OLBG-board written predictions / HIGH rows | {summary['olbg_prediction_rows']['predictions']} / {summary['olbg_prediction_rows']['high_rows']} |",
+        f"| Verification source-register entries | {summary['source_register_entries']} |",
+        "",
+        "## Method and precedence",
+        "",
+        "1. Read the primary, carried, and supplementary captures declared by `data/meta.json`, including both v2 and v3 layouts.",
+        "2. Keep every observation with its raw path, line number, fetch time, listing URL, event URL, and all captured v3 fields.",
+        "3. Replay the builder's first-capture-wins rule, then apply event verification fields, explicit live overrides, and withdrawals.",
+        "4. Compare the reconstructed row with `matches.json`; compare every originated line with its match and recompute its price arithmetic.",
+        "5. Check both prediction tracks for row/status agreement, explicit HIGH selections, source metadata, prohibited terms, release-evidence linkage, and repeated prose.",
+        "6. Hash every input so another reviewer can tell whether a difference comes from the auditor or from changed data.",
+        "",
+        "The auditor performs no network requests. Official-host classification comes from the committed source register; "
+        "it is not a fresh content check. Later capture values are not automatically superior, and a difference from OLBG consensus is not an error: "
+        "editorial priors, fades, outright analysis, non-winner markets, and explicit overrides are legitimate parts of the publication chain.",
+        "",
+        "### Selected rows by capture",
+        "",
+        "| Capture | Selected events |",
+        "|---|---:|",
+    ]
+    for capture in report["source_precedence"]:
+        lines.append(f"| {markdown_link(capture, '../data/' + capture)} | {summary['selected_events_by_capture'].get(capture, 0)} |")
+
+    clock = [issue for issue in issues if issue["code"] == "capture_start_conflict"]
+    release = [issue for issue in issues if issue["code"] == "release_source_not_listed_in_prediction"]
+    schema = [issue for issue in issues if issue["code"] == "schema_probability_semantics_conflict"]
+    duplicates = [issue for issue in issues if issue["code"] == "cross_track_prediction_duplicate"]
+    handled = {"capture_start_conflict", "release_source_not_listed_in_prediction",
+               "schema_probability_semantics_conflict", "cross_track_prediction_duplicate"}
+
+    lines.extend(["", "## Warnings for manual review", ""])
+    if clock:
+        lines.extend([
+            "### Conflicting source clocks",
+            "",
+            "Both observations are retained. The selected publication value follows the declared first-capture-wins rule; "
+            "the conflict is not silently resolved and no official start is inferred.",
+            "",
+        ])
+        for issue in clock:
+            lines.append(f"#### {markdown_link(issue['event_id'], issue['observations'][0].get('event_url'))}")
+            lines.append("")
+            for observation in issue["observations"]:
+                raw = f"{observation['capture']}#L{observation['line']}"
+                lines.append(
+                    f"- **{markdown_text(observation.get('value') or 'blank')}** — "
+                    f"{markdown_link(raw, '../data/' + raw)}, fetched {markdown_text(observation.get('fetched_at') or 'not stated')}; "
+                    f"{markdown_link('OLBG event', observation.get('event_url'))}."
+                )
+            lines.append("")
+        if {issue.get("event_id") for issue in clock} & {"32383", "32384", "32385", "32386"}:
+            lines.extend([
+                "Manual review lead for the European Championship rows: the "
+                "[official PDC schedule announcement](https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/) "
+                "was attempted, but the retrieved content contained cookie/privacy boilerplate rather than usable schedule evidence. "
+                "It therefore does not resolve these clocks.",
+                "",
+            ])
+    if release:
+        lines.extend([
+            "### HIGH release evidence absent from prediction source lists",
+            "",
+            "These rows have an official release-evidence URL on the board, but that exact URL is not repeated in the written prediction's source list. "
+            "This is a transparency follow-up, not proof that the analysis is wrong. No citation has been invented or silently added.",
+            "",
+            "| Track | Match | Official release evidence | Listing |",
+            "|---|---|---|---|",
+        ])
+        for issue in release:
+            lines.append(
+                f"| {markdown_text(issue.get('track'))} | {markdown_text(issue.get('match_id'))} | "
+                f"{markdown_link('source', issue.get('release_source'))} | {markdown_link('OLBG event', issue.get('event_url'))} |"
+            )
+        lines.append("")
+    for issue in schema:
+        lines.extend([
+            "### Probability-field semantics",
+            "",
+            markdown_text(issue["message"]).rstrip(".") + f". The report identifies **{len(issue.get('affected_rows', []))} affected rows**. "
+            "The schema owner must choose and document the intended meaning; this audit does not rewrite either the schema or generated lines.",
+            "",
+            f"Review {markdown_link('data/schema.md', '../data/schema.md#linesjson-fields')} and "
+            f"{markdown_link('data/lines.json', '../data/lines.json')}.",
+            "",
+        ])
+    if duplicates:
+        lines.extend([
+            "### Repeated prose across dashboard tracks",
+            "",
+            "The same fixture can legitimately appear on both tracks, but word-for-word reuse still needs an editorial decision under the uniqueness requirement.",
+            "",
+            "| OLBG-board row | Root row | Official sources on the written piece | Listing |",
+            "|---|---|---|---|",
+        ])
+        for issue in duplicates:
+            source_links = "; ".join(
+                markdown_link(source.get("label") or "source", source.get("url"))
+                for source in issue.get("sources", [])
+            ) or "not stated"
+            lines.append(
+                f"| {markdown_text(issue.get('match_id'))} | {markdown_text(issue.get('duplicate_of'))} | "
+                f"{source_links} | {markdown_link('OLBG event', issue.get('event_url'))} |"
+            )
+        lines.append("")
+    other_warnings = [
+        issue for issue in issues
+        if issue["severity"] == "warning" and issue["code"] not in handled
+    ]
+    if other_warnings:
+        lines.extend(["### Other warnings", "", "| Code | Finding |", "|---|---|"])
+        for issue in other_warnings:
+            lines.append(f"| `{markdown_text(issue['code'])}` | {markdown_text(issue['message'])} |")
+        lines.append("")
+    if not any(issue["severity"] == "warning" for issue in issues):
+        lines.extend(["No warnings in this snapshot.", ""])
+
+    info_counts = Counter(issue["code"] for issue in issues if issue["severity"] == "info")
+    lines.extend([
+        "## Informational differences",
+        "",
+        "These differences are retained for review but are not publication errors by themselves. "
+        "In particular, the builder does not overwrite an existing event when a later supplement changes its market or displayed price.",
+        "",
+        "| Code | Count | Meaning |",
+        "|---|---:|---|",
+    ])
+    descriptions = {
+        "capture_market_changed": "Nonempty headline-market labels differ across captures.",
+        "capture_price_changed": "Displayed decimal prices differ across captures; no independent bookmaker price is inferred.",
+        "prediction_near_duplicate_review": "Normalized word-trigram similarity merits a human prose review; it is not proof of duplication.",
+    }
+    for code, count in sorted(info_counts.items()):
+        lines.append(f"| `{markdown_text(code)}` | {count} | {markdown_text(descriptions.get(code, 'See the machine-readable issue record.'))} |")
+    if not info_counts:
+        lines.append("| None | 0 | No informational differences in this snapshot. |")
+
+    lines.extend([
+        "",
+        "## Review boundary and reproduction",
+        "",
+        "- No capture, fixture, verification, override, line, prediction, flag, or generated HTML file is modified by this audit.",
+        "- The complete per-event observation chain and every issue's raw references are in "
+        f"{markdown_link('data/provenance_audit.json', '../data/provenance_audit.json')}.",
+        "- Quota coverage, current OLBG availability, and live deployment are separate release checks; this report does not certify them.",
+        "",
+        "Reproduce with:",
+        "",
+        "```bash",
+        "python3 scripts/audit_provenance.py",
+        "python3 -m unittest tests.test_audit_4e26d590",
+        "```",
+        "",
+    ])
+    return "\n".join(lines)
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT, help="repository root (default: this checkout)")
     parser.add_argument("--output", type=Path, default=None, help="report path (default: <root>/data/provenance_audit.json)")
-    parser.add_argument("--no-write", action="store_true", help="run checks without writing the JSON report")
+    parser.add_argument("--markdown", type=Path, default=None, help="review index (default: <root>/docs/audit-4e26d590.md)")
+    parser.add_argument("--no-write", action="store_true", help="run checks without writing either report")
     args = parser.parse_args(argv)
     root = args.root.resolve()
     report = build_report(root)
     output = args.output or root / "data" / "provenance_audit.json"
+    markdown = args.markdown or root / "docs" / "audit-4e26d590.md"
     if not args.no_write:
         output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        markdown.write_text(render_markdown(report), encoding="utf-8")
     print(json.dumps(report["summary"], indent=2))
     for issue in report["issues"]:
         if issue["severity"] == "error":
             print(f"ERROR {issue['code']}: {issue['message']}")
     if not args.no_write:
         print(f"Report: {output}")
+        print(f"Review index: {markdown}")
     return 1 if report["summary"]["errors"] else 0
 
 
