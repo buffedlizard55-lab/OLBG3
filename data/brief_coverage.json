@@ -34,12 +34,12 @@
   "sports_with_rows": 15,
   "sports_meeting_target": 0,
   "live_high_root": 5,
-  "live_high_olbg": 16,
-  "live_high_union": 16,
+  "live_high_olbg": 18,
+  "live_high_union": 18,
   "root_rows": 359,
   "olbg_rows": 197,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 59
+  "shortfall_to_target": 57
  },
  "sports": [
   {
@@ -551,10 +551,10 @@
    "olbg_priced_win": 20,
    "olbg_handicap": 20,
    "olbg_total": 20,
-   "olbg_high": 2,
-   "live_high_union": 2,
+   "olbg_high": 4,
+   "live_high_union": 4,
    "target": 5,
-   "shortfall": 3,
+   "shortfall": 1,
    "meets_target": false,
    "blocking": {
     "no_official_form": 28,
@@ -594,6 +594,30 @@
      "selection": "MT Melsungen",
      "price": 1.54,
      "american": "-185"
+    },
+    {
+     "event_id": "12132",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12132",
+     "selection": "KS Kielce",
+     "price": 1.68,
+     "american": "-147"
+    },
+    {
+     "event_id": "12136",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12136",
+     "selection": "SC Magdeburg",
+     "price": 1.68,
+     "american": "-147"
     }
    ]
   },
@@ -784,13 +808,13 @@
    "withheld_bodies": 0
   },
   "olbg": {
-   "pieces": 25,
-   "high": 16,
+   "pieces": 27,
+   "high": 18,
    "words_min": 66,
-   "words_median": 112,
+   "words_median": 115,
    "words_max": 254,
    "under_30_words": 0,
-   "citing_an_official_host": 25,
+   "citing_an_official_host": 27,
    "citing_only_hosts_outside_official_set": 0,
    "hosts_outside_official_set": {
     "ak-static.cms.nba.com": 7,
