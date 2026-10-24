@@ -1,0 +1,924 @@
+{
+  "tool": "scripts/probe_cited.py",
+  "user_agent": "OLBG3Audit/1.0 (+https://github.com/buffedlizard55-lab/OLBG3; official-source re-verification; contact via repository issues)",
+  "started_at_utc": "2026-10-24T22:49:54Z",
+  "scope_policy": "Upcoming exact-clock source pages plus every non-OLBG source linked by a currently HIGH written prediction. A successful fetch records what the URL served; it does not by itself certify every prose claim.",
+  "events_in_scope": [
+    "12107",
+    "12127",
+    "12128",
+    "12129",
+    "12130",
+    "12131",
+    "12132",
+    "12133",
+    "12134",
+    "12135",
+    "12136",
+    "12137",
+    "12138",
+    "160789",
+    "160792",
+    "188838",
+    "199984",
+    "199985",
+    "199999",
+    "200000",
+    "200001",
+    "200002",
+    "200003",
+    "200004",
+    "200005",
+    "200006",
+    "200007",
+    "200008",
+    "200009",
+    "200010",
+    "200072",
+    "200074",
+    "200075",
+    "200076",
+    "26023",
+    "3530",
+    "3532",
+    "36994",
+    "36995",
+    "36996",
+    "36997",
+    "37002",
+    "37003",
+    "609554",
+    "609564",
+    "609565",
+    "609567",
+    "609569",
+    "609572",
+    "609576",
+    "609578",
+    "609580",
+    "609581",
+    "902157",
+    "902160",
+    "902162",
+    "902163",
+    "902165",
+    "902168",
+    "913"
+  ],
+  "prediction_source_references": {
+    "https://api-web.nhle.com/v1/schedule/2026-10-23": [
+      "release/199984",
+      "release/199985"
+    ],
+    "https://api-web.nhle.com/v1/schedule/2026-10-24": [
+      "release/199999",
+      "release/200000",
+      "release/200001",
+      "release/200002",
+      "release/200003",
+      "release/200004",
+      "release/200005",
+      "release/200006",
+      "release/200007",
+      "release/200008",
+      "release/200009",
+      "release/200010",
+      "release/200072",
+      "release/200074",
+      "release/200075",
+      "release/200076",
+      "root/IHO-200002",
+      "root/IHO-200003",
+      "root/IHO-200005",
+      "root/IHO-200006",
+      "root/IHO-200010"
+    ],
+    "https://api-web.nhle.com/v1/standings/2026-10-24": [
+      "root/IHO-200002",
+      "root/IHO-200003",
+      "root/IHO-200005",
+      "root/IHO-200006",
+      "root/IHO-200010"
+    ],
+    "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101004/FCPorto-OneVeszpr%C3%A9mHC/": [
+      "release/12127"
+    ],
+    "https://ehfcl.eurohandball.com/men/2026-27/standings/": [
+      "root/HBL-12130"
+    ],
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf": [
+      "release/12128",
+      "release/12129",
+      "release/12130",
+      "release/12131",
+      "release/12132",
+      "release/12133",
+      "release/12134",
+      "release/12135",
+      "release/12136",
+      "release/12137",
+      "release/12138",
+      "root/HBL-12130"
+    ],
+    "https://en.volleyballworld.com": [
+      "release/37002",
+      "release/37003"
+    ],
+    "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/": [
+      "olbg/VOL-36997"
+    ],
+    "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/": [
+      "olbg/VOL-36995",
+      "olbg/VOL-36996",
+      "olbg/VOL-36997",
+      "release/36997"
+    ],
+    "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/": [
+      "release/36994"
+    ],
+    "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/": [
+      "release/36995",
+      "release/36996"
+    ],
+    "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/": [
+      "olbg/VOL-36995",
+      "olbg/VOL-36996"
+    ],
+    "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/": [
+      "olbg/GFA-3530",
+      "release/3530",
+      "root/GAF-01"
+    ],
+    "https://gaacork.ie/results/": [
+      "olbg/GFA-3530",
+      "root/GAF-01"
+    ],
+    "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher": [
+      "release/160789"
+    ],
+    "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-25&hydrate=team,linescore,probablePitcher": [
+      "root/BSB-160792"
+    ],
+    "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher": [
+      "release/160792"
+    ],
+    "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-28&hydrate=probablePitcher,linescore": [
+      "root/BSB-160792"
+    ],
+    "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026": [
+      "root/BSB-160792"
+    ],
+    "https://top14.lnr.fr/calendrier-et-resultats": [
+      "release/609554",
+      "release/609564",
+      "release/609565",
+      "release/609567"
+    ],
+    "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf": [
+      "release/902160",
+      "release/902163"
+    ],
+    "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf": [
+      "release/902157",
+      "release/902162"
+    ],
+    "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka": [
+      "olbg/CRI-188838",
+      "release/188838",
+      "root/CRK-188838"
+    ],
+    "https://www.eurohandball.com": [
+      "release/12107"
+    ],
+    "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO": [
+      "root/MTR-01"
+    ],
+    "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm": [
+      "release/913"
+    ],
+    "https://www.formula1.com/en/racing/2026/united-states": [
+      "root/MTR-01"
+    ],
+    "https://www.icc-cricket.com/news/pakistan-youngster-joins-elite-odi-group-with-superb-haul": [
+      "olbg/CRI-188838",
+      "root/CRK-188838"
+    ],
+    "https://www.icc-cricket.com/rankings/team-rankings/mens/odi": [
+      "olbg/CRI-188838",
+      "root/CRK-188838"
+    ],
+    "https://www.legavolley.it/calendario/?idCampionato=999": [
+      "root/VOL-27",
+      "root/VOL-28",
+      "root/VOL-29"
+    ],
+    "https://www.legavolley.it/classifica/?IdCampionato=999": [
+      "root/VOL-27",
+      "root/VOL-28",
+      "root/VOL-29"
+    ],
+    "https://www.maighcuilinn.com/": [
+      "release/3532"
+    ],
+    "https://www.pdc.tv/WCFAQ": [
+      "release/26023"
+    ],
+    "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4": [
+      "release/609569",
+      "release/609572"
+    ],
+    "https://www.protennislive.com/posting/2026/496/op.pdf": [
+      "release/902165"
+    ],
+    "https://www.protennislive.com/posting/2026/9410/op.pdf": [
+      "release/902168"
+    ],
+    "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/": [
+      "release/609576",
+      "release/609578",
+      "release/609580",
+      "release/609581"
+    ]
+  },
+  "pages": [
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "key": "api-web-nhle-com-v1-schedule-2026-10-23-3d94dc9af5fc",
+      "referenced_by": [
+        "release/199984",
+        "release/199985"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-23",
+      "bytes": 96967,
+      "sha256": "358e83f5821b71c68ff2bd1691b71098b727856b2a218bb8804e41e1d69062c8",
+      "content_type": "application/json",
+      "file": "pages/api-web-nhle-com-v1-schedule-2026-10-23-3d94dc9af5fc.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:49:54Z"
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+      "key": "api-web-nhle-com-v1-schedule-2026-10-24-b44045f7a668",
+      "referenced_by": [
+        "release/199999",
+        "release/200000",
+        "release/200001",
+        "release/200002",
+        "release/200003",
+        "release/200004",
+        "release/200005",
+        "release/200006",
+        "release/200007",
+        "release/200008",
+        "release/200009",
+        "release/200010",
+        "release/200072",
+        "release/200074",
+        "release/200075",
+        "release/200076",
+        "root/IHO-200002",
+        "root/IHO-200003",
+        "root/IHO-200005",
+        "root/IHO-200006",
+        "root/IHO-200010"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+      "bytes": 98657,
+      "sha256": "21287b1ef26d3c7c4d3c3d5dd645166f762311426be46206625cd85c3ddf51b6",
+      "content_type": "application/json",
+      "file": "pages/api-web-nhle-com-v1-schedule-2026-10-24-b44045f7a668.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:49:56Z"
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/standings/2026-10-24",
+      "key": "api-web-nhle-com-v1-standings-2026-10-24-a21bdba708d4",
+      "referenced_by": [
+        "root/IHO-200002",
+        "root/IHO-200003",
+        "root/IHO-200005",
+        "root/IHO-200006",
+        "root/IHO-200010"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://api-web.nhle.com/v1/standings/2026-10-24",
+      "bytes": 58184,
+      "sha256": "99869c74252551d45e16e7e418b0770bfca01d897e42a2c219853a67e2d3be9d",
+      "content_type": "application/json",
+      "file": "pages/api-web-nhle-com-v1-standings-2026-10-24-a21bdba708d4.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:49:58Z"
+    },
+    {
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101004/FCPorto-OneVeszpr%C3%A9mHC/",
+      "key": "ehfcl-eurohandball-com-men-2026-27-matches-details-202711020101004-FCPorto-One-dd65a53d06e8",
+      "referenced_by": [
+        "release/12127"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101004/FCPorto-OneVeszpr%C3%A9mHC/",
+      "bytes": 135010,
+      "sha256": "94662c8ed6badc3a4f15424cae5b9ae40976ff5ec57f37887ec5af9c13dfd8bf",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/ehfcl-eurohandball-com-men-2026-27-matches-details-202711020101004-FCPorto-One-dd65a53d06e8.txt",
+      "storage": "rendered_text",
+      "text_chars": 6076,
+      "fetched_at_utc": "2026-10-24T22:50:01Z"
+    },
+    {
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "key": "ehfcl-eurohandball-com-men-2026-27-standings-fdb8a0c8b117",
+      "referenced_by": [
+        "root/HBL-12130"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "bytes": 209049,
+      "sha256": "f0aeeb99c93f38acacab7e3fc13cf03d70ef0b8164a80a2414437bd6e885f4cf",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/ehfcl-eurohandball-com-men-2026-27-standings-fdb8a0c8b117.txt",
+      "storage": "rendered_text",
+      "text_chars": 9118,
+      "fetched_at_utc": "2026-10-24T22:50:05Z"
+    },
+    {
+      "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+      "key": "ehfel-eurohandball-com-media-jqal4wt0-ehfcl-men-2026-27-group-phase-playing-ti-3ff7c1b0a0de",
+      "referenced_by": [
+        "release/12128",
+        "release/12129",
+        "release/12130",
+        "release/12131",
+        "release/12132",
+        "release/12133",
+        "release/12134",
+        "release/12135",
+        "release/12136",
+        "release/12137",
+        "release/12138",
+        "root/HBL-12130"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+      "bytes": 218756,
+      "sha256": "b681d6ba3ebd764018813802f54f9ad2311e0f776a546253698042387f8bdb1d",
+      "content_type": "application/pdf",
+      "file": "pages/ehfel-eurohandball-com-media-jqal4wt0-ehfcl-men-2026-27-group-phase-playing-ti-3ff7c1b0a0de.pdf",
+      "storage": "verbatim_pdf",
+      "fetched_at_utc": "2026-10-24T22:50:08Z"
+    },
+    {
+      "url": "https://en.volleyballworld.com",
+      "key": "en-volleyballworld-com-0ce5e23f4c89",
+      "referenced_by": [
+        "release/37002",
+        "release/37003"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://en.volleyballworld.com",
+      "bytes": 1212286,
+      "sha256": "693d8a1b8d3f3e5c204410b9a39527c038f6d3c81a78b732ba85f91fe74627b8",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/en-volleyballworld-com-0ce5e23f4c89.txt",
+      "storage": "rendered_text",
+      "text_chars": 12923,
+      "fetched_at_utc": "2026-10-24T22:50:10Z"
+    },
+    {
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/",
+      "key": "en-volleyballworld-com-volleyball-competitions-superlega-schedule-30000-12512984d76f",
+      "referenced_by": [
+        "olbg/VOL-36997"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/",
+      "bytes": 163705,
+      "sha256": "dfb8be2d4c46f236e930b3bd842fee1e8760fc0f456137e77e678ad8d4dde5aa",
+      "content_type": "text/html",
+      "file": "pages/en-volleyballworld-com-volleyball-competitions-superlega-schedule-30000-12512984d76f.txt",
+      "storage": "rendered_text",
+      "text_chars": 792,
+      "fetched_at_utc": "2026-10-24T22:50:12Z"
+    },
+    {
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+      "key": "en-volleyballworld-com-volleyball-competitions-superlega-schedule-30002-8b5cc5f9ee74",
+      "referenced_by": [
+        "olbg/VOL-36995",
+        "olbg/VOL-36996",
+        "olbg/VOL-36997",
+        "release/36997"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
+      "bytes": 163775,
+      "sha256": "7eaf86065fbcfb740012fcf570762eb31f75820145d93243309c5633bea0e8f2",
+      "content_type": "text/html",
+      "file": "pages/en-volleyballworld-com-volleyball-competitions-superlega-schedule-30002-8b5cc5f9ee74.txt",
+      "storage": "rendered_text",
+      "text_chars": 805,
+      "fetched_at_utc": "2026-10-24T22:50:15Z"
+    },
+    {
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
+      "key": "en-volleyballworld-com-volleyball-competitions-superlega-schedule-30003-5c2892328df4",
+      "referenced_by": [
+        "release/36994"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
+      "bytes": 163655,
+      "sha256": "c6eb1711ecc38cc8cf1419755f5d7ac5f83901caf051c8436973c533f41f7abf",
+      "content_type": "text/html",
+      "file": "pages/en-volleyballworld-com-volleyball-competitions-superlega-schedule-30003-5c2892328df4.txt",
+      "storage": "rendered_text",
+      "text_chars": 753,
+      "fetched_at_utc": "2026-10-24T22:50:18Z"
+    },
+    {
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+      "key": "en-volleyballworld-com-volleyball-competitions-superlega-schedule-30005-635aff8ec72a",
+      "referenced_by": [
+        "release/36995",
+        "release/36996"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+      "bytes": 163737,
+      "sha256": "ccb1e96668b6b6eb9ad354b5836425ae0df9e476dc14f8e852701d3d0cf92e88",
+      "content_type": "text/html",
+      "file": "pages/en-volleyballworld-com-volleyball-competitions-superlega-schedule-30005-635aff8ec72a.txt",
+      "storage": "rendered_text",
+      "text_chars": 795,
+      "fetched_at_utc": "2026-10-24T22:50:20Z"
+    },
+    {
+      "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/",
+      "key": "en-volleyballworld-com-volleyball-competitions-superlega-standings-28d3038094a6",
+      "referenced_by": [
+        "olbg/VOL-36995",
+        "olbg/VOL-36996"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://en.volleyballworld.com/volleyball/competitions/superlega/standings/",
+      "bytes": 65659,
+      "sha256": "9702dbddf66063c63ef5df18704a571636d71fce0fdb29c589dffbfa3d42604e",
+      "content_type": "text/html",
+      "file": "pages/en-volleyballworld-com-volleyball-competitions-superlega-standings-28d3038094a6.txt",
+      "storage": "rendered_text",
+      "text_chars": 1541,
+      "fetched_at_utc": "2026-10-24T22:50:23Z"
+    },
+    {
+      "url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+      "key": "gaacork-ie-event-mccarthy-insurance-group-premier-senior-football-championship-d10bb299c16c",
+      "referenced_by": [
+        "olbg/GFA-3530",
+        "release/3530",
+        "root/GAF-01"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
+      "bytes": 171779,
+      "sha256": "2cb3cf57ba7e0fd667a7160df0281eaa2032a118dec6d9f1ae1b6de7fd5ddee7",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/gaacork-ie-event-mccarthy-insurance-group-premier-senior-football-championship-d10bb299c16c.txt",
+      "storage": "rendered_text",
+      "text_chars": 3738,
+      "fetched_at_utc": "2026-10-24T22:50:25Z"
+    },
+    {
+      "url": "https://gaacork.ie/results/",
+      "key": "gaacork-ie-results-156a7ea4a79d",
+      "referenced_by": [
+        "olbg/GFA-3530",
+        "root/GAF-01"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://gaacork.ie/results/",
+      "bytes": 366831,
+      "sha256": "35dcd08db960ebd0c83444e6dc323205f3eb8dc0b3a7785151eb45c88c6dbb83",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/gaacork-ie-results-156a7ea4a79d.txt",
+      "storage": "rendered_text",
+      "text_chars": 14057,
+      "fetched_at_utc": "2026-10-24T22:50:28Z"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+      "key": "statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-23-endDate-2026-1-2d6725eba1e8",
+      "referenced_by": [
+        "release/160789"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-23&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+      "bytes": 11621,
+      "sha256": "49dedb0524907fd76fe4c1451af734e12b8f32e7e751da3c393d2b77a9e41f3e",
+      "content_type": "application/json;charset=UTF-8",
+      "file": "pages/statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-23-endDate-2026-1-2d6725eba1e8.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:50:30Z"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+      "key": "statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-24-endDate-2026-1-2f5b243c3455",
+      "referenced_by": [
+        "root/BSB-160792"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-25&hydrate=team,linescore,probablePitcher",
+      "bytes": 5384,
+      "sha256": "2402dc0cec53742abb733dbb75f0a883400f7e58f7766ca93ef2ff8100ff01e9",
+      "content_type": "application/json;charset=UTF-8",
+      "file": "pages/statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-24-endDate-2026-1-2f5b243c3455.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:50:32Z"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher",
+      "key": "statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-24-endDate-2026-1-fe5909923feb",
+      "referenced_by": [
+        "release/160792"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher",
+      "bytes": 8798,
+      "sha256": "51dc850d6531fe5c3d946ee6befa5c0ef5b168e4d5a8b9cfbccb89b223915da4",
+      "content_type": "application/json;charset=UTF-8",
+      "file": "pages/statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-24-endDate-2026-1-fe5909923feb.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:50:34Z"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-28&hydrate=probablePitcher,linescore",
+      "key": "statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-24-endDate-2026-1-1d34ef5ae899",
+      "referenced_by": [
+        "root/BSB-160792"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-28&hydrate=probablePitcher,linescore",
+      "bytes": 8830,
+      "sha256": "3d79cc612a58b4aabab0ac712148460da6d601d6781149e1dc4b5152c5f347b0",
+      "content_type": "application/json;charset=UTF-8",
+      "file": "pages/statsapi-mlb-com-api-v1-schedule-sportId-1-startDate-2026-10-24-endDate-2026-1-1d34ef5ae899.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:50:37Z"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+      "key": "statsapi-mlb-com-api-v1-standings-leagueId-103-104-season-2026-7a2ea3191b25",
+      "referenced_by": [
+        "root/BSB-160792"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+      "bytes": 80986,
+      "sha256": "8a8f6bf03739d2b44799e0701ae4bb84aa55b1657df12ee946dd9aad502c85dc",
+      "content_type": "application/json;charset=UTF-8",
+      "file": "pages/statsapi-mlb-com-api-v1-standings-leagueId-103-104-season-2026-7a2ea3191b25.json",
+      "storage": "verbatim_json",
+      "fetched_at_utc": "2026-10-24T22:50:39Z"
+    },
+    {
+      "url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "key": "top14-lnr-fr-calendrier-et-resultats-7e97699b10b0",
+      "referenced_by": [
+        "release/609554",
+        "release/609564",
+        "release/609565",
+        "release/609567"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "bytes": 155193,
+      "sha256": "7ad2164c8c5717b40f74b5b58bf9ab74aa89c3cd3bc6b370068f46cb2494cb68",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/top14-lnr-fr-calendrier-et-resultats-7e97699b10b0.txt",
+      "storage": "rendered_text",
+      "text_chars": 1758,
+      "fetched_at_utc": "2026-10-24T22:50:42Z"
+    },
+    {
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "key": "wtafiles-wtatennis-com-pdf-draws-2026-2092-OP-pdf-b62b7da33fc2",
+      "referenced_by": [
+        "release/902160",
+        "release/902163"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf",
+      "bytes": 294253,
+      "sha256": "2ed9bea4fca9292a2202ab6c4c1910fefb862870b0072ae6683824ea3df4a6d3",
+      "content_type": "application/pdf",
+      "file": "pages/wtafiles-wtatennis-com-pdf-draws-2026-2092-OP-pdf-b62b7da33fc2.pdf",
+      "storage": "verbatim_pdf",
+      "fetched_at_utc": "2026-10-24T22:50:44Z"
+    },
+    {
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+      "key": "wtafiles-wtatennis-com-pdf-draws-2026-405-OP-pdf-ba3846778ada",
+      "referenced_by": [
+        "release/902157",
+        "release/902162"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://wtafiles.wtatennis.com/pdf/draws/2026/405/OP.pdf",
+      "bytes": 344252,
+      "sha256": "c59921fc7f17d3dc0ba1bc5c859e50a4259972cdd7010b2f417cec2f7fb7195a",
+      "content_type": "application/pdf",
+      "file": "pages/wtafiles-wtatennis-com-pdf-draws-2026-405-OP-pdf-ba3846778ada.pdf",
+      "storage": "verbatim_pdf",
+      "fetched_at_utc": "2026-10-24T22:50:46Z"
+    },
+    {
+      "url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka",
+      "key": "www-ecb-co-uk-news-4594465-how-to-watch-and-follow-the-england-men-v-pakistan-396133bcb6e8",
+      "referenced_by": [
+        "olbg/CRI-188838",
+        "release/188838",
+        "root/CRK-188838"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka",
+      "bytes": 235388,
+      "sha256": "ac4846de9352685a0f42a74a847e2d072d5da0576ced43540a26d756bebf7988",
+      "content_type": "text/html;charset=utf-8",
+      "file": "pages/www-ecb-co-uk-news-4594465-how-to-watch-and-follow-the-england-men-v-pakistan-396133bcb6e8.txt",
+      "storage": "rendered_text",
+      "text_chars": 9402,
+      "fetched_at_utc": "2026-10-24T22:50:48Z"
+    },
+    {
+      "url": "https://www.eurohandball.com",
+      "key": "www-eurohandball-com-f381f350169e",
+      "referenced_by": [
+        "release/12107"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.eurohandball.com",
+      "bytes": 164399,
+      "sha256": "13b2213a61ab7466c3bc3e379041a214967d04ea350e3f0f8f4d47496ecebbb5",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-eurohandball-com-f381f350169e.txt",
+      "storage": "rendered_text",
+      "text_chars": 9196,
+      "fetched_at_utc": "2026-10-24T22:50:51Z"
+    },
+    {
+      "url": "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO",
+      "key": "www-formula1-com-en-latest-article-facts-and-stats-a-super-seventh-us-win-sees-bd7146776dcf",
+      "referenced_by": [
+        "root/MTR-01"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.formula1.com/en/latest/article/facts-and-stats-a-super-seventh-us-win-sees-verstappen-cut-title-deficit.79OVOwXdRUSxRRqcTJYtOO",
+      "bytes": 339972,
+      "sha256": "f609ee3ed7dd0937cd156f94d74e24bc3e53e6b68653ec918902b4c47ed9e410",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-formula1-com-en-latest-article-facts-and-stats-a-super-seventh-us-win-sees-bd7146776dcf.txt",
+      "storage": "rendered_text",
+      "text_chars": 5532,
+      "fetched_at_utc": "2026-10-24T22:50:55Z"
+    },
+    {
+      "url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+      "key": "www-formula1-com-en-latest-article-formula-1-msc-cruises-united-states-grand-p-ad5eeb32a95e",
+      "referenced_by": [
+        "release/913"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+      "bytes": 345585,
+      "sha256": "4d6e43805911fcc64268a3e41862805118c5dbc07e48040a2704e894c4cf4289",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-formula1-com-en-latest-article-formula-1-msc-cruises-united-states-grand-p-ad5eeb32a95e.txt",
+      "storage": "rendered_text",
+      "text_chars": 3384,
+      "fetched_at_utc": "2026-10-24T22:50:57Z"
+    },
+    {
+      "url": "https://www.formula1.com/en/racing/2026/united-states",
+      "key": "www-formula1-com-en-racing-2026-united-states-3f143bad72e6",
+      "referenced_by": [
+        "root/MTR-01"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.formula1.com/en/racing/2026/united-states",
+      "bytes": 552135,
+      "sha256": "3221c68698072f94b949cf29002e91733777dc6c4c4317dbbac3522c4345c26d",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-formula1-com-en-racing-2026-united-states-3f143bad72e6.txt",
+      "storage": "rendered_text",
+      "text_chars": 4683,
+      "fetched_at_utc": "2026-10-24T22:50:59Z"
+    },
+    {
+      "url": "https://www.icc-cricket.com/news/pakistan-youngster-joins-elite-odi-group-with-superb-haul",
+      "key": "www-icc-cricket-com-news-pakistan-youngster-joins-elite-odi-group-with-superb-5d5773cf57cd",
+      "referenced_by": [
+        "olbg/CRI-188838",
+        "root/CRK-188838"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.icc-cricket.com/news/pakistan-youngster-joins-elite-odi-group-with-superb-haul",
+      "bytes": 475791,
+      "sha256": "53c9ee61a485ef5d9a3186f4f3bacdf22e838fb8a2742f38f640d30807fb2df8",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-icc-cricket-com-news-pakistan-youngster-joins-elite-odi-group-with-superb-5d5773cf57cd.txt",
+      "storage": "rendered_text",
+      "text_chars": 5125,
+      "fetched_at_utc": "2026-10-24T22:51:03Z"
+    },
+    {
+      "url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+      "key": "www-icc-cricket-com-rankings-team-rankings-mens-odi-164b31d60831",
+      "referenced_by": [
+        "olbg/CRI-188838",
+        "root/CRK-188838"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.icc-cricket.com/rankings/team-rankings/mens/odi",
+      "bytes": 455121,
+      "sha256": "f2c5e62b9986018456de9a5f3fd57bec3d0a06f32f62fc19077f57f097933fe4",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-icc-cricket-com-rankings-team-rankings-mens-odi-164b31d60831.txt",
+      "storage": "rendered_text",
+      "text_chars": 2378,
+      "fetched_at_utc": "2026-10-24T22:51:07Z"
+    },
+    {
+      "url": "https://www.legavolley.it/calendario/?idCampionato=999",
+      "key": "www-legavolley-it-calendario-idCampionato-999-b29f0caefcd9",
+      "referenced_by": [
+        "root/VOL-27",
+        "root/VOL-28",
+        "root/VOL-29"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.legavolley.it/calendario/?idCampionato=999",
+      "bytes": 233338,
+      "sha256": "3fb830a5389a4a018d71fed0d6ffe1c1d8d3fbde4417af40cce37c624849eadd",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/www-legavolley-it-calendario-idCampionato-999-b29f0caefcd9.txt",
+      "storage": "rendered_text",
+      "text_chars": 15901,
+      "fetched_at_utc": "2026-10-24T22:51:09Z"
+    },
+    {
+      "url": "https://www.legavolley.it/classifica/?IdCampionato=999",
+      "key": "www-legavolley-it-classifica-IdCampionato-999-13218fc458fd",
+      "referenced_by": [
+        "root/VOL-27",
+        "root/VOL-28",
+        "root/VOL-29"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.legavolley.it/classifica/?IdCampionato=999",
+      "bytes": 156656,
+      "sha256": "6c96a3094d99aa465bd3e7b0f9655b87deb1a099c70483025366e500f65d720f",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/www-legavolley-it-classifica-IdCampionato-999-13218fc458fd.txt",
+      "storage": "rendered_text",
+      "text_chars": 9343,
+      "fetched_at_utc": "2026-10-24T22:51:12Z"
+    },
+    {
+      "url": "https://www.maighcuilinn.com/",
+      "key": "www-maighcuilinn-com-0a8a671fd650",
+      "referenced_by": [
+        "release/3532"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.maighcuilinn.com/",
+      "bytes": 164018,
+      "sha256": "ae0b7c50be70349cbf8c289c9e99714f867984855e378d4a6976e48900f91937",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/www-maighcuilinn-com-0a8a671fd650.txt",
+      "storage": "rendered_text",
+      "text_chars": 5463,
+      "fetched_at_utc": "2026-10-24T22:51:18Z"
+    },
+    {
+      "url": "https://www.pdc.tv/WCFAQ",
+      "key": "www-pdc-tv-WCFAQ-0922adf70b64",
+      "referenced_by": [
+        "release/26023"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.pdc.tv/WCFAQ",
+      "bytes": 1241860,
+      "sha256": "326a735e6e52dbf743ee7a281997548cb74862bcf66b7358790dd6df4f973406",
+      "content_type": "text/html",
+      "file": "pages/www-pdc-tv-WCFAQ-0922adf70b64.txt",
+      "storage": "rendered_text",
+      "text_chars": 0,
+      "fetched_at_utc": "2026-10-24T22:51:21Z"
+    },
+    {
+      "url": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+      "key": "www-premrugby-com-fixtures-results-competition-gallagher-prem-round-4-e6107aa1db13",
+      "referenced_by": [
+        "release/609569",
+        "release/609572"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.premrugby.com/fixtures-results?competition=gallagher-prem&round=4",
+      "bytes": 325628,
+      "sha256": "74878116d73bc9e3dd590c3a67a06e4e844de6eb7ddcad0932f47b86561985c5",
+      "content_type": "text/html;charset=utf-8",
+      "file": "pages/www-premrugby-com-fixtures-results-competition-gallagher-prem-round-4-e6107aa1db13.txt",
+      "storage": "rendered_text",
+      "text_chars": 1196,
+      "fetched_at_utc": "2026-10-24T22:51:23Z"
+    },
+    {
+      "url": "https://www.protennislive.com/posting/2026/496/op.pdf",
+      "key": "www-protennislive-com-posting-2026-496-op-pdf-71335aaa9026",
+      "referenced_by": [
+        "release/902165"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.protennislive.com/posting/2026/496/op.pdf",
+      "bytes": 74704,
+      "sha256": "496efbb67d7eb8e112abd18e424dd9515b95079f2dc7ba88fc1370c0e602edfc",
+      "content_type": "application/pdf",
+      "file": "pages/www-protennislive-com-posting-2026-496-op-pdf-71335aaa9026.pdf",
+      "storage": "verbatim_pdf",
+      "fetched_at_utc": "2026-10-24T22:51:25Z"
+    },
+    {
+      "url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+      "key": "www-protennislive-com-posting-2026-9410-op-pdf-02c34d8b5faf",
+      "referenced_by": [
+        "release/902168"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.protennislive.com/posting/2026/9410/op.pdf",
+      "bytes": 69279,
+      "sha256": "322736f07ea5b37c045e341fcc1352334aaac78a77bf0227c62b3906a912c01c",
+      "content_type": "application/pdf",
+      "file": "pages/www-protennislive-com-posting-2026-9410-op-pdf-02c34d8b5faf.pdf",
+      "storage": "verbatim_pdf",
+      "fetched_at_utc": "2026-10-24T22:51:27Z"
+    },
+    {
+      "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "key": "www-unitedrugby-com-latest-news-2026-27-fixtures-in-full-6b220c3d2368",
+      "referenced_by": [
+        "release/609576",
+        "release/609578",
+        "release/609580",
+        "release/609581"
+      ],
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "bytes": 260466,
+      "sha256": "366399ffe5c4a9fa213b409f0834615a6b45e3ab12427b560331d140c9c682f2",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/www-unitedrugby-com-latest-news-2026-27-fixtures-in-full-6b220c3d2368.txt",
+      "storage": "rendered_text",
+      "text_chars": 22101,
+      "fetched_at_utc": "2026-10-24T22:51:29Z"
+    }
+  ],
+  "finished_at_utc": "2026-10-24T22:51:29Z"
+}
