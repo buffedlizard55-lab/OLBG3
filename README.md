@@ -4,6 +4,55 @@ A static research dashboard built from captured [OLBG.com](https://www.olbg.com/
 
 **Live site:** <https://buffedlizard55-lab.github.io/OLBG3/>
 
+## One page that answers "what is the pick, and where is it" — `session-1c6981d1`, 2026-10-24T17:14Z
+
+Full record: [`docs/audit-1c6981d1.md`](docs/audit-1c6981d1.md) · register: **FL-199 … FL-204** on
+[Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html)
+
+**The complaint was that the site was too confusing to see what the matches are and where the picks
+are.** Two pipelines and ~110 pages, and no single page said which of them held today's selections.
+There is now one: **`summary.html`**, linked second in the navigation on every page and first in the
+landing page's calls to action. It merges both tracks, de-duplicates on the OLBG event id, and prints
+one row per released pick — sport, start in UTC, match, **Selection (the pick)** in its own column,
+our price in decimal and US odds, confidence, and the official page the fixture was confirmed
+against — followed by the full reasoning for each pick (30+ words, unique, with its sources) and a
+per-sport table that says, for all fifteen sports, how many fixtures are captured, what our line is
+for the next one, and exactly why it is being held rather than released. `scripts/check_exec_summary.py`
+re-derives every number the page prints; `check_board.py` validates the rows, not the arithmetic.
+
+**A fresh capture, and a real defect behind a stale board.** The 17:11Z runner capture (18/18
+listings HTTP 200, 218 tip cards) extracted to 197 rows across 14 sports. The resolver had kept the
+*previous day's* board anyway: `live_refresh.py` sorted capture directories **by name**, and the new
+one — written as `live-1c6981d1-20261024T1710Z` — sorts before `live-20261023T1700Z`. Ordering is now
+on the UTC stamp inside the name, the directory was renamed to the conventional form, and
+`tests/test_audit_1c6981d1.py` reproduces the old ordering and pins the new one (**FL-200**).
+
+**Eleven new HIGH picks written from official payloads, taking the board to 19 across 8 sports.**
+Five NHL money lines from `api-web.nhle.com` (Capitals 1.62, Penguins 1.58, Senators 1.65, Bruins
+1.51, Golden Knights 1.53 — each quoting the club's own home/road split against the opponent's road
+record), two NBA money lines from `nba.com/schedule` + `nba.com/standings` (76ers and Cavaliers, both
+1.57/−175), and **Baseball's first released pick of the week**, Brewers at 1.62 for World Series Game 2
+(`gamePk 849802`, 2026-10-25T00:00:00Z) with Milwaukee's 103-59 / 832-618 / 55-26 home line, Game 1's
+3-2 final and both starters' season lines from `statsapi.mlb.com`. Ice Hockey and Handball now meet
+the five-a-day target; the other thirteen sports' shortfalls print their mechanical reason rather than
+a filler pick (**FL-204**).
+
+**Three things this pass refused to do.** It did not claim injury news for the NHL fixtures, because
+the league's own payloads carry no injury or line-up field and the club pages were not read
+(**FL-202**); it did not convert a start whose official page omits a time zone; and it did not
+re-label OLBG's crowd where our line disagrees — Washington and Ottawa are named *against* the crowd
+and the disagreement is published on the cross-track page (**FL-203**).
+
+**Also repaired:** `VOL-37002`'s prose still quoted a superseded 1.57 / "two of three" / "60.5%"
+while the row priced 1.78 / −128 on a 2-of-4 split, which `tools/check_site.py` caught and now
+agrees with; ten unit tests that had pinned a date, a capture name or a market string now assert the
+invariant instead (**FL-199**), and `data/meta.json` chains the two carried supplements so they are
+parsed again (368 → 371 fixtures on the `/olbg/` track).
+
+**Checks on the committed tree:** `check_board.py` PASS, `check_exec_summary.py` PASS (19 picks),
+`tools/check_site.py` PASS, `check.py` PASS (53 feed rows), `check_links.py` 110 pages / 2,586 local
+links / 0 broken, `unittest discover` 316 tests OK (25 archival skips).
+
 ## Five league-table ranks had gone stale, three SuperLega fixtures were settled, and OLBG's listings stopped rendering — `session-655b300a` (task-54)
 
 Full record: [`docs/audit-655b300a.md`](docs/audit-655b300a.md) · register: **FL-184 … FL-190** on

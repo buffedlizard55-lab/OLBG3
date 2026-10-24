@@ -5,13 +5,13 @@
  "window_end_utc": "2026-10-31",
  "note": "Merged from data/events.json, data/gap_sports.json, data/lines.json and the two prediction files. A row is a pick only when its own pipeline graded it HIGH and its own release object says upcoming. Nothing was fetched, re-graded or renewed by this build; blank means unknown.",
  "counts": {
-  "picks_high": 18,
+  "picks_high": 19,
   "picks_today": 8,
-  "picks_next_7_days": 10,
+  "picks_next_7_days": 11,
   "picks_later": 0,
   "picks_without_start": 0,
   "sports_covered": 15,
-  "sports_with_a_pick": 7,
+  "sports_with_a_pick": 8,
   "sports_meeting_five": 2,
   "events_merged": 583,
   "events_today": 20
@@ -372,6 +372,59 @@
     {
      "track": "olbg",
      "ref": "BKB-536111",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "BAS-160792",
+   "sport": "Baseball",
+   "slug": "baseball",
+   "match": "TB Rays @ MIL Brewers",
+   "competition": "MLB",
+   "start_utc": "2026-10-25T00:00:00Z",
+   "start_label": "Sun 25 Oct, 00:00 UTC",
+   "selection": "MIL Brewers",
+   "market": "Money Line",
+   "price": 1.62,
+   "us": "-161",
+   "probability_pct": 58.6,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Milwaukee Brewers to win World Series Game 2 at American Family Field, where the league's own schedule puts first pitch at 00:00 UTC on 25 October. Milwaukee finished the regular season 103-59, the best record in the majors, and were 55-26 at home while scoring 832 runs and conceding 618. They closed the season with five straight wins and then took Game 1 of this Series 3-2 in the same ballpark. Tampa Bay went 98-64 but only 43-38 on the road. Logan Henderson starts for the hosts on a 2.47 ERA, 110 strikeouts in 98.1 innings and a 0.84 WHIP, against Drew Rasmussen's 2.67 ERA and 0.91 WHIP, so the pitching matchup is close while the venue and the run differential are not. No injury or roster report was published for either club before this build, so none is claimed here. Milwaukee at 1.62 is the selection, and our game total for the night sits at 6.5 runs with the over taken on the pair of sub-2.70 ERAs meeting a Brewers offence that scored 832 in the regular season.",
+    "words": 188,
+    "track": "olbg",
+    "ref": "BSB-160792",
+    "selection": "Milwaukee Brewers Money Line (our price 1.62)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "MLB official schedule (statsapi) \u2014 World Series Game 2, 2026-10-25T00:00:00Z, American Family Field",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-24&hydrate=team,linescore,probablePitcher"
+    },
+    {
+     "label": "MLB official schedule \u2014 World Series Game 1 final, Brewers 3 Rays 2",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23&hydrate=team,linescore"
+    },
+    {
+     "label": "MLB official 2026 standings \u2014 record, home/road splits, runs, last ten, streak",
+     "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+    },
+    {
+     "label": "MLB official player page data \u2014 Logan Henderson 2026 pitching line",
+     "url": "https://statsapi.mlb.com/api/v1/people/701656?hydrate=stats(group=pitching,type=season,season=2026)"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "BSB-160792",
      "page": "../olbg/picks.html"
     }
    ],
@@ -1301,6 +1354,59 @@
  ],
  "next_7_days": [
   {
+   "id": "BAS-160792",
+   "sport": "Baseball",
+   "slug": "baseball",
+   "match": "TB Rays @ MIL Brewers",
+   "competition": "MLB",
+   "start_utc": "2026-10-25T00:00:00Z",
+   "start_label": "Sun 25 Oct, 00:00 UTC",
+   "selection": "MIL Brewers",
+   "market": "Money Line",
+   "price": 1.62,
+   "us": "-161",
+   "probability_pct": 58.6,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Milwaukee Brewers to win World Series Game 2 at American Family Field, where the league's own schedule puts first pitch at 00:00 UTC on 25 October. Milwaukee finished the regular season 103-59, the best record in the majors, and were 55-26 at home while scoring 832 runs and conceding 618. They closed the season with five straight wins and then took Game 1 of this Series 3-2 in the same ballpark. Tampa Bay went 98-64 but only 43-38 on the road. Logan Henderson starts for the hosts on a 2.47 ERA, 110 strikeouts in 98.1 innings and a 0.84 WHIP, against Drew Rasmussen's 2.67 ERA and 0.91 WHIP, so the pitching matchup is close while the venue and the run differential are not. No injury or roster report was published for either club before this build, so none is claimed here. Milwaukee at 1.62 is the selection, and our game total for the night sits at 6.5 runs with the over taken on the pair of sub-2.70 ERAs meeting a Brewers offence that scored 832 in the regular season.",
+    "words": 188,
+    "track": "olbg",
+    "ref": "BSB-160792",
+    "selection": "Milwaukee Brewers Money Line (our price 1.62)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "MLB official schedule (statsapi) \u2014 World Series Game 2, 2026-10-25T00:00:00Z, American Family Field",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-24&hydrate=team,linescore,probablePitcher"
+    },
+    {
+     "label": "MLB official schedule \u2014 World Series Game 1 final, Brewers 3 Rays 2",
+     "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23&hydrate=team,linescore"
+    },
+    {
+     "label": "MLB official 2026 standings \u2014 record, home/road splits, runs, last ten, streak",
+     "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+    },
+    {
+     "label": "MLB official player page data \u2014 Logan Henderson 2026 pitching line",
+     "url": "https://statsapi.mlb.com/api/v1/people/701656?hydrate=stats(group=pitching,type=season,season=2026)"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "BSB-160792",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
    "id": "GAE-3530",
    "sport": "Gaelic Football",
    "slug": "gaelic_football",
@@ -1929,24 +2035,11 @@
    "events": 2,
    "upcoming": 1,
    "priced": 3,
-   "high": 0,
+   "high": 1,
    "today_events": 2,
-   "next": {
-    "match": "TB Rays @ MIL Brewers",
-    "start_utc": "2026-10-25T00:00:00Z",
-    "start_label": "Sun 25 Oct, 00:00 UTC",
-    "selection": "TB Rays",
-    "market": "Money Line",
-    "price": 1.89,
-    "us": "-112",
-    "confidence": "LOW",
-    "hold_reason": "not released as a pick",
-    "track": "olbg",
-    "page": "../olbg/picks.html",
-    "ref": "BSB-160792"
-   },
+   "next": null,
    "meets_target": false,
-   "shortfall": 5
+   "shortfall": 4
   },
   {
    "sport": "Volleyball",

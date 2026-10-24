@@ -50,8 +50,13 @@ jobs:
           python3 tools/originate.py
           # Accounting/rendering must follow BOTH tracks' repricing and release expiry.
           python3 scripts/brief_coverage.py
+          # The executive summary merges both tracks; it must be built after originate.py and
+          # brief_coverage.py and before build_site.py, which renders it into summary.html and
+          # the landing page. check_exec_summary.py then re-derives every number it prints.
+          python3 scripts/exec_summary.py
           python3 scripts/build_site.py
           python3 scripts/check_board.py
+          python3 scripts/check_exec_summary.py
           python3 tools/build_site.py
           python3 tools/check_site.py
       - name: Publish the OLBG lines track inside the shared artifact

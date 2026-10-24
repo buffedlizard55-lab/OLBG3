@@ -152,5 +152,38 @@ class AddedWriteUps(unittest.TestCase):
             self.assertTrue(hosts <= {"api-web.nhle.com", "www.nba.com"}, hosts)
 
 
+class SummaryGate(unittest.TestCase):
+    def test_the_summary_checker_passes_on_the_committed_data(self):
+        import subprocess
+        result = subprocess.run([sys.executable, str(ROOT / "scripts" / "check_exec_summary.py")],
+                                capture_output=True, text=True, cwd=str(ROOT))
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("PASS:", result.stdout)
+
+    def test_the_checker_rejects_a_pick_that_no_longer_passes_the_band(self):
+        """A guard that only ever sees good data proves nothing; drive it with a bad one."""
+        import subprocess, tempfile, shutil
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            for name in ("exec_summary.json", "lines.json", "predictions.json",
+                         "predictions-olbg.json", "matches.json"):
+                shutil.copyfile(DATA / name, tmp / name)
+            doc = json.loads((tmp / "exec_summary.json").read_text())
+            if not doc["picks"]:
+                self.skipTest("no picks to corrupt")
+            doc["picks"][0]["price"] = 1.01
+            (tmp / "exec_summary.json").write_text(json.dumps(doc))
+            src = (ROOT / "scripts" / "check_exec_summary.py").read_text()
+            src = src.replace('DATA = ROOT / "data"', 'DATA = Path(%r)' % str(tmp))
+            src = src.replace('ROOT = Path(__file__).resolve().parents[1]',
+                              'ROOT = Path(%r)' % str(ROOT))
+            script = tmp / "check.py"
+            script.write_text(src)
+            result = subprocess.run([sys.executable, str(script)], capture_output=True,
+                                    text=True, cwd=str(ROOT))
+            self.assertEqual(result.returncode, 1, result.stdout)
+            self.assertIn("outside", result.stdout + result.stderr)
+
+
 if __name__ == "__main__":
     unittest.main()

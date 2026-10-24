@@ -80,6 +80,9 @@ TOTAL_CFG = {
 EDITORIAL_STRENGTH = {
     # Baseball — MLB World Series Game 1 (mlb.com standings: MIL 103-59, 55-26 home, +214 diff vs TB 98-64, +110 diff)
     "BSB-160789": ("MIL Brewers", 0.586, 6.5, "Over", "MLB official 2026 standings (MIL 103-59, .679 home vs TB 98-64) + OLBG 12/15 ML, 8/8 Over 6.5"),
+    # Baseball — MLB World Series Game 2, 2026-10-25T00:00Z (statsapi.mlb.com: MIL 103-59, 55-26 home,
+    # 832:618, last ten 8-2, won Game 1 3-2; TB 98-64, 43-38 away; starters Henderson 2.47 ERA v Rasmussen 2.67).
+    "BSB-160792": ("MIL Brewers", 0.586, 6.5, "Over", "MLB official 2026 standings (MIL 103-59, 55-26 home, 832:618; TB 98-64, 43-38 away) + official Game 1 box (MIL 3-2) + Henderson 2.47 ERA / 0.84 WHIP vs Rasmussen 2.67 + OLBG 9/17 ML"),
     # Basketball — NBA & EuroLeague (nba.com game notes + euroleaguebasketball.net Round 7 tables)
     "BKB-534839": ("LA Lakers", 0.594, 233.5, "Over", "NBA official game notes (LAL home opener with Doncic vs depleted GSW) + OLBG 11/17 ML, 4/5 Over 233.5"),
     "BKB-535674": ("LA Clippers", 0.642, 226.5, "Under", "NBA official Clippers schedule/preseason form (122-110 vs DEN, 3-1 H2H series vs SAC) + OLBG 10/11 ML, 5/8 Under 226.5"),

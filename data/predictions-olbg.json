@@ -1120,7 +1120,34 @@
         }
       ],
       "status": "high"
+    },
+    {
+      "match_id": "BSB-160792",
+      "sport": "Baseball",
+      "match": "TB Rays @ MIL Brewers",
+      "selection": "Milwaukee Brewers Money Line (our price 1.62)",
+      "confidence": "high",
+      "text": "Milwaukee Brewers to win World Series Game 2 at American Family Field, where the league's own schedule puts first pitch at 00:00 UTC on 25 October. Milwaukee finished the regular season 103-59, the best record in the majors, and were 55-26 at home while scoring 832 runs and conceding 618. They closed the season with five straight wins and then took Game 1 of this Series 3-2 in the same ballpark. Tampa Bay went 98-64 but only 43-38 on the road. Logan Henderson starts for the hosts on a 2.47 ERA, 110 strikeouts in 98.1 innings and a 0.84 WHIP, against Drew Rasmussen's 2.67 ERA and 0.91 WHIP, so the pitching matchup is close while the venue and the run differential are not. No injury or roster report was published for either club before this build, so none is claimed here. Milwaukee at 1.62 is the selection, and our game total for the night sits at 6.5 runs with the over taken on the pair of sub-2.70 ERAs meeting a Brewers offence that scored 832 in the regular season.",
+      "sources": [
+        {
+          "label": "MLB official schedule (statsapi) — World Series Game 2, 2026-10-25T00:00:00Z, American Family Field",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-24&hydrate=team,linescore,probablePitcher"
+        },
+        {
+          "label": "MLB official schedule — World Series Game 1 final, Brewers 3 Rays 2",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-10-23&hydrate=team,linescore"
+        },
+        {
+          "label": "MLB official 2026 standings — record, home/road splits, runs, last ten, streak",
+          "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026&standingsTypes=regularSeason"
+        },
+        {
+          "label": "MLB official player page data — Logan Henderson 2026 pitching line",
+          "url": "https://statsapi.mlb.com/api/v1/people/701656?hydrate=stats(group=pitching,type=season,season=2026)"
+        }
+      ],
+      "status": "high"
     }
   ],
-  "note": "18 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "19 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

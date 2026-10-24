@@ -34,12 +34,12 @@
   "sports_with_rows": 15,
   "sports_meeting_target": 2,
   "live_high_root": 5,
-  "live_high_olbg": 18,
-  "live_high_union": 18,
+  "live_high_olbg": 19,
+  "live_high_union": 19,
   "root_rows": 359,
   "olbg_rows": 371,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 57
+  "shortfall_to_target": 56
  },
  "sports": [
   {
@@ -332,10 +332,10 @@
    "olbg_priced_win": 2,
    "olbg_handicap": 2,
    "olbg_total": 2,
-   "olbg_high": 0,
-   "live_high_union": 0,
+   "olbg_high": 1,
+   "live_high_union": 1,
    "target": 5,
-   "shortfall": 5,
+   "shortfall": 4,
    "meets_target": false,
    "blocking": {
     "no_official_form": 0,
@@ -347,7 +347,20 @@
    "reasons": [
     "1 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock."
    ],
-   "live_picks": []
+   "live_picks": [
+    {
+     "event_id": "160792",
+     "sport": "Baseball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "BSB-160792",
+     "selection": "MIL Brewers",
+     "price": 1.62,
+     "american": "-161"
+    }
+   ]
   },
   {
    "sport": "Ice Hockey",
@@ -808,13 +821,13 @@
    "withheld_bodies": 0
   },
   "olbg": {
-   "pieces": 56,
-   "high": 18,
+   "pieces": 57,
+   "high": 19,
    "words_min": 56,
-   "words_median": 111.5,
+   "words_median": 112,
    "words_max": 254,
    "under_30_words": 0,
-   "citing_an_official_host": 56,
+   "citing_an_official_host": 57,
    "citing_only_hosts_outside_official_set": 0,
    "hosts_outside_official_set": {
     "stats.unitedrugby.com": 10,
