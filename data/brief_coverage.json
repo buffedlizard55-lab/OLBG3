@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-24T18:41:00+00:00",
+  "root_publication_clock": "2026-10-24T18:57:00+00:00",
   "root_capture": "2026-10-24",
   "root_built": "2026-10-24",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. This script fetches nothing: any clock, quote or verification shown elsewhere on the board was read through the page-retrieval tool and is stored with its URL and read time in data/release_checks.json. The shell itself still has no outbound route (FL-077), which is why no OLBG HTML capture can be produced from here."
@@ -33,13 +33,13 @@
   "sports_listed": 15,
   "sports_with_rows": 15,
   "sports_meeting_target": 2,
-  "live_high_root": 13,
-  "live_high_olbg": 11,
-  "live_high_union": 17,
+  "live_high_root": 12,
+  "live_high_olbg": 10,
+  "live_high_union": 16,
   "root_rows": 367,
   "olbg_rows": 223,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 58
+  "shortfall_to_target": 59
  },
  "sports": [
   {
@@ -221,45 +221,31 @@
    "root_outright": 1,
    "root_handicap": 16,
    "root_total": 16,
-   "root_high": 1,
+   "root_high": 0,
    "olbg_rows": 25,
    "olbg_priced_win": 23,
    "olbg_handicap": 22,
    "olbg_total": 22,
-   "olbg_high": 1,
-   "live_high_union": 1,
+   "olbg_high": 0,
+   "live_high_union": 0,
    "target": 5,
-   "shortfall": 4,
+   "shortfall": 5,
    "meets_target": false,
    "blocking": {
     "no_official_form": 6,
     "high_evidence_out_of_band": 10,
-    "start_or_source_gate": 23,
+    "start_or_source_gate": 24,
     "unpriced": 3,
     "unverified_or_corroborated": 2
    },
    "reasons": [
     "6 of 24 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "10 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "23 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "24 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "3 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "2 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
-   "live_picks": [
-    {
-     "event_id": "609581",
-     "sport": "Rugby Union",
-     "tracks": [
-      "root",
-      "olbg"
-     ],
-     "root_ref": "RGU-609581",
-     "olbg_ref": "RGU-609581",
-     "selection": "Dragons",
-     "price": 1.72,
-     "american": -139
-    }
-   ]
+   "live_picks": []
   },
   {
    "sport": "Rugby League",
@@ -770,7 +756,7 @@
  "prose_evidence": {
   "root": {
    "pieces": 93,
-   "high": 13,
+   "high": 12,
    "words_min": 57,
    "words_median": 94,
    "words_max": 176,
@@ -799,7 +785,7 @@
   },
   "olbg": {
    "pieces": 49,
-   "high": 11,
+   "high": 10,
    "words_min": 56,
    "words_median": 115,
    "words_max": 254,
@@ -1012,15 +998,15 @@
     "root_price": 1.72,
     "root_american": -139,
     "root_prob": 0.551,
-    "root_confidence": "HIGH",
-    "root_start_status": "upcoming",
+    "root_confidence": "MEDIUM",
+    "root_start_status": "start_window_reached",
     "olbg_ref": "RGU-609581",
     "olbg_selection": "Ospreys",
     "olbg_price": 1.62,
     "olbg_american": "-161",
     "olbg_prob": 0.585,
-    "olbg_confidence": "high",
-    "olbg_start_status": "upcoming",
+    "olbg_confidence": "medium",
+    "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Ospreys_v_Dragons/9?event_id=609581"
    }
   ]
