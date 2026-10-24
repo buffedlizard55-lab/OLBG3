@@ -37,7 +37,7 @@ def norm(value: str) -> set[str]:
 def team_aliases(team: dict) -> list[set[str]]:
     """Explicit identifiers from the official payload, never city-only fuzzy matches."""
     aliases = []
-    for field in ('abbrev', 'teamName', 'commonName', 'name', 'shortName'):
+    for field in ('abbrev', 'teamName', 'commonName', 'name'):
         value = team.get(field)
         if isinstance(value, dict):
             value = value.get('default')

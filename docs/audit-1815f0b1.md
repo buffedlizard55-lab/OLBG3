@@ -42,9 +42,9 @@ Raw field pointers: NHL `gameWeek[].games[]` and `standings[]`; MLB `dates[].gam
 ### Gates (22:37Z combined tree)
 
 - Complete root / lines-track rebuild, `scripts/check_board.py`, `tools/check_site.py`: PASS.
-- 412 unit tests: OK, 26 existing dated skips. These include source-capture byte integrity, both-team matching, price-SP parsing, source allowlists and display expiration regressions.
+- 414 unit tests: OK, 26 existing dated skips. These include source-capture byte integrity, both-team matching, price-SP parsing, source allowlists and display expiration regressions.
 - Prose quality: 142 written pieces; 0 errors, 0 warnings; 30-word floor and prohibited terms checked; no HIGH near-duplicate pair.
 - Local links: **111 pages / 2,795 local links / 0 broken**. External URL availability/content is not certified by this check; fetch results and supported fields are listed above.
-- Deterministic capture replay: **801 observations / 416 selected events / 416 matches / 416 lines / 0 errors / 15 warnings / 100 informational observations**. [Full row-linked lineage index](audit-1815f0b1-provenance.md). This proves internal fidelity, not current truth of every sporting statement.
+- Deterministic capture replay: **801 observations / 416 selected events / 416 matches / 416 lines / 0 errors / 16 warnings / 100 informational observations**. [Full row-linked lineage index](audit-1815f0b1-provenance.md). This proves internal fidelity, not current truth of every sporting statement.
 
 Final PR, merge and Pages receipts will be recorded in `COORDINATION.md` after the operation succeeds. No advance deployment claim is made here.

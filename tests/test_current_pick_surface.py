@@ -121,3 +121,24 @@ class OfficialProseDomainTests(unittest.TestCase):
         self.assertTrue(surface.official_prose_url('https://www.legavolley.it/classifica/?IdCampionato=999'))
         for url in ('https://www.legavolley.it.attacker.example/', 'https://user@www.legavolley.it/', 'http://www.legavolley.it/'):
             self.assertFalse(surface.official_prose_url(url))
+
+class PublishedShortlistTests(unittest.TestCase):
+    def test_current_shortlist_is_latest_listing_scoped_and_deep_linked(self):
+        import json
+        import re
+        load = lambda n: json.loads((ROOT / 'data' / n).read_text())
+        meta = load('meta.json')
+        active = {line.split('|')[4] for line in (ROOT / 'data' / meta['harvest_file']).read_text().splitlines()
+                  if line.strip() and not line.startswith('#')}
+        entries = surface.collect(load('events.json')['events'] + load('gap_sports.json')['rows'],
+            {p['ref']: p for p in load('predictions.json')['predictions']},
+            {r['match_id']: r for r in load('lines.json')},
+            {r['id']: r for r in load('matches.json')},
+            {p['match_id']: p for p in load('predictions-olbg.json')['predictions']}, active_event_ids=active)
+        picks = [x for x in entries if x['state'] == 'pick']
+        page = (ROOT / 'today.html').read_text()
+        for x in picks:
+            self.assertIn(str(x['event_id']), active)
+            self.assertIn("id='pick-" + x['key'] + "'", page)
+            self.assertIn("href='today.html#pick-" + x['key'] + "'", page)
+        self.assertEqual(len(picks), len(re.findall("<article class='pick-card'", page)))

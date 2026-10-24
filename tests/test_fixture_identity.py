@@ -67,3 +67,9 @@ class CapturedPriceTests(unittest.TestCase):
         for raw in ('SP', '', None, 'NaN', 'inf', '1.0', '-2'):
             self.assertIsNone(module.parse_decimal(raw))
         self.assertEqual(module.parse_decimal('2.05'), 2.05)
+
+class CityAliasTests(unittest.TestCase):
+    def test_city_only_shortname_cannot_identify_a_franchise(self):
+        aliases = verifier.team_aliases({'name': 'New York Mets', 'teamName': 'Mets', 'shortName': 'New York'})
+        self.assertNotIn({'new', 'york'}, aliases)
+        self.assertIn({'mets'}, aliases)

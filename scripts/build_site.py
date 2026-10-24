@@ -668,11 +668,13 @@ for _x in PICK_LIVE[:12]:
     _t = _x["tracks"].get("root") or _x["tracks"].get("olbg") or {}
     _price = _t.get("price")
     _strip_items.append(
-        "<a class='strip-item' href='today.html#pick-{k}'>"
+        "<a class='strip-item' data-state='pick' data-expires-at='{cut}' href='today.html#pick-{k}'>"
         "<span class='strip-sport'>{sp}</span><span class='strip-match'>{mt}</span>"
         "<span class='strip-pick'>{sel}</span><span class='strip-price'>{pr}</span>"
         "<span class='strip-when'>{wh}</span></a>".format(
             k=e(_x["key"]), sp=e(_x["sport"]), mt=e(_x["match"]),
+            cut=e(min((t.get('expires_at') or t.get('start_utc') or '9999')
+                      for t in _x['tracks'].values() if t['state'] == 'pick')),
             sel=e(_t.get("selection") or ""),
             pr=(money(_price) + " (" + usd(_price) + " US)") if _price else "no price originated",
             wh=e((_x.get("start_utc") or "")[:16].replace("T", " ") + "Z" if _x.get("start_utc")
