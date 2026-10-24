@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-24T20:50:00+00:00",
+  "root_publication_clock": "2026-10-24T22:32:00+00:00",
   "root_capture": "2026-10-24",
   "root_built": "2026-10-24",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. This script fetches nothing: any clock, quote or verification shown elsewhere on the board was read through the page-retrieval tool and is stored with its URL and read time in data/release_checks.json. The shell itself still has no outbound route (FL-077), which is why no OLBG HTML capture can be produced from here."
@@ -32,14 +32,14 @@
  "totals": {
   "sports_listed": 15,
   "sports_with_rows": 15,
-  "sports_meeting_target": 2,
+  "sports_meeting_target": 1,
   "live_high_root": 12,
-  "live_high_olbg": 10,
-  "live_high_union": 16,
+  "live_high_olbg": 6,
+  "live_high_union": 12,
   "root_rows": 367,
   "olbg_rows": 223,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 59
+  "shortfall_to_target": 63
  },
  "sports": [
   {
@@ -514,11 +514,11 @@
    "olbg_priced_win": 41,
    "olbg_handicap": 41,
    "olbg_total": 41,
-   "olbg_high": 5,
-   "live_high_union": 5,
+   "olbg_high": 1,
+   "live_high_union": 1,
    "target": 5,
-   "shortfall": 0,
-   "meets_target": true,
+   "shortfall": 4,
+   "meets_target": false,
    "blocking": {
     "no_official_form": 28,
     "high_evidence_out_of_band": 8,
@@ -534,54 +534,6 @@
     "12 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
    "live_picks": [
-    {
-     "event_id": "12129",
-     "sport": "Handball",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "HAN-12129",
-     "selection": "Sporting CP",
-     "price": 1.65,
-     "american": "-154"
-    },
-    {
-     "event_id": "12133",
-     "sport": "Handball",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "HAN-12133",
-     "selection": "Dinamo Bucuresti",
-     "price": 1.7,
-     "american": "-143"
-    },
-    {
-     "event_id": "12134",
-     "sport": "Handball",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "HAN-12134",
-     "selection": "Aalborg Handbold",
-     "price": 1.71,
-     "american": "-141"
-    },
-    {
-     "event_id": "12138",
-     "sport": "Handball",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "HAN-12138",
-     "selection": "Orlen Wisla Plock",
-     "price": 1.64,
-     "american": "-156"
-    },
     {
      "event_id": "12130",
      "sport": "Handball",
@@ -785,7 +737,7 @@
   },
   "olbg": {
    "pieces": 49,
-   "high": 10,
+   "high": 6,
    "words_min": 56,
    "words_median": 115,
    "words_max": 254,
