@@ -1,5 +1,5 @@
 {
-  "note": "5 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "13 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -1651,6 +1651,150 @@
         }
       ],
       "downgrade_reason": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
+    },
+    {
+      "ref": "IHO-200006",
+      "status": "high",
+      "selection": "Pittsburgh Penguins to win the money line at 1.53 (-189)",
+      "headline": "Penguins’ home split and Nashville’s 23-goal start point to Pittsburgh at 1.53",
+      "body": "Pittsburgh Penguins to win at 1.53 (-189) against Nashville, a 23:00 UTC face-off at PPG Paints Arena on 24 October. The Penguins are 3-1-0 on home ice and 4-6-1 overall, with 37 goals scored and 38 conceded across eleven games. Nashville are 3-3-3 and have managed only 23 goals in nine starts, and they lost their most recent game. Pittsburgh’s 3-6-1 run over the last ten is the obvious caveat, and the Predators’ 1-1-2 road line says they travel respectably, so the case rests on the home split and Nashville’s lowest-in-the-match scoring output rather than on recent momentum.",
+      "sources": [
+        {
+          "label": "NHL official schedule endpoint (game start times, venues)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings (2026-10-24)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "IHO-200003",
+      "status": "high",
+      "selection": "Washington Capitals to win the money line at 1.44 (-227)",
+      "headline": "Washington’s 4-2-0 home record makes the Capitals the call against a leaky Buffalo side",
+      "body": "Washington Capitals to win at 1.44 (-227) when Buffalo visit Capital One Arena at 23:00 UTC on 24 October. Washington are 4-2-0 at home and 5-4-0 overall with 30 goals for and 29 against in nine games. Buffalo are 1-1-2 on the road and have conceded 37 goals in ten matches, the heaviest defensive figure in this matchup, and they enter off a defeat. Both clubs sit on ten points, which is why the Capitals are not priced shorter, but the Sabres have allowed an average above three and a half goals per game and that is the difference the price has to carry.",
+      "sources": [
+        {
+          "label": "NHL official schedule endpoint (game start times, venues)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings (2026-10-24)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "IHO-200002",
+      "status": "high",
+      "selection": "Carolina Hurricanes to win the money line at 1.70 (-143)",
+      "headline": "Carolina’s 6-1-1 road record is the standout number behind the 1.70 price in St. Louis",
+      "body": "Carolina Hurricanes to win at 1.70 (-143) in St. Louis at 23:00 UTC on 24 October. The Hurricanes have 18 points from twelve games with 47 goals scored and 33 conceded, and their 6-1-1 road record is the strongest away line in the standings. St. Louis are 3-0-1 at home and arrive on a two-game winning run, so the venue is real, but the Blues are 5-4-1 overall with 35 goals and sit eight points behind Carolina. The visitors’ 8-1-1 stretch over ten games against St. Louis’s 5-4-1 is the gap the price is paying for.",
+      "sources": [
+        {
+          "label": "NHL official schedule endpoint (game start times, venues)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings (2026-10-24)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "IHO-200010",
+      "status": "high",
+      "selection": "Edmonton Oilers to win the money line at 1.41 (-244)",
+      "headline": "Goal difference of plus 15 separates Edmonton from Toronto, even with both on three-game runs",
+      "body": "Edmonton Oilers to win at 1.41 (-244) against Toronto at Rogers Place, 23:00 UTC on 24 October. Edmonton are 8-1-1 with 47 goals for and 32 against, a goal difference of plus 15, and they have won three straight. Toronto are 6-4-2 with 43 scored and 39 conceded, plus four, and they are also on a three-game run, while their 2-1-1 road record shows they are not easy visitors. The Oilers’ 3-1-1 home split and the twelve-goal gap in goal difference are what justify a price this short.",
+      "sources": [
+        {
+          "label": "NHL official schedule endpoint (game start times, venues)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings (2026-10-24)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "IHO-200005",
+      "status": "high",
+      "selection": "Seattle Kraken to win the money line at 1.70 (-143)",
+      "headline": "Seattle’s home split and Minnesota’s 2-3-2 road form underpin the Kraken at 1.70",
+      "body": "Seattle Kraken to win at 1.70 (-143) against Minnesota at Climate Pledge Arena, 02:00 UTC on 25 October. Seattle are 7-3-1 with 44 goals for and 37 against and have won their last two, including a 3-1-0 home record. Minnesota are 6-3-2 with only 32 goals scored, and although they are 4-0-0 at home they are 2-3-2 on the road and lost their most recent game. The Wild concede fewer goals than Seattle, so the margin should be tight, but the venue split and Seattle’s twelve-goal advantage in scoring make the home side the pick at this price.",
+      "sources": [
+        {
+          "label": "NHL official schedule endpoint (game start times, venues)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings (2026-10-24)",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "BSB-160792",
+      "status": "high",
+      "selection": "Milwaukee Brewers to win the money line at 1.67 (-149)",
+      "headline": "Brewers’ 103-win season and 214-run scoring edge carry the 1.67 home price",
+      "body": "Milwaukee Brewers to win at 1.67 (-149) in the World Series game at American Family Field that MLB's schedule service starts at 00:00 UTC on 25 October. The Brewers finished the regular season 103-59, scoring 832 runs and allowing 618. Tampa Bay were 98-64 with 736 scored and 650 conceded, so the two clubs are close on wins but 214 runs apart on run differential. Milwaukee's home setting adds the small edge our line prices in, and the Rays' lower scoring output is the reason the home side is favoured rather than the teams being treated as level.",
+      "sources": [
+        {
+          "label": "MLB official schedule API — gamePk 849802",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-25&hydrate=team,linescore,probablePitcher"
+        },
+        {
+          "label": "MLB official standings (162-game season)",
+          "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "HBL-12130",
+      "status": "high",
+      "selection": "HC Vardar to win the money line at 1.68 (-147)",
+      "headline": "Vardar’s 30.8 goals a game at home points to a tight Group B win over Melsungen",
+      "body": "HC Vardar 1961 to win at 1.68 (-147) against MT Melsungen in EHF Champions League Group B on Wednesday 28 October at the SC Jane Sandanski in Skopje, a 18:45 CET (17:45 UTC) throw-off. The EHF's own standings after Round 5 have Vardar fourth on two points from five games, 1-0-4, scoring 154 goals and conceding 158, while Melsungen are second on six points, 3-0-2, with 138 goals for and 138 against. Vardar's 30.8 goals per game is the higher attacking rate in the pairing, and Melsungen's neutral goal difference makes this a short-margin call rather than a comfortable one, which is why the price sits where it does.",
+      "sources": [
+        {
+          "label": "EHF Champions League Men 2026/27 — official standings",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+        },
+        {
+          "label": "EHF official playing-times PDF (Round 6, TO TIME (CET))",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        }
+      ],
+      "correction_note": ""
+    },
+    {
+      "ref": "RGU-609581",
+      "status": "high",
+      "selection": "Dragons to win the match at 1.72 (-139)",
+      "headline": "Dragons’ nine-point start and +5 points difference edge the 1.72 price at St Helen’s",
+      "body": "Dragons to win at 1.72 (-139) against Ospreys at St Helen's, Swansea, where the United Rugby Championship fixture list gives a 19.45 IRE & UK kick-off on 24 October, 18:45 UTC. Dragons sit on nine points from three rounds, one win, one draw and one loss, with 88 points scored and 83 conceded and a D-W-L form line. Ospreys have six points from three, one win and two defeats, 81 scored and 107 conceded, and their L-L-W form includes a 26-point reversal. The venue is the Ospreys' own ground, so this is a genuine away call, but the visitors' better points difference and tighter defence are what the price is built on.",
+      "sources": [
+        {
+          "label": "United Rugby Championship official — 2026/27 fixtures in full (Round 4)",
+          "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
+        },
+        {
+          "label": "United Rugby Championship official league table",
+          "url": "https://stats.unitedrugby.com/match-centre/table/2026-27"
+        }
+      ],
+      "correction_note": ""
     }
   ]
 }

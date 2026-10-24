@@ -1,7 +1,7 @@
 {
  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label. Daily refresh 2026-10-23T16:55Z-17:22Z (session-beb7787b): clocks re-observed on the competition's own pages (URC, NBA.com, MLB.com, EuroLeague news article with CEST clocks, LNR Top 14 (date-only: no zone printed), NHL API, WTA order-of-play PDFs (date-only / not-before: no zone printed), Cork GAA); pages that render clocks in the reader's zone without a label (WST matches, EuroLeague game-center, PREM Rugby) are recorded date-only; prior Pro D2 entries that labelled an unlabelled LNR clock as CET are held.",
- "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks)",
- "checked_at": "2026-10-23T21:36:00Z",
+ "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe; 2026-10-24T17:10Z-17:14Z URC/EHF/SuperLega match pages) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe)",
+ "checked_at": "2026-10-24T17:14:00Z",
  "events": {
   "160789": {
    "date": "2026-10-24",
@@ -191,29 +191,29 @@
    "timezone": "UTC",
    "kind": "exact",
    "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/",
-   "quote": "Itas Trentino-Cisterna Volley — Trento, Italy — 25 Oct 2026 — 17:00 Local Time; the page’s Upcoming Matches module prints 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time)",
-   "checked_at": "2026-10-23T21:32:00Z",
-   "note": "Three-zone print is internally inconsistent (17:00 UTC is 19:00 CEST, not 18:00). Recorded at the UTC figure the page prints and flagged as FL-181 for review."
+   "quote": "\"Trento, Italy - 25 Oct 2026 - 17:00 Local Time\" (Italy is on CET from 25 October), match #8 Itas Trentino v Cisterna Volley",
+   "checked_at": "2026-10-24T17:14:00Z",
+   "note": "FL-181 superseded: the 23 Oct three-zone block was internally inconsistent (17:00 UTC against 18:00 local). This read is the match page for #8, which gives 17:00 Local Time in Trento on 25 Oct 2026 - the day Italy moves to CET (UTC+1) - so the exact UTC clock is 16:00 and no conversion was applied beyond the stated zone."
   },
   "36995": {
    "date": "2026-10-25",
    "time": "17:00",
    "timezone": "UTC",
    "kind": "exact",
-   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
-   "quote": "Cucine Lube Civitanova vs Pallavolo Padova - SuperLega 2026/27, Round Robin - Preliminary Phase - Men #10 - Sunday 25 Oct 2026: 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time), Civitanova Marche, Italy.",
-   "checked_at": "2026-10-23T19:36:00Z",
-   "note": "Re-observed 2026-10-23T19:36Z on the SuperLega schedule page, which prints the same fixture in three zones (17:00 UTC / 13:00 GMT-04:00 / 18:00 local). The UTC value is quoted by the source, not converted here; the earlier observation at 22:10Z on 22 Oct is superseded by this read."
+   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+   "quote": "\"Civitanova Marche, Italy - 25 Oct 2026 - 18:00 Local Time\"; the same page lists the fixture at \"17:00 (UTC)\"",
+   "checked_at": "2026-10-24T17:14:00Z",
+   "note": "Re-observed 2026-10-24 on the SuperLega match page for #10, which prints the fixture in three zones (UTC / GMT-04:00 / local). The UTC value is quoted verbatim, not converted; supersedes the 2026-10-23T19:36Z observation."
   },
   "36996": {
    "date": "2026-10-25",
    "time": "17:00",
    "timezone": "UTC",
    "kind": "exact",
-   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
-   "quote": "Vero Volley Monza vs Rana Verona - SuperLega 2026/27, Round Robin - Preliminary Phase - Men #12 - Sunday 25 Oct 2026: 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time), Monza, Italy.",
-   "checked_at": "2026-10-23T19:36:00Z",
-   "note": "Re-observed 2026-10-23T19:36Z on the SuperLega schedule page, which prints the same fixture in three zones (17:00 UTC / 13:00 GMT-04:00 / 18:00 local). The UTC value is quoted by the source, not converted here; the earlier observation at 22:10Z on 22 Oct is superseded by this read."
+   "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30005/",
+   "quote": "The page's upcoming-matches block lists \"Vero Volley Monza ... 17:00 (UTC) ... 18:00 (Local Time)\" on Sunday 25 Oct 2026",
+   "checked_at": "2026-10-24T17:14:00Z",
+   "note": "Re-observed 2026-10-24 on the SuperLega match page for #12, which prints the fixture in three zones (UTC / GMT-04:00 / local). The UTC value is quoted verbatim, not converted; supersedes the 2026-10-23T19:36Z observation."
   },
   "36997": {
    "date": "2026-10-25",
@@ -221,9 +221,9 @@
    "timezone": "UTC",
    "kind": "exact",
    "source": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/",
-   "quote": "Sir Susa Scai Perugia-Tinet Prata di Pordenone - SuperLega 2026/27, Round Robin - Preliminary Phase - Men #7 - Sunday 25 Oct 2026: 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time), Perugia, Italy.",
-   "checked_at": "2026-10-23T19:36:00Z",
-   "note": "Re-observed 2026-10-23T19:36Z on the SuperLega schedule page, which prints the same fixture in three zones (17:00 UTC / 13:00 GMT-04:00 / 18:00 local). The UTC value is quoted by the source, not converted here; the earlier observation at 22:10Z on 22 Oct is superseded by this read."
+   "quote": "\"25 Oct 2026 — 17:00 (UTC) / 13:00 (GMT-04:00) / 18:00 (Local Time)\" — Sir Susa Scai Perugia v Tinet Prata di Pordenone",
+   "checked_at": "2026-10-24T17:14:00Z",
+   "note": "Re-observed 2026-10-24 on the SuperLega match page for #7, which prints the fixture in three zones (UTC / GMT-04:00 / local). The UTC value is quoted verbatim, not converted; supersedes the 2026-10-23T19:36Z observation."
   },
   "188831": {
    "date": "2026-10-23",
@@ -315,9 +315,8 @@
    "timezone": "UTC",
    "kind": "exact",
    "source": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
-   "quote": "SUNDAY 25 OCTOBER | FORMULA 1 | GRAND PRIX (56 LAPS OR 120 MINS) | 15:00 - 17:00 | Note - Austin is 5 hours behind UTC (15:00 at UTC-5 = 20:00 UTC; corroborated by https://www.formula1.com/en/racing/2026/united-states payload startDate 2026-10-25T20:00:00.000Z)",
-   "checked_at": "2026-10-23T21:35:00Z",
-   "note": "Re-observed 2026-10-23T21:35Z on Formula 1's official 2026 United States GP full timetable, which explicitly states 'Austin is 5 hours behind UTC' alongside the 15:00 Sunday 25 October Grand Prix start (20:00 UTC)."
+   "quote": "\"FORMULA 1 GRAND PRIX (56 LAPS OR 120 MINS) 15:00 - 17:00\" and \"Note - Austin is 5 hours behind UTC\"",
+   "checked_at": "2026-10-24T17:10:00Z"
   },
   "609578": {
    "date": "2026-10-24",
@@ -334,8 +333,8 @@
    "timezone": "Irish time",
    "kind": "exact",
    "source": "https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/",
-   "quote": "Sunday, October 25 — 4.00pm — SuperValu Páirc Uí Chaoimh (Nemo Rangers v St Finbarrs)",
-   "checked_at": "2026-10-23T21:32:00Z"
+   "quote": "\"Match Details — Sunday, October 25 — 4.00pm — SuperValu Páirc Uí Chaoimh\"",
+   "checked_at": "2026-10-24T17:10:00Z"
   },
   "12049": {
    "date": "2026-10-22",
@@ -1294,9 +1293,8 @@
    "timezone": "Irish time",
    "kind": "exact",
    "source": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
-   "quote": "SATURDAY, OCTOBER 24 — Ospreys v Dragons, St. Helen's, Swansea, KO 19.45 IRE & UK / 20.45 ITA & SA",
-   "checked_at": "2026-10-23T21:34:00Z",
-   "note": "Observed 2026-10-23T21:34Z in cited-20261023T2134Z; 19:45 Irish/UK time on 24 Oct = 18:45 UTC (OLBG's card startDate carries 18:00Z, 45 minutes early — FL-195)."
+   "quote": "\"Ospreys v Dragons — St. Helen’s, Swansea, KO 19.45 IRE & UK / 20.45 ITA & SA\"",
+   "checked_at": "2026-10-24T17:10:00Z"
   },
   "609565": {
    "date": "2026-10-24",
@@ -1340,13 +1338,12 @@
   },
   "12130": {
    "date": "2026-10-28",
-   "time": "18:45",
-   "timezone": "CET",
+   "time": "17:45",
+   "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "B | HC Vardar 1961 vs MT Melsungen SC Jane Sandanski (Skopje, MKD) | Wednesday 28.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "Round 6 — \"HC Vardar 1961 vs MT Melsungen ... Wednesday 28.10.2026 | 18:45h\" under \"TO TIME (CET)\"",
+   "checked_at": "2026-10-24T17:13:00Z"
   },
   "12131": {
    "date": "2026-10-29",
@@ -1447,6 +1444,123 @@
    "quote": "ORDER OF PLAY - SATURDAY, OCTOBER 24, 2026 — CENTER COURT — Not Before 18:00 — 4. [1] Daniil MEDVEDEV VS [3] Alexander BUBLIK (KAZ)",
    "checked_at": "2026-10-23T21:36:00Z",
    "note": "Not-before court time with no timezone printed on the PDF; UTC start left uncertified per FL-097."
+  },
+  "200006": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020172, NSH Predators @ PIT Penguins",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200003": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020173, BUF Sabres @ WSH Capitals",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200002": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020175, CAR Hurricanes @ STL Blues",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200010": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020176, TOR Maple Leafs @ EDM Oilers",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200005": {
+   "date": "2026-10-25",
+   "time": "02:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-25T02:00:00Z\" — game id 2026020179, MIN Wild @ SEA Kraken",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "160792": {
+   "date": "2026-10-25",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher",
+   "quote": "\"gameDate\": \"2026-10-25T00:00:00Z\" — game id 849802, Tampa Bay Rays @ Milwaukee Brewers",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "199999": {
+   "date": "2026-10-24",
+   "time": "17:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T17:00:00Z\" — game id 2026020168, ANA Ducks @ PHI Flyers",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200000": {
+   "date": "2026-10-24",
+   "time": "19:30",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T19:30:00Z\" — game id 2026020169, LAK Kings @ NJD Devils",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200008": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020171, NYR Rangers @ OTT Senators",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200007": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020170, SJS Sharks @ BOS Bruins",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200001": {
+   "date": "2026-10-24",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-24T23:00:00Z\" — game id 2026020174, VGK Golden Knights @ CBJ Blue Jackets",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200009": {
+   "date": "2026-10-25",
+   "time": "01:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-25T01:00:00Z\" — game id 2026020177, TBL Lightning @ UTA Mammoth",
+   "checked_at": "2026-10-24T17:09:30Z"
+  },
+  "200004": {
+   "date": "2026-10-25",
+   "time": "02:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+   "quote": "\"startTimeUTC\": \"2026-10-25T02:00:00Z\" — game id 2026020178, DET Red Wings @ CGY Flames",
+   "checked_at": "2026-10-24T17:09:30Z"
   }
  },
  "policy_20261023": "Exact UTC starts read directly from the league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state the start in UTC, so no zone is inferred.",

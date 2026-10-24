@@ -97,6 +97,23 @@ def mlb_games(payload: dict) -> list[dict]:
     return games
 
 
+SESSION_NOTE = 'session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe)'
+
+
+def _append_session(doc: dict, note: str) -> None:
+    """Record who re-read the clocks without erasing who read them before.
+
+    This script used to overwrite ``session`` with one hard-coded string, which silently deleted
+    the provenance of every earlier probe (session-b322f52e's F1/URC/EHF reads, session-784afe97's
+    Top 14 holds). The field is a merge history, so it may only ever grow, and it must grow
+    exactly once per run so a re-run stays byte-identical.
+    """
+    current = (doc.get('session') or '').strip()
+    if note in current:
+        return
+    doc['session'] = f'{current} + {note}' if current else note
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--probe', required=True)
@@ -203,8 +220,8 @@ def main() -> int:
                      f'startDate attribute said {row["start_utc"]}.'),
         }
     ver['retrieved_at'] = checked_at
-    ver['session'] = 'session-22dbc477 (live 2026-10-23 probe)'
-    vpath.write_text(json.dumps(ver, indent=1) + '\n')
+    _append_session(ver, SESSION_NOTE)
+    vpath.write_text(json.dumps(ver, indent=1, ensure_ascii=False) + '\n')
     print(f'verifications.json: {len(verified)} event(s) added/updated')
 
     # ---- merge into data/release_checks.json ------------------------------------------
@@ -224,7 +241,7 @@ def main() -> int:
             'checked_at': checked_at,
         }
     rc['checked_at'] = max([rc.get('checked_at') or '', checked_at])
-    rc['session'] = 'session-22dbc477 (live 2026-10-23 probe)'
+    _append_session(rc, SESSION_NOTE)
     # Idempotent: a re-run must produce a byte-identical file, so this note is a fixed key rather
     # than a sentence appended to the policy on every pass.
     rc['policy_20261023'] = ('Exact UTC starts read directly from the league schedule payloads '
@@ -232,7 +249,7 @@ def main() -> int:
                              'the start in UTC, so no zone is inferred.')
     if rc.get('policy', '').find(' 2026-10-23: exact UTC starts') != -1:
         rc['policy'] = rc['policy'].split(' | 2026-10-23: exact UTC starts')[0]
-    rpath.write_text(json.dumps(rc, indent=1) + '\n')
+    rpath.write_text(json.dumps(rc, indent=1, ensure_ascii=False) + '\n')
     print(f"release_checks.json: {len(verified)} exact-clock record(s) added/updated")
     return 0
 

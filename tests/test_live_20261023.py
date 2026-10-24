@@ -191,8 +191,20 @@ class ArchiveIntegrity(unittest.TestCase):
                  if not [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
         self.assertEqual(empty, [],
                          'a zero-row harvest file is selectable by name, so none may be committed')
-        self.assertEqual(paths[-1].name, 'olbg-harvest-20261023T1700Z.tsv',
-                         'with the guard in place, newest by name IS newest with rows')
+        # 2026-10-24 (session-a30d9bdb, FL-199): the literal filename pinned here was a clock. A
+        # later populated capture is a correct state (the 2026-10-24T17:07Z capture is published on
+        # the main board through this session's applied batch), and the /olbg/ audit track is a
+        # replayable snapshot of ONE capture, labelled with its own fetch time. So assert what the
+        # sentence above actually claims about the audit track: its pin is a committed harvest with
+        # rows, and every harvest file that exists carries rows.
+        meta = json.loads((ROOT / 'data/meta.json').read_text())
+        pinned = ROOT / 'data' / meta['harvest_file']
+        self.assertTrue(pinned.exists(), meta['harvest_file'])
+        self.assertTrue([l for l in pinned.read_text(encoding='utf-8').splitlines()
+                         if l.strip() and not l.startswith('#')])
+        self.assertIn('2026-10-23T16:21:00Z',
+                      (ROOT / 'site' / 'olbg' / 'index.html').read_text(encoding='utf-8'),
+                      'the audit board must publish the fetch time of the capture it replays')
         # The empty 21:35Z capture is still evidence — as a capture, not as a derived empty TSV.
         capture = ROOT / 'data/raw/live-20261023T2135Z'
         self.assertTrue((capture / 'manifest.json').exists(), capture)
@@ -201,7 +213,20 @@ class ArchiveIntegrity(unittest.TestCase):
 
     def test_archived_files_are_not_reused_as_the_primary_harvest(self):
         meta = json.loads((ROOT / 'data/meta.json').read_text())
-        self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv')
+        # Same rule, stated without a date: the pin names a committed live-capture harvest with rows,
+        # mapped back to a capture whose own extract report shows cards. No agent-supplied file is
+        # promoted, and no zero-row harvest exists that a name-based resolver could pick up.
+        name = meta['harvest_file'].split('/')[-1]
+        self.assertRegex(name, r'^olbg-harvest-\d{8}T\d{4}Z(-[0-9a-f]{8})?\.tsv$')
+        self.assertTrue((ROOT / 'data' / meta['harvest_file']).exists())
+        rows = [l for l in (ROOT / 'data' / meta['harvest_file']).read_text(encoding='utf-8').splitlines()
+                if l.strip() and not l.startswith('#')]
+        self.assertGreater(len(rows), 100)
+        capture = ROOT / 'data/raw' / ('live-' + name[len('olbg-harvest-'):-len('.tsv')])
+        report = capture / 'extract-report.json'
+        if report.exists():
+            cards = sum(x.get('cards') or 0 for x in json.loads(report.read_text()).get('listings', []))
+            self.assertGreater(cards, 0, capture.name)
 
 
 class PublishedState(unittest.TestCase):

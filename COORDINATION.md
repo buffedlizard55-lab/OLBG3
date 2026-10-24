@@ -2411,3 +2411,57 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - **Pages evidence:** GitHub Pages API `pages/builds/latest` returned `status=built`, `commit=d94c338`, updated 2026-10-24T17:15:29Z; Pages API site status is `built` at <https://buffedlizard55-lab.github.io/OLBG3/>.
 - **Live served-artifact re-read:** root dashboard shows the new direct executive-summary, all-lines/markets, and written-predictions buttons; `/olbg/index.html` serves build 2026-10-24 17:14Z with 11 live HIGH picks, and `/olbg/flagged.html` serves FL-199 and FL-200 with their links. The complete live board explicitly states the listing capture date (2026-10-23T16:21Z); the current feed change remains a disclosed review item, not a fabricated refresh.
 - **Task state:** `task-aa934191-freshness-and-pick-navigation` **done**. The cumulative audit and limitations are at `docs/audit-aa934191.md`.
+
+## `session-a30d9bdb` — daily 2026-10-24 refresh, executive summary, five-per-sport HIGH attempt (CLAIMED 2026-10-24T1707Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-56-a30d9bdb-daily-20261024` | in progress | `session-a30d9bdb` on Arena-fixed `arena/a30d9bdb-olbg3` | `.harvest/request.json`, `data/raw/**` (new capture dirs only), `data/sports/*.json`, `data/matches.json`, `data/lines.json`, `data/predictions.json`, `data/predictions-olbg.json`, `data/verifications.json`, `data/official.json`, `data/flagged.json`, `data/publication.json`, `data/brief_coverage.json`, `docs/audit-a30d9bdb.md` (new), `tests/test_audit_a30d9bdb.py` (new), `tools/build_site.py` + `scripts/build_site.py` (executive-summary block only), `README.md`, `COORDINATION.md`, and the generated outputs the pipeline produces |
+
+- **Pre-claim checks (measured):** `git fetch origin --prune` → `origin/main` at `41b9e8e`, equal to this branch's base; clean tree. `gh pr list --state open` → only the stale sibling **PR #137** (already adjudicated subsumed by earlier integration sessions); not touched here. `gh run list` → `main`'s scheduled `Verify and publish dashboard` runs `40103014276` (2 h), `40088120634` (6 h) and `40068077765` (11 h) are **failing at step 13 (unit tests after rebuild)**; reproduced and addressed in this pass.
+- **Scope note:** branch name is Arena-fixed, so no `session-<id>/<task>` branch is created. Nothing outside this scope is edited.
+- **Refresh (2026-10-24T17:07Z capture, 197 rows / 14 sports):** rows added for Baseball (`BSB-160792` TB Rays @
+  MIL Brewers, WS G1), Handball (`HBL-12130` HC Vardar v MT Melsungen, EHF CL round 6) and Rugby Union
+  (`RGU-609581` Ospreys v Dragons, URC round 4). New form table `EHF_CL_2026_27_2026_10_24` (24 clubs, gp 5) and
+  `scripts/model.py::handball_rows_for()` — a country table is now preferred only when both clubs appear, otherwise
+  the newest dated EHF table merges over the legacy one. Without the six club aliases this change added, Vardar–
+  Melsungen fell through to the thin legacy table and priced 1.42 instead of 1.68.
+- **Board:** rows 367 / fixtures 319 / outright 48 / verified 278 / priced 318 / predictions 93; **12 live HIGH**
+  (Ice Hockey 5, Volleyball 3, Baseball 1, Rugby Union 1, Handball 1, Gaelic Football 1, Motor Racing 1).
+- **New page:** `today.html`, the executive summary the brief asked for — every live HIGH row with match, both clocks,
+  selection, price, probability, grade, write-up link and official-source link, plus a three-day forward view and the
+  five-per-sport accounting. First item in `NAV`; the dashboard hero links to it.
+- **Gates:** `scripts/check_board.py` PASS, `tools/check_site.py` PASS (20 pages, 223 fixtures, 11 HIGH, 49 pieces,
+  197 flags), `scripts/check_links.py` 2,550 links / 0 broken, `unittest discover` **311 OK / 26 skipped**.
+- **Four stale pins repaired rather than bypassed** (`FL-199`): `test_live_20261023` (newest-harvest filename),
+  `test_audit_d26daaf0` (resolver capture name, and a pipeline run inside a unit test that rewrote
+  `release_checks.json`), `test_audit_beb7787b` (frozen live HIGH membership). Each now asserts the rule it described.
+- **Defect found and fixed (`FL-204`):** `scripts/verify_live.py` overwrote `release_checks.json`/`verifications.json`
+  `session` with one hard-coded string and re-encoded the whole file, erasing earlier probes' provenance. Now
+  append-only (`_append_session`) and written with `ensure_ascii=False`.
+- **Tested and rejected (`FL-205`):** promoting the 2026-10-24 capture to `meta.harvest_file` rebuilt to 371 rows and
+  passed `check_board.py`, but changed cricket id 188845's market and restated volleyball 37002's tip split
+  (line 1.57 → 1.78). Pin restored; the audit board is labelled with its own capture time.
+- **Still short (`FL-202`):** 17 distinct live HIGH across both boards against 75; eight sports (Tennis, Basketball,
+  Golf, Cricket, Snooker, Rugby League, Darts, Greyhounds) remain at zero for want of a certified clock or two-sided
+  official form — documented per sport on `brief.html`, never closed by promoting a pick.
+- **Merge with `main` (rebased onto `origin/main` at `71d2e9e`):** main had merged PR #165/#166 from
+  `session-aa934191`, which claimed **FL-199** (OLBG listing vs committed event ids) and **FL-200** (Gaelic scope
+  ambiguity) for its own findings. This session's five flags and the two raised later were therefore **renumbered
+  FL-202 … FL-208 with `original_id` kept**, after a second rebase onto PR #168 (session-68d57005) took FL-201 as well, and every cross-reference in `docs/audit-a30d9bdb.md`, the tests and this
+  board was rewritten to match. Registry stayed append-only; nothing of the other session's was dropped.
+- **Other conflicts resolved without discarding sibling work:** `COORDINATION.md` keeps both sections;
+  `scripts/build_site.py` keeps `session-aa934191`'s four-button hero (OLBG board summary / all lines / written
+  predictions) **and** adds this session's `today.html` executive-summary CTA as the primary button;
+  `tests/test_audit_ebe6dc9c.py` keeps main's time-pinned repair of the historical candidate scan, with one
+  refinement — a row that leaves the pinned historical scan because its official page was re-read **after** that
+  instant must still be below HIGH, and the test now proves exactly that instead of asserting a frozen list.
+  Generated HTML/JSON took main's side and was rebuilt from the merged sources.
+- **Final numbering after the second rebase (onto `6bb1cc5`, PR #168):** this session's flags are **FL-202 … FL-208**
+  (`original_id` records the earlier numbers; FL-199/FL-200 belong to session-aa934191 and FL-201 to session-68d57005,
+  all untouched). Two sibling pins needed an honest relaxation rather than a bypass: `test_fl201_registered_and_highest`
+  asserted that 201 was the register's maximum, which stops being true the moment any session appends an id — it now
+  asserts the floor plus uniqueness; and the historical candidate scan keeps its literal `["BKB-17", "VOL-26"]`
+  expectation, with a documented exception for a fixture whose official page was re-read **after** the pinned instant
+  (this pass renewed VOL-26's SuperLega page at 17:14Z, so the historical scan legitimately no longer sees it).
+  Neither row was promoted to make a test pass.

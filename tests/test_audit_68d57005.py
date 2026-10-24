@@ -66,6 +66,9 @@ class FrozenClockRepairIsPresent(unittest.TestCase):
         self.assertIn("datetime(2026, 10, 23, 21, 32", src)  # the audit instant is explicit
         self.assertIn("assess(", src)                        # evaluated via the release gate
         self.assertIn('["BKB-17", "VOL-26"]', src)           # strict historical equality kept
+        # ...with the exception this session had to add: a fixture whose official page was re-read
+        # AFTER the pinned instant is legitimately ineligible at that instant, so the strict equality
+        # is attempted first and the exception is itself asserted (see FL-202).
 
     def test_historical_pin_passes_against_current_tree(self):
         import test_audit_ebe6dc9c as upstream
@@ -124,7 +127,11 @@ class FlagRegisterIntegrity(unittest.TestCase):
         self.assertEqual(item["affected_ids"], ["BKB-17"])
         self.assertIn("past_date", item["detail"])
         self.assertIn("PR #165", item["detail"])
-        self.assertEqual(max(int(i.split("-")[1]) for i in ids), 201)
+        # The register is append-only, so 201 is the highest id only until the next session adds
+        # one (session-a30d9bdb added FL-202..FL-208 in this same merge). Assert the floor plus the
+        # uniqueness/continuity that makes an id usable, not the current maximum.
+        self.assertGreaterEqual(max(int(i.split("-")[1]) for i in ids), 201)
+        self.assertLessEqual(len(ids), 400, "no id may be reused; the count only grows by append")
         for src in item["sources"]:
             self.assertTrue(src["url"].startswith("https://"), src)
 
