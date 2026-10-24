@@ -98,3 +98,43 @@ graded HIGH, because their governing-body pages print venue-local times without 
 nothing about which zone that is). Converting that to UTC would mean inventing a zone, which the
 brief and this repository's release gate both forbid. They remain on `matches.html` at their lower
 grade, with the OLBG clock labelled as such.
+
+## Second pass — the red build, and five more written pieces
+
+**Why the branch CI was red.** The instrumented run captured its own output to `ci-unit-failure.log`
+on the branch (the job log itself is not readable from this environment). Reading that file named the
+failing step exactly: `tools/check_site.py`, with two independent faults.
+
+1. `index.html`, `predictions.html`, `methodology.html` and the NBA write-ups linked the league's
+   official injury report at `ak-static.cms.nba.com`, a host that had never been added to
+   `ALLOWED_HOSTS`. Every other fact in those pieces was already sourced; only the host allowlist was
+   missing. Added, with a comment naming the source.
+2. `VOL-37002` quoted `1.57 (-175)` while its row had been re-priced to `1.78 (-128)` by the
+   2026-10-24 capture. The prose was corrected to the row's number and the revision recorded on the
+   piece as `price_revised` (from, to, when, why). The underlying fragility — hand-written quotes over
+   machine-re-priced rows — is now recorded as **FL-203**.
+
+**What the second pass added.**
+
+| Fixture | Selection | Price | Grade | Official basis |
+|---|---|---|---|---|
+| BKB-536113 Bulls v Wizards | Chicago Bulls to win | 1.78 (-128) | analysis | NBA schedule, standings, 1:00 PM ET injury report |
+| BKB-536114 Mavericks v Spurs | Dallas Mavericks to win | 1.78 (-128) | analysis | same |
+| BKB-536116 Nuggets v Pelicans | Denver Nuggets to win | 1.78 (-128) | analysis | same |
+| ICH-200010 Oilers v Maple Leafs | Edmonton Oilers to win | 1.74 (-135) | analysis | NHL standings 2026-10-24, NHL schedule payload |
+| ICH-200003 Capitals v Sabres | Buffalo Sabres to win | 1.65 (-154) | **HIGH** | same |
+| HAN-12132 Kielce v Kolstad | KS Kielce to win | 1.68 (-147) | **HIGH** | EHF CL Group F table, playing-times PDF |
+| HAN-12136 Magdeburg v Kriens | SC Magdeburg to win | 1.68 (-147) | **HIGH** | same |
+
+Four of the seven publish as *analysis*, not picks: their originated prices imply 53.5–54.5% win
+probability, below the 55% floor the board applies before it calls anything high confidence. That is
+recorded as **FL-204** rather than papered over. The three that qualified lift the live HIGH count
+from 15 to 18, and Handball from 2 to 4.
+
+**Site changes in this pass.** The landing page now opens with a jump bar (today's picks → the rest of
+the week → picks by sport → the 15-sport scorecard → every write-up), then the KPIs, a "Start here"
+card, `Today's high-confidence picks`, `High-confidence picks later in the captured week`, a
+15-tile sport grid naming each sport's leading selection with its HIGH count, a three-step "How to read
+this page" block, and the coverage scorecard. Each sport page now leads with *its* picks, then every
+upcoming fixture with our line, then the write-ups — so a reader who lands on a sport page sees the
+picks before the fixtures.
