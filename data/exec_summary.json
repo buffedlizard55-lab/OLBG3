@@ -1,20 +1,20 @@
 {
- "generated_utc": "2026-10-24T17:08:00Z",
- "publication_clock": "2026-10-24T17:08:00Z",
+ "generated_utc": "2026-10-24T17:14:00Z",
+ "publication_clock": "2026-10-24T17:14:00Z",
  "today_utc": "2026-10-24",
  "window_end_utc": "2026-10-31",
  "note": "Merged from data/events.json, data/gap_sports.json, data/lines.json and the two prediction files. A row is a pick only when its own pipeline graded it HIGH and its own release object says upcoming. Nothing was fetched, re-graded or renewed by this build; blank means unknown.",
  "counts": {
-  "picks_high": 11,
-  "picks_today": 1,
+  "picks_high": 18,
+  "picks_today": 8,
   "picks_next_7_days": 10,
   "picks_later": 0,
   "picks_without_start": 0,
   "sports_covered": 15,
-  "sports_with_a_pick": 5,
-  "sports_meeting_five": 1,
-  "events_merged": 435,
-  "events_today": 9
+  "sports_with_a_pick": 7,
+  "sports_meeting_five": 2,
+  "events_merged": 583,
+  "events_today": 20
  },
  "picks": [
   {
@@ -57,6 +57,321 @@
     {
      "track": "olbg",
      "ref": "RGU-609581",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200003",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "BUF Sabres @ WAS Capitals",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "WAS Capitals",
+   "market": "Money Line",
+   "price": 1.62,
+   "us": "-161",
+   "probability_pct": 58.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Washington Capitals to win at Capital One Arena, with the official start listed at 23:00 UTC. Washington are 5-4-0 for ten points with 30 goals for and 29 against, and their home record of 4-2-0 is the strongest part of that case. Buffalo are 4-4-2 for ten points but have conceded 37 while scoring 28, a minus-nine differential, and they are 1-1-2 on the road with two of those defeats coming in overtime. The clubs are level on points, yet the goal numbers and the venue point the same way. Washington at 1.62 is the selection.",
+    "words": 98,
+    "track": "olbg",
+    "ref": "ICH-200003",
+    "selection": "Washington Capitals Money Line (our price 1.62)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200003",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200006",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "NSH Predators @ PIT Penguins",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "PIT Penguins",
+   "market": "Money Line",
+   "price": 1.58,
+   "us": "-172",
+   "probability_pct": 60.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Pittsburgh Penguins to win at PPG Paints Arena, where the league schedule lists a 23:00 UTC face-off. Pittsburgh's overall 4-6-1 record hides a 3-1-0 home mark, and they have scored 37 goals while conceding 38; they ended a run of defeats by winning their most recent game. Nashville are 3-3-3 for nine points, have scored only 23 and conceded 30 for a minus-seven differential, and are 1-1-2 on the road, arriving on a one-game losing run. Both clubs sit on nine points, so home form is the tie-breaker, and Pittsburgh at 1.58 is the selection.",
+    "words": 97,
+    "track": "olbg",
+    "ref": "ICH-200006",
+    "selection": "Pittsburgh Penguins Money Line (our price 1.58)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200006",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200008",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "NY Rangers @ OTT Senators",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "OTT Senators",
+   "market": "Money Line",
+   "price": 1.65,
+   "us": "-154",
+   "probability_pct": 57.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Ottawa Senators to win at the Canadian Tire Centre, where the league lists a 23:00 UTC start. Ottawa are 7-4-0 for 14 points and 4-2-0 at home, with 31 goals scored and 30 conceded across 11 games. The Rangers are 7-4-1 for 15 points and have the better overall numbers, plus eight with 37 goals, but they are 6-0-0 at home and only 1-4-1 on the road, and they lost their most recent game. Ottawa's home splits against that road record make the Senators at 1.65 the pick, with New York's overall quality the clear risk.",
+    "words": 98,
+    "track": "olbg",
+    "ref": "ICH-200008",
+    "selection": "Ottawa Senators Money Line (our price 1.65)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200008",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200007",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "SJ Sharks @ BOS Bruins",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "BOS Bruins",
+   "market": "Money Line",
+   "price": 1.51,
+   "us": "-196",
+   "probability_pct": 63.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Boston Bruins to win the money line at TD Garden, where the NHL's own schedule puts puck drop at 23:00 UTC on Saturday 24 October. Boston are 8-2-1 for 17 points, top of the Atlantic, with 42 goals scored and 22 conceded for a plus-20 differential, and they are 4-1-0 at home. Their last ten games read 7-2-1 with 39 goals. San Jose arrive 6-4-1 and four goals to the bad, yet 4-2-1 on the road and on a two-game winning run, having scored 29 across their last ten. The home side's defensive record and TD Garden form make Boston at 1.51 the selection, with the visitors' road form the obvious risk.",
+    "words": 114,
+    "track": "olbg",
+    "ref": "ICH-200007",
+    "selection": "Boston Bruins Money Line (our price 1.51)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200007",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200001",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "VGS Golden Knights @ CLB Blue Jackets",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "VGS Golden Knights",
+   "market": "Money Line",
+   "price": 1.53,
+   "us": "-189",
+   "probability_pct": 62.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Vegas Golden Knights to win at Nationwide Arena, with the official schedule listing a 23:00 UTC start. Vegas are 8-4-0 for 16 points with 46 goals for and 36 against, a plus-10 differential, and they have taken three of five on the road while going 7-3-0 across their last ten. Columbus are 3-5-0 for six points and have been outscored 29-20, a minus-nine differential; they are 3-3-0 at home and 0-2-0 away, and they have lost their last two. Vegas have scored 38 goals in their last ten games against Columbus' 20 across eight. The road side's scoring depth makes Vegas at 1.53 the pick.",
+    "words": 107,
+    "track": "olbg",
+    "ref": "ICH-200001",
+    "selection": "Vegas Golden Knights Money Line (our price 1.53)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200001",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "BAS-536112",
+   "sport": "Basketball",
+   "slug": "basketball",
+   "match": "BKN Nets @ CLE Cavaliers",
+   "competition": "NBA",
+   "start_utc": "2026-10-24T23:30:00Z",
+   "start_label": "Sat 24 Oct, 23:30 UTC",
+   "selection": "CLE Cavaliers",
+   "market": "Money Line",
+   "price": 1.57,
+   "us": "-175",
+   "probability_pct": 60.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Cleveland Cavaliers to win at Rocket Arena, with the NBA's official schedule putting the tip at 7:30 PM ET, 23:30 UTC. Both clubs are winless: Cleveland are 0-1 after a road defeat, and Brooklyn are 0-1 having lost their only game at home, leaving them 0-0 on the road. The standings also show Brooklyn 0-1 inside the Eastern Conference while Cleveland's defeat came in conference play, and this is Cleveland's first home game of the 2026-27 season. Home court and Brooklyn's blank road record make Cleveland at 1.57 the pick.",
+    "words": 93,
+    "track": "olbg",
+    "ref": "BKB-536112",
+    "selection": "Cleveland Cavaliers Money Line (our price 1.57)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NBA.com official schedule \u2014 Saturday 24 October 2026, explicit ET clock",
+     "url": "https://www.nba.com/schedule?date=2026-10-24"
+    },
+    {
+     "label": "NBA.com official 2026-27 standings \u2014 record, home/road splits, last ten, streak",
+     "url": "https://www.nba.com/standings"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "BKB-536112",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "BAS-536111",
+   "sport": "Basketball",
+   "slug": "basketball",
+   "match": "MIL Bucks @ PHI 76ers",
+   "competition": "NBA",
+   "start_utc": "2026-10-24T23:30:00Z",
+   "start_label": "Sat 24 Oct, 23:30 UTC",
+   "selection": "PHI 76ers",
+   "market": "Money Line",
+   "price": 1.57,
+   "us": "-175",
+   "probability_pct": 60.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Philadelphia 76ers to win at Xfinity Mobile Arena, where the NBA's own schedule lists a 7:30 PM ET tip-off, 23:30 UTC. Philadelphia are 2-0, having won both games including a 1-0 record at home and a 2-0 mark inside the conference, and they arrive on a two-game winning run. Milwaukee are 0-2, 0-2 in the conference and 0-1 on the road, and they have lost their last two. Both records come from the league's 2026-27 standings table. The hosts' unbeaten start and Milwaukee's road defeat make Philadelphia at 1.57 the selection.",
+    "words": 94,
+    "track": "olbg",
+    "ref": "BKB-536111",
+    "selection": "Philadelphia 76ers Money Line (our price 1.57)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NBA.com official schedule \u2014 Saturday 24 October 2026, explicit ET clock",
+     "url": "https://www.nba.com/schedule?date=2026-10-24"
+    },
+    {
+     "label": "NBA.com official 2026-27 standings \u2014 record, home/road splits, last ten, streak",
+     "url": "https://www.nba.com/standings"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "BKB-536111",
      "page": "../olbg/picks.html"
     }
    ],
@@ -667,6 +982,321 @@
     }
    ],
    "also_published": []
+  },
+  {
+   "id": "ICE-200003",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "BUF Sabres @ WAS Capitals",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "WAS Capitals",
+   "market": "Money Line",
+   "price": 1.62,
+   "us": "-161",
+   "probability_pct": 58.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Washington Capitals to win at Capital One Arena, with the official start listed at 23:00 UTC. Washington are 5-4-0 for ten points with 30 goals for and 29 against, and their home record of 4-2-0 is the strongest part of that case. Buffalo are 4-4-2 for ten points but have conceded 37 while scoring 28, a minus-nine differential, and they are 1-1-2 on the road with two of those defeats coming in overtime. The clubs are level on points, yet the goal numbers and the venue point the same way. Washington at 1.62 is the selection.",
+    "words": 98,
+    "track": "olbg",
+    "ref": "ICH-200003",
+    "selection": "Washington Capitals Money Line (our price 1.62)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200003",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200006",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "NSH Predators @ PIT Penguins",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "PIT Penguins",
+   "market": "Money Line",
+   "price": 1.58,
+   "us": "-172",
+   "probability_pct": 60.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Pittsburgh Penguins to win at PPG Paints Arena, where the league schedule lists a 23:00 UTC face-off. Pittsburgh's overall 4-6-1 record hides a 3-1-0 home mark, and they have scored 37 goals while conceding 38; they ended a run of defeats by winning their most recent game. Nashville are 3-3-3 for nine points, have scored only 23 and conceded 30 for a minus-seven differential, and are 1-1-2 on the road, arriving on a one-game losing run. Both clubs sit on nine points, so home form is the tie-breaker, and Pittsburgh at 1.58 is the selection.",
+    "words": 97,
+    "track": "olbg",
+    "ref": "ICH-200006",
+    "selection": "Pittsburgh Penguins Money Line (our price 1.58)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200006",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200008",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "NY Rangers @ OTT Senators",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "OTT Senators",
+   "market": "Money Line",
+   "price": 1.65,
+   "us": "-154",
+   "probability_pct": 57.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Ottawa Senators to win at the Canadian Tire Centre, where the league lists a 23:00 UTC start. Ottawa are 7-4-0 for 14 points and 4-2-0 at home, with 31 goals scored and 30 conceded across 11 games. The Rangers are 7-4-1 for 15 points and have the better overall numbers, plus eight with 37 goals, but they are 6-0-0 at home and only 1-4-1 on the road, and they lost their most recent game. Ottawa's home splits against that road record make the Senators at 1.65 the pick, with New York's overall quality the clear risk.",
+    "words": 98,
+    "track": "olbg",
+    "ref": "ICH-200008",
+    "selection": "Ottawa Senators Money Line (our price 1.65)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200008",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200007",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "SJ Sharks @ BOS Bruins",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "BOS Bruins",
+   "market": "Money Line",
+   "price": 1.51,
+   "us": "-196",
+   "probability_pct": 63.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Boston Bruins to win the money line at TD Garden, where the NHL's own schedule puts puck drop at 23:00 UTC on Saturday 24 October. Boston are 8-2-1 for 17 points, top of the Atlantic, with 42 goals scored and 22 conceded for a plus-20 differential, and they are 4-1-0 at home. Their last ten games read 7-2-1 with 39 goals. San Jose arrive 6-4-1 and four goals to the bad, yet 4-2-1 on the road and on a two-game winning run, having scored 29 across their last ten. The home side's defensive record and TD Garden form make Boston at 1.51 the selection, with the visitors' road form the obvious risk.",
+    "words": 114,
+    "track": "olbg",
+    "ref": "ICH-200007",
+    "selection": "Boston Bruins Money Line (our price 1.51)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200007",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "ICE-200001",
+   "sport": "Ice Hockey",
+   "slug": "ice_hockey",
+   "match": "VGS Golden Knights @ CLB Blue Jackets",
+   "competition": "NHL",
+   "start_utc": "2026-10-24T23:00:00Z",
+   "start_label": "Sat 24 Oct, 23:00 UTC",
+   "selection": "VGS Golden Knights",
+   "market": "Money Line",
+   "price": 1.53,
+   "us": "-189",
+   "probability_pct": 62.0,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Vegas Golden Knights to win at Nationwide Arena, with the official schedule listing a 23:00 UTC start. Vegas are 8-4-0 for 16 points with 46 goals for and 36 against, a plus-10 differential, and they have taken three of five on the road while going 7-3-0 across their last ten. Columbus are 3-5-0 for six points and have been outscored 29-20, a minus-nine differential; they are 3-3-0 at home and 0-2-0 away, and they have lost their last two. Vegas have scored 38 goals in their last ten games against Columbus' 20 across eight. The road side's scoring depth makes Vegas at 1.53 the pick.",
+    "words": 107,
+    "track": "olbg",
+    "ref": "ICH-200001",
+    "selection": "Vegas Golden Knights Money Line (our price 1.53)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NHL official schedule \u2014 game, venue and startTimeUTC",
+     "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+    },
+    {
+     "label": "NHL official standings, 2026-10-24 \u2014 record, goals, home/road splits, last ten, streak",
+     "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "ICH-200001",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "BAS-536112",
+   "sport": "Basketball",
+   "slug": "basketball",
+   "match": "BKN Nets @ CLE Cavaliers",
+   "competition": "NBA",
+   "start_utc": "2026-10-24T23:30:00Z",
+   "start_label": "Sat 24 Oct, 23:30 UTC",
+   "selection": "CLE Cavaliers",
+   "market": "Money Line",
+   "price": 1.57,
+   "us": "-175",
+   "probability_pct": 60.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Cleveland Cavaliers to win at Rocket Arena, with the NBA's official schedule putting the tip at 7:30 PM ET, 23:30 UTC. Both clubs are winless: Cleveland are 0-1 after a road defeat, and Brooklyn are 0-1 having lost their only game at home, leaving them 0-0 on the road. The standings also show Brooklyn 0-1 inside the Eastern Conference while Cleveland's defeat came in conference play, and this is Cleveland's first home game of the 2026-27 season. Home court and Brooklyn's blank road record make Cleveland at 1.57 the pick.",
+    "words": 93,
+    "track": "olbg",
+    "ref": "BKB-536112",
+    "selection": "Cleveland Cavaliers Money Line (our price 1.57)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NBA.com official schedule \u2014 Saturday 24 October 2026, explicit ET clock",
+     "url": "https://www.nba.com/schedule?date=2026-10-24"
+    },
+    {
+     "label": "NBA.com official 2026-27 standings \u2014 record, home/road splits, last ten, streak",
+     "url": "https://www.nba.com/standings"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "BKB-536112",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
+  },
+  {
+   "id": "BAS-536111",
+   "sport": "Basketball",
+   "slug": "basketball",
+   "match": "MIL Bucks @ PHI 76ers",
+   "competition": "NBA",
+   "start_utc": "2026-10-24T23:30:00Z",
+   "start_label": "Sat 24 Oct, 23:30 UTC",
+   "selection": "PHI 76ers",
+   "market": "Money Line",
+   "price": 1.57,
+   "us": "-175",
+   "probability_pct": 60.5,
+   "confidence": "HIGH",
+   "in_band": true,
+   "writeup": {
+    "text": "Philadelphia 76ers to win at Xfinity Mobile Arena, where the NBA's own schedule lists a 7:30 PM ET tip-off, 23:30 UTC. Philadelphia are 2-0, having won both games including a 1-0 record at home and a 2-0 mark inside the conference, and they arrive on a two-game winning run. Milwaukee are 0-2, 0-2 in the conference and 0-1 on the road, and they have lost their last two. Both records come from the league's 2026-27 standings table. The hosts' unbeaten start and Milwaukee's road defeat make Philadelphia at 1.57 the selection.",
+    "words": 94,
+    "track": "olbg",
+    "ref": "BKB-536111",
+    "selection": "Philadelphia 76ers Money Line (our price 1.57)",
+    "headline": null
+   },
+   "sources": [
+    {
+     "label": "NBA.com official schedule \u2014 Saturday 24 October 2026, explicit ET clock",
+     "url": "https://www.nba.com/schedule?date=2026-10-24"
+    },
+    {
+     "label": "NBA.com official 2026-27 standings \u2014 record, home/road splits, last ten, streak",
+     "url": "https://www.nba.com/standings"
+    }
+   ],
+   "official_url": null,
+   "official_label": null,
+   "verification_status": null,
+   "tracks": [
+    {
+     "track": "olbg",
+     "ref": "BKB-536111",
+     "page": "../olbg/picks.html"
+    }
+   ],
+   "also_published": []
   }
  ],
  "next_7_days": [
@@ -1235,9 +1865,9 @@
   {
    "sport": "Tennis",
    "slug": "tennis",
-   "events": 59,
+   "events": 65,
    "upcoming": 0,
-   "priced": 59,
+   "priced": 65,
    "high": 0,
    "today_events": 0,
    "next": null,
@@ -1247,33 +1877,46 @@
   {
    "sport": "Basketball",
    "slug": "basketball",
-   "events": 48,
-   "upcoming": 0,
-   "priced": 60,
-   "high": 0,
-   "today_events": 0,
+   "events": 57,
+   "upcoming": 2,
+   "priced": 69,
+   "high": 2,
+   "today_events": 2,
    "next": null,
    "meets_target": false,
-   "shortfall": 5
+   "shortfall": 3
   },
   {
    "sport": "Ice Hockey",
    "slug": "ice_hockey",
-   "events": 44,
-   "upcoming": 0,
-   "priced": 55,
-   "high": 0,
-   "today_events": 4,
-   "next": null,
-   "meets_target": false,
-   "shortfall": 5
+   "events": 64,
+   "upcoming": 11,
+   "priced": 75,
+   "high": 5,
+   "today_events": 13,
+   "next": {
+    "match": "LA Kings @ NJ Devils",
+    "start_utc": "2026-10-24T19:30:00Z",
+    "start_label": "Sat 24 Oct, 19:30 UTC",
+    "selection": "NJ Devils",
+    "market": "Game Totals",
+    "price": 1.74,
+    "us": "-135",
+    "confidence": "LOW",
+    "hold_reason": "not released as a pick",
+    "track": "olbg",
+    "page": "../olbg/picks.html",
+    "ref": "ICH-200000"
+   },
+   "meets_target": true,
+   "shortfall": 0
   },
   {
    "sport": "Cricket",
    "slug": "cricket",
-   "events": 25,
+   "events": 32,
    "upcoming": 0,
-   "priced": 35,
+   "priced": 42,
    "high": 0,
    "today_events": 0,
    "next": null,
@@ -1283,21 +1926,34 @@
   {
    "sport": "Baseball",
    "slug": "baseball",
-   "events": 1,
-   "upcoming": 0,
-   "priced": 2,
+   "events": 2,
+   "upcoming": 1,
+   "priced": 3,
    "high": 0,
    "today_events": 2,
-   "next": null,
+   "next": {
+    "match": "TB Rays @ MIL Brewers",
+    "start_utc": "2026-10-25T00:00:00Z",
+    "start_label": "Sun 25 Oct, 00:00 UTC",
+    "selection": "TB Rays",
+    "market": "Money Line",
+    "price": 1.89,
+    "us": "-112",
+    "confidence": "LOW",
+    "hold_reason": "not released as a pick",
+    "track": "olbg",
+    "page": "../olbg/picks.html",
+    "ref": "BSB-160792"
+   },
    "meets_target": false,
    "shortfall": 5
   },
   {
    "sport": "Volleyball",
    "slug": "volleyball",
-   "events": 50,
+   "events": 59,
    "upcoming": 8,
-   "priced": 60,
+   "priced": 69,
    "high": 3,
    "today_events": 2,
    "next": {
@@ -1320,9 +1976,9 @@
   {
    "sport": "Darts",
    "slug": "darts",
-   "events": 21,
+   "events": 26,
    "upcoming": 0,
-   "priced": 35,
+   "priced": 40,
    "high": 0,
    "today_events": 0,
    "next": null,
@@ -1332,9 +1988,9 @@
   {
    "sport": "Snooker",
    "slug": "snooker",
-   "events": 16,
+   "events": 17,
    "upcoming": 0,
-   "priced": 17,
+   "priced": 18,
    "high": 0,
    "today_events": 0,
    "next": null,
@@ -1344,9 +2000,9 @@
   {
    "sport": "Rugby Union",
    "slug": "rugby_union",
-   "events": 26,
+   "events": 28,
    "upcoming": 1,
-   "priced": 43,
+   "priced": 45,
    "high": 1,
    "today_events": 7,
    "next": null,
@@ -1368,9 +2024,9 @@
   {
    "sport": "Handball",
    "slug": "handball",
-   "events": 64,
+   "events": 69,
    "upcoming": 12,
-   "priced": 74,
+   "priced": 79,
    "high": 5,
    "today_events": 2,
    "next": {
@@ -1429,9 +2085,9 @@
   {
    "sport": "Greyhounds",
    "slug": "greyhounds",
-   "events": 58,
+   "events": 141,
    "upcoming": 0,
-   "priced": 58,
+   "priced": 141,
    "high": 0,
    "today_events": 0,
    "next": null,

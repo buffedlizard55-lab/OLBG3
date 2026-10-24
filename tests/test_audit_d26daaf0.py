@@ -57,7 +57,13 @@ import extract_listings  # noqa: E402
 import live_refresh  # noqa: E402
 
 EMPTY_CAPTURE = 'live-20261023T2135Z'
-POPULATED_CAPTURE = 'live-20261023T1700Z'
+# 2026-10-24 (session-1c6981d1): the populated capture is whichever capture the pin resolves to,
+# not a fixed 23 October directory. Pinning the name made an ordinary refresh look like a defect.
+POPULATED_CAPTURE = 'live-20261023T1700Z'   # historical fallback for the archive test
+
+
+def populated_capture() -> str:
+    return live_refresh.live_primary_capture() or POPULATED_CAPTURE
 
 
 def run(script: str, *args: str) -> subprocess.CompletedProcess:
@@ -152,9 +158,9 @@ class ExtractListingsGuard(unittest.TestCase):
     def test_out_path_outside_the_repo_does_not_crash(self):
         """FL-192: the summary line called out.relative_to(ROOT) unguarded, so an --out outside
         the repo wrote the file and then died with ValueError, exiting 1."""
-        capture = RAW / POPULATED_CAPTURE
+        capture = RAW / populated_capture()
         if not (capture / 'manifest.json').exists():
-            self.skipTest(f'{POPULATED_CAPTURE} not committed')
+            self.skipTest(f'{populated_capture()} not committed')
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / 'outside-the-repo.tsv'
             result = run('extract_listings.py', '--capture', str(capture), '--out', str(out))
@@ -175,9 +181,9 @@ class ExtractListingsGuard(unittest.TestCase):
             self.assertEqual(data_rows, [])
 
     def test_a_populated_capture_is_unaffected_by_the_guard(self):
-        capture = RAW / POPULATED_CAPTURE
+        capture = RAW / populated_capture()
         if not (capture / 'manifest.json').exists():
-            self.skipTest(f'{POPULATED_CAPTURE} not committed')
+            self.skipTest(f'{populated_capture()} not committed')
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp) / 'olbg-harvest-populated.tsv'
             result = run('extract_listings.py', '--capture', str(capture), '--out', str(out))
@@ -203,7 +209,7 @@ class LiveRefreshFallback(unittest.TestCase):
         if not (RAW / EMPTY_CAPTURE / 'extract-report.json').exists():
             self.skipTest('empty capture not yet extracted')
         self.assertEqual(live_refresh.cards_in(RAW / EMPTY_CAPTURE), 0)
-        populated = RAW / POPULATED_CAPTURE
+        populated = RAW / populated_capture()
         if (populated / 'extract-report.json').exists():
             self.assertGreater(live_refresh.cards_in(populated), 0)
 
@@ -227,12 +233,15 @@ class LiveRefreshFallback(unittest.TestCase):
         self.assertNotIn(EMPTY_CAPTURE, chosen[0],
                          'an empty capture must never be selected as the harvest')
         if (RAW / EMPTY_CAPTURE / 'extract-report.json').exists():
-            self.assertIn(POPULATED_CAPTURE, chosen[0])
+            self.assertIn(populated_capture(), chosen[0])
 
     def test_the_live_primary_harvest_is_unchanged_by_an_empty_capture(self):
         """The whole point: the board keeps the rows the populated capture produced."""
         meta = json.loads((ROOT / 'data' / 'meta.json').read_text(encoding='utf-8'))
-        self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv')
+        pinned = live_refresh.live_primary_capture()
+        self.assertIsNotNone(pinned)
+        self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-' + pinned[len('live-'):] + '.tsv')
+        self.assertNotEqual(meta['harvest_file'], 'raw/olbg-harvest-' + EMPTY_CAPTURE[len('live-'):] + '.tsv')
         matches = json.loads((ROOT / 'data' / 'matches.json').read_text(encoding='utf-8'))
         # Same-day SvelteKit supplementary captures (session-b322f52e) may add rows above 180,
         # never reduce below the 180-row primary + 16:30Z floor.
@@ -240,7 +249,10 @@ class LiveRefreshFallback(unittest.TestCase):
                                 'an empty capture must not reduce the published /olbg/ row count')
 
     def test_live_primary_capture_maps_the_pinned_harvest_back_to_its_capture(self):
-        self.assertEqual(live_refresh.live_primary_capture(), 'live-20261023T1700Z')
+        pinned = live_refresh.live_primary_capture()
+        meta = json.loads((ROOT / 'data' / 'meta.json').read_text(encoding='utf-8'))
+        self.assertEqual('raw/olbg-harvest-' + pinned[len('live-'):] + '.tsv', meta['harvest_file'])
+        self.assertTrue((RAW / pinned / 'manifest.json').exists(), pinned)
 
     def test_live_primary_capture_is_none_when_the_pin_is_not_a_live_capture(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -268,8 +280,8 @@ class LiveRefreshFallback(unittest.TestCase):
 
     def test_the_primary_harvest_is_reextracted_byte_identically(self):
         """Determinism: choosing the older capture again must not alter the committed harvest."""
-        if not (RAW / POPULATED_CAPTURE / 'manifest.json').exists():
-            self.skipTest(f'{POPULATED_CAPTURE} not committed')
+        if not (RAW / populated_capture() / 'manifest.json').exists():
+            self.skipTest(f'{populated_capture()} not committed')
         tsv = RAW / 'olbg-harvest-20261023T1700Z.tsv'
         if not tsv.exists():
             self.skipTest('primary harvest TSV not committed')

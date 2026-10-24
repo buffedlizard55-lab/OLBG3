@@ -136,6 +136,17 @@ EDITORIAL_STRENGTH = {
     "DAR-32322": ("James Wade", 0.562, 9.5, "Over", "PDC European Championship R1: 2018 champion #16 James Wade vs #17 Damon Heta + OLBG 9/14"),
     "DAR-32329": ("Ross Smith", 0.588, 9.5, "Over", "PDC European Championship R1: #1 Euro Tour seed Ross Smith vs #32 Karel Sedlacek"),
     "DAR-32328": ("Luke Littler", 0.760, 8.5, "Under", "PDC European Championship R1: World Champion #3 Luke Littler vs #22 William O'Connor (>70% chalk -> medium)"),
+    # Ice Hockey — NHL Saturday 24 October 2026 slate. Every row below was confirmed on the NHL's own
+    # schedule endpoint (startTimeUTC) and the form inputs are the league's own standings payload,
+    # both captured at 2026-10-24T17:09:36Z in data/raw/official-20261024T1709Z. The probabilities are
+    # modelling assumptions built from the published home/road splits and goal differentials, NOT
+    # fitted coefficients and NOT bookmaker prices; where our side differs from the OLBG consensus the
+    # disagreement stays visible on the cross-track page.
+    "ICH-200007": ("BOS Bruins", 0.630, None, None, "NHL official standings: BOS 8-2-1 (17 pts, 42 GF/22 GA, +20, 4-1-0 home, L10 7-2-1, division leaders) v SJS 6-4-1 (33 GF/37 GA, -4, 4-2-1 road, W2)"),
+    "ICH-200001": ("VGS Golden Knights", 0.620, None, None, "NHL official standings: VGK 8-4-0 (16 pts, 46 GF/36 GA, +10, 3-2-0 road, L10 7-3-0) v CBJ 3-5-0 (6 pts, 20 GF/29 GA, -9, 3-3-0 home)"),
+    "ICH-200006": ("PIT Penguins", 0.600, None, None, "NHL official standings: PIT 4-6-1 but 3-1-0 at home (37 GF/38 GA) v NSH 3-3-3 (23 GF/30 GA, -7, 1-1-2 road, L1)"),
+    "ICH-200003": ("WAS Capitals", 0.585, None, None, "NHL official standings: WSH 5-4-0 (30 GF/29 GA, +1, 4-2-0 home) v BUF 4-4-2 (28 GF/37 GA, -9, 1-1-2 road)"),
+    "ICH-200008": ("OTT Senators", 0.575, None, None, "NHL official standings: OTT 7-4-0 (4-2-0 home, 31 GF/30 GA) v NYR 7-4-1 but 1-4-1 on the road (37 GF/29 GA)"),
     # Ice Hockey — Swedish SHL & Finnish Liiga (stats.swehockey.se & liiga.fi tables)
     "ICH-199900": ("Brynas IF", 0.634, 5.5, "Under", "SHL official standings flip: #5 Brynas IF (28:23, +5 GD) at #9 Orebro HK (20:29, -9 GD) — overrides 1/1 crowd pick"),
     "ICH-199901": ("Farjestad BK", 0.660, 5.5, "Under", "SHL official standings: unbeaten #1 Farjestad BK (10 GP, 8-2-0, 40:11, +29 GD) at #10 Timra IK (20:23, 12 pts) + 2/2 experts"),

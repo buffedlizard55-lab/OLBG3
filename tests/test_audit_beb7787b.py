@@ -50,11 +50,19 @@ class DailyCycleBeb7787bTest(unittest.TestCase):
     def test_23_oct_capture_is_chained_as_same_day_supplementary(self):
         # Merge arrangement: the sibling 16:21Z v3 capture is the primary; this session's 16:16Z-16:40Z
         # read is chained as a same-day supplementary source (adds only events the primary lacked).
-        self.assertEqual(self.meta["harvest_file"], "raw/olbg-harvest-20261023T1700Z.tsv")
-        self.assertEqual(self.meta["olbg_locale_date"], "2026-10-23")
+        # 2026-10-24 (session-1c6981d1): the primary harvest is now the newest capture, so this
+        # test asserts the property it was written to protect -- same-day supplements are chained,
+        # still resolve to real files, and are never the primary -- instead of pinning 23 Oct.
+        primary = self.meta["harvest_file"]
+        self.assertTrue((DATA / primary).exists(), primary)
+        capture_name = "live-" + primary.rsplit("-", 1)[-1][:-4]
+        self.assertTrue((ROOT / "data/raw" / capture_name).exists(), capture_name)
+        self.assertEqual(self.meta["olbg_locale_date"][:4], "2026")
         supp = {s["file"]: s for s in self.meta["supplementary_harvests"]}
         self.assertIn("raw/olbg-harvest-20261023T1630Z.tsv", supp)
-        self.assertEqual(supp["raw/olbg-harvest-20261023T1630Z.tsv"]["olbg_locale_date"], "2026-10-23")
+        self.assertNotEqual(supp["raw/olbg-harvest-20261023T1630Z.tsv"]["file"], primary)
+        for entry in self.meta["supplementary_harvests"]:
+            self.assertTrue((DATA / entry["file"]).exists(), entry["file"])
         raw = (DATA / "raw/olbg-harvest-20261023T1630Z.tsv").read_text(encoding="utf-8")
         rows = [l for l in raw.splitlines() if l.strip() and not l.startswith("#")]
         self.assertEqual(len(rows), 180)

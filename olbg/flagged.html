@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">190 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">196 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1355,11 +1355,53 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship — official 2026/27 table (Vodacom Bulls &amp; DHL Stormers)</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)</a></li></ul>
 </article>
+<article class="card flag" id="FL-199">
+  <div class="flag-head"><span class="tag">FL-199</span> <span class="sev sev-high">high</span></div>
+  <h2>Ten unit tests pinned build-clock-relative facts, so an ordinary publish cycle turned the suite red</h2>
+  <p>tests/test_audit_ebe6dc9c.py, tests/test_live_20261023.py (3), tests/test_audit_d26daaf0.py (3), tests/test_audit_beb7787b.py (2) and tests/test_audit_b322f52e.py (1) asserted specific fixture refs, capture directory names, the pinned harvest filename, or a market string. Each of those is a property of the data at the time it was written, and each legitimately changes when the publication clock advances, when a new capture becomes the primary, or when OLBG re-lists an event. On 2026-10-24 that produced ten failures with no defect behind nine of them (the tenth, CRI-188845, is FL-201).</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40031848120" rel="noopener nofollow" target="_blank">GitHub Actions run that exposed the class of failure (23 Oct, red on a clean tree)</a></li></ul>
+</article>
+<article class="card flag" id="FL-200">
+  <div class="flag-head"><span class="tag">FL-200</span> <span class="sev sev-high">high</span></div>
+  <h2>A capture directory carrying a session prefix sorted older than the previous day&#x27;s board, so the fresh 2026-10-24 capture was silently ignored</h2>
+  <p>scripts/live_refresh.py chose captures with sorted(..., key=lambda p: p.name, reverse=True). The new capture was written to data/raw/live-1c6981d1-20261024T1710Z, and &#x27;live-1c...&#x27; sorts before &#x27;live-2026...&#x27;, so the resolver kept using live-20261023T1700Z and the board stayed on Friday&#x27;s fixtures. The evidence is in the run log: live_refresh printed &#x27;capture : live-20261023T1700Z&#x27; immediately after the fresh 18/18 HTTP 200 capture had been committed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40114675549" rel="noopener nofollow" target="_blank">Live OLBG listing capture run, 2026-10-24T17:11Z, 18/18 listings HTTP 200</a></li></ul>
+</article>
+<article class="card flag" id="FL-201">
+  <div class="flag-head"><span class="tag">FL-201</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG re-listed cricket event 188845 (Toronto Kings vs Vancouver Guardians) as &#x27;Win Match&#x27;; the FL-196 regression can no longer be exercised on the live row</h2>
+  <p>On 2026-10-23 OLBG carried event 188845 under &#x27;Top Team1 Batsman&#x27;, which is what FL-196 fixed so a batsman market could not leak into a two-way match-winner probability. The 2026-10-24T17:11Z capture lists the same event id under &#x27;Win Match&#x27; with 6/7 tips, so the row is now a genuine match-winner row and the old assertion could only pass by freezing yesterday&#x27;s listing. Nothing suggests the classifier regressed; the source changed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Cricket/7" rel="noopener nofollow" target="_blank">OLBG event page for 188845 (listing read 2026-10-24T17:11Z)</a></li></ul>
+</article>
+<article class="card flag" id="FL-202">
+  <div class="flag-head"><span class="tag">FL-202</span> <span class="sev sev-medium">medium</span></div>
+  <h2>No official injury or line-up report was retrievable for the five NHL fixtures added on 2026-10-24, so none is claimed</h2>
+  <p>The five new Ice Hockey write-ups quote the league&#x27;s own schedule and standings payloads. Those payloads carry start time, venue, record, home/road splits, last-ten form, goal differential and streak, but no injury, suspension or projected line-up field, and the NHL club pages were not read in this pass. An injury sentence would therefore have been invented.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/standings/2026-10-24" rel="noopener nofollow" target="_blank">NHL official standings payload read this pass (no injury field)</a></li></ul>
+</article>
+<article class="card flag" id="FL-203">
+  <div class="flag-head"><span class="tag">FL-203</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Two of the five new NHL picks name the opposite side to OLBG&#x27;s crowd, on the club&#x27;s own home/road splits</h2>
+  <p>OLBG&#x27;s listing tips Buffalo (1/1) and the Rangers (3/3). Our originated line takes Washington and Ottawa instead, from the league&#x27;s own numbers: Washington are 4-2-0 at home against a Buffalo side that is -9 with a 1-1-2 road record, and Ottawa are 4-2-0 at home while the Rangers are 1-4-1 on the road despite a 6-0-0 home record. Both fixtures are therefore genuine cross-track disagreements, not agreement by accident.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/standings/2026-10-24" rel="noopener nofollow" target="_blank">NHL official standings, 24 October 2026</a></li><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule, 24 October 2026</a></li></ul>
+</article>
+<article class="card flag" id="FL-204">
+  <div class="flag-head"><span class="tag">FL-204</span> <span class="sev sev-high">high</span></div>
+  <h2>Five-per-sport target still unmet for eight covered sports on 2026-10-24; the blocker is a zone-qualified official clock, not effort</h2>
+  <p>After this pass the board releases 18 picks today and over the next seven days: Ice Hockey 5, Handball 5, Volleyball 3, Basketball 2, Rugby Union 1, Gaelic Football 1, Motor Racing 1. Tennis, Cricket, Snooker, Darts and Golf have none. The specific blockers, each observed today: OLBG&#x27;s Golf listing returned &#x27;No tips found.&#x27; again; the World Snooker Tour matches page prints bare times with no zone label (&#x27;05:00 Sun 18 Oct&#x27;); the PDC schedule page is behind a consent wall; the ICC and tennis pages that were read do not carry a timezone-qualified start for the fixtures concerned; and the basketball fixtures OLBG lists outside the NBA (Argentina, Brazil, Poland, Korea) have no official page in this repository&#x27;s reviewed clock sources. Publishing any of them as a pick would mean converting a clock whose zone nobody stated.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing, zero tip cards at 2026-10-24T17:11Z</a></li><li><a href="https://www.wst.tv/matches/" rel="noopener nofollow" target="_blank">World Snooker Tour matches page (no zone label printed)</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T17:08:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-24T17:11:00Z; publication clock 2026-10-24T17:14:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

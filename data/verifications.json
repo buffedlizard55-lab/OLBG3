@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-23T21:36:00Z",
+ "retrieved_at": "2026-10-24T17:09:36Z",
  "retrieved_at_previous": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
  "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate). Where two sessions verified the same event, both sets of facts and sources are kept and the status is the highest one an official/primary-class source supports (merge note on the record).",
  "sources": [
@@ -1600,6 +1600,15 @@
    "class": "official",
    "name": "LNR Top 14 official Journee 7 calendar & standings",
    "url": "https://top14.lnr.fr/calendrier-et-resultats"
+  },
+  {
+   "id": "S-NBA-SCHEDULE-20261024",
+   "name": "NBA.com official schedule — Saturday 24 October 2026 (explicit ET clocks)",
+   "url": "https://www.nba.com/schedule?date=2026-10-24",
+   "class": "official",
+   "facts": [
+    "8 games listed for Saturday, October 24 with explicit ET clocks: 6:00 PM ET MIA@CHA, 7:30 PM ET BKN@CLE, 7:30 PM ET MIL@PHI, 8:00 PM ET WAS@CHI, 8:00 PM ET SAS@DAL, 8:30 PM ET HOU@ATL, 9:00 PM ET NOP@DEN, 10:00 PM ET GSW@PHX"
+   ]
   }
  ],
  "event_verifications": {
@@ -5877,11 +5886,221 @@
    "facts": [
     "ATP Almaty Order of Play (Saturday, Oct 24, 2026, Center Court): Match 4, Not Before 18:00 — [1] Daniil Medvedev (Rank 6) vs [3] Alexander Bublik (KAZ, Rank 22). Unzoned not-before court slot; UTC left blank per FL-097."
    ]
+  },
+  "160792": {
+   "competition": "MLB",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-25T00:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-MLB-API-20261023"
+   ],
+   "facts": [
+    "gameDate = 2026-10-25T00:00:00Z for Tampa Bay Rays @ Milwaukee Brewers (game id 849802) in the payload stored at https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-26&hydrate=team,linescore,probablePitcher"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 01:00 and its own startDate attribute said 2026-10-25T00:00:00.000Z."
+  },
+  "199999": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T17:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T17:00:00Z for ANA Ducks @ PHI Flyers (game id 2026020168) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Today 18:07 and its own startDate attribute said 2026-10-24T17:07:00.000Z."
+  },
+  "200000": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T19:30:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T19:30:00Z for LAK Kings @ NJD Devils (game id 2026020169) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Today 20:37 and its own startDate attribute said 2026-10-24T19:37:00.000Z."
+  },
+  "200003": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for BUF Sabres @ WSH Capitals (game id 2026020173) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200002": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for CAR Hurricanes @ STL Blues (game id 2026020175) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200006": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for NSH Predators @ PIT Penguins (game id 2026020172) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200008": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for NYR Rangers @ OTT Senators (game id 2026020171) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200007": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for SJS Sharks @ BOS Bruins (game id 2026020170) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200010": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for TOR Maple Leafs @ EDM Oilers (game id 2026020176) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200001": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-24T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-24T23:00:00Z for VGK Golden Knights @ CBJ Blue Jackets (game id 2026020174) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 00:07 and its own startDate attribute said 2026-10-24T23:07:00.000Z."
+  },
+  "200009": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-25T01:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-25T01:00:00Z for TBL Lightning @ UTA Mammoth (game id 2026020177) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 02:07 and its own startDate attribute said 2026-10-25T02:07:00.000Z."
+  },
+  "200004": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-25T02:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-25T02:00:00Z for DET Red Wings @ CGY Flames (game id 2026020178) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 03:07 and its own startDate attribute said 2026-10-25T03:07:00.000Z."
+  },
+  "200005": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-25T02:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-25T02:00:00Z for MIN Wild @ SEA Kraken (game id 2026020179) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T17:09:36Z; OLBG printed Tomorrow 03:07 and its own startDate attribute said 2026-10-25T03:07:00.000Z."
+  },
+  "536111": {
+   "competition": "NBA",
+   "venue": "Xfinity Mobile Arena, Philadelphia, PA",
+   "start_local": "7:30 PM ET",
+   "start_utc": "2026-10-24T23:30:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHEDULE-20261024"
+   ],
+   "facts": [
+    "NBA.com official schedule for Saturday, October 24, 2026 prints '7:30 PM ET' for Milwaukee Bucks at Philadelphia 76ers at Xfinity Mobile Arena, Philadelphia, PA (game 0022600106)"
+   ],
+   "note": "Fixture, venue and ET clock read from https://www.nba.com/schedule?date=2026-10-24 at 2026-10-24T17:12Z. ET is the source's own label; the UTC value is that label converted, not an OLBG clock."
+  },
+  "536112": {
+   "competition": "NBA",
+   "venue": "Rocket Arena, Cleveland, OH",
+   "start_local": "7:30 PM ET",
+   "start_utc": "2026-10-24T23:30:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NBA-SCHEDULE-20261024"
+   ],
+   "facts": [
+    "NBA.com official schedule for Saturday, October 24, 2026 prints '7:30 PM ET' for Brooklyn Nets at Cleveland Cavaliers at Rocket Arena, Cleveland, OH (game 0022600105)"
+   ],
+   "note": "Fixture, venue and ET clock read from https://www.nba.com/schedule?date=2026-10-24 at 2026-10-24T17:12Z. ET is the source's own label; the UTC value is that label converted, not an OLBG clock."
   }
  },
  "retrieved_at_previous_2": "2026-10-23T16:28:04Z",
  "retrieved_at_previous_3": "2026-10-21T05:40:00Z",
- "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:33Z SvelteKit supplement & EHF/URC/F1/ATP verifications)",
+ "session": "session-22dbc477 (live 2026-10-23 probe)",
  "retrieved_at_previous_4": "2026-10-22T21:55:00Z",
  "retrieved_at_previous_6": "2026-10-23T21:33:00Z"
 }

@@ -591,8 +591,8 @@
     {
       "match_id": "VOL-37002",
       "sport": "Volleyball",
-      "selection": "Mackenzie W to win the match at 1.57 (-175)",
-      "text": "Mackenzie W to beat Osasco W is the selection in this Brazil Superliga Feminina Round 2 fixture, and it is published as analysis rather than as a high-confidence pick. What the row actually rests on is narrow and is stated plainly here. OLBG's listing carries the Win Match market with two of three tips on Mackenzie, and our 60.5% read comes from shrinking that three-tip split toward an even Beta(2,2) prior and then applying the disclosed home-court adjustment for the sport; a sample of three tips carries very little information, and the price of 1.57 (-175) should be read as a thin crowd lean priced transparently rather than as an edge over the market. There is no official form behind it. The venue and the local kick-off previously published on this row have been withdrawn: the record transcribed from the Brazilian federation's listing carried the arena and clock belonging to a different Round 2 fixture entirely, and the earlier version of this write-up repeated that error by claiming home-court familiarity for Mackenzie at an arena that is not Mackenzie's home ground. Both fields are now blank and the row carries no official confirmation, because the correct values could not be re-read and must not be inferred from neighbouring rows. The same applies to the claims about a young core developing chemistry and an opponent's roster still settling, which no retrieved source supports and which have been removed rather than replaced. Standings, recent results, player availability and injury news for both clubs are all blank.",
+      "selection": "Mackenzie W to win the match at 1.78 (-128)",
+      "text": "Mackenzie W to beat Osasco W is the selection in this Brazil Superliga Feminina Round 2 fixture, and it is published as analysis rather than as a high-confidence pick. What the row actually rests on is narrow and is stated plainly here. OLBG's listing carries the Win Match market with two of four tips on Mackenzie, and our 53.5% read comes from shrinking that four-tip split toward an even Beta(2,2) prior and then applying the disclosed home-court adjustment for the sport; a sample of four tips carries very little information, and the price of 1.78 (-128) should be read as a thin crowd lean priced transparently rather than as an edge over the market. There is no official form behind it. The venue and the local kick-off previously published on this row have been withdrawn: the record transcribed from the Brazilian federation's listing carried the arena and clock belonging to a different Round 2 fixture entirely, and the earlier version of this write-up repeated that error by claiming home-court familiarity for Mackenzie at an arena that is not Mackenzie's home ground. Both fields are now blank and the row carries no official confirmation, because the correct values could not be re-read and must not be inferred from neighbouring rows. The same applies to the claims about a young core developing chemistry and an opponent's roster still settling, which no retrieved source supports and which have been removed rather than replaced. Standings, recent results, player availability and injury news for both clubs are all blank.",
       "sources": [
         {
           "label": "OLBG — Volleyball listing read 2026-10-23 (event 37002 / 37003, Win Match)",
@@ -987,7 +987,140 @@
         }
       ],
       "status": "high"
+    },
+    {
+      "match_id": "ICH-200007",
+      "sport": "Ice Hockey",
+      "match": "SJ Sharks @ BOS Bruins",
+      "selection": "Boston Bruins Money Line (our price 1.51)",
+      "confidence": "high",
+      "text": "Boston Bruins to win the money line at TD Garden, where the NHL's own schedule puts puck drop at 23:00 UTC on Saturday 24 October. Boston are 8-2-1 for 17 points, top of the Atlantic, with 42 goals scored and 22 conceded for a plus-20 differential, and they are 4-1-0 at home. Their last ten games read 7-2-1 with 39 goals. San Jose arrive 6-4-1 and four goals to the bad, yet 4-2-1 on the road and on a two-game winning run, having scored 29 across their last ten. The home side's defensive record and TD Garden form make Boston at 1.51 the selection, with the visitors' road form the obvious risk.",
+      "sources": [
+        {
+          "label": "NHL official schedule — game, venue and startTimeUTC",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 2026-10-24 — record, goals, home/road splits, last ten, streak",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "ICH-200001",
+      "sport": "Ice Hockey",
+      "match": "VGS Golden Knights @ CLB Blue Jackets",
+      "selection": "Vegas Golden Knights Money Line (our price 1.53)",
+      "confidence": "high",
+      "text": "Vegas Golden Knights to win at Nationwide Arena, with the official schedule listing a 23:00 UTC start. Vegas are 8-4-0 for 16 points with 46 goals for and 36 against, a plus-10 differential, and they have taken three of five on the road while going 7-3-0 across their last ten. Columbus are 3-5-0 for six points and have been outscored 29-20, a minus-nine differential; they are 3-3-0 at home and 0-2-0 away, and they have lost their last two. Vegas have scored 38 goals in their last ten games against Columbus' 20 across eight. The road side's scoring depth makes Vegas at 1.53 the pick.",
+      "sources": [
+        {
+          "label": "NHL official schedule — game, venue and startTimeUTC",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 2026-10-24 — record, goals, home/road splits, last ten, streak",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "ICH-200006",
+      "sport": "Ice Hockey",
+      "match": "NSH Predators @ PIT Penguins",
+      "selection": "Pittsburgh Penguins Money Line (our price 1.58)",
+      "confidence": "high",
+      "text": "Pittsburgh Penguins to win at PPG Paints Arena, where the league schedule lists a 23:00 UTC face-off. Pittsburgh's overall 4-6-1 record hides a 3-1-0 home mark, and they have scored 37 goals while conceding 38; they ended a run of defeats by winning their most recent game. Nashville are 3-3-3 for nine points, have scored only 23 and conceded 30 for a minus-seven differential, and are 1-1-2 on the road, arriving on a one-game losing run. Both clubs sit on nine points, so home form is the tie-breaker, and Pittsburgh at 1.58 is the selection.",
+      "sources": [
+        {
+          "label": "NHL official schedule — game, venue and startTimeUTC",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 2026-10-24 — record, goals, home/road splits, last ten, streak",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "ICH-200003",
+      "sport": "Ice Hockey",
+      "match": "BUF Sabres @ WAS Capitals",
+      "selection": "Washington Capitals Money Line (our price 1.62)",
+      "confidence": "high",
+      "text": "Washington Capitals to win at Capital One Arena, with the official start listed at 23:00 UTC. Washington are 5-4-0 for ten points with 30 goals for and 29 against, and their home record of 4-2-0 is the strongest part of that case. Buffalo are 4-4-2 for ten points but have conceded 37 while scoring 28, a minus-nine differential, and they are 1-1-2 on the road with two of those defeats coming in overtime. The clubs are level on points, yet the goal numbers and the venue point the same way. Washington at 1.62 is the selection.",
+      "sources": [
+        {
+          "label": "NHL official schedule — game, venue and startTimeUTC",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 2026-10-24 — record, goals, home/road splits, last ten, streak",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "ICH-200008",
+      "sport": "Ice Hockey",
+      "match": "NY Rangers @ OTT Senators",
+      "selection": "Ottawa Senators Money Line (our price 1.65)",
+      "confidence": "high",
+      "text": "Ottawa Senators to win at the Canadian Tire Centre, where the league lists a 23:00 UTC start. Ottawa are 7-4-0 for 14 points and 4-2-0 at home, with 31 goals scored and 30 conceded across 11 games. The Rangers are 7-4-1 for 15 points and have the better overall numbers, plus eight with 37 goals, but they are 6-0-0 at home and only 1-4-1 on the road, and they lost their most recent game. Ottawa's home splits against that road record make the Senators at 1.65 the pick, with New York's overall quality the clear risk.",
+      "sources": [
+        {
+          "label": "NHL official schedule — game, venue and startTimeUTC",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 2026-10-24 — record, goals, home/road splits, last ten, streak",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "BKB-536111",
+      "sport": "Basketball",
+      "match": "MIL Bucks @ PHI 76ers",
+      "selection": "Philadelphia 76ers Money Line (our price 1.57)",
+      "confidence": "high",
+      "text": "Philadelphia 76ers to win at Xfinity Mobile Arena, where the NBA's own schedule lists a 7:30 PM ET tip-off, 23:30 UTC. Philadelphia are 2-0, having won both games including a 1-0 record at home and a 2-0 mark inside the conference, and they arrive on a two-game winning run. Milwaukee are 0-2, 0-2 in the conference and 0-1 on the road, and they have lost their last two. Both records come from the league's 2026-27 standings table. The hosts' unbeaten start and Milwaukee's road defeat make Philadelphia at 1.57 the selection.",
+      "sources": [
+        {
+          "label": "NBA.com official schedule — Saturday 24 October 2026, explicit ET clock",
+          "url": "https://www.nba.com/schedule?date=2026-10-24"
+        },
+        {
+          "label": "NBA.com official 2026-27 standings — record, home/road splits, last ten, streak",
+          "url": "https://www.nba.com/standings"
+        }
+      ],
+      "status": "high"
+    },
+    {
+      "match_id": "BKB-536112",
+      "sport": "Basketball",
+      "match": "BKN Nets @ CLE Cavaliers",
+      "selection": "Cleveland Cavaliers Money Line (our price 1.57)",
+      "confidence": "high",
+      "text": "Cleveland Cavaliers to win at Rocket Arena, with the NBA's official schedule putting the tip at 7:30 PM ET, 23:30 UTC. Both clubs are winless: Cleveland are 0-1 after a road defeat, and Brooklyn are 0-1 having lost their only game at home, leaving them 0-0 on the road. The standings also show Brooklyn 0-1 inside the Eastern Conference while Cleveland's defeat came in conference play, and this is Cleveland's first home game of the 2026-27 season. Home court and Brooklyn's blank road record make Cleveland at 1.57 the pick.",
+      "sources": [
+        {
+          "label": "NBA.com official schedule — Saturday 24 October 2026, explicit ET clock",
+          "url": "https://www.nba.com/schedule?date=2026-10-24"
+        },
+        {
+          "label": "NBA.com official 2026-27 standings — record, home/road splits, last ten, streak",
+          "url": "https://www.nba.com/standings"
+        }
+      ],
+      "status": "high"
     }
   ],
-  "note": "11 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "18 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

@@ -85,9 +85,20 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
         cls.flagged = {i["id"]: i for i in json.loads((DATA / "flagged.json").read_text(encoding="utf-8"))["items"]}
 
     def test_cri_188845_top_batsman_is_classified_as_non_winner(self):
-        self.assertEqual(self.matches["CRI-188845"]["olbg_market"], "Top Team1 Batsman")
-        self.assertEqual(self.matches["CRI-188845"]["market_family"], "other")
-        self.assertIn("non_win_consensus_excluded_from_winner_probability", self.lines["CRI-188845"]["flags"])
+        # 2026-10-24 (session-1c6981d1): OLBG re-listed event 188845 as "Win Match" (6/7 tips) in the
+        # 17:11Z capture, so the FL-196 regression can no longer be exercised through the live row:
+        # the listing itself changed, not the classification rule. The rule is asserted on the market
+        # strings it exists for, and the live row is checked against whatever OLBG now prints.
+        import build_dataset as ds
+        self.assertIn("Top Team1 Batsman", ds.OTHER_MARKETS)
+        self.assertNotIn("Top Team1 Batsman", ds.WIN_MARKETS)
+        live = self.matches["CRI-188845"]
+        self.assertEqual(live["market_family"],
+                         "match_winner" if live["olbg_market"] in ds.WIN_MARKETS else "other",
+                         live["olbg_market"])
+        if live["olbg_market"] not in ds.WIN_MARKETS:
+            self.assertIn("non_win_consensus_excluded_from_winner_probability",
+                          self.lines["CRI-188845"]["flags"])
 
     def test_no_row_has_inverted_home_probability(self):
         for mid, l in self.lines.items():

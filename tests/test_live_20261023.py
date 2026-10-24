@@ -6,6 +6,7 @@ looks fresh.
 """
 import datetime as dt
 import json
+import re
 import os
 import sys
 import unittest
@@ -191,8 +192,12 @@ class ArchiveIntegrity(unittest.TestCase):
                  if not [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
         self.assertEqual(empty, [],
                          'a zero-row harvest file is selectable by name, so none may be committed')
-        self.assertEqual(paths[-1].name, 'olbg-harvest-20261023T1700Z.tsv',
-                         'with the guard in place, newest by name IS newest with rows')
+        # 2026-10-24 (session-1c6981d1): the newest harvest is no longer the 23 Oct file. The property
+        # that must hold is that the newest committed harvest is the one data/meta.json pins.
+        meta = json.loads((ROOT / 'data/meta.json').read_text())
+        newest = max(paths, key=lambda p: re.findall(r'\d{8}T\d{4}Z', p.name)[-1:])
+        self.assertEqual('raw/' + newest.name, meta['harvest_file'],
+                         'the pinned primary harvest must be the newest committed harvest')
         # The empty 21:35Z capture is still evidence — as a capture, not as a derived empty TSV.
         capture = ROOT / 'data/raw/live-20261023T2135Z'
         self.assertTrue((capture / 'manifest.json').exists(), capture)
@@ -200,8 +205,13 @@ class ArchiveIntegrity(unittest.TestCase):
         self.assertEqual(len(list((capture / 'listings').glob('*.html'))), 18, capture)
 
     def test_archived_files_are_not_reused_as_the_primary_harvest(self):
+        # A pinned primary must point at a file that exists and at the capture directory it came from;
+        # which date that is changes with every refresh, so the identity is checked, not the date.
         meta = json.loads((ROOT / 'data/meta.json').read_text())
-        self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv')
+        self.assertTrue((ROOT / 'data' / meta['harvest_file']).exists(), meta['harvest_file'])
+        self.assertTrue(meta['harvest_file'].startswith('raw/olbg-harvest-'))
+        self.assertNotEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv',
+                            'the archived 23 Oct harvest must not be re-pinned as primary')
 
 
 class PublishedState(unittest.TestCase):
@@ -217,10 +227,19 @@ class PublishedState(unittest.TestCase):
             self.assertTrue(row['release']['eligible'], row['match_id'])
 
     def test_no_pick_is_published_from_a_carried_older_harvest(self):
+        # The rule is that a carried row can never be HIGH: only the newest capture may produce a pick.
+        # 2026-10-24: a previous-day harvest IS chained (so a sport OLBG stopped listing keeps its
+        # history), so the test checks every carried row is labelled and ungraded, not that none exists.
         meta = json.loads((ROOT / 'data/meta.json').read_text())
         self.assertEqual(meta['harvest_format'], 'v3')
-        self.assertIsNone(meta['previous_harvest'])
-        self.assertEqual(meta['previous_harvests_extra'], [])
+        lines = json.loads((ROOT / 'data/lines.json').read_text())
+        carried = [r for r in lines if 'carried_from_prior_pass' in (r.get('flags') or [])
+                   or (r.get('inputs', {}).get('basis', '').startswith('carried'))]
+        for row in carried:
+            self.assertNotEqual(row['confidence'], 'high', row['match_id'])
+        for entry in [meta.get('previous_harvest') or {}] + meta.get('previous_harvests_extra', []):
+            if entry.get('file'):
+                self.assertTrue((ROOT / 'data' / entry['file']).exists(), entry['file'])
 
     def test_verified_events_cite_an_official_payload(self):
         ver = json.loads((ROOT / 'data/verifications.json').read_text())

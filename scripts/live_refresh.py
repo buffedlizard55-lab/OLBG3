@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -29,10 +30,25 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from extract_listings import EMPTY_CAPTURE  # noqa: E402
 
 
+STAMP = re.compile(r'(\d{8}T\d{4}Z)')
+
+
+def stamp_of(path: Path) -> str:
+    """The capture's own UTC stamp, wherever the session put it in the directory name.
+
+    Sorting on the whole name was wrong once a capture directory was named
+    `live-<session-id>-<stamp>`: "live-1c6981d1-..." sorts before every
+    "live-2026...", so a fresh capture was silently ignored in favour of the
+    previous day's board. The stamp is the only part that orders captures.
+    """
+    found = STAMP.findall(path.name)
+    return found[-1] if found else ''
+
+
 def candidates(pattern: str, marker: str = 'manifest.json') -> list[Path]:
-    """Committed capture/probe directories, newest first by name."""
+    """Committed capture/probe directories, newest first by their own UTC stamp."""
     return sorted((p for p in RAW.glob(pattern) if (p / marker).exists()),
-                  key=lambda p: p.name, reverse=True)
+                  key=lambda p: (stamp_of(p), p.name), reverse=True)
 
 
 def newest(pattern: str, marker: str = 'manifest.json') -> Path | None:
@@ -144,7 +160,7 @@ def main() -> int:
     # Renewing a source observation is a deliberate data change, made and rebuilt as one, not a
     # side effect of choosing a capture directory.
     live_primary = live_primary_capture()
-    if live_primary is not None and chosen.name <= live_primary:
+    if live_primary is not None and stamp_of(chosen) <= stamp_of(Path(live_primary)):
         print(f'verification skipped: {chosen.name} is not newer than the committed primary '
               f'harvest ({live_primary}); its verifications are already published.')
         return 0

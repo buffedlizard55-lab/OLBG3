@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-24T17:08:00+00:00",
+  "root_publication_clock": "2026-10-24T17:14:00+00:00",
   "root_capture": "2026-10-23",
   "root_built": "2026-10-24",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. This script fetches nothing: any clock, quote or verification shown elsewhere on the board was read through the page-retrieval tool and is stored with its URL and read time in data/release_checks.json. The shell itself still has no outbound route (FL-077), which is why no OLBG HTML capture can be produced from here."
@@ -32,14 +32,14 @@
  "totals": {
   "sports_listed": 15,
   "sports_with_rows": 15,
-  "sports_meeting_target": 1,
+  "sports_meeting_target": 2,
   "live_high_root": 5,
-  "live_high_olbg": 11,
-  "live_high_union": 11,
+  "live_high_olbg": 18,
+  "live_high_union": 18,
   "root_rows": 359,
-  "olbg_rows": 223,
+  "olbg_rows": 371,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 64
+  "shortfall_to_target": 57
  },
  "sports": [
   {
@@ -52,10 +52,10 @@
    "root_handicap": 48,
    "root_total": 24,
    "root_high": 0,
-   "olbg_rows": 11,
-   "olbg_priced_win": 11,
-   "olbg_handicap": 11,
-   "olbg_total": 11,
+   "olbg_rows": 17,
+   "olbg_priced_win": 17,
+   "olbg_handicap": 17,
+   "olbg_total": 17,
    "olbg_high": 0,
    "live_high_union": 0,
    "target": 5,
@@ -87,14 +87,14 @@
    "root_handicap": 38,
    "root_total": 10,
    "root_high": 0,
-   "olbg_rows": 22,
-   "olbg_priced_win": 22,
-   "olbg_handicap": 22,
-   "olbg_total": 22,
-   "olbg_high": 0,
-   "live_high_union": 0,
+   "olbg_rows": 31,
+   "olbg_priced_win": 31,
+   "olbg_handicap": 31,
+   "olbg_total": 31,
+   "olbg_high": 2,
+   "live_high_union": 2,
    "target": 5,
-   "shortfall": 5,
+   "shortfall": 3,
    "meets_target": false,
    "blocking": {
     "no_official_form": 33,
@@ -110,7 +110,32 @@
     "5 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "3 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
-   "live_picks": []
+   "live_picks": [
+    {
+     "event_id": "536111",
+     "sport": "Basketball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "BKB-536111",
+     "selection": "PHI 76ers",
+     "price": 1.57,
+     "american": "-175"
+    },
+    {
+     "event_id": "536112",
+     "sport": "Basketball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "BKB-536112",
+     "selection": "CLE Cavaliers",
+     "price": 1.57,
+     "american": "-175"
+    }
+   ]
   },
   {
    "sport": "Golf",
@@ -155,10 +180,10 @@
    "root_handicap": 0,
    "root_total": 0,
    "root_high": 0,
-   "olbg_rows": 13,
-   "olbg_priced_win": 12,
+   "olbg_rows": 20,
+   "olbg_priced_win": 19,
    "olbg_handicap": 0,
-   "olbg_total": 8,
+   "olbg_total": 15,
    "olbg_high": 0,
    "live_high_union": 0,
    "target": 5,
@@ -189,10 +214,10 @@
    "root_handicap": 15,
    "root_total": 0,
    "root_high": 0,
-   "olbg_rows": 2,
-   "olbg_priced_win": 2,
-   "olbg_handicap": 2,
-   "olbg_total": 2,
+   "olbg_rows": 3,
+   "olbg_priced_win": 3,
+   "olbg_handicap": 3,
+   "olbg_total": 3,
    "olbg_high": 0,
    "live_high_union": 0,
    "target": 5,
@@ -222,10 +247,10 @@
    "root_handicap": 15,
    "root_total": 15,
    "root_high": 0,
-   "olbg_rows": 25,
-   "olbg_priced_win": 23,
-   "olbg_handicap": 22,
-   "olbg_total": 22,
+   "olbg_rows": 27,
+   "olbg_priced_win": 25,
+   "olbg_handicap": 24,
+   "olbg_total": 24,
    "olbg_high": 1,
    "live_high_union": 1,
    "target": 5,
@@ -303,10 +328,10 @@
    "root_handicap": 1,
    "root_total": 1,
    "root_high": 0,
-   "olbg_rows": 1,
-   "olbg_priced_win": 1,
-   "olbg_handicap": 1,
-   "olbg_total": 1,
+   "olbg_rows": 2,
+   "olbg_priced_win": 2,
+   "olbg_handicap": 2,
+   "olbg_total": 2,
    "olbg_high": 0,
    "live_high_union": 0,
    "target": 5,
@@ -334,15 +359,15 @@
    "root_handicap": 27,
    "root_total": 27,
    "root_high": 0,
-   "olbg_rows": 19,
-   "olbg_priced_win": 19,
-   "olbg_handicap": 19,
-   "olbg_total": 19,
-   "olbg_high": 0,
-   "live_high_union": 0,
+   "olbg_rows": 39,
+   "olbg_priced_win": 39,
+   "olbg_handicap": 39,
+   "olbg_total": 39,
+   "olbg_high": 5,
+   "live_high_union": 5,
    "target": 5,
-   "shortfall": 5,
-   "meets_target": false,
+   "shortfall": 0,
+   "meets_target": true,
    "blocking": {
     "no_official_form": 15,
     "high_evidence_out_of_band": 9,
@@ -357,7 +382,68 @@
     "6 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "15 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
-   "live_picks": []
+   "live_picks": [
+    {
+     "event_id": "200001",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200001",
+     "selection": "VGS Golden Knights",
+     "price": 1.53,
+     "american": "-189"
+    },
+    {
+     "event_id": "200003",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200003",
+     "selection": "WAS Capitals",
+     "price": 1.62,
+     "american": "-161"
+    },
+    {
+     "event_id": "200006",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200006",
+     "selection": "PIT Penguins",
+     "price": 1.58,
+     "american": "-172"
+    },
+    {
+     "event_id": "200007",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200007",
+     "selection": "BOS Bruins",
+     "price": 1.51,
+     "american": "-196"
+    },
+    {
+     "event_id": "200008",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200008",
+     "selection": "OTT Senators",
+     "price": 1.65,
+     "american": "-154"
+    }
+   ]
   },
   {
    "sport": "Motor Racing",
@@ -415,10 +501,10 @@
    "root_handicap": 19,
    "root_total": 17,
    "root_high": 0,
-   "olbg_rows": 14,
-   "olbg_priced_win": 14,
-   "olbg_handicap": 12,
-   "olbg_total": 12,
+   "olbg_rows": 19,
+   "olbg_priced_win": 19,
+   "olbg_handicap": 17,
+   "olbg_total": 17,
    "olbg_high": 0,
    "live_high_union": 0,
    "target": 5,
@@ -449,10 +535,10 @@
    "root_handicap": 33,
    "root_total": 15,
    "root_high": 0,
-   "olbg_rows": 41,
-   "olbg_priced_win": 41,
-   "olbg_handicap": 41,
-   "olbg_total": 41,
+   "olbg_rows": 46,
+   "olbg_priced_win": 46,
+   "olbg_handicap": 46,
+   "olbg_total": 46,
    "olbg_high": 5,
    "live_high_union": 5,
    "target": 5,
@@ -545,10 +631,10 @@
    "root_handicap": 32,
    "root_total": 5,
    "root_high": 3,
-   "olbg_rows": 28,
-   "olbg_priced_win": 28,
-   "olbg_handicap": 28,
-   "olbg_total": 28,
+   "olbg_rows": 37,
+   "olbg_priced_win": 37,
+   "olbg_handicap": 37,
+   "olbg_total": 37,
    "olbg_high": 3,
    "live_high_union": 3,
    "target": 5,
@@ -667,8 +753,8 @@
    "root_handicap": 0,
    "root_total": 0,
    "root_high": 0,
-   "olbg_rows": 36,
-   "olbg_priced_win": 36,
+   "olbg_rows": 119,
+   "olbg_priced_win": 119,
    "olbg_handicap": 0,
    "olbg_total": 0,
    "olbg_high": 0,
@@ -722,13 +808,13 @@
    "withheld_bodies": 0
   },
   "olbg": {
-   "pieces": 49,
-   "high": 11,
+   "pieces": 56,
+   "high": 18,
    "words_min": 56,
-   "words_median": 113,
+   "words_median": 111.5,
    "words_max": 254,
    "under_30_words": 0,
-   "citing_an_official_host": 49,
+   "citing_an_official_host": 56,
    "citing_only_hosts_outside_official_set": 0,
    "hosts_outside_official_set": {
     "stats.unitedrugby.com": 10,
@@ -743,8 +829,8 @@
  "cross_track": {
   "description": "Fixtures captured on both tracks are priced by two independent models. Where they disagree on the selection, both versions are published and listed here for review. A disagreement is not evidence that either side is wrong, and neither is a bookmaker price.",
   "paired_fixtures": 132,
-  "same_selection": 93,
-  "different_selection": 8,
+  "same_selection": 91,
+  "different_selection": 10,
   "withheld_by_one_track": 31,
   "rows": [
    {
@@ -828,6 +914,26 @@
     "olbg_url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ross_Smith_vs_Damon_Heta/15?event_id=32386"
    },
    {
+    "event_id": "3531",
+    "sport": "Gaelic Football",
+    "match": "Kanturk v Eire Og Cor",
+    "root_ref": "GAF-03",
+    "root_selection": "Kanturk",
+    "root_price": 1.67,
+    "root_american": -149,
+    "root_prob": 0.57,
+    "root_confidence": "MEDIUM",
+    "root_start_status": "unverified_start",
+    "olbg_ref": "GFA-3531",
+    "olbg_selection": "Eire Og Cor",
+    "olbg_price": 1.3,
+    "olbg_american": "-333",
+    "olbg_prob": 0.7308,
+    "olbg_confidence": "low",
+    "olbg_start_status": "unverified_start",
+    "olbg_url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Kanturk_v_Eire_Og_Cor/25?event_id=3531"
+   },
+   {
     "event_id": "12080",
     "sport": "Handball",
     "match": "Limoges 87 v Dunkerque",
@@ -843,9 +949,29 @@
     "olbg_price": 1.78,
     "olbg_american": "-128",
     "olbg_prob": 0.5345,
-    "olbg_confidence": "low",
+    "olbg_confidence": "medium",
     "olbg_start_status": "past_date",
     "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Limoges_87_vs_Dunkerque/20?event_id=12080"
+   },
+   {
+    "event_id": "12106",
+    "sport": "Handball",
+    "match": "CBM Sporting Alicante v Ademar Leon",
+    "root_ref": "HBL-12106",
+    "root_selection": "Ademar Leon",
+    "root_price": 1.02,
+    "root_american": -5000,
+    "root_prob": 0.98,
+    "root_confidence": "LOW",
+    "root_start_status": "unverified_start",
+    "olbg_ref": "HAN-12106",
+    "olbg_selection": "CBM Sporting Alicante",
+    "olbg_price": 1.74,
+    "olbg_american": "-135",
+    "olbg_prob": 0.5449,
+    "olbg_confidence": "low",
+    "olbg_start_status": "unverified_start",
+    "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/CBM_Sporting_Alicante_vs_Ademar_Leon/20?event_id=12106"
    },
    {
     "event_id": "609554",
@@ -860,9 +986,9 @@
     "root_start_status": "unverified_start",
     "olbg_ref": "RGU-609554",
     "olbg_selection": "La Rochelle",
-    "olbg_price": 1.46,
-    "olbg_american": "-217",
-    "olbg_prob": 0.6515,
+    "olbg_price": 1.71,
+    "olbg_american": "-141",
+    "olbg_prob": 0.5548,
     "olbg_confidence": "low",
     "olbg_start_status": "unverified_start",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/La_Rochelle_v_Bordeaux/9?event_id=609554"
@@ -883,7 +1009,7 @@
     "olbg_price": 1.53,
     "olbg_american": "-189",
     "olbg_prob": 0.62,
-    "olbg_confidence": "medium",
+    "olbg_confidence": "low",
     "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Bulls_v_Ulster/9?event_id=609576"
    },
@@ -903,7 +1029,7 @@
     "olbg_price": 1.58,
     "olbg_american": "-172",
     "olbg_prob": 0.6,
-    "olbg_confidence": "medium",
+    "olbg_confidence": "low",
     "olbg_start_status": "start_window_reached",
     "olbg_url": "https://www.olbg.com/betting-tips/Rugby_Union/All_Rugby_Union/All_Events/Stormers_v_Scarlets/9?event_id=609580"
    }
