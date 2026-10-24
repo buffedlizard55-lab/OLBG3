@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Method and sources · OLBG Match Board</title>
+<meta name="description" content="A reverse-engineered OLBG fixture board across 15 sports with our own originated prices, a stated confidence grade and a written prediction for every high-confidence pick.">
+<link rel="stylesheet" href="assets/dash.css">
+</head><body>
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark">◧</span> OLBG Match Board</a>
+  <nav><a href="index.html">Summary</a><a href="picks.html">Picks</a><a href="matches.html">All matches</a><a href="written.html">Write-ups</a><a href="sources.html" class="active">Method & sources</a><a href="review.html">Flagged for review</a></nav>
+</header>
+<main>
+
+<section class="hero small">
+  <p class="eyebrow">How this works</p>
+  <h1>Method, rules and every source used</h1>
+</section>
+<section class="prose">
+  <h2>1. Capture</h2>
+  <p>Each day a bounded, robots-aware read of OLBG's public betting-tips listings for the 15 in-scope
+  sports is captured verbatim: HTTP status, byte count, hash and the served HTML. Fixtures, the printed
+  clock, the card's own machine-readable start attribute, the market, the consensus selection and the price
+  are copied out of that HTML. Nothing is inferred from a slug or a neighbouring card.</p>
+  <h2>2. Originate a line</h2>
+  <p>For every captured fixture we originate a money line from a shrunk version of the captured consensus
+  with a per-sport home edge, then derive a handicap and a total from the same distribution. These are our
+  own numbers, published next to OLBG's printed price so the disagreement is visible.</p>
+  <h2>3. Grade the pick</h2>
+  <p><strong>HIGH</strong> requires all four: an official, timezone-qualified start that is checked and still
+  ahead; a price strictly inside -250 to +10000; a win probability below 70% so heavy chalk is never dressed
+  up as insight; and a written prediction of at least 30 words whose facts are linked.</p>
+  <p><strong>MEDIUM</strong> and <strong>LOW</strong> are published too, with the reason for the lower grade
+  printed beside them. A sport with nothing meeting the bar says so on the summary page.</p>
+  <h2>4. What is deliberately not done</h2>
+  <ul class="links">
+    <li>No value is filled in from a similar fixture, a previous season or an assumption.</li>
+    <li>No clock is converted from an unlabelled local time; an unqualified time stays unverified.</li>
+    <li>No injury is mentioned unless an official league, club or governing-body source states it.</li>
+    <li>No outcome is presented as certain, and no past result is inferred from a clock.</li>
+  </ul>
+  <h2>Sources used by the live board</h2>
+  <ul class="links"><li><a href="https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-10-24_01_00PM.pdf" rel="noopener nofollow" target="_blank">NBA official injury report, 24 October 2026 01:00 PM ET</a></li><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule for 2026-10-24 (startTimeUTC per game)</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-24" rel="noopener nofollow" target="_blank">NHL official standings (records, L10, home/road splits, goals for and against), read 2026-10-24T17:09Z</a></li><li><a href="https://cbv.com.br/" rel="noopener nofollow" target="_blank">Confederação Brasileira de Voleibol — Superliga Feminina 2026/27 (the line for THIS fixture was not located; venue and clock withdrawn, see FL-158)</a></li><li><a href="https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/" rel="noopener nofollow" target="_blank">EHF Champions League Men — official Group D standings &amp; Round 5 review</a></li><li><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" rel="noopener nofollow" target="_blank">EHF Champions League Men — official 2026/27 standings &amp; Round 5 review</a></li><li><a href="https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf" rel="noopener nofollow" target="_blank">EHF Champions League Men — official Group Phase playing-times PDF (18:45 CET)</a></li><li><a href="https://en.volleyballworld.com" rel="noopener nofollow" target="_blank">Official start clock — Volleyball</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30000/" rel="noopener nofollow" target="_blank">Volleyball World Round 1 boxscore #30000</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #12 schedule &amp; UTC start</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30003/" rel="noopener nofollow" target="_blank">Official start clock — Volleyball</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/standings/" rel="noopener nofollow" target="_blank">Volleyball World — official 2026/27 SuperLega standings &amp; Match #6 box score</a></li><li><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener nofollow" target="_blank">Cork GAA official Premier SFC Final event page</a></li><li><a href="https://gaacork.ie/results/" rel="noopener nofollow" target="_blank">Cork GAA official results hub</a></li><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship — official 2026/27 table &amp; Round 3 results</a></li><li><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-10-26&amp;hydrate=team,linescore,probablePitcher" rel="noopener nofollow" target="_blank">Official start clock — Baseball</a></li><li><a href="https://top14.lnr.fr/calendrier-et-resultats" rel="noopener nofollow" target="_blank">Official start clock — Rugby Union</a></li><li><a href="https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm" rel="noopener nofollow" target="_blank">Formula 1 — official 2026 United States Grand Prix full timetable (UTC-5 offset)</a></li><li><a href="https://www.formula1.com/en/racing/2026/united-states" rel="noopener nofollow" target="_blank">Formula 1 — official 2026 United States Grand Prix race hub &amp; FP1 classification</a></li><li><a href="https://www.maighcuilinn.com/" rel="noopener nofollow" target="_blank">Official start clock — Gaelic Football</a></li><li><a href="https://www.nba.com/schedule?date=2026-10-24" rel="noopener nofollow" target="_blank">NBA official schedule, Saturday 24 October 2026 (tip times printed in ET)</a></li><li><a href="https://www.nba.com/standings" rel="noopener nofollow" target="_blank">NBA official 2026-27 regular-season standings (records, home/road splits, streak)</a></li><li><a href="https://www.nrl.com/news/2026/09/06/nrl-telstra-premiership-2026-finals-series-week-one/" rel="noopener nofollow" target="_blank">NRL Telstra Premiership official Finals Week 1 release</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/European_Championship/15?event_id=32338" rel="noopener nofollow" target="_blank">OLBG European Championship tips (12 win tips, Price 3/12)</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023" rel="noopener nofollow" target="_blank">OLBG — PDC World Championship 2027 Outright Tips (23/36 Luke Littler)</a></li><li><a href="https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/USA_Grand_Prix/14?event_id=913" rel="noopener nofollow" target="_blank">OLBG — USA Grand Prix race-winner market</a></li><li><a href="https://www.olbg.com/betting-tips/Volleyball/21" rel="noopener nofollow" target="_blank">OLBG — Volleyball listing read 2026-10-23 (event 37002 / 37003, Win Match)</a></li><li><a href="https://www.pdc.tv/WCFAQ" rel="noopener nofollow" target="_blank">PDC official 2026/27 World Darts Championship Schedule &amp; Ballot FAQ</a></li><li><a href="https://www.pdc.tv/news/2026/october/19/2026-machineseeker-european-championship-schedule-confirmed/" rel="noopener nofollow" target="_blank">Official start clock — Darts</a></li><li><a href="https://www.pdc.tv/news/2026/october/22/humphries-withdraws-from-machineseeker-european-championship" rel="noopener nofollow" target="_blank">PDC — Humphries withdraws from 2026 Machineseeker European Championship</a></li><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship — official 2026/27 fixtures &amp; Round 4 kick-off</a></li></ul>
+</section>
+
+</main>
+<footer>
+  <p><strong>What this site is.</strong> An independent research project that reads OLBG's public
+  betting-tips listings for 15 sports, originates its own prices for every captured fixture, grades a
+  selection and writes a sourced prediction for the high-confidence ones. It is not affiliated with
+  OLBG and it publishes no guaranteed outcomes. 18+.</p>
+  <p><strong>What a price here means.</strong> "Our price" is our own originated line, not a bookmaker
+  quote and not a promise. "OLBG price" is the number the listing printed when it was captured. Where the
+  two disagree, that disagreement is the opinion being published.</p>
+  <p><strong>Where the rest of the record lives.</strong>
+  <a href="brief.html">Brief coverage</a> ·
+  <a href="predictions.html">Legacy predictions track</a> ·
+  <a href="verification.html">Verification log</a> ·
+  <a href="flagged.html">Full flag register</a> ·
+  <a href="olbg/index.html">OLBG lines audit</a> ·
+  <a href="method.html">Method</a> ·
+  <a href="data.json">Raw feed data</a></p>
+</footer>
+<script src="assets/release.js"></script>
+</body></html>

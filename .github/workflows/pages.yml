@@ -66,6 +66,12 @@ jobs:
           if [ -n "$(git status --porcelain -- index.html predictions.html verification.html flagged.html method.html sports assets style.css data.json '*.html' .nojekyll)" ]; then
             echo "::warning::Root snapshot differs from the committed copy; run scripts/build_site.py --snapshot and commit."
           fi
+      - name: Build the reader-facing summary site (tools/build_dashboard.py)
+        # Generated AFTER the root snapshot on purpose: scripts/build_site.py --snapshot copies every
+        # page from site/ into the repository root, so writing the summary before it would let the
+        # snapshot overwrite the landing page. The builder writes both trees itself, which keeps a
+        # local rebuild byte-identical regardless of the order the two builders are run in.
+        run: python tools/build_dashboard.py
       # Unit tests run AFTER the rebuild: several pins compare committed accounting with a fresh recompute,
       # and the board is regenerated on every run, so running them first would fail on any hourly change.
       - name: Unit tests (after the rebuild)
@@ -144,7 +150,7 @@ jobs:
           python - <<'PYTEST'
           import json, os, urllib.request
           base=os.environ['SITE_URL'].rstrip('/')+'/'
-          for name in ['index.html','predictions.html','verification.html','flagged.html','feed-overview.html','matches.html','basketball.html','ice-hockey.html','baseball.html','coverage.html','markets.html','review.html','style.css','data.json']:
+          for name in ['index.html','predictions.html','verification.html','flagged.html','feed-overview.html','matches.html','basketball.html','ice-hockey.html','baseball.html','coverage.html','markets.html','review.html','style.css','data.json','picks.html','written.html','sources.html','sport/tennis.html','sport/ice-hockey.html','sport/handball.html','assets/dash.css']:
               with urllib.request.urlopen(base+name,timeout=40) as response:
                   content=response.read()
                   assert response.status==200 and content, name

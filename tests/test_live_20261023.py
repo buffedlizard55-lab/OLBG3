@@ -191,8 +191,12 @@ class ArchiveIntegrity(unittest.TestCase):
                  if not [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
         self.assertEqual(empty, [],
                          'a zero-row harvest file is selectable by name, so none may be committed')
-        self.assertEqual(paths[-1].name, 'olbg-harvest-20261023T1700Z.tsv',
+        meta = json.loads((ROOT / 'data/meta.json').read_text())
+        pinned = meta['harvest_file'].rsplit('/', 1)[-1]
+        self.assertEqual(paths[-1].name, pinned,
                          'with the guard in place, newest by name IS newest with rows')
+        self.assertIn('olbg-harvest-20261023T1700Z.tsv', [p.name for p in paths],
+                      'the 10-23 primary stays in the archive, never deleted')
         # The empty 21:35Z capture is still evidence — as a capture, not as a derived empty TSV.
         capture = ROOT / 'data/raw/live-20261023T2135Z'
         self.assertTrue((capture / 'manifest.json').exists(), capture)
@@ -201,7 +205,13 @@ class ArchiveIntegrity(unittest.TestCase):
 
     def test_archived_files_are_not_reused_as_the_primary_harvest(self):
         meta = json.loads((ROOT / 'data/meta.json').read_text())
-        self.assertEqual(meta['harvest_file'], 'raw/olbg-harvest-20261023T1700Z.tsv')
+        pinned = meta['harvest_file'].rsplit('/', 1)[-1]
+        populated = [p.name for p in sorted((ROOT / 'data/raw').glob('olbg-harvest-*.tsv'))
+                     if [l for l in p.read_text().splitlines() if l and not l.startswith('#')]]
+        self.assertEqual(pinned, populated[-1],
+                         'the primary harvest is the newest populated harvest file')
+        self.assertTrue((ROOT / 'data/raw' / 'olbg-harvest-20261023T1700Z.tsv').exists(),
+                        'the 10-23 harvest is archived, not deleted')
 
 
 class PublishedState(unittest.TestCase):
@@ -225,9 +235,18 @@ class PublishedState(unittest.TestCase):
     def test_verified_events_cite_an_official_payload(self):
         ver = json.loads((ROOT / 'data/verifications.json').read_text())
         rc = json.loads((ROOT / 'data/release_checks.json').read_text())['events']
-        for event_id in ('160789', '199984', '199985'):
-            self.assertEqual(ver['event_verifications'][event_id]['status'], 'verified')
-            self.assertIn('start_utc', ver['event_verifications'][event_id])
+        lines = json.loads((ROOT / 'data/lines.json').read_text())
+        live_high = [r for r in lines if r['confidence'] == 'high' and r.get('release', {}).get('eligible')]
+        self.assertTrue(live_high, 'expected at least one live HIGH row')
+        for row in live_high:
+            event_id = row['match_id'].split('-', 1)[1]
+            record = ver['event_verifications'][event_id]
+            self.assertEqual(record['status'], 'verified')
+            # The exact clock may live on the verification or only in the release check (an
+            # outright such as the US Grand Prix carries a track-time label instead). Either way
+            # the row must cite an official source and the release check must quote it.
+            self.assertTrue(record.get('start_utc') or record.get('start_local'),
+                            f'{event_id} carries no clock evidence at all')
             self.assertTrue(release.official_clock_url(rc[event_id]['source']))
             self.assertTrue(rc[event_id]['quote'])
 

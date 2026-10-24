@@ -33,6 +33,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import extract_listings as ex  # noqa: E402
 import originate as orig       # noqa: E402
+from archive_guard import pins  # noqa: E402
 
 BANNED = re.compile(r"\b(model|verified|verification)\b", re.I)
 SESSION_PIECES = [
@@ -74,6 +75,7 @@ class SvelteKitHydrationExtractorTest(unittest.TestCase):
             self.assertEqual(out.read_text(encoding="utf-8"), committed)
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class DefectsAndRepairsB322f52eTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -29,6 +29,7 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 
 from build_dataset import OTHER_MARKETS, parse_tips  # noqa: E402
+from archive_guard import pins  # noqa: E402
 
 
 def load(name):
@@ -149,6 +150,7 @@ class TestWithdrawnCBVRecords(unittest.TestCase):
             self.assertEqual("verified", ver[eid].get("status"), eid)
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class TestProseMatchesItsSources(unittest.TestCase):
     """FL-159: no claim the cited source cannot carry, and no figure the held table contradicts."""
 
@@ -196,6 +198,7 @@ if __name__ == "__main__":
     unittest.main()
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class TestQuotedPricesMatchTheirRows(unittest.TestCase):
     """FL-160: a write-up must never quote a price or name a side its own row contradicts.
 

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T22:03:00Z",
+  "generated_at": "2026-10-24T17:17:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4210,6 +4210,87 @@
         {
           "label": "Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)",
           "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        }
+      ]
+    },
+    {
+      "id": "FL-199",
+      "original_id": "FL-199",
+      "severity": "high",
+      "title": "Basketball totals are originated at a fixed 163.5 points, which is not a plausible NBA game total and is printed beside NBA fixtures",
+      "detail": "tools/originate.py takes TOTAL_CFG['Basketball'] as a flat base line and only varies it for Europe (169.5) versus other competitions (163.5). For the 2026-10-24 NBA slate every row therefore carries 'Over 163.5 pts' as our originated total, even though NBA games typically land near 220-230. The money line, the confidence grade and every published write-up are unaffected — no piece quotes a total — but the 'our total' column on matches.html publishes a number that is not fit to bet. It is left in place rather than replaced by an invented figure, because a defensible total needs a scoring-rate input the current capture does not supply.",
+      "status": "open",
+      "action": "Published as-is and named here. No total from this column should be used; the site prints a dash where no line was originated and this item explains why the NBA values are not usable.",
+      "affected_ids": [
+        "BKB-536111",
+        "BKB-536112",
+        "BKB-536115",
+        "BKB-536118"
+      ],
+      "sources": [
+        {
+          "label": "NBA official schedule, 24 October 2026",
+          "url": "https://www.nba.com/schedule?date=2026-10-24"
+        }
+      ]
+    },
+    {
+      "id": "FL-200",
+      "original_id": "FL-200",
+      "severity": "medium",
+      "title": "Two low-graded Volleyball analysis pieces share 31 verbatim eight-word runs",
+      "detail": "VOL-37002 (Mackenzie W vs Osasco W) and VOL-37003 (Abel-Moda Brusque W vs Praia Clube W) are both 'analysis' pieces published by an earlier pass, not high-confidence picks. A shingle comparison run while building this session's regression test found 31 shared eight-word runs between them, i.e. templated prose. They are labelled analysis on the site and are not promoted to picks. They are reported rather than rewritten here because they are another session's published text and the fix is to re-report those two fixtures, not to edit the record silently.",
+      "status": "open",
+      "action": "Disclosed. The anti-repetition test in tests/test_dashboard_09ecce40.py applies to high-confidence pieces and would fail if a future high pick copied another.",
+      "affected_ids": [
+        "VOL-37002",
+        "VOL-37003"
+      ],
+      "sources": [
+        {
+          "label": "OLBG Volleyball listing captured 2026-10-24T17:08Z",
+          "url": "https://www.olbg.com/betting-tips/Volleyball/21"
+        }
+      ]
+    },
+    {
+      "id": "FL-201",
+      "original_id": "FL-201",
+      "severity": "medium",
+      "title": "OLBG's own startDate attribute runs one hour late for the late NBA games and 7 minutes late for NHL games",
+      "detail": "For the 2026-10-24 slate OLBG's machine-readable startDate said 02:00Z for GSW@PHX and 03:00Z for the same game's neighbours, while the NBA's own schedule prints 10:00 PM ET = 02:00Z for GSW@PHX and 9:00 PM ET = 01:00Z for NOP@DEN; OLBG therefore sits exactly one hour ahead on those two rows. The NHL rows carry a seven-minute offset (23:07Z against the league's 23:00Z). Neither is corrected in the capture — the OLBG value is stored verbatim as olbg_start_utc — but every row we grade publishes the official clock, and the difference is recorded in data/verifications.json.",
+      "status": "open",
+      "action": "Official clocks are used for the release gate; OLBG's value is preserved and labelled 'OLBG clock' wherever it is the only clock available.",
+      "affected_ids": [
+        "BKB-536116",
+        "BKB-536118",
+        "ICH-200001",
+        "ICH-200003"
+      ],
+      "sources": [
+        {
+          "label": "NBA official schedule, 24 October 2026",
+          "url": "https://www.nba.com/schedule?date=2026-10-24"
+        },
+        {
+          "label": "NHL official schedule, 24 October 2026",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        }
+      ]
+    },
+    {
+      "id": "FL-202",
+      "original_id": "FL-202",
+      "severity": "medium",
+      "title": "The five-written-predictions-per-sport target is not met for any sport on 2026-10-24",
+      "detail": "The board captured 197 fixtures across 14 sports at 17:08Z. Fifteen selections cleared every gate and carry a written prediction: Basketball 4, Ice Hockey 3, Volleyball 3, Handball 2, Rugby Union 1, Gaelic Football 1, Motor Racing 1. Golf's listing served no card; Rugby League offered outright markets only; Greyhounds offered 83 race cards with no form source we can check; Tennis, Cricket, Darts and Snooker fixtures are captured and priced but their official clocks were not certified in this pass, so they stay below HIGH rather than being promoted on an unverified start.",
+      "status": "open",
+      "action": "Published on the summary page's coverage table with the reason in the same cell. Nothing is promoted to reach the number.",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "OLBG listings captured 2026-10-24T17:08Z (data/raw/live-20261024T1715Z)",
+          "url": "https://www.olbg.com/betting-tips"
         }
       ]
     }

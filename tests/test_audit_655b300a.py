@@ -13,6 +13,9 @@ import json
 import pathlib
 import re
 import unittest
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from archive_guard import pins  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -22,6 +25,7 @@ def load(name):
     return json.loads((DATA / name).read_text())
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class TestUrcOrdinals(unittest.TestCase):
     """FL-184: the table published on 23 October puts Leinster 11th, Munster 10th, Bulls 4th,
     Stormers 5th, Ulster 12th and Scarlets 13th. Four write-ups had the pre-Round-4 order."""

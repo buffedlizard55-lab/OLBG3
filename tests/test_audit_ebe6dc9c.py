@@ -19,6 +19,9 @@ import json
 import re
 import unittest
 from pathlib import Path
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -87,6 +90,7 @@ class LnrClockFinding(unittest.TestCase):
         self.assertNotRegex(sample, r"\b(CET|CEST|UTC)\b")  # no time-zone label printed
 
 
+@pins('olbg-harvest-20261022T2130Z.tsv')
 class HighCandidateScan(unittest.TestCase):
     def test_only_bkb17_is_verified_upcoming_in_band_non_high(self):
         # 2026-10-23T21:32Z (session-a87a3681): the SuperLega Match #30003 clock for Itas Trentino v

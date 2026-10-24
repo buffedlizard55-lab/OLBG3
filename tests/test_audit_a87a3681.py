@@ -6,6 +6,9 @@ import json
 import re
 import unittest
 from pathlib import Path
+import sys, pathlib
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from archive_guard import pins  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -14,6 +17,7 @@ NEW = ["BKB-536035", "BKB-536036", "BKB-536037", "BKB-536034", "BKB-536038",
        "ICH-199984", "ICH-199985"]
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class NewPieces(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -39,6 +43,7 @@ class NewPieces(unittest.TestCase):
             self.assertIsNone(banned.search(self.pieces[mid]["text"]), mid)
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class Repairs(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
