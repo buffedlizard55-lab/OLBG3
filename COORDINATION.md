@@ -2380,3 +2380,15 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - **Follow-up correction in the same pass:** `scripts/brief_coverage.py`'s fixed note said live re-verification was
   blocked in this sandbox. That is no longer true of the page-retrieval route, and this pass used it, so the note now
   states the accurate position instead of repeating a stale limitation.
+
+---
+
+## `session-aa934191` — publication freshness correction and landing-page clarity (CLAIMED 2026-10-24)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-aa934191-freshness-and-pick-navigation` | in progress | `session-aa934191` on Arena-fixed `arena/aa934191-olbg3` | `COORDINATION.md`, `data/publication.json`; generated publication outputs only (`data/brief_coverage.json`, `data/lines.json`, `data/events.json`, `data.json`, `research.json`, root and `sports/**` HTML, `olbg-board/**`, `olbg/**`) |
+
+- **Claim / scope check:** Read this board first. The latest daily pass `task-a87a3681-daily-20261024-coverage` records its result as done (PR #156 merged); its stale table status is not being treated as an active claim. The broad provenance task `task-0570f99b-audit-and-integrate` has an explicit completion/merge record. Open PR #137 is an unrelated, already-subsumed register follow-up and is not touched. This task does not edit harvest inputs, official verification records, editorial prediction text, scripts, shared templates, or navigation code.
+- **Plan:** compare the committed publication clock against the current UTC clock; if stale, advance only the publication/release-evaluation clock (never a source-observation timestamp), regenerate through existing scripts, and verify that expired evidence cannot remain labeled current HIGH. Review the public OLBG index to document direct pick/prediction routes and any remaining navigation gap without inventing sports data.
+- **Verification/source boundary:** no new fixture, odds, result, injury, form statistic, or official-source claim will be added. Existing source links and captures remain unchanged. Any inability to refresh OLBG/organizer data is a flagged freshness limitation, not a claim of current verification.
