@@ -151,6 +151,24 @@ class FunctionTests(unittest.TestCase):
         self.assertGreaterEqual(score, 0.0)
         self.assertLess(score, 0.1)
 
+    def test_selection_alias_expansion_is_conservative(self):
+        aliases = {"CAR Hurricanes": "Carolina Hurricanes"}
+        self.assertTrue(audit.selection_names_pick(
+            "PIT Penguins", "Pittsburgh Penguins to win the money line at 1.53 (-189)", aliases,
+        ))
+        self.assertTrue(audit.selection_names_pick(
+            "MIL Brewers", "Milwaukee Brewers to win the money line at 1.67 (-149)", aliases,
+        ))
+        self.assertTrue(audit.selection_names_pick(
+            "CAR Hurricanes", "Carolina Hurricanes to win the money line at 1.70 (-143)", aliases,
+        ))
+        self.assertFalse(audit.selection_names_pick(
+            "PIT Penguins", "Nashville Penguins to win the money line at 1.53 (-189)", aliases,
+        ))
+        self.assertFalse(audit.selection_names_pick(
+            "PIT Penguins", "Nashville Predators to win the money line at 1.53 (-189)", aliases,
+        ))
+
 
 class SyntheticReportTests(unittest.TestCase):
     def setUp(self):
