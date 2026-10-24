@@ -2,6 +2,18 @@
 
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
+---
+
+## `session-1c6981d1` — **task-1c6981d1-exec-summary-and-daily-refresh** (CLAIMED 2026-10-24T17:10Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-1c6981d1-exec-summary-and-daily-refresh` | in progress | `session-1c6981d1` on Arena-fixed `arena/1c6981d1-olbg3` | `.harvest/request.json`, `data/raw/live-1c6981d1-*` (new capture dir only), `scripts/build_site.py` (landing/exec-summary rendering + new `summary.html`), `scripts/brief_coverage.py` (summary accounting), `tests/test_audit_1c6981d1.py` (new), `tests/test_audit_*.py` (only pins that the new landing/exec-summary render breaks, each change explained), `docs/audit-1c6981d1.md` (new), `README.md`, `COORDINATION.md`, and the generated outputs the pipeline produces |
+
+- **Pre-claim check (2026-10-24T17:05Z):** `git fetch origin --prune` → `origin/main` at `41b9e8e` (same as this branch's base). `gh pr list --state open` → one stale sibling, PR #137, already recorded by two prior integration sessions as subsumed; it is not merged, edited or duplicated here. Branch name is Arena-fixed, so no `session-<id>/<task>` branch is created and no other session's branch is modified.
+- **The complaint this task exists to fix:** the published artifact has grown to ~20 pages and two parallel tracks (`/` and `/olbg/`) with no single page that answers *what are today's matches, what is the pick, and where do I read the reasoning*. This pass adds a single **Executive Summary** page and restructures the landing page around it, and rebuilds the board against a **fresh 2026-10-24 capture** rather than the 2026-10-23 one.
+- **Hard boundary restated:** no fixture, price, kick-off, grade, statistic or prediction is invented to fill a page or reach five picks per sport. Anything that cannot be confirmed from an official page is left blank and flagged as unverified.
+
 ## COMPLETED — `session-b322f52e`, **task-55** (claimed as `task-54-b322f52e` at 2026-10-23T21:33Z): SvelteKit `<script>` hydration extractor (`FL-194`, settling `FL-180`/`FL-185`/`FL-193`), 21:33Z 18-listing supplementary capture (123 active rows, 43 net-new upcoming fixtures), four code/data repairs (`FL-176`, `FL-195`..`FL-198`), and 11 new official-sourced HIGH picks across Handball (5/5 target met), Basketball, Volleyball, Rugby Union & Motor Racing
 
 - **Session ID:** `session-b322f52e` — **Branch:** `arena/b322f52e-olbg3` (Arena-locked). Claimed `task-54-b322f52e` at `2026-10-23T21:33Z` in commit `0ff36d9` against `main` `6241660` before any data edits; reconciled cleanly onto `origin/main` (`571abe0`, preserving `session-a87a3681` PRs `#156`/`#158`, `session-655b300a` PR `#157`, and `session-d26daaf0` PR `#160` in full) as **`task-55`**.
