@@ -21,6 +21,7 @@ import urllib.error
 import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
@@ -59,6 +60,39 @@ class Render(HTMLParser):
         return '\n'.join(l for l in lines if l)
 
 
+# Explicit domains for this bounded reread; presence is not proof of page contents.
+EXTRA_OFFICIAL_HOSTS = {'statsapi.mlb.com', 'api-web.nhle.com', 'www.legavolley.it'}
+
+
+def extra_urls(request: dict) -> list[str]:
+    urls = []
+    for url in request.get('cited_urls', []):
+        parsed = urlsplit(url)
+        if (parsed.scheme != 'https' or parsed.hostname not in EXTRA_OFFICIAL_HOSTS
+                or parsed.username or parsed.password or parsed.port not in (None, 443)):
+            raise ValueError(f'Unreviewed additional official URL: {url}')
+        urls.append(url)
+    return urls
+
+
+def save_response(out: Path, key: str, body: bytes, ctype: str, url: str) -> dict:
+    """Preserve binary evidence; a text conversion cannot reproduce a PDF hash."""
+    if 'pdf' in ctype.lower() or body.startswith(b'%PDF-'):
+        path = f'pages/{key}.pdf'
+        (out / path).write_bytes(body)
+        return {'file': path, 'representation': 'verbatim_binary'}
+    if 'json' in ctype.lower() or url.endswith('.json'):
+        path = f'pages/{key}.json'
+        (out / path).write_bytes(body)
+        return {'file': path, 'representation': 'verbatim_json'}
+    render = Render()
+    render.feed(body.decode('utf-8', 'replace'))
+    path = f'pages/{key}.txt'
+    (out / path).write_text(render.text() + '\n', encoding='utf-8')
+    return {'file': path, 'representation': 'rendered_text',
+            'file_sha256': hashlib.sha256((out / path).read_bytes()).hexdigest()}
+
+
 def main() -> int:
     import argparse
     ap = argparse.ArgumentParser()
@@ -69,7 +103,9 @@ def main() -> int:
     today = dt.datetime.now(dt.timezone.utc).date().isoformat()
     checks = json.loads((DATA / 'release_checks.json').read_text())['events']
     upcoming = {k: v for k, v in checks.items() if (v.get('date') or '') >= today and v.get('source')}
-    urls = sorted({v['source'] for v in upcoming.values()})
+    request_path = ROOT / '.harvest/request.json'
+    request = json.loads(request_path.read_text()) if request_path.exists() else {}
+    urls = sorted({v['source'] for v in upcoming.values()} | set(extra_urls(request)))
 
     out = Path(args.out)
     (out / 'pages').mkdir(parents=True, exist_ok=True)
@@ -92,14 +128,7 @@ def main() -> int:
             entry.update({'outcome': 'captured', 'status': status, 'final_url': final,
                           'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest(),
                           'content_type': ctype})
-            if 'json' in ctype or url.endswith('.json'):
-                (out / 'pages' / f'{key}.json').write_bytes(body)
-                entry['file'] = f'pages/{key}.json'
-            else:
-                render = Render()
-                render.feed(body.decode('utf-8', 'replace'))
-                (out / 'pages' / f'{key}.txt').write_text(render.text() + '\n', encoding='utf-8')
-                entry['file'] = f'pages/{key}.txt'
+            entry.update(save_response(out, key, body, ctype, url))
             print(f'{status} {len(body):>8}  {url}')
         except urllib.error.HTTPError as exc:
             entry.update({'outcome': 'http_error', 'status': exc.code, 'detail': str(exc.reason)[:160]})

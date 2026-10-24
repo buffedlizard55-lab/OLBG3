@@ -56,3 +56,14 @@ class FixtureIdentityTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class CapturedPriceTests(unittest.TestCase):
+    def test_starting_price_is_not_a_numeric_quote(self):
+        import importlib.util
+        path = Path(__file__).resolve().parents[1] / 'tools/build_dataset.py'
+        spec = importlib.util.spec_from_file_location('dataset_price_test', path)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        for raw in ('SP', '', None, 'NaN', 'inf', '1.0', '-2'):
+            self.assertIsNone(module.parse_decimal(raw))
+        self.assertEqual(module.parse_decimal('2.05'), 2.05)

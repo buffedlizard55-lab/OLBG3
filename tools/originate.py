@@ -332,7 +332,7 @@ def main() -> None:
         home, away = m["home"], m["away"]
         won, tot = m["olbg_tips_won"], m["olbg_tips_total"]
         p_raw = round(won / tot, 4) if (won is not None and tot) else None
-        carried = bool(m.get("row_notes") and "carried from" in m["row_notes"])
+        carried = bool(m.get("row_notes") and ("carried from" in m["row_notes"] or "supplementary evening capture" in m["row_notes"]))
         flags: list[str] = []
 
         # Outright / multi-runner markets (including Greyhound races)
@@ -473,7 +473,7 @@ def main() -> None:
                 p_pick = round(1.0 - p_side, 4)
             p_home = p_pick if pick == home else round(1.0 - p_pick, 4)
             tot_override, tot_side_override = None, None
-            basis = ("Sport home-court baseline (non-winner OLBG consensus excluded)" if m.get("olbg_market") in _non_win else "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment")
+            basis = ("Sport home-court baseline (non-winner OLBG consensus excluded)" if m.get("olbg_market") in _non_win else "Uncalibrated even prior + sport home-court assumption; no readable OLBG tip split" if p_raw is None else "OLBG tip split shrunk with Beta(2,2) prior + sport home-court logit adjustment")
 
         if mid in EDITORIAL_STRENGTH:
             basis = "EDITORIAL PRIOR (uncalibrated model assumption, not an official probability): " + basis

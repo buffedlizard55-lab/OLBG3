@@ -60,7 +60,12 @@ OLBG_MATCHES = {r["id"]: r for r in json.load(open(os.path.join(ROOT, "data/matc
 _olbg_pred_doc = json.load(open(os.path.join(ROOT, "data/predictions-olbg.json")))
 OLBG_PREDS_BY_ID = {p["match_id"]: p for p in _olbg_pred_doc["predictions"]}
 
-PICKS = _collect_picks(EVENTS, PREDS, OLBG_LINES, OLBG_MATCHES, OLBG_PREDS_BY_ID)
+_capture_meta = json.load(open(os.path.join(ROOT, "data/meta.json")))
+with open(os.path.join(ROOT, "data", _capture_meta["harvest_file"])) as _capture_stream:
+    _active_event_ids = {line.split("|")[4] for line in _capture_stream
+                         if line.strip() and not line.startswith("#")}
+PICKS = _collect_picks(EVENTS, PREDS, OLBG_LINES, OLBG_MATCHES, OLBG_PREDS_BY_ID,
+                       active_event_ids=_active_event_ids)
 PICK_LIVE = [x for x in PICKS if x["state"] == "pick"]
 PICK_HELD = [x for x in PICKS if x["state"] != "pick"]
 PICK_SUMMARY = _pick_summary_line(PICKS)
@@ -726,9 +731,10 @@ index = head("Dashboard") + f"""
 </div>
 
 <div class="notice brief-summary">
-  <strong>Against the brief:</strong> {BT['live_high_union']} distinct live HIGH picks today across {BT['sports_listed']} covered sports,
+  <strong>Against the brief:</strong> {len(PICK_LIVE)} current written picks across {BT['sports_listed']} covered sports,
   against the daily target of {BT['target_picks_if_all_sports_met']} (five per sport).
-  {BT['sports_meeting_target']} sport(s) meet the five-pick target.
+  {sum(len(v) >= 5 for v in PICK_BY_SPORT.values())} sport(s) meet the target; shortfall {max(0, 75-len(PICK_LIVE))}.
+  Raw research HIGH counts elsewhere can include entries held from this current shortlist.
   <a href="brief.html">See the per-sport accounting and every blocker &rarr;</a>
 </div>
 
@@ -966,12 +972,14 @@ prediction is not a pick and is listed separately, not promoted.</p>
 <section class="pick-grid">{picks_sport_sections(PICK_BY_SPORT)}</section>
 {today_held_block}
 {today_shortfall_block}
-<h2 id="live-high">High-confidence picks live now</h2>
-<p class="dim">Sorted by official start time. “Listed” is what OLBG printed; “UTC” is the competition’s own clock, converted only when the source states its zone.</p>
+<details><summary>Inspect the main board’s research grades</summary>
+<h2 id="live-high">Root-track HIGH research rows</h2>
+<p class="dim">Raw grading rows below may include selections held from the executive shortlist because current OLBG availability is unconfirmed. The shortlist above is the current written-pick list. Counts are as of the build clock; expired browser labels override them. Sorted by official start time. “Listed” is what OLBG printed; “UTC” is the competition’s own clock, converted only when the source states its zone.</p>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Sport</th><th>Match &amp; start</th><th>Selection</th><th class="num">Our price</th><th class="num">Chance</th><th>Conf.</th><th>Prediction &amp; source</th></tr></thead>
 <tbody>{''.join(_high_row(r) for r in LIVE_HIGH) or "<tr><td colspan='7'>No live high-confidence pick at this build.</td></tr>"}</tbody></table></div>
 
+</details>
 <h2>What is coming up in the next three days</h2>
 <div class="tablewrap"><table class="board">
 <thead><tr><th>Sport</th><th class="num">Fixtures</th><th class="num">Priced</th><th class="num">High conf.</th><th>Next fixture</th></tr></thead>
@@ -979,8 +987,9 @@ prediction is not a pick and is listed separately, not promoted.</p>
 <p class="dim">Every captured fixture, with our win price, handicap and total, is on <a href="index.html#research-board">the dashboard</a>
 and on the sport pages. <a href="lines.html">Handicaps and totals →</a></p>
 
-<h2>Five-per-sport accounting</h2>
-<p class="dim">The brief asks for five high-confidence picks for every sport we cover, every day. This table is the honest count:
+<details><summary>Raw research-grade accounting (not the current shortlist)</summary>
+<h2>Five-per-sport research accounting</h2>
+<p class="dim">Current written-pick counts are in the per-sport table above; the figures below are independent-track grading totals, including held-back listing entries. The brief asks for five high-confidence picks for every sport we cover, every day. This table is the honest count:
 it includes both boards and it does not promote a pick to close a gap. The blocker for each shortfall is itemised on
 <a href="brief.html">Brief coverage</a>.</p>
 <div class="tablewrap"><table class="board">
@@ -991,6 +1000,7 @@ today across {BC['totals']['sports_listed']} covered sports, against a daily tar
 {BC['totals']['sports_meeting_target']} sport(s) meet the five-pick target; shortfall {BC['totals']['shortfall_to_target']}.
 <a href="brief.html">See the per-sport blockers →</a></div>
 
+</details>
 <details class="research-details"><summary>High-confidence picks on the OLBG lines board ({len(OLBG_HIGH)})</summary>
 <p class="dim">The second board prices the same OLBG capture with a different method and its own release gate. These are its current high-confidence pieces.</p>
 <div class="tablewrap"><table class="board"><thead><tr><th>Sport</th><th>Match</th><th>Selection</th><th>Write-up</th></tr></thead>

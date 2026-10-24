@@ -120,7 +120,7 @@ def summary_table(entries: list[dict], pre: str = "") -> str:
             if t["state"] != "pick":
                 continue
             choices.append(f"<strong>{esc(t['selection'])}</strong> — {esc(t['market'])}"
-                           f"<br>{price_bits(t)} · HIGH · {esc(key)} board")
+                           f"<br>{price_bits(t)} · <span class='pill high'>HIGH</span> · {esc(key)} board")
             url = t.get("clock_source")
             if url and url not in sources:
                 sources.append(url)
@@ -129,7 +129,9 @@ def summary_table(entries: list[dict], pre: str = "") -> str:
                       for t in x["tracks"].values() if t["state"] == "pick"}
         conflict = ("<br><strong class='conflict-note'>Selections disagree — review both analyses; "
                     "not a unified recommendation.</strong>" if len(selections) > 1 else "")
-        rows.append(f"<tr><td>{esc(x['sport'])}</td><td>{esc(x['match'])}<br>"
+        cutoff = min((t.get("expires_at") or t.get("start_utc") or x.get("start_utc") or "9999")
+                     for t in x["tracks"].values() if t["state"] == "pick")
+        rows.append(f"<tr data-state='pick' data-expires-at='{esc(cutoff)}'><td>{esc(x['sport'])}</td><td>{esc(x['match'])}<br>"
                     f"<span class='small'>{esc(x['start_utc'])} (UTC)</span></td>"
                     f"<td>{'<hr>'.join(choices)}{conflict}</td>"
                     f"<td><a href='{pre}today.html#pick-{esc(x['key'])}'>Read full prediction ↓</a>"
@@ -142,7 +144,7 @@ def summary_table(entries: list[dict], pre: str = "") -> str:
             "</tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
 
 
-def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[dict]:
+def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg, active_event_ids=None) -> list[dict]:
     """Merge both tracks into one list of entries, one per OLBG fixture.
 
     ``events``       root board rows (``data/events.json`` after the model has graded them)
@@ -260,6 +262,9 @@ def collect(events, preds_root, lines_olbg, matches_olbg, preds_olbg) -> list[di
     out: list[dict] = []
     for key, x in merged.items():
         x["key"] = key
+        if active_event_ids is not None and str(x["event_id"]) not in active_event_ids:
+            for t in x["tracks"].values():
+                t.update(state="analysis", reason="Not present in the newest readable OLBG listing capture; current tip availability unconfirmed.")
         states = [t["state"] for t in x["tracks"].values()]
         x["state"] = "pick" if "pick" in states else "analysis"
         x["reason"] = "" if x["state"] == "pick" else (
@@ -340,7 +345,9 @@ def card_html(x: dict, pre: str = "") -> str:
     flag = ("<span class='pill pick'>PICK</span>" if state == "pick"
             else f"<span class='pill analysis'>NOT A PICK</span> <span class='dim small'>{esc(x['reason'])}</span>")
     klass = "pick-card" if state == "pick" else "pick-card analysis-card"
-    return (f"<article class='{klass}' id='pick-{esc(x.get('key'))}' data-state='{state}'>"
+    cutoffs = [t.get("expires_at") or t.get("start_utc") for t in tracks.values() if t["state"] == "pick"]
+    cutoff = min((v for v in cutoffs if v), default="")
+    return (f"<article class='{klass}' id='pick-{esc(x.get('key'))}' data-state='{state}' data-expires-at='{esc(cutoff)}'>"
             f"<div class='pick-head'><span class='tag sport'>{esc(x['sport'])}</span>"
             f"<h3>{esc(x['match'])}</h3>"
             f"<p class='small dim'>{esc(x['competition']) or 'competition not stated by an official source'} "

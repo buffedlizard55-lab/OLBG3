@@ -72,6 +72,9 @@ def main() -> int:
             reviewed.append((event_id, 'source page not captured', record.get('source')))
             continue
         path = probe / page['file']
+        if path.suffix not in ('.txt', '.json'):
+            reviewed.append((event_id, 'binary source requires separate content review; clock not renewed', record.get('source')))
+            continue
         body = (path.read_text(encoding='utf-8', errors='replace') if path.suffix == '.txt'
                 else json.dumps(json.loads(path.read_text())))
         lines = [l for l in body.splitlines() if l.strip()]

@@ -88,3 +88,30 @@ class PickBoundaryTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class LatestListingTests(unittest.TestCase):
+    def test_entry_missing_from_latest_listing_is_held_without_cancellation_claim(self):
+        release = {'eligible': True, 'source': 'https://api-web.nhle.com/v1/schedule/2026-10-24'}
+        row = {'ref': 'TEST-1', 'sport': 'Ice Hockey', 'home': 'Home', 'away': 'Away',
+               'olbg_event_id': 123, 'pick': {'confidence': 'HIGH', 'price': 1.8, 'release': release}}
+        pred = {'TEST-1': {'body': 'A clear selection with statistics and context. ' * 8,
+                           'sources': [{'url': release['source']}]}}
+        kept = surface.collect([row], pred, {}, {}, {}, active_event_ids={'123'})[0]
+        held = surface.collect([row], pred, {}, {}, {}, active_event_ids=set())[0]
+        self.assertEqual(kept['state'], 'pick')
+        self.assertEqual(held['state'], 'analysis')
+        self.assertIn('availability unconfirmed', held['reason'])
+        self.assertNotIn('cancelled', held['reason'])
+
+    def test_cutoff_reaches_card_and_shortlist(self):
+        t = {'state': 'pick', 'selection': 'Home', 'market': 'Match winner', 'price': 1.8,
+             'american': '-125', 'confidence': 'HIGH', 'prob': 0.55, 'text': 'Analysis ' * 40,
+             'ref': 'TEST-1', 'clock_source': 'https://api-web.nhle.com/v1/schedule/2026-10-24',
+             'expires_at': '2026-10-24T23:00:00Z'}
+        x = {'state': 'pick', 'key': 'E123', 'sport': 'Ice Hockey', 'match': 'Home v Away',
+             'start_utc': '2026-10-24T23:00:00Z', 'tracks': {'root': t}, 'sources': [], 'competition': ''}
+        for markup in (surface.card_html(x), surface.summary_table([x])):
+            self.assertIn("data-expires-at='2026-10-24T23:00:00Z'", markup)
+        script = (ROOT / 'assets/release.js').read_text()
+        self.assertIn("node.setAttribute('data-state', 'analysis')", script)
+        self.assertIn("badge.textContent = 'NOT A PICK'", script)
