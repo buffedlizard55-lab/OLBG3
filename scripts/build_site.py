@@ -968,6 +968,9 @@ from OLBG&rsquo;s captured featured market; current availability and settlement 
 <p class="lede">{PICK_SUMMARY} Every entry below is de&#8209;dupicated on the OLBG event id, so a fixture priced by both
 boards appears once, with each board&rsquo;s own price and its own written piece underneath it. A selection with no written
 prediction is not a pick and is listed separately, not promoted.</p>
+<p class="notice"><strong>{sum(x.get('start_utc', '')[:10] == TODAY for x in PICK_LIVE)} current written picks start today (UTC);
+{sum(x.get('start_utc', '')[:10] != TODAY for x in PICK_LIVE)} start on later dates.</strong>
+The five-per-sport counts below include all upcoming starts, not five fixtures in every sport today.</p>
 {today_prose_note}
 <section class="pick-grid">{picks_sport_sections(PICK_BY_SPORT)}</section>
 {today_held_block}

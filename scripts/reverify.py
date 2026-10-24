@@ -72,7 +72,11 @@ def main() -> int:
             reviewed.append((event_id, 'source page not captured', record.get('source')))
             continue
         path = probe / page['file']
+        if path.suffix == '.json':
+            reviewed.append((event_id, 'structured payload requires game-level identity matching via verify_live.py; not renewed here', record.get('source')))
+            continue
         if path.suffix not in ('.txt', '.json'):
+
             reviewed.append((event_id, 'binary source requires separate content review; clock not renewed', record.get('source')))
             continue
         body = (path.read_text(encoding='utf-8', errors='replace') if path.suffix == '.txt'
