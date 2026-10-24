@@ -97,7 +97,9 @@ class HighPiecesMeetTheBrief(unittest.TestCase):
         for ref in ("ICH-200001", "ICH-200004", "ICH-200009", "HAN-12136"):
             piece = _prose(ref)
             self.assertEqual(piece.get("confidence"), "high", ref)
-            self.assertNotEqual(piece.get("status"), "analysis", ref)
+            # The published status is clock-derived (a fixture that has kicked off is demoted to
+            # analysis by release.sync_predictions), so it is checked against a pinned instant in
+            # test_high_pieces_agree_with_the_published_row_pick — never against the live board.
             words = re.findall(r"[A-Za-z0-9']+", piece["text"])
             self.assertGreaterEqual(len(words), 30, ref)
             lowered = piece["text"].lower()
@@ -110,13 +112,23 @@ class HighPiecesMeetTheBrief(unittest.TestCase):
                               {"api-web.nhle.com", "ehfel.eurohandball.com",
                                "ehfcl.eurohandball.com"}, ref)
 
+    # Frozen at the certification instant of this batch. The board rebuilds on a moving clock, and
+    # a fixture kicking off must demote itself without turning this pin red (the FL-201 lesson).
+    PINNED = dt.datetime(2026, 10, 24, 22, 45, tzinfo=dt.timezone.utc)
+
     def test_high_pieces_agree_with_the_published_row_pick(self):
+        import sys
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import release
+
         lines = {row["match_id"]: row for row in _load("data/lines.json")}
         for ref in ("ICH-200001", "ICH-200004", "ICH-200009", "HAN-12136"):
             row = lines[ref]
-            self.assertEqual(row["confidence"], "high", ref)
             self.assertIn(row["our_pick"].split()[-1].lower(), _prose(ref)["text"].lower(), ref)
             self.assertTrue(1.40 <= row["our_price_pick"] <= 101.00, ref)
+            self.assertLess(row["our_pick_probability"], 0.70, ref)
+            assessment = release.assess(ref.split("-")[-1], now=self.PINNED)
+            self.assertEqual(assessment["status"], "upcoming", f"{ref}: {assessment.get('reason')}")
 
     def test_analysis_pieces_stay_analysis(self):
         for ref in ("CRI-188838", "CRI-188848", "TEN-902172", "TEN-902173", "TEN-902175"):

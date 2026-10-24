@@ -85,7 +85,7 @@ publish analysis and a flag instead.
 | `tools/check_site.py` | All checks passed — 20 pages, hosts reviewed, links internal |
 | `scripts/check.py` | PASS — 52 fixture rows, official hosts, blank fields, unique ids |
 | `scripts/check_links.py` | 110 pages, 2894 local links, 0 broken |
-| `python3 -m unittest discover -s tests` | OK (384 tests, 26 skipped) — plus `tests/test_audit_f00f1bf2.py` added by this session |
+| `python3 -m unittest discover -s tests` | OK (401 tests, 26 skipped) — `tests/test_audit_f00f1bf2.py` added by this session |
 
 ## 6. Sources for manual review
 
@@ -97,3 +97,20 @@ publish analysis and a flag instead.
 - https://api-web.nhle.com/v1/standings/2026-10-24
 - https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf
 - https://ehfcl.eurohandball.com/men/2026-27/standings/
+
+## 7. Clock-dependent pins repaired (FL-201 class)
+
+Three pins were armed to go red simply because fixtures kicked off, which is what turned the first
+PR build red at 22:39Z:
+
+- `tests/test_audit_a30d9bdb.py::test_nhl_picks_are_high_and_written` demanded HIGH on every
+  batch row forever. It now allows a row to leave HIGH only after its own dated start has passed at
+  the build clock, and then requires the piece to read as analysis with its prose intact.
+- `tests/test_audit_f00f1bf2.py` (this session's own) evaluated the live release gate against the
+  moving clock; it now evaluates at the batch's certification instant (2026-10-24T22:45Z).
+- `tests/test_audit_170e6805.py::test_shortfalls_published_not_hidden` asserted an identity that
+  stops holding once any sport exceeds five picks; main's own repair of the clamped form was kept.
+
+A fourth, genuine divergence is *not* repaired and is flagged instead (**FL-225**): with the clock
+moved to 2026-10-25T12:00Z, `today.html`'s live table shows 8 rows against 6 recomputed live picks.
+At the shipping clock both agree, so it is recorded for the next refresh rather than patched blind.

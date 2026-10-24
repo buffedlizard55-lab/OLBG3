@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T22:58:00Z",
+  "generated_at": "2026-10-24T22:46:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4723,6 +4723,21 @@
         "CRI-188838",
         "CRI-188848"
       ]
+    },
+    {
+      "id": "FL-225",
+      "severity": "medium",
+      "title": "Executive-summary table and the recomputed live list disagree once fixtures expire mid-evening",
+      "detail": "Reproduced while testing this session's pins at a later instant: with the publication clock moved to 2026-10-25T12:00Z and both tracks rebuilt, tests/test_audit_2f1b3baa.py::test_today_page_nav_and_table failed with 8 rows in today.html's live table against 6 live HIGH picks recomputed from the committed rows. At the shipping clock (2026-10-24T22:46Z) the two agree and every gate is green, so this is not a regression in the published board — it is a divergence between the page generator's expiry rule and today.html's recheck that widens as fixtures pass. A future refresh session should make the hero table read the same computed live set instead of re-deriving it.",
+      "sources": [
+        {
+          "label": "Workflow that rebuilds both tracks before the unit tests",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/.github/workflows/pages.yml"
+        }
+      ],
+      "status": "needs review",
+      "action": "Align the executive-summary hero table with the recomputed live set, then re-pin the test at a frozen instant.",
+      "affected_ids": []
     }
   ]
 }

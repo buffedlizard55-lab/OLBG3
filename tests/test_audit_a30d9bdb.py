@@ -47,16 +47,34 @@ class BatchIntegrity(unittest.TestCase):
                 self.assertEqual(row["event_url"].split("event_id=")[-1], str(row["event_id"]))
 
     def test_nhl_picks_are_high_and_written(self):
+        # FL-201 lesson, same class: this batch's games face off at 23:00Z/01:00Z/02:00Z, so a pin
+        # that demands HIGH forever goes red the first night after they start. The pin now asserts
+        # what actually matters — a row may only stop being HIGH once its own official start has
+        # passed at the build clock, and it must then read as analysis while keeping its prose.
+        import sys
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+        import release
+
         for row in self.spec["sports"].get("Ice Hockey", []):
             r = self.events[row["ref"]]
-            self.assertEqual(r["pick"]["confidence"], "HIGH", row["ref"])
             self.assertEqual(r["verification"]["status"], "verified")
             self.assertEqual(r["verification"]["source_tier"], "official")
             self.assertGreaterEqual(r["pick"]["price"], 1.40)
             self.assertLessEqual(r["pick"]["price"], 101.0)
             piece = self.preds[row["ref"]]
-            self.assertEqual(piece["status"], "high")
             self.assertGreaterEqual(len(piece["body"].split()), 30)
+            grade = r["pick"]["confidence"]
+            if grade == "HIGH":
+                self.assertEqual(piece["status"], "high", row["ref"])
+                continue
+            start = release.normalized_start(self.checks.get(str(row["event_id"]), {}))
+            self.assertIsNotNone(start, f"{row['ref']} left HIGH with no dated start on record")
+            self.assertGreaterEqual(
+                self.clock, start,
+                f"{row['ref']} left HIGH while its official start is still ahead of the clock")
+            self.assertEqual(piece["status"], "analysis", row["ref"])
+            self.assertEqual(piece["confidence"] if "confidence" in piece else "high", "high",
+                             row["ref"])
 
     def test_every_new_prediction_is_clean_and_sourced(self):
         for piece in self.spec["predictions"]:
