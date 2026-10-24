@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">205 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">211 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1460,11 +1460,53 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40122281198" rel="noopener nofollow" target="_blank">Failed post-merge main run 40122281198 (PR #176) - Verify and publish dashboard, Unit tests step</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/commit/e291a532e4f358f621363ca5b54c764eb19e97a4" rel="noopener nofollow" target="_blank">Repair commit e291a53 (PR #178) - frozen batch-instant + release.assess pins</a></li><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship official 2026/27 fixtures in full (Ospreys v Dragons KO 19.45 IRE &amp; UK = 18:45Z)</a></li></ul>
 </article>
+<article class="card flag" id="FL-218">
+  <div class="flag-head"><span class="tag">FL-218</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Fresh listing capture is partial; five written picks per sport is not achieved</h2>
+  <p>The 22:25:15Z primary contains 124 distinct OLBG events from 18 readable listing responses across 12 sports. Golf, Snooker and Motor Racing have no readable event cards in this capture. The integrated lines board retains 416 rows: 124 primary observations and 292 explicitly older carries. The current written shortlist excludes events absent from the latest capture, even if their official start is still ahead. This does not establish cancellation or market closure. The five-per-sport target (75) remains unmet and current tip acceptance/market settlement rules are not established by a saved listing. Gaelic coverage here is Gaelic Football; no complete hurling coverage is claimed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG official tips directory</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261024T2225Z-1815f0b1" rel="noopener nofollow" target="_blank">Capture manifest and raw listing responses</a></li></ul>
+</article>
+<article class="card flag" id="FL-219">
+  <div class="flag-head"><span class="tag">FL-219</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Winner selections inherited unrelated featured-market labels — corrected</h2>
+  <p>The unified cards and root executive table displayed Game Totals for the Edmonton winner selection and Handicap for the St Finbarrs winner selection. The source field described OLBG’s featured card market, not the selection independently priced here. The selected market is now explicitly Match winner / Race winner / Outright winner; the raw featured label is preserved separately. No available handicap number, over/under threshold or settlement rule is inferred.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Ice_Hockey/13" rel="noopener nofollow" target="_blank">OLBG ice hockey listing</a></li><li><a href="https://gaacork.ie/event/mccarthy-insurance-group-premier-senior-football-championship-final/" rel="noopener nofollow" target="_blank">Cork GAA final fixture</a></li></ul>
+</article>
+<article class="card flag" id="FL-220">
+  <div class="flag-head"><span class="tag">FL-220</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Fixture matching required both teams, not two words from one team — corrected</h2>
+  <p>The previous automatic clock matcher accepted two overlapping tokens from the union of both club names, which did not establish the opponent. The new matcher requires explicit official identifiers for both sides and respects away/home order for @ fixtures, rejecting undelimited and ambiguous labels. It reproduced all 13 old probe matches, then matched 15 rows against the fresh official NHL/MLB responses. Generic one-line JSON context scans are no longer permitted to renew clocks; structured payloads use the game-level matcher. Probe provenance now names the actual probe rather than a hard-coded earlier session.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule</a></li><li><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-10-26&amp;hydrate=team,linescore,probablePitcher" rel="noopener nofollow" target="_blank">MLB official schedule</a></li></ul>
+</article>
+<article class="card flag" id="FL-221">
+  <div class="flag-head"><span class="tag">FL-221</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Greyhound SP is not a confirmed numeric price</h2>
+  <p>The new 11:04 Doncaster event 690043 prints SP rather than a decimal quote. Numeric conversion previously crashed the dataset builder. The decimal field is now blank, the raw SP string is retained, and no starting price is guessed. Any independently originated price remains an estimate, not an observed market price.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG greyhound listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-222">
+  <div class="flag-head"><span class="tag">FL-222</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Current prediction arithmetic and unsupported prose repaired</h2>
+  <p>Official standings give Carolina 18 points and St Louis 11 (gap seven, not eight); Edmonton +15 and Toronto +4 goal differentials (gap eleven, not twelve). The MLB piece confused Milwaukee’s own +214 run differential with the gap between the teams; that sentence and an unsupported first-time World Series starter claim have been removed. Unsourced volleyball serve/receive characterizations and an older Gaelic crowd-handicap observation have been removed from current winner recommendations. Original prose remains in Git history; corrected pieces state only sourced records, scorelines and separately identified judgments.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/standings/2026-10-24" rel="noopener nofollow" target="_blank">NHL official standings</a></li><li><a href="https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026" rel="noopener nofollow" target="_blank">MLB official standings</a></li><li><a href="https://www.legavolley.it/classifica/?IdCampionato=999" rel="noopener nofollow" target="_blank">Official SuperLega standings</a></li></ul>
+</article>
+<article class="card flag" id="FL-223">
+  <div class="flag-head"><span class="tag">FL-223</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Binary PDF evidence and unavailable source data remain separate from confirmation</h2>
+  <p>The earlier cited-page probe decoded PDFs as HTML text, so the stored .txt bytes could not reproduce the response SHA-256 or be parsed as the original schedule. The probe now preserves PDFs byte-for-byte; older damaged observations remain identifiable history. NBA schedule returned HTTP 403, ATP 403, EuroLeague 429, Super League 500, URC’s generic fixtures endpoint 404 and the generic volleyball schedule 404 in this pass. MLB’s date-filtered standings response was HTTP 200 with an empty records array: that is not confirmation of any season figure. Exact prose-source URLs are requested separately. No clock or statistic is renewed merely because a response was HTTP 200.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf" rel="noopener nofollow" target="_blank">EHF official playing-times PDF</a></li><li><a href="https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&amp;season=2026&amp;date=2026-10-24&amp;hydrate=team" rel="noopener nofollow" target="_blank">MLB date-filtered standings</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/official-20261024T2226Z/manifest.json" rel="noopener nofollow" target="_blank">Official response manifest</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T20:50:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-24T22:25:15Z; publication clock 2026-10-24T22:29:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

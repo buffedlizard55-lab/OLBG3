@@ -115,3 +115,9 @@ class LatestListingTests(unittest.TestCase):
         script = (ROOT / 'assets/release.js').read_text()
         self.assertIn("node.setAttribute('data-state', 'analysis')", script)
         self.assertIn("badge.textContent = 'NOT A PICK'", script)
+
+class OfficialProseDomainTests(unittest.TestCase):
+    def test_prose_domain_is_not_mistaken_for_clock_domain(self):
+        self.assertTrue(surface.official_prose_url('https://www.legavolley.it/classifica/?IdCampionato=999'))
+        for url in ('https://www.legavolley.it.attacker.example/', 'https://user@www.legavolley.it/', 'http://www.legavolley.it/'):
+            self.assertFalse(surface.official_prose_url(url))

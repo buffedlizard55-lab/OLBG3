@@ -29,6 +29,7 @@ from __future__ import annotations
 import html
 import math
 import re
+from urllib.parse import urlsplit
 
 MIN_WORDS = 30
 BANNED_TERMS = ("model", "verified")
@@ -84,6 +85,19 @@ def selection_market(market_type: str = "fixture") -> str:
         market_type, "Match winner")
 
 
+def official_prose_url(value) -> bool:
+    """The league's prose domain need not be an approved clock-conversion domain."""
+    from release import OFFICIAL_CLOCK_HOSTS
+    if not isinstance(value, str) or any(c.isspace() or ord(c) < 32 for c in value):
+        return False
+    try:
+        url = urlsplit(value)
+        return (url.scheme == 'https' and url.hostname in (OFFICIAL_CLOCK_HOSTS | {'www.legavolley.it'})
+                and not url.username and not url.password and url.port in (None, 443))
+    except ValueError:
+        return False
+
+
 def pick_problem(confidence, release, price, text, sources) -> str:
     """Fail closed at the display boundary even if upstream data drift.
 
@@ -105,7 +119,7 @@ def pick_problem(confidence, release, price, text, sources) -> str:
         return "originated price is missing or outside -250 to +10000 US"
     if not official_clock_url(rel.get("source")):
         return "no reviewed official clock-source URL"
-    if not sources or not any(official_clock_url(s.get("url")) for s in sources):
+    if not sources or not any(official_prose_url(s.get("url")) for s in sources):
         return "written prediction has no reviewed official source link"
     return ""
 
