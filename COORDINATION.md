@@ -4,6 +4,19 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+---
+
+## `session-4e26d590` — **task-4e26d590-capture-to-publication-provenance-audit** (CLAIMED 2026-10-24T17:56Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-4e26d590-capture-to-publication-provenance-audit` | in progress | `session-4e26d590` on Arena-fixed `arena/4e26d590-olbg3` | `COORDINATION.md`; new `scripts/audit_provenance.py`; new `tests/test_audit_4e26d590.py`; new `docs/audit-4e26d590.md`; new audit output `data/provenance_audit.json` only. No existing capture, fixture, prediction, verification, flag, landing-page, navigation, workflow, or generated shared-site file is claimed. |
+
+- **Pre-claim coordination:** read the board and fetched `origin/main` at `f74b95c`; open PR #167 (`session-a30d9bdb`) owns the daily refresh/executive-summary work and `session-68d57005` owns CI repair/final integration. This task deliberately does not duplicate or edit their scopes. Arena fixes this session's branch name, so no other branch or worktree will be created.
+- **Scope and verification boundary:** build a read-only, deterministic capture-to-publication audit that replays the committed primary and supplementary OLBG TSV captures and checks row identity, source URLs, market/tip fields, originated-selection alignment, prediction-source presence, prohibited prediction terms, and write-up uniqueness. It will report exact row-level discrepancies with source links and leave every source value unchanged. Any sporting-data repair or shared Flagged for Review addition will be logged here as a request for the data owner/final integrator, not edited inside this task.
+- **No factual upgrade:** the auditor can establish internal fidelity to committed captures; it cannot by itself certify that a sporting fact is currently true. Official-page reads will be identified separately with URL and retrieval time if used. No missing value will be inferred and no pick will be promoted to meet a quota.
+- **Completion plan:** add focused unit regressions, run the new audit and all existing build/check/test/link gates, publish the standalone machine-readable audit and manual-review report, then open a scoped PR. Shared final integration and Pages verification remain with the active integration session unless that claim becomes stale under the board's 60-minute rule.
+
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
 | Task | Status | Owner | File scope |
