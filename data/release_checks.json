@@ -1,7 +1,7 @@
 {
  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label. Daily refresh 2026-10-23T16:55Z-17:22Z (session-beb7787b): clocks re-observed on the competition's own pages (URC, NBA.com, MLB.com, EuroLeague news article with CEST clocks, LNR Top 14 (date-only: no zone printed), NHL API, WTA order-of-play PDFs (date-only / not-before: no zone printed), Cork GAA); pages that render clocks in the reader's zone without a label (WST matches, EuroLeague game-center, PREM Rugby) are recorded date-only; prior Pro D2 entries that labelled an unlabelled LNR clock as CET are held.",
  "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe; 2026-10-24T17:10Z-17:14Z URC/EHF/SuperLega match pages) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe)",
- "checked_at": "2026-10-24T19:08:16Z",
+ "checked_at": "2026-10-24T22:45:00Z",
  "events": {
   "160789": {
    "date": "2026-10-24",
@@ -1328,13 +1328,13 @@
   },
   "12129": {
    "date": "2026-10-29",
-   "time": "18:45",
-   "timezone": "CET",
+   "time": "17:45",
+   "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "D | GOG vs Sporting CP Arena Svendborg (Svendborg, DEN) | Thursday 29.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "D | GOG vs Sporting CP Arena Svendborg (Svendborg, DEN) | Thursday 29.10.2026 | 18:45h — Round 6 (source clock CET, stated as such in the PDF), EHF Champions League Men 2026/27 (CET)",
+   "checked_at": "2026-10-24T22:45:00Z",
+   "observed_by": "session-f00f1bf2"
   },
   "12130": {
    "date": "2026-10-28",
@@ -1342,8 +1342,9 @@
    "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "Round 6 — \"HC Vardar 1961 vs MT Melsungen ... Wednesday 28.10.2026 | 18:45h\" under \"TO TIME (CET)\"",
-   "checked_at": "2026-10-24T17:13:00Z"
+   "quote": "B | HC Vardar 1961 vs MT Melsungen SC Jane Sandanski (Skopje, MKD) | Wednesday 28.10.2026 | 18:45h — Round 6 (source clock CET, stated as such in the PDF), EHF Champions League Men 2026/27 (CET)",
+   "checked_at": "2026-10-24T22:45:00Z",
+   "observed_by": "session-f00f1bf2"
   },
   "12131": {
    "date": "2026-10-29",
@@ -1367,23 +1368,23 @@
   },
   "12133": {
    "date": "2026-10-29",
-   "time": "20:45",
-   "timezone": "CET",
+   "time": "19:45",
+   "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "E | Montpellier HB vs CS Dinamo Bucuresti FDI Stadium (Montpellier, FRA) | Thursday 29.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "E | Montpellier HB vs CS Dinamo Bucuresti FDI Stadium (Montpellier, FRA) | Thursday 29.10.2026 | 20:45h — Round 6 (source clock CET, stated as such in the PDF), EHF Champions League Men 2026/27 (CET)",
+   "checked_at": "2026-10-24T22:45:00Z",
+   "observed_by": "session-f00f1bf2"
   },
   "12134": {
    "date": "2026-10-28",
-   "time": "20:45",
-   "timezone": "CET",
+   "time": "19:45",
+   "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "C | Paris Saint-Germain Handball vs Aalborg Handbold Stade Pierre de Coubertin (Paris, FRA) | Wednesday 28.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "C | Paris Saint-Germain Handball vs Aalborg Handbold Stade Pierre de Coubertin (Paris, FRA) | Wednesday 28.10.2026 | 20:45h — Round 6 (source clock CET, stated as such in the PDF), EHF Champions League Men 2026/27 (CET)",
+   "checked_at": "2026-10-24T22:45:00Z",
+   "observed_by": "session-f00f1bf2"
   },
   "12135": {
    "date": "2026-10-28",
@@ -1397,13 +1398,13 @@
   },
   "12136": {
    "date": "2026-10-28",
-   "time": "20:45",
-   "timezone": "CET",
+   "time": "19:45",
+   "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "F | SC Magdeburg vs HC Kriens-Luzern GETEC Arena (Magdeburg, GER) | Wednesday 28.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "F | SC Magdeburg vs HC Kriens-Luzern GETEC Arena (Magdeburg, GER) | Wednesday 28.10.2026 | 20:45h — Round 6 (source clock CET, stated as such in the PDF), EHF Champions League Men 2026/27 (CET)",
+   "checked_at": "2026-10-24T22:45:00Z",
+   "observed_by": "session-f00f1bf2"
   },
   "12137": {
    "date": "2026-10-29",
@@ -1417,13 +1418,13 @@
   },
   "12138": {
    "date": "2026-10-28",
-   "time": "18:45",
-   "timezone": "CET",
+   "time": "17:45",
+   "timezone": "UTC",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "B | Orlen Wisla Plock vs HBC Nantes Orlen Arena (Plock, POL) | Wednesday 28.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "B | Orlen Wisla Plock vs HBC Nantes Orlen Arena (Plock, POL) | Wednesday 28.10.2026 | 18:45h — Round 6 (source clock CET, stated as such in the PDF), EHF Champions League Men 2026/27 (CET)",
+   "checked_at": "2026-10-24T22:45:00Z",
+   "observed_by": "session-f00f1bf2"
   },
   "902165": {
    "date": "2026-10-24",

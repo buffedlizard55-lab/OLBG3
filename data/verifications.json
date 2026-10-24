@@ -1600,6 +1600,48 @@
    "class": "official",
    "name": "LNR Top 14 official Journee 7 calendar & standings",
    "url": "https://top14.lnr.fr/calendrier-et-resultats"
+  },
+  {
+   "id": "f00f-nhl-sched-20261024T1908Z",
+   "class": "official",
+   "name": "NHL official schedule payload 2026-10-24 (committed probe 19:08Z)",
+   "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+  },
+  {
+   "id": "f00f-nhl-stand-20261024T1908Z",
+   "class": "official",
+   "name": "NHL official standings payload 2026-10-24 (committed probe 19:08Z)",
+   "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+  },
+  {
+   "id": "f00f-ecb-pak-eng-20261024",
+   "class": "official",
+   "name": "ECB match centre — PAK v ENG, Pakistan ODI Tri-Series (read 2026-10-24)",
+   "url": "https://www.ecb.co.uk/matches/113501/overview"
+  },
+  {
+   "id": "f00f-pcb-brook-20261022",
+   "class": "official",
+   "name": "PCB news — Sri Lanka chase 430 as Brook's double century goes in vain",
+   "url": "https://www.pcb.com.pk/news-detail/sri-lanka-seal-second-highest-chase-in-odi-history-as-brook-s-record-double-ton-goes-in-vain.html"
+  },
+  {
+   "id": "f00f-csa-eastern-storm-20261024",
+   "class": "official",
+   "name": "Cricket South Africa — Eastern Storm v CSA High Performance, Pro20 Cup",
+   "url": "https://cricket.co.za/upcoming-match/world-sports-betting-eastern-storm-vs-csa-high-performance/"
+  },
+  {
+   "id": "f00f-wta-tokyo-draw-20261025",
+   "class": "official",
+   "name": "WTA official Toray Pan Pacific Open singles main draw (released 25 Oct 2026)",
+   "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1056/MDS.pdf"
+  },
+  {
+   "id": "S-EHFCL-TIMES-PDF-20261024",
+   "class": "official",
+   "name": "EHF Champions League Men 2026/27 group-phase playing times (re-read 24 Oct 2026)",
+   "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
   }
  ],
  "event_verifications": {
@@ -5705,11 +5747,13 @@
    "sources": [
     "S-EHFCL-TIMES-PDF-20261023",
     "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-THU"
+    "S-EHFCL-R5-THU",
+    "S-EHFCL-TIMES-PDF-20261024"
    ],
    "facts": [
     "EHF CL Men Group D R6: GOG (2nd, 3-1-1, 178:172, 7 pts) vs Sporting Clube de Portugal (1st, 4-1-0, 191:165, 9 pts) — Thu 29.10.2026 at 18:45h (CET), Arena Svendborg, Svendborg."
-   ]
+   ],
+   "checked_at": "2026-10-24T22:45:00Z"
   },
   "12130": {
    "status": "verified",
@@ -5721,11 +5765,13 @@
     "S-EHFCL-TIMES-PDF-20261023",
     "S-EHFCL-STANDINGS-20261023",
     "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "S-EHFCL-R5-THU",
+    "S-EHFCL-TIMES-PDF-20261024"
    ],
    "facts": [
     "EHF CL Men Group B R6: HC Vardar 1961 (4th, 1-0-4, 154:158, 2 pts) vs MT Melsungen (2nd, 3-0-2, 138:138, 6 pts) — Wed 28.10.2026 at 18:45h (CET), SC Jane Sandanski, Skopje."
-   ]
+   ],
+   "checked_at": "2026-10-24T22:45:00Z"
   },
   "12131": {
    "status": "verified",
@@ -5767,11 +5813,13 @@
     "S-EHFCL-TIMES-PDF-20261023",
     "S-EHFCL-STANDINGS-20261023",
     "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "S-EHFCL-R5-THU",
+    "S-EHFCL-TIMES-PDF-20261024"
    ],
    "facts": [
     "EHF CL Men Group E R6: Montpellier Handball (4th, 1-0-4, 150:165, 2 pts) vs Dinamo Bucuresti (3rd, 1-1-3, 134:145, 3 pts) — Thu 29.10.2026 at 20:45h (CET), FDI Stadium, Montpellier."
-   ]
+   ],
+   "checked_at": "2026-10-24T22:45:00Z"
   },
   "12134": {
    "status": "verified",
@@ -5782,11 +5830,13 @@
    "sources": [
     "S-EHFCL-TIMES-PDF-20261023",
     "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED"
+    "S-EHFCL-R5-WED",
+    "S-EHFCL-TIMES-PDF-20261024"
    ],
    "facts": [
     "EHF CL Men Group C R6: Paris Saint-Germain (2nd, 3-1-1, 182:157, 7 pts) vs Aalborg Handbold (1st, 4-1-0, 170:145, 9 pts) — Wed 28.10.2026 at 20:45h (CET), Stade Pierre de Coubertin, Paris."
-   ]
+   ],
+   "checked_at": "2026-10-24T22:45:00Z"
   },
   "12135": {
    "status": "verified",
@@ -5812,11 +5862,13 @@
    "sources": [
     "S-EHFCL-TIMES-PDF-20261023",
     "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-THU"
+    "S-EHFCL-R5-THU",
+    "S-EHFCL-TIMES-PDF-20261024"
    ],
    "facts": [
     "EHF CL Men Group F R6: SC Magdeburg (1st, 5-0-0, 176:140, 10 pts) vs HC Kriens-Luzern (3rd, 2-0-3, 158:161, 4 pts) — Wed 28.10.2026 at 20:45h (CET), GETEC Arena, Magdeburg."
-   ]
+   ],
+   "checked_at": "2026-10-24T22:45:00Z"
   },
   "12137": {
    "status": "verified",
@@ -5844,11 +5896,13 @@
     "S-EHFCL-TIMES-PDF-20261023",
     "S-EHFCL-STANDINGS-20261023",
     "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "S-EHFCL-R5-THU",
+    "S-EHFCL-TIMES-PDF-20261024"
    ],
    "facts": [
     "EHF CL Men Group B R6: Orlen Wisla Plock (1st, 3-0-2, 141:136, 6 pts) vs HBC Nantes (3rd, 3-0-2, 142:143, 6 pts) — Wed 28.10.2026 at 18:45h (CET), ORLEN Arena, Plock."
-   ]
+   ],
+   "checked_at": "2026-10-24T22:45:00Z"
   },
   "902165": {
    "status": "verified",

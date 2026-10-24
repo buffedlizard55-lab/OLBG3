@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">205 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">212 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1460,11 +1460,60 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40122281198" rel="noopener nofollow" target="_blank">Failed post-merge main run 40122281198 (PR #176) - Verify and publish dashboard, Unit tests step</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/commit/e291a532e4f358f621363ca5b54c764eb19e97a4" rel="noopener nofollow" target="_blank">Repair commit e291a53 (PR #178) - frozen batch-instant + release.assess pins</a></li><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship official 2026/27 fixtures in full (Ospreys v Dragons KO 19.45 IRE &amp; UK = 18:45Z)</a></li></ul>
 </article>
+<article class="card flag" id="FL-218">
+  <div class="flag-head"><span class="tag">FL-218</span> <span class="sev sev-high">high</span></div>
+  <h2>Cricket verification record names a different fixture than the row it is keyed to</h2>
+  <p>The verification record at data/verifications.json event_verifications[&quot;188835&quot;] states &quot;Mpumalanga Rhinos vs CSA High Performance&quot; while the published OLBG row for that same event id is &quot;South Africa vs Australia&quot; (31 Oct 2026). The two are not the same match, so the row inherits a status of verified for facts belonging to another fixture. No written pick was published on this row; the record must be re-read against a Cricket South Africa or Cricket Australia page before it can carry one.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://cricket.co.za/upcoming/" rel="noopener nofollow" target="_blank">Cricket South Africa fixtures (provenance of the mismatched fact)</a></li><li><a href="https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/South_Africa_vs_Australia/7?event_id=188835" rel="noopener nofollow" target="_blank">OLBG event row for event_id 188835</a></li></ul>
+</article>
+<article class="card flag" id="FL-219">
+  <div class="flag-head"><span class="tag">FL-219</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG lists Rybakina v Fernandez on 25 Oct, but the official WTA Tokyo draw gives Rybakina a bye and Fernandez Sakatsume</h2>
+  <p>The WTA official Toray Pan Pacific Open singles main draw (released 25 Oct 2026 12:36 AM) places Elena Rybakina, seed 1, against a bye in the first round, with Leylah Fernandez drawn against wildcard Himeno Sakatsume. OLBG lists &quot;Elena Rybakina vs Leylah Fernandez&quot; as a fixture on 25 Oct 2026. Both cannot be right. No pick was published on the OLBG fixture; the three Tokyo ties that do match the draw were written as analysis only.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://wtafiles.wtatennis.com/pdf/draws/2026/1056/MDS.pdf" rel="noopener nofollow" target="_blank">WTA official Tokyo singles main draw (PDF)</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Leylah_Fernandez/3?event_id=902207" rel="noopener nofollow" target="_blank">OLBG event row 902207</a></li></ul>
+</article>
+<article class="card flag" id="FL-220">
+  <div class="flag-head"><span class="tag">FL-220</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Golf: OLBG returned no tip cards on two separate reads while a PGA Tour event was in progress</h2>
+  <p>The 17:07Z 2026-10-24 capture recorded zero tip cards on /betting-tips/Golf/5, and a live read at 22:5xZ returned the same &quot;No tips found.&quot; text. The PGA Tour page captured at 19:08Z shows the Butterfield Bermuda Championship in its third round with A. Smotherman leading at -16. No Golf fixture can be published from an empty listing.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing (live read, &quot;No tips found.&quot;)</a></li><li><a href="https://www.pgatour.com/schedule" rel="noopener nofollow" target="_blank">PGA Tour official schedule/leaderboard page</a></li></ul>
+</article>
+<article class="card flag" id="FL-221">
+  <div class="flag-head"><span class="tag">FL-221</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Snooker: OLBG listing empty on the live read; the single captured card had already finished</h2>
+  <p>A live read of /betting-tips/Snooker/8 on 2026-10-24 returned &quot;No tips found.&quot; with the expired-events toggle visible. The capture taken at 17:07Z carried one snooker card whose start had already passed. With no upcoming snooker fixture listed there is nothing to price or write about, and none is published.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener nofollow" target="_blank">OLBG Snooker listing (live read)</a></li><li><a href="https://www.wst.tv/matches/" rel="noopener nofollow" target="_blank">World Snooker Tour matches page (captured, renders client-side)</a></li></ul>
+</article>
+<article class="card flag" id="FL-222">
+  <div class="flag-head"><span class="tag">FL-222</span> <span class="sev sev-low">low</span></div>
+  <h2>Greyhounds: 83 captured race cards, none upcoming at the capture clock</h2>
+  <p>The 17:07Z capture recorded 83 greyhound cards and every one carried a start earlier than the capture clock, so the sport had no upcoming meeting to publish. No greyhound pick is offered; the earlier cards remain in the capture as evidence rather than being re-timed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG Greyhounds listing</a></li><li><a href="https://www.gbgb.org.uk/racecard" rel="noopener nofollow" target="_blank">GBGB racecard index</a></li></ul>
+</article>
+<article class="card flag" id="FL-223">
+  <div class="flag-head"><span class="tag">FL-223</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Both boards price BUF @ WSH differently: the OLBG lines board backs Buffalo, the root board backs Washington</h2>
+  <p>For OLBG event 200003 (Buffalo Sabres at Washington Capitals, 2026-10-24 23:00Z) the OLBG lines track originates Buffalo at decimal 1.65 (57.6%) while the root board publishes Washington. The tracks use different inputs, so opposite sides are possible. The divergence is disclosed here rather than resolved by hand.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule 2026-10-24 (fixture 2026020173)</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-24" rel="noopener nofollow" target="_blank">NHL official standings 2026-10-24</a></li></ul>
+</article>
+<article class="card flag" id="FL-224">
+  <div class="flag-head"><span class="tag">FL-224</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Basketball, Darts, Tennis and Cricket fixtures cannot be released: no timezone-qualified clock, or no official page at all</h2>
+  <p>The NBA CDN scoreboard endpoint returned HTTP 500 and cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json returned HTTP 403, and nba.com/games renders client-side. The captured darts page was empty and the tournament page sits behind a consent wall. The WTA draw is readable but prints no start times. The ECB match page prints &quot;13:00 (Local), 04:00 (Your Time)&quot; and Cricket South Africa prints 13:00 local; neither is timezone-qualified. Those fixtures are published as labelled analysis where a written angle exists, never as high-confidence picks.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.ecb.co.uk/matches/113501/overview" rel="noopener nofollow" target="_blank">ECB match centre — PAK v ENG (Local / Your Time labels)</a></li><li><a href="https://wtafiles.wtatennis.com/pdf/draws/2026/1056/MDS.pdf" rel="noopener nofollow" target="_blank">WTA official Tokyo draw (no clocks)</a></li><li><a href="https://cricket.co.za/upcoming-match/world-sports-betting-eastern-storm-vs-csa-high-performance/" rel="noopener nofollow" target="_blank">Cricket South Africa — Eastern Storm v CSA HP, 13:00</a></li><li><a href="https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" rel="noopener nofollow" target="_blank">NBA schedule endpoint (HTTP 403 on the 19:08Z probe)</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T22:32:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T22:50:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

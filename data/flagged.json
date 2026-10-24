@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T18:26:00Z",
+  "generated_at": "2026-10-24T22:58:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4563,6 +4563,165 @@
           "label": "United Rugby Championship official 2026/27 fixtures in full (Ospreys v Dragons KO 19.45 IRE & UK = 18:45Z)",
           "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/"
         }
+      ]
+    },
+    {
+      "id": "FL-218",
+      "severity": "high",
+      "title": "Cricket verification record names a different fixture than the row it is keyed to",
+      "detail": "The verification record at data/verifications.json event_verifications[\"188835\"] states \"Mpumalanga Rhinos vs CSA High Performance\" while the published OLBG row for that same event id is \"South Africa vs Australia\" (31 Oct 2026). The two are not the same match, so the row inherits a status of verified for facts belonging to another fixture. No written pick was published on this row; the record must be re-read against a Cricket South Africa or Cricket Australia page before it can carry one.",
+      "sources": [
+        {
+          "label": "Cricket South Africa fixtures (provenance of the mismatched fact)",
+          "url": "https://cricket.co.za/upcoming/"
+        },
+        {
+          "label": "OLBG event row for event_id 188835",
+          "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/South_Africa_vs_Australia/7?event_id=188835"
+        }
+      ],
+      "status": "needs review",
+      "action": "Re-read the fixture from the governing board and either re-key the record or withdraw the verification.",
+      "affected_ids": [
+        "CRI-188835"
+      ]
+    },
+    {
+      "id": "FL-219",
+      "severity": "medium",
+      "title": "OLBG lists Rybakina v Fernandez on 25 Oct, but the official WTA Tokyo draw gives Rybakina a bye and Fernandez Sakatsume",
+      "detail": "The WTA official Toray Pan Pacific Open singles main draw (released 25 Oct 2026 12:36 AM) places Elena Rybakina, seed 1, against a bye in the first round, with Leylah Fernandez drawn against wildcard Himeno Sakatsume. OLBG lists \"Elena Rybakina vs Leylah Fernandez\" as a fixture on 25 Oct 2026. Both cannot be right. No pick was published on the OLBG fixture; the three Tokyo ties that do match the draw were written as analysis only.",
+      "sources": [
+        {
+          "label": "WTA official Tokyo singles main draw (PDF)",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1056/MDS.pdf"
+        },
+        {
+          "label": "OLBG event row 902207",
+          "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elena_Rybakina_vs_Leylah_Fernandez/3?event_id=902207"
+        }
+      ],
+      "status": "needs review",
+      "action": "Watch the OLBG row until the tournament confirms whether the fixture exists; publish no pick on it meanwhile.",
+      "affected_ids": [
+        "TEN-902207"
+      ]
+    },
+    {
+      "id": "FL-220",
+      "severity": "medium",
+      "title": "Golf: OLBG returned no tip cards on two separate reads while a PGA Tour event was in progress",
+      "detail": "The 17:07Z 2026-10-24 capture recorded zero tip cards on /betting-tips/Golf/5, and a live read at 22:5xZ returned the same \"No tips found.\" text. The PGA Tour page captured at 19:08Z shows the Butterfield Bermuda Championship in its third round with A. Smotherman leading at -16. No Golf fixture can be published from an empty listing.",
+      "sources": [
+        {
+          "label": "OLBG Golf listing (live read, \"No tips found.\")",
+          "url": "https://www.olbg.com/betting-tips/Golf/5"
+        },
+        {
+          "label": "PGA Tour official schedule/leaderboard page",
+          "url": "https://www.pgatour.com/schedule"
+        }
+      ],
+      "status": "needs review",
+      "action": "Re-read the Golf listing when the next tournament week opens; publish only rows OLBG actually renders.",
+      "affected_ids": []
+    },
+    {
+      "id": "FL-221",
+      "severity": "medium",
+      "title": "Snooker: OLBG listing empty on the live read; the single captured card had already finished",
+      "detail": "A live read of /betting-tips/Snooker/8 on 2026-10-24 returned \"No tips found.\" with the expired-events toggle visible. The capture taken at 17:07Z carried one snooker card whose start had already passed. With no upcoming snooker fixture listed there is nothing to price or write about, and none is published.",
+      "sources": [
+        {
+          "label": "OLBG Snooker listing (live read)",
+          "url": "https://www.olbg.com/betting-tips/Snooker/8"
+        },
+        {
+          "label": "World Snooker Tour matches page (captured, renders client-side)",
+          "url": "https://www.wst.tv/matches/"
+        }
+      ],
+      "status": "needs review",
+      "action": "Retry after the next ranking event is posted; the WST page needs a client-rendered read before clocks can be certified.",
+      "affected_ids": []
+    },
+    {
+      "id": "FL-222",
+      "severity": "low",
+      "title": "Greyhounds: 83 captured race cards, none upcoming at the capture clock",
+      "detail": "The 17:07Z capture recorded 83 greyhound cards and every one carried a start earlier than the capture clock, so the sport had no upcoming meeting to publish. No greyhound pick is offered; the earlier cards remain in the capture as evidence rather than being re-timed.",
+      "sources": [
+        {
+          "label": "OLBG Greyhounds listing",
+          "url": "https://www.olbg.com/betting-tips/Greyhounds/28"
+        },
+        {
+          "label": "GBGB racecard index",
+          "url": "https://www.gbgb.org.uk/racecard"
+        }
+      ],
+      "status": "needs review",
+      "action": "Capture the next afternoon/evening card once OLBG lists it; the GBGB racecard endpoint returned 404 on the last probe.",
+      "affected_ids": []
+    },
+    {
+      "id": "FL-223",
+      "severity": "medium",
+      "title": "Both boards price BUF @ WSH differently: the OLBG lines board backs Buffalo, the root board backs Washington",
+      "detail": "For OLBG event 200003 (Buffalo Sabres at Washington Capitals, 2026-10-24 23:00Z) the OLBG lines track originates Buffalo at decimal 1.65 (57.6%) while the root board publishes Washington. The tracks use different inputs, so opposite sides are possible. The divergence is disclosed here rather than resolved by hand.",
+      "sources": [
+        {
+          "label": "NHL official schedule 2026-10-24 (fixture 2026020173)",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings 2026-10-24",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "status": "needs review",
+      "action": "Choose one published side per fixture in a future refresh, and state the basis for the choice.",
+      "affected_ids": [
+        "ICH-200003",
+        "IHO-200003"
+      ]
+    },
+    {
+      "id": "FL-224",
+      "severity": "medium",
+      "title": "Basketball, Darts, Tennis and Cricket fixtures cannot be released: no timezone-qualified clock, or no official page at all",
+      "detail": "The NBA CDN scoreboard endpoint returned HTTP 500 and cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json returned HTTP 403, and nba.com/games renders client-side. The captured darts page was empty and the tournament page sits behind a consent wall. The WTA draw is readable but prints no start times. The ECB match page prints \"13:00 (Local), 04:00 (Your Time)\" and Cricket South Africa prints 13:00 local; neither is timezone-qualified. Those fixtures are published as labelled analysis where a written angle exists, never as high-confidence picks.",
+      "sources": [
+        {
+          "label": "ECB match centre — PAK v ENG (Local / Your Time labels)",
+          "url": "https://www.ecb.co.uk/matches/113501/overview"
+        },
+        {
+          "label": "WTA official Tokyo draw (no clocks)",
+          "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1056/MDS.pdf"
+        },
+        {
+          "label": "Cricket South Africa — Eastern Storm v CSA HP, 13:00",
+          "url": "https://cricket.co.za/upcoming-match/world-sports-betting-eastern-storm-vs-csa-high-performance/"
+        },
+        {
+          "label": "NBA schedule endpoint (HTTP 403 on the 19:08Z probe)",
+          "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+        }
+      ],
+      "status": "needs review",
+      "action": "Certify these sports only from a governing-body page that prints an explicit zone; keep the published analysis pieces labelled as analysis.",
+      "affected_ids": [
+        "BKB-536111",
+        "BKB-536112",
+        "BKB-536115",
+        "BKB-536118",
+        "DAR-32407",
+        "TEN-902172",
+        "TEN-902173",
+        "TEN-902175",
+        "CRI-188838",
+        "CRI-188848"
       ]
     }
   ]

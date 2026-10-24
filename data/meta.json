@@ -1,121 +1,128 @@
 {
-  "project": "OLBG3",
-  "run_id": "S-20261023-A",
-  "run_started_utc": "2026-10-23T16:00:00Z",
-  "harvest_completed_utc": "2026-10-23T16:21:00Z",
-  "olbg_locale_date": "2026-10-23",
-  "excluded_sports_verbatim": [
-    "soccer",
-    "boxing",
-    "ufc",
-    "mma",
-    "football",
-    "american football",
-    "hurling",
-    "horse racing",
-    "cycling",
-    "specials"
-  ],
-  "exclusion_policy": {
-    "soccer/football": "OLBG sport Football (id 1) excluded; includes all association football competitions incl. Premier League, Europa League and Conference League rows seen on the All Sports page.",
-    "american_football": "OLBG sport American_Football (id 11) excluded (incl. NFL NE Patriots @ CHI Bears seen on the All Sports page).",
-    "boxing_ufc_mma": "OLBG sport Boxing (id 16) is the page OLBG uses for boxing and UFC/MMA fight cards; excluded.",
-    "hurling": "OLBG sport Hurling (id 26) excluded.",
-    "horse_racing": "OLBG sport Horse_Racing (id 2) excluded (incl. Carlisle and Ffos Las rows seen on the All Sports page).",
-    "cycling": "OLBG sport Cycling (id 17) excluded.",
-    "specials": "OLBG 'Specials' / non-fixture specials markets excluded."
+ "project": "OLBG3",
+ "run_id": "S-20261023-A",
+ "run_started_utc": "2026-10-23T16:00:00Z",
+ "harvest_completed_utc": "2026-10-23T16:21:00Z",
+ "olbg_locale_date": "2026-10-23",
+ "excluded_sports_verbatim": [
+  "soccer",
+  "boxing",
+  "ufc",
+  "mma",
+  "football",
+  "american football",
+  "hurling",
+  "horse racing",
+  "cycling",
+  "specials"
+ ],
+ "exclusion_policy": {
+  "soccer/football": "OLBG sport Football (id 1) excluded; includes all association football competitions incl. Premier League, Europa League and Conference League rows seen on the All Sports page.",
+  "american_football": "OLBG sport American_Football (id 11) excluded (incl. NFL NE Patriots @ CHI Bears seen on the All Sports page).",
+  "boxing_ufc_mma": "OLBG sport Boxing (id 16) is the page OLBG uses for boxing and UFC/MMA fight cards; excluded.",
+  "hurling": "OLBG sport Hurling (id 26) excluded.",
+  "horse_racing": "OLBG sport Horse_Racing (id 2) excluded (incl. Carlisle and Ffos Las rows seen on the All Sports page).",
+  "cycling": "OLBG sport Cycling (id 17) excluded.",
+  "specials": "OLBG 'Specials' / non-fixture specials markets excluded."
+ },
+ "allowed_sports_olbg_ids": {
+  "Tennis": 3,
+  "Basketball": 4,
+  "Golf": 5,
+  "Cricket": 7,
+  "Snooker": 8,
+  "Rugby_Union": 9,
+  "Rugby_League": 10,
+  "Baseball": 12,
+  "Ice_Hockey": 13,
+  "Motor_Racing": 14,
+  "Darts": 15,
+  "Handball": 20,
+  "Volleyball": 21,
+  "Gaelic_Football": 25,
+  "Greyhounds": 28
+ },
+ "ambiguities": [
+  {
+   "item": "Gaelic Football",
+   "issue": "The exclusion list bans 'football' and 'hurling' but does not name Gaelic football. Read literally, Gaelic football is not excluded. It is treated as INCLUDED (6 live club & championship rows on 2026-10-22) and tagged ambiguous_exclusion=true so it can be filtered cleanly.",
+   "resolution": "included, flagged"
   },
-  "allowed_sports_olbg_ids": {
-    "Tennis": 3,
-    "Basketball": 4,
-    "Golf": 5,
-    "Cricket": 7,
-    "Snooker": 8,
-    "Rugby_Union": 9,
-    "Rugby_League": 10,
-    "Baseball": 12,
-    "Ice_Hockey": 13,
-    "Motor_Racing": 14,
-    "Darts": 15,
-    "Handball": 20,
-    "Volleyball": 21,
-    "Gaelic_Football": 25,
-    "Greyhounds": 28
+  {
+   "item": "Motor racing",
+   "issue": "Cycling is excluded; Formula 1 motor racing is distinct and not named in the exclusion list.",
+   "resolution": "included"
   },
-  "ambiguities": [
-    {
-      "item": "Gaelic Football",
-      "issue": "The exclusion list bans 'football' and 'hurling' but does not name Gaelic football. Read literally, Gaelic football is not excluded. It is treated as INCLUDED (6 live club & championship rows on 2026-10-22) and tagged ambiguous_exclusion=true so it can be filtered cleanly.",
-      "resolution": "included, flagged"
-    },
-    {
-      "item": "Motor racing",
-      "issue": "Cycling is excluded; Formula 1 motor racing is distinct and not named in the exclusion list.",
-      "resolution": "included"
-    },
-    {
-      "item": "Greyhound racing",
-      "issue": "Horse racing is excluded; greyhound racing is distinct and not named in the exclusion list.",
-      "resolution": "included"
-    },
-    {
-      "item": "Snooker & Greyhounds overnight empty listing ('No tips found.')",
-      "issue": "At 2026-10-22T01:28Z, /betting-tips/Snooker/8 (between Round 2 and Round 3 of the Belfast Northern Ireland Open) and /betting-tips/Greyhounds/28 (before UK morning cards post) returned 'No tips found.' server-side. Their audited 2026-10-21 rows are carried forward via previous_harvests with explicit per-row carry notes and excluded from active HIGH confidence.",
-      "resolution": "carried from 2026-10-21 pass with explicit disclosure"
-    }
-  ],
-  "harvest_method": {
-    "tool": "agent page-retrieval across all 15 allowed OLBG sport pages, the sub-league endpoints and the individual event pages needed to read a market the listing did not render",
-    "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus the event pages for OLBG event ids 32338, 609567 and 37018",
-    "granularity": "177 live listing rows read from 17 of 18 in-scope listing pages at 2026-10-23T16:21Z from the served HTML of a single capture (data/raw/live-20261023T1700Z). Golf/5 returned \"No tips found.\"; Snooker/8 returned 2 rows; Greyhounds/28 returned 34.",
-    "values_inferred": "none - blank when not stated by the serving page or an official source"
+  {
+   "item": "Greyhound racing",
+   "issue": "Horse racing is excluded; greyhound racing is distinct and not named in the exclusion list.",
+   "resolution": "included"
   },
-  "harvest_file": "raw/olbg-harvest-20261023T1700Z.tsv",
-  "harvest_format": "v3",
-  "harvest_timezone_note": "Format v3 captures the card's own <time itemprop=\"startDate\" datetime> attribute, so each row carries OLBG's machine-readable UTC start as well as the clock OLBG printed beside it. Across the 177 rows the printed clock is exactly one hour ahead of the attribute until the 25 October 2026 DST changeover and equal to it afterwards, which is why the printed label is still published verbatim and never converted.",
-  "previous_harvest": null,
-  "previous_harvests_extra": [],
-  "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations) + session-b322f52e (21:33Z SvelteKit supplementary capture & clock/form audit)",
-  "supplementary_harvests": [
-    {
-      "file": "raw/olbg-harvest-20261023T1630Z.tsv",
-      "format": "v2",
-      "olbg_locale_date": "2026-10-23",
-      "harvest_completed_utc": "2026-10-23T16:40:00Z",
-      "note": "session-beb7787b agent page-retrieval of all 15 in-scope listings, 16:16Z-16:40Z, 180 rows copied verbatim (v2: printed labels only, no startDate attribute). Same-day as the 16:21Z primary capture; adds only the 3 events the primary did not render (902147 Van Assche v Musetti, greyhound races 689803 and 689800). Never restates a row the primary already published."
-    },
-    {
-      "file": "raw/olbg-supplement-20261023T2133Z-b322f52e.tsv",
-      "format": "v3",
-      "olbg_locale_date": "2026-10-23",
-      "harvest_completed_utc": "2026-10-23T21:33:06Z",
-      "note": "session-b322f52e live runner capture (data/raw/svelte-b322f52e-20261023T2133Z) across all 18 in-scope listing pages at 21:33:06Z, extracted via --svelte-fallback (123 active expired=0 rows across 12 sports). Same-day supplementary source: adds only the 43 upcoming events absent from the 16:21Z primary and 16:30Z supplementary captures, never overwriting an earlier row."
-    }
-  ],
-  "root_capture_20261023": {
-    "capture": "2026-10-23T16:20Z",
-    "file": "raw/olbg-harvest-20261023T1620Z.json",
-    "format": "v3-json (rows verbatim; every label copied, no clock converted)",
-    "session": "session-be917e0f",
-    "rows_captured": 107,
-    "appended_to_board": 50,
-    "already_on_board": 55,
-    "non_board_track": 2,
-    "excluded_sport_rows": 0,
-    "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
-    "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
+  {
+   "item": "Snooker & Greyhounds overnight empty listing ('No tips found.')",
+   "issue": "At 2026-10-22T01:28Z, /betting-tips/Snooker/8 (between Round 2 and Round 3 of the Belfast Northern Ireland Open) and /betting-tips/Greyhounds/28 (before UK morning cards post) returned 'No tips found.' server-side. Their audited 2026-10-21 rows are carried forward via previous_harvests with explicit per-row carry notes and excluded from active HIGH confidence.",
+   "resolution": "carried from 2026-10-21 pass with explicit disclosure"
+  }
+ ],
+ "harvest_method": {
+  "tool": "agent page-retrieval across all 15 allowed OLBG sport pages, the sub-league endpoints and the individual event pages needed to read a market the listing did not render",
+  "pages": "https://www.olbg.com/betting-tips plus every allowed sport page (/Tennis/3, /Basketball/4, /Basketball/NBA/4, /Basketball/European/4, /Golf/5, /Cricket/7, /Snooker/8, /Rugby_Union/9, /Rugby_League/10, /Baseball/12, /Ice_Hockey/13, /Ice_Hockey/NHL/13, /Ice_Hockey/Other/13, /Motor_Racing/14, /Darts/15, /Handball/20, /Volleyball/21, /Gaelic_Football/25, /Greyhounds/28) plus the event pages for OLBG event ids 32338, 609567 and 37018",
+  "granularity": "177 live listing rows read from 17 of 18 in-scope listing pages at 2026-10-23T16:21Z from the served HTML of a single capture (data/raw/live-20261023T1700Z). Golf/5 returned \"No tips found.\"; Snooker/8 returned 2 rows; Greyhounds/28 returned 34.",
+  "values_inferred": "none - blank when not stated by the serving page or an official source"
+ },
+ "harvest_file": "raw/olbg-harvest-20261023T1700Z.tsv",
+ "harvest_format": "v3",
+ "harvest_timezone_note": "Format v3 captures the card's own <time itemprop=\"startDate\" datetime> attribute, so each row carries OLBG's machine-readable UTC start as well as the clock OLBG printed beside it. Across the 177 rows the printed clock is exactly one hour ahead of the attribute until the 25 October 2026 DST changeover and equal to it afterwards, which is why the printed label is still published verbatim and never converted.",
+ "previous_harvest": null,
+ "previous_harvests_extra": [],
+ "session": "session-784afe97 + session-4b642f84 (21:30Z re-apply on d3ed893) + session-beb7787b (23 Oct 16:30Z supplementary capture, 16:55Z-17:22Z re-observations) + session-b322f52e (21:33Z SvelteKit supplementary capture & clock/form audit)",
+ "supplementary_harvests": [
+  {
+   "file": "raw/olbg-harvest-20261023T1630Z.tsv",
+   "format": "v2",
+   "olbg_locale_date": "2026-10-23",
+   "harvest_completed_utc": "2026-10-23T16:40:00Z",
+   "note": "session-beb7787b agent page-retrieval of all 15 in-scope listings, 16:16Z-16:40Z, 180 rows copied verbatim (v2: printed labels only, no startDate attribute). Same-day as the 16:21Z primary capture; adds only the 3 events the primary did not render (902147 Van Assche v Musetti, greyhound races 689803 and 689800). Never restates a row the primary already published."
   },
-  "archive_note": "This build publishes ONLY the 2026-10-23 captures: the 16:21Z primary (177 rows, 14 sports) plus the 3 events only the same-day 16:16Z-16:40Z supplementary capture rendered. The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick.",
-  "parallel_session_notes": [
-    {
-      "session": "be917e0f",
-      "what": "Independently captured 2026-10-23 listings into data/raw/olbg-harvest-20261023T1620Z.json and published FL-131..FL-137 of its own. That capture is retained unchanged in data/raw; this build uses the later, larger 16:21Z capture (177 rows, format v3) from data/raw/live-20261023T1700Z.",
-      "kept": "the file, its register items and every page it produced; nothing of it was deleted or reworded"
-    },
-    {
-      "session": "beb7787b",
-      "what": "Independently captured the same 15 listings 16:16Z-16:40Z into data/raw/olbg-harvest-20261023T1630Z.tsv (180 rows, v2) and re-observed official pages 16:55Z-17:22Z; merged on top of this build at ~17:55Z. Its capture is chained as a same-day supplementary source (3 extra events), its 14 root fixtures absent from the 16:20Z JSON were appended with the SPORT-<event_id> refs this build uses, tip counts were merged monotonically (larger total wins), and its register items were renumbered FL-145..FL-153.",
-      "kept": "every file, register item and page of the earlier sessions; nothing deleted or reworded"
-    }
-  ]
+  {
+   "file": "raw/olbg-supplement-20261023T2133Z-b322f52e.tsv",
+   "format": "v3",
+   "olbg_locale_date": "2026-10-23",
+   "harvest_completed_utc": "2026-10-23T21:33:06Z",
+   "note": "session-b322f52e live runner capture (data/raw/svelte-b322f52e-20261023T2133Z) across all 18 in-scope listing pages at 21:33:06Z, extracted via --svelte-fallback (123 active expired=0 rows across 12 sports). Same-day supplementary source: adds only the 43 upcoming events absent from the 16:21Z primary and 16:30Z supplementary captures, never overwriting an earlier row."
+  },
+  {
+   "file": "raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv",
+   "format": "v3",
+   "olbg_locale_date": "2026-10-24",
+   "harvest_completed_utc": "2026-10-24T17:08:18Z",
+   "note": "session-f00f1bf2: the committed 17:07Z live capture (manifest at data/raw/live-20261024T1707Z-a30d9bdb), extracted with scripts/extract_listings.py. 197 active rows across 14 sports; Golf returned no tip cards. Added as a supplementary source so earlier-capture rows keep their published labels and this capture only adds events they did not contain."
+  }
+ ],
+ "root_capture_20261023": {
+  "capture": "2026-10-23T16:20Z",
+  "file": "raw/olbg-harvest-20261023T1620Z.json",
+  "format": "v3-json (rows verbatim; every label copied, no clock converted)",
+  "session": "session-be917e0f",
+  "rows_captured": 107,
+  "appended_to_board": 50,
+  "already_on_board": 55,
+  "non_board_track": 2,
+  "excluded_sport_rows": 0,
+  "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
+  "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
+ },
+ "archive_note": "This build publishes ONLY the 2026-10-23 captures: the 16:21Z primary (177 rows, 14 sports) plus the 3 events only the same-day 16:16Z-16:40Z supplementary capture rendered. The earlier dated harvest files remain in data/raw unchanged as audit artifacts and are not chained into the live board, so no 21-22 October fixture can reappear as a current pick.",
+ "parallel_session_notes": [
+  {
+   "session": "be917e0f",
+   "what": "Independently captured 2026-10-23 listings into data/raw/olbg-harvest-20261023T1620Z.json and published FL-131..FL-137 of its own. That capture is retained unchanged in data/raw; this build uses the later, larger 16:21Z capture (177 rows, format v3) from data/raw/live-20261023T1700Z.",
+   "kept": "the file, its register items and every page it produced; nothing of it was deleted or reworded"
+  },
+  {
+   "session": "beb7787b",
+   "what": "Independently captured the same 15 listings 16:16Z-16:40Z into data/raw/olbg-harvest-20261023T1630Z.tsv (180 rows, v2) and re-observed official pages 16:55Z-17:22Z; merged on top of this build at ~17:55Z. Its capture is chained as a same-day supplementary source (3 extra events), its 14 root fixtures absent from the 16:20Z JSON were appended with the SPORT-<event_id> refs this build uses, tip counts were merged monotonically (larger total wins), and its register items were renumbered FL-145..FL-153.",
+   "kept": "every file, register item and page of the earlier sessions; nothing deleted or reworded"
+  }
+ ]
 }

@@ -1,0 +1,87 @@
+{
+  "session": "session-f00f1bf2",
+  "retrieved_by": "session page reader (arbitrary-host HTTPS GET available to the agent session; the shell sandbox itself has no egress — see FL-077)",
+  "retrieved_window_utc": ["2026-10-24T22:20:00Z", "2026-10-24T22:40:00Z"],
+  "note": "Text-only reads. Nothing here is a machine capture: each entry records the URL that was read, when, and the exact fragments that a published row or review flag relies on. Fragments are copied verbatim from the page returned at that URL.",
+  "pages": [
+    {
+      "id": "f00f-ecb-pak-eng-20261024",
+      "url": "https://www.ecb.co.uk/matches/113501/overview",
+      "retrieved_at_utc": "2026-10-24T22:3xZ",
+      "quotes": [
+        "Start Time 13:00 (Local), 04:00 (Your Time)",
+        "Gaddafi Stadium, Lahore",
+        "KFC Presents Bank Alfalah ODI Tri-Series"
+      ],
+      "clock_effect": "Rejected for the release gate: the page prints a local clock and a reader-zone clock but no zone name, so the start is not timezone-qualified. Published as analysis only (CRI-188838)."
+    },
+    {
+      "id": "f00f-wta-tokyo-draw-20261025",
+      "url": "https://wtafiles.wtatennis.com/pdf/draws/2026/1056/MDS.pdf",
+      "retrieved_at_utc": "2026-10-24T22:35Z",
+      "quotes": [
+        "Released 25 Oct 2026 12:36 AM",
+        "Elena Rybakina (1) — Bye",
+        "Leylah Fernandez vs Himeno Sakatsume (WC)",
+        "Moyuka Uchijima (WC) vs Elise Mertens (5)",
+        "Alexandra Eala (8) vs Mika Stojsavljevic (WC)"
+      ],
+      "clock_effect": "No clocks are printed anywhere in the draw, so no Tokyo fixture can be released as a high-confidence pick from this document alone. Used for bracket facts only (TEN-902172, TEN-902173, TEN-902175) and to flag the OLBG Rybakina–Fernandez card (FL-219)."
+    },
+    {
+      "id": "f00f-pcb-brook-20261022",
+      "url": "https://www.pcb.com.pk/news-detail/sri-lanka-seal-second-highest-chase-in-odi-history-as-brook-s-record-double-ton-goes-in-vain.html",
+      "retrieved_at_utc": "2026-10-24T22:3xZ",
+      "quotes": [
+        "second-highest chase in ODI history",
+        "Brook's record double ton goes in vain"
+      ],
+      "clock_effect": "No clock claimed. Supplies the result context quoted in the PAK v ENG preview."
+    },
+    {
+      "id": "f00f-csa-eastern-storm-20261024",
+      "url": "https://cricket.co.za/upcoming-match/world-sports-betting-eastern-storm-vs-csa-high-performance/",
+      "retrieved_at_utc": "2026-10-24T22:25Z",
+      "quotes": [
+        "Pro20 Cup 2026/2027",
+        "World Sports Betting Willowmoore Park Stadium",
+        "25/10/26 13:00"
+      ],
+      "clock_effect": "The page prints 13:00 without a zone suffix; the host is not on the reviewed clock list, so the fixture is published as analysis only (CRI-188848)."
+    },
+    {
+      "id": "f00f-nhl-sched-20261024T1908Z",
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-24",
+      "retrieved_at_utc": "2026-10-24T19:08:16Z",
+      "quotes": [
+        "2026020170 SJS@BOS 23:00Z",
+        "2026020174 VGK@CBJ 23:00Z",
+        "2026020178 DET@CGY 02:00Z",
+        "2026020177 TBL@UTA 01:00Z"
+      ],
+      "clock_effect": "Committed payload under data/raw/official-20261024T1908Z/json/nhl_schedule.json; the league states each start as an explicit Z timestamp, which the gate accepts."
+    },
+    {
+      "id": "f00f-nhl-stand-20261024T1908Z",
+      "url": "https://api-web.nhle.com/v1/standings/2026-10-24",
+      "retrieved_at_utc": "2026-10-24T19:08:16Z",
+      "quotes": [
+        "VGK 8-4-0, 46 GF, 36 GA",
+        "CBJ 3-5-0, 20 GF, 29 GA",
+        "DET 4-3-3, 30 GF, 36 GA; CGY 3-6-0, 19 GF, 38 GA",
+        "UTA 7-4-0, 41 GF, 36 GA; TBL 7-3-0, 34 GF, 29 GA"
+      ],
+      "clock_effect": "Committed payload under data/raw/official-20261024T1908Z/json/nhl_standings.json; supplies every games-played, record and goal figure quoted in the three ice-hockey pieces."
+    },
+    {
+      "id": "f00f-ehfcl-2026-27",
+      "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+      "retrieved_at_utc": "2026-10-23T19:38Z",
+      "quotes": [
+        "Round 6, 28.10.2026, 20:45 CET — SC Magdeburg vs HC Kriens-Luzern",
+        "GETEC Arena, Magdeburg"
+      ],
+      "clock_effect": "Already committed as S-EHFCL-TIMES-PDF-20261023; the Magdeburg throw-off is CET-qualified."
+    }
+  ]
+}
