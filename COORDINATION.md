@@ -3,6 +3,18 @@
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
 ---
+---
+
+## COMPLETED — `session-170e6805`, **task-170e6805-exec-summary-and-pick-quality-audit** (claimed 2026-10-24T22:26Z; done 2026-10-24T22:40Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-170e6805-exec-summary-and-pick-quality-audit` | done | `session-170e6805` on Arena-fixed `arena/170e6805-olbg3` | `COORDINATION.md` (this claim + final record only); NEW `scripts/audit_170e6805.py`; NEW `data/audit-170e6805.json`; NEW `docs/audit-170e6805.md`; NEW `tests/test_audit_170e6805.py`; NEW standalone `exec-summary.html` (root, legacy-Pages served, linked only from this audit doc/README section appended by this session). No existing fixture, price, prediction, line, flag-register, builder, workflow or sibling file is edited. Defects found in owned-by-others data are logged here + in the audit doc for review, not silently fixed. |
+
+- **Goal:** one obvious executive-summary surface: per-sport (15 in-scope) fixture/line/written-pick counts recomputed from committed `data/matches.json`, `data/lines.json`, `data/predictions.json`, `data/predictions-olbg.json`; every written pick checked line-by-line for >=30 words, uniqueness, banned reader-facing words (`model`/`verified`), an obvious selection, HIGH confidence, originated price inside -250..+10000, and an https official/OLBG source link. Shortfalls (5-per-sport target) are published as-is, never filled by inference.
+- **Verification boundary:** internal recomputation against committed captures only; no new sporting fact is created. Any live official re-read via retrieval tools is cited with URL + retrieval time in `docs/audit-170e6805.md`.
+- **Result (2026-10-24T22:40Z):** 223 fixtures / 223 originated lines; 142 written predictions checked — 0 under 30 words, 0 duplicates, 0 banned words, 0 missing selections/sources. **10 live HIGH picks** published on `exec-summary.html` (Handball 5/5 target met; Volleyball 3; Gaelic Football 1; Motor Racing 1; shortfall 65/75 disclosed). Spot-checks this session confirmed GFA-3530 (Cork GAA, 25 Oct 16:00) and HAN-12138 (EHF, 28 Oct 18:45 CET=17:45Z) exactly as published. **27 flags** (non-blocking, in audit doc + Flagged section of the page): DAR-32332 HIGH at −333 outside the brief band; 26 HIGH-prose vs medium-line-confidence label mismatches; Golf 0 fixtures on OLBG track (root outright track only); Cricket/Snooker/Tennis/Greyhounds have lines but 0 written predictions.
+- **Gates:** new 6 tests OK; `check_board.py` PASS; `tools/check_site.py` PASS; `check_links.py` 0 broken. Full suite: 390 tests, 1 failure + 26 dated skips — the 1 failure (`test_audit_3271b876` nav/verification.html) reproduces identically on the clean tree without this session's files (it requires the CI `site/` build first) and is in a sibling's scope; not edited here.
 
 ## COMPLETED — `session-4e26d590`, **task-4e26d590-capture-to-publication-provenance-audit** (claimed 2026-10-24T17:56Z; PR #171 merged 2026-10-24T18:14:59Z)
 
