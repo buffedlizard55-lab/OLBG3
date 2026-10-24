@@ -99,6 +99,12 @@ ALLOWED_HOSTS = {
     "ftpserver.euroleague.net",
     "www.realmadrid.com",
     "www.ecb.co.uk",
+    # 2026-10-24 (session-f00f1bf2): the Pakistan Cricket Board publishes the ODI result and
+    # squad notices quoted in the PAK v ENG preview; reviewed as the national governing body.
+    "www.pcb.com.pk",
+    # The league's own static-data CDN. It answers 403 to this environment, which is why it is
+    # cited only as the evidence behind FL-224 and never as a clock source.
+    "cdn.nba.com",
     "cricketireland.ie",
     "www.nzc.nz",
     "www.cricket.com.au",

@@ -496,11 +496,14 @@ briefpage = head("Brief coverage") + f"""
 </section>
 
 <div class="notice">
-  <strong>No source was re-fetched for this page.</strong> It is computed from the committed rows by
+  <strong>This page re-reads nothing itself.</strong> It is computed from the committed rows by
   <code>scripts/brief_coverage.py</code> and re-checked by <code>scripts/check_board.py</code>. The counts are not a win rate, not a
   calibrated probability and not bookmaker odds. A distinct pick is counted once even when both tracks publish the same fixture
-  (they are de-duplicated on the OLBG event id). Live re-verification is blocked in this environment by the outbound allowlist
-  described in FL-077, so no <code>checked_at</code>, quote or verification label was renewed.
+  (they are de-duplicated on the OLBG event id). The shell sandbox still has no outbound network (FL-077), so no board row's
+  <code>checked_at</code> was renewed from a shell fetch. Where this session did read a live page, it did so through the session's
+  page reader and recorded the URL, the time and the exact quoted fragment in
+  <code>data/raw/fetched-20261024T2240Z-f00f1bf2/manifest.json</code>; only those quoted fragments are used in prose, and a page
+  without a zone-qualified clock never becomes a released pick.
 </div>
 
 <div class="cards">

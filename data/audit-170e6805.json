@@ -12,9 +12,9 @@
   "totals": {
     "fixtures": 418,
     "lines": 418,
-    "written_olbg": 49,
+    "written_olbg": 58,
     "written_root": 93,
-    "live_high_upcoming": 10,
+    "live_high_upcoming": 14,
     "sports_meeting_target": 1,
     "issues": 33
   },
@@ -69,7 +69,7 @@
         "handicap": 0,
         "total": 16
       },
-      "written_predictions": 0,
+      "written_predictions": 2,
       "written_high": 0,
       "live_high_upcoming": 0,
       "target": 5,
@@ -153,7 +153,7 @@
         "handicap": 29,
         "total": 29
       },
-      "written_predictions": 0,
+      "written_predictions": 3,
       "written_high": 0,
       "live_high_upcoming": 0,
       "target": 5,
@@ -181,9 +181,9 @@
         "handicap": 52,
         "total": 52
       },
-      "written_predictions": 9,
-      "written_high": 6,
-      "live_high_upcoming": 5,
+      "written_predictions": 10,
+      "written_high": 7,
+      "live_high_upcoming": 6,
       "target": 5,
       "shortfall": 0
     },
@@ -195,11 +195,11 @@
         "handicap": 49,
         "total": 49
       },
-      "written_predictions": 2,
-      "written_high": 2,
-      "live_high_upcoming": 0,
+      "written_predictions": 5,
+      "written_high": 5,
+      "live_high_upcoming": 3,
       "target": 5,
-      "shortfall": 5
+      "shortfall": 2
     },
     "Basketball": {
       "fixtures": 34,
@@ -362,6 +362,32 @@
       "total": 63.5
     },
     {
+      "match_id": "HAN-12136",
+      "sport": "Handball",
+      "match": "SC Magdeburg v HC Kriens Luzern",
+      "selection": "SC Magdeburg to win (money line)",
+      "sources": [
+        {
+          "label": "EHF Champions League men 2026/27 group-phase playing times (official PDF)",
+          "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
+        },
+        {
+          "label": "EHF Champions League men 2026/27 official standings and Round 6 calendar",
+          "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
+        }
+      ],
+      "text": "Back SC Magdeburg to win their EHF Champions League Round 6 match against HC Kriens-Luzern at the GETEC Arena on Wednesday. Magdeburg lead Group F with five wins from five, 176 goals scored and 140 conceded, while the Swiss club are 2-0-3 with 158 scored and 161 conceded. That unbeaten group record and a 36-goal scoring gap make the hosts the clear selection for the 20:45 CET throw-off.",
+      "confidence": "high",
+      "session": "session-f00f1bf2",
+      "status": "high",
+      "price": "-147",
+      "decimal": 1.68,
+      "start_utc": "2026-10-28T19:45:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/SC_Magdeburg_vs_HC_Kriens_Luzern/20?event_id=12136",
+      "handicap": -1.5,
+      "total": 60.5
+    },
+    {
       "match_id": "HAN-12138",
       "sport": "Handball",
       "match": "Wisla Plock vs Nantes",
@@ -386,6 +412,84 @@
       "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/Wisla_Plock_vs_Nantes/20?event_id=12138",
       "handicap": -1.5,
       "total": 56.5
+    },
+    {
+      "match_id": "ICH-200001",
+      "sport": "Ice Hockey",
+      "match": "VGS Golden Knights @ CLB Blue Jackets",
+      "selection": "Vegas Golden Knights to win (money line)",
+      "sources": [
+        {
+          "label": "NHL official schedule, 24 Oct 2026 \u2014 VGK @ CBJ, 23:00Z, Nationwide Arena",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 24 Oct 2026 \u2014 Vegas 8-4-0, Columbus 3-5-0",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "text": "Back the Vegas Golden Knights to win on the money line at Nationwide Arena. Vegas are 8-4-0 with 46 goals scored and 36 conceded, and they have taken three of five road games. Columbus are 3-5-0, have managed 20 goals in eight matches and are 3-3-0 at home, with both clubs arriving on two-game losing runs. The Golden Knights' scoring depth against a Blue Jackets side that has conceded 29 goals is the basis for the call, and the visitors' 16:00 local start is the league's own scheduled time.",
+      "confidence": "high",
+      "session": "session-f00f1bf2",
+      "status": "high",
+      "price": "-172",
+      "decimal": 1.58,
+      "start_utc": "2026-10-24T23:00:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/VGS_Golden_Knights_@_CLB_Blue_Jackets/13?event_id=200001",
+      "handicap": -1.5,
+      "total": 5.5
+    },
+    {
+      "match_id": "ICH-200004",
+      "sport": "Ice Hockey",
+      "match": "DET Red Wings @ CGY Flames",
+      "selection": "Detroit Red Wings to win (money line)",
+      "sources": [
+        {
+          "label": "NHL official schedule, 24 Oct 2026 \u2014 DET @ CGY, 02:00Z, Scotiabank Saddledome",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 24 Oct 2026 \u2014 Detroit 4-3-3, Calgary 3-6-0",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "text": "Take Detroit to win at the Scotiabank Saddledome. Calgary are 3-6-0 and have been outscored 38-19 across nine games, the heaviest goal difference on Saturday's slate, even though they have won their past two. The Red Wings are 4-3-3 and 1-0-2 on the road, and their 30 goals conceded in ten games is the steadier defensive record. Detroit also won their most recent fixture, so the road side is the selection.",
+      "confidence": "high",
+      "session": "session-f00f1bf2",
+      "status": "high",
+      "price": "-192",
+      "decimal": 1.52,
+      "start_utc": "2026-10-25T02:00:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/DET_Red_Wings_@_CGY_Flames/13?event_id=200004",
+      "handicap": -1.5,
+      "total": 5.5
+    },
+    {
+      "match_id": "ICH-200009",
+      "sport": "Ice Hockey",
+      "match": "UTA Mammoth @ TB Lightning",
+      "selection": "Utah Mammoth to win (money line)",
+      "sources": [
+        {
+          "label": "NHL official schedule, 24 Oct 2026 \u2014 TBL @ UTA, 01:00Z, Delta Center",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "NHL official standings, 24 Oct 2026 \u2014 Utah 7-4-0, Tampa Bay 7-3-0",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
+        }
+      ],
+      "text": "Back Utah to win at the Delta Center. The Mammoth are 7-4-0 with 41 goals scored and hold a 3-1-0 home record, while Tampa Bay are 7-3-0 overall but 2-3-0 on the road. Both sides lost their previous match. Utah's home form and higher goal output are the documented edge, with the Lightning's 29 goals conceded in ten games the reason this is not a wider call; the hosts are the selection.",
+      "confidence": "high",
+      "session": "session-f00f1bf2",
+      "status": "high",
+      "price": "-145",
+      "decimal": 1.69,
+      "start_utc": "2026-10-25T01:00:00Z",
+      "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/TB_Lightning_@_UTA_Mammoth/13?event_id=200009",
+      "handicap": -1.5,
+      "total": 5.5
     },
     {
       "match_id": "MTR-913",
