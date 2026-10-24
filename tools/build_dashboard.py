@@ -392,6 +392,65 @@ def write(path: Path, text: str):
     path.write_text(text, encoding="utf-8")
 
 
+
+def jump_bar():
+    """The one-line orientation strip: where the picks are, in the order a reader needs them."""
+    return """<nav class="jump" aria-label="On this page">
+  <a href="#today">① Today's high-confidence picks</a>
+  <a href="#week">② The rest of the captured week</a>
+  <a href="#sports">③ Picks by sport</a>
+  <a href="#coverage">④ The 15-sport scorecard</a>
+  <a href="picks.html">All picks</a>
+  <a href="written.html">Every write-up</a>
+  <a href="review.html">Flagged items</a>
+</nav>"""
+
+
+def sport_grid(board):
+    """One tile per sport: how many written HIGH picks it has and what the leading pick is."""
+    tiles = []
+    for sport in SPORTS:
+        rows = [r for r in board.by_sport(sport) if board.upcoming(r)]
+        high = [r for r in rows if r["confidence"] == "high" and board.pred(r)]
+        lead = (board.ordered(high) or board.ordered([r for r in rows if board.pred(r)]) or board.ordered(rows))
+        if high:
+            status = f'<span class="chip chip-high">{len(high)} HIGH</span>'
+        elif rows:
+            status = '<span class="chip chip-low">no HIGH</span>'
+        else:
+            status = '<span class="chip chip-low">no live fixture</span>'
+        line = ""
+        if lead:
+            top = lead[0]
+            dec, us = money(top.get("our_price_pick"))
+            line = (f'<p class="tile-pick">{E(selection_text(top))}'
+                    + (f' <span class="muted">{E(dec)}</span>' if dec != "—" else "")
+                    + "</p>")
+        else:
+            line = '<p class="tile-pick muted">Nothing to price from this listing at this build clock.</p>'
+        tiles.append(f"""  <a class="tile" href="sport/{SLUG[sport]}.html">
+    <div class="tile-head"><h3>{ICON.get(sport, "•")} {E(sport)}</h3>{status}</div>
+    {line}
+    <p class="muted small">{len(rows)} upcoming · {len([r for r in board.by_sport(sport) if board.pred(r)])} written piece(s)</p>
+  </a>""")
+    return '<div class="sportgrid">' + "".join(tiles) + "</div>"
+
+
+def how_to_read():
+    return """<section class="howto">
+  <h2>How to read this page</h2>
+  <ol>
+    <li><strong>The pick is the bold name in the "Our pick" column.</strong> It is a team, a player or a
+    selection, and the price beside it is the line we originated — not a bookmaker quote.</li>
+    <li><strong>Only HIGH rows count as published picks.</strong> MEDIUM and LOW rows are published for
+    completeness and are labelled as analysis; they are not tips.</li>
+    <li><strong>Every fact has a link.</strong> Each HIGH row ends in a "read the write-up" link; the card on
+    <a href="written.html">Write-ups</a> lists the official page behind every claim, and anything we could not
+    confirm is named on <a href="review.html">Flagged for review</a> rather than guessed.</li>
+  </ol>
+</section>"""
+
+
 def build_index(board):
     high = board.high()
     upcoming = board.upcoming_rows()
@@ -446,26 +505,36 @@ def build_index(board):
   This page is the summary; the tables below and the six pages in the menu are the detail.</p>
   <p class="stamp">Page built {E(built)} · listing capture {E(capture)} · all times UTC</p>
 </section>
+{jump_bar()}
 {kpis}
 {lead_block}
-<section>
-  <h2>High-confidence picks <span class="count">{len(written)}</span></h2>
+<section id="today">
+  <h2>Today's high-confidence picks <span class="count">{len(today)}</span></h2>
   <p class="muted">A pick is graded <strong>HIGH</strong> only when its official start is checked and ahead of now,
   its price sits inside the -250 to +10000 band, its win probability is below 70%, and a written prediction with
   sources exists. <strong>Our price</strong> is the line we originated; <strong>OLBG price</strong> is what the
   listing printed — labelled with the side when the listing priced the other team. The two differ on purpose.</p>
-  <h3 class="sub">Today, {board.now.strftime('%d %B')} <span class="count">{len(today)}</span></h3>
   <div class="table-wrap"><table>
   <thead><tr><th>Starts (UTC)</th><th>Sport</th><th>Match</th><th>Our pick</th>
   <th>Our price</th><th>OLBG price</th><th>Confidence</th><th>Sources</th></tr></thead>
   <tbody>{top}</tbody></table></div>
-  <h3 class="sub">Later in the captured week <span class="count">{len(later)}</span></h3>
+</section>
+<section id="week">
+  <h2>High-confidence picks later in the captured week <span class="count">{len(later)}</span></h2>
+  <p class="muted">Same grading rule, further out. Every row links to its write-up.</p>
   <div class="table-wrap"><table>
   <thead><tr><th>Starts (UTC)</th><th>Sport</th><th>Match</th><th>Our pick</th>
   <th>Our price</th><th>OLBG price</th><th>Confidence</th><th>Sources</th></tr></thead>
   <tbody>{later_rows or '<tr><td colspan="8">Nothing further out has cleared every gate.</td></tr>'}</tbody></table></div>
 </section>
-<section>
+<section id="sports">
+  <h2>Picks by sport <span class="count">15</span></h2>
+  <p class="muted">Every in-scope sport, the leading selection still to start, and how many written
+  high-confidence pieces it carries. The tile opens that sport's own page.</p>
+  {sport_grid(board)}
+</section>
+{how_to_read()}
+<section id="coverage">
   <h2>Coverage, sport by sport</h2>
   <p class="muted">The brief asks for five written high-confidence predictions per sport per day. This table is the
   honest scorecard: fixtures captured, fixtures still upcoming, selections originated, and how many of those carry a
@@ -614,12 +683,20 @@ def build_sport(board, sport):
   <p class="intro">{len(rows)} fixture{'' if len(rows)==1 else 's'} captured from OLBG's {E(sport)} listing,
   {len(up)} still upcoming, {len(high)} with a written high-confidence prediction. Built {E(built)}.</p>
 </section>
-<section>
-  <h2>Fixtures and our lines</h2>
+<section id="picks">
+  <h2>This sport's high-confidence picks <span class="count">{len(high)}</span></h2>
+  <p class="muted">These are the published picks for {E(sport)}: a named selection, our originated price, and a
+  written prediction linked from the Sources column. The write-ups follow the fixtures table.</p>
+  {pick_table(board, high, tid='sporthigh', depth=1) if high else '<p class="muted">No high-confidence pick in this sport at this build clock. Every captured fixture is still listed below with its originated line.</p>'}
+</section>
+<section id="fixtures">
+  <h2>Every upcoming {E(sport)} fixture and our line <span class="count">{len(up)}</span></h2>
+  <p class="muted">Money line, handicap and total are our own numbers. A row whose start is marked
+  <em>OLBG clock</em> has no official start yet, which is why it cannot be graded high.</p>
   {pick_table(board, up, tid='sportpicks', depth=1)}
 </section>
 <section>
-  <h2>Write-ups</h2>
+  <h2>Write-ups <span class="count">{len(high)}</span></h2>
   {''.join(prose_card(board, r) for r in high) or '<p class="muted">No high-confidence write-up for this sport at this build clock. The reason is recorded in the coverage table on the summary page and on the review page.</p>'}
 </section>
 """ + foot(depth=1)
@@ -777,6 +854,19 @@ td.src{font-size:12.5px;color:var(--muted)}
 .controls .grow{flex:1;min-width:220px}
 select,input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:9px;background:#fff;margin-top:4px}
 .prose{max-width:78ch}.prose h2{margin-top:28px}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 4px;padding:10px 12px;background:var(--panel);
+border:1px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600}
+.jump a{color:#2b333f;background:#f1f4f9;border-radius:999px;padding:5px 12px}
+.jump a:hover{background:var(--brand-soft);color:var(--brand);text-decoration:none}
+.sportgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin:16px 0}
+.tile{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--ink)}
+.tile:hover{border-color:#c7d3ea;text-decoration:none}
+.tile-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tile-head h3{margin:0;font-size:16px}
+.tile-pick{margin:8px 0 2px;font-weight:700;color:#0d2a66;font-size:14.5px}
+.howto{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 22px 18px;margin:26px 0}
+.howto h2{margin-top:18px}
+.howto ol{padding-left:20px}.howto li{margin:8px 0}
 footer{max-width:1180px;margin:0 auto;padding:26px 20px 60px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line)}
 footer p{margin:8px 0}
 @media(max-width:640px){.card-head{flex-direction:column}.card-pick{text-align:left}}
