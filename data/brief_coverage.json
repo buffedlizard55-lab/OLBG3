@@ -34,12 +34,12 @@
   "sports_with_rows": 15,
   "sports_meeting_target": 0,
   "live_high_root": 8,
-  "live_high_olbg": 4,
-  "live_high_union": 8,
+  "live_high_olbg": 8,
+  "live_high_union": 12,
   "root_rows": 367,
   "olbg_rows": 418,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 67
+  "shortfall_to_target": 63
  },
  "sports": [
   {
@@ -338,10 +338,10 @@
    "olbg_priced_win": 49,
    "olbg_handicap": 49,
    "olbg_total": 49,
-   "olbg_high": 0,
-   "live_high_union": 1,
+   "olbg_high": 1,
+   "live_high_union": 2,
    "target": 5,
-   "shortfall": 4,
+   "shortfall": 3,
    "meets_target": false,
    "blocking": {
     "no_official_form": 15,
@@ -358,6 +358,18 @@
     "15 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
    "live_picks": [
+    {
+     "event_id": "200009",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200009",
+     "selection": "UTA Mammoth",
+     "price": 1.69,
+     "american": "-145"
+    },
     {
      "event_id": "200005",
      "sport": "Ice Hockey",
@@ -465,10 +477,10 @@
    "olbg_priced_win": 52,
    "olbg_handicap": 52,
    "olbg_total": 52,
-   "olbg_high": 0,
-   "live_high_union": 1,
+   "olbg_high": 3,
+   "live_high_union": 4,
    "target": 5,
-   "shortfall": 4,
+   "shortfall": 1,
    "meets_target": false,
    "blocking": {
     "no_official_form": 28,
@@ -485,6 +497,42 @@
     "12 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
    "live_picks": [
+    {
+     "event_id": "12128",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12128",
+     "selection": "Fuchse Berlin",
+     "price": 1.68,
+     "american": "-147"
+    },
+    {
+     "event_id": "12132",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12132",
+     "selection": "KS Kielce",
+     "price": 1.68,
+     "american": "-147"
+    },
+    {
+     "event_id": "12136",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12136",
+     "selection": "SC Magdeburg",
+     "price": 1.68,
+     "american": "-147"
+    },
     {
      "event_id": "12130",
      "sport": "Handball",
@@ -686,18 +734,18 @@
    "withheld_bodies": 0
   },
   "olbg": {
-   "pieces": 49,
-   "high": 4,
+   "pieces": 54,
+   "high": 8,
    "words_min": 56,
-   "words_median": 113,
+   "words_median": 114.0,
    "words_max": 254,
    "under_30_words": 0,
-   "citing_an_official_host": 46,
+   "citing_an_official_host": 51,
    "citing_only_hosts_outside_official_set": 3,
    "hosts_outside_official_set": {
     "stats.unitedrugby.com": 10,
     "tophaandbold.dk": 1,
-    "www.legavolley.it": 6
+    "www.legavolley.it": 7
    },
    "duplicate_bodies": 0,
    "withheld_bodies": 0

@@ -315,6 +315,24 @@ def main() -> None:
     _ov = json.loads(_ov_path.read_text()) if _ov_path.exists() else {"withdrawn": []}
     _retired = {str(w.get("match_id") or w.get("olbg_event_id")) for w in _ov.get("withdrawn", [])}
     _live = {m["id"] for m in matches}
+    # Hand-written pieces live in data/patches/*.json and are re-applied on every run, and they
+    # are merged *before* the prune and before the HIGH-certification set is derived: they cannot
+    # be re-derived from the OLBG harvest, and a piece that only lands after this point cannot
+    # certify its own row. Regenerating without this step silently dropped them on any rebase.
+    _pdir = DATA / "patches"
+    if _pdir.is_dir():
+        _idx = {p["match_id"]: i for i, p in enumerate(preds_doc.get("predictions", []))}
+        for _ppath in sorted(_pdir.glob("*.json")):
+            for _piece in json.loads(_ppath.read_text()):
+                _mid = _piece.get("match_id")
+                if not _mid or _mid in _retired or _mid not in _live:
+                    continue
+                if _mid in _idx:
+                    preds_doc["predictions"][_idx[_mid]] = _piece
+                else:
+                    _idx[_mid] = len(preds_doc["predictions"])
+                    preds_doc["predictions"].append(_piece)
+
     preds_doc["predictions"] = [p for p in preds_doc.get("predictions", [])
                                 if p["match_id"] not in _retired and p["match_id"] in _live]
     # Only a piece explicitly published as HIGH certifies a HIGH row. A piece relabelled

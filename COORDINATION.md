@@ -1,4 +1,14 @@
 
+## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-49317273-pick-durability | done | session-49317273, `arena/49317273-olbg3` | `tools/originate.py` (patch-merge step), new `data/patches/picks-49317273.json`, append-only `data/flagged.json` (FL-231), `docs/audit-49317273.md` §7, regenerated `data/*`, `site/*` and the root snapshot |
+
+- Root cause of the twice-dropped picks: the /OLBG track is regenerated from the harvest on every run and its prose is not derivable from it, so any reconciliation with a board-refresh commit kept only the harvest-derived side. Fixed inside the pipeline (patch directory merged before the prune and before the HIGH-certification set), not by hand-editing the generated file.
+- Two further written picks added from the EHF group table already cited (HAN-12132 Kielce, HAN-12128 Fuchse Berlin). One piece withdrawn rather than repointed when the listing consensus flipped (FL-231). No new fixture, price or statistic was invented.
+- Gates: `check_board` PASS, `check_site` PASS, `check.py` PASS, `check_links` 0 broken, `unittest` 414 OK (26 dated skips).
+
 ## session-1815f0b1 — current-source refresh and final integration (claimed 2026-10-24T22:24:40Z)
 
 | Task | Status | Owner | File scope |
