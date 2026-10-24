@@ -4,6 +4,19 @@ This document serves as the shared task board coordinating parallel sessions and
 
 ---
 
+---
+
+## `session-58ac0957` — **task-58ac0957-written-pick-quality-gate** (CLAIMED 2026-10-24T18:00Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-58ac0957-written-pick-quality-gate` | in progress | `session-58ac0957` on Arena-fixed `arena/58ac0957-olbg3` | `COORDINATION.md`; new `scripts/check_prediction_quality.py`; new `tests/test_prediction_quality.py`; new `tests/test_audit_58ac0957.py`; new `docs/audit-58ac0957.md`; new `data/raw/probe-58ac0957/**` read receipts; `tools/check_site.py` **only** to invoke the independent written-pick quality gate from the existing CI checker. No fixture, price, confidence, prediction, harvest, shared navigation, or generated HTML changes are claimed. |
+
+- **Pre-claim coordination:** read the current board and open PRs. Active scopes are respected: `session-a30d9bdb` owns the 2026-10-24 refresh plus `tools/build_site.py` / `scripts/build_site.py` executive-summary work and prediction inputs; `session-1c6981d1` owns its executive-summary/track integration and `data/predictions-olbg.json`; `session-68d57005` owns CI-pin repair and the later combined integration. This task does not edit any of those owned files except the separately unclaimed `tools/check_site.py` quality-gate hook.
+- **Purpose:** add an independent, deterministic quality gate for the brief's *fully written, unique, explicit, sourced prediction* requirement across both tracks: selection/body agreement, minimum length, prohibited output terms, official-source presence and diversity, exact/near-duplicate detection, and a per-pick audit manifest. Re-read reachable official sources for the current `/olbg/` HIGH set and record exactly what was checked; no sporting value is inferred or promoted.
+- **Coordination request, not an edit:** the executive-summary owners have already added direct write-up links on their new summary pages. Please retain those per-pick links and stable prediction anchors during integration so users can move directly from a listed selection to its reasoning. This session will not modify their rendering files.
+- **Publication boundary:** flagged source gaps stay needs-review and non-blocking. The five-per-sport shortfall is not solved by lowering evidence standards. This scoped task will run all existing gates, open its own PR only after the active shared-data work has settled, and record sources, checks, irregularities, merge and Pages evidence here.
+
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
 | Task | Status | Owner | File scope |
