@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T17:08:00Z",
+  "generated_at": "2026-10-24T18:12:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4421,6 +4421,97 @@
           "url": "https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html"
         }
       ]
+    },
+    {
+      "id": "FL-209",
+      "severity": "high",
+      "title": "Two live HIGH picks are published on the same fixture from opposite sides: Ospreys v Dragons",
+      "detail": "RGU-609581 (Ospreys v Dragons, United Rugby Championship Round 4, 2026-10-24T18:45Z) is a released high-confidence pick on both boards at this build, and they name different winners: the main board publishes Dragons at 1.72 (-139) on its official-table model, and the OLBG lines board publishes Ospreys at 1.62 (-161) on the captured tip split. Cross-track review counts ten such pairs overall, but this is the only pair where BOTH sides are currently released as HIGH, which means a reader following 'the high-confidence picks' is given two contradictory stakes on one match. Nothing here was arbitrated: neither board's number was changed, because inventing a tie-break rule would be a worse fabrication than the disagreement.",
+      "status": "needs review",
+      "action": "Merged presentation now shows both selections on one card (today.html#written-picks), so the contradiction is legible at the point of decision. The durable question for the owner of the grading rules is whether two boards should be allowed to release HIGH on the same fixture at all, or whether a cross-track disagreement should hold both to MEDIUM until a human picks a side.",
+      "affected_ids": [
+        "RGU-609581"
+      ],
+      "sources": [
+        {
+          "label": "Main board row (Dragons, 1.72)",
+          "url": "https://buffedlizard55-lab.github.io/OLBG3/predictions.html#RGU-609581"
+        },
+        {
+          "label": "OLBG lines board row (Ospreys, 1.62)",
+          "url": "https://buffedlizard55-lab.github.io/OLBG3/olbg/predictions.html"
+        },
+        {
+          "label": "United Rugby Championship official fixture list (Round 4, KO 19.45 IRE & UK)",
+          "url": "https://www.unitedrugby.com/latest-news/2026-27-fixtures-in-full"
+        }
+      ],
+      "original_id": "FL-209",
+      "raised_by": "session-3271b876",
+      "raised_at": "2026-10-24T18:12:00Z"
+    },
+    {
+      "id": "FL-210",
+      "severity": "medium",
+      "title": "The five-a-day target is capped by official-clock availability, not by analysis: darts, snooker, tennis and cricket",
+      "detail": "A released high-confidence pick needs an exact, timezone-qualified clock from a reviewed official host. Four sports with live OLBG fixtures in this window have none reachable from here: the PDC's own pages return a consent wall to this retriever, so the European Championship session times (OLBG prints 11:00 UTC on 25 October for Price v Bunting) cannot be certified; the World Snooker Tour schedule page prints personalised clocks with no zone label; the ATP and WTA official order-of-play documents print 'not before' slots rather than exact starts; and Pakistan v England (ODI tri-series, Gaddafi Stadium, 25 October) is listed at 08:00 UTC only by third-party aggregators, with the PCB and ICC match pages not retrieved in this pass. Each of those rows therefore stays MEDIUM or analysis instead of being pushed into the HIGH list.",
+      "status": "needs review",
+      "action": "Do not treat these as analysis failures: they are source-availability gaps. A run from a network that can read pdc.tv without the consent interstitial and the WST calendar with an explicit zone would convert four of the zero-pick sports immediately.",
+      "affected_ids": [
+        "DAR-32407",
+        "SNK-9952",
+        "TEN-902251",
+        "CRI-188838"
+      ],
+      "sources": [
+        {
+          "label": "PDC European Championship page as retrieved at 2026-10-24T18:02Z (consent interstitial only)",
+          "url": "https://www.pdc.tv/"
+        },
+        {
+          "label": "OLBG darts listing carrying the 25 October card",
+          "url": "https://www.olbg.com/betting-tips/Darts/15"
+        },
+        {
+          "label": "OLBG tennis listing carrying the 25 October order of play",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        },
+        {
+          "label": "OLBG cricket listing carrying Pakistan v England",
+          "url": "https://www.olbg.com/betting-tips/Cricket/7"
+        }
+      ],
+      "original_id": "FL-210",
+      "raised_by": "session-3271b876",
+      "raised_at": "2026-10-24T18:12:00Z"
+    },
+    {
+      "id": "FL-211",
+      "severity": "low",
+      "title": "Independent re-test of promoting the 2026-10-24 capture: HIGH falls 11 to 8, confirming FL-208 on a second axis",
+      "detail": "FL-208 records that promotion was tested and rejected because cricket event 188845 resolves to a different market and volleyball card 37002 restated its tip split. This session ran the same promotion independently at 18:08Z and measured a further consequence: with the 2026-10-24T1707Z capture as primary and the 2026-10-23 captures carried forward, matches.json grows from 223 rows to 371 and the OLBG board's HIGH count falls from 11 to 8 - three published write-ups lose their HIGH grade because the newer card carries a different tip split, and tools/check_site.py then fails on the price quoted inside the surviving prose. The row count also doubles the archived fixtures shown on the board, because a carry-forward keeps every event the newer capture did not re-list. The promotion is therefore a genuine re-pricing, not a refresh, and it must land with the prose repairs in the same change.",
+      "status": "needs review",
+      "action": "Queued for the harvest owner; nothing was promoted in this pass and the audit board still replays the 2026-10-23 capture, labelled with its fetch time.",
+      "affected_ids": [
+        "VOL-37002",
+        "CRI-188845",
+        "RGU-609576",
+        "RGU-609580",
+        "VOL-36997"
+      ],
+      "sources": [
+        {
+          "label": "Same-day capture (203 rows) committed by session-a30d9bdb",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261024T1707Z-a30d9bdb"
+        },
+        {
+          "label": "OLBG lines board as published from the pinned 2026-10-23 capture",
+          "url": "https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html"
+        }
+      ],
+      "original_id": "FL-211",
+      "raised_by": "session-3271b876",
+      "raised_at": "2026-10-24T18:12:00Z"
     }
   ]
 }

@@ -56,6 +56,7 @@ def nav(active: str, depth: int) -> str:
     pre = "../" * depth
     items = [
         ("index.html", "Dashboard"),
+        ("../today.html", "Today&rsquo;s picks, written out"),
         ("picks.html", "Lines &amp; picks"),
         ("predictions.html", "Predictions"),
         ("matches.html", "All matches"),
@@ -354,6 +355,10 @@ def main() -> None:
   <p class="lede">Every fixture in scope, with the price we would put up, our handicap and total, and the confidence label.
   Prob. is our model probability of our pick; predictions cannot raise or floor it, and HIGH never means a proven win rate: it requires a sourced write-up, a model probability below 70%, an in-band originated price and a fresh exact official start. Prices are ours (0.95/p), not bookmaker prices.
   <a href="methodology.html#model">How the numbers are made →</a></p>
+  <p class="lede"><strong>Where the picks are:</strong> this page is the lines board — the price, handicap and total behind each call.
+  The written predictions for this board are on <a href="predictions.html">the predictions page</a>, one card per fixture, keyed by the
+  same reference this table shows. Both boards' write-ups are also merged into one card per fixture, with the analysis inline, on the
+  main site: <a href="../today.html">today's picks, written out</a>.</p>
   <div class="tools">
     <input id="q" type="search" placeholder="Filter by team, player, sport or competition…" aria-label="Filter rows">
     <select id="conf" aria-label="Filter by confidence">
@@ -382,7 +387,7 @@ def main() -> None:
         srcs = "".join(f"<li>{link(s['url'], s['label'])}</li>" for s in p["sources"])
         wc = len(p["text"].split())
         pred_cards.append(f"""
-<article class="card pred" data-current-high="true" data-expires-at="{E(l.get('release',{}).get('expires_at') or '')}">
+<article class="card pred" id="{E(p['match_id'])}" data-current-high="true" data-expires-at="{E(l.get('release',{}).get('expires_at') or '')}">
   <div class="pred-head">
     <div><span class="tag">{E(p['sport'])}</span> {conf_badge('high')}</div>
     <h2>{E(p['match'])}</h2>
@@ -400,7 +405,7 @@ def main() -> None:
         srcs = "".join(f"<li>{link(s['url'], s['label'])}</li>" for s in p["sources"])
         wc = len(p["text"].split())
         archived_cards.append(f"""
-<article class="card pred archived">
+<article class="card pred archived" id="{E(p['match_id'])}">
   <div class="pred-head">
     <div><span class="tag">{E(p['sport'])}</span> {conf_badge(l['confidence'])} <span class="tag">analysis</span></div>
     <h2>{E(p['match'])}</h2>

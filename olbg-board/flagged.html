@@ -11,7 +11,7 @@
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="index.html"><span class="dot"></span> OLBG3 <span class="brand-sub">Sports Dashboard</span></a>
-    <nav><a href="index.html">Dashboard</a><a href="picks.html">Lines &amp; picks</a><a href="predictions.html">Predictions</a><a href="matches.html">All matches</a><a href="methodology.html">Method &amp; sources</a><a href="flagged.html" class="active">Flagged for review</a><a href="https://buffedlizard55-lab.github.io/OLBG3/" target="_blank" rel="noopener">Main site</a></nav>
+    <nav><a href="index.html">Dashboard</a><a href="../today.html">Today&rsquo;s picks, written out</a><a href="picks.html">Lines &amp; picks</a><a href="predictions.html">Predictions</a><a href="matches.html">All matches</a><a href="methodology.html">Method &amp; sources</a><a href="flagged.html" class="active">Flagged for review</a><a href="https://buffedlizard55-lab.github.io/OLBG3/" target="_blank" rel="noopener">Main site</a></nav>
   </div>
 </header>
 <main class="wrap">
@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">200 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">203 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1424,6 +1424,27 @@
   <p>data/meta.json pins harvest_file to raw/olbg-harvest-20261023T1700Z.tsv. The 2026-10-24T17:07Z capture rendered 197 rows across 14 sports and is published on the main board through this session’s applied batch, but the /olbg/ audit track still replays the earlier capture. Promoting the newer capture was tested end to end and rejected for this pass: cricket event id 188845 resolves to a different market in the newer capture, and volleyball card 37002 restated its tip split (2/3 to 2/4), which silently changed a published line from 1.57 to 1.78.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">OLBG lines audit board (published capture time)</a></li></ul>
+</article>
+<article class="card flag" id="FL-209">
+  <div class="flag-head"><span class="tag">FL-209</span> <span class="sev sev-high">high</span></div>
+  <h2>Two live HIGH picks are published on the same fixture from opposite sides: Ospreys v Dragons</h2>
+  <p>RGU-609581 (Ospreys v Dragons, United Rugby Championship Round 4, 2026-10-24T18:45Z) is a released high-confidence pick on both boards at this build, and they name different winners: the main board publishes Dragons at 1.72 (-139) on its official-table model, and the OLBG lines board publishes Ospreys at 1.62 (-161) on the captured tip split. Cross-track review counts ten such pairs overall, but this is the only pair where BOTH sides are currently released as HIGH, which means a reader following &#x27;the high-confidence picks&#x27; is given two contradictory stakes on one match. Nothing here was arbitrated: neither board&#x27;s number was changed, because inventing a tie-break rule would be a worse fabrication than the disagreement.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/predictions.html#RGU-609581" rel="noopener nofollow" target="_blank">Main board row (Dragons, 1.72)</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/predictions.html" rel="noopener nofollow" target="_blank">OLBG lines board row (Ospreys, 1.62)</a></li><li><a href="https://www.unitedrugby.com/latest-news/2026-27-fixtures-in-full" rel="noopener nofollow" target="_blank">United Rugby Championship official fixture list (Round 4, KO 19.45 IRE &amp; UK)</a></li></ul>
+</article>
+<article class="card flag" id="FL-210">
+  <div class="flag-head"><span class="tag">FL-210</span> <span class="sev sev-medium">medium</span></div>
+  <h2>The five-a-day target is capped by official-clock availability, not by analysis: darts, snooker, tennis and cricket</h2>
+  <p>A released high-confidence pick needs an exact, timezone-qualified clock from a reviewed official host. Four sports with live OLBG fixtures in this window have none reachable from here: the PDC&#x27;s own pages return a consent wall to this retriever, so the European Championship session times (OLBG prints 11:00 UTC on 25 October for Price v Bunting) cannot be certified; the World Snooker Tour schedule page prints personalised clocks with no zone label; the ATP and WTA official order-of-play documents print &#x27;not before&#x27; slots rather than exact starts; and Pakistan v England (ODI tri-series, Gaddafi Stadium, 25 October) is listed at 08:00 UTC only by third-party aggregators, with the PCB and ICC match pages not retrieved in this pass. Each of those rows therefore stays MEDIUM or analysis instead of being pushed into the HIGH list.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.pdc.tv/" rel="noopener nofollow" target="_blank">PDC European Championship page as retrieved at 2026-10-24T18:02Z (consent interstitial only)</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/15" rel="noopener nofollow" target="_blank">OLBG darts listing carrying the 25 October card</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG tennis listing carrying the 25 October order of play</a></li><li><a href="https://www.olbg.com/betting-tips/Cricket/7" rel="noopener nofollow" target="_blank">OLBG cricket listing carrying Pakistan v England</a></li></ul>
+</article>
+<article class="card flag" id="FL-211">
+  <div class="flag-head"><span class="tag">FL-211</span> <span class="sev sev-low">low</span></div>
+  <h2>Independent re-test of promoting the 2026-10-24 capture: HIGH falls 11 to 8, confirming FL-208 on a second axis</h2>
+  <p>FL-208 records that promotion was tested and rejected because cricket event 188845 resolves to a different market and volleyball card 37002 restated its tip split. This session ran the same promotion independently at 18:08Z and measured a further consequence: with the 2026-10-24T1707Z capture as primary and the 2026-10-23 captures carried forward, matches.json grows from 223 rows to 371 and the OLBG board&#x27;s HIGH count falls from 11 to 8 - three published write-ups lose their HIGH grade because the newer card carries a different tip split, and tools/check_site.py then fails on the price quoted inside the surviving prose. The row count also doubles the archived fixtures shown on the board, because a carry-forward keeps every event the newer capture did not re-list. The promotion is therefore a genuine re-pricing, not a refresh, and it must land with the prose repairs in the same change.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261024T1707Z-a30d9bdb" rel="noopener nofollow" target="_blank">Same-day capture (203 rows) committed by session-a30d9bdb</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">OLBG lines board as published from the pinned 2026-10-23 capture</a></li></ul>
 </article>
 
 </main>

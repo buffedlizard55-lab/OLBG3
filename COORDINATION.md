@@ -34,6 +34,31 @@ This document serves as the shared task board coordinating parallel sessions and
 - **Plan (no manual input, single session, start to finish):** (1) same-day 18-endpoint capture request; (2) rebuild the root landing page as an executive summary whose first block is *what to pick* — sport, match, official UTC start, selection + market, our price in decimal and US, confidence, and the **written prediction inline** — for the union of both tracks de-duplicated on the OLBG event id, with an explicit `no written analysis — not published as a pick` state so a bare name can never read as a pick; (3) one obvious destination for the full set (`picks.html`, grouped by sport, target count per sport, every row carrying its source links) wired into the nav, which is regrouped into *Picks / Coverage / Evidence / Review*; (4) verify upcoming fixtures line by line against the official competition pages read in this session and write new HIGH predictions where that evidence exists, leaving blanks + register entries where it does not; (5) run every gate, rebuild twice for byte-stability, PR to `main`, merge without waiting, confirm Pages, record it all here.
 - **Hard boundary:** nothing is invented. A published clock, score, ranking, injury or form line must come from a page this session actually retrieved, quoted with its URL and the retrieval minute; `checked_at` is renewed **only** for events re-read in this pass. Anything else stays blank and is published on Flagged for Review.
 
+- **COMPLETED 2026-10-24T18:3xZ — merged as a pull request into `main`.** Landed: `scripts/pick_surface.py`
+  (new) — the two boards merged on the OLBG event id into **one card per fixture, written predictions only**; a
+  fixture with a selection but no ≥30-word piece is demoted and its mechanical reason printed, so "nothing
+  written" and "nothing picked" are never confused. Rendered on `today.html` (now led by "The picks, written
+  out"), as a start-ordered strip on `index.html` with the count stated, and as a `n / 5` block at the top of all
+  15 `sports/*.html` pages. Nav regrouped from 16 flat links into Picks / Board / Evidence / Review shelves
+  (`NAV` is derived from `NAV_GROUPS`, so `scripts/check_links.py` and the existing nav pins are untouched).
+  `/olbg/` track: nav entry "Today's picks, written out", a **Where the picks are** paragraph on `olbg/picks.html`,
+  and an `id` per written piece on `olbg/predictions.html` so summary cards deep-link to the exact twin
+  (`local_links_checked` 2818 → 2862, `broken=0`). Dead `../olbg/sports/<slug>.html` links on the four sports the
+  second board does not list are repointed at `../olbg/picks.html`. Content: `BSB-160792` rewritten (147 words) to
+  carry the verified Game 1 result, series state and announced probables from the MLB Stats API read at 18:05Z,
+  with a `correction_note`; register items **FL-209** (both boards live HIGH on `RGU-609581` from opposite sides —
+  reported, not arbitrated), **FL-210** (darts/snooker/tennis/cricket five-a-day capped by official-clock
+  availability; `CRI-188838` unpriceable because `ICC_WhiteBall_2026_ratings` has no `Pakistan` key) and
+  **FL-211** (independent re-test of the 2026-10-24 harvest promotion: HIGH 11 → 8 and `VOL-37002` prose/price
+  drift — promotion **dropped**, not retried). Gates at clock `2026-10-24T18:20:00Z`: `rows=367 fixtures=319
+  verified=278 priced=318 predictions=93`, `scripts/check_board.py` PASS, `tools/check_site.py` "All checks
+  passed", `python -m unittest discover -s tests` → **Ran 333 OK (skipped=26)** including the new
+  `tests/test_audit_3271b876.py` (16 tests: published card count recomputes, every live entry carries prose that
+  passes the banned-reason rules, a bare selection is not a pick, every sport page states its count, nav groups
+  cover exactly the published page set, pages regenerate byte-identically, every cross-page `#anchor` resolves).
+  Audit: `docs/audit-3271b876.md`. No `scripts/model.py`, `scripts/build.py`, `tools/build_dataset.py`,
+  `scripts/check_board.py` or workflow change was needed, and no sibling row, flag or register item was edited.
+
 ## `session-68d57005` — **task-68d57005-main-ci-repair-stale-claim-hygiene-final-integration** (CLAIMED 2026-10-24T17:15Z)
 
 | Task | Status | Owner | File scope |
