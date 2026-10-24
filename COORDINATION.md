@@ -1,5 +1,16 @@
 # COORDINATION BOARD - OLBG Sports Analytics & Line Origination Project
 
+## IN PROGRESS — `session-09ecce40`, **task-56**: a fresh 2026-10-24 board, an executive-summary landing site and per-category pick pages (claimed 2026-10-24T17:12Z)
+
+- **Session ID:** `session-09ecce40` — **Branch:** `arena/09ecce40-olbg3` (Arena-locked; the harness fixes the branch name).
+- **Claimed before any edit**, against `main` `41b9e8e`.
+- **Why this task.** The published board still carries the 2026-10-23 slate: its HIGH picks are fixtures that have already started, and the live site is a set of overlapping tracks (feed track / board track / `/olbg/` audit track) with no single place that says *here is today's summary and here are the picks*. This session (a) captures today's OLBG listings, (b) re-originates lines and confidence for the resulting fixtures, (c) rewrites the landing page as an executive summary with an obvious, labelled pick table, and (d) publishes per-sport category pages whose every row carries a source link.
+- **File scope owned by this session:** `tools/build_dashboard.py` (new), `tools/dashboard_data.py` (new), `index.html`, `picks.html`, `sports/*.html` (landing-site sports pages, distinct from the legacy `sports/*.html` tree — see note below), `assets/dash.css`, `assets/dash.js`, `dash/*` (new build directory), `data/predictions-olbg.json` (prose + provenance for picks this session writes), `data/meta.json`, `data/raw/live-20261024T*`, `data/raw/official-20261024T*`, `data/raw/cited-20261024T*`, `.harvest/request.json`, `docs/audit-09ecce40.md`, `.github/workflows/pages.yml` (one added build step), `tests/test_dashboard_09ecce40.py` (new), this file (claim + close-out section only; no other session's entries are edited).
+- **Explicitly NOT touched by this session:** `scripts/build_site.py`, `scripts/check_board.py`, `tools/build_site.py`, `tools/originate.py`, `scripts/model.py`, `scripts/brief_coverage.py`, the `olbg/` and `olbg-board/` trees, and every existing register item.
+- **Note on `sports/`.** The legacy `sports/<slug>.html` pages are produced by `scripts/build_site.py`. This session's category pages are generated at `sports/<slug>.html` **by the new dashboard step, which runs after the legacy snapshot step in `pages.yml`**, so the published category page is the dashboard's. The legacy per-sport detail remains reachable at `brief.html`, `predictions.html` and `olbg/sports/*.html`. This ordering is asserted by `tests/test_dashboard_09ecce40.py`.
+- **Sources / verification: to be recorded on completion.**
+- **Status:** in progress.
+
 This document serves as the shared task board coordinating parallel sessions and ensuring non-overlapping execution, verifiable claims, and audit logs.
 
 ## COMPLETED — `session-b322f52e`, **task-55** (claimed as `task-54-b322f52e` at 2026-10-23T21:33Z): SvelteKit `<script>` hydration extractor (`FL-194`, settling `FL-180`/`FL-185`/`FL-193`), 21:33Z 18-listing supplementary capture (123 active rows, 43 net-new upcoming fixtures), four code/data repairs (`FL-176`, `FL-195`..`FL-198`), and 11 new official-sourced HIGH picks across Handball (5/5 target met), Basketball, Volleyball, Rugby Union & Motor Racing
