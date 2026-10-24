@@ -20,7 +20,7 @@ NAV = [("index.html", "Dashboard"), ("brief.html", "Brief coverage"), ("predicti
        ("verification.html", "Verification"), ("source-health.html", "Source health"), ("discovery.html", "Current discovery"), ("audit.html", "Audit"), ("flagged.html", "Flagged for Review"),
        ("method.html", "Method & Scope"), ("feed-overview.html", "Official feed"),
        ("matches.html", "Feed matches"), ("coverage.html", "Feed coverage"), ("review.html", "Feed review"),
-       ("olbg/index.html", "OLBG lines (audit)")]
+       ("olbg/index.html", "OLBG picks dashboard")]
 ev = json.load(open(os.path.join(ROOT, "data/events.json")))
 FIXTURES = ev["events"]
 ASSUMPTIONS = ev["assumptions"]
@@ -562,9 +562,10 @@ index = head("Dashboard") + f"""
   <p class="lede">A source-linked workspace for fixtures, independent model lines and candid verification notes.
   {n_events} captured rows across {len(by_sport)} sports. Not a complete live schedule, and never bookmaker odds.
   Unconfirmed facts stay blank; source conflicts and expired picks stay visible as research, not current recommendations.</p>
-  <p class="hero-actions"><a class="button" href="#research-board">Explore the board ↓</a>
-  <a class="button secondary" href="predictions.html">Read the sourced predictions</a>
-  <a class="button secondary" href="discovery.html">Latest public discovery →</a></p>
+  <p class="hero-actions"><a class="button" href="olbg/index.html">Today's executive summary &amp; picks</a>
+  <a class="button secondary" href="olbg/picks.html">All originated lines &amp; markets</a>
+  <a class="button secondary" href="olbg/predictions.html">Read the written predictions</a>
+  <a class="button secondary" href="#research-board">Explore all captured records ↓</a></p>
   <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
 </section>
 
