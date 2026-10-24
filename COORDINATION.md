@@ -2615,3 +2615,28 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - **Left open for the next integration session (sibling-owned, in flight — not stale at hand-off):** PRs #169 (fresh board refresh, 18 live HIGH), #173 (Pakistan v England HIGH + FL-209..215), #176 (summary explainer). Stale #137 untouched (user decision). The `session-1c6981d1` exec-summary branch (last commit 17:21Z) is superseded in substance by merged #167/#174.
 - **Flagged-for-review hand-offs** (published in `docs/audit-2f1b3baa.md` §3; register entries deferred to avoid append conflicts with active refresh sessions): (1) cross-track opposite HIGH selections on events 12130/609581 — presentation addressed by #174's merged list; selection harmonisation remains a future editorial decision; (2) EHF PDF snapshot not byte-faithful in `cited-20261024T1710Z` (UTF-8 text round-trip; the 18:13Z re-capture stores it as binary — note the "Bin" entry in `dd9ee50`'s diff); (3) 17/75 five-per-sport shortfall with per-sport blockers on `brief.html`.
 - **Post-receipt CI repair (same session, 18:52Z, >60-minute takeover of the merged task-56 test file by precedent of the dated-pin repairs):** PR #178's branch build ([run 40122261768](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40122261768)) failed at *Unit tests (after the rebuild)* — `test_audit_a30d9bdb.test_new_high_rows_have_a_live_release` asserting `status == "upcoming"` on `RGU-609581`, which kicked off 18:45Z (start_window_reached is the *correct* post-start disposition). Reproduced locally at the 18:50Z publication clock. That file's own header cites the FL-201 lesson ("must not go red just because a fixture kicked off"); repaired it the documented way: live-release pin now recomputes `release.assess(now=checked_at+1s)` against the stored batch records (frozen instant) and keeps the https-source assertion; `test_release_checks_never_postdate_the_clock` now compares against the batch certification instant (max checked_at) instead of the moving publication clock — it was armed to fail daily from 2026-10-25T17:09Z otherwise. No sibling assertions weakened beyond clock stability; all 379 tests pass locally post-rebuild plus every gate (check_board/check_site/check.py/check_links 0 broken). The repair rides with this receipt PR.
+
+---
+
+## CLAIM — `session-c9df1bc0`, `task-c9df1bc0-20261024-evening-refresh-and-five-a-sport-prediction-set` (2026-10-24T22:30Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-c9df1bc0-20261024-evening-refresh-and-five-a-sport-prediction-set` | in progress | `session-c9df1bc0` on Arena-fixed `arena/c9df1bc0-olbg3` | `COORDINATION.md`; `.harvest/request.json`; new `data/batches/20261024T2230Z-c9df1bc0.json`; `data/sports/*.json` (append-only rows for newly captured fixtures); `data/official.json`; `data/release_checks.json`; `data/predictions.json`; `data/flagged.json` (append-only register entries FL-218+); generated board/site files rebuilt by the documented pipeline (`site/**`, root snapshot HTML/JSON, `data/lines.json`, `data/current.json`) |
+
+- **Intent.** The brief is re-run for the current evening: an executive summary of the highest-confidence
+  picks for matches that are still *upcoming* on OLBG, plus a written prediction set targeted at five picks per
+  covered sport, each with our originated line, a labelled low/medium/high confidence and an obvious selection.
+- **Evidence route.** The agent sandbox has no outbound route to `olbg.com` or to the governing bodies (the
+  standing FL-077 condition), so a fresh verbatim capture is requested through the sanctioned `.harvest/request.json`
+  mechanism, and the official clocks are renewed by the same runner's `official_probe.py` / `probe_cited.py` steps.
+  In-sandbox verification uses the session's own page-retrieval tool against the official domains, recorded with
+  retrieval times.
+- **No promotion to meet a quota.** A row is graded HIGH only on the existing gates (official fixture
+  confirmation, a live certified start under 24 h old, price inside -250…+10000, fair probability below 70 %,
+  written prose with at least two distinct official documents). Where a sport cannot produce five, the shortfall is
+  published on `brief.html` per sport rather than padded.
+- **Sibling boundary.** PRs #169, #173 and #137 stay untouched by this scope; this session does not edit their
+  branches. If an integration action on them is needed it will be logged here as a request, not performed.
+- **Hand-off rule.** If this claim exceeds 60 minutes with no commit, any other session may take over under the
+  board's standing rule; the harvest request is idempotent (a second identical capture is a no-op commit).
