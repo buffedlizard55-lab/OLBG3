@@ -77,7 +77,7 @@ class SyntheticWorkspace:
             },
             "our_match_probability": 0.6, "our_home_probability": 0.6,
             "our_pick": "A", "our_pick_probability": 0.6, "our_fair_odds": 1.67,
-            "our_price_pick": 1.58, "our_us_odds_pick": "-172", "our_price_other": 2.38,
+            "our_price_pick": 1.58, "our_us_odds_pick": "-172", "our_price_other": 2.37,
             "confidence": "high", "release": {"source": OFFICIAL_URL},
         }
         self.prediction = {
@@ -190,6 +190,10 @@ class SyntheticReportTests(unittest.TestCase):
         self.assertEqual(1, report["summary"]["published_matches"])
         self.assertEqual("TEN-42", report["event_lineage"][0]["match_id"])
         self.assertEqual(64, len(report["input_sha256"]["matches.json"]))
+        markdown = audit.render_markdown(report)
+        self.assertIn("# Capture-to-publication provenance audit", markdown)
+        self.assertIn("[raw/test.tsv](../data/raw/test.tsv)", markdown)
+        self.assertIn("data/provenance_audit.json", markdown)
 
     def test_changed_published_capture_field_is_an_error(self):
         self.workspace.match["olbg_tips"] = "99/100 Win Tips"
@@ -207,9 +211,15 @@ class SyntheticReportTests(unittest.TestCase):
 
     def test_line_arithmetic_and_input_drift_are_errors(self):
         self.workspace.line["our_price_pick"] = 1.60
+        self.workspace.line["our_price_other"] = 2.40
+        self.workspace.line["our_match_probability"] = 0.61
         self.workspace.line["inputs"]["olbg_tips"] = "1/1 Win Tips"
+        self.workspace.line["inputs"]["p_raw"] = 0.5
         report = self.workspace.report()
         self.assertIn("line_price_does_not_recompute", self.codes(report, "error"))
+        self.assertIn("line_other_price_mismatch", self.codes(report, "error"))
+        self.assertIn("line_match_probability_mismatch", self.codes(report, "error"))
+        self.assertIn("line_raw_probability_mismatch", self.codes(report, "error"))
         self.assertIn("line_input_mismatch", self.codes(report, "error"))
 
     def test_high_prediction_must_name_pick_and_have_official_source(self):
@@ -227,6 +237,7 @@ class SyntheticReportTests(unittest.TestCase):
 
     def test_later_capture_start_conflict_is_warning_not_silent_choice(self):
         later = CAPTURE_LINE.replace("2026-10-25T12:00:00.000Z", "2026-10-25T06:00:00.000Z")
+        later = later.replace("|1.80|125|", "|2.00|100|")
         (self.workspace.root / "data" / "raw" / "later.tsv").write_text(later + "\n", encoding="utf-8")
         self.workspace.meta["supplementary_harvests"] = [{
             "file": "raw/later.tsv", "format": "v3", "olbg_locale_date": "2026-10-24",
@@ -236,9 +247,15 @@ class SyntheticReportTests(unittest.TestCase):
         report = self.workspace.report()
         self.assertIn("capture_start_conflict", self.codes(report, "warning"))
         self.assertNotIn("capture_start_conflict", self.codes(report, "error"))
+        self.assertIn("capture_price_changed", self.codes(report, "info"))
         selected = report["event_lineage"][0]
         self.assertEqual("raw/test.tsv", selected["selected_capture"])
         self.assertEqual(2, len(selected["observations"]))
+        self.assertEqual(1.8, selected["observations"][0]["odds_decimal"])
+        self.assertEqual(2.0, selected["observations"][1]["odds_decimal"])
+        self.assertEqual("4/5", selected["observations"][0]["odds_fractional"])
+        self.assertEqual("all", selected["observations"][0]["league_label"])
+        self.assertEqual(1, report["summary"]["unselected_observations"])
 
     def test_malformed_event_id_is_reported_without_crashing(self):
         (self.workspace.root / "data" / "raw" / "test.tsv").write_text(
