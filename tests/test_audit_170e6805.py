@@ -38,8 +38,17 @@ class Audit170e6805(unittest.TestCase):
 
     def test_shortfalls_published_not_hidden(self):
         self.assertIn("shortfall", self.page)
+        # The clamped identity. "75 - live total" only equals the published shortfall while no sport
+        # exceeds its own target; once a sport passes five (Handball reached six on 2026-10-24) the
+        # surplus cannot offset another sport's gap. Recompute the same clamped arithmetic the page
+        # publishes instead of asserting an identity that a target-beating sport invalidates.
         self.assertEqual(sum(v["shortfall"] for v in self.a["per_sport"].values()),
-                         75 - self.a["totals"]["live_high_upcoming"])
+                         sum(max(0, v["target"] - v["live_high_upcoming"])
+                             for v in self.a["per_sport"].values()))
+        # A sport above its target contributes 0, not a negative number, so the published total can
+        # exceed "75 - live" by the size of that surplus. That is the clamp working, not a leak.
+        self.assertGreaterEqual(sum(v["shortfall"] for v in self.a["per_sport"].values()),
+                                75 - self.a["totals"]["live_high_upcoming"])
 
 if __name__ == "__main__":
     unittest.main()
