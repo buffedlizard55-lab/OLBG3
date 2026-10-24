@@ -215,8 +215,10 @@ class Board:
 
     def source_links(self, row, limit=3):
         out = []
-        for src in (self.pred(row) or {}).get("sources", [])[:limit]:
-            short = src["label"].split("—")[0].split(",")[0].split("(")[0].strip()
+        for src in ((self.pred(row) or {}).get("sources") or [])[:limit]:
+            if not isinstance(src, dict) or not src.get("url"):
+                continue
+            short = (src.get("label") or src["url"]).split("—")[0].split(",")[0].split("(")[0].strip()
             if len(short) > 46:
                 short = short[:43].rstrip() + "…"
             out.append(f'<a href="{E(src["url"])}" rel="noopener nofollow" target="_blank">{E(short)}</a>')
@@ -243,15 +245,27 @@ def selection_text(row):
     return f"{pick} {label}".strip()
 
 
+def num(value):
+    """Print an originated line, whatever JSON type it arrived as. Never invent one."""
+    if value in (None, ""):
+        return None
+    try:
+        return f"{float(value):g}"
+    except (TypeError, ValueError):
+        return str(value)
+
+
 def line_cells(row):
-    """Our originated handicap and total, printed only where the model produced them."""
+    """Our originated handicap and total, printed only where a line was produced."""
     hc = "—"
-    if row.get("our_handicap_line") is not None:
+    line = num(row.get("our_handicap_line"))
+    if line is not None:
         side = row.get("our_handicap_side") or ""
-        hc = f"{side} {row['our_handicap_line']:g} {row.get('our_handicap_unit') or ''}".strip()
+        hc = f"{side} {line} {row.get('our_handicap_unit') or ''}".strip()
     tot = "—"
-    if row.get("our_total_line") is not None:
-        tot = f"{row.get('our_total_side') or ''} {row['our_total_line']:g} {row.get('our_total_unit') or ''}".strip()
+    tline = num(row.get("our_total_line"))
+    if tline is not None:
+        tot = f"{row.get('our_total_side') or ''} {tline} {row.get('our_total_unit') or ''}".strip()
     return hc, tot
 
 
@@ -314,8 +328,8 @@ def prose_card(board, row, depth=0):
         return ""
     m = board.match(row)
     srcs = "".join(
-        f'<li><a href="{E(s["url"])}" rel="noopener nofollow" target="_blank">{E(s["label"])}</a></li>'
-        for s in pred.get("sources", []))
+        f'<li><a href="{E(s["url"])}" rel="noopener nofollow" target="_blank">{E(s.get("label") or s["url"])}</a></li>'
+        for s in (pred.get("sources") or []) if isinstance(s, dict) and s.get("url"))
     dec, us = money(row.get("our_price_pick"))
     start = board.start(row)
     status = pred.get("status")
@@ -508,7 +522,7 @@ def build_matches(board):
     for r in rows:
         m = board.match(r)
         dec, us = money(r.get("our_price_pick"))
-        fair = f"{r['our_fair_odds']:.2f}" if r.get("our_fair_odds") else "—"
+        fair = f"{float(r['our_fair_odds']):.2f}" if r.get("our_fair_odds") not in (None, "") else "—"
         hc, tot = line_cells(r)
         start = board.start(r)
         basis = board.start_basis(r)
@@ -652,8 +666,9 @@ def build_review(board):
 def build_sources(board):
     used = {}
     for pred in board.preds.values():
-        for s in pred.get("sources", []):
-            used[s["url"]] = s["label"]
+        for s in (pred.get("sources") or []):
+            if isinstance(s, dict) and s.get("url"):
+                used[s["url"]] = s.get("label") or s["url"]
     for r in board.rows:
         src = (r.get("release") or {}).get("source")
         if src:
