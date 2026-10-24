@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">194 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">196 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1378,10 +1378,24 @@
 </article>
 <article class="card flag" id="FL-202">
   <div class="flag-head"><span class="tag">FL-202</span> <span class="sev sev-medium">medium</span></div>
-  <h2>The five-written-predictions-per-sport target is not met for any sport on 2026-10-24</h2>
-  <p>The board captured 197 fixtures across 14 sports at 17:08Z. Fifteen selections cleared every gate and carry a written prediction: Basketball 4, Ice Hockey 3, Volleyball 3, Handball 2, Rugby Union 1, Gaelic Football 1, Motor Racing 1. Golf&#x27;s listing served no card; Rugby League offered outright markets only; Greyhounds offered 83 race cards with no form source we can check; Tennis, Cricket, Darts and Snooker fixtures are captured and priced but their official clocks were not certified in this pass, so they stay below HIGH rather than being promoted on an unverified start.</p>
+  <h2>The five-written-predictions-per-sport target is still not met for any sport on 2026-10-24 after the second pass</h2>
+  <p>The board captured 197 fixtures across 14 sports at 17:08Z. After the second writing pass 18 selections clear every gate and carry a written prediction: Basketball 4, Ice Hockey 4, Handball 4, Volleyball 3, Rugby Union 1, Gaelic Football 1, Motor Racing 1. Golf&#x27;s listing served no card; Rugby League offered outright markets only; Greyhounds offered 83 race cards with no form source to check; Tennis, Cricket, Darts and Snooker fixtures are captured and priced but their official clocks were not certified in this pass, so they stay below HIGH rather than being promoted on an unconfirmed start. Basketball, Ice Hockey and Handball are each one short of the five-a-day target and cannot close the gap from this capture: the remaining NBA, NHL and EHF Champions League rows either fall outside the -250 to +10000 band, price above 70% implied probability, or sit below the 55% win-probability floor the board applies before it will call anything high confidence.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG listings captured 2026-10-24T17:08Z (data/raw/live-20261024T1715Z)</a></li></ul>
+</article>
+<article class="card flag" id="FL-203">
+  <div class="flag-head"><span class="tag">FL-203</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Quoted prices inside a published write-up can drift when the OLBG tip split moves between captures</h2>
+  <p>Every HIGH write-up quotes the price its row carries at build time (for example &#x27;at 1.65 (-154)&#x27;). Rows are re-priced from each new capture, so a later capture with a different tip split changes the row and leaves the prose quoting the old number. That is exactly what happened to VOL-37002 during this session&#x27;s CI run: the row moved to 1.78 (-128) while the published piece still said 1.57 (-175), and tools/check_site.py refused the build. The build refusal is the correct behaviour — a wrong number must never ship — but it also means a stale quote can block a scheduled deploy until the prose is corrected. The piece was corrected in this pass and the price revision is recorded on it as price_revised. The systemic fix (rewriting the quote automatically at re-price time) is scoped but not implemented in this session.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/check_site.py" rel="noopener nofollow" target="_blank">tools/check_site.py — the price-quote rule that refused the build</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions-olbg.json" rel="noopener nofollow" target="_blank">data/predictions-olbg.json — VOL-37002 price_revised record</a></li></ul>
+</article>
+<article class="card flag" id="FL-204">
+  <div class="flag-head"><span class="tag">FL-204</span> <span class="sev sev-low">low</span></div>
+  <h2>Four of this pass&#x27;s new NBA/NHL pieces publish as analysis, not picks, because their win probability sits under the 55% floor</h2>
+  <p>BKB-536113, BKB-536114, BKB-536116 and ICH-200010 were written from official league sources and carry a named selection, current records, home/road splits and the 1:00 PM ET injury report, but their originated prices (1.78, 1.78, 1.78 and 1.74) imply 53.5% and 54.5% win probability. The board&#x27;s HIGH gate requires at least 55%, so they are published as analysis with the reason printed beside them rather than promoted to look like tips. They remain useful as reasoned previews and are counted in the written-piece total but not in the high-confidence count.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/predictions-olbg.json" rel="noopener nofollow" target="_blank">data/predictions-olbg.json — the four analysis pieces</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/originate.py" rel="noopener nofollow" target="_blank">tools/originate.py — the 55% HIGH gate</a></li></ul>
 </article>
 
 </main>
