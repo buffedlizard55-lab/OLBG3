@@ -34,6 +34,41 @@ def norm(value: str) -> set[str]:
     return {t for t in re.split(r'[^a-z0-9]+', (value or '').lower()) if t}
 
 
+def team_aliases(team: dict) -> list[set[str]]:
+    """Explicit identifiers from the official payload, never city-only fuzzy matches."""
+    aliases = []
+    for field in ('abbrev', 'teamName', 'commonName', 'name', 'shortName'):
+        value = team.get(field)
+        if isinstance(value, dict):
+            value = value.get('default')
+        alias = norm(value)
+        if alias and alias not in aliases:
+            aliases.append(alias)
+    return aliases
+
+
+def fixture_identity(event_name: str, game: dict) -> bool:
+    """Require an identifier for EACH side; @ also fixes away/home orientation.
+
+    Two shared words from just one club cannot certify its opponent. An undelimited
+    name or a payload missing either side's identifiers is held for review.
+    """
+    parts = re.split(r'\s*@\s*', event_name or '')
+    ordered = len(parts) == 2
+    if not ordered:
+        parts = re.split(r'\s+(?:vs\.?|v\.?)\s+', event_name or '', flags=re.I)
+    if len(parts) != 2 or not all(parts):
+        return False
+    left, right = map(norm, parts)
+    def matches(side, aliases):
+        return any(alias and alias <= side for alias in aliases)
+    home, away = game.get('home_aliases') or [], game.get('away_aliases') or []
+    if ordered:
+        return matches(left, away) and matches(right, home)
+    return ((matches(left, home) and matches(right, away))
+            or (matches(left, away) and matches(right, home)))
+
+
 def load_harvest(path: Path) -> list[dict]:
     rows = []
     for line in path.read_text().splitlines():
@@ -62,6 +97,8 @@ def nhl_games(payload: dict) -> list[dict]:
             home, away = game.get('homeTeam', {}), game.get('awayTeam', {})
             games.append({
                 'id': str(game.get('id')),
+                'home_aliases': team_aliases(home),
+                'away_aliases': team_aliases(away),
                 'start_utc': game.get('startTimeUTC'),
                 'home': (home.get('commonName') or {}).get('default') or home.get('name', {}).get('default') or '',
                 'away': (away.get('commonName') or {}).get('default') or away.get('name', {}).get('default') or '',
@@ -85,6 +122,8 @@ def mlb_games(payload: dict) -> list[dict]:
             home, away = game['teams']['home']['team'], game['teams']['away']['team']
             games.append({
                 'id': str(game.get('gamePk')),
+                'home_aliases': team_aliases(home),
+                'away_aliases': team_aliases(away),
                 'start_utc': game.get('gameDate'),
                 'home': home.get('teamName') or home.get('name', ''),
                 'away': away.get('teamName') or away.get('name', ''),
@@ -97,7 +136,9 @@ def mlb_games(payload: dict) -> list[dict]:
     return games
 
 
-SESSION_NOTE = 'session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe)'
+def probe_note(probe: Path, checked_at: str) -> str:
+    return f'scripts/verify_live.py ({probe.name}; official NHL/MLB probe {checked_at})'
+
 
 
 def _append_session(doc: dict, note: str) -> None:
@@ -130,6 +171,7 @@ def main() -> int:
 
     manifest = json.loads((probe / 'manifest.json').read_text())
     checked_at = manifest.get('started_at_utc')
+    session_note = probe_note(probe, checked_at)
     rows = load_harvest(harvest)
 
     candidates: list[dict] = []
@@ -172,10 +214,11 @@ def main() -> int:
         for game in candidates:
             if not (tokens and game['tokens']):
                 continue
-            # Both sides must be represented: at least two distinct token overlaps.
-            overlap = tokens & game['tokens']
-            if len(overlap) < 2:
+            # Both clubs must match independently, not two words from a union.
+            expected_league = {'Ice Hockey': 'NHL', 'Baseball': 'MLB'}[row['sport']]
+            if game['competition'] != expected_league or not fixture_identity(row['event_name'], game):
                 continue
+            overlap = tokens & game['tokens']
             game_start = parse_utc(game['start_utc'])
             if not start or not game_start or abs(game_start - start) > TOLERANCE:
                 continue
@@ -220,7 +263,7 @@ def main() -> int:
                      f'startDate attribute said {row["start_utc"]}.'),
         }
     ver['retrieved_at'] = checked_at
-    _append_session(ver, SESSION_NOTE)
+    _append_session(ver, session_note)
     vpath.write_text(json.dumps(ver, indent=1, ensure_ascii=False) + '\n')
     print(f'verifications.json: {len(verified)} event(s) added/updated')
 
@@ -241,7 +284,7 @@ def main() -> int:
             'checked_at': checked_at,
         }
     rc['checked_at'] = max([rc.get('checked_at') or '', checked_at])
-    _append_session(rc, SESSION_NOTE)
+    _append_session(rc, session_note)
     # Idempotent: a re-run must produce a byte-identical file, so this note is a fixed key rather
     # than a sentence appended to the policy on every pass.
     rc['policy_20261023'] = ('Exact UTC starts read directly from the league schedule payloads '
