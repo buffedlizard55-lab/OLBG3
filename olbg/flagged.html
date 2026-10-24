@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">205 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">212 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1460,11 +1460,60 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40122281198" rel="noopener nofollow" target="_blank">Failed post-merge main run 40122281198 (PR #176) - Verify and publish dashboard, Unit tests step</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/commit/e291a532e4f358f621363ca5b54c764eb19e97a4" rel="noopener nofollow" target="_blank">Repair commit e291a53 (PR #178) - frozen batch-instant + release.assess pins</a></li><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship official 2026/27 fixtures in full (Ospreys v Dragons KO 19.45 IRE &amp; UK = 18:45Z)</a></li></ul>
 </article>
+<article class="card flag" id="FL-218">
+  <div class="flag-head"><span class="tag">FL-218</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Pipeline order: after a new OLBG capture the first CI cycle fails check_board; a second full cycle passes</h2>
+  <p>Integrating capture live-20261024T2227Z-9d520984 locally: cycle 1 failed check_board with six &#x27;HIGH stored release differs from current evidence: checked_at&#x27; errors, because scripts/model.py stamps HIGH rows from the previous release record before scripts/live_refresh.py re-certifies them from the new capture. Cycle 2 passed every gate (check_board, tools/check_site, 384 unit tests, check.py, check_links with 0 broken links) and cycle 3 changed only timestamps. CI runs one cycle per push, so a capture-only push can go red even though the data is sound.</p>
+  <p class="muted small">Affected rows: BSB-160792, IHO-200006, IHO-200003, IHO-200002, IHO-200010, IHO-200005</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/.github/workflows/pages.yml" rel="noopener nofollow" target="_blank">Workflow that runs the gate sequence (.github/workflows/pages.yml)</a></li></ul>
+</article>
+<article class="card flag" id="FL-219">
+  <div class="flag-head"><span class="tag">FL-219</span> <span class="sev sev-low">low</span></div>
+  <h2>NHL: OLBG lists every puck drop seven minutes after the NHL&#x27;s scheduled start</h2>
+  <p>OLBG start_utc in the 22:27Z capture: NYI @ DAL 22:07Z, MTL @ WPG 23:07Z, COL @ NSH 00:07Z, MIN @ VAN 02:07Z. NHL schedule: 22:00Z, 23:00Z, 00:00Z and 02:00Z (games 2026020181-2026020184). The seven-minute offset is consistent across all four rows, so it reflects how OLBG prints the time, not a rescheduled game.</p>
+  <p class="muted small">Affected rows: NX-ICE-200076, NX-ICE-200074, NX-ICE-200072, NX-ICE-200075</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-25" rel="noopener nofollow" target="_blank">NHL schedule 2026-10-25 (api-web.nhle.com)</a></li><li><a href="https://www.olbg.com/betting-tips/Ice_Hockey/NHL/13" rel="noopener nofollow" target="_blank">OLBG NHL tips listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-220">
+  <div class="flag-head"><span class="tag">FL-220</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Galway SFC final (Moycullen v Salthill-Knocknacarra) moved to Sunday 16:00 because of Storm Boelo; confirmed by press only</h2>
+  <p>OLBG lists the final at 16:00Z on 25 Oct, which matches the reported new throw-in (originally Saturday 24 Oct 19:00). Press reports attribute the decision to Galway GAA, but no Galway GAA or GAA page was read in this pass.</p>
+  <p class="muted small">Affected rows: NX-GAE-3532</p>
+  <ul class="srclist"><li><a href="https://www.rte.ie/sport/football/2026/1023/1596637-storm-boelo-prompts-sunday-switch-for-galway-final/" rel="noopener nofollow" target="_blank">RTE - Storm Boelo prompts Sunday switch for Galway final</a></li><li><a href="https://www.hoganstand.com/Article/Index/342217" rel="noopener nofollow" target="_blank">HoganStand - Galway and Leitrim SFC finals switched to Sunday</a></li></ul>
+</article>
+<article class="card flag" id="FL-221">
+  <div class="flag-head"><span class="tag">FL-221</span> <span class="sev sev-low">low</span></div>
+  <h2>Next-day board: official start time not readable for seven researched rows</h2>
+  <p>Darts quarter-finals (Smith v Woodhouse, Price v Bunting): pdc.tv is cookie-walled. Tennis finals (Ningbo, Almaty, Lyon): order-of-play pages were not read (atptour.com refuses the runner). LNH handball (Saint-Raphael v PSG, Montpellier v Saran): table read, calendar not read. Namibia v Ireland 3rd ODI: the Cricket Ireland report gives no time. The OLBG start times are shown unchanged.</p>
+  <p class="muted small">Affected rows: NX-DAR-32408, NX-TEN-902207, NX-TEN-902251, NX-TEN-902253, NX-HAN-12084, NX-HAN-12081, NX-CRI-188854</p>
+  <ul class="srclist"><li><a href="https://www.pdc.tv/news/2026/october/22/nine-dart-star-woodhouse-sets-up-van-veen-clash-dortmund/" rel="noopener nofollow" target="_blank">PDC European Championship report (pdc.tv; pages render only a cookie banner to our reader)</a></li><li><a href="https://www.lnh.fr/daikin-starligue/classement" rel="noopener nofollow" target="_blank">LNH Daikin StarLigue table (read) - calendar not read</a></li><li><a href="https://cricketireland.ie/news/series-leveller" rel="noopener nofollow" target="_blank">Cricket Ireland - series leveller report (no start time printed)</a></li></ul>
+</article>
+<article class="card flag" id="FL-222">
+  <div class="flag-head"><span class="tag">FL-222</span> <span class="sev sev-low">low</span></div>
+  <h2>Handball Bundesliga table unreadable: daikin-hbl.de redirects to opel-hbl.de, which returns 404 or a reCAPTCHA wall</h2>
+  <p>https://www.daikin-hbl.de/de/daikin-hbl/tabelle/ redirected to an opel-hbl.de 404 with a reCAPTCHA; https://www.opel-hbl.de/de/hbl/tabelle returned the legend and sponsor strip but no table rows. The league appears to have been renamed (Opel HBL); the change was not checked further.</p>
+  <p class="muted small">Affected rows: NX-HAN-12092, NX-HAN-12087, NX-HAN-12089, NX-HAN-12095</p>
+  <ul class="srclist"><li><a href="https://www.opel-hbl.de/de/hbl/tabelle" rel="noopener nofollow" target="_blank">Opel HBL table (renders a reCAPTCHA, no rows)</a></li></ul>
+</article>
+<article class="card flag" id="FL-223">
+  <div class="flag-head"><span class="tag">FL-223</span> <span class="sev sev-low">low</span></div>
+  <h2>OLBG handball listings print only the draw (&#x27;Tie&#x27;) price for most fixtures; no side price exists to anchor a line</h2>
+  <p>Fifteen of the twenty handball rows in the 22:27Z capture carry &#x27;Tie&#x27; as the consensus selection, priced 7.50-30.00. A draw price cannot be turned into a side probability without the other two prices, which OLBG did not print.</p>
+  <p class="muted small">Affected rows: NX-HAN-12084, NX-HAN-12081</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG handball tips listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-224">
+  <div class="flag-head"><span class="tag">FL-224</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Next-day board: official clocks printed without a time zone (Saracens, LNR, TVF, Lega Pallavolo); UTC start left blank and three written picks capped at MEDIUM</h2>
+  <p>Printed clocks: saracens.com &#x27;Sunday 25 October 2026 | KO 15:00 | Twickenham Stoop&#x27;; LNR &#x27;25 Octobre 2026 21h05, Stade Marcel Deflandre&#x27;; TVF &#x27;25 Ekim 2026 Pazar 13.00 / 14.00 / 16.00 / 19.00&#x27;; Lega Pallavolo &#x27;Domenica 25/10/2026 Ore 18:00&#x27;. Each matches OLBG&#x27;s start_utc if read as the venue&#x27;s local time on 25 October (UK GMT, France CET, Turkey UTC+3, Italy CET), but none of the pages states the zone, and this project does not certify an unlabelled clock. For comparison, the Cork GAA final page labels its calendar export Europe/Dublin, so that row carries a UTC start.</p>
+  <p class="muted small">Affected rows: NX-RUG-609571, NX-RUG-609554, NX-VOL-37108, NX-VOL-37109, NX-VOL-37110, NX-VOL-37111, NX-VOL-37112, NX-VOL-37113, NX-VOL-37114, NX-VOL-36996</p>
+  <ul class="srclist"><li><a href="https://saracens.com/5-must-attend-saracens-fixtures/" rel="noopener nofollow" target="_blank">Saracens - Harlequins v Saracens &#x27;KO 15:00&#x27;</a></li><li><a href="https://top14.lnr.fr/feuille-de-match/2026-2027/j7/11864-la-rochelle-bordeaux-begles" rel="noopener nofollow" target="_blank">LNR - J7 Stade Rochelais v UBB &#x27;21h05&#x27;</a></li><li><a href="https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak" rel="noopener nofollow" target="_blank">TVF - Sultanlar Ligi week 5 schedule</a></li><li><a href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener nofollow" target="_blank">Lega Pallavolo - SuperLega calendario</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T22:41:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T22:45:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>
