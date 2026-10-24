@@ -126,6 +126,7 @@ EDITORIAL_STRENGTH = {
     "CRI-188828": ("Ireland", 0.617, 455.5, "Over", "ICC Men's ODI rankings (#12 Ireland led by Paul Stirling vs #16 Namibia in Windhoek) + OLBG 7/11 (2 experts)"),
     "CRI-188826": ("Australia W", 0.730, 310.5, "Over", "Cricket Australia Women's T20I series at North Sydney Oval (>70% favorite -> medium)"),
     "CRI-188831": ("Afghanistan", 0.642, 472.5, "Over", "ICC ODI rankings (#8 Afghanistan 92 rating vs #11 Zimbabwe 64 rating; beat Zimbabwe 294 vs 136 on Oct 19 in UAE)"),
+    "CRI-188838": ("Pakistan", 0.594, 515.5, "Over", "ICC men's ODI table dated 24 Oct 2026 (Pakistan 103, England 93), Pakistan's 87-run Rawalpindi win, and ECB's exact 25 Oct 08:00 GMT Lahore clock"),
     # Darts — PDC Machineseeker European Championship Dortmund (Best of 11 R1)
     "DAR-32330": ("Danny Noppert", 0.580, 9.5, "Over", "PDC European Championship R1: #5 Noppert (Maastricht finalist Oct 18) vs #28 Bunting (Maastricht SF); OLBG 9/13 ML & 5/5 Over 9.5 legs"),
     "DAR-32334": ("Niels Zonneveld", 0.625, 9.5, "Over", "PDC European Championship R1: #4 Zonneveld (won Dutch Darts Championship Oct 18) vs #29 Menzies + OLBG 11/14"),
@@ -449,7 +450,7 @@ def main() -> None:
             # by fallback rather than by design, and a totals consensus whose text happened to
             # contain a player name would be reused as a match-winner probability. See FL-157.
             _non_win = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap",
-                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match", "Top Team1 Batsman"}
+                        "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Total 180s", "Games Won", "1st Set Winner", "Man Of The Match", "Top Team1 Batsman"}
             side = None if (m.get("olbg_market") in _non_win) else resolve_team_side(m["olbg_consensus_selection"], home, away)
             if side is None:
                 # e.g. Handball "Tie" consensus or totals-only listing -> lean home edge

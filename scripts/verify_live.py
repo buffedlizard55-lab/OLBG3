@@ -97,9 +97,6 @@ def mlb_games(payload: dict) -> list[dict]:
     return games
 
 
-SESSION_NOTE = 'session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe)'
-
-
 def _append_session(doc: dict, note: str) -> None:
     """Record who re-read the clocks without erasing who read them before.
 
@@ -130,6 +127,18 @@ def main() -> int:
 
     manifest = json.loads((probe / 'manifest.json').read_text())
     checked_at = manifest.get('started_at_utc')
+    if not checked_at:
+        raise ValueError(f'{probe}/manifest.json has no started_at_utc')
+    observed_stamp = re.sub(r'[^0-9TZ]', '', checked_at)
+    source_ids = {
+        'NHL': f'S-NHL-API-{observed_stamp}',
+        'MLB': f'S-MLB-API-{observed_stamp}',
+    }
+    try:
+        probe_rel = str(probe.relative_to(ROOT))
+    except ValueError:
+        probe_rel = str(probe)
+    session_note = f'{probe.name} ({checked_at} NHL/MLB clock probe)'
     rows = load_harvest(harvest)
 
     candidates: list[dict] = []
@@ -142,9 +151,10 @@ def main() -> int:
         for game in games:
             game['source'] = url
         candidates += games
-        sources.append({'id': 'S-NHL-API-20261023', 'class': 'official',
-                        'name': 'NHL official schedule endpoint (gameWeek payload)',
-                        'url': url, 'probe_file': 'json/nhl_schedule.json',
+        sources.append({'id': source_ids['NHL'], 'class': 'official',
+                        'name': f'NHL official schedule endpoint (gameWeek payload, read {checked_at})',
+                        'url': url, 'probe_file': f'{probe_rel}/json/nhl_schedule.json',
+                        'observed_at': checked_at,
                         'sha256': next((p.get('sha256') for p in manifest['structured'] if p['key'] == 'nhl_schedule'), None)})
         print(f'NHL payload: {len(games)} games, {sum(1 for g in games if g["start_utc"])} with startTimeUTC')
 
@@ -155,9 +165,10 @@ def main() -> int:
         for game in games:
             game['source'] = url
         candidates += games
-        sources.append({'id': 'S-MLB-API-20261023', 'class': 'official',
-                        'name': 'MLB official schedule endpoint',
-                        'url': url, 'probe_file': 'json/mlb_schedule.json',
+        sources.append({'id': source_ids['MLB'], 'class': 'official',
+                        'name': f'MLB official schedule endpoint (read {checked_at})',
+                        'url': url, 'probe_file': f'{probe_rel}/json/mlb_schedule.json',
+                        'observed_at': checked_at,
                         'sha256': next((p.get('sha256') for p in manifest['structured'] if p['key'] == 'mlb_schedule'), None)})
         print(f'MLB payload: {len(games)} games, {sum(1 for g in games if g["start_utc"])} with gameDate')
 
@@ -205,7 +216,7 @@ def main() -> int:
             existing_ids.add(source['id'])
     for item in verified:
         row, game = item['row'], item['game']
-        source_id = 'S-NHL-API-20261023' if game['competition'] == 'NHL' else 'S-MLB-API-20261023'
+        source_id = source_ids[game['competition']]
         ver.setdefault('event_verifications', {})[row['event_id']] = {
             'competition': game['competition'],
             'venue': None,
@@ -219,8 +230,8 @@ def main() -> int:
                      f'{checked_at}; OLBG printed {row["date_label"]} {row["time_label"]} and its own '
                      f'startDate attribute said {row["start_utc"]}.'),
         }
-    ver['retrieved_at'] = checked_at
-    _append_session(ver, SESSION_NOTE)
+    ver['retrieved_at'] = max(ver.get('retrieved_at') or '', checked_at)
+    _append_session(ver, session_note)
     vpath.write_text(json.dumps(ver, indent=1, ensure_ascii=False) + '\n')
     print(f'verifications.json: {len(verified)} event(s) added/updated')
 
@@ -241,7 +252,7 @@ def main() -> int:
             'checked_at': checked_at,
         }
     rc['checked_at'] = max([rc.get('checked_at') or '', checked_at])
-    _append_session(rc, SESSION_NOTE)
+    _append_session(rc, session_note)
     # Idempotent: a re-run must produce a byte-identical file, so this note is a fixed key rather
     # than a sentence appended to the policy on every pass.
     rc['policy_20261023'] = ('Exact UTC starts read directly from the league schedule payloads '

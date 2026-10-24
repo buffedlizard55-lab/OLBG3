@@ -2,13 +2,13 @@
 """build_site.py - generates the static GitHub Pages site from data/*.json."""
 import json, os, glob, html, shutil, sys
 from collections import Counter, defaultdict
+from datetime import date
 
 from board_dates import (american, in_band, BAND_LOW_US, BAND_HIGH_US, AS_OF, snapshot_utc,
                          snapshot_age_hours)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "site")          # published artifact root (built by build.py first)
-GEN = "2026-10-22"          # latest live OLBG harvest date (S-20261022-A)
 BUILT = AS_OF.isoformat()  # this rebuild
 CLOCK = snapshot_utc().isoformat().replace("+00:00", "Z")
 os.makedirs(os.path.join(OUT, "assets"), exist_ok=True)
@@ -44,6 +44,20 @@ GAP_MODEL = GAP["model"]
 for _r in FIXTURES:
     _r.setdefault("market_type", "fixture")
 EVENTS = FIXTURES + GAP_ROWS
+# The board intentionally retains immutable snapshots, so state the actual range represented by
+# the rows rather than a hand-maintained date that goes stale when a fresh capture is integrated.
+_CAPTURE_DAYS = sorted({str(row.get("captured_at") or "")[:10] for row in EVENTS
+                        if str(row.get("captured_at") or "")[:10]})
+GEN = _CAPTURE_DAYS[-1] if _CAPTURE_DAYS else BUILT.isoformat()
+if _CAPTURE_DAYS:
+    _first_capture, _last_capture = map(date.fromisoformat, (_CAPTURE_DAYS[0], _CAPTURE_DAYS[-1]))
+    if (_first_capture.year, _first_capture.month) == (_last_capture.year, _last_capture.month):
+        CAPTURE_SPAN = (f"{_first_capture.day}&ndash;{_last_capture.day} "
+                        f"{_last_capture.strftime('%B %Y')}")
+    else:
+        CAPTURE_SPAN = f"{_first_capture.isoformat()}&ndash;{_last_capture.isoformat()}"
+else:
+    CAPTURE_SPAN = "not available"
 PREDS = {p["ref"]: p for p in json.load(open(os.path.join(ROOT, "data/predictions.json")))["predictions"]}
 OFF = json.load(open(os.path.join(ROOT, "data/official.json")))
 
@@ -700,7 +714,7 @@ index = head("Dashboard") + f"""
   <a class="button secondary" href="lines.html">All originated lines &amp; markets</a>
   <a class="button secondary" href="olbg/picks.html">The second board's lines</a>
   <a class="button secondary" href="#research-board">Explore all captured records ↓</a></p>
-  <p class="stamp">Build {CLOCK} · OLBG captures span 21&ndash;23 October 2026 · <a href="source-health.html">Check source age</a></p>
+  <p class="stamp">Build {CLOCK} · OLBG captures span {CAPTURE_SPAN} · <a href="source-health.html">Check source age</a></p>
 </section>
 
 <section class="pick-strip" id="picks-strip">
@@ -1020,7 +1034,7 @@ for ref, p in _ordered:
     price = pr.get("win_home") if side == "home" else pr.get("win_away")
     facts = "".join(f'<li><a href="{e(s["url"])}" rel="noopener">{e(s["label"])}</a></li>' for s in p["sources"])
     _why = r["pick"].get("note") or p.get("downgrade_reason") or ("the price is outside the requested -250..+10000 band" if _downgraded else "")
-    _note = (f'<p class="note">Retained as research analysis, not a current high-confidence pick: {e(_why)}</p>' if _downgraded else '')
+    _note = (f'\n  <p class="note">Retained as research analysis, not a current high-confidence pick: {e(_why)}</p>' if _downgraded else '')
     _kick = r["pick"].get("kickoff_utc")
     _release = r["pick"].get("release", {})
     _clock = (f'<p class="note">Official UTC start: {e(_kick)} · source observed {e(_release.get("checked_at"))}. '
@@ -1028,8 +1042,7 @@ for ref, p in _ordered:
               f'<p class="note">Exact official UTC start unverified. {e(_release.get("reason"))}</p>')
     _prob = f'{r["pick"]["prob"]*100:.0f}%' if r['pick'].get('prob') is not None else 'withheld'
     _block = f"""
-<article class="prediction" id="{e(ref)}" data-expires-at="{e(_release.get('expires_at') or '')}" data-release="{e(_release.get('status') or 'unverified_start')}" {'data-current-high="true"' if not _downgraded else ''}>
-  {_note}
+<article class="prediction" id="{e(ref)}" data-expires-at="{e(_release.get('expires_at') or '')}" data-release="{e(_release.get('status') or 'unverified_start')}" {'data-current-high="true"' if not _downgraded else ''}>{_note}
   <div class="pmeta"><span class="tag">{e(r['sport'])}</span> <span class="tag">{e(ref)}</span> {conf_pill(r['pick']['confidence'])} {band_badge(r)}</div>
   <h2>{e(p['headline'])}</h2>
   <p class="fixture">{match_label(r)} &middot; <span class="when">{e(r['start'])} (OLBG)</span>

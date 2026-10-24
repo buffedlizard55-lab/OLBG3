@@ -74,7 +74,7 @@ NO_HANDICAP_REASON = {
     "Cricket": ("OLBG does not state the format (T20 / ODI / Test) uniformly and a runs handicap differs by an order of "
                 "magnitude between formats, so any line would be invented"),
 }
-NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Games Won", "1st Set Winner", "Man Of The Match", "Top Team1 Batsman"}
+NON_WIN_CONSENSUS_MARKETS = {"Set Score", "Set Betting", "Handicap", "Handicap 2-way", "Match Handicap", "Pointspread", "Puck Line", "Total Legs", "Game Totals", "Total Games", "Total 180s", "Games Won", "1st Set Winner", "Man Of The Match", "Top Team1 Batsman"}
 MAX_P_FOR_LINE = 0.85  # a small public tip sample must not produce an extreme line
 
 # ---------- source tiers ----------
@@ -353,8 +353,28 @@ icehl_src = off["form_data"]["ICEHL_2026_27_official_table"]["source"]
 shl_src = off["form_data"]["SHL_2026_27_table_partial"]["source"]
 el_src = off["form_data"]["EuroLeague_2026_27_table"]["source"]
 mlb_src = off["form_data"]["MLB_2026_table"]["source"]
-icc_tbl = off["form_data"].get("ICC_WhiteBall_2026_ratings", {}).get("teams", {})
-icc_src = off["form_data"].get("ICC_WhiteBall_2026_ratings", {}).get("source", "")
+# Dated ICC white-ball ratings. A ranking observation cannot price a fixture that predates the
+# observation, otherwise adding today's table silently rewrites archived prices and their prose.
+_icc_keys = sorted(k for k in off["form_data"] if k.startswith("ICC_WhiteBall_2026_ratings_20"))
+
+
+def icc_table_for(event_date_iso):
+    chosen = None
+    for key in _icc_keys:
+        table_date = key[len("ICC_WhiteBall_2026_ratings_"):].replace("_", "-")
+        if event_date_iso and table_date <= event_date_iso:
+            chosen = key
+    if chosen is None:
+        # Historical compatibility: the oldest committed table was the only input available to
+        # the first board. Keep it for earlier rows rather than letting today's alias rewrite them.
+        chosen = _icc_keys[0] if _icc_keys else None
+    if chosen is None:
+        legacy = off["form_data"].get("ICC_WhiteBall_2026_ratings", {})
+        return legacy.get("teams", {}), legacy.get("source", "")
+    table = off["form_data"][chosen]
+    return table.get("teams", {}), table.get("source", "")
+
+
 pdc_tbl = off["form_data"].get("PDC_EuroTour_2026_table", {}).get("players", {})
 pdc_src = off["form_data"].get("PDC_EuroTour_2026_table", {}).get("source", "")
 ten_tbl = off["form_data"].get("ATP_WTA_Oct2026_rankings", {}).get("players", {})
@@ -514,6 +534,7 @@ for e in events:
     # NHL rows: pick the dated standings table that matches the fixture date (see nhl_table_for).
     _ev_cap = (__import__("datetime").date.fromisoformat(e["captured"]) if e.get("captured") else CAPTURE_DATE)
     _ev_date = resolve_start(e["start"], capture=_ev_cap)[0]
+    icc_tbl, icc_src = icc_table_for(_ev_date)
     nhl_dated, nhl_dated_src = nhl_table_for(_ev_date)
     if official_name(e["home"]) in nhl_dated and official_name(e["away"]) in nhl_dated:
         nhl_home = nhl_dated[official_name(e["home"])]; nhl_away = nhl_dated[official_name(e["away"])]

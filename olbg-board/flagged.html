@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">205 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">209 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -755,10 +755,10 @@
 </article>
 <article class="card flag" id="FL-105">
   <div class="flag-head"><span class="tag">FL-105</span> <span class="sev sev-low">low</span></div>
-  <h2>Cross-track model disagreement on 28 of 217 fixtures priced on both tracks</h2>
-  <p>Disclosed, not resolved: both versions stay published and every disagreeing pair is listed on reconcile.html with both selections, both model probabilities, both confidence labels and the OLBG event page. A disagreement is not evidence that either model is wrong and neither number is a bookmaker price. No source was re-read for this item, so no checked_at, quote or verification label was renewed. For review: decide whether the root board or the /olbg/ track should be treated as the published pick for betting purposes, or keep both as separate models.</p>
-  <p class="muted small">Affected rows: BKB-10, BKB-25, BKB-27, BKB-03, BKB-28, DRT-01, DRT-11, HBL-05, HBL-14, HBL-07, HBL-03, HBL-26, HBL-23, HBL-27, HBL-25, HBL-21, IHO-11, IHO-13, RGU-15, RGU-08, RGU-03, RGU-12, SNK-05, SNK-12, TEN-40, VLB-10, VOL-23, VOL-25</p>
-  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG - All Sports betting tips listing (committed 2026-10-22 capture)</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/reconcile.html" rel="noopener nofollow" target="_blank">Cross-track review page (both selections per fixture)</a></li></ul>
+  <h2>Cross-track selection disagreement on 4 of 19 fixtures priced on both current tracks</h2>
+  <p>Disclosed, not resolved: Baseball 160792, Gaelic Football 3531, Handball 12106 and Volleyball 36965 carry different originated selections between the root and /olbg/ tracks. Both versions and prices are shown on reconcile.html. A disagreement does not prove either side right and neither number is a bookmaker quote.</p>
+  <p class="muted small">Affected rows: BSB-160792, GAF-03, HBL-12106, VLB-06</p>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/reconcile.html" rel="noopener nofollow" target="_blank">Current cross-track review page</a></li></ul>
 </article>
 <article class="card flag" id="FL-106">
   <div class="flag-head"><span class="tag">FL-106</span> <span class="sev sev-low">low</span></div>
@@ -1356,11 +1356,11 @@
   <ul class="srclist"><li><a href="https://stats.unitedrugby.com/match-centre/table/2026-27" rel="noopener nofollow" target="_blank">United Rugby Championship — official 2026/27 table (Vodacom Bulls &amp; DHL Stormers)</a></li><li><a href="https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/" rel="noopener nofollow" target="_blank">Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)</a></li></ul>
 </article>
 <article class="card flag" id="FL-199">
-  <div class="flag-head"><span class="tag">FL-199</span> <span class="sev sev-high">high</span></div>
-  <h2>Live OLBG Baseball and Tennis listings have advanced beyond the last committed capture; current match coverage is not complete</h2>
-  <p>At 2026-10-24T17:08Z, OLBG&#x27;s Baseball listing displayed TB Rays @ MIL Brewers under event ID 160792, while the committed board has BSB-160789 / event ID 160789. Its Tennis listing displayed event IDs 902171, 902207, 902251, 902175, 902173 and 902172; the committed harvest contains an earlier event-ID set (902147–902168). These observations establish a difference between the live pages read and the captured snapshot only. They do not establish that any old match was canceled, settled, or no longer bettable. No event, official start, line or pick was inferred or added. Re-capture every in-scope sport and verify fixtures and official starts before describing the feed as current or complete.</p>
+  <div class="flag-head"><span class="tag">FL-199</span> <span class="sev sev-low">low</span></div>
+  <h2>The 17:08Z OLBG coverage gap was closed by a fresh 18-endpoint capture at 22:24Z</h2>
+  <p>Resolved in this pass. The current /olbg/ board now derives one-to-one from the 2026-10-24T22:24Z capture: 124 unique events across 12 sports. The newer Baseball event 160792 and Tennis set are present; no row from the replaced primary or its supplements is carried into the current snapshot. Zero-card listings remain explicit rather than being filled from old data.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Baseball/12" rel="noopener nofollow" target="_blank">OLBG live Baseball listing read 2026-10-24T17:08Z</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG live Tennis listing read 2026-10-24T17:08Z</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG current multi-sport tips hub read 2026-10-24T17:08Z</a></li></ul>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">Current OLBG lines board and capture timestamp</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG multi-sport tips hub</a></li></ul>
 </article>
 <article class="card flag" id="FL-200">
   <div class="flag-head"><span class="tag">FL-200</span> <span class="sev sev-medium">medium</span></div>
@@ -1392,17 +1392,17 @@
 </article>
 <article class="card flag" id="FL-204">
   <div class="flag-head"><span class="tag">FL-204</span> <span class="sev sev-medium">medium</span></div>
-  <h2>Golf returned zero tip cards in the 2026-10-24T17:07Z capture, so no golf pick is live</h2>
-  <p>All 18 in-scope listings returned HTTP 200 and a rendered table except /betting-tips/Golf/5, which carried no tip card at all (the extractor records it under &quot;listings with zero tip cards&quot;). The 17:07Z capture was the first afternoon capture in three days to render cards server-side.</p>
+  <h2>Golf, Snooker and Motor Racing returned zero tip cards in the 2026-10-24T22:24Z capture</h2>
+  <p>The current 18-endpoint capture returned no tip cards for Golf, Snooker, Motor Racing or the duplicate European Basketball endpoint. No old rows were carried into /olbg/ to conceal the gap. Golf therefore has no current /olbg/ row; older root-track outrights remain clearly historical analysis rather than current picks.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing (captured 2026-10-24T17:07Z)</a></li></ul>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Golf/5" rel="noopener nofollow" target="_blank">OLBG Golf listing captured at 22:24Z</a></li><li><a href="https://www.olbg.com/betting-tips/Snooker/8" rel="noopener nofollow" target="_blank">OLBG Snooker listing captured at 22:24Z</a></li><li><a href="https://www.olbg.com/betting-tips/Motor_Racing/14" rel="noopener nofollow" target="_blank">OLBG Motor Racing listing captured at 22:24Z</a></li></ul>
 </article>
 <article class="card flag" id="FL-205">
   <div class="flag-head"><span class="tag">FL-205</span> <span class="sev sev-high">high</span></div>
-  <h2>Five high-confidence picks per sport remains unmet on 2026-10-24: 17 distinct live picks against 75</h2>
-  <p>Measured at the 17:19Z build clock: 12 live high-confidence rows on the main board (Ice Hockey 5, Volleyball 3, Baseball 1, Rugby Union 1, Handball 1, Gaelic Football 1, Motor Racing 1) and 11 on the OLBG lines board, 17 distinct fixtures across 8 sports. Ice Hockey and Handball meet the five-pick target; the remaining shortfall is 58.</p>
+  <h2>Five high-confidence picks per sport remains unmet at 22:33Z: 13 distinct live picks against 75</h2>
+  <p>Recomputed after the fresh snapshot and release gate: 13 distinct live HIGH fixtures across seven sports (Ice Hockey 5, Volleyball 3, and one each for Baseball, Cricket, Gaelic Football, Handball and Motor Racing). Only Ice Hockey reaches five. The honest shortfall is 62; no empty sport or unsupported clock was padded.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/brief.html" rel="noopener nofollow" target="_blank">Brief coverage accounting</a></li></ul>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/brief.html" rel="noopener nofollow" target="_blank">Current brief coverage accounting</a></li></ul>
 </article>
 <article class="card flag" id="FL-206">
   <div class="flag-head"><span class="tag">FL-206</span> <span class="sev sev-medium">medium</span></div>
@@ -1420,31 +1420,31 @@
 </article>
 <article class="card flag" id="FL-208">
   <div class="flag-head"><span class="tag">FL-208</span> <span class="sev sev-low">low</span></div>
-  <h2>The OLBG lines audit board replays the 2026-10-23 capture while the newest capture is 2026-10-24T17:07Z</h2>
-  <p>data/meta.json pins harvest_file to raw/olbg-harvest-20261023T1700Z.tsv. The 2026-10-24T17:07Z capture rendered 197 rows across 14 sports and is published on the main board through this session’s applied batch, but the /olbg/ audit track still replays the earlier capture. Promoting the newer capture was tested end to end and rejected for this pass: cricket event id 188845 resolves to a different market in the newer capture, and volleyball card 37002 restated its tip split (2/3 to 2/4), which silently changed a published line from 1.57 to 1.78.</p>
+  <h2>Resolved: the OLBG lines board now replays the populated 2026-10-24T22:24Z capture</h2>
+  <p>The old 2026-10-23 primary was archived, not chained. data/meta.json now points only to raw/olbg-harvest-20261024T2224Z-e304aa51.tsv; previous_harvest, previous_harvests_extra and supplementary_harvests are empty. The rebuilt audit board has exactly the capture’s 124 unique event IDs.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">OLBG lines audit board (published capture time)</a></li></ul>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">Current OLBG lines board</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/meta.json" rel="noopener nofollow" target="_blank">Repository primary metadata</a></li></ul>
 </article>
 <article class="card flag" id="FL-209">
   <div class="flag-head"><span class="tag">FL-209</span> <span class="sev sev-high">high</span></div>
-  <h2>Two live HIGH picks are published on the same fixture from opposite sides: Ospreys v Dragons</h2>
-  <p>RGU-609581 (Ospreys v Dragons, United Rugby Championship Round 4, 2026-10-24T18:45Z) is a released high-confidence pick on both boards at this build, and they name different winners: the main board publishes Dragons at 1.72 (-139) on its official-table model, and the OLBG lines board publishes Ospreys at 1.62 (-161) on the captured tip split. Cross-track review counts ten such pairs overall, but this is the only pair where BOTH sides are currently released as HIGH, which means a reader following &#x27;the high-confidence picks&#x27; is given two contradictory stakes on one match. Nothing here was arbitrated: neither board&#x27;s number was changed, because inventing a tie-break rule would be a worse fabrication than the disagreement.</p>
+  <h2>Resolved for the current release: Ospreys v Dragons has started and is absent from the fresh audit snapshot</h2>
+  <p>The historical cross-track contradiction remains documented, but it is no longer a live betting instruction. At the 22:33Z publication clock the official 18:45Z start had passed, so the root row is demoted to MEDIUM with start_window_reached; event 609581 is not in the current 22:24Z /olbg/ snapshot.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/predictions.html#RGU-609581" rel="noopener nofollow" target="_blank">Main board row (Dragons, 1.72)</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/predictions.html" rel="noopener nofollow" target="_blank">OLBG lines board row (Ospreys, 1.62)</a></li><li><a href="https://www.unitedrugby.com/latest-news/2026-27-fixtures-in-full" rel="noopener nofollow" target="_blank">United Rugby Championship official fixture list (Round 4, KO 19.45 IRE &amp; UK)</a></li></ul>
 </article>
 <article class="card flag" id="FL-210">
   <div class="flag-head"><span class="tag">FL-210</span> <span class="sev sev-medium">medium</span></div>
-  <h2>The five-a-day target is capped by official-clock availability, not by analysis: darts, snooker, tennis and cricket</h2>
-  <p>A released high-confidence pick needs an exact, timezone-qualified clock from a reviewed official host. Four sports with live OLBG fixtures in this window have none reachable from here: the PDC&#x27;s own pages return a consent wall to this retriever, so the European Championship session times (OLBG prints 11:00 UTC on 25 October for Price v Bunting) cannot be certified; the World Snooker Tour schedule page prints personalised clocks with no zone label; the ATP and WTA official order-of-play documents print &#x27;not before&#x27; slots rather than exact starts; and Pakistan v England (ODI tri-series, Gaddafi Stadium, 25 October) is listed at 08:00 UTC only by third-party aggregators, with the PCB and ICC match pages not retrieved in this pass. Each of those rows therefore stays MEDIUM or analysis instead of being pushed into the HIGH list.</p>
+  <h2>Exact official clocks still cap Darts, Snooker and Tennis; Cricket is partially resolved</h2>
+  <p>Pakistan v England is no longer part of this clock gap: the ECB explicitly prints 25 October, Lahore, 8.00am GMT, so CRI-188838 now releases as HIGH with ICC form evidence. Darts remains blocked by the PDC consent response, Snooker by a calendar without a usable timezone-qualified exact start, and Tennis by order-of-play “not before” slots rather than exact starts.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://www.pdc.tv/" rel="noopener nofollow" target="_blank">PDC European Championship page as retrieved at 2026-10-24T18:02Z (consent interstitial only)</a></li><li><a href="https://www.olbg.com/betting-tips/Darts/15" rel="noopener nofollow" target="_blank">OLBG darts listing carrying the 25 October card</a></li><li><a href="https://www.olbg.com/betting-tips/Tennis/3" rel="noopener nofollow" target="_blank">OLBG tennis listing carrying the 25 October order of play</a></li><li><a href="https://www.olbg.com/betting-tips/Cricket/7" rel="noopener nofollow" target="_blank">OLBG cricket listing carrying Pakistan v England</a></li></ul>
+  <ul class="srclist"><li><a href="https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka" rel="noopener nofollow" target="_blank">ECB exact Pakistan v England clock</a></li><li><a href="https://www.pdc.tv/" rel="noopener nofollow" target="_blank">PDC home page reached behind consent response</a></li><li><a href="https://www.wst.tv/matches" rel="noopener nofollow" target="_blank">World Snooker Tour schedule</a></li><li><a href="https://www.atptour.com/en/scores/current" rel="noopener nofollow" target="_blank">ATP scores and schedule</a></li></ul>
 </article>
 <article class="card flag" id="FL-211">
   <div class="flag-head"><span class="tag">FL-211</span> <span class="sev sev-low">low</span></div>
-  <h2>Independent re-test of promoting the 2026-10-24 capture: HIGH falls 11 to 8, confirming FL-208 on a second axis</h2>
-  <p>FL-208 records that promotion was tested and rejected because cricket event 188845 resolves to a different market and volleyball card 37002 restated its tip split. This session ran the same promotion independently at 18:08Z and measured a further consequence: with the 2026-10-24T1707Z capture as primary and the 2026-10-23 captures carried forward, matches.json grows from 223 rows to 371 and the OLBG board&#x27;s HIGH count falls from 11 to 8 - three published write-ups lose their HIGH grade because the newer card carries a different tip split, and tools/check_site.py then fails on the price quoted inside the surviving prose. The row count also doubles the archived fixtures shown on the board, because a carry-forward keeps every event the newer capture did not re-list. The promotion is therefore a genuine re-pricing, not a refresh, and it must land with the prose repairs in the same change.</p>
+  <h2>Resolved: fresh-capture promotion now rotates the snapshot instead of carrying archived rows</h2>
+  <p>The earlier experiment doubled the board because it treated a refresh as an append. Promotion now selects the newest non-empty capture, archives only metadata about the replaced primary, clears every supplemental input, and rebuilds exactly 124 current rows. Restated cards are repriced only when they remain in the fresh capture; rotated-off events disappear from the /olbg/ board.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/live-20261024T1707Z-a30d9bdb" rel="noopener nofollow" target="_blank">Same-day capture (203 rows) committed by session-a30d9bdb</a></li><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">OLBG lines board as published from the pinned 2026-10-23 capture</a></li></ul>
+  <ul class="srclist"><li><a href="https://buffedlizard55-lab.github.io/OLBG3/olbg/index.html" rel="noopener nofollow" target="_blank">Current one-snapshot OLBG board</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/live_refresh.py" rel="noopener nofollow" target="_blank">Refresh implementation</a></li></ul>
 </article>
 <article class="card flag" id="FL-212">
   <div class="flag-head"><span class="tag">FL-212</span> <span class="sev sev-medium">medium</span></div>
@@ -1460,11 +1460,39 @@
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40122281198" rel="noopener nofollow" target="_blank">Failed post-merge main run 40122281198 (PR #176) - Verify and publish dashboard, Unit tests step</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/commit/e291a532e4f358f621363ca5b54c764eb19e97a4" rel="noopener nofollow" target="_blank">Repair commit e291a53 (PR #178) - frozen batch-instant + release.assess pins</a></li><li><a href="https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/" rel="noopener nofollow" target="_blank">United Rugby Championship official 2026/27 fixtures in full (Ospreys v Dragons KO 19.45 IRE &amp; UK = 18:45Z)</a></li></ul>
 </article>
+<article class="card flag" id="FL-218">
+  <div class="flag-head"><span class="tag">FL-218</span> <span class="sev sev-medium">medium</span></div>
+  <h2>A fresh Greyhounds card printed SP instead of a numeric decimal price</h2>
+  <p>GRY-690043 (11:04 Doncaster, Snowfall) carries OLBG’s literal &#x27;SP&#x27; starting-price label. The first fresh rebuild attempted float(&#x27;SP&#x27;) and stopped. The parser now preserves SP as olbg_odds_raw, leaves olbg_odds_decimal blank and states that no number was inferred.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Greyhounds/28" rel="noopener nofollow" target="_blank">OLBG Greyhounds listing</a></li></ul>
+</article>
+<article class="card flag" id="FL-219">
+  <div class="flag-head"><span class="tag">FL-219</span> <span class="sev sev-high">high</span></div>
+  <h2>Fresh NHL and MLB observations previously inherited hard-coded 2026-10-23 source IDs</h2>
+  <p>The verifier used fixed source IDs, probe paths and session text even when a later official probe supplied the facts. That could make a fresh clock appear to come from older evidence. Current IDs are derived from the 2026-10-24T22:25:40Z manifest, and all 15 matched fixtures point to files in official-20261024T2225Z.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule endpoint</a></li><li><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&amp;startDate=2026-10-24&amp;endDate=2026-10-26&amp;hydrate=team,linescore,probablePitcher" rel="noopener nofollow" target="_blank">MLB official schedule endpoint</a></li></ul>
+</article>
+<article class="card flag" id="FL-220">
+  <div class="flag-head"><span class="tag">FL-220</span> <span class="sev sev-high">high</span></div>
+  <h2>Cited-evidence refresh covered clock URLs only and decoded binary PDFs as text</h2>
+  <p>The earlier cited probe did not fetch every form/history/injury source linked by current HIGH write-ups. It also UTF-8-decoded PDF bytes and stored the resulting replacement text, so those .txt files are not faithful PDF evidence. The collector now scopes both prediction tracks, records every reference, gives URLs hash-suffixed filenames and stores PDFs and other binary responses byte-for-byte.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/probe_cited.py" rel="noopener nofollow" target="_blank">Cited-evidence collector implementation</a></li><li><a href="https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka" rel="noopener nofollow" target="_blank">ECB source now in the complete HIGH-source scope</a></li></ul>
+</article>
+<article class="card flag" id="FL-221">
+  <div class="flag-head"><span class="tag">FL-221</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Pakistan v England has an official Lahore clock but no stadium confirmed by the cited documents</h2>
+  <p>The ECB page states England Men v Pakistan, Lahore at 8.00am GMT on 25 October. It does not name Gaddafi Stadium in the quoted fixture line, and the cited ICC ranking and match report do not close that field. The current row therefore publishes the exact UTC start and competition while leaving venue blank.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.ecb.co.uk/news/4594465/how-to-watch-and-follow-the-england-men-v-pakistan-and-sri-lanka" rel="noopener nofollow" target="_blank">ECB fixture clock and city</a></li><li><a href="https://www.icc-cricket.com/news/pakistan-youngster-joins-elite-odi-group-with-superb-haul" rel="noopener nofollow" target="_blank">ICC recent Pakistan v England report</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-23T16:21:00Z; publication clock 2026-10-24T20:50:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-24T22:25:39Z; publication clock 2026-10-24T22:33:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

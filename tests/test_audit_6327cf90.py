@@ -29,6 +29,7 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 
 from build_dataset import OTHER_MARKETS, parse_tips  # noqa: E402
+from archive_guard import pins  # noqa: E402
 
 
 def load(name):
@@ -135,6 +136,7 @@ class TestWithdrawnCBVRecords(unittest.TestCase):
         for eid in self.MISMATCHED:
             self.assertIn("MISMATCH", " ".join(ver[eid]["facts"]))
 
+    @pins("olbg-harvest-20261023T1700Z.tsv")
     def test_the_blank_propagated_onto_the_published_row(self):
         matches = {m["id"]: m for m in load("matches.json")}
         for mid in ("VOL-37002", "VOL-37003"):
@@ -149,6 +151,7 @@ class TestWithdrawnCBVRecords(unittest.TestCase):
             self.assertEqual("verified", ver[eid].get("status"), eid)
 
 
+@pins("olbg-harvest-20261023T1700Z.tsv")
 class TestProseMatchesItsSources(unittest.TestCase):
     """FL-159: no claim the cited source cannot carry, and no figure the held table contradicts."""
 
@@ -253,6 +256,7 @@ class TestQuotedPricesMatchTheirRows(unittest.TestCase):
                 offenders.append((piece["match_id"], row["our_pick"], piece["selection"][:60]))
         self.assertEqual([], offenders)
 
+    @pins("olbg-harvest-20261023T1700Z.tsv")
     def test_the_two_repaired_darts_pieces_agree_with_their_rows(self):
         lines = {l["match_id"]: l for l in load("lines.json")}
         pieces = {p["match_id"]: p for p in load("predictions-olbg.json")["predictions"]}

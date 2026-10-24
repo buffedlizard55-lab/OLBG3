@@ -439,6 +439,12 @@ def expected_match(row: dict, verification: dict, override: dict | None) -> dict
         note = row["note"]
         if row["carry_note"]:
             note = (note + "; " if note else "") + row["carry_note"]
+    captured_odds_raw = (row["odds_decimal"] or "").strip()
+    captured_odds_decimal = numeric_or_none(captured_odds_raw)
+    if captured_odds_raw and captured_odds_decimal is None:
+        price_note = (f"OLBG printed non-numeric price label {captured_odds_raw!r}; "
+                      "decimal price left blank, not inferred")
+        note = (note + "; " if note else "") + price_note
     date_iso = ((row["start_utc"] or "")[:10] or None) or resolve_date(
         row["date_label"], date.fromisoformat(row["source_day"])
     )
@@ -458,7 +464,7 @@ def expected_match(row: dict, verification: dict, override: dict | None) -> dict
         "date_iso": date_iso,
         "olbg_start_utc": row["start_utc"] or None,
         "olbg_start_basis": 'OLBG <time itemprop="startDate"> attribute' if row["start_utc"] else None,
-        "olbg_odds_decimal": numeric_or_none(row["odds_decimal"]),
+        "olbg_odds_decimal": captured_odds_decimal,
         "olbg_odds_american": row["odds_american"] or None,
         "olbg_market": override.get("olbg_market") or row["market"] or None,
         "market_family": market_family(override.get("olbg_market") or row["market"]),
@@ -477,10 +483,14 @@ def expected_match(row: dict, verification: dict, override: dict | None) -> dict
         "ambiguous_exclusion": row["sport"] == "Gaelic Football",
         "row_notes": note or None,
     }
-    if row["odds_decimal"]:
+    if captured_odds_decimal is not None:
         expected["olbg_odds_displayed_note"] = (
             "Price OLBG printed for this selection at capture time; not our line "
             "and not a bookmaker sheet read by this project."
+        )
+    elif captured_odds_raw:
+        expected["olbg_odds_displayed_note"] = (
+            f"OLBG printed {captured_odds_raw!r}, not a numeric price; decimal left blank."
         )
     else:
         expected["olbg_odds_displayed_note"] = None

@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""probe_cited.py — re-fetch the official pages this repo already cites for upcoming fixtures.
+"""probe_cited.py — re-fetch the source pages behind current HIGH predictions.
 
-The release gate expires an official observation 24 hours after it was read. Re-reading the same
-cited page is the only honest way to renew that observation: nothing is copied forward, and a page
-that no longer states a fixture simply yields nothing.
+The release gate expires an official clock observation 24 hours after it was read. Re-reading the
+same cited page is the only honest way to renew that observation. Form/history sources can differ
+from the clock source, so every non-OLBG link on a current HIGH write-up is captured too. Nothing is
+copied forward, and a page that no longer states a fixture simply yields no supporting text.
 
 Input : data/release_checks.json, data/matches.json
 Output: <out>/manifest.json + <out>/pages/<key>.(txt|json)
@@ -19,8 +20,10 @@ import re
 import time
 import urllib.error
 import urllib.request
+from collections import defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
@@ -59,6 +62,76 @@ class Render(HTMLParser):
         return '\n'.join(l for l in lines if l)
 
 
+def cited_urls(today: str) -> tuple[dict, dict[str, list[str]]]:
+    """Return upcoming release records and every source behind a current HIGH write-up.
+
+    A release URL establishes the clock only. The form, history and injury claims in a prediction
+    often cite different official documents, so probing release URLs alone cannot support a
+    line-by-line re-check of the prose. OLBG listing links are captured by live_harvest.py and are
+    deliberately excluded here to avoid fetching the same page twice.
+    """
+    checks = json.loads((DATA / 'release_checks.json').read_text(encoding='utf-8'))['events']
+    upcoming = {k: v for k, v in checks.items() if (v.get('date') or '') >= today and v.get('source')}
+    refs: dict[str, set[str]] = defaultdict(set)
+    for event_id, record in upcoming.items():
+        refs[record['source']].add(f'release/{event_id}')
+
+    prediction_files = (
+        ('root', DATA / 'predictions.json', 'ref', 'body'),
+        ('olbg', DATA / 'predictions-olbg.json', 'match_id', 'text'),
+    )
+    for track, path, id_key, _text_key in prediction_files:
+        doc = json.loads(path.read_text(encoding='utf-8'))
+        for piece in doc.get('predictions', []):
+            if piece.get('status') != 'high':
+                continue
+            ref = piece.get(id_key) or '?'
+            for source in piece.get('sources') or []:
+                url = (source.get('url') or '').strip() if isinstance(source, dict) else ''
+                parsed = urlsplit(url)
+                if parsed.scheme not in ('http', 'https') or not parsed.hostname:
+                    continue
+                if parsed.hostname.lower() == 'www.olbg.com':
+                    continue
+                refs[url].add(f'{track}/{ref}')
+    return upcoming, {url: sorted(values) for url, values in sorted(refs.items())}
+
+
+def evidence_key(url: str) -> str:
+    """Collision-resistant, reviewable filename stem for one cited URL."""
+    readable = re.sub(r'[^A-Za-z0-9]+', '-', url.split('://', 1)[-1])[:78].strip('-')
+    return f'{readable}-{hashlib.sha256(url.encode()).hexdigest()[:12]}'
+
+
+def store_response(out: Path, key: str, final_url: str, content_type: str,
+                   body: bytes) -> dict:
+    """Persist one response without ever decoding binary evidence.
+
+    The returned fields are copied into the manifest entry. Keeping this operation separate from
+    networking makes byte fidelity directly testable and keeps future format handling honest.
+    """
+    pages = out / 'pages'
+    pages.mkdir(parents=True, exist_ok=True)
+    path_lower = urlsplit(final_url).path.lower()
+    ctype_lower = content_type.lower()
+    if 'json' in ctype_lower or path_lower.endswith('.json'):
+        (pages / f'{key}.json').write_bytes(body)
+        return {'file': f'pages/{key}.json', 'storage': 'verbatim_json'}
+    if 'pdf' in ctype_lower or path_lower.endswith('.pdf'):
+        (pages / f'{key}.pdf').write_bytes(body)
+        return {'file': f'pages/{key}.pdf', 'storage': 'verbatim_pdf'}
+    if ctype_lower.startswith(('image/', 'audio/', 'video/', 'application/octet-stream')):
+        (pages / f'{key}.bin').write_bytes(body)
+        return {'file': f'pages/{key}.bin', 'storage': 'verbatim_binary'}
+
+    render = Render()
+    render.feed(body.decode('utf-8', 'replace'))
+    text = render.text()
+    (pages / f'{key}.txt').write_text(text + '\n', encoding='utf-8')
+    return {'file': f'pages/{key}.txt', 'storage': 'rendered_text',
+            'text_chars': len(text)}
+
+
 def main() -> int:
     import argparse
     ap = argparse.ArgumentParser()
@@ -67,19 +140,23 @@ def main() -> int:
     args = ap.parse_args()
 
     today = dt.datetime.now(dt.timezone.utc).date().isoformat()
-    checks = json.loads((DATA / 'release_checks.json').read_text())['events']
-    upcoming = {k: v for k, v in checks.items() if (v.get('date') or '') >= today and v.get('source')}
-    urls = sorted({v['source'] for v in upcoming.values()})
+    upcoming, source_refs = cited_urls(today)
+    urls = sorted(source_refs)
 
     out = Path(args.out)
     (out / 'pages').mkdir(parents=True, exist_ok=True)
     doc = {'tool': 'scripts/probe_cited.py', 'user_agent': AGENT,
            'started_at_utc': dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
-           'events_in_scope': sorted(upcoming), 'pages': []}
+           'scope_policy': ('Upcoming exact-clock source pages plus every non-OLBG source linked '
+                            'by a currently HIGH written prediction. A successful fetch records '
+                            'what the URL served; it does not by itself certify every prose claim.'),
+           'events_in_scope': sorted(upcoming),
+           'prediction_source_references': source_refs,
+           'pages': []}
 
     for index, url in enumerate(urls):
-        key = re.sub(r'[^A-Za-z0-9]+', '-', url.split('://', 1)[-1])[:90].strip('-')
-        entry = {'url': url, 'key': key}
+        key = evidence_key(url)
+        entry = {'url': url, 'key': key, 'referenced_by': source_refs[url]}
         try:
             req = urllib.request.Request(url, headers={
                 'User-Agent': AGENT,
@@ -92,14 +169,7 @@ def main() -> int:
             entry.update({'outcome': 'captured', 'status': status, 'final_url': final,
                           'bytes': len(body), 'sha256': hashlib.sha256(body).hexdigest(),
                           'content_type': ctype})
-            if 'json' in ctype or url.endswith('.json'):
-                (out / 'pages' / f'{key}.json').write_bytes(body)
-                entry['file'] = f'pages/{key}.json'
-            else:
-                render = Render()
-                render.feed(body.decode('utf-8', 'replace'))
-                (out / 'pages' / f'{key}.txt').write_text(render.text() + '\n', encoding='utf-8')
-                entry['file'] = f'pages/{key}.txt'
+            entry.update(store_response(out, key, final, ctype, body))
             print(f'{status} {len(body):>8}  {url}')
         except urllib.error.HTTPError as exc:
             entry.update({'outcome': 'http_error', 'status': exc.code, 'detail': str(exc.reason)[:160]})

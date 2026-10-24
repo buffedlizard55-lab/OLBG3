@@ -46,6 +46,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import build_dataset as bd  # noqa: E402
+from archive_guard import pins  # noqa: E402
 
 CAPTURE = ROOT / "data/raw/live-20261023T1700Z/listings"
 HREF_RE = re.compile(r'href="(https://www\.olbg\.com/betting-tips/[^"]*event_id=(\d+))"')
@@ -63,6 +64,7 @@ def match_rows() -> list[dict]:
     return json.loads((ROOT / "data/matches.json").read_text())
 
 
+@pins("olbg-harvest-20261023T1700Z.tsv")
 class PublishedLinkMatchesTheServedHref(unittest.TestCase):
     def setUp(self):
         self.hrefs = served_hrefs()
@@ -152,6 +154,7 @@ def olbg_pieces() -> dict[str, dict]:
     return {p["match_id"]: p for p in json.loads((ROOT / "data/predictions-olbg.json").read_text())["predictions"]}
 
 
+@pins("olbg-harvest-20261023T1700Z.tsv")
 class UrcRoundThreeResultsAgreeAcrossTheTracks(unittest.TestCase):
     """FL-164/FL-165: both tracks must describe the same official Round 3 results.
 
@@ -187,6 +190,7 @@ class UrcRoundThreeResultsAgreeAcrossTheTracks(unittest.TestCase):
         self.assertNotIn("at home by the Vodacom Bulls", piece)
 
 
+@pins("olbg-harvest-20261023T1700Z.tsv")
 class OfficialSourceDatesSupportTheirClaim(unittest.TestCase):
     """FL-166: a schedule citation must be dated the day of the fixture it evidences."""
 

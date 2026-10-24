@@ -9,6 +9,7 @@ import re
 import unittest
 import sys
 from pathlib import Path
+from archive_guard import pins
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -37,6 +38,7 @@ NEW_UNVERIFIED = {
 LIVE_HIGH = {"BSB-01", "BKB-29", "BKB-30", "GAF-01", "RGU-14", "VOL-27", "VOL-28", "VOL-29", "IHO-199984", "IHO-199985"}
 
 
+@pins('olbg-harvest-20261023T1700Z.tsv')
 class DailyCycleBeb7787bTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

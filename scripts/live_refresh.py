@@ -21,6 +21,7 @@ import argparse
 import json
 import subprocess
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -75,6 +76,107 @@ def run(script: str, *args: str) -> int:
     return subprocess.call(cmd)
 
 
+def _harvest_rows(path: Path) -> list[list[str]]:
+    """Return v3 data rows exactly as stored; comments and blanks are not rows."""
+    return [
+        line.split('|')
+        for line in path.read_text(encoding='utf-8').splitlines()
+        if line.strip() and not line.startswith('#')
+    ]
+
+
+def extract_capture(capture: Path, target: Path) -> int:
+    """Extract SSR cards, retrying hydration data only when the SSR result is empty."""
+    code = run('extract_listings.py', '--capture', str(capture), '--out', str(target))
+    if code == EMPTY_CAPTURE:
+        print(f'{capture.name}: no SSR tip cards; retrying the committed response with '
+              'the SvelteKit hydration fallback.')
+        code = run('extract_listings.py', '--capture', str(capture), '--out', str(target),
+                   '--svelte-fallback')
+    return code
+
+
+def promote_primary(capture: Path, harvest: Path) -> bool:
+    """Point the /olbg track at a newly captured, non-empty listing snapshot.
+
+    Raw captures are immutable evidence. Promotion changes only ``data/meta.json`` so the next
+    ``tools/build_dataset.py`` invocation reads the new TSV. Older primaries remain in ``data/raw``
+    and are logged in ``archived_primary_harvests``; they are not chained into the current board,
+    because doing so would make rotated-off or already-started cards look current.
+    """
+    rows = _harvest_rows(harvest)
+    if not rows:
+        raise ValueError(f'{harvest} has no data rows and cannot become the primary harvest')
+    manifest = json.loads((capture / 'manifest.json').read_text(encoding='utf-8'))
+    meta_path = ROOT / 'data' / 'meta.json'
+    meta = json.loads(meta_path.read_text(encoding='utf-8'))
+    rel_harvest = str(harvest.relative_to(ROOT / 'data'))
+    if meta.get('harvest_file') == rel_harvest:
+        return False
+
+    old_file = meta.get('harvest_file')
+    old_completed = meta.get('harvest_completed_utc')
+    history = meta.setdefault('archived_primary_harvests', [])
+    if old_file and not any(item.get('file') == old_file for item in history):
+        history.append({
+            'file': old_file,
+            'harvest_completed_utc': old_completed,
+            'replaced_by': rel_harvest,
+            'reason': ('A newer populated 18-endpoint OLBG capture became the current /olbg '
+                       'snapshot. The old bytes remain immutable in data/raw.'),
+        })
+
+    fetched = [
+        page.get('fetched_at_utc') for page in manifest.get('pages', [])
+        if page.get('fetched_at_utc')
+    ]
+    started = manifest.get('captured_at_utc') or (min(fetched) if fetched else '')
+    completed = max(fetched) if fetched else started
+    sports = Counter(parts[0] for parts in rows if parts)
+    empty_paths = [
+        page.get('path') for page in manifest.get('pages', [])
+        if page.get('outcome') == 'captured'
+        and not any(parts[0] == page.get('sport') for parts in rows)
+    ]
+    stamp = (started or capture.name).replace('-', '').replace(':', '')[:8]
+
+    meta.update({
+        'run_id': f'S-{stamp}-LIVE',
+        'run_started_utc': started,
+        'harvest_completed_utc': completed,
+        'olbg_locale_date': (started or '')[:10],
+        'harvest_file': rel_harvest,
+        'harvest_format': 'v3',
+        'harvest_timezone_note': (
+            'Format v3 preserves OLBG\'s machine-readable startDate UTC value and the clock '
+            'printed on the card. Neither is treated as an official competition clock; official '
+            'release checks are stored separately and missing values remain blank.'),
+        'previous_harvest': None,
+        'previous_harvests_extra': [],
+        'supplementary_harvests': [],
+        'harvest_method': {
+            'tool': ('scripts/live_harvest.py plus scripts/extract_listings.py '
+                     '(SSR cards; SvelteKit fallback only when SSR is empty)'),
+            'pages': [page.get('url') for page in manifest.get('pages', []) if page.get('url')],
+            'granularity': (
+                f'{len(rows)} unique live listing rows across {len(sports)} sports from the '
+                f'18-endpoint capture {capture.relative_to(ROOT)}; zero-row sports remain '
+                f'explicitly empty ({", ".join(empty_paths) if empty_paths else "none"}).'),
+            'values_inferred': 'none — unreadable values stay blank; source labels are copied from the captured response',
+        },
+        'archive_note': (
+            f'The current /olbg board is rebuilt only from {rel_harvest}. Earlier harvests remain '
+            'immutable audit artifacts and are not carried into the current snapshot.'),
+    })
+    session_note = f'automated primary promotion from {capture.name}'
+    prior_session = (meta.get('session') or '').strip()
+    if session_note not in prior_session:
+        meta['session'] = f'{prior_session} + {session_note}' if prior_session else session_note
+    meta_path.write_text(json.dumps(meta, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    print(f'meta     : promoted {rel_harvest} ({len(rows)} rows; {len(sports)} sports)')
+    return True
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--check', action='store_true')
@@ -109,7 +211,10 @@ def main() -> int:
     for capture in captures:
         stamp = capture.name.replace('live-', '')
         target = RAW / f'olbg-harvest-{stamp}.tsv'
-        code = run('extract_listings.py', '--capture', str(capture), '--out', str(target))
+        # Prefer the ordinary server-rendered cards. Hydration parsing is a compatibility retry,
+        # not the default interpretation of every response: only invoke it when SSR is genuinely
+        # empty (for example, the committed 21:33Z Svelte-only evidence snapshot).
+        code = extract_capture(capture, target)
         if code == EMPTY_CAPTURE:
             print(f'{capture.name}: empty listing capture, not usable as a harvest; '
                   f'kept as evidence and moving to the next capture.')
@@ -128,31 +233,25 @@ def main() -> int:
 
     print(f'capture : {chosen.relative_to(ROOT)}')
     print(f'tsv     : {tsv.relative_to(ROOT)}')
-    if probe is None:
-        print('no official probe committed; verification skipped (rows stay unverified)')
-        return 0
-
-    # Only re-verify when the capture we settled on is NEWER than the one that produced the
-    # committed primary harvest. Two reasons, both structural:
-    #   * Falling back to an older populated capture means "no new capture arrived", and that
-    #     capture's verifications are already in data/verifications.json. Re-running the probe
-    #     against it rewrites data/release_checks.json (including its accumulated policy history
-    #     and top-level checked_at) without adding a single new fact.
-    #   * The pipeline computes the board (scripts/model.py, tools/originate.py) BEFORE this step.
-    #     Re-stamping release evidence afterwards desynchronises the stored release blocks from
-    #     the evidence scripts/check_board.py recomputes, and the integrity check rightly fails.
-    # Renewing a source observation is a deliberate data change, made and rebuilt as one, not a
-    # side effect of choosing a capture directory.
+    # Only re-verify and promote when this capture is newer than the one that produced the
+    # committed primary harvest. Falling back to an older populated capture adds no fact, and
+    # re-stamping it would falsely renew release evidence. ``pages.yml`` runs this step before
+    # either board is built, so a genuine new observation is consumed consistently by both tracks.
     live_primary = live_primary_capture()
     if live_primary is not None and chosen.name <= live_primary:
         print(f'verification skipped: {chosen.name} is not newer than the committed primary '
               f'harvest ({live_primary}); its verifications are already published.')
         return 0
 
-    code = run('verify_live.py', '--probe', str(probe), '--harvest', str(tsv))
-    if code:
-        print('verification failed')
-        return code
+    if probe is None:
+        print('no official probe committed; fixture verification skipped (unmatched rows stay unverified)')
+    else:
+        code = run('verify_live.py', '--probe', str(probe), '--harvest', str(tsv))
+        if code:
+            print('verification failed')
+            return code
+
+    promote_primary(chosen, tsv)
     return 0
 
 

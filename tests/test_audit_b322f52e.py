@@ -33,6 +33,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import extract_listings as ex  # noqa: E402
 import originate as orig       # noqa: E402
+from archive_guard import pins  # noqa: E402
 
 BANNED = re.compile(r"\b(model|verified|verification)\b", re.I)
 SESSION_PIECES = [
@@ -84,6 +85,7 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
         cls.preds = {p["match_id"]: p for p in json.loads((DATA / "predictions-olbg.json").read_text(encoding="utf-8"))["predictions"]}
         cls.flagged = {i["id"]: i for i in json.loads((DATA / "flagged.json").read_text(encoding="utf-8"))["items"]}
 
+    @pins("olbg-harvest-20261023T1700Z.tsv")
     def test_cri_188845_top_batsman_is_classified_as_non_winner(self):
         self.assertEqual(self.matches["CRI-188845"]["olbg_market"], "Top Team1 Batsman")
         self.assertEqual(self.matches["CRI-188845"]["market_family"], "other")
@@ -107,6 +109,7 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
         self.assertNotIn("97:85", self.ver["36995"]["facts"][0])
         self.assertIn("78:65", self.ver["36995"]["facts"][0])
 
+    @pins("olbg-harvest-20261023T1700Z.tsv")
     def test_ospreys_v_dragons_clock_discrepancy_is_recorded(self):
         self.assertEqual(self.matches["RGU-609581"]["olbg_start_utc"], "2026-10-24T18:00:00.000Z")
         self.assertEqual(self.matches["RGU-609581"]["official_start_utc"], "2026-10-24T18:45:00Z")
@@ -126,6 +129,7 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
             for src in self.flagged[fid]["sources"]:
                 self.assertTrue(src["url"].startswith("https://"), fid)
 
+    @pins("olbg-harvest-20261023T1700Z.tsv")
     def test_session_high_pieces_meet_all_brief_gates(self):
         texts = []
         for mid in SESSION_PIECES:

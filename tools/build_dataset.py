@@ -47,7 +47,7 @@ WIN_MARKETS = {"Win Match", "Win Match 2-way", "Money Line", "To Win"}
 OUTRIGHT_MARKETS = {"Win Tournament", "Grand Final Winner", "Daily Races", "Outright Winner",
                     "Fastest Qualifier", "Win Race"}
 OTHER_MARKETS = {"Total Legs", "Game Totals", "Puck Line", "Handicap", "Handicap 2-way",
-                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", "Total Games", "Man Of The Match", "Top Team1 Batsman", ""}
+                 "Match Handicap", "Pointspread", "Set Betting", "Set Score", "1st Set Winner", "Games Won", "Total Games", "Total 180s", "Man Of The Match", "Top Team1 Batsman", ""}
 
 
 def competition_status(ev: dict) -> str:
@@ -63,6 +63,20 @@ def competition_status(ev: dict) -> str:
 
 
 _TIPS_RE = re.compile(r"^\s*(\d+)\s*/\s*(\d+)")
+
+
+def parse_decimal_price(value: str) -> float | None:
+    """Read an explicitly numeric decimal price; labels such as SP remain unpriced.
+
+    Greyhound cards can print ``SP`` (starting price) in the same attribute used for numeric
+    decimal odds. SP is not a number available at capture time, so converting it would require an
+    invention. Preserve the raw label separately and return ``None`` for the originated dataset.
+    """
+    try:
+        price = float((value or '').strip())
+    except (TypeError, ValueError):
+        return None
+    return price if price > 1.0 else None
 
 
 def parse_tips(tips: str) -> tuple[int | None, int | None]:
@@ -226,6 +240,12 @@ def main() -> None:
             home = ev.get("home") or source_home
             away = ev.get("away") or source_away
             won, total = parse_tips(tips)
+            captured_odds_raw = (v3.get("odds_decimal") or "").strip()
+            captured_odds_decimal = parse_decimal_price(captured_odds_raw)
+            if captured_odds_raw and captured_odds_decimal is None:
+                price_note = (f"OLBG printed non-numeric price label {captured_odds_raw!r}; "
+                              "decimal price left blank, not inferred")
+                note = (note + "; " if note else "") + price_note
             if market in WIN_MARKETS:
                 family = "match_winner"
             elif market in OUTRIGHT_MARKETS:
@@ -253,10 +273,15 @@ def main() -> None:
                 "date_iso": ((v3.get("start_utc") or "")[:10] or None) or resolve_date(date_label, src_day),
                 "olbg_start_utc": v3.get("start_utc") or None,
                 "olbg_start_basis": ("OLBG <time itemprop=\"startDate\"> attribute" if v3.get("start_utc") else None),
-                "olbg_odds_decimal": float(v3["odds_decimal"]) if v3.get("odds_decimal") else None,
+                "olbg_odds_decimal": captured_odds_decimal,
+                "olbg_odds_raw": captured_odds_raw or None,
                 "olbg_odds_american": v3.get("odds_american") or None,
-                "olbg_odds_displayed_note": ("Price OLBG printed for this selection at capture time; not our line "
-                                             "and not a bookmaker sheet read by this project." if v3.get("odds_decimal") else None),
+                "olbg_odds_displayed_note": (
+                    "Price OLBG printed for this selection at capture time; not our line "
+                    "and not a bookmaker sheet read by this project."
+                    if captured_odds_decimal is not None else
+                    (f"OLBG printed {captured_odds_raw!r}, not a numeric price; decimal left blank."
+                     if captured_odds_raw else None)),
                 "olbg_market": market or None,
                 "market_family": family,
                 "olbg_consensus_selection": consensus or None,

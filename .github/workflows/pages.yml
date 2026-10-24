@@ -29,6 +29,11 @@ jobs:
           python-version: '3.12'
       - name: Advance publication time (not source verification)
         run: python scripts/publication_clock.py
+      # A new committed raw capture must be extracted, officially matched where possible and
+      # promoted BEFORE either board is built. Running this after model.py used to re-stamp the
+      # evidence beneath an already-built root board and left data/meta.json pinned to yesterday.
+      - name: Promote the newest non-empty OLBG capture
+        run: python3 scripts/live_refresh.py
       - run: python scripts/update.py
       # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
       - run: python scripts/discovery.py
@@ -42,10 +47,8 @@ jobs:
       # and the shared flag register (data/flagged.json).
       - name: Rebuild the OLBG lines track
         run: |
-          # Extract the newest committed live capture and re-certify whichever fixtures the newest
-          # official probe can actually match. Both steps are deterministic: a re-run of the same
-          # capture rewrites byte-identical files, which is what makes the commit step below stable.
-          python3 scripts/live_refresh.py
+          # live_refresh.py already selected/promoted the capture before the root build, so both
+          # tracks consume one evidence state. These steps are deterministic for that state.
           python3 tools/build_dataset.py
           python3 tools/originate.py
           # Accounting/rendering must follow BOTH tracks' repricing and release expiry.

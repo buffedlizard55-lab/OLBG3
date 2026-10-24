@@ -17,6 +17,8 @@ import re
 import unittest
 from pathlib import Path
 
+from archive_guard import pins
+
 ROOT = Path(__file__).resolve().parents[1]
 
 # Official URC Round 3 results, read from the Match Centre on 2026-10-23:
@@ -70,6 +72,7 @@ def _eastern_date(utc_stamp):
     return moment.date()
 
 
+@pins("olbg-harvest-20261023T1700Z.tsv")
 class UrcRoundThreeResults(unittest.TestCase):
     """FL-164: neither track may reverse a Round 3 result."""
 
@@ -119,6 +122,7 @@ class UrcRoundThreeResults(unittest.TestCase):
         )
 
 
+@pins("olbg-harvest-20261023T1700Z.tsv")
 class NbaScheduleCitation(unittest.TestCase):
     """FL-166: a schedule link must be dated the day of the game."""
 

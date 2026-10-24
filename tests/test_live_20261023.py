@@ -202,7 +202,9 @@ class ArchiveIntegrity(unittest.TestCase):
         self.assertTrue(pinned.exists(), meta['harvest_file'])
         self.assertTrue([l for l in pinned.read_text(encoding='utf-8').splitlines()
                          if l.strip() and not l.startswith('#')])
-        self.assertIn('2026-10-23T16:21:00Z',
+        fetched_at = meta.get('harvest_completed_utc') or ''
+        self.assertRegex(fetched_at, r'^20\d\d-\d\d-\d\dT\d\d:\d\d:\d\dZ$')
+        self.assertIn(fetched_at,
                       (ROOT / 'site' / 'olbg' / 'index.html').read_text(encoding='utf-8'),
                       'the audit board must publish the fetch time of the capture it replays')
         # The empty 21:35Z capture is still evidence — as a capture, not as a derived empty TSV.

@@ -55,6 +55,9 @@ OFFICIAL_CLOCK_HOSTS = frozenset({
     # as www.mlb.com, served directly, so the host is reviewed here rather than inferring a value
     # from a rendered page. Structural trust boundary only.
     'statsapi.mlb.com',
+    # England and Wales Cricket Board schedules can print an exact timezone-qualified clock.
+    # Host matching is exact (no suffix trust); adding the www form does not certify a quote.
+    'www.ecb.co.uk',
 })
 
 

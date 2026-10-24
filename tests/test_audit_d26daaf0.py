@@ -244,10 +244,22 @@ class LiveRefreshFallback(unittest.TestCase):
                          if l.strip() and not l.startswith('#')])
         self.assertNotEqual(live_refresh.live_primary_capture(), EMPTY_CAPTURE)
         matches = json.loads((ROOT / 'data' / 'matches.json').read_text(encoding='utf-8'))
-        # Same-day SvelteKit supplementary captures (session-b322f52e) may add rows above 180,
-        # never reduce below the 180-row primary + 16:30Z floor.
-        self.assertGreaterEqual(len(matches), 180,
-                                'an empty capture must not reduce the published /olbg/ row count')
+        # Do not freeze a historical row-count floor: a later, genuinely populated listing can
+        # carry fewer active cards after older events rotate off. The invariant is lineage — every
+        # published row must come from the non-empty primary (minus explicit withdrawals), never
+        # from the empty capture that was skipped.
+        allowed_ids = {
+            line.split('|')[4]
+            for line in primary.read_text(encoding='utf-8').splitlines()
+            if line.strip() and not line.startswith('#')
+        }
+        for extra in meta.get('supplementary_harvests', []):
+            for line in (ROOT / 'data' / extra['file']).read_text(encoding='utf-8').splitlines():
+                if line.strip() and not line.startswith('#'):
+                    allowed_ids.add(line.split('|')[4])
+        match_ids = {str(row['id']).split('-', 1)[-1] for row in matches}
+        self.assertTrue(match_ids)
+        self.assertTrue(match_ids <= allowed_ids, sorted(match_ids - allowed_ids)[:10])
 
     def test_live_primary_capture_maps_the_pinned_harvest_back_to_its_capture(self):
         meta = json.loads((ROOT / 'data' / 'meta.json').read_text(encoding='utf-8'))

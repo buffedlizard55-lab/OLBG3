@@ -46,16 +46,24 @@ class BatchIntegrity(unittest.TestCase):
                 self.assertIn("event_id=", row["event_url"])
                 self.assertEqual(row["event_url"].split("event_id=")[-1], str(row["event_id"]))
 
-    def test_nhl_picks_are_high_and_written(self):
+    def test_nhl_picks_were_high_at_certification_and_remain_written(self):
+        # A historical batch cannot require a pre-match pick to stay live after puck drop. Keep
+        # the evidence-grade, band, source and prose pins; the moving release gate decides whether
+        # the piece is HIGH now or correctly labelled analysis.
         for row in self.spec["sports"].get("Ice Hockey", []):
             r = self.events[row["ref"]]
-            self.assertEqual(r["pick"]["confidence"], "HIGH", row["ref"])
+            self.assertEqual(r["pick"]["evidence_grade"], "HIGH", row["ref"])
             self.assertEqual(r["verification"]["status"], "verified")
             self.assertEqual(r["verification"]["source_tier"], "official")
             self.assertGreaterEqual(r["pick"]["price"], 1.40)
             self.assertLessEqual(r["pick"]["price"], 101.0)
             piece = self.preds[row["ref"]]
-            self.assertEqual(piece["status"], "high")
+            if r["pick"]["release"]["eligible"]:
+                self.assertEqual(r["pick"]["confidence"], "HIGH", row["ref"])
+                self.assertEqual(piece["status"], "high")
+            else:
+                self.assertNotEqual(r["pick"]["confidence"], "HIGH", row["ref"])
+                self.assertEqual(piece["status"], "analysis")
             self.assertGreaterEqual(len(piece["body"].split()), 30)
 
     def test_every_new_prediction_is_clean_and_sourced(self):
