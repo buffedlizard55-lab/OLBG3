@@ -4267,6 +4267,36 @@
           "url": "https://www.olbg.com/betting-tips"
         }
       ]
+    },
+    {
+      "id": "FL-201",
+      "original_id": "FL-199",
+      "severity": "medium",
+      "title": "Dated live-data scan pin (HighCandidateScan) turned four consecutive scheduled main builds red after BKB-17 tipped off - independently diagnosed by session-68d57005, repaired on main by session-aa934191 (PR #165) via a frozen-clock pin",
+      "detail": "Drafted as FL-199 at 2026-10-24T17:18Z; renumbered FL-201 at merge because session-aa934191 published FL-199/FL-200 first. tests/test_audit_ebe6dc9c.py::HighCandidateScan asserted the verified + upcoming + in-band non-HIGH scan equals exactly ['BKB-17', 'VOL-26'] against the live release status. BKB-17 (HOU Rockets @ SA Spurs, NBA) tipped off Fri 23 Oct 2026 9:30 PM ET per the NBA.com schedule the row cites; from the 2026-10-24T01:30Z builds onward the release gate correctly marks it 'past_date' ('The recorded fixture date has passed; archive only. Outcome not inferred.'), so the scan returns ['VOL-26'] and the strict-equality pin fails. Scheduled 'Verify and publish dashboard' runs 40046381418 (01Z), 40068077765 (06Z), 40088120634 (11Z) and 40103014276 (15Z) all failed at the 'Unit tests (after the rebuild)' step with every rebuild step green. Reproduced locally at 17:10Z-17:18Z running the exact CI step order: 301 tests, 1 failure, 25 skips. This session's independent repair (subset-of-reviewed-set assertion) was superseded unmerged when session-aa934191's frozen-clock pin (evaluating the 2026-10-23T21:32Z audit instant via release.assess now=historical) landed first as PR #165; the same root cause and the same failing assertion were found independently, which corroborates the repair. Nothing of the sibling's repair was reverted; the subset mechanism was dropped from this session's branch at rebase.",
+      "status": "resolved",
+      "action": "Repair live on main via PR #165 (frozen-clock historical pin). This session's net-new remainder landed as the diagnosis record docs/audit-68d57005.md, six corroborating regression pins in tests/test_audit_68d57005.py (frozen-clock repair presence, BKB-17 archive-only documentation, live-scan exclusion, register uniqueness), and the stale-claim hygiene + final-integration record in COORDINATION.md.",
+      "affected_ids": [
+        "BKB-17"
+      ],
+      "sources": [
+        {
+          "label": "NBA.com official schedule - Friday, October 23 (HOU Rockets @ SA Spurs, 9:30 PM ET, Moody Center, Austin)",
+          "url": "https://www.nba.com/schedule?date=2026-10-23"
+        },
+        {
+          "label": "Failed scheduled CI run 40103014276 (15Z) - Verify and publish dashboard, Unit tests step",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40103014276"
+        },
+        {
+          "label": "Failed scheduled CI run 40046381418 (01Z)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40046381418"
+        },
+        {
+          "label": "PR #165 - session-aa934191 frozen-clock repair of the same pin (merged 2026-10-24T17:13:48Z)",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/pull/165"
+        }
+      ]
     }
   ]
 }

@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">192 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">193 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1368,6 +1368,13 @@
   <p>The repository allowlist includes Gaelic Football and explicitly excludes Hurling. The GAA’s official “Our Games” page groups Hurling and Gaelic football under Gaelic Games, alongside Handball, Rounders, Camogie and Ladies Football. OLBG’s current hub also displayed Ballyhale Shamrocks v Tullaroan as a Hurling listing (event_id 714). This establishes a scope mismatch, not a verified match prediction. No hurling fixture or line was added because its inclusion would require a complete capture and official fixture/form verification.</p>
   <p class="muted small">Affected rows: —</p>
   <ul class="srclist"><li><a href="https://www.gaa.ie/the-gaa/games/our-games" rel="noopener nofollow" target="_blank">GAA official — Our Games (lists Hurling and Gaelic football within Gaelic Games)</a></li><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG current hub read 2026-10-24T17:08Z (Hurling event 714 shown)</a></li></ul>
+</article>
+<article class="card flag" id="FL-201">
+  <div class="flag-head"><span class="tag">FL-201</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Dated live-data scan pin (HighCandidateScan) turned four consecutive scheduled main builds red after BKB-17 tipped off - independently diagnosed by session-68d57005, repaired on main by session-aa934191 (PR #165) via a frozen-clock pin</h2>
+  <p>Drafted as FL-199 at 2026-10-24T17:18Z; renumbered FL-201 at merge because session-aa934191 published FL-199/FL-200 first. tests/test_audit_ebe6dc9c.py::HighCandidateScan asserted the verified + upcoming + in-band non-HIGH scan equals exactly [&#x27;BKB-17&#x27;, &#x27;VOL-26&#x27;] against the live release status. BKB-17 (HOU Rockets @ SA Spurs, NBA) tipped off Fri 23 Oct 2026 9:30 PM ET per the NBA.com schedule the row cites; from the 2026-10-24T01:30Z builds onward the release gate correctly marks it &#x27;past_date&#x27; (&#x27;The recorded fixture date has passed; archive only. Outcome not inferred.&#x27;), so the scan returns [&#x27;VOL-26&#x27;] and the strict-equality pin fails. Scheduled &#x27;Verify and publish dashboard&#x27; runs 40046381418 (01Z), 40068077765 (06Z), 40088120634 (11Z) and 40103014276 (15Z) all failed at the &#x27;Unit tests (after the rebuild)&#x27; step with every rebuild step green. Reproduced locally at 17:10Z-17:18Z running the exact CI step order: 301 tests, 1 failure, 25 skips. This session&#x27;s independent repair (subset-of-reviewed-set assertion) was superseded unmerged when session-aa934191&#x27;s frozen-clock pin (evaluating the 2026-10-23T21:32Z audit instant via release.assess now=historical) landed first as PR #165; the same root cause and the same failing assertion were found independently, which corroborates the repair. Nothing of the sibling&#x27;s repair was reverted; the subset mechanism was dropped from this session&#x27;s branch at rebase.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.nba.com/schedule?date=2026-10-23" rel="noopener nofollow" target="_blank">NBA.com official schedule - Friday, October 23 (HOU Rockets @ SA Spurs, 9:30 PM ET, Moody Center, Austin)</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40103014276" rel="noopener nofollow" target="_blank">Failed scheduled CI run 40103014276 (15Z) - Verify and publish dashboard, Unit tests step</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40046381418" rel="noopener nofollow" target="_blank">Failed scheduled CI run 40046381418 (01Z)</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/pull/165" rel="noopener nofollow" target="_blank">PR #165 - session-aa934191 frozen-clock repair of the same pin (merged 2026-10-24T17:13:48Z)</a></li></ul>
 </article>
 
 </main>
