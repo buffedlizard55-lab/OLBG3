@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T22:03:00Z",
+  "generated_at": "2026-10-24T17:08:00Z",
   "description": "Everything that could not be confirmed from an official source, disagreed between sources, or needs a human decision. Nothing here blocks publication; each item is published on the 'Flagged for Review' page. Items FL-001..FL-023 come from the first three sessions and the 074739aa re-audit (05:20Z harvest); FL-024 onward were raised by session-af0789e6's 06:50Z pass and renumbered at merge (original ids kept in 'original_id'). Current 2026-10-22 confidence audit added FL-040 for the withdrawn 65% floor predictions; no bookmaker odds or current OLBG recapture was available. FL-105 and FL-106 were appended by session-c038b7f4 as cross-track/evidence-accounting items; that session renewed no source observation and changed no fixture, price, grade or prose. FL-145..FL-153 were raised by session-beb7787b (16:30Z harvest, 16:55Z-17:22Z official re-observations) and renumbered from FL-131..FL-139 at merge (original ids kept in original_id). FL-168..FL-175 were raised by session-4636f368 on 2026-10-23, drafted as FL-161..FL-168 and renumbered twice as two sibling sessions published FL-161/FL-162 and then FL-163..FL-167 in the same window; original_id keeps the first-draft number. FL-184..FL-190 were raised by session-655b300a's 21:28Z-21:36Z official re-read and renumbered from a first draft of FL-177..FL-183 when session-a87a3681 published those ids; original_id keeps the first-draft number. FL-184 corroborates session-a87a3681's independent repair of the same four Rugby Union pieces.",
   "items": [
     {
@@ -4210,6 +4210,61 @@
         {
           "label": "Volleyball World — SuperLega Match #7 (Sir Susa Scai Perugia)",
           "url": "https://en.volleyballworld.com/volleyball/competitions/superlega/schedule/30002/"
+        }
+      ]
+    },
+    {
+      "id": "FL-199",
+      "severity": "high",
+      "title": "Live OLBG Baseball and Tennis listings have advanced beyond the last committed capture; current match coverage is not complete",
+      "detail": "At 2026-10-24T17:08Z, OLBG's Baseball listing displayed TB Rays @ MIL Brewers under event ID 160792, while the committed board has BSB-160789 / event ID 160789. Its Tennis listing displayed event IDs 902171, 902207, 902251, 902175, 902173 and 902172; the committed harvest contains an earlier event-ID set (902147–902168). These observations establish a difference between the live pages read and the captured snapshot only. They do not establish that any old match was canceled, settled, or no longer bettable. No event, official start, line or pick was inferred or added. Re-capture every in-scope sport and verify fixtures and official starts before describing the feed as current or complete.",
+      "status": "needs review",
+      "action": "Refresh all 15 OLBG listings into a dated raw capture; reconcile each changed event against its governing body; keep unsupported facts blank and do not carry expired or mismatched picks as current.",
+      "affected_ids": [
+        "BSB-160789",
+        "TEN-902147",
+        "TEN-902150",
+        "TEN-902153",
+        "TEN-902155",
+        "TEN-902157",
+        "TEN-902159",
+        "TEN-902160",
+        "TEN-902162",
+        "TEN-902163",
+        "TEN-902165",
+        "TEN-902168"
+      ],
+      "sources": [
+        {
+          "label": "OLBG live Baseball listing read 2026-10-24T17:08Z",
+          "url": "https://www.olbg.com/betting-tips/Baseball/12"
+        },
+        {
+          "label": "OLBG live Tennis listing read 2026-10-24T17:08Z",
+          "url": "https://www.olbg.com/betting-tips/Tennis/3"
+        },
+        {
+          "label": "OLBG current multi-sport tips hub read 2026-10-24T17:08Z",
+          "url": "https://www.olbg.com/betting-tips"
+        }
+      ]
+    },
+    {
+      "id": "FL-200",
+      "severity": "medium",
+      "title": "Scope ambiguity: current board includes Gaelic football but excludes hurling, while the request names Gaelic Sports",
+      "detail": "The repository allowlist includes Gaelic Football and explicitly excludes Hurling. The GAA’s official “Our Games” page groups Hurling and Gaelic football under Gaelic Games, alongside Handball, Rounders, Camogie and Ladies Football. OLBG’s current hub also displayed Ballyhale Shamrocks v Tullaroan as a Hurling listing (event_id 714). This establishes a scope mismatch, not a verified match prediction. No hurling fixture or line was added because its inclusion would require a complete capture and official fixture/form verification.",
+      "status": "needs review",
+      "action": "Treat Gaelic Football as the current narrow category; add Hurling only with a dedicated fixture capture, official source checks, independent prices and updated scope/model tests. Do not silently treat the current board as coverage of every Gaelic game.",
+      "affected_ids": [],
+      "sources": [
+        {
+          "label": "GAA official — Our Games (lists Hurling and Gaelic football within Gaelic Games)",
+          "url": "https://www.gaa.ie/the-gaa/games/our-games"
+        },
+        {
+          "label": "OLBG current hub read 2026-10-24T17:08Z (Hurling event 714 shown)",
+          "url": "https://www.olbg.com/betting-tips"
         }
       ]
     }

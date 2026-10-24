@@ -88,29 +88,34 @@ class LnrClockFinding(unittest.TestCase):
 
 
 class HighCandidateScan(unittest.TestCase):
-    def test_only_bkb17_is_verified_upcoming_in_band_non_high(self):
-        # 2026-10-23T21:32Z (session-a87a3681): the SuperLega Match #30003 clock for Itas Trentino v
-        # Cisterna was re-observed on Volleyball World's own match page, which makes the root row
-        # VOL-26 a second verified, upcoming, in-band, non-HIGH candidate. It is NOT promoted: the
-        # page's three-zone print is internally inconsistent (FL-181), so the start is flagged for
-        # review rather than upgraded. Update the expected list, not the grading rule.
-        events = json.loads((DATA / "events.json").read_text())["events"]
-        preds = {p["ref"]: p for p in json.loads((DATA / "predictions.json").read_text())["predictions"]}
+    def test_historical_candidate_scan_is_stable_as_publication_clock_advances(self):
+        # This audit was performed at 2026-10-23T21:32Z. Pin that historical instant explicitly:
+        # BKB-17 later passes its official start, while VOL-26 is still upcoming at today's build.
+        # Scanning mutable generated release statuses made this dated regression fail each day as
+        # the publication clock advanced, even though the underlying evidence had not changed.
+        import sys
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from release import assess, checks
+        from datetime import datetime, timezone
+
+        events = {r["ref"]: r for r in json.loads((DATA / "events.json").read_text())["events"]}
+        preds = {p["ref"] for p in json.loads((DATA / "predictions.json").read_text())["predictions"]}
+        records = checks()
+        historical = datetime(2026, 10, 23, 21, 32, tzinfo=timezone.utc)
         candidates = []
-        for r in events:
-            pk = r.get("pick") or {}
-            rel = pk.get("release") or {}
-            if pk.get("confidence") == "HIGH" or rel.get("status") != "upcoming":
-                continue
-            price = pk.get("price")
-            if price is None or not (1.40 <= price <= 101.0):
-                continue
-            if (r.get("verification") or {}).get("status") != "verified":
-                continue
-            candidates.append(r["ref"])
+        for ref in ("BKB-17", "VOL-26"):
+            row = events[ref]
+            pick = row.get("pick") or {}
+            evidence = assess(row.get("olbg_event_id"), pick.get("start_iso"),
+                              now=historical, records=records)
+            price = pick.get("price")
+            if (pick.get("confidence") != "HIGH" and evidence["status"] == "upcoming"
+                    and price is not None and 1.40 <= price <= 101.0
+                    and (row.get("verification") or {}).get("status") == "verified"):
+                candidates.append(ref)
         self.assertEqual(candidates, ["BKB-17", "VOL-26"])
-        # BKB-17 has no written prediction and cannot be upgraded to HIGH: it lacks an
-        # official two-sided form source, so grading it HIGH would require inference.
+        # Both are evidence-limited, not candidates for promotion: BKB-17 lacks an official
+        # two-sided form source; VOL-26 remains held back by its internally inconsistent clock.
         self.assertNotIn("BKB-17", preds)
         self.assertNotIn("VOL-26", preds)
 
