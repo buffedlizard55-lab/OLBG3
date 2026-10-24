@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">218 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">219 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1551,11 +1551,18 @@
   <p class="muted small">Affected rows: NX-RUG-609571, NX-RUG-609554, NX-VOL-37108, NX-VOL-37109, NX-VOL-37110, NX-VOL-37111, NX-VOL-37112, NX-VOL-37113, NX-VOL-37114, NX-VOL-36996</p>
   <ul class="srclist"><li><a href="https://saracens.com/5-must-attend-saracens-fixtures/" rel="noopener nofollow" target="_blank">Saracens - Harlequins v Saracens &#x27;KO 15:00&#x27;</a></li><li><a href="https://top14.lnr.fr/feuille-de-match/2026-2027/j7/11864-la-rochelle-bordeaux-begles" rel="noopener nofollow" target="_blank">LNR - J7 Stade Rochelais v UBB &#x27;21h05&#x27;</a></li><li><a href="https://tvf.org.tr/icerik/vodafone-sultanlar-liginde-5hafta-maclari-oynanacak" rel="noopener nofollow" target="_blank">TVF - Sultanlar Ligi week 5 schedule</a></li><li><a href="https://www.legavolley.it/calendario/?idCampionato=999" rel="noopener nofollow" target="_blank">Lega Pallavolo - SuperLega calendario</a></li></ul>
 </article>
+<article class="card flag" id="FL-231">
+  <div class="flag-head"><span class="tag">FL-231</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Third dated-pin red build: test_audit_a30d9bdb required started NHL picks to stay HIGH</h2>
+  <p>Main run 40141002367 (5b5526a) failed &#x27;Unit tests (after the rebuild)&#x27;: test_nhl_picks_are_high_and_written asserted HIGH for IHO-200006/200003/200002/200010, but NSH @ PIT and the other 23:00Z games had passed their official start (api-web.nhle.com schedule 2026-10-24), so the pipeline correctly withdrew them from HIGH. PR #191 merged before its branch check finished, which let the red build reach main.</p>
+  <p class="muted small">Affected rows: IHO-200006, IHO-200003, IHO-200002, IHO-200010</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule 2026-10-24</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40141002367" rel="noopener nofollow" target="_blank">Failed main run 40141002367</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-24T22:25:15Z; publication clock 2026-10-24T22:59:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-24T22:25:15Z; publication clock 2026-10-24T23:04:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

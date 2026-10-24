@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-24T22:59:00+00:00",
+  "root_publication_clock": "2026-10-24T23:04:00+00:00",
   "root_capture": "2026-10-24",
   "root_built": "2026-10-24",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. This script fetches nothing: any clock, quote or verification shown elsewhere on the board was read through the page-retrieval tool and is stored with its URL and read time in data/release_checks.json. The shell itself still has no outbound route (FL-077), which is why no OLBG HTML capture can be produced from here."
@@ -32,14 +32,14 @@
  "totals": {
   "sports_listed": 15,
   "sports_with_rows": 15,
-  "sports_meeting_target": 1,
-  "live_high_root": 12,
+  "sports_meeting_target": 0,
+  "live_high_root": 8,
   "live_high_olbg": 4,
-  "live_high_union": 12,
+  "live_high_union": 8,
   "root_rows": 367,
   "olbg_rows": 418,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 63
+  "shortfall_to_target": 67
  },
  "sports": [
   {
@@ -333,55 +333,31 @@
    "root_outright": 0,
    "root_handicap": 32,
    "root_total": 32,
-   "root_high": 5,
+   "root_high": 1,
    "olbg_rows": 49,
    "olbg_priced_win": 49,
    "olbg_handicap": 49,
    "olbg_total": 49,
    "olbg_high": 0,
-   "live_high_union": 5,
+   "live_high_union": 1,
    "target": 5,
-   "shortfall": 0,
-   "meets_target": true,
+   "shortfall": 4,
+   "meets_target": false,
    "blocking": {
     "no_official_form": 15,
     "high_evidence_out_of_band": 9,
-    "start_or_source_gate": 42,
+    "start_or_source_gate": 46,
     "unpriced": 6,
     "unverified_or_corroborated": 15
    },
    "reasons": [
     "15 of 47 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "9 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "42 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "46 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "6 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "15 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
    "live_picks": [
-    {
-     "event_id": "200002",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root"
-     ],
-     "root_ref": "IHO-200002",
-     "olbg_ref": null,
-     "selection": "CAR Hurricanes",
-     "price": 1.7,
-     "american": -143
-    },
-    {
-     "event_id": "200003",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root"
-     ],
-     "root_ref": "IHO-200003",
-     "olbg_ref": null,
-     "selection": "WAS Capitals",
-     "price": 1.44,
-     "american": -227
-    },
     {
      "event_id": "200005",
      "sport": "Ice Hockey",
@@ -393,30 +369,6 @@
      "selection": "SEA Kraken",
      "price": 1.7,
      "american": -143
-    },
-    {
-     "event_id": "200006",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root"
-     ],
-     "root_ref": "IHO-200006",
-     "olbg_ref": null,
-     "selection": "PIT Penguins",
-     "price": 1.53,
-     "american": -189
-    },
-    {
-     "event_id": "200010",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "root"
-     ],
-     "root_ref": "IHO-200010",
-     "olbg_ref": null,
-     "selection": "EDM Oilers",
-     "price": 1.41,
-     "american": -244
     }
    ]
   },
@@ -706,7 +658,7 @@
  "prose_evidence": {
   "root": {
    "pieces": 93,
-   "high": 12,
+   "high": 8,
    "words_min": 57,
    "words_median": 95,
    "words_max": 176,
