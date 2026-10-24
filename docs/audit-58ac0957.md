@@ -8,7 +8,7 @@
 
 ## Executive result
 
-The new deterministic gate passes the current combined inputs: **142 written pieces (24 HIGH, 118 analysis), zero HIGH violations and one analysis-only duplicate warning**. Fourteen focused unit tests pass, and `tools/check_site.py` passes with the independent gate enabled.
+At the audited pre-FL-212 baseline, the new deterministic gate passes the combined inputs: **142 written pieces (24 HIGH, 118 analysis), zero HIGH violations and one analysis-only duplicate warning**. Fourteen focused unit tests pass, and `tools/check_site.py` passes with the independent gate enabled.
 
 The manual source review is intentionally not reduced to that green result. It found:
 
@@ -107,3 +107,7 @@ pages=110 local_links_checked=2552 broken=0
 An earlier direct unit-test invocation had three missing-`site/` errors and the first link invocation had 114 missing scaffold links because the gitignored artifact had not been built in workflow order. The artifact was generated, not hand-edited, and the same checks then passed as recorded above. No tracked HTML changed.
 
 PR, merge and Pages evidence is recorded in `COORDINATION.md`; flagged factual/citation irregularities are not silently reclassified as passing facts.
+
+## Post-audit integration note
+
+PR #170 merged at 2026-10-24T18:25:58Z. Main dashboard run `40121257986` and regenerated-main legacy Pages run `40121471226` both succeeded, and direct public reads returned the 18:36 UTC root and `/olbg/` dashboards. After PR #174's independent FL-212 prose repair, the gate reports zero warnings on main; this session did not edit that prose. The two EHF contradictions documented above remained in the published prediction inputs at 18:38 UTC and remain an explicit PR #169 handoff, not a resolved finding.
