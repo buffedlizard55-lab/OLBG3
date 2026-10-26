@@ -1,6 +1,6 @@
 {
   "session": "170e6805",
-  "publication_clock": "2026-10-26T20:47:00Z",
+  "publication_clock": "2026-10-26T23:53:00Z",
   "brief": {
     "band_us": [
       -250,
@@ -14,9 +14,9 @@
     "lines": 523,
     "written_olbg": 61,
     "written_root": 93,
-    "live_high_upcoming": 2,
+    "live_high_upcoming": 1,
     "sports_meeting_target": 0,
-    "issues": 41
+    "issues": 42
   },
   "per_sport": {
     "Golf": {
@@ -197,9 +197,9 @@
       },
       "written_predictions": 10,
       "written_high": 5,
-      "live_high_upcoming": 2,
+      "live_high_upcoming": 1,
       "target": 5,
-      "shortfall": 3
+      "shortfall": 4
     },
     "Basketball": {
       "fixtures": 61,
@@ -231,32 +231,6 @@
     }
   },
   "live_high": [
-    {
-      "match_id": "ICH-200101",
-      "sport": "Ice Hockey",
-      "match": "LA Kings @ NY Rangers",
-      "selection": "NY Rangers to win \u2014 money line",
-      "confidence": "high",
-      "status": "high",
-      "text": "New York Rangers to win the money line against Los Angeles. The Rangers' six wins from six home games are the clearest reason to prefer them, although their two-game losing streak prevents this from being a carefree selection. Los Angeles arrive with a 2-5-2 overall record and 21 goals scored against 32 conceded; New York are 7-5-1 with a 41-36 goal balance. The Kings have been more competitive away, going 2-2-2, so the straight win is preferable to asking the Rangers to cover a handicap. No starting-goalie assumption is built into the recommendation.",
-      "sources": [
-        {
-          "label": "NHL official schedule \u2014 UTC start and both teams; retrieved October 26",
-          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
-        },
-        {
-          "label": "NHL official standings October 26 \u2014 records, goals, last ten and venue splits",
-          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
-        }
-      ],
-      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass.",
-      "price": "-222",
-      "decimal": 1.45,
-      "start_utc": "2026-10-26T23:00:00Z",
-      "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/LA_Kings_@_NY_Rangers/13?event_id=200101",
-      "handicap": -1.5,
-      "total": 5.5
-    },
     {
       "match_id": "ICH-200102",
       "sport": "Ice Hockey",
@@ -488,6 +462,11 @@
     {
       "track": "olbg",
       "id": "HAN-12128",
+      "issue": "prediction labelled HIGH but originated line confidence is 'medium'"
+    },
+    {
+      "track": "olbg",
+      "id": "ICH-200101",
       "issue": "prediction labelled HIGH but originated line confidence is 'medium'"
     }
   ]

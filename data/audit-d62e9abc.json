@@ -1,7 +1,7 @@
 {
   "session": "session-d62e9abc",
   "branch": "arena/d62e9abc-olbg3",
-  "publication_clock": "2026-10-26T20:47:00Z",
+  "publication_clock": "2026-10-26T23:53:00Z",
   "primary_harvest_file": "raw/olbg-harvest-20261026T2020Z-ef52c632.tsv",
   "counts": {
     "in_scope_sports": 15,
@@ -22,11 +22,11 @@
     "predictions_under_30_words": 0,
     "predictions_with_banned_words": 0,
     "predictions_missing_https_sources": 0,
-    "live_high_picks": 2,
+    "live_high_picks": 1,
     "oct26_nhl_written_pieces": 7,
     "upcoming_ehf_round6_written_pieces": 8,
     "target_picks_total": 75,
-    "shortfall_to_target": 73,
+    "shortfall_to_target": 74,
     "audit_irregularities": 11,
     "shared_flag_register_items": 225
   },
@@ -279,15 +279,15 @@
       "priced_handicap": 60,
       "priced_total": 60,
       "confidence_counts": {
-        "high": 2,
-        "medium": 16,
+        "high": 1,
+        "medium": 17,
         "low": 42
       },
       "written_predictions_total": 30,
-      "live_high_picks": 2,
-      "upcoming_written_analyses": 7,
+      "live_high_picks": 1,
+      "upcoming_written_analyses": 6,
       "target": 5,
-      "shortfall": 3,
+      "shortfall": 4,
       "official_portal_label": "NHL Official Schedule & Standings API",
       "official_portal_url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
     },
@@ -333,42 +333,6 @@
     }
   },
   "live_high_picks": [
-    {
-      "track": "olbg",
-      "id": "ICH-200101",
-      "sport": "Ice Hockey",
-      "match": "LA Kings @ NY Rangers",
-      "selection": "NY Rangers to win — money line",
-      "status": "high",
-      "row_confidence": "high",
-      "release_status": "upcoming",
-      "start_utc": "2026-10-26T23:00:00Z",
-      "our_price_pick": 1.45,
-      "our_us_odds_pick": "-222",
-      "our_pick_probability": 0.6565,
-      "our_handicap": "NY Rangers -1.5",
-      "our_total": "Under 5.5",
-      "word_count": 93,
-      "words_ok": true,
-      "banned_words": [],
-      "duplicate_of": null,
-      "https_sources_ok": true,
-      "in_band": true,
-      "under_chalk_cap": true,
-      "text": "New York Rangers to win the money line against Los Angeles. The Rangers' six wins from six home games are the clearest reason to prefer them, although their two-game losing streak prevents this from being a carefree selection. Los Angeles arrive with a 2-5-2 overall record and 21 goals scored against 32 conceded; New York are 7-5-1 with a 41-36 goal balance. The Kings have been more competitive away, going 2-2-2, so the straight win is preferable to asking the Rangers to cover a handicap. No starting-goalie assumption is built into the recommendation.",
-      "sources": [
-        {
-          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
-          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
-        },
-        {
-          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
-          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
-        }
-      ],
-      "olbg_url": "https://www.olbg.com/betting-tips/Ice_Hockey/NHL/NHL/LA_Kings_@_NY_Rangers/13?event_id=200101",
-      "downgrade_reason": null
-    },
     {
       "track": "olbg",
       "id": "ICH-200102",
@@ -1477,7 +1441,7 @@
       "id": "ICH-200101",
       "sport": "Ice Hockey",
       "selection": "NY Rangers to win — money line",
-      "status": "high",
+      "status": "analysis",
       "word_count": 93,
       "words_ok": true,
       "banned_words": [],

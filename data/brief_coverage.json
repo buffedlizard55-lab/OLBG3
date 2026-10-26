@@ -24,7 +24,7 @@
   ]
  },
  "source_clocks": {
-  "root_publication_clock": "2026-10-26T20:47:00+00:00",
+  "root_publication_clock": "2026-10-26T23:53:00+00:00",
   "root_capture": "2026-10-24",
   "root_built": "2026-10-26",
   "notes": "The publication clock is the committed snapshot clock, not the wall clock at build time. A pick whose official start has passed since that clock is expired in the browser by assets/release.js. No source was re-verified by this script; no checked_at or quote was renewed. This script fetches nothing: any clock, quote or verification shown elsewhere on the board was read through the page-retrieval tool and is stored with its URL and read time in data/release_checks.json. The shell itself still has no outbound route (FL-077), which is why no OLBG HTML capture can be produced from here."
@@ -34,12 +34,12 @@
   "sports_with_rows": 15,
   "sports_meeting_target": 0,
   "live_high_root": 0,
-  "live_high_olbg": 2,
-  "live_high_union": 2,
+  "live_high_olbg": 1,
+  "live_high_union": 1,
   "root_rows": 367,
   "olbg_rows": 523,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 73
+  "shortfall_to_target": 74
  },
  "sports": [
   {
@@ -325,10 +325,10 @@
    "olbg_priced_win": 60,
    "olbg_handicap": 60,
    "olbg_total": 60,
-   "olbg_high": 2,
-   "live_high_union": 2,
+   "olbg_high": 1,
+   "live_high_union": 1,
    "target": 5,
-   "shortfall": 3,
+   "shortfall": 4,
    "meets_target": false,
    "blocking": {
     "no_official_form": 15,
@@ -345,18 +345,6 @@
     "15 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
    "live_picks": [
-    {
-     "event_id": "200101",
-     "sport": "Ice Hockey",
-     "tracks": [
-      "olbg"
-     ],
-     "root_ref": null,
-     "olbg_ref": "ICH-200101",
-     "selection": "NY Rangers",
-     "price": 1.45,
-     "american": "-222"
-    },
     {
      "event_id": "200102",
      "sport": "Ice Hockey",
@@ -606,7 +594,7 @@
   },
   "olbg": {
    "pieces": 61,
-   "high": 2,
+   "high": 1,
    "words_min": 56,
    "words_median": 112,
    "words_max": 254,
