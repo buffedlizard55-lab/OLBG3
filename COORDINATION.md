@@ -1,3 +1,15 @@
+# session-3b855c84 — 2026-10-26 current-source refresh and final integration (CLAIMED 2026-10-26T20:20:52Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-3b855c84-20261026-refresh-integration | in progress | session-3b855c84, Arena-fixed `arena/3b855c84-olbg3` | `COORDINATION.md` (this claim and completion record only); `.harvest/request.json`; new `data/raw/live-20261026T*-3b855c84/**` and runner official/cited captures; `data/meta.json`, `data/current.json`, `data/events.json`, `data/matches.json`, `data/lines.json`, `data/official.json`, `data/verifications.json`, `data/predictions*.json`, `data/flagged.json`, `data/release_checks.json`, `data/brief_coverage.json` and other regenerated data; root/`olbg`/`olbg-board`/`sports`/`daily` generated HTML; `README.md` and new `docs/audit-3b855c84.md`; narrow generator/checker repairs only if a reproducible defect is found; no edits to other sessions' standalone audit/test files. |
+
+- Higher-priority branch constraint fixes all work to `arena/3b855c84-olbg3`; no separate session branch or worktree is created. The integration branch for the PR is therefore this branch itself.
+- Latest board activity and all five open PRs were dated 2026-10-24, more than 60 minutes before this claim; no active session claim is being taken. Stale open PRs are not merged blindly. Their independent evidence will be preserved if reconciliation brings it into scope.
+- Scope: fresh OLBG listing read for only the 15 in-scope sports; fresh official/governing-body rereads where possible; line-by-line verification of current rows; clearly labeled originated estimates (not bookmaker quotes); uniquely written >=30-word predictions only for current, source-supported HIGH picks; executive summary; category subpages; Flagged for Review; build/link/deploy checks; PR + merge + Pages deployment confirmation.
+- Gaps, expired events, unreadable markets, absent official form/injury data and unmet five-per-sport quotas are to be published as flags, never filled by inference.
+- Every push: `git pull --rebase origin arena/3b855c84-olbg3` first; small commits; preserve other sessions' files on conflict.
+
 
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
