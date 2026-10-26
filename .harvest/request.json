@@ -1,11 +1,11 @@
 {
-  "out": "data/raw/live-20261026T2021Z-3b855c84",
-  "requested_at_utc": "2026-10-26T20:21:00Z",
+  "out": "data/raw/form-evidence-20261026T2030Z-3b855c84",
+  "requested_at_utc": "2026-10-26T20:30:00Z",
   "requested_by": "session-3b855c84",
-  "why": "Fresh 2026-10-26 verbatim OLBG capture of all 18 in-scope listings, official competition probe for the current date, and byte-faithful reread of official pages cited by currently upcoming rows. Evidence is captured first; no fixture, clock, statistic or price is inferred.",
-  "capture": true,
-  "probe": true,
-  "cited": true,
+  "why": "Byte-faithful official fixture/form/standings/ranking evidence for the fresh 2026-10-26 OLBG inventory. The OLBG listings and generic official probe were already captured in live-20261026T2021Z-3b855c84; this request only reads the explicit official URL list in .harvest/urls-3b855c84.txt.",
+  "capture": false,
+  "probe": false,
+  "cited": false,
   "cited_urls": [],
-  "urls": ""
+  "urls": ".harvest/urls-3b855c84.txt"
 }
