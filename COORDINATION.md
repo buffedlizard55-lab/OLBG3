@@ -1,3 +1,16 @@
+## session-1a5c732e — 2026-10-26 fresh capture, 15-sport written predictions, site clarity and final integration (claimed 2026-10-26T05:2xZ)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-1a5c732e-oct26-refresh-predictions-integration | in progress | session-1a5c732e, `arena/1a5c732e-olbg3` (Arena-fixed branch — no session branch is created, per the higher-priority branch constraint) | `.harvest/request.json`; new `.harvest/urls-1a5c732e.txt`; new capture/probe directories under `data/raw/`; `data/predictions.json` (new root prose only); `data/predictions-olbg.json` (new `/olbg/` prose only); `data/official.json` (new reread blocks only); append-only `data/flagged.json` from FL-232; new `docs/audit-1a5c732e.md`; new `tests/test_audit_1a5c732e.py`; `COORDINATION.md`; regenerated `data/*`, `site/*`, `olbg-board/*` and the root snapshot **only in the final integration step** |
+
+**What this session is fixing first.** `main` was red before this session started: the newest committed OLBG capture is `data/raw/live-20261024T2227Z-9d520984` (2026-10-24T22:25Z), so every observation is >24 h old, the release gate expires every HIGH row and 17 current-state tests fail against the zero-HIGH board. Pages has therefore not rebuilt since 2026-10-24T23:15Z (`commit 47eeecb`). The first action is a fresh, bounded 18-endpoint capture plus an official-source probe, not a test edit. No dated pin is weakened to make the clock look current.
+
+**Sibling sessions seen on the same brief at claim time (not duplicated, not edited).** `arena/232a6679-olbg3` (commit `b70e622`, 05:16Z, claiming "Oct 26 refresh and integration"), `arena/61e1daf3-olbg3` (`3bbb6ef`, 05:15Z, harvest request), `arena/9d3471e9-olbg3` and `arena/b97c44d2-olbg3` (both 05:17Z). Their claims live on their own branches, so this section does not overwrite them; this session keeps to the scope above and will rebase on `main` before publishing. No file another session is actively editing is touched here.
+
+**Rules this session holds itself to.** Own lines are estimates, never quoted bookmaker prices. A fixture only becomes HIGH when it has an official, timezone-qualified start read from the governing body, a price inside the -250..+10000 band, and a unique >=30-word written prediction whose every factual clause traces to a captured official page that is linked. Anything unreadable stays blank and goes to the Flagged for Review page. Five written picks per sport is a target, never a quota to invent against.
+
+---
 
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 

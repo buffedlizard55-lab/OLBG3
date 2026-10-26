@@ -1,14 +1,10 @@
 {
-  "out": "data/raw/live-20261024T2225Z-1815f0b1",
-  "requested_at_utc": "2026-10-24T22:32:35Z",
-  "requested_by": "session-1815f0b1",
-  "why": "Final reread of current written-prediction facts: exact MLB standings and official SuperLega calendar/standings, plus existing official clock sources; retain PDF bytes faithfully.",
-  "capture": false,
-  "probe": false,
-  "cited": true,
-  "cited_urls": [
-    "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
-    "https://www.legavolley.it/calendario/?idCampionato=999",
-    "https://www.legavolley.it/classifica/?IdCampionato=999"
-  ]
+  "out": "data/raw/live-20261026T0525Z-1a5c732e",
+  "requested_at_utc": "2026-10-26T05:22:00Z",
+  "requested_by": "session-1a5c732e",
+  "why": "The committed board is built on the 2026-10-24 capture, which is now beyond the 24 h source-age gate, so every HIGH pick has expired and Pages has not rebuilt since 2026-10-24T23:15Z. This request asks for the 18-endpoint public listing capture for Monday 26 October, the standard official competition probe (NHL/MLB/NBA structured endpoints plus the 14 governing-body pages), and one explicit byte-faithful read of the fixtures/results/standings pages listed in .harvest/urls-1a5c732e.txt so each new fixture can be matched to its own official clock and form record.",
+  "capture": true,
+  "probe": true,
+  "cited": false,
+  "urls": ".harvest/urls-1a5c732e.txt"
 }
