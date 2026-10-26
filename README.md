@@ -1,38 +1,22 @@
 # OLBG3 — reverse-engineered multi-sport board, originated lines & sourced research picks
 
-## 2026-10-26 — the hourly job was red for two days; the board now carries today's capture and nine live picks — `session-b329efe5`
+## October 26 refresh — 142 new-capture entries, seven NHL analyses, two current HIGH research picks
 
-Full record: [`docs/audit-b329efe5.md`](docs/audit-b329efe5.md) · register: **FL-232 … FL-236** on
+[Today's written picks](https://buffedlizard55-lab.github.io/OLBG3/today.html#shortlist) ·
+[Full lines board](https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html) ·
 [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html)
 
-**Why the site had been showing the 24–25 October board.** Every scheduled publication run since
-2026-10-25T01:14Z failed at one step. The cause was ordering, not evidence: the official-clock
-re-certification ran *after* the two grading scripts, so the board gate compared today's clock with
-yesterday's release records and refused 22 rows. The fix moves the re-certification ahead of grading
-and takes one ordered pass; a pick whose source has aged out now demotes to labelled analysis
-instead of turning the job red. No sporting value, price or gate was relaxed, and the second defect
-the repair exposed — a stale-snapshot banner linking a `flagged.html` that does not exist on the
-sport pages — is fixed too.
+**Current pass:** 523 combined listing rows including dated carry-only history; 520 winner/entrant
+estimates, three unpriced. Seven new NHL analyses use the official October 26 schedule and standings;
+only Rangers and Oilers pass the existing HIGH research-grade gates. **2/75 target picks, shortfall 73**:
+the five-per-sport goal is not achieved, and a research grade is not a calibrated win rate.
 
-**Today's capture.** A fresh, robots-aware read of all 18 in-scope OLBG listings at 20:22Z produced
-142 tip cards across 14 sports; Snooker's listing returned no tip cards at all. With the carried
-history the board now holds **523 lines-track rows**, every one priced by us in three markets — win,
-handicap and match total — with the row's own OLBG source link.
+Added four-hour source retrieval, primary-capture promotion before pricing, correct per-probe official
+source IDs, next-day source-age expiry and zero-pick-safe build tests. No injuries or starting goalies
+were assumed. [Current audit and official sources](docs/audit-ef52c632.md) ·
+[Reproducible pricing](docs/pricing-ef52c632.md). Older sections below are historical receipts,
+not current fixture or pick counts.
 
-**Nine live high-confidence picks**, all inside the −250…+10000 band: eight EHF Champions League
-Round 6 handball fixtures (28–29 October) and Toronto at Calgary in the NHL. The handball clocks come
-from the league's own playing-times PDF, with each quote re-derived from the committed bytes by
-`scripts/apply_evidence.py` before it is allowed to certify a fixture, and each write-up is checked
-against the group table and the Round 5 match reports re-read the same evening. Four more pieces —
-three NHL, one MLB — are published as analysis because their price is shorter than the −250 floor.
-
-**What is still missing, stated plainly.** Basketball, Tennis, Cricket, Snooker, Darts, Rugby Union,
-Rugby League, Golf, Motor Racing, Greyhounds, Volleyball and Gaelic Football have a fixture list but
-no *reachable* official clock or form source: NBA and cdn.nba.com return 403, EuroLeague 429, ATP
-403, the WTA and ICC fixture pages render client-side, URC's `/fixtures` and LNR's `/calendrier`
-return 404, Super League 500, and GBGB's racecard 404. Those sports carry our originated lines and a
-published reason, never an invented start time. The five-per-sport target is not reached and is not
-faked to look reached.
 
 ## 2026-10-24 evening — 131 fresh fixtures, three new written picks, and an honest account of the nine sports still empty — `session-49317273`
 

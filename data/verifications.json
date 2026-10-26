@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-26T20:23:09Z",
+ "retrieved_at": "2026-10-26T20:21:31Z",
  "retrieved_at_previous": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
  "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate). Where two sessions verified the same event, both sets of facts and sources are kept and the status is the highest one an official/primary-class source supports (merge note on the record).",
  "sources": [
@@ -1600,6 +1600,22 @@
    "class": "official",
    "name": "LNR Top 14 official Journee 7 calendar & standings",
    "url": "https://top14.lnr.fr/calendrier-et-resultats"
+  },
+  {
+   "id": "S-NHL-API-official-20261026T2021Z",
+   "class": "official",
+   "name": "NHL official schedule endpoint (gameWeek payload)",
+   "url": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "probe_file": "raw/official-20261026T2021Z/json/nhl_schedule.json",
+   "sha256": "a2e1d070488f6e3d18b3747d6c28bb99bbdd7e7ec8d8f05946ac1b65100de004"
+  },
+  {
+   "id": "S-MLB-API-official-20261026T2021Z",
+   "class": "official",
+   "name": "MLB official schedule endpoint",
+   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-10-28&hydrate=team,linescore,probablePitcher",
+   "probe_file": "raw/official-20261026T2021Z/json/mlb_schedule.json",
+   "sha256": "1b8e85c3484a30914c6ca6144bfc957c02ddddb9413a80f6fe147ea538bc8a4f"
   }
  ],
  "event_verifications": {
@@ -6108,12 +6124,12 @@
    "start_utc": "2026-10-27T00:00:00Z",
    "status": "verified",
    "sources": [
-    "S-MLB-API-20261023"
+    "S-MLB-API-official-20261026T2021Z"
    ],
    "facts": [
     "gameDate = 2026-10-27T00:00:00Z for Milwaukee Brewers @ Tampa Bay Rays (game id 849804) in the payload stored at https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-10-28&hydrate=team,linescore,probablePitcher"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Tomorrow 00:00 and its own startDate attribute said 2026-10-27T00:00:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed Tomorrow 00:00 and its own startDate attribute said 2026-10-27T00:00:00.000Z."
   },
   "200101": {
    "competition": "NHL",
@@ -6122,12 +6138,12 @@
    "start_utc": "2026-10-26T23:00:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-26T23:00:00Z for LAK Kings @ NYR Rangers (game id 2026020185) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Today 23:07 and its own startDate attribute said 2026-10-26T23:07:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed Today 23:07 and its own startDate attribute said 2026-10-26T23:07:00.000Z."
   },
   "200103": {
    "competition": "NHL",
@@ -6136,12 +6152,12 @@
    "start_utc": "2026-10-27T00:30:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-27T00:30:00Z for TOR Maple Leafs @ CGY Flames (game id 2026020186) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Tomorrow 00:37 and its own startDate attribute said 2026-10-27T00:37:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed Tomorrow 00:37 and its own startDate attribute said 2026-10-27T00:37:00.000Z."
   },
   "200102": {
    "competition": "NHL",
@@ -6150,12 +6166,12 @@
    "start_utc": "2026-10-27T01:30:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-27T01:30:00Z for DET Red Wings @ EDM Oilers (game id 2026020187) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Tomorrow 01:37 and its own startDate attribute said 2026-10-27T01:37:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed Tomorrow 01:37 and its own startDate attribute said 2026-10-27T01:37:00.000Z."
   },
   "200104": {
    "competition": "NHL",
@@ -6164,12 +6180,12 @@
    "start_utc": "2026-10-28T00:00:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-28T00:00:00Z for BOS Bruins @ CAR Hurricanes (game id 2026020189) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
   },
   "200105": {
    "competition": "NHL",
@@ -6178,12 +6194,12 @@
    "start_utc": "2026-10-28T00:00:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-28T00:00:00Z for FLA Panthers @ WPG Jets (game id 2026020194) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
   },
   "200111": {
    "competition": "NHL",
@@ -6192,12 +6208,12 @@
    "start_utc": "2026-10-28T00:00:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-28T00:00:00Z for NJD Devils @ DAL Stars (game id 2026020193) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
   },
   "200112": {
    "competition": "NHL",
@@ -6206,17 +6222,17 @@
    "start_utc": "2026-10-28T00:00:00Z",
    "status": "verified",
    "sources": [
-    "S-NHL-API-20261023"
+    "S-NHL-API-official-20261026T2021Z"
    ],
    "facts": [
     "startTimeUTC = 2026-10-28T00:00:00Z for NYI Islanders @ NSH Predators (game id 2026020192) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
    ],
-   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:21:31Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
   }
  },
  "retrieved_at_previous_2": "2026-10-23T16:28:04Z",
  "retrieved_at_previous_3": "2026-10-21T05:40:00Z",
- "session": "session-22dbc477 (live 2026-10-23 probe) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z) + scripts/verify_live.py (official-20261026T2023Z; official NHL/MLB probe 2026-10-26T20:23:09Z)",
+ "session": "session-22dbc477 (live 2026-10-23 probe) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z) + scripts/verify_live.py (official-20261026T2021Z; official NHL/MLB probe 2026-10-26T20:21:31Z)",
  "retrieved_at_previous_4": "2026-10-22T21:55:00Z",
  "retrieved_at_previous_6": "2026-10-23T21:33:00Z"
 }

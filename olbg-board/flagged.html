@@ -20,7 +20,7 @@
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">224 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">230 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1559,45 +1559,87 @@
   <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule 2026-10-24</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40141002367" rel="noopener nofollow" target="_blank">Failed main run 40141002367</a></li></ul>
 </article>
 <article class="card flag" id="FL-232">
-  <div class="flag-head"><span class="tag">FL-232</span> <span class="sev sev-high">high</span></div>
-  <h2>Scheduled publication ran the official-clock re-certification after the grading steps, so every expired pick failed the board gate</h2>
-  <p>Every schedule run on main from 2026-10-25T01:14Z to 2026-10-26T19:19Z failed at &quot;Rebuild the OLBG lines track&quot;. Reproduced locally: with data/publication.json advanced to the real clock, scripts/model.py and tools/originate.py graded against the stored release evidence first, then scripts/live_refresh.py re-certified data/release_checks.json, so scripts/check_board.py reported 22 &quot;HIGH lacks a current official-start release&quot; / &quot;HIGH stored release differs from current evidence&quot; violations. Because nothing was committed after the failure, the public site kept serving the 24-25 October board for two days. No sporting value was changed by the repair.</p>
+  <div class="flag-head"><span class="tag">FL-232</span> <span class="sev sev-review">review</span></div>
+  <h2>October 26 coverage remains below five written picks per sport</h2>
+  <p>The current listing capture contains 142 distinct entries; it is not a complete enumeration of every market or participant. Seven new NHL write-ups were researched; only two pass the existing HIGH research-grade gates. Other sports lack a full fixture/form/injury evidence packet. Missing facts are not supplied to meet the 75-pick target. A research grade is not a calibrated probability or a demonstrated edge.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40385741490" rel="noopener nofollow" target="_blank">Failing hourly main run 40385741490 (build step &quot;Rebuild the OLBG lines track&quot;)</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/.github/workflows/pages.yml" rel="noopener nofollow" target="_blank">publication job definition after the repair</a></li></ul>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG public listings</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-26" rel="noopener nofollow" target="_blank">Official NHL standings</a></li></ul>
 </article>
 <article class="card flag" id="FL-233">
-  <div class="flag-head"><span class="tag">FL-233</span> <span class="sev sev-medium">medium</span></div>
-  <h2>Stale-snapshot banner on the per-sport pages linked to a flagged.html that is not there</h2>
-  <p>The banner only renders when the published capture is more than 30 hours old, which had never happened on a green build before 2026-10-26. Once it did, tools/check_site.py reported &quot;broken internal link flagged.html&quot; for all 15 sport pages. Found by the gate, not by inspection.</p>
+  <div class="flag-head"><span class="tag">FL-233</span> <span class="sev sev-review">review</span></div>
+  <h2>Official-source access failures and non-fixture pages</h2>
+  <p>October 26 runner: NBA schedule and ATP scores returned 403; URC fixtures, Volleyball World schedule and GBGB racecard returned 404; Super League returned 500; EuroLeague games returned 429. HTTP 200 is only retrieval success: the PDC page returned a consent page and does not establish current fixtures. No matching sporting fact is certified solely from these statuses.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/pull/193" rel="noopener nofollow" target="_blank">tools/check_site.py failure output on the first successful rebuild of this pass</a></li></ul>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/official-20261026T2021Z/manifest.json" rel="noopener nofollow" target="_blank">Official probe manifest</a></li><li><a href="https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" rel="noopener nofollow" target="_blank">NBA official schedule</a></li><li><a href="https://www.pdc.tv/tournaments" rel="noopener nofollow" target="_blank">PDC tournaments</a></li></ul>
 </article>
 <article class="card flag" id="FL-234">
   <div class="flag-head"><span class="tag">FL-234</span> <span class="sev sev-medium">medium</span></div>
-  <h2>Six in-scope sports still have no reachable official clock or form source from the runner</h2>
-  <p>The brief asks for five written picks per sport per day. On 2026-10-26 the evidence supports nine high-confidence picks (Handball 8, Ice Hockey 1) plus analysis pieces for Baseball and Ice Hockey; Basketball, Tennis, Cricket, Snooker, Darts, Rugby Union, Rugby League, Golf, Motor Racing, Greyhounds, Volleyball and Gaelic Football have no fixture this project can date to an official, timezone-qualified start. The shortfall is additive to FL-188/FL-202 and is not closed by loosening the rule.</p>
+  <h2>Expired next-day source observation bypassed the main release gate — repaired</h2>
+  <p>The separate next-day page still labelled India HIGH on October 26 using a listing captured October 24. Added a fail-closed 24-hour listing-age check; absence or future dating also prevents HIGH. The old text remains analysis, without renewing any official fact or alleging an injury. New tests cover the expired and empty-pick cases.</p>
   <p class="muted small">Affected rows: —</p>
-  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/urls-20261026T2024Z" rel="noopener nofollow" target="_blank">Runner capture of the 44-URL official page list, 2026-10-26T20:24Z</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/urls-20261026T2031Z" rel="noopener nofollow" target="_blank">Runner capture of the 13-URL follow-up list, 2026-10-26T20:31Z</a></li></ul>
+  <ul class="srclist"><li><a href="https://www.bcci.tv/matches/242110/new-zealand-vs-india/match-details" rel="noopener nofollow" target="_blank">BCCI match source</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/daily/research-20261025.json" rel="noopener nofollow" target="_blank">Daily source ledger</a></li></ul>
 </article>
 <article class="card flag" id="FL-235">
   <div class="flag-head"><span class="tag">FL-235</span> <span class="sev sev-medium">medium</span></div>
-  <h2>OLBG lists the draw as the most-tipped selection on twelve EHF Champions League rows</h2>
-  <p>The 2026-10-26 capture prints &quot;Tie&quot; as the consensus selection with prices from 6.00 to 28.00 on twelve of the seventeen handball rows. A tip split that favours the draw says nothing about which side wins, so the side is taken from the league table and the flag stays on the row.</p>
-  <p class="muted small">Affected rows: HAN-12127, HAN-12128, HAN-12129, HAN-12130, HAN-12132, HAN-12133, HAN-12134, HAN-12135, HAN-12136, HAN-12137, HAN-12138, HAN-12131</p>
-  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG handball listing captured 2026-10-26T20:22Z</a></li><li><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" rel="noopener nofollow" target="_blank">EHF Champions League Men 2026/27 standings</a></li></ul>
+  <h2>Expired Utah analysis quoted a superseded price — repaired</h2>
+  <p>Fresh inventory changed carry precedence and exposed a quoted-price mismatch in expired Utah prose. Preserve original prose in archived_original_text and remove its stale numeric price from the reader-facing analysis, rather than changing historical prose to imply a newly available price. Neither the fixture clock nor its form observation was renewed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">Original official NHL schedule</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/patches/picks-ef52c632.json" rel="noopener nofollow" target="_blank">Patch and archive</a></li></ul>
 </article>
 <article class="card flag" id="FL-236">
-  <div class="flag-head"><span class="tag">FL-236</span> <span class="sev sev-low">low</span></div>
+  <div class="flag-head"><span class="tag">FL-236</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Source-ingestion, nested links and dated test defects — repaired</h2>
+  <p>New listing captures previously never advanced the primary harvest pointer; fixed immutable promotion with preserved previous sources and moved selection before pricing. Official verification source IDs were hard-coded to October 23 and could resolve newer fixtures to an old URL; new source IDs use probe identity. Fixed nested stale-banner review links and tests incorrectly requiring that a live HIGH pick always exist. Scheduled retrieval every four hours complements hourly rebuilds; it does not automatically author or certify new prose.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/live_refresh.py" rel="noopener nofollow" target="_blank">Implementation</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40394727276" rel="noopener nofollow" target="_blank">Runner evidence</a></li></ul>
+</article>
+<article class="card flag" id="FL-237">
+  <div class="flag-head"><span class="tag">FL-237</span> <span class="sev sev-review">review</span></div>
+  <h2>NHL clocks, limited inputs and uncalibrated prices require caution</h2>
+  <p>Seven newly matched NHL fixtures carry official UTC clocks seven minutes earlier than the OLBG listing attributes. Display and release use the league clock. New pricing uses smoothed season wins and games played, log5, 50% shrinkage and a +0.03 home adjustment. Those choices are disclosed assumptions, not measured coefficients. Injury and starting-goalie information was not established; no injury advantage is asserted. No handicap or total bet is recommended by these write-ups.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-26" rel="noopener nofollow" target="_blank">NHL official schedule</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-26" rel="noopener nofollow" target="_blank">NHL official standings</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/pricing-ef52c632.json" rel="noopener nofollow" target="_blank">Reproducible price inputs</a></li></ul>
+</article>
+<article class="card flag" id="FL-238">
+  <div class="flag-head"><span class="tag">FL-238</span> <span class="sev sev-high">high</span></div>
+  <h2>Scheduled publication graded picks before the official-clock re-certification, so every expired pick failed the board gate</h2>
+  <p>Every schedule run on main from 2026-10-25T01:14Z to 2026-10-26T19:19Z failed at that step. Reproduced locally with data/publication.json advanced to the real clock: scripts/model.py and tools/originate.py graded against the stored release evidence first, then scripts/live_refresh.py recertified data/release_checks.json, so scripts/check_board.py reported 22 &quot;HIGH lacks a current official-start release&quot; / &quot;HIGH stored release differs from current evidence&quot; violations and nothing was committed — which is why the public site served the 24-25 October board for two days.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40385741490" rel="noopener nofollow" target="_blank">Failing hourly main run 40385741490 — job step &quot;Rebuild the OLBG lines track&quot;</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/.github/workflows/pages.yml" rel="noopener nofollow" target="_blank">Publication job definition</a></li></ul>
+</article>
+<article class="card flag" id="FL-239">
+  <div class="flag-head"><span class="tag">FL-239</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Stale-snapshot banner on the per-sport pages linked to a flagged.html that is not there</h2>
+  <p>The banner only renders when the published capture is more than 30 hours old, which had not happened on a green build before 2026-10-26. Once it did, tools/check_site.py reported &quot;broken internal link flagged.html&quot; for all 15 sport pages. Found by the gate, not by inspection.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/build_site.py" rel="noopener nofollow" target="_blank">tools/check_site.py output on the first rebuild after the capture aged past 30 hours</a></li></ul>
+</article>
+<article class="card flag" id="FL-240">
+  <div class="flag-head"><span class="tag">FL-240</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Twelve in-scope sports still have no reachable official clock or form source from the runner</h2>
+  <p>NBA cdn and nba.com return 403, EuroLeague 429, ATP 403, the WTA scores page renders &quot;Loading matches&quot;, ICC and ECB fixtures render client-side, URC /fixtures and LNR /calendrier return 404, Super League /fixtures 500, WST /matches renders no text, PDC pages carry no fixture list, Volleyball World schedule 404, GBGB /racecard 404 and GAA fixtures-results renders client-side. On 2026-10-26 the evidence supports nine high-confidence picks (Handball 8, Ice Hockey 1) plus four analysis pieces. Additive to FL-188/FL-202; the shortfall is not closed by relaxing the rule.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/urls-20261026T2024Z" rel="noopener nofollow" target="_blank">Runner capture of the 44-URL official page list, 2026-10-26T20:24Z</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/urls-20261026T2031Z" rel="noopener nofollow" target="_blank">Runner capture of the 13-URL follow-up list, 2026-10-26T20:31Z</a></li></ul>
+</article>
+<article class="card flag" id="FL-241">
+  <div class="flag-head"><span class="tag">FL-241</span> <span class="sev sev-medium">medium</span></div>
+  <h2>OLBG lists the draw as the most-tipped selection on twelve EHF Champions League rows</h2>
+  <p>The capture prints &quot;Tie&quot; as the consensus selection at prices from 6.00 to 28.00 on twelve of the seventeen handball rows. A tip split that favours the draw says nothing about which side wins, so the side comes from the league table and the flag stays on the row.</p>
+  <p class="muted small">Affected rows: HAN-12127, HAN-12128, HAN-12129, HAN-12130, HAN-12131, HAN-12132, HAN-12133, HAN-12134, HAN-12135, HAN-12136, HAN-12137, HAN-12138</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips/Handball/20" rel="noopener nofollow" target="_blank">OLBG handball listing captured 2026-10-26T20:22Z</a></li><li><a href="https://ehfcl.eurohandball.com/men/2026-27/standings/" rel="noopener nofollow" target="_blank">EHF Champions League Men 2026/27 standings</a></li></ul>
+</article>
+<article class="card flag" id="FL-242">
+  <div class="flag-head"><span class="tag">FL-242</span> <span class="sev sev-low">low</span></div>
   <h2>EHF Porto v Veszprem clock disagrees between the league PDF and the row, so it is withheld</h2>
-  <p>The 2026-10-26 PDF read gives &quot;FC Porto vs One Veszprém HC … 28.10.2026 20:45h&quot;, i.e. 19:45Z. OLBG prints 17:45. The match-centre page captured the same minute renders no clock at all, and a 2026-10-23 read of it recorded 18:45 CET. Three sources, three different readings; the row is held rather than certified.</p>
+  <p>The 2026-10-26 PDF read gives &quot;FC Porto vs One Veszprém HC … 28.10.2026 20:45h&quot;, i.e. 19:45Z. OLBG prints 17:45. The match-centre page captured the same minute renders no clock at all, and a 2026-10-23 read of it recorded 18:45 CET. Three sources, three readings; the row is held rather than certified.</p>
   <p class="muted small">Affected rows: HAN-12127</p>
-  <ul class="srclist"><li><a href="https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf" rel="noopener nofollow" target="_blank">EHF group-phase playing-times PDF (prints 20:45h CET for the fixture)</a></li><li><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127" rel="noopener nofollow" target="_blank">OLBG row (prints 17:45)</a></li></ul>
+  <ul class="srclist"><li><a href="https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf" rel="noopener nofollow" target="_blank">EHF group-phase playing-times PDF (prints 20:45h CET for this fixture)</a></li><li><a href="https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127" rel="noopener nofollow" target="_blank">OLBG row (prints 17:45)</a></li></ul>
 </article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-26T20:22:06Z; publication clock 2026-10-26T20:26:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-26T20:22:06Z; publication clock 2026-10-26T20:33:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

@@ -74,15 +74,21 @@
   "harvest_format": "v3",
   "harvest_timezone_note": "Machine-readable UTC starts and printed labels are separate copied source fields. They disagree on some cards; never infer a timezone from the printed label.",
   "previous_harvest": {
-    "file": "raw/olbg-harvest-20261024T2225Z-1815f0b1.tsv",
+    "file": "raw/olbg-harvest-20261026T2020Z-ef52c632.tsv",
     "format": "v3",
-    "harvest_completed_utc": "2026-10-24T22:25:15Z",
-    "olbg_locale_date": "2026-10-24",
-    "note": "Carry-only: newest primary (2026-10-26T20:22:06Z) wins on repeated event ids; rows whose fixture has passed or rotated off the listing are retained as history."
+    "harvest_completed_utc": "2026-10-26T20:20:26Z",
+    "olbg_locale_date": "2026-10-26",
+    "note": "Same-evening sibling capture (session-ef52c632) two minutes earlier; carry-only, the newer primary wins on repeated event ids."
   },
   "previous_harvests_extra": [],
-  "session": "session-b329efe5",
+  "session": "session-b329efe5 (integration) with session-ef52c632",
   "supplementary_harvests": [
+    {
+      "file": "raw/olbg-harvest-20261023T1700Z.tsv",
+      "format": "v3",
+      "harvest_completed_utc": "2026-10-23T16:21:00Z",
+      "olbg_locale_date": "2026-10-23"
+    },
     {
       "file": "raw/olbg-harvest-20261024T1707Z-a30d9bdb.tsv",
       "format": "v3",
@@ -125,7 +131,7 @@
     "listing_state": "Golf/5 rendered 'No tips found.'; Rugby_League/10 carried outright-only markets; Snooker/8 carried two matches that had already started; Greyhounds/28 printed race-card times that disagree with its own listing clock (FL-131..FL-133).",
     "note": "This is the root board's daily capture. data/meta.json['harvest_file'] still names the /olbg/ lines track's TSV capture; the two tracks are deliberately separate."
   },
-  "archive_note": "Primary capture replaced 2026-10-26T20:22:06Z by session-b329efe5 from a fresh robots-aware read of all 18 in-scope OLBG listings (data/raw/live-20261026T2030Z-b329efe5). 142 event rows were extracted across 14 sports; /betting-tips/Snooker/8 returned no tip cards. The 2026-10-24T22:25Z capture is retained as a carry-only source.",
+  "archive_note": "Primary is the newest readable committed capture. Older sources are carry-only research; absence is not evidence of cancellation or market closure.",
   "parallel_session_notes": [
     {
       "session": "be917e0f",
@@ -137,5 +143,7 @@
       "what": "Independently captured the same 15 listings 16:16Z-16:40Z into data/raw/olbg-harvest-20261023T1630Z.tsv (180 rows, v2) and re-observed official pages 16:55Z-17:22Z; merged on top of this build at ~17:55Z. Its capture is chained as a same-day supplementary source (3 extra events), its 14 root fixtures absent from the 16:20Z JSON were appended with the SPORT-<event_id> refs this build uses, tip counts were merged monotonically (larger total wins), and its register items were renumbered FL-145..FL-153.",
       "kept": "every file, register item and page of the earlier sessions; nothing deleted or reworded"
     }
-  ]
+  ],
+  "file": "raw/olbg-harvest-20261026T2030Z-b329efe5.tsv",
+  "format": "v3"
 }

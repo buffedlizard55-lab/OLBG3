@@ -4973,26 +4973,156 @@
     },
     {
       "id": "FL-232",
+      "severity": "review",
+      "status": "open",
+      "title": "October 26 coverage remains below five written picks per sport",
+      "detail": "The current listing capture contains 142 distinct entries; it is not a complete enumeration of every market or participant. Seven new NHL write-ups were researched; only two pass the existing HIGH research-grade gates. Other sports lack a full fixture/form/injury evidence packet. Missing facts are not supplied to meet the 75-pick target. A research grade is not a calibrated probability or a demonstrated edge.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "OLBG public listings",
+          "url": "https://www.olbg.com/betting-tips"
+        },
+        {
+          "label": "Official NHL standings",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "raised_by": "session-ef52c632",
+      "raised_at": "2026-10-26T20:26:31.173291+00:00"
+    },
+    {
+      "id": "FL-233",
+      "severity": "review",
+      "status": "open",
+      "title": "Official-source access failures and non-fixture pages",
+      "detail": "October 26 runner: NBA schedule and ATP scores returned 403; URC fixtures, Volleyball World schedule and GBGB racecard returned 404; Super League returned 500; EuroLeague games returned 429. HTTP 200 is only retrieval success: the PDC page returned a consent page and does not establish current fixtures. No matching sporting fact is certified solely from these statuses.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "Official probe manifest",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/official-20261026T2021Z/manifest.json"
+        },
+        {
+          "label": "NBA official schedule",
+          "url": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+        },
+        {
+          "label": "PDC tournaments",
+          "url": "https://www.pdc.tv/tournaments"
+        }
+      ],
+      "raised_by": "session-ef52c632",
+      "raised_at": "2026-10-26T20:26:31.173291+00:00"
+    },
+    {
+      "id": "FL-234",
+      "severity": "medium",
+      "status": "resolved",
+      "title": "Expired next-day source observation bypassed the main release gate — repaired",
+      "detail": "The separate next-day page still labelled India HIGH on October 26 using a listing captured October 24. Added a fail-closed 24-hour listing-age check; absence or future dating also prevents HIGH. The old text remains analysis, without renewing any official fact or alleging an injury. New tests cover the expired and empty-pick cases.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "BCCI match source",
+          "url": "https://www.bcci.tv/matches/242110/new-zealand-vs-india/match-details"
+        },
+        {
+          "label": "Daily source ledger",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/daily/research-20261025.json"
+        }
+      ],
+      "raised_by": "session-ef52c632",
+      "raised_at": "2026-10-26T20:26:31.173291+00:00"
+    },
+    {
+      "id": "FL-235",
+      "severity": "medium",
+      "status": "resolved",
+      "title": "Expired Utah analysis quoted a superseded price — repaired",
+      "detail": "Fresh inventory changed carry precedence and exposed a quoted-price mismatch in expired Utah prose. Preserve original prose in archived_original_text and remove its stale numeric price from the reader-facing analysis, rather than changing historical prose to imply a newly available price. Neither the fixture clock nor its form observation was renewed.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "Original official NHL schedule",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-24"
+        },
+        {
+          "label": "Patch and archive",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/patches/picks-ef52c632.json"
+        }
+      ],
+      "raised_by": "session-ef52c632",
+      "raised_at": "2026-10-26T20:26:31.173291+00:00"
+    },
+    {
+      "id": "FL-236",
+      "severity": "medium",
+      "status": "resolved",
+      "title": "Source-ingestion, nested links and dated test defects — repaired",
+      "detail": "New listing captures previously never advanced the primary harvest pointer; fixed immutable promotion with preserved previous sources and moved selection before pricing. Official verification source IDs were hard-coded to October 23 and could resolve newer fixtures to an old URL; new source IDs use probe identity. Fixed nested stale-banner review links and tests incorrectly requiring that a live HIGH pick always exist. Scheduled retrieval every four hours complements hourly rebuilds; it does not automatically author or certify new prose.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "Implementation",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/live_refresh.py"
+        },
+        {
+          "label": "Runner evidence",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40394727276"
+        }
+      ],
+      "raised_by": "session-ef52c632",
+      "raised_at": "2026-10-26T20:26:31.173291+00:00"
+    },
+    {
+      "id": "FL-237",
+      "severity": "review",
+      "status": "open",
+      "title": "NHL clocks, limited inputs and uncalibrated prices require caution",
+      "detail": "Seven newly matched NHL fixtures carry official UTC clocks seven minutes earlier than the OLBG listing attributes. Display and release use the league clock. New pricing uses smoothed season wins and games played, log5, 50% shrinkage and a +0.03 home adjustment. Those choices are disclosed assumptions, not measured coefficients. Injury and starting-goalie information was not established; no injury advantage is asserted. No handicap or total bet is recommended by these write-ups.",
+      "affected_rows": [],
+      "sources": [
+        {
+          "label": "NHL official schedule",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        },
+        {
+          "label": "Reproducible price inputs",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/pricing-ef52c632.json"
+        }
+      ],
+      "raised_by": "session-ef52c632",
+      "raised_at": "2026-10-26T20:26:31.173291+00:00"
+    },
+    {
+      "id": "FL-238",
+      "original_id": "FL-232",
       "severity": "high",
       "status": "open",
-      "title": "Scheduled publication ran the official-clock re-certification after the grading steps, so every expired pick failed the board gate",
-      "action": "Moved scripts/live_refresh.py ahead of scripts/update.py/build.py/build_gap_sports.py/model.py/tools/originate.py in .github/workflows/pages.yml. One ordered pass now reproduces the bytes the old two-cycle workaround produced, and an expired pick demotes to labelled analysis instead of failing the publication job.",
+      "title": "Scheduled publication graded picks before the official-clock re-certification, so every expired pick failed the board gate",
+      "action": "scripts/live_refresh.py now runs before scripts/build.py, build_gap_sports.py, model.py and tools/originate.py in .github/workflows/pages.yml. One ordered pass reproduces the bytes the old two-cycle workaround produced, and an expired pick demotes to labelled analysis instead of failing the publication job.",
       "affected_ids": [],
       "affected_rows": [],
       "sources": [
         {
-          "label": "Failing hourly main run 40385741490 (build step \"Rebuild the OLBG lines track\")",
+          "label": "Failing hourly main run 40385741490 — job step \"Rebuild the OLBG lines track\"",
           "url": "https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40385741490"
         },
         {
-          "label": "publication job definition after the repair",
+          "label": "Publication job definition",
           "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/.github/workflows/pages.yml"
         }
       ],
-      "detail": "Every schedule run on main from 2026-10-25T01:14Z to 2026-10-26T19:19Z failed at \"Rebuild the OLBG lines track\". Reproduced locally: with data/publication.json advanced to the real clock, scripts/model.py and tools/originate.py graded against the stored release evidence first, then scripts/live_refresh.py re-certified data/release_checks.json, so scripts/check_board.py reported 22 \"HIGH lacks a current official-start release\" / \"HIGH stored release differs from current evidence\" violations. Because nothing was committed after the failure, the public site kept serving the 24-25 October board for two days. No sporting value was changed by the repair."
+      "detail": "Every schedule run on main from 2026-10-25T01:14Z to 2026-10-26T19:19Z failed at that step. Reproduced locally with data/publication.json advanced to the real clock: scripts/model.py and tools/originate.py graded against the stored release evidence first, then scripts/live_refresh.py recertified data/release_checks.json, so scripts/check_board.py reported 22 \"HIGH lacks a current official-start release\" / \"HIGH stored release differs from current evidence\" violations and nothing was committed — which is why the public site served the 24-25 October board for two days."
     },
     {
-      "id": "FL-233",
+      "id": "FL-239",
+      "original_id": "FL-233",
       "severity": "medium",
       "status": "open",
       "title": "Stale-snapshot banner on the per-sport pages linked to a flagged.html that is not there",
@@ -5001,18 +5131,19 @@
       "affected_rows": [],
       "sources": [
         {
-          "label": "tools/check_site.py failure output on the first successful rebuild of this pass",
-          "url": "https://github.com/buffedlizard55-lab/OLBG3/pull/193"
+          "label": "tools/check_site.py output on the first rebuild after the capture aged past 30 hours",
+          "url": "https://github.com/buffedlizard55-lab/OLBG3/blob/main/tools/build_site.py"
         }
       ],
-      "detail": "The banner only renders when the published capture is more than 30 hours old, which had never happened on a green build before 2026-10-26. Once it did, tools/check_site.py reported \"broken internal link flagged.html\" for all 15 sport pages. Found by the gate, not by inspection."
+      "detail": "The banner only renders when the published capture is more than 30 hours old, which had not happened on a green build before 2026-10-26. Once it did, tools/check_site.py reported \"broken internal link flagged.html\" for all 15 sport pages. Found by the gate, not by inspection."
     },
     {
-      "id": "FL-234",
+      "id": "FL-240",
+      "original_id": "FL-234",
       "severity": "medium",
       "status": "open",
-      "title": "Six in-scope sports still have no reachable official clock or form source from the runner",
-      "action": "Published per-sport on the coverage page with the exact HTTP outcome for each. No pick is promoted to fill the gap. The sites render their fixture lists client-side or refuse the runner: NBA cdn/nba.com 403, EuroLeague 429, ATP 403, WTA scores page renders \"Loading matches\", ICC and ECB fixtures render client-side, unified URC /fixtures 404, LNR prod2 /calendrier 404, Super League /fixtures 500, WST /matches renders no text, PDC pages load no fixture list, Volleyball World schedule 404, GBGB /racecard 404, GAA fixtures render client-side.",
+      "title": "Twelve in-scope sports still have no reachable official clock or form source from the runner",
+      "action": "Every such sport is published with the exact HTTP outcome of its official page and keeps our originated lines only. No pick is promoted to fill a quota.",
       "affected_ids": [],
       "affected_rows": [],
       "sources": [
@@ -5025,41 +5156,42 @@
           "url": "https://github.com/buffedlizard55-lab/OLBG3/tree/main/data/raw/urls-20261026T2031Z"
         }
       ],
-      "detail": "The brief asks for five written picks per sport per day. On 2026-10-26 the evidence supports nine high-confidence picks (Handball 8, Ice Hockey 1) plus analysis pieces for Baseball and Ice Hockey; Basketball, Tennis, Cricket, Snooker, Darts, Rugby Union, Rugby League, Golf, Motor Racing, Greyhounds, Volleyball and Gaelic Football have no fixture this project can date to an official, timezone-qualified start. The shortfall is additive to FL-188/FL-202 and is not closed by loosening the rule."
+      "detail": "NBA cdn and nba.com return 403, EuroLeague 429, ATP 403, the WTA scores page renders \"Loading matches\", ICC and ECB fixtures render client-side, URC /fixtures and LNR /calendrier return 404, Super League /fixtures 500, WST /matches renders no text, PDC pages carry no fixture list, Volleyball World schedule 404, GBGB /racecard 404 and GAA fixtures-results renders client-side. On 2026-10-26 the evidence supports nine high-confidence picks (Handball 8, Ice Hockey 1) plus four analysis pieces. Additive to FL-188/FL-202; the shortfall is not closed by relaxing the rule."
     },
     {
-      "id": "FL-235",
+      "id": "FL-241",
+      "original_id": "FL-235",
       "severity": "medium",
       "status": "open",
       "title": "OLBG lists the draw as the most-tipped selection on twelve EHF Champions League rows",
-      "action": "tools/originate.py already flags these rows non_win_or_tie_consensus_mapped and derives a side; every written handball piece here names the side the league table supports and says so explicitly. The draw price is never presented as our pick.",
+      "action": "tools/originate.py flags these rows non_win_or_tie_consensus_mapped and derives a side from the league table; every written handball piece names the side the table supports and never presents the draw price as our pick.",
       "affected_ids": [
         "HAN-12127",
         "HAN-12128",
         "HAN-12129",
         "HAN-12130",
+        "HAN-12131",
         "HAN-12132",
         "HAN-12133",
         "HAN-12134",
         "HAN-12135",
         "HAN-12136",
         "HAN-12137",
-        "HAN-12138",
-        "HAN-12131"
+        "HAN-12138"
       ],
       "affected_rows": [
         "HAN-12127",
         "HAN-12128",
         "HAN-12129",
         "HAN-12130",
+        "HAN-12131",
         "HAN-12132",
         "HAN-12133",
         "HAN-12134",
         "HAN-12135",
         "HAN-12136",
         "HAN-12137",
-        "HAN-12138",
-        "HAN-12131"
+        "HAN-12138"
       ],
       "sources": [
         {
@@ -5071,10 +5203,11 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
         }
       ],
-      "detail": "The 2026-10-26 capture prints \"Tie\" as the consensus selection with prices from 6.00 to 28.00 on twelve of the seventeen handball rows. A tip split that favours the draw says nothing about which side wins, so the side is taken from the league table and the flag stays on the row."
+      "detail": "The capture prints \"Tie\" as the consensus selection at prices from 6.00 to 28.00 on twelve of the seventeen handball rows. A tip split that favours the draw says nothing about which side wins, so the side comes from the league table and the flag stays on the row."
     },
     {
-      "id": "FL-236",
+      "id": "FL-242",
+      "original_id": "FL-236",
       "severity": "low",
       "status": "open",
       "title": "EHF Porto v Veszprem clock disagrees between the league PDF and the row, so it is withheld",
@@ -5087,7 +5220,7 @@
       ],
       "sources": [
         {
-          "label": "EHF group-phase playing-times PDF (prints 20:45h CET for the fixture)",
+          "label": "EHF group-phase playing-times PDF (prints 20:45h CET for this fixture)",
           "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
         },
         {
@@ -5095,7 +5228,7 @@
           "url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/FC_Porto_vs_Veszprem/20?event_id=12127"
         }
       ],
-      "detail": "The 2026-10-26 PDF read gives \"FC Porto vs One Veszprém HC … 28.10.2026 20:45h\", i.e. 19:45Z. OLBG prints 17:45. The match-centre page captured the same minute renders no clock at all, and a 2026-10-23 read of it recorded 18:45 CET. Three sources, three different readings; the row is held rather than certified."
+      "detail": "The 2026-10-26 PDF read gives \"FC Porto vs One Veszprém HC … 28.10.2026 20:45h\", i.e. 19:45Z. OLBG prints 17:45. The match-centre page captured the same minute renders no clock at all, and a 2026-10-23 read of it recorded 18:45 CET. Three sources, three readings; the row is held rather than certified."
     }
   ]
 }

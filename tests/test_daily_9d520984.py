@@ -24,7 +24,7 @@ ZONELESS_FULL_WRITEUPS = {"NX-RUG-609571", "NX-RUG-609554", "NX-VOL-37114"}
 def board(clock):
     res = json.loads(RESEARCH.read_text())
     rows = build_daily.read_capture(res["capture"])
-    return res, [build_daily.evaluate(r, res["rows"].get(r["event_id"]), clock) for r in rows]
+    return res, [build_daily.evaluate(r, res["rows"].get(r["event_id"]), clock, res["captured_at_utc"]) for r in rows]
 
 
 class DailyBoardTest(unittest.TestCase):

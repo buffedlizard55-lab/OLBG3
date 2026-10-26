@@ -1,10 +1,9 @@
 {
-  "out": "data/raw/live-20261026T2030Z-b329efe5",
-  "requested_at_utc": "2026-10-26T21:00:00Z",
-  "requested_by": "session-b329efe5",
-  "why": "Third pass: re-read the EHF Champions League news and match-centre pages that the published handball write-ups quote, so every match-report detail in them can be checked against today's bytes. Capture, probe and cited re-reads are switched off to keep the run to those four URLs.",
-  "capture": false,
-  "probe": false,
-  "cited": false,
-  "urls": ".harvest/urls-b329efe5c.txt"
+  "out": "data/raw/live-20261026T2020Z-ef52c632",
+  "requested_at_utc": "2026-10-26T20:20:11.958372+00:00",
+  "requested_by": "session-ef52c632",
+  "why": "Refresh all 15 sports for October 26; preserve source bytes and failures, do not renew stale picks by publication time.",
+  "capture": true,
+  "probe": true,
+  "cited": true
 }
