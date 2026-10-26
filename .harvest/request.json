@@ -1,10 +1,10 @@
 {
   "out": "data/raw/live-20261026T2030Z-b329efe5",
-  "requested_at_utc": "2026-10-26T20:30:00Z",
+  "requested_at_utc": "2026-10-26T20:29:52Z",
   "requested_by": "session-b329efe5",
-  "why": "The committed board is two days old (newest capture 2026-10-24T2227Z, newest official probe 2026-10-24T2226Z). Request a fresh robots-aware read of all 18 OLBG listings, a fresh official-competition probe, a re-read of the cited clock pages, and the explicit official fixture/form page list for all 15 in-scope sports so today/this week's fixtures can be graded from source.",
-  "capture": true,
+  "why": "Second pass: fresh official form pages (EHF Champions League group standings, NHL/MLB standings) and the competition fixture pages the first pass could not read (URC, LNR ProD2/Top 14, Italian women's Serie A1, F1 Mexico session times). No new OLBG capture is requested: the 20:22Z listing capture is current.",
+  "capture": false,
   "probe": true,
   "cited": true,
-  "urls": ".harvest/urls-b329efe5.txt"
+  "urls": ".harvest/urls-b329efe5b.txt"
 }

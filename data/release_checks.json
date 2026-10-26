@@ -1,7 +1,7 @@
 {
  "policy": "Only exact, explicitly timezone-qualified official clocks are UTC-normalized. Every row records a real source observation. No OLBG clock or court ordering is converted; source observations expire after 24 hours. Price gates refer to our model, not observed bookmaker odds. Evening refresh 2026-10-22T21:55Z (session-784afe97): new clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label; the Formula 1 (913) and EuroLeague (535925, 535926) holds were re-examined against the live official pages and resolved. Evening refresh 2026-10-22T21:55Z (session-784afe97): clocks added only from official governing-body pages read in this pass, each with a verbatim quote and an explicit zone label. Daily refresh 2026-10-23T16:55Z-17:22Z (session-beb7787b): clocks re-observed on the competition's own pages (URC, NBA.com, MLB.com, EuroLeague news article with CEST clocks, LNR Top 14 (date-only: no zone printed), NHL API, WTA order-of-play PDFs (date-only / not-before: no zone printed), Cork GAA); pages that render clocks in the reader's zone without a label (WST matches, EuroLeague game-center, PREM Rugby) are recorded date-only; prior Pro D2 entries that labelled an unlabelled LNR clock as CET are held.",
- "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe; 2026-10-24T17:10Z-17:14Z URC/EHF/SuperLega match pages) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z)",
- "checked_at": "2026-10-24T22:30:00Z",
+ "session": "session-22dbc477 (live 2026-10-23 probe) + session-b322f52e (21:36Z F1, URC & EHF CL R6 clock checks) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe; 2026-10-24T17:10Z-17:14Z URC/EHF/SuperLega match pages) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z) + scripts/verify_live.py (official-20261026T2023Z; official NHL/MLB probe 2026-10-26T20:23:09Z)",
+ "checked_at": "2026-10-26T20:24:04Z",
  "events": {
   "160789": {
    "date": "2026-10-24",
@@ -1322,9 +1322,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "A | Fuchse Berlin vs RK Partizan AdmiralBet Max-Schmeling-Halle (Berlin, GER) | Thursday 29.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "Füchse Berlin vs RK Partizan AdmiralBet \nMax-Schmeling-Halle (Berlin, GER)  \nThursday \n29.10.2026 18:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 18:45 CET = 2026-10-29T17:45:00Z."
   },
   "12129": {
    "date": "2026-10-29",
@@ -1332,19 +1332,19 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "D | GOG vs Sporting CP Arena Svendborg (Svendborg, DEN) | Thursday 29.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "GOG vs Sporting CP \nArena Svendborg (Svendborg, DEN) \nThursday \n29.10.2026 \n18:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 18:45 CET = 2026-10-29T17:45:00Z."
   },
   "12130": {
    "date": "2026-10-28",
-   "time": "17:45",
-   "timezone": "UTC",
+   "time": "18:45",
+   "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "Round 6 — \"HC Vardar 1961 vs MT Melsungen ... Wednesday 28.10.2026 | 18:45h\" under \"TO TIME (CET)\"",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "HC Vardar 1961 vs MT Melsungen \nSC Jane Sandanski (Skopje, MKD) \nWednesday \n28.10.2026 18:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 18:45 CET = 2026-10-28T17:45:00Z."
   },
   "12131": {
    "date": "2026-10-29",
@@ -1352,9 +1352,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "D | IFK Kristianstad vs OTP Bank-Pick Szeged Kristianstad Arena (Kristianstad, SWE) | Thursday 29.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "IFK Kristianstad vs OTP Bank-Pick Szeged \nKristianstad Arena (Kristianstad, SWE) \nThursday \n29.10.2026 \n18:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 18:45 CET = 2026-10-29T17:45:00Z."
   },
   "12132": {
    "date": "2026-10-28",
@@ -1362,9 +1362,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "F | Industria Kielce vs Kolstad Handball Hala Legionow (Kielce, POL) | Wednesday 28.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "Industria Kielce vs Kolstad Handball \nHala Legionow (Kielce, POL) \nWednesday \n28.10.2026 20:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 20:45 CET = 2026-10-28T19:45:00Z."
   },
   "12133": {
    "date": "2026-10-29",
@@ -1372,9 +1372,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "E | Montpellier HB vs CS Dinamo Bucuresti FDI Stadium (Montpellier, FRA) | Thursday 29.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "Montpellier HB vs CS Dinamo Bucuresti \nFDI Stadium (Montpellier, FRA) \nThursday \n29.10.2026 \n20:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 20:45 CET = 2026-10-29T19:45:00Z."
   },
   "12134": {
    "date": "2026-10-28",
@@ -1382,9 +1382,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "C | Paris Saint-Germain Handball vs Aalborg Handbold Stade Pierre de Coubertin (Paris, FRA) | Wednesday 28.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "Paris Saint-Germain Handball vs Aalborg Handbold \nStade Pierre de Coubertin (Paris, FRA) \nWednesday \n28.10.2026 20:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 20:45 CET = 2026-10-28T19:45:00Z."
   },
   "12135": {
    "date": "2026-10-28",
@@ -1392,9 +1392,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "C | RK Celje Pivovarna Lasko vs HC Zagreb Hall Zlatorog (Celje, SLO) | Wednesday 28.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "RK Celje Pivovarna Lasko vs HC Zagreb \nHall Zlatorog (Celje, SLO) \nWednesday \n28.10.2026 20:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 20:45 CET = 2026-10-28T19:45:00Z."
   },
   "12136": {
    "date": "2026-10-28",
@@ -1402,9 +1402,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "F | SC Magdeburg vs HC Kriens-Luzern GETEC Arena (Magdeburg, GER) | Wednesday 28.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "SC Magdeburg vs HC Kriens-Luzern \nGETEC Arena (Magdeburg, GER) \nWednesday \n28.10.2026 20:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 20:45 CET = 2026-10-28T19:45:00Z."
   },
   "12137": {
    "date": "2026-10-29",
@@ -1412,9 +1412,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "E | SAH Aarhus vs Barca Djurslands Bank Arena (Aarhus, DEN) | Thursday 29.10.2026 | 20:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-23T21:36:00Z",
-   "note": "Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker."
+   "quote": "SAH Aarhus vs Barça \nDjurslands Bank Arena (Aarhus, DEN) \nThursday \n29.10.2026 \n20:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 20:45 CET = 2026-10-29T19:45:00Z."
   },
   "12138": {
    "date": "2026-10-28",
@@ -1422,9 +1422,9 @@
    "timezone": "CET",
    "kind": "exact",
    "source": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
-   "quote": "B | Orlen Wisla Plock vs HBC Nantes Orlen Arena (Plock, POL) | Wednesday 28.10.2026 | 18:45h [TO TIME (CET)]",
-   "checked_at": "2026-10-24T22:30:00Z",
-   "note": "Read again in this session's 2026-10-24 22:2xZ pass: the same EHF group-phase playing-times PDF was retrieved and this Round 6 line read again unchanged; observation recorded at 22:30Z, the quoted time itself is not altered. Re-read in this session's pass and recorded at 2026-10-24T22:31:26Z: the same EHF group-phase playing-times PDF (https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf) was retrieved again and this Round 6 line was read again unchanged. Only the observation time is renewed; the quoted time is not altered. Corroborated identically by https://ehfcl.eurohandball.com/men/2026-27/standings/ Round 6 ticker. Re-read 2026-10-24T22:47Z by session-49317273: the same EHF group-phase playing-times PDF was retrieved again and the Round 6 line for this fixture was read again unchanged; only the observation time is renewed, the quoted time is not altered."
+   "quote": "Orlen Wisla Plock vs HBC Nantes \nOrlen Arena (Plock, POL) \nWednesday \n28.10.2026 18:45h",
+   "checked_at": "2026-10-26T20:24:04Z",
+   "note": "Read again on 2026-10-26T20:24:04Z from the EHF Champions League Men 2026/27 group-phase playing-times PDF fetched that minute (b681d6ba3ebd7640…); the quoted slice is reproduced from the committed bytes by scripts/apply_evidence.py. 18:45 CET = 2026-10-28T17:45:00Z."
   },
   "902165": {
    "date": "2026-10-24",
@@ -1598,6 +1598,78 @@
    "source": "https://api-web.nhle.com/v1/schedule/2026-10-24",
    "quote": "\"startTimeUTC\": \"2026-10-26T02:00:00Z\" — game id 2026020184, MIN Wild @ VAN Canucks",
    "checked_at": "2026-10-24T22:26:19Z"
+  },
+  "160795": {
+   "date": "2026-10-27",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-10-28&hydrate=team,linescore,probablePitcher",
+   "quote": "\"gameDate\": \"2026-10-27T00:00:00Z\" — game id 849804, Milwaukee Brewers @ Tampa Bay Rays",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200101": {
+   "date": "2026-10-26",
+   "time": "23:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-26T23:00:00Z\" — game id 2026020185, LAK Kings @ NYR Rangers",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200103": {
+   "date": "2026-10-27",
+   "time": "00:30",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-27T00:30:00Z\" — game id 2026020186, TOR Maple Leafs @ CGY Flames",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200102": {
+   "date": "2026-10-27",
+   "time": "01:30",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-27T01:30:00Z\" — game id 2026020187, DET Red Wings @ EDM Oilers",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200104": {
+   "date": "2026-10-28",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-28T00:00:00Z\" — game id 2026020189, BOS Bruins @ CAR Hurricanes",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200105": {
+   "date": "2026-10-28",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-28T00:00:00Z\" — game id 2026020194, FLA Panthers @ WPG Jets",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200111": {
+   "date": "2026-10-28",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-28T00:00:00Z\" — game id 2026020193, NJD Devils @ DAL Stars",
+   "checked_at": "2026-10-26T20:23:09Z"
+  },
+  "200112": {
+   "date": "2026-10-28",
+   "time": "00:00",
+   "timezone": "UTC",
+   "kind": "exact",
+   "source": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+   "quote": "\"startTimeUTC\": \"2026-10-28T00:00:00Z\" — game id 2026020192, NYI Islanders @ NSH Predators",
+   "checked_at": "2026-10-26T20:23:09Z"
   }
  },
  "policy_20261023": "Exact UTC starts read directly from the league schedule payloads (api-web.nhle.com/v1/schedule, statsapi.mlb.com). Both payloads state the start in UTC, so no zone is inferred.",

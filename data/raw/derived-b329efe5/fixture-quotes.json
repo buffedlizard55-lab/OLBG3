@@ -1,0 +1,159 @@
+{
+ "session": "session-b329efe5",
+ "derived_text": "data/raw/derived-b329efe5/ehfcl-playing-times-20261026T2023Z.txt",
+ "derived_manifest": "data/raw/derived-b329efe5/manifest.json",
+ "source_url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+ "checked_at": "2026-10-26T20:24:04Z",
+ "rule": "Each record is a literal slice of the derived text: the fixture line, its venue, the weekday and the \"TO TIME\" cell, under the GROUP ROUND 6 heading whose column is labelled (CET). CET = UTC+1, so 18:45h CET = 17:45Z and 20:45h CET = 19:45Z. scripts/apply_evidence.py re-derives every slice from the committed bytes and refuses the record if any slice does not match.",
+ "excluded": [
+  {
+   "event_id": "12127",
+   "reason": "Source conflict, so no release record is written: the EHF group-phase PDF prints \"FC Porto vs One Veszprém HC … 28.10.2026 20:45h\" (20:45 CET = 19:45Z) while OLBG prints 17:45 and the EHF match-centre page text captured at 2026-10-26T20:24Z no longer renders a clock at all. A prior session recorded 18:45 CET from that page on 2026-10-23. The three disagree, so the row is held rather than certified."
+  }
+ ],
+ "records": [
+  {
+   "event_id": "12130",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "HC Vardar 1961 vs MT Melsungen",
+   "date_line": "28.10.2026",
+   "time_line": "18:45h",
+   "quote": "HC Vardar 1961 vs MT Melsungen \nSC Jane Sandanski (Skopje, MKD) \nWednesday \n28.10.2026 18:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "18:45",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-28T17:45:00Z"
+  },
+  {
+   "event_id": "12138",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "Orlen Wisla Plock vs HBC Nantes",
+   "date_line": "28.10.2026",
+   "time_line": "18:45h",
+   "quote": "Orlen Wisla Plock vs HBC Nantes \nOrlen Arena (Plock, POL) \nWednesday \n28.10.2026 18:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "18:45",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-28T17:45:00Z"
+  },
+  {
+   "event_id": "12135",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "RK Celje Pivovarna Lasko vs HC Zagreb",
+   "date_line": "28.10.2026",
+   "time_line": "20:45h",
+   "quote": "RK Celje Pivovarna Lasko vs HC Zagreb \nHall Zlatorog (Celje, SLO) \nWednesday \n28.10.2026 20:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "20:45",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-28T19:45:00Z"
+  },
+  {
+   "event_id": "12134",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "Paris Saint-Germain Handball vs Aalborg Handbold",
+   "date_line": "28.10.2026",
+   "time_line": "20:45h",
+   "quote": "Paris Saint-Germain Handball vs Aalborg Handbold \nStade Pierre de Coubertin (Paris, FRA) \nWednesday \n28.10.2026 20:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "20:45",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-28T19:45:00Z"
+  },
+  {
+   "event_id": "12136",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "SC Magdeburg vs HC Kriens-Luzern",
+   "date_line": "28.10.2026",
+   "time_line": "20:45h",
+   "quote": "SC Magdeburg vs HC Kriens-Luzern \nGETEC Arena (Magdeburg, GER) \nWednesday \n28.10.2026 20:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "20:45",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-28T19:45:00Z"
+  },
+  {
+   "event_id": "12132",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "Industria Kielce vs Kolstad Handball",
+   "date_line": "28.10.2026",
+   "time_line": "20:45h",
+   "quote": "Industria Kielce vs Kolstad Handball \nHala Legionow (Kielce, POL) \nWednesday \n28.10.2026 20:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "20:45",
+   "date": "2026-10-28",
+   "start_utc": "2026-10-28T19:45:00Z"
+  },
+  {
+   "event_id": "12128",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "Füchse Berlin vs RK Partizan AdmiralBet",
+   "date_line": "29.10.2026",
+   "time_line": "18:45h",
+   "quote": "Füchse Berlin vs RK Partizan AdmiralBet \nMax-Schmeling-Halle (Berlin, GER)  \nThursday \n29.10.2026 18:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "18:45",
+   "date": "2026-10-29",
+   "start_utc": "2026-10-29T17:45:00Z"
+  },
+  {
+   "event_id": "12131",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "IFK Kristianstad vs OTP Bank-Pick Szeged",
+   "date_line": "29.10.2026",
+   "time_line": "18:45h",
+   "quote": "IFK Kristianstad vs OTP Bank-Pick Szeged \nKristianstad Arena (Kristianstad, SWE) \nThursday \n29.10.2026 \n18:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "18:45",
+   "date": "2026-10-29",
+   "start_utc": "2026-10-29T17:45:00Z"
+  },
+  {
+   "event_id": "12129",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "GOG vs Sporting CP",
+   "date_line": "29.10.2026",
+   "time_line": "18:45h",
+   "quote": "GOG vs Sporting CP \nArena Svendborg (Svendborg, DEN) \nThursday \n29.10.2026 \n18:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "18:45",
+   "date": "2026-10-29",
+   "start_utc": "2026-10-29T17:45:00Z"
+  },
+  {
+   "event_id": "12137",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "SAH Aarhus vs Barça",
+   "date_line": "29.10.2026",
+   "time_line": "20:45h",
+   "quote": "SAH Aarhus vs Barça \nDjurslands Bank Arena (Aarhus, DEN) \nThursday \n29.10.2026 \n20:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "20:45",
+   "date": "2026-10-29",
+   "start_utc": "2026-10-29T19:45:00Z"
+  },
+  {
+   "event_id": "12133",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
+   "team_line": "Montpellier HB vs CS Dinamo Bucuresti",
+   "date_line": "29.10.2026",
+   "time_line": "20:45h",
+   "quote": "Montpellier HB vs CS Dinamo Bucuresti \nFDI Stadium (Montpellier, FRA) \nThursday \n29.10.2026 \n20:45h",
+   "zone_quote": "GROUP ROUND 6 DATE TO TIME        \n(CET)",
+   "timezone": "CET",
+   "time_local": "20:45",
+   "date": "2026-10-29",
+   "start_utc": "2026-10-29T19:45:00Z"
+  }
+ ]
+}

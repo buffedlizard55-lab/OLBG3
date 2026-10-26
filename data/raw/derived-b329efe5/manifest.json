@@ -1,0 +1,15 @@
+{
+ "tool": "scripts/apply_evidence.py reads this sidecar; produced once with pypdf 6.21.2",
+ "derived_from": {
+  "capture_dir": "data/raw/cited-20261026T2023Z",
+  "pdf_file": "pages/ehfel-eurohandball-com-media-jqal4wt0-ehfcl-men-2026-27-group-phase-playing-times-pdf.pdf",
+  "pdf_url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+  "pdf_bytes": 218756,
+  "pdf_sha256": "b681d6ba3ebd764018813802f54f9ad2311e0f776a546253698042387f8bdb1d",
+  "fetched_at_utc": "2026-10-26T20:24:04Z",
+  "pages": 3
+ },
+ "text_file": "ehfcl-playing-times-20261026T2023Z.txt",
+ "text_sha256": "9bdd746c5b62f4f14146aa6ec5acd5491e732da1d4d5a8ce7ac5243f9f00a82c",
+ "note": "Text extracted from the committed PDF bytes, not re-encoded. The PDF is the EHF Champions League Men 2026/27 GROUP PHASE playing-times document, \"Status: July 29, 2026\", which prints each fixture with its date and a \"TO TIME\" column labelled (CET) for Rounds 5-6. Quotes used by data/raw/derived-b329efe5/fixture-quotes.json are exact slices of this text."
+}

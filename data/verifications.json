@@ -1,5 +1,5 @@
 {
- "retrieved_at": "2026-10-24T22:26:19Z",
+ "retrieved_at": "2026-10-26T20:23:09Z",
  "retrieved_at_previous": "2026-10-22T07:21:00Z to 2026-10-22T07:35:00Z (session-5cef1e25 live 15-sport morning refresh & governing-body verification pass; all earlier verified records preserved)",
  "policy": "A value is only written into the dataset when at least one source below states it explicitly. Competition/venue/date are filled from these sources; anything they do not state stays blank. Sources are classed official (governing body / league / operator), primary (official schedule or draw page of a governing body), or secondary (reputable outlet used only to corroborate). Where two sessions verified the same event, both sets of facts and sources are kept and the status is the highest one an official/primary-class source supports (merge note on the record).",
  "sources": [
@@ -5683,172 +5683,157 @@
   },
   "12128": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group A, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Max-Schmeling-Halle, Berlin",
-   "start_local": "2026-10-29 18:45 CET",
+   "start_local": "18:45",
    "start_utc": "2026-10-29T17:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group A R6: Fuchse Berlin (2nd, 3-0-2, 184:172, 6 pts) vs RK Partizan AdmiralBet (4th, 0-1-4, 148:184, 1 pt) — Thu 29.10.2026 at 18:45h (CET), Max-Schmeling-Halle, Berlin."
-   ]
+    "Füchse Berlin vs RK Partizan AdmiralBet — 29.10.2026 18:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12129": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group D, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Arena Svendborg, Svendborg",
-   "start_local": "2026-10-29 18:45 CET",
+   "start_local": "18:45",
    "start_utc": "2026-10-29T17:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group D R6: GOG (2nd, 3-1-1, 178:172, 7 pts) vs Sporting Clube de Portugal (1st, 4-1-0, 191:165, 9 pts) — Thu 29.10.2026 at 18:45h (CET), Arena Svendborg, Svendborg."
-   ]
+    "GOG vs Sporting CP — 29.10.2026 18:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12130": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group B, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "SC Jane Sandanski, Skopje",
-   "start_local": "2026-10-28 18:45 CET",
+   "start_local": "18:45",
    "start_utc": "2026-10-28T17:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group B R6: HC Vardar 1961 (4th, 1-0-4, 154:158, 2 pts) vs MT Melsungen (2nd, 3-0-2, 138:138, 6 pts) — Wed 28.10.2026 at 18:45h (CET), SC Jane Sandanski, Skopje."
-   ]
+    "HC Vardar 1961 vs MT Melsungen — 28.10.2026 18:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12131": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group D, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Kristianstad Arena, Kristianstad",
-   "start_local": "2026-10-29 18:45 CET",
+   "start_local": "18:45",
    "start_utc": "2026-10-29T17:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group D R6: IFK Kristianstad (4th, 0-0-5, 162:197, 0 pts) vs OTP Bank - PICK Szeged (3rd, 1-2-2, 172:169, 4 pts) — Thu 29.10.2026 at 18:45h (CET), Kristianstad Arena, Kristianstad."
-   ]
+    "IFK Kristianstad vs OTP Bank-Pick Szeged — 29.10.2026 18:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12132": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group F, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Hala Legionow, Kielce",
-   "start_local": "2026-10-28 20:45 CET",
+   "start_local": "20:45",
    "start_utc": "2026-10-28T19:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group F R6: Industria Kielce (2nd, 3-0-2, 155:153, 6 pts) vs Kolstad Handball (4th, 0-0-5, 143:178, 0 pts) — Wed 28.10.2026 at 20:45h (CET), Hala Legionow, Kielce."
-   ]
+    "Industria Kielce vs Kolstad Handball — 28.10.2026 20:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12133": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group E, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "FDI Stadium, Montpellier",
-   "start_local": "2026-10-29 20:45 CET",
+   "start_local": "20:45",
    "start_utc": "2026-10-29T19:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group E R6: Montpellier Handball (4th, 1-0-4, 150:165, 2 pts) vs Dinamo Bucuresti (3rd, 1-1-3, 134:145, 3 pts) — Thu 29.10.2026 at 20:45h (CET), FDI Stadium, Montpellier."
-   ]
+    "Montpellier HB vs CS Dinamo Bucuresti — 29.10.2026 20:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12134": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group C, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Stade Pierre de Coubertin, Paris",
-   "start_local": "2026-10-28 20:45 CET",
+   "start_local": "20:45",
    "start_utc": "2026-10-28T19:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group C R6: Paris Saint-Germain (2nd, 3-1-1, 182:157, 7 pts) vs Aalborg Handbold (1st, 4-1-0, 170:145, 9 pts) — Wed 28.10.2026 at 20:45h (CET), Stade Pierre de Coubertin, Paris."
-   ]
+    "Paris Saint-Germain Handball vs Aalborg Handbold — 28.10.2026 20:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12135": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group C, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Hall Zlatorog, Celje",
-   "start_local": "2026-10-28 20:45 CET",
+   "start_local": "20:45",
    "start_utc": "2026-10-28T19:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group C R6: RK Celje Pivovarna Lasko (4th, 0-0-5, 150:188, 0 pts) vs HC Zagreb (3rd, 2-0-3, 146:158, 4 pts) — Wed 28.10.2026 at 20:45h (CET), Hall Zlatorog, Celje."
-   ]
+    "RK Celje Pivovarna Lasko vs HC Zagreb — 28.10.2026 20:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12136": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group F, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "GETEC Arena, Magdeburg",
-   "start_local": "2026-10-28 20:45 CET",
+   "start_local": "20:45",
    "start_utc": "2026-10-28T19:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group F R6: SC Magdeburg (1st, 5-0-0, 176:140, 10 pts) vs HC Kriens-Luzern (3rd, 2-0-3, 158:161, 4 pts) — Wed 28.10.2026 at 20:45h (CET), GETEC Arena, Magdeburg."
-   ]
+    "SC Magdeburg vs HC Kriens-Luzern — 28.10.2026 20:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12137": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group E, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "Djurslands Bank Arena, Aarhus",
-   "start_local": "2026-10-29 20:45 CET",
+   "start_local": "20:45",
    "start_utc": "2026-10-29T19:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group E R6: SAH - Aarhus (listed by OLBG under former brand 'Skanderborg Handbold'; 2nd, 2-1-2, 150:163, 5 pts) vs Barca (1st, 5-0-0, 177:138, 10 pts) — Thu 29.10.2026 at 20:45h (CET), Djurslands Bank Arena, Aarhus."
-   ]
+    "SAH Aarhus vs Barça — 29.10.2026 20:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "12138": {
    "status": "verified",
-   "competition": "EHF Champions League Men 2026/27 — Group B, Round 6",
+   "competition": "EHF Champions League Men 2026/27 — Group Phase Round 6",
    "venue": "ORLEN Arena, Plock",
-   "start_local": "2026-10-28 18:45 CET",
+   "start_local": "18:45",
    "start_utc": "2026-10-28T17:45:00Z",
    "sources": [
-    "S-EHFCL-TIMES-PDF-20261023",
-    "S-EHFCL-STANDINGS-20261023",
-    "S-EHFCL-R5-WED",
-    "S-EHFCL-R5-THU"
+    "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
    ],
    "facts": [
-    "EHF CL Men Group B R6: Orlen Wisla Plock (1st, 3-0-2, 141:136, 6 pts) vs HBC Nantes (3rd, 3-0-2, 142:143, 6 pts) — Wed 28.10.2026 at 18:45h (CET), ORLEN Arena, Plock."
-   ]
+    "Orlen Wisla Plock vs HBC Nantes — 28.10.2026 18:45h (CET) in the EHF group-phase playing-times document"
+   ],
+   "note": "scripts/apply_evidence.py re-derived this quote from the committed PDF text at 2026-10-26T20:24:04Z."
   },
   "902165": {
    "status": "verified",
@@ -6115,11 +6100,123 @@
     "startTimeUTC = 2026-10-26T02:00:00Z for MIN Wild @ VAN Canucks (game id 2026020184) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-24"
    ],
    "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-24T22:26:19Z; OLBG printed 26 Oct 02:07 and its own startDate attribute said 2026-10-26T02:07:00.000Z."
+  },
+  "160795": {
+   "competition": "MLB",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-27T00:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-MLB-API-20261023"
+   ],
+   "facts": [
+    "gameDate = 2026-10-27T00:00:00Z for Milwaukee Brewers @ Tampa Bay Rays (game id 849804) in the payload stored at https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-10-28&hydrate=team,linescore,probablePitcher"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Tomorrow 00:00 and its own startDate attribute said 2026-10-27T00:00:00.000Z."
+  },
+  "200101": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-26T23:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-26T23:00:00Z for LAK Kings @ NYR Rangers (game id 2026020185) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Today 23:07 and its own startDate attribute said 2026-10-26T23:07:00.000Z."
+  },
+  "200103": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-27T00:30:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-27T00:30:00Z for TOR Maple Leafs @ CGY Flames (game id 2026020186) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Tomorrow 00:37 and its own startDate attribute said 2026-10-27T00:37:00.000Z."
+  },
+  "200102": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-27T01:30:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-27T01:30:00Z for DET Red Wings @ EDM Oilers (game id 2026020187) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed Tomorrow 01:37 and its own startDate attribute said 2026-10-27T01:37:00.000Z."
+  },
+  "200104": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-28T00:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-28T00:00:00Z for BOS Bruins @ CAR Hurricanes (game id 2026020189) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+  },
+  "200105": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-28T00:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-28T00:00:00Z for FLA Panthers @ WPG Jets (game id 2026020194) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+  },
+  "200111": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-28T00:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-28T00:00:00Z for NJD Devils @ DAL Stars (game id 2026020193) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
+  },
+  "200112": {
+   "competition": "NHL",
+   "venue": null,
+   "start_local": null,
+   "start_utc": "2026-10-28T00:00:00Z",
+   "status": "verified",
+   "sources": [
+    "S-NHL-API-20261023"
+   ],
+   "facts": [
+    "startTimeUTC = 2026-10-28T00:00:00Z for NYI Islanders @ NSH Predators (game id 2026020192) in the payload stored at https://api-web.nhle.com/v1/schedule/2026-10-26"
+   ],
+   "note": "Fixture and UTC start read from the league's own schedule payload at 2026-10-26T20:23:09Z; OLBG printed 28 Oct 00:07 and its own startDate attribute said 2026-10-28T00:07:00.000Z."
   }
  },
  "retrieved_at_previous_2": "2026-10-23T16:28:04Z",
  "retrieved_at_previous_3": "2026-10-21T05:40:00Z",
- "session": "session-22dbc477 (live 2026-10-23 probe) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z)",
+ "session": "session-22dbc477 (live 2026-10-23 probe) + session-a30d9bdb (2026-10-24T17:09Z NHL/MLB clock probe) + scripts/verify_live.py (official-20261024T2226Z; official NHL/MLB probe 2026-10-24T22:26:19Z) + scripts/verify_live.py (official-20261026T2023Z; official NHL/MLB probe 2026-10-26T20:23:09Z)",
  "retrieved_at_previous_4": "2026-10-22T21:55:00Z",
  "retrieved_at_previous_6": "2026-10-23T21:33:00Z"
 }
