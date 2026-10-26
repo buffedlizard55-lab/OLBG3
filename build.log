@@ -1,0 +1,39 @@
++ python3 tools/build_dataset.py
+retracted: 0 row(s) removed by data/live_overrides.json
+live overrides applied: 8
+matches: 418  (skipped 0 rows without a sport id)
++ python3 tools/originate.py
+lines: 418  high=0  medium=56  low=362
++ python3 scripts/brief_coverage.py
+sports=15 with_rows=15 meeting_5_target=0
+live HIGH root=0 olbg=0 union=0 shortfall=75
+cross-track paired=140 agree=96 differ=13 withheld=31
+prose root=93 (HIGH 0, min 57w, third-party hosts 15) olbg=54 (HIGH 0, min 56w)
++ python3 scripts/build_site.py
+board pages: 35
+verified 278 unverified 86 priced 318 hcap 239 totals 123
++ python3 scripts/check_board.py
+rows=367 fixtures=319 outright_or_race=48 verified=278 priced=318 predictions=93
+PASS: every row has an OLBG source, verification is all-or-nothing, prices recompute, every HIGH pick is inside the -250..+10000 band with a live kick-off and a written prediction, every non-HIGH piece is labelled analysis, the brief-coverage accounting recomputes and no two write-ups are duplicates.
++ python3 tools/build_site.py
+site built: 20 pages
++ python3 tools/check_site.py
+written-pick quality: predictions=147 high=0 warnings=0
+pages: 20  fixtures: 418  lines: 418  high: 0  predictions: 54  flagged: 219
+blank competition fields (by design): 309
+
+FAILED
+ - rugby-union.html: broken internal link flagged.html
+ - volleyball.html: broken internal link flagged.html
+ - snooker.html: broken internal link flagged.html
+ - motor-racing.html: broken internal link flagged.html
+ - ice-hockey.html: broken internal link flagged.html
+ - rugby-league.html: broken internal link flagged.html
+ - gaelic-football.html: broken internal link flagged.html
+ - baseball.html: broken internal link flagged.html
+ - greyhounds.html: broken internal link flagged.html
+ - basketball.html: broken internal link flagged.html
+ - tennis.html: broken internal link flagged.html
+ - cricket.html: broken internal link flagged.html
+ - darts.html: broken internal link flagged.html
+ - handball.html: broken internal link flagged.html
