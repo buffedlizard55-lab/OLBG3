@@ -1,10 +1,10 @@
 {
-  "out": "data/raw/live-20261026T0525Z-1a5c732e",
-  "requested_at_utc": "2026-10-26T05:22:00Z",
+  "out": "data/raw/live-20261026T0550Z-1a5c732e",
+  "requested_at_utc": "2026-10-26T05:48:00Z",
   "requested_by": "session-1a5c732e",
-  "why": "The committed board is built on the 2026-10-24 capture, which is now beyond the 24 h source-age gate, so every HIGH pick has expired and Pages has not rebuilt since 2026-10-24T23:15Z. This request asks for the 18-endpoint public listing capture for Monday 26 October, the standard official competition probe (NHL/MLB/NBA structured endpoints plus the 14 governing-body pages), and one explicit byte-faithful read of the fixtures/results/standings pages listed in .harvest/urls-1a5c732e.txt so each new fixture can be matched to its own official clock and form record.",
-  "capture": true,
-  "probe": true,
+  "why": "Second pass for the same 2026-10-26 board: the 05:25Z capture already lists the fixtures, so this run only re-reads the governing-body form and clock pages the 05:20Z probe could not supply (SHL, Liiga, DEL, Metal Ligaen for ice hockey; EHF playing-times PDF; EuroLeague standings retry; Formula 1 driver standings; Austrian volleyball and Swedish handball league pages; Six Nations and PDC pages). No listing re-capture is requested.",
+  "capture": false,
+  "probe": false,
   "cited": false,
-  "urls": ".harvest/urls-1a5c732e.txt"
+  "urls": ".harvest/urls-20261026T0550Z-1a5c732e.txt"
 }
