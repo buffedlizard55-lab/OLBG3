@@ -25,7 +25,7 @@ Confidence (mechanical)
 HIGH needs all of: form inputs read from official sources, a market anchor, at least two official
 sources, an official start time, p >= 0.58, a fair price inside -250..+10000 (decimal 1.40-101),
 OLBG's price not shorter than 95% of our fair price, a written piece of 30+ words that avoids the
-brief's banned words, and a start after the publication clock. MEDIUM: researched rows with
+brief's banned words, a listing observation under 24 hours old, and a start after the publication clock. MEDIUM: researched rows with
 p >= 0.52 and at least one official source. LOW: everything else, including every row we only
 anchored to the market. Rows whose start has passed are shown as CLOSED.
 
@@ -154,7 +154,7 @@ def flip_total(sel: str) -> str:
 
 
 # ---------------------------------------------------------------- one row
-def evaluate(row: dict, res: dict | None, clock: dt.datetime) -> dict:
+def evaluate(row: dict, res: dict | None, clock: dt.datetime, observed_at: str | None = None) -> dict:
     sport = row["sport"]
     try:
         price = float(row.get("odds_decimal") or "")
@@ -219,6 +219,9 @@ def evaluate(row: dict, res: dict | None, clock: dt.datetime) -> dict:
 
     fair = 1 / p if p else None
     reasons = []
+    observed = parse_utc(observed_at)
+    if observed is None or not dt.timedelta(0) <= clock - observed < dt.timedelta(hours=24):
+        reasons.append("listing observation missing, future-dated or at least 24 hours old; analysis only")
     if started:
         out["confidence"] = "CLOSED"
         return finish(out)
@@ -353,7 +356,7 @@ def build(out_root: str) -> dict | None:
         return None
     from board_dates import snapshot_utc
     clock = snapshot_utc()
-    rows = [evaluate(r, research["rows"].get(r["event_id"]), clock) for r in read_capture(research["capture"])]
+    rows = [evaluate(r, research["rows"].get(r["event_id"]), clock, research.get("captured_at_utc")) for r in read_capture(research["capture"])]
     rows.sort(key=lambda r: (r["olbg_start"], r["event"]))
     by_sport = {s: [r for r in rows if r["sport"] == s] for s in SPORTS}
     highs = [r for r in rows if r["confidence"] == "HIGH"]
@@ -391,7 +394,7 @@ def build(out_root: str) -> dict | None:
               "OLBG's printed price with the bookmaker margin removed. Rows with no form reading are market-anchored "
               "LOW lines. HIGH means every test passed: two or more official sources, an official start time with a stated time zone, a "
               "probability of 58% or more, a fair price between -250 and +10000, OLBG's price not shorter than our "
-              "fair price, a full write-up, and a start after the publication clock.")
+              "fair price, a full write-up, a listing observation under 24 hours old, and a start after the publication clock.")
     body = (f'<h1>Next-day board &middot; {esc(research["board_date"])}</h1>'
             f'<p class="lede">Every OLBG row in the in-scope sports from the capture taken at '
             f'{esc(research["captured_at_utc"])}, with our own line, our pick and a confidence grade. Publication clock '

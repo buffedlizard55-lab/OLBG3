@@ -1,5 +1,23 @@
 # OLBG3 — reverse-engineered multi-sport board, originated lines & sourced research picks
 
+## October 26 refresh — 142 new-capture entries, seven NHL analyses, two current HIGH research picks
+
+[Today's written picks](https://buffedlizard55-lab.github.io/OLBG3/today.html#shortlist) ·
+[Full lines board](https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html) ·
+[Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html)
+
+**Current pass:** 523 combined listing rows including dated carry-only history; 520 winner/entrant
+estimates, three unpriced. Seven new NHL analyses use the official October 26 schedule and standings;
+only Rangers and Oilers pass the existing HIGH research-grade gates. **2/75 target picks, shortfall 73**:
+the five-per-sport goal is not achieved, and a research grade is not a calibrated win rate.
+
+Added four-hour source retrieval, primary-capture promotion before pricing, correct per-probe official
+source IDs, next-day source-age expiry and zero-pick-safe build tests. No injuries or starting goalies
+were assumed. [Current audit and official sources](docs/audit-ef52c632.md) ·
+[Reproducible pricing](docs/pricing-ef52c632.md). Older sections below are historical receipts,
+not current fixture or pick counts.
+
+
 ## 2026-10-24 evening — 131 fresh fixtures, three new written picks, and an honest account of the nine sports still empty — `session-49317273`
 
 Full record: [`docs/audit-49317273.md`](docs/audit-49317273.md)

@@ -42,6 +42,7 @@ ALLOWED_HOSTS = {
     "www.mlb.com",
     "www.espn.com",
     "www.nba.com",
+    "cdn.nba.com",  # NBA-owned official schedule endpoint (may return 403).
     "www.cbssports.com",
     "www.snooker.org",
     "www.wst.tv",
