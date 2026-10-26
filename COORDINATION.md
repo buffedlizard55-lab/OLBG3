@@ -1,3 +1,13 @@
+## session-ef52c632 — 2026-10-26 current-source refresh and integration
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-ef52c632-refresh-integrate | in progress | session-ef52c632 on Arena-fixed `arena/ef52c632-olbg3` | `COORDINATION.md`, `.harvest/request.json`, new runner evidence `data/raw/live-20261026T2020Z-ef52c632/**` and timestamped official/cited captures; new `docs/audit-ef52c632.md`, new tests if needed; append-only flags; generated data/site outputs during final integration; specific source fixes documented before editing. |
+
+- Read existing board (2,709 lines), inspected open PRs and fetched origin. Remaining in-progress claims date from October 24 or earlier, outside the 60-minute takeover window. No sibling PR or authored evidence will be silently merged or overwritten.
+- Branch name fixed by Arena: all work, claims and final PR stay on `arena/ef52c632-olbg3`; no alternate session branch is created.
+- Request current robots-aware OLBG capture and official/cited source rereads using the existing GitHub runner. Captures are retrieval evidence, not automatic approval. No invented fixtures, prices, injuries or confidence. Integration will retain explicit shortfalls and public flags.
+
 
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
