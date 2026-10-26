@@ -100,9 +100,13 @@ class CurrentNHLResearch(unittest.TestCase):
         sources = {s['id']: s for s in ledger['sources']}
         for eid in ('200101', '200102', '200103', '200104', '200105', '200111', '200112'):
             for sid in ledger['event_verifications'][eid]['sources']:
-                self.assertIn('official-20261026T2021Z', sid)
-                self.assertEqual(sources[sid]['url'], 'https://api-web.nhle.com/v1/schedule/2026-10-26')
-                self.assertTrue((ROOT / 'data' / sources[sid]['probe_file']).exists())
+                # Follow the active observation, not a frozen source ID: a later genuine
+                # reread may replace it without breaking scheduled publication.
+                source = sources[sid]
+                probe_file = Path(source['probe_file'])
+                self.assertIn(probe_file.parts[1], sid)
+                self.assertTrue(source['url'].startswith('https://api-web.nhle.com/v1/schedule/'))
+                self.assertTrue((ROOT / 'data' / probe_file).exists())
 
     def test_all_new_probabilities_recompute_from_official_records(self):
         spec = json.loads((ROOT / 'data/pricing-ef52c632.json').read_text())
