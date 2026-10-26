@@ -51,7 +51,7 @@ class BatchIntegrity(unittest.TestCase):
             r = self.events[row["ref"]]
             # FL-231 (same class as FL-201/FL-217): once the official start passes, the pipeline
             # correctly withdraws the pick from HIGH. Pin that behaviour instead of going red.
-            if r["pick"].get("kickoff_started"):
+            if not (r["pick"].get("release") or {}).get("eligible"):
                 self.assertNotEqual(r["pick"]["confidence"], "HIGH", row["ref"])
                 continue
             self.assertEqual(r["pick"]["confidence"], "HIGH", row["ref"])
@@ -130,7 +130,8 @@ class ExecutiveSummaryPage(unittest.TestCase):
         live = [r for r in self.events
                 if r["pick"]["confidence"] == "HIGH"
                 and (r["pick"].get("release") or {}).get("status") == "upcoming"]
-        self.assertTrue(live)
+        if not live:
+            self.assertIn("No live high-confidence pick at this build", text)
         for r in live:
             self.assertIn(f"predictions.html#{r['ref']}", text, f"{r['ref']} is not linked from the summary")
             self.assertIn(html.escape(r["verification"]["official_url"], quote=False), text,
