@@ -1,0 +1,160 @@
+{
+  "tool": "scripts/probe_urls.py",
+  "list": ".harvest/urls-b329efe5b.txt",
+  "user_agent": "OLBG3Audit/1.0 (+https://github.com/buffedlizard55-lab/OLBG3; official-source research; contact via repository issues)",
+  "started_at_utc": "2026-10-26T20:31:01Z",
+  "pages": [
+    {
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "key": "ehfcl-eurohandball-com-men-2026-27-standings",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/standings/",
+      "bytes": 209049,
+      "sha256": "5e082b506413f4f82acab2367a66e809bb3f9bd4b85a92b6ceef0d8adce26f69",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/ehfcl-eurohandball-com-men-2026-27-standings.bin",
+      "text_file": "pages/ehfcl-eurohandball-com-men-2026-27-standings.txt",
+      "fetched_at_utc": "2026-10-26T20:31:02Z"
+    },
+    {
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "key": "ehfcl-eurohandball-com-men-2026-27",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/",
+      "bytes": 159962,
+      "sha256": "dc4c5c37f6885875542917da5dfa2fc607af7859c1b6e8f2f4488dd5d4a8357c",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/ehfcl-eurohandball-com-men-2026-27.bin",
+      "text_file": "pages/ehfcl-eurohandball-com-men-2026-27.txt",
+      "fetched_at_utc": "2026-10-26T20:31:05Z"
+    },
+    {
+      "url": "https://www.eurohandball.com/en/competitions/ehf-champions-league-men/",
+      "key": "www-eurohandball-com-en-competitions-ehf-champions-league-men",
+      "outcome": "http_error",
+      "status": 404,
+      "detail": "Not Found",
+      "fetched_at_utc": "2026-10-26T20:31:07Z"
+    },
+    {
+      "url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "key": "www-unitedrugby-com-latest-news-2026-27-fixtures-in-full",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.unitedrugby.com/latest/news/2026-27-fixtures-in-full/",
+      "bytes": 260460,
+      "sha256": "11be802152d1f2fcd4d5ff3702bc6c04e0dc489609cb77662c77ea50c74331c4",
+      "content_type": "text/html; charset=UTF-8",
+      "file": "pages/www-unitedrugby-com-latest-news-2026-27-fixtures-in-full.bin",
+      "text_file": "pages/www-unitedrugby-com-latest-news-2026-27-fixtures-in-full.txt",
+      "fetched_at_utc": "2026-10-26T20:31:09Z"
+    },
+    {
+      "url": "https://prod2.lnr.fr/calendrier",
+      "key": "prod2-lnr-fr-calendrier",
+      "outcome": "http_error",
+      "status": 404,
+      "detail": "Not Found",
+      "fetched_at_utc": "2026-10-26T20:31:11Z"
+    },
+    {
+      "url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "key": "top14-lnr-fr-calendrier-et-resultats",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://top14.lnr.fr/calendrier-et-resultats",
+      "bytes": 159924,
+      "sha256": "019005a8935cab187515193cf49ef5717ba69f6bd3f69d090e3deeaed69f6556",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/top14-lnr-fr-calendrier-et-resultats.bin",
+      "text_file": "pages/top14-lnr-fr-calendrier-et-resultats.txt",
+      "fetched_at_utc": "2026-10-26T20:31:14Z"
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/standings/now",
+      "key": "api-web-nhle-com-v1-standings-now",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://api-web.nhle.com/v1/standings/2026-10-26",
+      "bytes": 58203,
+      "sha256": "5d5ff63471e0eb637527b8da95ef2becccfe2de8680b1e0adeb2f75abd5994cf",
+      "content_type": "application/json",
+      "file": "pages/api-web-nhle-com-v1-standings-now.bin",
+      "fetched_at_utc": "2026-10-26T20:31:15Z"
+    },
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/now",
+      "key": "api-web-nhle-com-v1-schedule-now",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+      "bytes": 92954,
+      "sha256": "224dd1e20cdb21285afd89fbdddbb62deeb77caad2e746edfeba760b2fc81edf",
+      "content_type": "application/json",
+      "file": "pages/api-web-nhle-com-v1-schedule-now.bin",
+      "fetched_at_utc": "2026-10-26T20:31:17Z"
+    },
+    {
+      "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+      "key": "statsapi-mlb-com-api-v1-standings-leagueId-103-104-season-2026",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+      "bytes": 80986,
+      "sha256": "33af2f20ab0ff63b13df9e792af9d73f8e010c22f06e1fae29a712919df45a98",
+      "content_type": "application/json;charset=UTF-8",
+      "file": "pages/statsapi-mlb-com-api-v1-standings-leagueId-103-104-season-2026.bin",
+      "fetched_at_utc": "2026-10-26T20:31:19Z"
+    },
+    {
+      "url": "https://www.legavolleyfemminile.it/",
+      "key": "www-legavolleyfemminile-it",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.legavolleyfemminile.it/",
+      "bytes": 283020,
+      "sha256": "cb876721ac6506a43a340b5cfce728d0474f1278b1441f8887bb7efab74ecda7",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-legavolleyfemminile-it.bin",
+      "text_file": "pages/www-legavolleyfemminile-it.txt",
+      "fetched_at_utc": "2026-10-26T20:31:20Z"
+    },
+    {
+      "url": "https://www.legavolleyfemminile.it/calendario/",
+      "key": "www-legavolleyfemminile-it-calendario",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.legavolleyfemminile.it/calendario/",
+      "bytes": 713544,
+      "sha256": "206f04129032ec183af0256664d11a091d1ff6bf7dc986e4d9e627c85dd664de",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-legavolleyfemminile-it-calendario.bin",
+      "text_file": "pages/www-legavolleyfemminile-it-calendario.txt",
+      "fetched_at_utc": "2026-10-26T20:31:23Z"
+    },
+    {
+      "url": "https://www.formula1.com/en/racing/2026/Mexico",
+      "key": "www-formula1-com-en-racing-2026-Mexico",
+      "outcome": "http_error",
+      "status": 404,
+      "detail": "Not Found",
+      "fetched_at_utc": "2026-10-26T20:31:25Z"
+    },
+    {
+      "url": "https://www.pgatour.com/schedule/2026",
+      "key": "www-pgatour-com-schedule-2026",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.pgatour.com/schedule/2026",
+      "bytes": 536435,
+      "sha256": "a96747e09a515a1d4e88563ef251bee202a34291ce1277f22253a791572495ba",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/www-pgatour-com-schedule-2026.bin",
+      "text_file": "pages/www-pgatour-com-schedule-2026.txt",
+      "fetched_at_utc": "2026-10-26T20:31:27Z"
+    }
+  ],
+  "finished_at_utc": "2026-10-26T20:31:27Z"
+}
