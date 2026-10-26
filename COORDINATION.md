@@ -1,4 +1,15 @@
 
+## session-b97c44d2 — **task-b97c44d2-20261026-daily-board** (CLAIMED 2026-10-26T05:20Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-b97c44d2-20261026-daily-board` | in progress | `session-b97c44d2` on Arena-fixed `arena/b97c44d2-olbg3` | `COORDINATION.md`; `.harvest/request.json` (this session's capture request only) and the new `.harvest/urls-b97c44d2.txt`; runner-written new capture dirs only (`data/raw/live-20261026T*`, `data/raw/official-20261026T*`, `data/raw/cited-20261026T*`, `data/raw/probe-b97c44d2-*`, `data/raw/olbg-harvest-20261026T*-b97c44d2.tsv`); new `data/daily/research-20261026.json`; regenerated `daily/**`; `docs/audit-b97c44d2.md` (new); `tests/test_audit_b97c44d2.py` (new); append-only `data/flagged.json` only if a new defect needs a public flag. **Not touched:** `scripts/model.py`, `scripts/check_board.py`, sibling audit docs/tests, and every existing `data/daily/research-*.json` file. |
+
+- **Pre-claim checks (2026-10-26T05:16Z):** `origin/main` = `47eeecb` (scheduled board refresh 23:15Z on 2026-10-24), equal to this branch's base. No board row is `in progress` with a commit inside the last 60 minutes; the last session activity recorded is `session-1815f0b1` (PR #185 merged 2026-10-24T22:46Z) and `session-49317273` (23:05Z). Open PRs #137, #169, #173, #182, #184 are older than 60 minutes and are left untouched (closing another session's PR is the user's decision).
+- **Why:** the newest boards are the 2026-10-25 next-day board and a 2026-10-24 22:27Z capture. At the 05:20Z clock on 2026-10-26 both are yesterday's, so this session boards **today, 2026-10-26, and the following 48 hours** from a fresh robots-aware OLBG capture.
+- **Capability note:** this session's sandbox can reach `olbg.com` and governing-body sites through the agent page-retrieval tool but **not** from `bash`; verbatim bytes are still captured on the CI runner (`.harvest/request.json` push → `live-harvest` workflow) and committed, so every row keeps a committed evidence path.
+- **Hard boundary:** no fixture, clock, price, record, injury or form statement is invented. Anything that cannot be read from a stated source stays blank and is published on the Flagged for Review page.
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
