@@ -1028,11 +1028,11 @@
       "match_id": "ICH-200009",
       "sport": "Ice Hockey",
       "match": "TB Lightning @ UTA Mammoth",
-      "selection": "Utah Mammoth money line (1.69 / -145)",
+      "selection": "Utah Mammoth money line — archived analysis",
       "confidence": "high",
       "status": "analysis",
-      "correction_note": "",
-      "text": "Utah Mammoth to win on the money line at 1.69 (-145) against the Tampa Bay Lightning, with the NHL schedule listing a 01:00 UTC start on Sunday 25 October. Utah are 7-4-0 for 14 points and have scored 41 goals in eleven games while conceding 36, and their home record of 3-1-0 is the part of the profile that carries this selection. Tampa Bay are level on 14 points at 7-3-0 but have done their work at home: they are 5-0-0 in their own building and 2-3-0 on the road, scoring 34 and conceding 29 overall. Both clubs lost their most recent game, so the edge is the venue split and Utah's higher scoring rate of 3.73 goals per game against Tampa Bay's 3.40. The tip split on the listing has moved to five of nine on the hosts since the first read, which is why the price is quoted at 1.69 rather than the earlier 1.64.",
+      "correction_note": "FL-235: removed a superseded quoted price from expired analysis; original body retained in archived_original_text. No new sporting observation.",
+      "text": "Utah Mammoth to win on the money line against the Tampa Bay Lightning, with the NHL schedule listing a 01:00 UTC start on Sunday 25 October. Utah are 7-4-0 for 14 points and have scored 41 goals in eleven games while conceding 36, and their home record of 3-1-0 is the part of the profile that carries this selection. Tampa Bay are level on 14 points at 7-3-0 but have done their work at home: they are 5-0-0 in their own building and 2-3-0 on the road, scoring 34 and conceding 29 overall. Both clubs lost their most recent game, so the edge is the venue split and Utah's higher scoring rate of 3.73 goals per game against Tampa Bay's 3.40. This is retained as dated analysis, not a currently available selection; the original quoted price is preserved in the archive field.",
       "sources": [
         {
           "label": "NHL official schedule endpoint — game 2026020177, Tampa Bay @ Utah, startTimeUTC",
@@ -1043,7 +1043,8 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
       ],
-      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred.",
+      "archived_original_text": "Utah Mammoth to win on the money line at 1.69 (-145) against the Tampa Bay Lightning, with the NHL schedule listing a 01:00 UTC start on Sunday 25 October. Utah are 7-4-0 for 14 points and have scored 41 goals in eleven games while conceding 36, and their home record of 3-1-0 is the part of the profile that carries this selection. Tampa Bay are level on 14 points at 7-3-0 but have done their work at home: they are 5-0-0 in their own building and 2-3-0 on the road, scoring 34 and conceding 29 overall. Both clubs lost their most recent game, so the edge is the venue split and Utah's higher scoring rate of 3.73 goals per game against Tampa Bay's 3.40. The tip split on the listing has moved to five of nine on the hosts since the first read, which is why the price is quoted at 1.69 rather than the earlier 1.64."
     },
     {
       "match_id": "VOL-36994",
@@ -1107,7 +1108,152 @@
       ],
       "text": "Fuchse Berlin to win the money line at 1.68 (-147) against RK Partizan AdmiralBet in Group A on Thursday 29 October, 18:45 CET at the Max-Schmeling-Halle. Berlin sit second on six points from 3-0-2, scoring 184 and conceding 172, while Partizan are fourth with one point from 0-1-4 after scoring 148 and conceding 184 in the same five rounds. The Serbian side have lost four of five and carry the weaker goal difference by 36, and the five points between the clubs in the same group make the 1.68 price on the hosts the selection here rather than the draw the tip split favours.",
       "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+    },
+    {
+      "match_id": "ICH-200101",
+      "sport": "Ice Hockey",
+      "match": "LA Kings @ NY Rangers",
+      "selection": "NY Rangers to win — money line",
+      "confidence": "high",
+      "status": "high",
+      "text": "New York Rangers to win the money line against Los Angeles. The Rangers' six wins from six home games are the clearest reason to prefer them, although their two-game losing streak prevents this from being a carefree selection. Los Angeles arrive with a 2-5-2 overall record and 21 goals scored against 32 conceded; New York are 7-5-1 with a 41-36 goal balance. The Kings have been more competitive away, going 2-2-2, so the straight win is preferable to asking the Rangers to cover a handicap. No starting-goalie assumption is built into the recommendation.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass."
+    },
+    {
+      "match_id": "ICH-200102",
+      "sport": "Ice Hockey",
+      "match": "DET Red Wings @ EDM Oilers",
+      "selection": "EDM Oilers to win — money line",
+      "confidence": "high",
+      "status": "high",
+      "text": "Edmonton Oilers to win the money line against Detroit. Edmonton's 8-2-1 start and 49 goals in eleven games offer a stronger attacking foundation than Detroit's 4-4-3 record and 29 goals. There is a useful caution in the venue splits: the Oilers are only 3-2-1 at home, while the Red Wings are 1-1-2 away, so neither split supports treating this as a routine blowout. Both teams carry a one-game losing streak. Back Edmonton to win rather than extending the argument to a puck-line bet, where the evidence is less persuasive.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass."
+    },
+    {
+      "match_id": "ICH-200103",
+      "sport": "Ice Hockey",
+      "match": "TOR Maple Leafs @ CGY Flames",
+      "selection": "TOR Maple Leafs to win — money line",
+      "confidence": "medium",
+      "status": "analysis",
+      "text": "Toronto Maple Leafs to win is the narrow money-line lean at Calgary, not a high-confidence recommendation. Toronto's last ten read 6-2-2 and their winning streak is four, while Calgary are 4-6-0 with 23 goals scored and 39 allowed across ten games. The Flames have nevertheless won three straight and are 3-3-0 at home. Toronto's 3-1-1 road record adds support, but Calgary's recent improvement makes a large handicap difficult to justify. Keep the selection to the match winner and acknowledge that the estimated edge is small.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass.",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+    },
+    {
+      "match_id": "ICH-200104",
+      "sport": "Ice Hockey",
+      "match": "BOS Bruins @ CAR Hurricanes",
+      "selection": "CAR Hurricanes to win — money line",
+      "confidence": "medium",
+      "status": "analysis",
+      "text": "Carolina Hurricanes to win is only a marginal lean against Boston. Carolina's last-ten record of 8-1-1 is excellent, but Boston's 9-2-1 overall record and 48 goals for against 26 conceded make the visitors a serious obstacle. The Hurricanes have scored 51 and conceded 33 in thirteen games, yet their home record is just 2-1-1; Boston are 4-1-1 away. Those numbers argue against forcing a confident home-win call. The selection is Carolina on the money line, with low conviction and no accompanying handicap recommendation.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass.",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+    },
+    {
+      "match_id": "ICH-200105",
+      "sport": "Ice Hockey",
+      "match": "FLA Panthers @ WPG Jets",
+      "selection": "FLA Panthers to win — money line",
+      "confidence": "medium",
+      "status": "analysis",
+      "text": "Florida Panthers to win the money line is a modest lean at Winnipeg. Florida are 6-4-2 overall and 4-3-2 away, whereas the Jets are 4-4-3 and have won only two of six home games. The scoring figures do not point to dominance: Florida have 34 goals for and 36 against, while Winnipeg sit at 27 and 31. Florida's last ten are 5-4-1 compared with Winnipeg's 4-4-2. Prefer the Panthers narrowly, but neither team's negative goal balance supports presenting this as a high-confidence pick or adding an aggressive spread.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass.",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+    },
+    {
+      "match_id": "ICH-200111",
+      "sport": "Ice Hockey",
+      "match": "NJ Devils @ DAL Stars",
+      "selection": "DAL Stars to win — money line",
+      "confidence": "medium",
+      "status": "analysis",
+      "text": "Dallas Stars to win is the money-line preference against New Jersey, though the estimated advantage remains small. Dallas have won five straight and their last-ten record is 7-2-1, supported by 32 goals scored and only 20 conceded in eleven games. New Jersey are also in good rhythm, winning three straight with a 7-4-0 overall record. The Devils' 1-2-0 road split contrasts with Dallas at 4-2-0 at home, but those venue samples are short. Take the Stars as an analysis lean, not a claim that the visitors' recent form can be dismissed.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass.",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+    },
+    {
+      "match_id": "ICH-200112",
+      "sport": "Ice Hockey",
+      "match": "NY Islanders @ NSH Predators",
+      "selection": "NY Islanders to win — money line",
+      "confidence": "medium",
+      "status": "analysis",
+      "text": "New York Islanders to win is a low-conviction money-line lean at Nashville. The Islanders have the better overall goal balance, scoring 32 and conceding 29, compared with Nashville's 31 for and 35 against. The venue evidence pushes the other way: New York are 1-3-1 on the road and the Predators are 3-2-1 at home. Their last-ten records, 5-3-2 and 4-2-4 respectively, also show why a close contest is more plausible than a comfortable away win. Keep this below high confidence and do not extend it into a handicap selection.",
+      "sources": [
+        {
+          "label": "NHL official schedule — UTC start and both teams; retrieved October 26",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        },
+        {
+          "label": "NHL official standings October 26 — records, goals, last ten and venue splits",
+          "url": "https://api-web.nhle.com/v1/standings/2026-10-26"
+        }
+      ],
+      "correction_note": "Research grade, not a calibrated win rate. No injury or starting-goalie information established in this pass.",
+      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
     }
   ],
-  "note": "0 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "2 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

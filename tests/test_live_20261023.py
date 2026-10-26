@@ -235,7 +235,6 @@ class PublishedState(unittest.TestCase):
         lines = json.loads((ROOT / 'data/lines.json').read_text())
         matches = {m['id']: m for m in json.loads((ROOT / 'data/matches.json').read_text())}
         high = [r for r in lines if r['confidence'] == 'high']
-        self.assertTrue(high, 'expected at least one HIGH pick')
         for row in high:
             self.assertGreaterEqual(row['our_price_pick'], 1.40)
             self.assertLessEqual(row['our_price_pick'], 101.0)

@@ -134,7 +134,16 @@ class TestVolleyballFixtures(unittest.TestCase):
         for ref, needle in expect.items():
             with self.subTest(ref=ref):
                 self.assertIn(needle, rows[ref]["home"])
-                self.assertEqual(rows[ref]["pick"]["kickoff_utc"], "2026-10-25T17:00:00Z")
+                # The source clock remains in the evidence ledger after release expiry.
+                checks = load("release_checks.json")["events"]
+                record = checks[str(rows[ref]["olbg_event_id"])]
+                self.assertEqual(record["date"], "2026-10-25")
+                self.assertEqual(record["time"], "17:00")
+                self.assertEqual(record["timezone"], "UTC")
+                if rows[ref]["pick"]["kickoff_utc"] is not None:
+                    self.assertEqual(rows[ref]["pick"]["kickoff_utc"], "2026-10-25T17:00:00Z")
+                else:
+                    self.assertFalse(rows[ref]["pick"]["release"]["eligible"])
 
 
 class TestRegisterItems(unittest.TestCase):
@@ -281,7 +290,6 @@ class TestPublicationIntegrity(unittest.TestCase):
         preds = {row["ref"] for row in load("predictions.json")["predictions"]}
         highs = [row for row in self.events["events"]
                  if row["pick"]["confidence"] == "HIGH"]
-        self.assertTrue(highs)
         for row in highs:
             with self.subTest(ref=row["ref"]):
                 self.assertIn(row["ref"], preds)

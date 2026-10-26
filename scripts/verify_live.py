@@ -172,6 +172,7 @@ def main() -> int:
     manifest = json.loads((probe / 'manifest.json').read_text())
     checked_at = manifest.get('started_at_utc')
     session_note = probe_note(probe, checked_at)
+    source_ids = {'NHL': 'S-NHL-API-' + probe.name, 'MLB': 'S-MLB-API-' + probe.name}
     rows = load_harvest(harvest)
 
     candidates: list[dict] = []
@@ -184,9 +185,9 @@ def main() -> int:
         for game in games:
             game['source'] = url
         candidates += games
-        sources.append({'id': 'S-NHL-API-20261023', 'class': 'official',
+        sources.append({'id': source_ids['NHL'], 'class': 'official',
                         'name': 'NHL official schedule endpoint (gameWeek payload)',
-                        'url': url, 'probe_file': 'json/nhl_schedule.json',
+                        'url': url, 'probe_file': str((probe / 'json/nhl_schedule.json').relative_to(DATA)),
                         'sha256': next((p.get('sha256') for p in manifest['structured'] if p['key'] == 'nhl_schedule'), None)})
         print(f'NHL payload: {len(games)} games, {sum(1 for g in games if g["start_utc"])} with startTimeUTC')
 
@@ -197,9 +198,9 @@ def main() -> int:
         for game in games:
             game['source'] = url
         candidates += games
-        sources.append({'id': 'S-MLB-API-20261023', 'class': 'official',
+        sources.append({'id': source_ids['MLB'], 'class': 'official',
                         'name': 'MLB official schedule endpoint',
-                        'url': url, 'probe_file': 'json/mlb_schedule.json',
+                        'url': url, 'probe_file': str((probe / 'json/mlb_schedule.json').relative_to(DATA)),
                         'sha256': next((p.get('sha256') for p in manifest['structured'] if p['key'] == 'mlb_schedule'), None)})
         print(f'MLB payload: {len(games)} games, {sum(1 for g in games if g["start_utc"])} with gameDate')
 
@@ -248,7 +249,7 @@ def main() -> int:
             existing_ids.add(source['id'])
     for item in verified:
         row, game = item['row'], item['game']
-        source_id = 'S-NHL-API-20261023' if game['competition'] == 'NHL' else 'S-MLB-API-20261023'
+        source_id = source_ids[game['competition']]
         ver.setdefault('event_verifications', {})[row['event_id']] = {
             'competition': game['competition'],
             'venue': None,

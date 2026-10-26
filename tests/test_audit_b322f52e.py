@@ -123,8 +123,12 @@ class DefectsAndRepairsB322f52eTest(unittest.TestCase):
     @unittest.skip("historical live-pick pin expired; the current board correctly publishes zero live HIGH picks")
     def test_fl176_landing_table_renders_all_sources_per_high_row(self):
         index_html = (ROOT / "olbg/index.html").read_text(encoding="utf-8")
-        self.assertIn(">source 1</a>", index_html)
-        self.assertIn(">source 2</a>", index_html)
+        high = [r for r in self.lines.values() if r["confidence"] == "high"]
+        if high:
+            self.assertIn(">source 1</a>", index_html)
+            self.assertIn(">source 2</a>", index_html)
+        else:
+            self.assertIn("No pick currently passes every gate", index_html)
         self.assertEqual(self.flagged["FL-176"]["status"], "resolved")
 
     def test_new_register_items_are_present_and_sourced(self):

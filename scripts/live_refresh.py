@@ -75,6 +75,35 @@ def run(script: str, *args: str) -> int:
     return subprocess.call(cmd)
 
 
+def promote_capture(meta: dict, capture: Path, tsv: Path) -> dict:
+    """Select actual retrieved rows, preserving every prior source as dated carry-only history."""
+    manifest = json.loads((capture / 'manifest.json').read_text())
+    stamp = manifest['captured_at_utc']
+    if stamp <= meta.get('harvest_completed_utc', ''):
+        return meta
+    previous = {key: meta.get(source) for key, source in (
+        ('file', 'harvest_file'), ('format', 'harvest_format'),
+        ('harvest_completed_utc', 'harvest_completed_utc'), ('olbg_locale_date', 'olbg_locale_date'))}
+    # Preserve the old traversal order behind the new primary; the immediate previous
+    # primary must win over older snapshots for rows absent from the new listing.
+    carry = ([meta['previous_harvest']] if meta.get('previous_harvest', {}).get('file') else [])
+    carry += list(meta.get('supplementary_harvests') or [])
+    carry += list(meta.get('previous_harvests_extra') or [])
+    seen = {previous['file']}
+    extras = []
+    for item in carry:
+        if item.get('file') and item['file'] not in seen:
+            extras.append(item)
+            seen.add(item['file'])
+    return dict(meta, previous_harvest=previous, supplementary_harvests=extras,
+                previous_harvests_extra=[],
+                harvest_file=str(tsv.relative_to(ROOT / 'data')), harvest_format='v3',
+                harvest_completed_utc=stamp, run_started_utc=stamp, olbg_locale_date=stamp[:10],
+                run_id='S-' + capture.name, archive_note=(
+                    'Primary is the newest readable committed capture. Older sources are carry-only '
+                    'research; absence is not evidence of cancellation or market closure.'))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--check', action='store_true')
@@ -138,16 +167,20 @@ def main() -> int:
     #     capture's verifications are already in data/verifications.json. Re-running the probe
     #     against it rewrites data/release_checks.json (including its accumulated policy history
     #     and top-level checked_at) without adding a single new fact.
-    #   * The pipeline computes the board (scripts/model.py, tools/originate.py) BEFORE this step.
-    #     Re-stamping release evidence afterwards desynchronises the stored release blocks from
-    #     the evidence scripts/check_board.py recomputes, and the integrity check rightly fails.
-    # Renewing a source observation is a deliberate data change, made and rebuilt as one, not a
-    # side effect of choosing a capture directory.
+    # Run this step BEFORE pricing both tracks (enforced by pages.yml). Source selection and
+    # release evidence must be settled before any output is generated.
     live_primary = live_primary_capture()
     if live_primary is not None and chosen.name <= live_primary:
         print(f'verification skipped: {chosen.name} is not newer than the committed primary '
               f'harvest ({live_primary}); its verifications are already published.')
         return 0
+
+    meta_path = ROOT / 'data/meta.json'
+    meta = json.loads(meta_path.read_text())
+    promoted = promote_capture(meta, chosen, tsv)
+    if promoted != meta:
+        meta_path.write_text(json.dumps(promoted, indent=2, ensure_ascii=False) + '\n')
+        print(f'primary promoted to {promoted["harvest_file"]}; prior sources retained')
 
     code = run('verify_live.py', '--probe', str(probe), '--harvest', str(tsv))
     if code:

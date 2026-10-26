@@ -78,6 +78,14 @@ TOTAL_CFG = {
 # not values verified by a governing body and not fitted/calibrated model coefficients.
 # Tuple format: (pick_name, assumed_fair_prob, assumed_total, assumed_side, context_note)
 EDITORIAL_STRENGTH = {
+    # October 26 rule-based NHL estimates; exact inputs/formula: data/pricing-ef52c632.json
+    'ICH-200101': ('NY Rangers', 0.6565, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
+    'ICH-200102': ('EDM Oilers', 0.6713, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
+    'ICH-200103': ('TOR Maple Leafs', 0.5277, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
+    'ICH-200104': ('CAR Hurricanes', 0.5022, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
+    'ICH-200105': ('FLA Panthers', 0.5277, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
+    'ICH-200111': ('DAL Stars', 0.53, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
+    'ICH-200112': ('NY Islanders', 0.5092, None, None, 'October 26 official NHL smoothed-win log5, 50% shrink toward .5, +.03 home probability; assumptions, not calibrated probabilities'),
     # Baseball — MLB World Series Game 1 (mlb.com standings: MIL 103-59, 55-26 home, +214 diff vs TB 98-64, +110 diff)
     "BSB-160789": ("MIL Brewers", 0.586, 6.5, "Over", "MLB official 2026 standings (MIL 103-59, .679 home vs TB 98-64) + OLBG 12/15 ML, 8/8 Over 6.5"),
     # Basketball — NBA & EuroLeague (nba.com game notes + euroleaguebasketball.net Round 7 tables)

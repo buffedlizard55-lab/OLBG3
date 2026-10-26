@@ -5,6 +5,7 @@ execute a browser or make network requests; they protect the contract between th
 script and the generated Pages markup so a future refresh cannot silently relabel
 the odds-band badge as a publication state.
 """
+import json
 from pathlib import Path
 import unittest
 
@@ -40,8 +41,14 @@ class ReleaseUiContract(unittest.TestCase):
     def test_current_pages_expose_distinct_confidence_and_band_labels(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         predictions = (ROOT / "predictions.html").read_text(encoding="utf-8")
-        self.assertRegex(index, r"data-current-high=['\"]true['\"].*?\bHIGH</span>.*?\bin band</span>")
-        self.assertRegex(predictions, r"(?s)data-current-high=['\"]true['\"].*?\bHIGH</span>.*?\bin band</span>")
+        high = [r for r in json.loads((ROOT / "data/events.json").read_text())["events"]
+                if r["pick"]["confidence"] == "HIGH"]
+        if high:
+            self.assertRegex(index, r"(?s)data-current-high=['\"]true['\"].*?\bHIGH</span>.*?\bin band</span>")
+            self.assertRegex(predictions, r"(?s)data-current-high=['\"]true['\"].*?\bHIGH</span>.*?\bin band</span>")
+        else:
+            self.assertNotRegex(index, r"data-current-high=['\"]true['\"]")
+            self.assertNotRegex(predictions, r"data-current-high=['\"]true['\"]")
 
     def test_pages_load_the_synchronized_asset(self):
         pages = (

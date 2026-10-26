@@ -68,7 +68,6 @@ class TestHighPickProseAndBand(unittest.TestCase):
     def test_root_track_band_prose_sources(self):
         preds = {p["ref"]: p for p in _load("data/predictions.json")["predictions"]}
         highs = _root_high_rows()
-        self.assertTrue(highs)
         for r in highs:
             pk = r["pick"]
             price = pk.get("price")
@@ -88,7 +87,6 @@ class TestHighPickProseAndBand(unittest.TestCase):
     def test_olbg_track_band_prose_sources(self):
         preds = {p["match_id"]: p for p in _load("data/predictions-olbg.json")["predictions"]}
         highs = _olbg_live_high()
-        self.assertTrue(highs)
         for row in highs:
             price = row.get("our_price_pick")
             self.assertIsInstance(price, (int, float), row["match_id"])
@@ -115,7 +113,8 @@ class TestExecutiveSummary(unittest.TestCase):
         self.assertIn('id="live-high"', html)
         live = _root_live_high()
         hero = html.split('id="live-high"', 1)[1].split("</table>", 1)[0]
-        rows = re.findall(r"<tr>(.*?)</tr>", hero, re.S)[1:]
+        rows = [r for r in re.findall(r"<tr>(.*?)</tr>", hero, re.S)[1:]
+                if "predictions.html#" in r]
         self.assertEqual(len(rows), len(live),
                          "executive summary must show one row per live HIGH pick")
         for row in rows:

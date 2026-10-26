@@ -32,6 +32,8 @@ jobs:
       - run: python scripts/update.py
       # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
       - run: python scripts/discovery.py
+      - name: Select newest captured listings before pricing
+        run: python scripts/live_refresh.py
       - run: python scripts/build.py
       # Outright / race markets (Golf, Motor Racing, Greyhounds, Rugby League, Gaelic championship):
       # priced from the captured OLBG listings with a disclosed field-size prior.
@@ -45,7 +47,6 @@ jobs:
           # Extract the newest committed live capture and re-certify whichever fixtures the newest
           # official probe can actually match. Both steps are deterministic: a re-run of the same
           # capture rewrites byte-identical files, which is what makes the commit step below stable.
-          python3 scripts/live_refresh.py
           python3 tools/build_dataset.py
           python3 tools/originate.py
           # Accounting/rendering must follow BOTH tracks' repricing and release expiry.

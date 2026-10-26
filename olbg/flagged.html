@@ -15,12 +15,12 @@
   </div>
 </header>
 <main class="wrap">
-<div class="notice" style="border-left-color:#b3261e;background:#fdecea;color:#7a1c15"><strong>SNAPSHOT STALE — 46 h old.</strong> The newest committed source observation is 2026-10-24T22:25:15Z. Nothing on this page is a current pick: the release gate expires every observation 24 h after it was read, so rows shown as HIGH are historical until a new capture is committed. See <a href="flagged.html">Flagged for review</a>.</div>
+
 
 
 <section class="hero small">
   <h1>Flagged for review</h1>
-  <p class="lede">219 items. These are the places where the source disagreed with itself, where an official source reports
+  <p class="lede">225 items. These are the places where the source disagreed with itself, where an official source reports
   two different values, where OLBG left something out, or where the brief is ambiguous. Nothing here blocks publication —
   each item is published with its sources so you can decide what to change.</p>
 </section>
@@ -1558,11 +1558,53 @@
   <p class="muted small">Affected rows: IHO-200006, IHO-200003, IHO-200002, IHO-200010</p>
   <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">NHL official schedule 2026-10-24</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40141002367" rel="noopener nofollow" target="_blank">Failed main run 40141002367</a></li></ul>
 </article>
+<article class="card flag" id="FL-232">
+  <div class="flag-head"><span class="tag">FL-232</span> <span class="sev sev-review">review</span></div>
+  <h2>October 26 coverage remains below five written picks per sport</h2>
+  <p>The current listing capture contains 142 distinct entries; it is not a complete enumeration of every market or participant. Seven new NHL write-ups were researched; only two pass the existing HIGH research-grade gates. Other sports lack a full fixture/form/injury evidence packet. Missing facts are not supplied to meet the 75-pick target. A research grade is not a calibrated probability or a demonstrated edge.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.olbg.com/betting-tips" rel="noopener nofollow" target="_blank">OLBG public listings</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-26" rel="noopener nofollow" target="_blank">Official NHL standings</a></li></ul>
+</article>
+<article class="card flag" id="FL-233">
+  <div class="flag-head"><span class="tag">FL-233</span> <span class="sev sev-review">review</span></div>
+  <h2>Official-source access failures and non-fixture pages</h2>
+  <p>October 26 runner: NBA schedule and ATP scores returned 403; URC fixtures, Volleyball World schedule and GBGB racecard returned 404; Super League returned 500; EuroLeague games returned 429. HTTP 200 is only retrieval success: the PDC page returned a consent page and does not establish current fixtures. No matching sporting fact is certified solely from these statuses.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/raw/official-20261026T2021Z/manifest.json" rel="noopener nofollow" target="_blank">Official probe manifest</a></li><li><a href="https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" rel="noopener nofollow" target="_blank">NBA official schedule</a></li><li><a href="https://www.pdc.tv/tournaments" rel="noopener nofollow" target="_blank">PDC tournaments</a></li></ul>
+</article>
+<article class="card flag" id="FL-234">
+  <div class="flag-head"><span class="tag">FL-234</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Expired next-day source observation bypassed the main release gate — repaired</h2>
+  <p>The separate next-day page still labelled India HIGH on October 26 using a listing captured October 24. Added a fail-closed 24-hour listing-age check; absence or future dating also prevents HIGH. The old text remains analysis, without renewing any official fact or alleging an injury. New tests cover the expired and empty-pick cases.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://www.bcci.tv/matches/242110/new-zealand-vs-india/match-details" rel="noopener nofollow" target="_blank">BCCI match source</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/daily/research-20261025.json" rel="noopener nofollow" target="_blank">Daily source ledger</a></li></ul>
+</article>
+<article class="card flag" id="FL-235">
+  <div class="flag-head"><span class="tag">FL-235</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Expired Utah analysis quoted a superseded price — repaired</h2>
+  <p>Fresh inventory changed carry precedence and exposed a quoted-price mismatch in expired Utah prose. Preserve original prose in archived_original_text and remove its stale numeric price from the reader-facing analysis, rather than changing historical prose to imply a newly available price. Neither the fixture clock nor its form observation was renewed.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-24" rel="noopener nofollow" target="_blank">Original official NHL schedule</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/patches/picks-ef52c632.json" rel="noopener nofollow" target="_blank">Patch and archive</a></li></ul>
+</article>
+<article class="card flag" id="FL-236">
+  <div class="flag-head"><span class="tag">FL-236</span> <span class="sev sev-medium">medium</span></div>
+  <h2>Source-ingestion, nested links and dated test defects — repaired</h2>
+  <p>New listing captures previously never advanced the primary harvest pointer; fixed immutable promotion with preserved previous sources and moved selection before pricing. Official verification source IDs were hard-coded to October 23 and could resolve newer fixtures to an old URL; new source IDs use probe identity. Fixed nested stale-banner review links and tests incorrectly requiring that a live HIGH pick always exist. Scheduled retrieval every four hours complements hourly rebuilds; it does not automatically author or certify new prose.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/scripts/live_refresh.py" rel="noopener nofollow" target="_blank">Implementation</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40394727276" rel="noopener nofollow" target="_blank">Runner evidence</a></li></ul>
+</article>
+<article class="card flag" id="FL-237">
+  <div class="flag-head"><span class="tag">FL-237</span> <span class="sev sev-review">review</span></div>
+  <h2>NHL clocks, limited inputs and uncalibrated prices require caution</h2>
+  <p>Seven newly matched NHL fixtures carry official UTC clocks seven minutes earlier than the OLBG listing attributes. Display and release use the league clock. New pricing uses smoothed season wins and games played, log5, 50% shrinkage and a +0.03 home adjustment. Those choices are disclosed assumptions, not measured coefficients. Injury and starting-goalie information was not established; no injury advantage is asserted. No handicap or total bet is recommended by these write-ups.</p>
+  <p class="muted small">Affected rows: —</p>
+  <ul class="srclist"><li><a href="https://api-web.nhle.com/v1/schedule/2026-10-26" rel="noopener nofollow" target="_blank">NHL official schedule</a></li><li><a href="https://api-web.nhle.com/v1/standings/2026-10-26" rel="noopener nofollow" target="_blank">NHL official standings</a></li><li><a href="https://github.com/buffedlizard55-lab/OLBG3/blob/main/data/pricing-ef52c632.json" rel="noopener nofollow" target="_blank">Reproducible price inputs</a></li></ul>
+</article>
 
 </main>
 <footer class="foot">
   <div class="wrap">
-    <p><strong>Historical capture completed 2026-10-24T22:25:15Z; publication clock 2026-10-26T20:26:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
+    <p><strong>Historical capture completed 2026-10-26T20:20:26Z; publication clock 2026-10-26T20:23:00+00:00.</strong> OLBG fields are captured observations, not a complete live feed. Exact official UTC starts are never guessed. Research HIGH expires at its source-age or scheduled-start cutoff. Our lines are model assumptions, not verified market prices or calibrated edges. 18+ · Betting involves risk.</p>
     <p><a href="methodology.html">Method</a> · <a href="flagged.html">Flagged for review</a> · <a href="https://github.com/buffedlizard55-lab/OLBG3">Repository</a></p>
   </div>
 </footer>

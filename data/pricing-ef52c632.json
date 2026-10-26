@@ -1,0 +1,99 @@
+{
+  "source": "https://api-web.nhle.com/v1/standings/2026-10-26",
+  "source_file": "raw/official-20261026T2021Z/json/nhl_standings.json",
+  "formula": "q=(wins+1)/(games+2); L=qH(1-qA)/(qH(1-qA)+qA(1-qH)); pH=.5+.5*(L-.5)+.03; price=.95/max(pH,1-pH)",
+  "assumptions": "Log5, Laplace smoothing, 50% shrink and +.03 home adjustment are uncalibrated estimates. Not measured win probabilities. No injury input.",
+  "rows": [
+    {
+      "match_id": "ICH-200101",
+      "home": "NYR",
+      "away": "LAK",
+      "home_w": 7,
+      "home_gp": 13,
+      "away_w": 2,
+      "away_gp": 9,
+      "p_home": 0.6564705882352941,
+      "p_pick": 0.6565,
+      "price": 1.45,
+      "grade": "high"
+    },
+    {
+      "match_id": "ICH-200102",
+      "home": "EDM",
+      "away": "DET",
+      "home_w": 8,
+      "home_gp": 11,
+      "away_w": 4,
+      "away_gp": 11,
+      "p_home": 0.671304347826087,
+      "p_pick": 0.6713,
+      "price": 1.42,
+      "grade": "high"
+    },
+    {
+      "match_id": "ICH-200103",
+      "home": "CGY",
+      "away": "TOR",
+      "home_w": 4,
+      "home_gp": 10,
+      "away_w": 7,
+      "away_gp": 13,
+      "p_home": 0.4723076923076923,
+      "p_pick": 0.5277,
+      "price": 1.8,
+      "grade": "medium"
+    },
+    {
+      "match_id": "ICH-200104",
+      "home": "CAR",
+      "away": "BOS",
+      "home_w": 9,
+      "home_gp": 13,
+      "away_w": 9,
+      "away_gp": 12,
+      "p_home": 0.5022222222222222,
+      "p_pick": 0.5022,
+      "price": 1.89,
+      "grade": "medium"
+    },
+    {
+      "match_id": "ICH-200105",
+      "home": "WPG",
+      "away": "FLA",
+      "home_w": 4,
+      "home_gp": 11,
+      "away_w": 6,
+      "away_gp": 12,
+      "p_home": 0.4723076923076923,
+      "p_pick": 0.5277,
+      "price": 1.8,
+      "grade": "medium"
+    },
+    {
+      "match_id": "ICH-200111",
+      "home": "DAL",
+      "away": "NJD",
+      "home_w": 7,
+      "home_gp": 11,
+      "away_w": 7,
+      "away_gp": 11,
+      "p_home": 0.53,
+      "p_pick": 0.53,
+      "price": 1.79,
+      "grade": "medium"
+    },
+    {
+      "match_id": "ICH-200112",
+      "home": "NSH",
+      "away": "NYI",
+      "home_w": 4,
+      "home_gp": 11,
+      "away_w": 5,
+      "away_gp": 11,
+      "p_home": 0.4908433734939759,
+      "p_pick": 0.5092,
+      "price": 1.87,
+      "grade": "medium"
+    }
+  ]
+}
