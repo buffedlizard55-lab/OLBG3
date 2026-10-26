@@ -1,4 +1,16 @@
 
+## session-29d8a91b — independent line-by-line source/site integrity audit (claimed 2026-10-26T20:26Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-29d8a91b-independent-source-site-audit | in progress | session-29d8a91b, Arena-fixed `arena/29d8a91b-olbg3` | `COORDINATION.md` (this claim + final receipt); NEW `scripts/audit_29d8a91b.py`; NEW `docs/audit-29d8a91b.md`; NEW `docs/manual-review.html`; NEW `tests/test_audit_29d8a91b.py`. No `.harvest/*`, existing `data/*`, shared navigation, generated root pages, or another session's source/evidence files are edited while their claims are fresh. |
+
+- **Coordination boundary:** read the 2,709-line board plus fresh remote claims `session-ef52c632` (20:20Z), `session-b329efe5` (20:30Z), `session-b3eff127` (20:20Z) and other 2026-10-26 branches. Those sessions own current captures, data refreshes and generated site output. This session does **not** start their claimed tasks or silently merge their work while active.
+- **Independent task:** recompute row-level source integrity from data that is actually published: each in-scope match/race/event must have its OLBG event URL; every confirmed official field must carry an official HTTPS source; unconfirmed fields remain blank and are listed as unverified. Produce a standalone, category-organized manual-review page with links for human checking and a deterministic audit record. No fixture, clock, statistic, injury, price or confidence is invented or renewed by publication time alone.
+- **Verification method:** separate structural checks from factual checks. Structural checks replay every table row and link. Factual checks use only official source URLs already captured or official pages re-read through the available retrieval tool; a source that is unreachable or does not print the value is reported as unverified, never inferred.
+- **Final integration:** may be claimed here only after the active refresh sessions record `done` or become stale under the board's 60-minute rule. Any merge must preserve sibling evidence, resolve conflicts without discarding work, regenerate the site, run all gates, open a PR from this Arena-fixed branch, merge when green, and confirm Pages deployment.
+
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
