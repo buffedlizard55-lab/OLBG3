@@ -1,5 +1,39 @@
 # OLBG3 — reverse-engineered multi-sport board, originated lines & sourced research picks
 
+## 2026-10-26 — the hourly job was red for two days; the board now carries today's capture and nine live picks — `session-b329efe5`
+
+Full record: [`docs/audit-b329efe5.md`](docs/audit-b329efe5.md) · register: **FL-232 … FL-236** on
+[Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html)
+
+**Why the site had been showing the 24–25 October board.** Every scheduled publication run since
+2026-10-25T01:14Z failed at one step. The cause was ordering, not evidence: the official-clock
+re-certification ran *after* the two grading scripts, so the board gate compared today's clock with
+yesterday's release records and refused 22 rows. The fix moves the re-certification ahead of grading
+and takes one ordered pass; a pick whose source has aged out now demotes to labelled analysis
+instead of turning the job red. No sporting value, price or gate was relaxed, and the second defect
+the repair exposed — a stale-snapshot banner linking a `flagged.html` that does not exist on the
+sport pages — is fixed too.
+
+**Today's capture.** A fresh, robots-aware read of all 18 in-scope OLBG listings at 20:22Z produced
+142 tip cards across 14 sports; Snooker's listing returned no tip cards at all. With the carried
+history the board now holds **523 lines-track rows**, every one priced by us in three markets — win,
+handicap and match total — with the row's own OLBG source link.
+
+**Nine live high-confidence picks**, all inside the −250…+10000 band: eight EHF Champions League
+Round 6 handball fixtures (28–29 October) and Toronto at Calgary in the NHL. The handball clocks come
+from the league's own playing-times PDF, with each quote re-derived from the committed bytes by
+`scripts/apply_evidence.py` before it is allowed to certify a fixture, and each write-up is checked
+against the group table and the Round 5 match reports re-read the same evening. Four more pieces —
+three NHL, one MLB — are published as analysis because their price is shorter than the −250 floor.
+
+**What is still missing, stated plainly.** Basketball, Tennis, Cricket, Snooker, Darts, Rugby Union,
+Rugby League, Golf, Motor Racing, Greyhounds, Volleyball and Gaelic Football have a fixture list but
+no *reachable* official clock or form source: NBA and cdn.nba.com return 403, EuroLeague 429, ATP
+403, the WTA and ICC fixture pages render client-side, URC's `/fixtures` and LNR's `/calendrier`
+return 404, Super League 500, and GBGB's racecard 404. Those sports carry our originated lines and a
+published reason, never an invented start time. The five-per-sport target is not reached and is not
+faked to look reached.
+
 ## 2026-10-24 evening — 131 fresh fixtures, three new written picks, and an honest account of the nine sports still empty — `session-49317273`
 
 Full record: [`docs/audit-49317273.md`](docs/audit-49317273.md)
