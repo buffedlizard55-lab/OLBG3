@@ -1,4 +1,18 @@
 
+## session-9d3471e9 — 2026-10-26 OLBG refresh, scheduled-CI repair, and final integration (claimed 2026-10-26T05:16:57Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-9d3471e9-20261026-refresh-ci-integration` | in progress | `session-9d3471e9`, Arena-fixed `arena/9d3471e9-olbg3` | `COORDINATION.md`; `.harvest/request.json`; **new** `data/raw/**` evidence only; `data/meta.json`, `data/verifications.json`, `data/release_checks.json`, `data/official.json` (only source-backed observations renewed in this task), `data/predictions.json` / `data/predictions-olbg.json` (only if newly evidenced), `data/flagged.json` (append-only); new `docs/audit-9d3471e9.md`, new tests; `scripts/**` / `tools/**` only for defects reproduced in this task; regenerated dashboard, data summaries and Pages outputs in final integration. Historical capture directories and completed sibling audit/test modules are immutable. |
+
+- **Claim boundary:** refresh the 15 requested OLBG sports for 2026-10-26, independently confirm every published fixture/source-backed start and each factual statement in any new HIGH write-up, investigate market coverage and repair the current scheduled build only after reproducing its failure. Five picks per sport is a target, never permission to invent a fixture, line, form statistic, injury or confident pick. Missing values stay blank and are flagged.
+- **Branch/session constraint:** Arena fixes this session to `arena/9d3471e9-olbg3`; no other branch/worktree will be used. Before every push, rebase this branch on its current remote counterpart/base, and push only to this Arena-fixed name.
+- **Pre-claim inspection (2026-10-26):** read the existing board and checked the GitHub open-PR list. No claim has recent activity; PRs #184, #182, #173, #169 and #137 were last updated 2026-10-24 or earlier. Their date-pinned source material is not presumed current. Current main is `47eeecb`; scheduled publication run [40252900559](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40252900559) and the preceding six scheduled runs fail at `Unit tests (after the rebuild)`. Root cause is not yet established. Scope overlap with stale proposals will be adjudicated and logged before any adoption; no sibling work or raw evidence is discarded.
+
+### CLAIM ONLY — execution begins after this claim is committed and pushed.
+
+---
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
