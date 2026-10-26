@@ -1,10 +1,10 @@
 {
   "out": "data/raw/live-20261026T2030Z-b329efe5",
-  "requested_at_utc": "2026-10-26T20:29:52Z",
+  "requested_at_utc": "2026-10-26T21:00:00Z",
   "requested_by": "session-b329efe5",
-  "why": "Second pass: fresh official form pages (EHF Champions League group standings, NHL/MLB standings) and the competition fixture pages the first pass could not read (URC, LNR ProD2/Top 14, Italian women's Serie A1, F1 Mexico session times). No new OLBG capture is requested: the 20:22Z listing capture is current.",
+  "why": "Third pass: re-read the EHF Champions League news and match-centre pages that the published handball write-ups quote, so every match-report detail in them can be checked against today's bytes. Capture, probe and cited re-reads are switched off to keep the run to those four URLs.",
   "capture": false,
-  "probe": true,
-  "cited": true,
-  "urls": ".harvest/urls-b329efe5b.txt"
+  "probe": false,
+  "cited": false,
+  "urls": ".harvest/urls-b329efe5c.txt"
 }

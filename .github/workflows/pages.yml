@@ -53,8 +53,6 @@ jobs:
       # and the shared flag register (data/flagged.json).
       - name: Rebuild the OLBG lines track
         run: |
-          set -x
-          exec > >(tee build.log) 2>&1
           # The official-clock re-certification already happened in its own earlier step; this
           # block extracts the newest committed capture only. Both are deterministic: a re-run of
           # the same capture rewrites byte-identical files, which keeps the commit step stable.
@@ -66,16 +64,6 @@ jobs:
           python3 scripts/check_board.py
           python3 tools/build_site.py
           python3 tools/check_site.py
-      - name: Preserve the rebuild log when a gate fails
-        if: failure()
-        run: |
-          tail -200 build.log || true
-          git config user.name  'OLBG3 debug'
-          git config user.email 'actions@users.noreply.github.com'
-          git add -f build.log
-          git commit -m "debug(ci): rebuild log from failing run ${{ github.run_id }}" || exit 0
-          git pull --rebase --autostash origin "${{ github.ref_name }}" || true
-          git push origin "HEAD:${{ github.ref_name }}" || true
       - name: Publish the OLBG lines track inside the shared artifact
         run: |
           mkdir -p site/olbg

@@ -20,7 +20,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-535928",
@@ -64,7 +64,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "MTR-913",
@@ -88,7 +88,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-535925",
@@ -152,7 +152,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-36997",
@@ -171,8 +171,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGL-2801600",
@@ -207,8 +208,9 @@
           "url": "https://gaacork.ie/results/"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: rewritten from the exact Cork GAA event page reread at 22:27Z; the older crowd-handicap snapshot is not presented as current."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: rewritten from the exact Cork GAA event page reread at 22:27Z; the older crowd-handicap snapshot is not presented as current.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "DAR-32332",
@@ -328,7 +330,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGU-609577",
@@ -400,7 +402,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "HAN-12101",
@@ -509,7 +511,7 @@
         "why": "The 2026-10-23T16:21Z capture shows a different tip split for this fixture, so our originated price moved. Numbers updated to the current row; no new claim was added."
       },
       "correction_note": "Rewritten 2026-10-23 by session-6327cf90. The previous text asserted four home wins from five and a +18 goal differential for Villa de Aranda, and three away defeats in four for Puerto Sagunto; the official ASOBAL table this project holds gives Villa de Aranda 1 point from 6 at -34 and Puerto Sagunto 4 points at -2, contradicting every one of those figures. The previous pick was also the home side, an artefact of the tip-count parse failure recorded as FL-156 rather than a judgement. The retraction is kept here and in FL-159 rather than in the reader-facing prose. See also FL-158 for the two volleyball pieces corrected in the same pass.",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGU-609563",
@@ -616,7 +618,7 @@
         "why": "The 2026-10-23T16:21Z capture shows a different tip split for this fixture, so our originated price moved. Numbers updated to the current row; no new claim was added."
       },
       "correction_note": "Rewritten 2026-10-23 by session-6327cf90; see FL-158 (venue and clock withdrawn from the official record) and FL-159 (assertions contradicted by the project's own committed official table).",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-37003",
@@ -637,7 +639,7 @@
       "confidence": "low",
       "status": "analysis",
       "correction_note": "Rewritten 2026-10-23 by session-6327cf90; see FL-158 (venue and clock withdrawn from the official record) and FL-159 (assertions contradicted by the project's own committed official table).",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-536035",
@@ -757,7 +759,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "ICH-199985",
@@ -777,7 +779,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-536039",
@@ -856,8 +858,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-36996",
@@ -876,8 +879,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGU-609581",
@@ -897,7 +901,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "HAN-12138",
@@ -916,8 +920,7 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
       "match_id": "HAN-12130",
@@ -936,8 +939,7 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
       "match_id": "HAN-12134",
@@ -956,8 +958,7 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/kielce-to-main-round-high-octane-veszprem-take-fuechse/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
       "match_id": "HAN-12129",
@@ -976,8 +977,7 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
       "match_id": "HAN-12133",
@@ -996,8 +996,7 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/news/en/gog-in-the-main-round-szeged-and-montpellier-out/"
         }
       ],
-      "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "status": "high"
     },
     {
       "match_id": "HAN-12136",
@@ -1025,7 +1024,7 @@
       "match": "TB Lightning @ UTA Mammoth",
       "selection": "Utah Mammoth money line (1.69 / -145)",
       "confidence": "high",
-      "status": "high",
+      "status": "analysis",
       "correction_note": "",
       "text": "Utah Mammoth to win on the money line at 1.69 (-145) against the Tampa Bay Lightning, with the NHL schedule listing a 01:00 UTC start on Sunday 25 October. Utah are 7-4-0 for 14 points and have scored 41 goals in eleven games while conceding 36, and their home record of 3-1-0 is the part of the profile that carries this selection. Tampa Bay are level on 14 points at 7-3-0 but have done their work at home: they are 5-0-0 in their own building and 2-3-0 on the road, scoring 34 and conceding 29 overall. Both clubs lost their most recent game, so the edge is the venue split and Utah's higher scoring rate of 3.73 goals per game against Tampa Bay's 3.40. The tip split on the listing has moved to five of nine on the hosts since the first read, which is why the price is quoted at 1.69 rather than the earlier 1.64.",
       "sources": [
@@ -1037,7 +1036,8 @@
           "label": "NHL official standings 2026-10-24 — records, goals for/against, home and road splits",
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
-      ]
+      ],
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-36994",
@@ -1058,7 +1058,7 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "HAN-12132",
@@ -1099,6 +1099,104 @@
         }
       ],
       "text": "Fuchse Berlin to win the money line at 1.68 (-147) against RK Partizan AdmiralBet in Group A on Thursday 29 October, 18:45 CET at the Max-Schmeling-Halle. Berlin sit second on six points from 3-0-2, scoring 184 and conceding 172, while Partizan are fourth with one point from 0-1-4 after scoring 148 and conceding 184 in the same five rounds. The Serbian side have lost four of five and carry the weaker goal difference by 36, and the five points between the clubs in the same group make the 1.68 price on the hosts the selection here rather than the draw the tip split favours."
+    },
+    {
+      "match_id": "ICH-200103",
+      "sport": "Ice Hockey",
+      "match": "TOR Maple Leafs @ CGY Flames",
+      "selection": "Toronto Maple Leafs to win (money line, 1.56 / -179)",
+      "confidence": "high",
+      "text": "Toronto carry a four-game winning run into Calgary, standing 7-4-2 for 16 points with 50 goals scored and 41 conceded, and 3-1-1 on the road. Calgary are 4-6-0 for eight points, have scored only 23 times while conceding 39, and are 3-3-0 at home despite a three-game streak of their own. The gap in goals for is 27 across two clubs that have played 13 and 10 games respectively, and it is why our line makes Toronto a 1.56 (-179) favourite for the 00:30Z start. The -1.5 puck line is quoted at 1.91 and the 5.5 total is taken over. Selection: Toronto to win, with no injury report asserted because none is published for this game.",
+      "sources": [
+        {
+          "label": "NHL official standings, 2026-27 (fetched 2026-10-26T20:31Z)",
+          "url": "https://api-web.nhle.com/v1/standings/now"
+        },
+        {
+          "label": "NHL official schedule payload — game and 00:30Z start",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        }
+      ]
+    },
+    {
+      "match_id": "ICH-200101",
+      "sport": "Ice Hockey",
+      "match": "LA Kings @ NY Rangers",
+      "selection": "New York Rangers to win (money line, 1.24 / -417) — analysis only, price outside the published band",
+      "confidence": "analysis",
+      "text": "The Rangers are 6-0-0 at Madison Square Garden this season and 7-5-1 overall for 15 points, while Los Angeles arrive 2-5-2 for six points having scored 21 goals and conceded 32 in nine games, and they have yet to win at home (0-3-0). Our line makes New York a 1.24 (-417) favourite, which is shorter than the -250 floor this project publishes under, so the piece is labelled analysis rather than a high-confidence pick. The 23:00Z start and the venue come from the NHL schedule payload. No injury or lineup information is published for the game, so none is stated.",
+      "sources": [
+        {
+          "label": "NHL official standings, 2026-27 (fetched 2026-10-26T20:31Z)",
+          "url": "https://api-web.nhle.com/v1/standings/now"
+        },
+        {
+          "label": "NHL official schedule payload — game and 23:00Z start",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Our price sits outside the -250..+10000 band or the recorded market evidence is too thin for a high-confidence label; published as analysis."
+    },
+    {
+      "match_id": "ICH-200102",
+      "sport": "Ice Hockey",
+      "match": "DET Red Wings @ EDM Oilers",
+      "selection": "Edmonton Oilers to win (money line, 1.26 / -385) — analysis only, price outside the published band",
+      "confidence": "analysis",
+      "text": "Edmonton are 8-2-1 for 17 points with 49 goals scored and 39 conceded, and they have won all five road games they have played, which frames a home fixture against a Detroit side on 11 points at 4-4-3 and coming off a loss. The Oilers' scoring rate of 4.45 goals per game is the strongest figure in this match-up, against Detroit's 2.64. Our line prices Edmonton at 1.26 (-385); that is outside the -250 to +10000 range this project publishes as a high-confidence pick, so the piece is analysis only. The 01:30Z start is taken from the league's own schedule payload.",
+      "sources": [
+        {
+          "label": "NHL official standings, 2026-27 (fetched 2026-10-26T20:31Z)",
+          "url": "https://api-web.nhle.com/v1/standings/now"
+        },
+        {
+          "label": "NHL official schedule payload — game and 01:30Z start",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Our price sits outside the -250..+10000 band or the recorded market evidence is too thin for a high-confidence label; published as analysis."
+    },
+    {
+      "match_id": "ICH-200112",
+      "sport": "Ice Hockey",
+      "match": "NY Islanders @ NSH Predators",
+      "selection": "New York Islanders to win (money line, 1.65 / -154) — analysis only, thin market evidence",
+      "confidence": "analysis",
+      "text": "Both clubs sit on 12 points, so this is a lean rather than a strong call. The Islanders are 5-4-2 with 32 goals for and 29 against, but only 1-3-1 on the road and they have lost their last game. Nashville are 4-3-4 with 31 and 35, are 3-2-1 at home and won their most recent outing. Our line makes New York a 1.65 (-154) favourite on the strength of the better goal differential, with a -1.5 puck line at 1.91 and the 5.5 total taken over. Only one recorded market tip backs the Islanders, which is too thin for a high-confidence label, so the piece is published as analysis.",
+      "sources": [
+        {
+          "label": "NHL official standings, 2026-27 (fetched 2026-10-26T20:31Z)",
+          "url": "https://api-web.nhle.com/v1/standings/now"
+        },
+        {
+          "label": "NHL official schedule payload — game and 01:30Z start",
+          "url": "https://api-web.nhle.com/v1/schedule/2026-10-26"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Our price sits outside the -250..+10000 band or the recorded market evidence is too thin for a high-confidence label; published as analysis."
+    },
+    {
+      "match_id": "BSB-160795",
+      "sport": "Baseball",
+      "match": "MIL Brewers @ TB Rays",
+      "selection": "Tampa Bay Rays to win (money line, 1.26 / -385) — analysis only, price outside the published band",
+      "confidence": "analysis",
+      "text": "Tampa Bay host Milwaukee for the 00:00Z game on 27 October after a 98-64 regular season in which they scored 736 runs and allowed 650, and their home record is the reason our line makes them a 1.26 (-385) favourite. Milwaukee finished 103-59 with 832 runs scored against 618 allowed and arrive on a five-game winning run, so the price is a home-field read rather than a form read. Because 1.26 is shorter than the -250 floor this project publishes under, the piece stays analysis. No injury report for this game is published on the league's own site, so none is claimed.",
+      "sources": [
+        {
+          "label": "MLB official standings 2026 (runs scored and allowed)",
+          "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026"
+        },
+        {
+          "label": "MLB official schedule payload — game and 00:00Z start",
+          "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-11-05&hydrate=linescore,team"
+        }
+      ],
+      "status": "analysis",
+      "downgrade_reason": "Our price sits outside the -250..+10000 band or the recorded market evidence is too thin for a high-confidence label; published as analysis."
     }
   ],
   "note": "8 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
