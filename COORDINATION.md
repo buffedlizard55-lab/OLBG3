@@ -9,6 +9,15 @@
 - Request current robots-aware OLBG capture and official/cited source rereads using the existing GitHub runner. Captures are retrieval evidence, not automatic approval. No invented fixtures, prices, injuries or confidence. Integration will retain explicit shortfalls and public flags.
 
 
+## session-d62e9abc — line-by-line 15-sport origination, written-pick & source verification audit (claimed 2026-10-26T20:29:53Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-d62e9abc-15-sport-origination-and-verification-audit` | in progress | `session-d62e9abc` on Arena-fixed `arena/d62e9abc-olbg3` | `COORDINATION.md` (this claim, integration requests, and final receipt only); NEW `scripts/audit_d62e9abc.py`; NEW `data/audit-d62e9abc.json`; NEW `docs/audit-d62e9abc.md`; NEW `tests/test_audit_d62e9abc.py`; NEW standalone root dashboard page `audit-d62e9abc.html` (served by the legacy Pages branch publisher and checked by `scripts/check_links.py`). No shared fixture, line, prediction, flag-register, workflow, navigation, or sibling session file is edited while active refresh/integration claims are fresh. |
+
+- **Pre-claim coordination:** read `COORDINATION.md` and inspected remote branches and open PRs. Active October 26 claims (`session-ef52c632` PR #195, `session-3b855c84`, `session-b329efe5`, `session-2d407de5`, `session-29d8a91b`) are respected; `session-b3eff127` completed PRs #193/#194 on `main`. This session claims a strictly non-overlapping scope on its Arena-fixed branch `arena/d62e9abc-olbg3`.
+- **Scope and verification boundary:** line-by-line verification across all 15 in-scope sports (`Golf`, `Volleyball`, `Rugby Union`, `Cricket`, `Snooker`, `Darts`, `Baseball`, `Gaelic Football`, `Greyhounds`, `Tennis`, `Motor Racing`, `Handball`, `Ice Hockey`, `Basketball`, `Rugby League`) on both tracks (`data/events.json` + `data/gap_sports.json` and `data/matches.json` + `data/lines.json`), plus inspection of the fresh 2026-10-26 verbatim captures and official probes (`NHL`, `MLB`, `EHF`, `Lega Pallavolo`, `WTA`, `PGA Tour`, `DP World Tour`, `Formula 1`, `Premiership Rugby`, `GAA`, `Cork GAA`, `ICC`, `BCCI`, `ECB`, `Cricket Australia`, `WST`, `GBGB`, `SHL`). Recomputes every originated line (win, handicap, total, outright), confidence label (`low`/`medium`/`high`), `-250..+10000` odds band and `<70%` chalk cap, written prediction quality (`>=30` words, unique prose, no reader-facing `model`/`verified`, explicit selection, official + OLBG `https://` source links), and publishes a clean standalone dashboard (`audit-d62e9abc.html`) with Executive Summary, 15-sport category breakdown, full line-by-line verified table with official source links, and Flagged for Review register. Unconfirmed fields remain blank and flagged as unverified; nothing is inferred.
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
