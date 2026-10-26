@@ -1,3 +1,14 @@
+# session-2d407de5 — independent line-by-line source-link audit (CLAIMED 2026-10-26T20:25Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-2d407de5-independent-source-audit` | in progress | session-2d407de5, Arena-fixed `arena/2d407de5-olbg3` | `COORDINATION.md` (this section and its final record only); NEW `scripts/audit_2d407de5.py`, `data/audit-2d407de5.json`, `docs/audit-2d407de5.md`, `tests/test_audit_2d407de5.py`, and standalone `source-audit.html`. No edit to any shared fixture, prediction, line, flag-register, workflow, generator, navigation, category page, or final-integration output. |
+
+- **Pre-claim coordination:** read the shared board and fetched all `origin/arena/*` branches. Active claims at 20:20–20:21Z: `session-3b855c84` (current-source refresh/final integration), `session-ef52c632` (refresh/integration), `session-b3eff127` (expiry/final integration). This task deliberately does not overlap those claims: it is a read-only audit of published rows and an independently generated, standalone source-linked review surface. Five older Oct 26 claims are outside the 60-minute window but are not taken over; their raw evidence may be read from their branches without editing it.
+- **Branch boundary:** all work stays on Arena-fixed `arena/2d407de5-olbg3`; no alternate branch/worktree is created. Every push will rebase on the current remote branch. Shared navigation/data are changed only by the active final-integration session; a request to link `source-audit.html` and carry forward any findings will be logged here.
+- **Verification boundary:** every audited row is checked for (1) an HTTPS source link, (2) whether the source domain is an official competition/governing-body domain or only OLBG/community evidence, and (3) a source-backed clock/form value in the committed evidence. Values with no official source are left blank and flagged. Live official pages and OLBG routes are re-read with source URLs and observation times where accessible; no fixture, clock, statistic, injury, price, or pick is inferred.
+- **Deliverables:** machine-readable per-row audit, a standalone human review page with all findings and links, a method/result note, regression tests that recompute the audit deterministically, and an explicit hand-off of any irregularities to the active final-integration session.
+
 
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
