@@ -29,6 +29,17 @@ jobs:
           python-version: '3.12'
       - name: Advance publication time (not source verification)
         run: python scripts/publication_clock.py
+      # Re-certify the official-clock evidence BEFORE anything is graded. `scripts/live_refresh.py`
+      # rewrites data/verifications.json and data/release_checks.json from the newest committed
+      # capture + probe; model.py and tools/originate.py then read those records when they decide
+      # whether a pick may still be HIGH. Running this after them (the order used until 2026-10-26)
+      # made every scheduled run grade against yesterday's release evidence and then fail
+      # check_board.py with "HIGH stored release differs from current evidence" / "HIGH lacks a
+      # current official-start release" on each expired fixture. One ordered pass now produces the
+      # same bytes the old two-cycle workaround produced, and a stale board demotes to analysis
+      # instead of turning the publication job red (FL-232).
+      - name: Re-certify official-clock evidence
+        run: python scripts/live_refresh.py
       - run: python scripts/update.py
       # Public robots-aware OLBG discovery (partial by design; failures stay labelled unverified)
       - run: python scripts/discovery.py
@@ -42,10 +53,9 @@ jobs:
       # and the shared flag register (data/flagged.json).
       - name: Rebuild the OLBG lines track
         run: |
-          # Extract the newest committed live capture and re-certify whichever fixtures the newest
-          # official probe can actually match. Both steps are deterministic: a re-run of the same
-          # capture rewrites byte-identical files, which is what makes the commit step below stable.
-          python3 scripts/live_refresh.py
+          # The official-clock re-certification already happened in its own earlier step; this
+          # block extracts the newest committed capture only. Both are deterministic: a re-run of
+          # the same capture rewrites byte-identical files, which keeps the commit step stable.
           python3 tools/build_dataset.py
           python3 tools/originate.py
           # Accounting/rendering must follow BOTH tracks' repricing and release expiry.

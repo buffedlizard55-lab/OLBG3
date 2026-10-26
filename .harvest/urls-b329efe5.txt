@@ -1,0 +1,78 @@
+# Official fixture / clock / form pages requested by session-b329efe5 (2026-10-26).
+# One URL per line. Fetched byte-faithfully by scripts/probe_urls.py on the CI runner,
+# because the agent sandbox has no outbound route to these hosts (FL-077).
+# Only governing-body, league or federation domains are listed. Nothing is inferred here.
+
+# ---- Ice Hockey: NHL schedule + standings (league data services) ----
+https://api-web.nhle.com/v1/schedule/now
+https://api-web.nhle.com/v1/standings/now
+https://www.shl.se/spelschema
+https://www.liiga.fi/fi/ottelut
+
+# ---- Baseball: MLB schedule + standings ----
+https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-26&endDate=2026-11-05&hydrate=linescore,team
+https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026
+
+# ---- Basketball: NBA + EuroLeague + EuroCup ----
+https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json
+https://www.nba.com/games
+https://www.euroleaguebasketball.net/en/euroleague/games/
+https://www.euroleaguebasketball.net/en/euroleague/standings/
+https://www.euroleaguebasketball.net/en/eurocup/games/
+
+# ---- Tennis: ATP + WTA official scores and rankings ----
+https://www.atptour.com/en/scores/current
+https://www.atptour.com/en/rankings/singles
+https://www.wtatennis.com/scores
+https://www.wtatennis.com/rankings/singles
+
+# ---- Cricket: ICC + BCCI + ECB + PCB + Cricket Australia fixtures ----
+https://www.icc-cricket.com/fixtures-results
+https://www.bcci.tv/
+https://www.ecb.co.uk/england/men/fixtures
+https://www.pcb.com.pk/
+https://www.cricket.com.au/matches
+
+# ---- Rugby Union: URC + Premiership + Top 14 ----
+https://www.unitedrugby.com/fixtures
+https://www.premiershiprugby.com/fixtures
+https://top14.lnr.fr/calendrier
+
+# ---- Rugby League: Super League + NRL + England internationals ----
+https://www.superleague.co.uk/fixtures
+https://www.nrl.com/draw/
+https://www.rugby-league.com/fixtures
+
+# ---- Snooker: World Snooker Tour matches + rankings ----
+https://www.wst.tv/matches/
+https://www.wst.tv/rankings/
+
+# ---- Darts: PDC tournaments ----
+https://www.pdc.tv/tournaments
+https://www.pdc.tv/news
+
+# ---- Handball: EHF calendar + Champions League ----
+https://www.eurohandball.com/en/calendar/
+https://ehfcl.eurohandball.com/men/2026-27/
+
+# ---- Volleyball: Volleyball World + Italian SuperLega ----
+https://en.volleyballworld.com/volleyball/competitions/volleyball-national-leagues/schedule/
+https://www.legavolley.it/calendario/?idCampionato=999
+https://www.legavolley.it/classifica/?IdCampionato=999
+
+# ---- Golf: PGA Tour + DP World Tour ----
+https://www.pgatour.com/schedule
+https://www.pgatour.com/leaderboard
+https://www.europeantour.com/dpworld-tour/schedule/
+
+# ---- Motor Racing: Formula 1 ----
+https://www.formula1.com/en/racing/2026
+https://www.formula1.com/en/results/2026/races
+
+# ---- Greyhounds: GBGB racecards + results ----
+https://www.gbgb.org.uk/racecard
+https://www.gbgb.org.uk/results
+
+# ---- Gaelic Sports: GAA fixtures + Cork GAA ----
+https://www.gaa.ie/fixtures-results
+https://gaacork.ie/
