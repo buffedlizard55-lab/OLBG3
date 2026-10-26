@@ -54,7 +54,7 @@ jobs:
       - name: Rebuild the OLBG lines track
         run: |
           set -x
-          exec 2> >(tee build.log >&2)
+          exec > >(tee build.log) 2>&1
           # The official-clock re-certification already happened in its own earlier step; this
           # block extracts the newest committed capture only. Both are deterministic: a re-run of
           # the same capture rewrites byte-identical files, which keeps the commit step stable.
