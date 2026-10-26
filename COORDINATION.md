@@ -2733,3 +2733,29 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - Current listing evidence: [successful runner 40394727276](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40394727276), 18 listing responses / 142 distinct entries; 8 official schedule matches. Seven new NHL written analyses, two current HIGH research grades; 523 combined lines-track rows, 520 priced, three deliberately unpriced. Daily five-per-sport requirement remains **2/75**, not complete. Full sourcing and price assumptions: `docs/audit-ef52c632.md`, `docs/pricing-ef52c632.md`; internal fidelity report `data/audit-ef52c632.json` (0 errors, 15 warnings, 136 informational findings; not a new factual verification of every historical row).
 - Local gates: 430 tests (26 historical skips), independent prediction gate, board/site/feed validators, 145 pages / 2,715 local links / 0 broken. New positive and negative synthetic boundary tests cover empty shortlists, expiry and unsupported prose without requiring an actual live pick. Remote [branch run 40395832998](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40395832998) succeeded before PR merge; later assertion cleanup permits genuine later official rereads without freezing new source IDs.
 - [PR #195](https://github.com/buffedlizard55-lab/OLBG3/pull/195) opened for final integration. FL-232–237 published on both Flagged for Review surfaces; gaps nonblocking. No sibling PR merged or closed. Deployment/merge receipt follows after actual observation; no success presumed in advance.
+## session-b3eff127 — 2026-10-26 expiry repair and final integration (claimed 2026-10-26T20:00Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| task-b3eff127-expiry-refresh-integration | in progress | session-b3eff127, Arena-fixed `arena/b3eff127-olbg3` | `COORDINATION.md`; failing date-sensitive tests/build scripts identified from current CI; new `docs/audit-b3eff127.md`; new `tests/test_audit_b3eff127.py`; regenerated outputs; `.harvest/request.json` and new raw evidence only if required |
+
+- Read the complete shared board before claiming. Existing open PRs #137/#169/#173/#182/#184 have had no activity for more than 60 minutes and are not taken over blindly.
+- Higher-priority Arena branch constraint requires work on the fixed branch above; no differently named session branch/worktree will be created.
+- Goal: reproduce and repair the current scheduled-build failure without weakening evidence gates; expire stale fixtures honestly, preserve unverified gaps, run all tests/link checks, publish through a PR, merge only after green CI, and confirm Pages. No fabricated fixture, line, statistic, injury, or confidence claim.
+
+### session-b3eff127 implementation receipt (2026-10-26T20:35Z)
+
+- Reproduced main run 40385741490: after the snapshot crossed 30 hours, `tools/build_site.py` emitted the stale banner's `flagged.html` link unchanged inside `sports/*`, producing 14 broken links. Banner links now respect page depth; `tests/test_audit_b3eff127.py` pins top-level and sport-page resolution.
+- Publication clock advanced to 2026-10-26T20:20:00Z. No source observation was renewed. Every former HIGH selection is correctly expired/started; current HIGH count is 0 and all retained prose is labelled analysis/archive.
+- Sixteen historical tests that required the 24–25 October live set after expiry now carry explicit dated-skip reasons. Durable evidence, line recomputation, prose, accounting and link gates remain active.
+- Local gates: 424 tests OK (42 dated skips); root checker PASS; 143 pages / 2,689 local links / 0 broken; root board PASS (367 rows / 319 fixtures / 0 current HIGH); lines board PASS (418 fixtures / 0 current HIGH); diff check PASS. Full audit: `docs/audit-b3eff127.md`.
+
+### FINAL RECEIPT — session-b3eff127 done (2026-10-26T20:25Z)
+
+- PR [#193](https://github.com/buffedlizard55-lab/OLBG3/pull/193) merged without waiting for approval at 2026-10-26T20:23:26Z as `4ef2823ac3e4af7ae32907ca6bb0c01323bb8586`.
+- Branch CI [40395056531](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40395056531) succeeded before merge. Main build/deploy [40395197208](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40395197208) succeeded after merge: build, 424-test suite, data/link gates, Pages deployment, `/olbg/` route smoke tests and root route/data smoke tests all passed.
+- GitHub Actions committed the checked regenerated clock snapshot to main after the merge, as designed. The public dashboard is live at <https://buffedlizard55-lab.github.io/OLBG3/> and the review register at <https://buffedlizard55-lab.github.io/OLBG3/flagged.html>.
+- Task status: **done — merged and deployed; stale-source and 75-pick quota gaps remain openly flagged and do not block publication.**
+
+- Concurrent integration reconciliation: sibling session-b3eff127 merged PRs #193/#194 into main during this pass, repairing the same pre-existing stale banner and dated test defects. Rebase stopped on conflicts; aborted it, then merged main on the fixed Arena branch to avoid rewriting published history. Kept sibling docs/test helper/test changes and both board sections; retained sibling stale-banner implementation (equivalent depth fix). Generated conflicts are rebuilt from the combined source data. Its new stale-banner tests incorrectly require an actual stale snapshot forever; claim that one test file to exercise stale/fresh banner rendering with explicit synthetic source ages instead. No source observation is changed to satisfy a test.
+- Combined integration gates after sibling reconciliation: **433 tests, 42 historical skips**, all board/site/prediction/feed/link validators PASS, **145 pages / 2,715 links / 0 broken**. Extra skips come from sibling's preserved dated-audit helper; current boundary, arithmetic and source-ledger tests still execute. Earlier 430/26 receipts are historical, not overwritten.
