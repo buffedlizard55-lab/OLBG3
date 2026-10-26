@@ -1,4 +1,15 @@
 
+## `session-232a6679` — **task-232a6679-daily-20261026-refresh-and-integration** (CLAIMED 2026-10-26T05:2xZ)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-232a6679-daily-20261026-refresh-and-integration` | in progress | `session-232a6679` on Arena-fixed `arena/232a6679-olbg3` | `COORDINATION.md` (this section only); `.harvest/request.json` (this session's request only); **new** evidence paths `data/raw/{live,urls}-20261026T*-232a6679/**`; `data/daily/research-20261026.json` (new); `docs/audit-232a6679.md` (new); `tests/test_audit_232a6679.py` (new); append-only `data/flagged.json`; and the generated outputs the documented pipeline regenerates (`data/*`, `site/**`, root snapshot, `daily/**`) |
+
+- **Pre-claim checks (2026-10-26T05:2xZ):** `git fetch` → `origin/main` = `47eeecb` = this branch's base. Board showed **no claim** by the two sessions whose branches are alive today (`arena/61e1daf3-olbg3` pushed an Oct-26 harvest request at 05:1xZ; `arena/f00f1bf2-olbg3` has PR #184 open) — neither has a row on this board, so neither claim is taken over; I will **not** edit their files or their branches. I will consume their committed capture only as read-only evidence if it lands before my build, with attribution.
+- **Why:** main's hourly `Verify and publish dashboard` has failed five consecutive scheduled runs (`40211133419`, `40226894823`, `40240752277`, `40252900559` at build job step *Unit tests (after the rebuild)*), and the site therefore stopped advancing. The committed daily board is still `research-20261025.json` (yesterday), so the published pages do not describe 26 October. Both are fixed here.
+- **Hard boundary:** nothing is invented. A fixture, clock, price, record, statistic or injury is published only if it is in a captured/committed payload read in this pass and linked with its URL. A start time appears only when the source states its zone (FL-148 rule). Five-per-sport stays a target, never a quota.
+- **Branch note:** Arena fixes this session's branch name, so no `session-<id>/<task>` branch or worktree is created.
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
