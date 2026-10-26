@@ -1,14 +1,10 @@
 {
-  "out": "data/raw/live-20261024T2225Z-1815f0b1",
-  "requested_at_utc": "2026-10-24T22:32:35Z",
-  "requested_by": "session-1815f0b1",
-  "why": "Final reread of current written-prediction facts: exact MLB standings and official SuperLega calendar/standings, plus existing official clock sources; retain PDF bytes faithfully.",
+  "out": "data/raw/live-20261026T0530Z-232a6679",
+  "requested_at_utc": "2026-10-26T05:35:00Z",
+  "requested_by": "session-232a6679",
+  "why": "2026-10-26 board. The 05:15Z OLBG capture (already committed at data/raw/live-20261026T0515Z-61e1daf3, adopted read-only) and the 05:16Z official probe are covered, so no second listing capture is requested. What is missing is the official page behind each fixture outside the NHL/MLB endpoints: EHF group standings, the NBA schedule page (its CDN endpoint returned 403), EuroLeague standings, the MLB postseason game log, Italian/Polish/Brazilian volleyball, ATP/WTA order of play, BCCI/PCB/Cricket Ireland, Cork GAA, F1 driver standings and the GBGB racecard index. Each URL is fetched byte-faithfully and recorded even when it fails.",
   "capture": false,
   "probe": false,
-  "cited": true,
-  "cited_urls": [
-    "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
-    "https://www.legavolley.it/calendario/?idCampionato=999",
-    "https://www.legavolley.it/classifica/?IdCampionato=999"
-  ]
+  "cited": false,
+  "urls": ".harvest/urls-232a6679.txt"
 }

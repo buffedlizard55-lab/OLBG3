@@ -1,0 +1,31 @@
+# session-232a6679 — official pages needed to verify the 2026-10-26 board.
+# One URL per line. Each row of the published board must trace to one of these bytes.
+# Ice hockey beyond the three NHL games in the league's own probe payload.
+https://stats.swehockey.se/ScheduleAndResults/Overview/20961
+https://www.liiga.fi/en/schedule?kausi=2026-2027&sarja=runkosarja
+# Basketball: the CDN schedule endpoint answered 403, so ask the league's own schedule page.
+https://www.nba.com/schedule?date=2026-10-26
+https://www.euroleaguebasketball.net/en/euroleague/standings/
+# Baseball: the postseason game log behind the World Series series score.
+https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-01&endDate=2026-10-27&hydrate=team,linescore&gameType=P
+# Handball: current EHF Champions League group standings for the Round 6 fixtures.
+https://ehfcl.eurohandball.com/men/2026-27/standings/
+# Volleyball: Italian, Polish and Brazilian league pages for the 26-28 October fixtures.
+https://www.legavolley.it/calendario/?idCampionato=999
+https://www.legavolley.it/classifica/?IdCampionato=999
+https://www.tauronliga.pl/
+https://www.cbv.com.br/
+# Tennis: order-of-play sheets for the events the listings call 26 October.
+https://www.protennislive.com/posting/2026/352/op.pdf
+https://www.atptour.com/en/scores/current/paris/352/daily-schedule
+https://wtafiles.wtatennis.com/pdf/draws/2026/2092/OP.pdf
+# Cricket: the boards of control behind the three listed internationals.
+https://www.bcci.tv/
+https://www.pcb.com.pk/
+https://cricketireland.ie/fixtures
+# Gaelic football: Cork county board fixtures for the 1 November finals.
+https://gaacork.ie/fixtures-results/
+# Motor racing: driver standings behind the Mexico City outright.
+https://www.formula1.com/en/results/2026/drivers
+# Greyhounds: the governing body's own racecard index.
+https://www.gbgb.org.uk/
