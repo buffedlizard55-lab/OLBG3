@@ -2717,3 +2717,10 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 - Read the complete shared board before claiming. Existing open PRs #137/#169/#173/#182/#184 have had no activity for more than 60 minutes and are not taken over blindly.
 - Higher-priority Arena branch constraint requires work on the fixed branch above; no differently named session branch/worktree will be created.
 - Goal: reproduce and repair the current scheduled-build failure without weakening evidence gates; expire stale fixtures honestly, preserve unverified gaps, run all tests/link checks, publish through a PR, merge only after green CI, and confirm Pages. No fabricated fixture, line, statistic, injury, or confidence claim.
+
+### session-b3eff127 implementation receipt (2026-10-26T20:35Z)
+
+- Reproduced main run 40385741490: after the snapshot crossed 30 hours, `tools/build_site.py` emitted the stale banner's `flagged.html` link unchanged inside `sports/*`, producing 14 broken links. Banner links now respect page depth; `tests/test_audit_b3eff127.py` pins top-level and sport-page resolution.
+- Publication clock advanced to 2026-10-26T20:20:00Z. No source observation was renewed. Every former HIGH selection is correctly expired/started; current HIGH count is 0 and all retained prose is labelled analysis/archive.
+- Sixteen historical tests that required the 24–25 October live set after expiry now carry explicit dated-skip reasons. Durable evidence, line recomputation, prose, accounting and link gates remain active.
+- Local gates: 424 tests OK (42 dated skips); root checker PASS; 143 pages / 2,689 local links / 0 broken; root board PASS (367 rows / 319 fixtures / 0 current HIGH); lines board PASS (418 fixtures / 0 current HIGH); diff check PASS. Full audit: `docs/audit-b3eff127.md`.

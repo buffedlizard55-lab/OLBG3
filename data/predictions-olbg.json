@@ -20,7 +20,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-535928",
@@ -64,7 +64,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "MTR-913",
@@ -88,7 +88,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-535925",
@@ -152,7 +152,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-36997",
@@ -171,8 +171,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGL-2801600",
@@ -207,8 +208,9 @@
           "url": "https://gaacork.ie/results/"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: rewritten from the exact Cork GAA event page reread at 22:27Z; the older crowd-handicap snapshot is not presented as current."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: rewritten from the exact Cork GAA event page reread at 22:27Z; the older crowd-handicap snapshot is not presented as current.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "DAR-32332",
@@ -328,7 +330,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGU-609577",
@@ -400,7 +402,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "HAN-12101",
@@ -509,7 +511,7 @@
         "why": "The 2026-10-23T16:21Z capture shows a different tip split for this fixture, so our originated price moved. Numbers updated to the current row; no new claim was added."
       },
       "correction_note": "Rewritten 2026-10-23 by session-6327cf90. The previous text asserted four home wins from five and a +18 goal differential for Villa de Aranda, and three away defeats in four for Puerto Sagunto; the official ASOBAL table this project holds gives Villa de Aranda 1 point from 6 at -34 and Puerto Sagunto 4 points at -2, contradicting every one of those figures. The previous pick was also the home side, an artefact of the tip-count parse failure recorded as FL-156 rather than a judgement. The retraction is kept here and in FL-159 rather than in the reader-facing prose. See also FL-158 for the two volleyball pieces corrected in the same pass.",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGU-609563",
@@ -616,7 +618,7 @@
         "why": "The 2026-10-23T16:21Z capture shows a different tip split for this fixture, so our originated price moved. Numbers updated to the current row; no new claim was added."
       },
       "correction_note": "Rewritten 2026-10-23 by session-6327cf90; see FL-158 (venue and clock withdrawn from the official record) and FL-159 (assertions contradicted by the project's own committed official table).",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-37003",
@@ -637,7 +639,7 @@
       "confidence": "low",
       "status": "analysis",
       "correction_note": "Rewritten 2026-10-23 by session-6327cf90; see FL-158 (venue and clock withdrawn from the official record) and FL-159 (assertions contradicted by the project's own committed official table).",
-      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-536035",
@@ -757,7 +759,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "ICH-199985",
@@ -777,7 +779,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "BKB-536039",
@@ -856,8 +858,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-36996",
@@ -876,8 +879,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed."
+      "status": "analysis",
+      "correction_note": "session-1815f0b1, 2026-10-24: replaced unsupported serve/receive and player-level claims with the exact official league calendar and standings reread at 22:33:59Z–22:34:01Z. Monza’s 91:94 comes from the league table; no different source total is silently harmonised. Verona’s opening fixture was at home, so no loss at Civitanova is claimed.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "RGU-609581",
@@ -897,7 +901,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "HAN-12138",
@@ -917,7 +921,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "HAN-12130",
@@ -937,7 +941,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "HAN-12134",
@@ -957,7 +961,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "HAN-12129",
@@ -977,7 +981,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "HAN-12133",
@@ -997,7 +1001,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "HAN-12136",
@@ -1005,7 +1009,7 @@
       "match": "SC Magdeburg vs HC Kriens Luzern",
       "selection": "SC Magdeburg to win (1.68 / -147)",
       "confidence": "high",
-      "status": "high",
+      "status": "analysis",
       "correction_note": "",
       "text": "Back SC Magdeburg to win the money line at 1.68 (-147) in the EHF Champions League Group F meeting with HC Kriens-Luzern on Wednesday 28 October, 20:45 CET at the GETEC Arena. The competition's own group table, read on 24 October, has Magdeburg top on a perfect 5-0 with 176 goals scored and 140 conceded, ten points from five rounds. Kriens-Luzern sit on four points from 2-3, having scored 158 and conceded 161, so the Swiss side arrive with a negative goal difference while the hosts are winning by more than seven goals a game. Magdeburg have also had the tougher half of the schedule on paper and still come through unbeaten, which is why the home win at a shade under 1.70 is the selection rather than a handicap.",
       "sources": [
@@ -1017,7 +1021,8 @@
           "label": "EHF Champions League Men 2026/27 — official group standings (played, goals for/against, points)",
           "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
         }
-      ]
+      ],
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "ICH-200009",
@@ -1025,7 +1030,7 @@
       "match": "TB Lightning @ UTA Mammoth",
       "selection": "Utah Mammoth money line (1.69 / -145)",
       "confidence": "high",
-      "status": "high",
+      "status": "analysis",
       "correction_note": "",
       "text": "Utah Mammoth to win on the money line at 1.69 (-145) against the Tampa Bay Lightning, with the NHL schedule listing a 01:00 UTC start on Sunday 25 October. Utah are 7-4-0 for 14 points and have scored 41 goals in eleven games while conceding 36, and their home record of 3-1-0 is the part of the profile that carries this selection. Tampa Bay are level on 14 points at 7-3-0 but have done their work at home: they are 5-0-0 in their own building and 2-3-0 on the road, scoring 34 and conceding 29 overall. Both clubs lost their most recent game, so the edge is the venue split and Utah's higher scoring rate of 3.73 goals per game against Tampa Bay's 3.40. The tip split on the listing has moved to five of nine on the hosts since the first read, which is why the price is quoted at 1.69 rather than the earlier 1.64.",
       "sources": [
@@ -1037,7 +1042,8 @@
           "label": "NHL official standings 2026-10-24 — records, goals for/against, home and road splits",
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
-      ]
+      ],
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "VOL-36994",
@@ -1058,7 +1064,7 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "downgrade_reason": "Model grade or price-band gate not satisfied; the official start gate itself is not the blocker for this row."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "match_id": "HAN-12132",
@@ -1066,7 +1072,7 @@
       "match": "KS Kielce vs Kolstad",
       "selection": "KS Kielce to win (1.68 / -147)",
       "confidence": "high",
-      "status": "high",
+      "status": "analysis",
       "correction_note": "",
       "sources": [
         {
@@ -1078,7 +1084,8 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
         }
       ],
-      "text": "Back KS Kielce on the money line at 1.68 (-147) in the EHF Champions League Group F match against Kolstad on Wednesday 28 October, 20:45 CET at Hala Legionow. The competition's group table has Kielce second on six points from 3-0-2 with 155 goals scored and 153 conceded, while Kolstad are bottom and still without a win at 0-0-5, having scored 143 and conceded 178 across their five defeats. That is a 35-goal deficit over five rounds for the visitors, and the two sides are separated by six points in the same group, so the home win at 1.68 is the value rather than the draw that the listing's tip split leans towards."
+      "text": "Back KS Kielce on the money line at 1.68 (-147) in the EHF Champions League Group F match against Kolstad on Wednesday 28 October, 20:45 CET at Hala Legionow. The competition's group table has Kielce second on six points from 3-0-2 with 155 goals scored and 153 conceded, while Kolstad are bottom and still without a win at 0-0-5, having scored 143 and conceded 178 across their five defeats. That is a 35-goal deficit over five rounds for the visitors, and the two sides are separated by six points in the same group, so the home win at 1.68 is the value rather than the draw that the listing's tip split leans towards.",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "match_id": "HAN-12128",
@@ -1086,7 +1093,7 @@
       "match": "Fuchse Berlin vs RK Partizan",
       "selection": "Fuchse Berlin to win (1.68 / -147)",
       "confidence": "high",
-      "status": "high",
+      "status": "analysis",
       "correction_note": "",
       "sources": [
         {
@@ -1098,8 +1105,9 @@
           "url": "https://ehfcl.eurohandball.com/men/2026-27/standings/"
         }
       ],
-      "text": "Fuchse Berlin to win the money line at 1.68 (-147) against RK Partizan AdmiralBet in Group A on Thursday 29 October, 18:45 CET at the Max-Schmeling-Halle. Berlin sit second on six points from 3-0-2, scoring 184 and conceding 172, while Partizan are fourth with one point from 0-1-4 after scoring 148 and conceding 184 in the same five rounds. The Serbian side have lost four of five and carry the weaker goal difference by 36, and the five points between the clubs in the same group make the 1.68 price on the hosts the selection here rather than the draw the tip split favours."
+      "text": "Fuchse Berlin to win the money line at 1.68 (-147) against RK Partizan AdmiralBet in Group A on Thursday 29 October, 18:45 CET at the Max-Schmeling-Halle. Berlin sit second on six points from 3-0-2, scoring 184 and conceding 172, while Partizan are fourth with one point from 0-1-4 after scoring 148 and conceding 184 in the same five rounds. The Serbian side have lost four of five and carry the weaker goal difference by 36, and the five points between the clubs in the same group make the 1.68 price on the hosts the selection here rather than the draw the tip split favours.",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     }
   ],
-  "note": "8 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
+  "note": "0 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified."
 }

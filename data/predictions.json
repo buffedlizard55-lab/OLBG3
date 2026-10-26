@@ -1,5 +1,5 @@
 {
-  "note": "8 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
+  "note": "0 pieces currently pass this track’s model, price-band and official-start release gates. Other pieces are labelled analysis. Counts change with the publication clock; this is not live-score verification or a calibrated win-rate claim. Bookmaker odds were not verified.",
   "predictions": [
     {
       "ref": "BKB-11",
@@ -64,7 +64,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "RGU-11",
@@ -87,7 +87,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "RGU-14",
@@ -105,7 +105,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-06",
@@ -243,7 +243,7 @@
       ],
       "status": "analysis",
       "row_confidence": "MEDIUM",
-      "downgrade_reason": "LNR prints the clock (e.g. \"16h35\") with no zone label. Per FL-096 (lnv.fr precedent) a venue zone is not guessed, so only the date is recorded and no UTC start is certified. See FL-148."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-02",
@@ -354,7 +354,7 @@
       "ref": "BSB-01",
       "status": "analysis",
       "correction_note": "Restored 2026-10-23 after the first repair over-corrected: every figure below is printed on the MLB Game 1 preview already cited as this piece's first source, which the repair had not opened. The one claim still withheld is a 55-26 home record, because that figure belongs to Tampa Bay, not Milwaukee.",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "selection": "Agen to win (3-way match betting, 1.51 / -196)",
@@ -894,7 +894,8 @@
         }
       ],
       "ref": "MTR-01",
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "HBL-23",
@@ -1047,7 +1048,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-12",
@@ -1170,8 +1171,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "2026-10-24 session-1815f0b1: removed the unquantified jump-serve/side-out assertion; official league calendar/standings are being reread for every quoted set and point total."
+      "status": "analysis",
+      "correction_note": "2026-10-24 session-1815f0b1: removed the unquantified jump-serve/side-out assertion; official league calendar/standings are being reread for every quoted set and point total.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "VOL-28",
@@ -1188,7 +1190,8 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high"
+      "status": "analysis",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "VOL-29",
@@ -1205,8 +1208,9 @@
           "url": "https://www.legavolley.it/classifica/?IdCampionato=999"
         }
       ],
-      "status": "high",
-      "correction_note": "2026-10-24 session-1815f0b1: removed the unsupported serve-receive characterization; retained only the league’s opening-round set scores and rally-point totals, pending final source reread."
+      "status": "analysis",
+      "correction_note": "2026-10-24 session-1815f0b1: removed the unsupported serve-receive characterization; retained only the league’s opening-round set scores and rally-point totals, pending final source reread.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-14",
@@ -1273,8 +1277,9 @@
           "url": "https://gaacork.ie/results/"
         }
       ],
-      "status": "high",
-      "correction_note": "2026-10-24 session-1815f0b1: rewrote around the exact Cork GAA event-page scorelines reread in cited-20261024T2227Z; removed an older OLBG crowd/handicap observation from the current winner recommendation."
+      "status": "analysis",
+      "correction_note": "2026-10-24 session-1815f0b1: rewrote around the exact Cork GAA event-page scorelines reread in cited-20261024T2227Z; removed an older OLBG crowd/handicap observation from the current winner recommendation.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "DRT-17",
@@ -1481,7 +1486,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "DRT-10",
@@ -1535,7 +1540,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-199985",
@@ -1558,7 +1563,7 @@
       ],
       "status": "analysis",
       "correction_note": "Rebuilt 2026-10-23 on values re-read from the official source cited above; figures that could not be re-confirmed in this pass were removed rather than restated.",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "TEN-902163",
@@ -1576,7 +1581,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "RGU-17",
@@ -1616,7 +1621,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "Club site (club-official tier) is not on the reviewed clock-host list and prints no zone label; date-only. Fixture moved from Sat 24 Oct 7pm."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "DRT-32383",
@@ -1634,7 +1639,7 @@
         }
       ],
       "status": "analysis",
-      "downgrade_reason": "No recently checked official, timezone-qualified exact start. Retained as analysis."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "TEN-902162",
@@ -1652,7 +1657,7 @@
           "url": "https://www.wtatennis.com/tournaments/405/osaka/2026/draws"
         }
       ],
-      "downgrade_reason": "\"Not before\" is a floor, not an exact start; no UTC start is certified. The PDF prints no zone label, so none is recorded."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-200006",
@@ -1671,7 +1676,7 @@
         }
       ],
       "correction_note": "",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-200003",
@@ -1690,7 +1695,7 @@
         }
       ],
       "correction_note": "",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-200002",
@@ -1709,7 +1714,7 @@
         }
       ],
       "correction_note": "2026-10-24 session-1815f0b1: standings reread gives Carolina 18 points and St Louis 11; the gap is seven, not eight. Other quoted records and splits agree with official-20261024T2226Z/json/nhl_standings.json.",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-200010",
@@ -1728,11 +1733,11 @@
         }
       ],
       "correction_note": "2026-10-24 session-1815f0b1: official standings print goal differentials +15 and +4; their difference is eleven, not twelve. Reread from official-20261024T2226Z/json/nhl_standings.json.",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "IHO-200005",
-      "status": "high",
+      "status": "analysis",
       "selection": "Seattle Kraken to win the money line at 1.70 (-143)",
       "headline": "Seattle’s home split and Minnesota’s 2-3-2 road form underpin the Kraken at 1.70",
       "body": "Seattle Kraken to win at 1.70 (-143) against Minnesota at Climate Pledge Arena, 02:00 UTC on 25 October. Seattle are 7-3-1 with 44 goals for and 37 against with a 3-1-0 home record and a two-game winning streak. Minnesota are 6-3-2 with only 32 goals scored, and although they are 4-0-0 at home they are 2-3-2 on the road and lost their most recent game. The Wild concede fewer goals than Seattle, so the margin should be tight, but the venue split and Seattle’s twelve-goal advantage in scoring make the home side the pick at this price.",
@@ -1746,11 +1751,12 @@
           "url": "https://api-web.nhle.com/v1/standings/2026-10-24"
         }
       ],
-      "correction_note": ""
+      "correction_note": "",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "BSB-160792",
-      "status": "high",
+      "status": "analysis",
       "selection": "Milwaukee Brewers to win the money line at 1.67 (-149)",
       "headline": "Brewers' 103-win season, a 214-run edge and a 1-0 series lead behind the 1.67 home price",
       "body": "Milwaukee Brewers to win at 1.67 (-149) is the selection for World Series Game 2 at American Family Field, scheduled for 00:00 UTC on 25 October. MLB lists Logan Henderson and Drew Rasmussen as the probable starters, a designation that can still change before first pitch. Milwaukee lead the series 1-0 according to the records alongside this fixture. Their regular-season line was 103-59 with 832 runs scored and 618 conceded, while Tampa Bay finished 98-64 with 736 scored and 650 allowed. That combination of stronger scoring and fewer runs conceded supports the Brewers at home, although season totals alone do not establish an advantage in this particular pitching matchup. No match-specific injury claim is included without an official report.",
@@ -1768,11 +1774,12 @@
           "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&startDate=2026-10-24&endDate=2026-10-28&hydrate=probablePitcher,linescore"
         }
       ],
-      "correction_note": "2026-10-24 session-1815f0b1: removed the unsupported first-time World Series starter claim and incorrect 214-run difference between the clubs (214 was Milwaukee’s own differential, not the gap). Starting-pitcher names, venue and start reread from official-20261024T2226Z/json/mlb_schedule.json; season standings pending final exact-source receipt."
+      "correction_note": "2026-10-24 session-1815f0b1: removed the unsupported first-time World Series starter claim and incorrect 214-run difference between the clubs (214 was Milwaukee’s own differential, not the gap). Starting-pitcher names, venue and start reread from official-20261024T2226Z/json/mlb_schedule.json; season standings pending final exact-source receipt.",
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     },
     {
       "ref": "HBL-12130",
-      "status": "high",
+      "status": "analysis",
       "selection": "HC Vardar to win the money line at 1.68 (-147)",
       "headline": "Vardar’s 30.8 goals a game at home points to a tight Group B win over Melsungen",
       "body": "HC Vardar 1961 to win at 1.68 (-147) against MT Melsungen in EHF Champions League Group B on Wednesday 28 October at the SC Jane Sandanski in Skopje, a 18:45 CET (17:45 UTC) throw-off. The EHF's own standings after Round 5 have Vardar fourth on two points from five games, 1-0-4, scoring 154 goals and conceding 158, while Melsungen are second on six points, 3-0-2, with 138 goals for and 138 against. Vardar's 30.8 goals per game is the higher attacking rate in the pairing, and Melsungen's neutral goal difference makes this a short-margin call rather than a comfortable one, which is why the price sits where it does.",
@@ -1786,7 +1793,8 @@
           "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf"
         }
       ],
-      "correction_note": ""
+      "correction_note": "",
+      "downgrade_reason": "Official observation is at least 24 hours old. No new source check; research only."
     },
     {
       "ref": "RGU-609581",
@@ -1805,7 +1813,7 @@
         }
       ],
       "correction_note": "",
-      "downgrade_reason": "Official scheduled start has passed. May be in play, delayed or settled; not a pre-match pick."
+      "downgrade_reason": "The recorded fixture date has passed; archive only. Outcome not inferred."
     }
   ]
 }
