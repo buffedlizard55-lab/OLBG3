@@ -74,8 +74,13 @@ def nav(active: str, depth: int) -> str:
 
 
 
-def stale_banner() -> str:
-    """Say loudly how old the capture is. Never pretend a stale snapshot is live."""
+def stale_banner(pre: str = "") -> str:
+    """Say loudly how old the capture is. Never pretend a stale snapshot is live.
+
+    ``pre`` is the page's depth prefix. Sport sub-pages live one directory down, so a bare
+    ``flagged.html`` there resolved to ``sports/flagged.html`` and both link gates failed
+    (``tools/check_site.py`` and ``scripts/check_links.py``) on the 2026-10-26 rebuild.
+    """
     age = snapshot_age_hours()
     if age < 30:
         return ""
@@ -83,7 +88,7 @@ def stale_banner() -> str:
             f'<strong>SNAPSHOT STALE — {age:.0f} h old.</strong> The newest committed source observation is '
             f'{E(RUN["harvest_completed_utc"])}. Nothing on this page is a current pick: the release gate '
             f'expires every observation 24 h after it was read, so rows shown as HIGH are historical until a '
-            f'new capture is committed. See <a href="flagged.html">Flagged for review</a>.</div>')
+            f'new capture is committed. See <a href="{pre}flagged.html">Flagged for review</a>.</div>')
 
 
 def page(title: str, body: str, active: str, depth: int, subtitle: str = "") -> str:
@@ -106,7 +111,7 @@ def page(title: str, body: str, active: str, depth: int, subtitle: str = "") -> 
   </div>
 </header>
 <main class="wrap">
-{stale_banner()}
+{stale_banner(pre)}
 {f'<p class="crumb">{subtitle}</p>' if subtitle else ''}
 {body}
 </main>
