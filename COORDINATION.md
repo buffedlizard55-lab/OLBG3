@@ -2,7 +2,7 @@
 
 | Task | Status | Owner | File scope |
 | --- | --- | --- | --- |
-| task-ef52c632-refresh-integrate | in progress | session-ef52c632 on Arena-fixed `arena/ef52c632-olbg3` | `COORDINATION.md`, `.harvest/request.json`, new runner evidence `data/raw/live-20261026T2020Z-ef52c632/**` and timestamped official/cited captures; new `docs/audit-ef52c632.md`, new tests if needed; append-only flags; generated data/site outputs during final integration; specific source fixes documented before editing. |
+| task-ef52c632-refresh-integrate | done — published; coverage gaps need review | session-ef52c632 on Arena-fixed `arena/ef52c632-olbg3` | `COORDINATION.md`, `.harvest/request.json`, new runner evidence `data/raw/live-20261026T2020Z-ef52c632/**` and timestamped official/cited captures; new `docs/audit-ef52c632.md`, new tests if needed; append-only flags; generated data/site outputs during final integration; specific source fixes documented before editing. |
 
 - Read existing board (2,709 lines), inspected open PRs and fetched origin. Remaining in-progress claims date from October 24 or earlier, outside the 60-minute takeover window. No sibling PR or authored evidence will be silently merged or overwritten.
 - Branch name fixed by Arena: all work, claims and final PR stay on `arena/ef52c632-olbg3`; no alternate session branch is created.
@@ -2759,3 +2759,10 @@ Official MLB schedule and Game 1 preview were fetched successfully in this pass.
 
 - Concurrent integration reconciliation: sibling session-b3eff127 merged PRs #193/#194 into main during this pass, repairing the same pre-existing stale banner and dated test defects. Rebase stopped on conflicts; aborted it, then merged main on the fixed Arena branch to avoid rewriting published history. Kept sibling docs/test helper/test changes and both board sections; retained sibling stale-banner implementation (equivalent depth fix). Generated conflicts are rebuilt from the combined source data. Its new stale-banner tests incorrectly require an actual stale snapshot forever; claim that one test file to exercise stale/fresh banner rendering with explicit synthetic source ages instead. No source observation is changed to satisfy a test.
 - Combined integration gates after sibling reconciliation: **433 tests, 42 historical skips**, all board/site/prediction/feed/link validators PASS, **145 pages / 2,715 links / 0 broken**. Extra skips come from sibling's preserved dated-audit helper; current boundary, arithmetic and source-ledger tests still execute. Earlier 430/26 receipts are historical, not overwritten.
+
+### session-ef52c632 — merge and deployment receipt
+
+- [PR #195](https://github.com/buffedlizard55-lab/OLBG3/pull/195) **MERGED** at **2026-10-26T20:30:41Z**, merge commit `917b321919e2fb006e8f651762a6c9792d75f508`. Combined branch check [40396149016](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40396149016) passed before merging; no broken build merged.
+- Main [workflow 40396296184](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40396296184) **SUCCESS**: rebuild, all 433 tests (42 historical skips), data/prediction/link validators, deploy job, live OLBG-route smoke tests and root-route/data smoke tests passed. Actions `deploy-pages` step also succeeded; no fallback success was presumed.
+- Public [dashboard](https://buffedlizard55-lab.github.io/OLBG3/), [written shortlist](https://buffedlizard55-lab.github.io/OLBG3/today.html#shortlist), [all lines](https://buffedlizard55-lab.github.io/OLBG3/olbg/picks.html), [Flagged for Review](https://buffedlizard55-lab.github.io/OLBG3/flagged.html).
+- Task integration is complete; brief coverage remains **partial**: two current HIGH research-grade picks and five new analysis leans, not five per sport. FL-232/233/237 stay open for missing data, access failures and uncalibrated price assumptions; FL-234/235/236 describe repaired defects. No missing information was invented to finish a quota.
