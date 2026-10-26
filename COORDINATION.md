@@ -1,4 +1,14 @@
 
+## `session-b087b674` — **task-b087b674-oct26-multi-sport-verification-and-integration** (CLAIMED 2026-10-26T05:22:00Z)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-b087b674-oct26-multi-sport-verification-and-integration` | in progress | `session-b087b674` on Arena-fixed `arena/b087b674-olbg3` | `COORDINATION.md` (this section only); `.harvest/request.json` (this session's capture request); new runner/probe evidence under `data/raw/live-20261026T0522Z-b087b674/**`, `data/raw/official-*`, `data/raw/cited-*`, `data/raw/urls-*`, and `.harvest/urls-b087b674.txt`; new modular batch `data/batches/20261026-b087b674.json` and new durable `/olbg/` patch `data/patches/picks-b087b674.json`; new `docs/audit-b087b674.md` and `tests/test_audit_b087b674.py`; append-only `data/flagged.json`; targeted pipeline/CI repairs only if still unfixed on `main` at integration (`tools/build_site.py` stale-banner depth link, `scripts/release.py` past-date exact-clock retention, and clock-safe regression updates); and shared data/site regeneration (`data/*`, `site/**`, `olbg-board/**`, `olbg/**`, `daily/**`, root snapshot) strictly in final integration after reconciling `origin/main`. |
+
+- **Pre-claim check (2026-10-26T05:21:56Z):** `git fetch origin main` shows `origin/main` at `47eeecb` (`2026-10-24T23:15:01Z`), with zero `in progress` rows on `main`'s `COORDINATION.md` inside the 60-minute window. Open PRs (#184, #182, #173, #169, #137) are >24h old and left untouched. Sibling Arena session branches observed on remote (`arena/61e1daf3-olbg3`, `arena/232a6679-olbg3`, `arena/b97c44d2-olbg3`, `arena/9d3471e9-olbg3`, `arena/1a5c732e-olbg3`) live on their own branches; none of their files or branches are modified, and modular batch/patch files (`data/batches/20261026-b087b674.json`, `data/patches/picks-b087b674.json`) are used so any sibling merge to `main` reconciles cleanly without discarding sibling work.
+- **Branch constraint:** Arena fixes this session to `arena/b087b674-olbg3`; all commits, pushes, and PR operations stay strictly on `arena/b087b674-olbg3`.
+- **Verification & honesty boundary:** Every fixture, clock, timezone, ranking, standing, score, statistic, or injury statement must be verified directly from an official governing-body/competition source read in this pass and linked with its HTTPS URL. Unconfirmed values stay blank and are published on Flagged for Review. Five HIGH picks per sport inside `-250` to `+10000` (`1.40`–`101.00`, `<70%` probability) is a target, never a quota to invent or promote unsupported picks; every HIGH pick requires `>=30` unique human words, an explicit selection, `>=2` distinct reviewed official documents, and zero occurrences of prohibited terms (`model`, `verified`).
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
