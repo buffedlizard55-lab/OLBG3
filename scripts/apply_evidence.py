@@ -81,6 +81,10 @@ def main() -> int:
 
     releases_path = DATA / 'release_checks.json'
     verifications_path = DATA / 'verifications.json'
+    # The register entry this script's records point at. It already exists in the committed
+    # source register (the same PDF was first cited on 2026-10-23), so the new observations reuse
+    # it instead of forking a second id for one document.
+    SOURCE_ID = 'S-EHFCL-TIMES-PDF-20261023'
     releases = load_manifest(releases_path)
     verifications = load_manifest(verifications_path)
     applied, refused = 0, []
@@ -119,10 +123,13 @@ def main() -> int:
             existing = releases['events'].get(record['event_id'])
             if existing and parse_utc(existing.get('checked_at', '1970-01-01T00:00:00Z')) > parse_utc(checked_at):
                 continue  # an observation that has already been superseded is never restored
+            # Stored the way this repository stores every exact clock: the UTC date/time in the
+            # record and the source's own zone in the note. Keeping the local wall clock here would
+            # publish "18:45 CET" for a fixture the release gate evaluates at 17:45Z.
             releases['events'][record['event_id']] = {
-                'date': record['date'],
-                'time': record['time_local'],
-                'timezone': record['timezone'],
+                'date': start.strftime('%Y-%m-%d'),
+                'time': start.strftime('%H:%M'),
+                'timezone': 'UTC',
                 'kind': 'exact',
                 'source': doc['source_url'],
                 'quote': record['quote'],
@@ -138,7 +145,7 @@ def main() -> int:
                 'start_local': record['time_local'],
                 'start_utc': record['start_utc'],
                 'status': 'verified',
-                'sources': [doc['source_url']],
+                'sources': [SOURCE_ID],
                 'facts': [f"{record['team_line']} — {record['date_line']} {record['time_line']} "
                           f"({record['timezone']}) in the EHF group-phase playing-times document"],
                 'note': f'scripts/apply_evidence.py re-derived this quote from the committed PDF text at {checked_at}.',
@@ -150,6 +157,17 @@ def main() -> int:
     if refused:
         print(f'apply_evidence: {len(refused)} record(s) refused; nothing was written for them.')
         return 1
+
+    known_sources = {s.get('id') for s in verifications.setdefault('sources', [])}
+    if SOURCE_ID not in known_sources:
+        verifications['sources'].append({
+            'id': SOURCE_ID,
+            'class': 'official',
+            'name': 'EHF Champions League Men 2026/27 Group Phase official playing times PDF',
+            'url': doc['source_url'],
+            'probe_file': manifest['derived_from']['pdf_file'],
+            'sha256': manifest['derived_from']['pdf_sha256'],
+        })
 
     if not args.dry_run and applied:
         releases['checked_at'] = max(releases.get('checked_at') or '', checked_at)

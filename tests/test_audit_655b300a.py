@@ -133,7 +133,15 @@ class TestVolleyballFixtures(unittest.TestCase):
         for ref, needle in expect.items():
             with self.subTest(ref=ref):
                 self.assertIn(needle, rows[ref]["home"])
-                self.assertEqual(rows[ref]["pick"]["kickoff_utc"], "2026-10-25T17:00:00Z")
+                # FL-201/FL-231 lesson: this pin is about which side is at home, and it must not go
+                # red once the 25 October fixtures have been played. The confirmed clock is still
+                # asserted while it is published; once the release gate archives the row it must
+                # publish no start at all rather than a stale one.
+                released = rows[ref]["pick"].get("release") or {}
+                if released.get("status") == "past_date":
+                    self.assertIsNone(rows[ref]["pick"]["kickoff_utc"])
+                else:
+                    self.assertEqual(rows[ref]["pick"]["kickoff_utc"], "2026-10-25T17:00:00Z")
 
 
 class TestRegisterItems(unittest.TestCase):

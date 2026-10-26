@@ -32,14 +32,14 @@
  "totals": {
   "sports_listed": 15,
   "sports_with_rows": 15,
-  "sports_meeting_target": 0,
-  "live_high_root": 0,
-  "live_high_olbg": 0,
-  "live_high_union": 0,
+  "sports_meeting_target": 1,
+  "live_high_root": 1,
+  "live_high_olbg": 9,
+  "live_high_union": 9,
   "root_rows": 367,
   "olbg_rows": 523,
   "target_picks_if_all_sports_met": 75,
-  "shortfall_to_target": 75
+  "shortfall_to_target": 66
  },
  "sports": [
   {
@@ -325,10 +325,10 @@
    "olbg_priced_win": 60,
    "olbg_handicap": 60,
    "olbg_total": 60,
-   "olbg_high": 0,
-   "live_high_union": 0,
+   "olbg_high": 1,
+   "live_high_union": 1,
    "target": 5,
-   "shortfall": 5,
+   "shortfall": 4,
    "meets_target": false,
    "blocking": {
     "no_official_form": 15,
@@ -344,7 +344,20 @@
     "6 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "15 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
-   "live_picks": []
+   "live_picks": [
+    {
+     "event_id": "200103",
+     "sport": "Ice Hockey",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "ICH-200103",
+     "selection": "TOR Maple Leafs",
+     "price": 1.56,
+     "american": "-179"
+    }
+   ]
   },
   {
    "sport": "Motor Racing",
@@ -421,31 +434,129 @@
    "root_outright": 0,
    "root_handicap": 34,
    "root_total": 16,
-   "root_high": 0,
+   "root_high": 1,
    "olbg_rows": 57,
    "olbg_priced_win": 57,
    "olbg_handicap": 57,
    "olbg_total": 57,
-   "olbg_high": 0,
-   "live_high_union": 0,
+   "olbg_high": 8,
+   "live_high_union": 8,
    "target": 5,
-   "shortfall": 5,
-   "meets_target": false,
+   "shortfall": 0,
+   "meets_target": true,
    "blocking": {
     "no_official_form": 28,
     "high_evidence_out_of_band": 8,
-    "start_or_source_gate": 44,
+    "start_or_source_gate": 43,
     "unpriced": 10,
     "unverified_or_corroborated": 12
    },
    "reasons": [
     "28 of 44 root rows have no official current-form input for both sides, so the model cannot grade them above MEDIUM (a HIGH grade requires official form plus a verified fixture plus a price inside -250 to +10000 US (decimal 1.40 to 101.00)).",
     "8 root row(s) had HIGH-grade evidence but an originated price outside -250 to +10000 US (decimal 1.40 to 101.00). They are published as MEDIUM with the reason, not bent into the band.",
-    "44 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
+    "43 root row(s) are not released as current picks because the official start had passed, the start was unverified, or the source observation was stale at the publication clock.",
     "10 root row(s) carry no win price at all (no defensible official baseline), so no pick could be priced.",
     "12 root row(s) are unverified or corroborated only; they are never graded HIGH."
    ],
-   "live_picks": []
+   "live_picks": [
+    {
+     "event_id": "12128",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12128",
+     "selection": "Fuchse Berlin",
+     "price": 1.68,
+     "american": "-147"
+    },
+    {
+     "event_id": "12129",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12129",
+     "selection": "Sporting CP",
+     "price": 1.65,
+     "american": "-154"
+    },
+    {
+     "event_id": "12132",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12132",
+     "selection": "KS Kielce",
+     "price": 1.68,
+     "american": "-147"
+    },
+    {
+     "event_id": "12133",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12133",
+     "selection": "Dinamo Bucuresti",
+     "price": 1.7,
+     "american": "-143"
+    },
+    {
+     "event_id": "12134",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12134",
+     "selection": "Aalborg Handbold",
+     "price": 1.71,
+     "american": "-141"
+    },
+    {
+     "event_id": "12136",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12136",
+     "selection": "SC Magdeburg",
+     "price": 1.68,
+     "american": "-147"
+    },
+    {
+     "event_id": "12138",
+     "sport": "Handball",
+     "tracks": [
+      "olbg"
+     ],
+     "root_ref": null,
+     "olbg_ref": "HAN-12138",
+     "selection": "Orlen Wisla Plock",
+     "price": 1.64,
+     "american": "-156"
+    },
+    {
+     "event_id": "12130",
+     "sport": "Handball",
+     "tracks": [
+      "root",
+      "olbg"
+     ],
+     "root_ref": "HBL-12130",
+     "olbg_ref": "HAN-12130",
+     "selection": "HC Vardar",
+     "price": 1.68,
+     "american": -147
+    }
+   ]
   },
   {
    "sport": "Volleyball",
@@ -552,7 +663,7 @@
  "prose_evidence": {
   "root": {
    "pieces": 93,
-   "high": 0,
+   "high": 1,
    "words_min": 57,
    "words_median": 95,
    "words_max": 176,
@@ -580,13 +691,13 @@
    "withheld_bodies": 0
   },
   "olbg": {
-   "pieces": 54,
-   "high": 0,
+   "pieces": 59,
+   "high": 9,
    "words_min": 56,
-   "words_median": 114.0,
-   "words_max": 254,
+   "words_median": 113,
+   "words_max": 253,
    "under_30_words": 0,
-   "citing_an_official_host": 51,
+   "citing_an_official_host": 56,
    "citing_only_hosts_outside_official_set": 3,
    "hosts_outside_official_set": {
     "stats.unitedrugby.com": 10,
@@ -795,15 +906,15 @@
     "root_price": 1.68,
     "root_american": -147,
     "root_prob": 0.5662,
-    "root_confidence": "MEDIUM",
-    "root_start_status": "stale_source",
+    "root_confidence": "HIGH",
+    "root_start_status": "upcoming",
     "olbg_ref": "HAN-12130",
     "olbg_selection": "MT Melsungen",
     "olbg_price": 1.54,
     "olbg_american": "-185",
     "olbg_prob": 0.615,
-    "olbg_confidence": "medium",
-    "olbg_start_status": "stale_source",
+    "olbg_confidence": "high",
+    "olbg_start_status": "upcoming",
     "olbg_url": "https://www.olbg.com/betting-tips/Handball/All_Handball/All_Events/HC_Vardar_vs_MT_Melsungen/20?event_id=12130"
    },
    {

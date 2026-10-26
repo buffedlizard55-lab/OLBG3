@@ -51,7 +51,11 @@ class BatchIntegrity(unittest.TestCase):
             r = self.events[row["ref"]]
             # FL-231 (same class as FL-201/FL-217): once the official start passes, the pipeline
             # correctly withdraws the pick from HIGH. Pin that behaviour instead of going red.
-            if r["pick"].get("kickoff_started"):
+            released = r["pick"].get("release") or {}
+            if r["pick"].get("kickoff_started") or released.get("status") not in (None, "upcoming"):
+                # Same rule as FL-231, widened on 2026-10-26: a pick leaves HIGH when its official
+                # start passes *or* when its source observation ages past 24 hours. Both are correct
+                # withdrawals, so the pin asserts the withdrawal instead of demanding HIGH forever.
                 self.assertNotEqual(r["pick"]["confidence"], "HIGH", row["ref"])
                 continue
             self.assertEqual(r["pick"]["confidence"], "HIGH", row["ref"])
