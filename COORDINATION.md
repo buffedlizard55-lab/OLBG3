@@ -1,4 +1,17 @@
 
+## session-61e1daf3 — 2026-10-26 fresh OLBG capture and source audit (needs review)
+
+| Task | Status | Owner | File scope |
+| --- | --- | --- | --- |
+| `task-61e1daf3-live-capture-audit` | needs review; current capture committed, publication blocked by unit failures | session-61e1daf3 on Arena-fixed `arena/61e1daf3-olbg3` | `.harvest/request.json`; `data/raw/live-20261026T0515Z-61e1daf3/**`, `data/raw/official-20261026T0516Z/**`, `data/raw/cited-20261026T0517Z/**`; `docs/audit-61e1daf3.md`; this section |
+
+- Read the existing board before starting. The previous source capture and publication clock were dated 2026-10-24; no current in-progress task was present in the coordination board. The fixed Arena branch name is used as required by the higher-priority session constraint.
+- Requested and captured 18 OLBG listing routes on 2026-10-26, 05:15Z; configured official probes and cited-source rereads completed. Harvest workflow [40273261391](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40273261391) passed and committed source evidence as `c412d8a`.
+- Capture parser result: 98 rows across 13 sports; Golf and Snooker returned no tip cards. Cricket and Gaelic Football had parser gaps. The scope, every official probe response, clock discrepancies, and exact source URLs are documented in [`docs/audit-61e1daf3.md`](docs/audit-61e1daf3.md).
+- Validation findings: board/site checks and link/data checks passed in local replay, but 18 of 422 unit tests failed because existing tests expected expired HIGH picks and stale surface content after the publication-clock advance. CI run [40273261500](https://github.com/buffedlizard55-lab/OLBG3/actions/runs/40273261500) also failed at the lines-track rebuild on the request commit that raced the capture job; remote step logs returned EOF. No failures were bypassed, no prediction was promoted, and local generated outputs were reverted.
+- Current effective HIGH set: zero at the 05:18Z release clock. This is not five per sport; no unsupported picks or market facts were created. See the audit's official-source table and flagged irregularities.
+- **State:** source capture task complete; integration/publication **needs review** pending deterministic correction of time-sensitive tests and successful end-to-end CI. No PR/merge/deploy claimed.
+
 ## session-49317273 — picks durability follow-up (completed 2026-10-24T23:05Z)
 
 | Task | Status | Owner | File scope |
