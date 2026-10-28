@@ -1,0 +1,81 @@
+{
+  "tool": "scripts/probe_cited.py",
+  "user_agent": "OLBG3Audit/1.0 (+https://github.com/buffedlizard55-lab/OLBG3; official-source re-verification; contact via repository issues)",
+  "started_at_utc": "2026-10-28T23:52:19Z",
+  "events_in_scope": [
+    "12127",
+    "12128",
+    "12129",
+    "12130",
+    "12131",
+    "12132",
+    "12133",
+    "12134",
+    "12135",
+    "12136",
+    "12137",
+    "12138",
+    "200104",
+    "200105",
+    "200111",
+    "200112",
+    "26023"
+  ],
+  "pages": [
+    {
+      "url": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+      "key": "api-web-nhle-com-v1-schedule-2026-10-26",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://api-web.nhle.com/v1/schedule/2026-10-26",
+      "bytes": 91669,
+      "sha256": "11e587c00fe8b90895bc0c09d2d3ea43d31c613ec49a48a305b55c0c8ff53669",
+      "content_type": "application/json",
+      "file": "pages/api-web-nhle-com-v1-schedule-2026-10-26.json",
+      "representation": "verbatim_json",
+      "fetched_at_utc": "2026-10-28T23:52:20Z"
+    },
+    {
+      "url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101004/FCPorto-OneVeszpr%C3%A9mHC/",
+      "key": "ehfcl-eurohandball-com-men-2026-27-matches-details-202711020101004-FCPorto-OneVeszpr-C3-A9",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfcl.eurohandball.com/men/2026-27/matches/details/202711020101004/FCPorto-OneVeszpr%C3%A9mHC/",
+      "bytes": 138623,
+      "sha256": "c4560a573dbc5360620bd716a326aff6d57840f1dba1c9fd06962f4478df2c02",
+      "content_type": "text/html; charset=utf-8",
+      "file": "pages/ehfcl-eurohandball-com-men-2026-27-matches-details-202711020101004-FCPorto-OneVeszpr-C3-A9.txt",
+      "representation": "rendered_text",
+      "file_sha256": "76d29cbd3614f115bb7d14fa1c59a32b8d0244a441a2523d69a6c33ccbb123ad",
+      "fetched_at_utc": "2026-10-28T23:52:23Z"
+    },
+    {
+      "url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+      "key": "ehfel-eurohandball-com-media-jqal4wt0-ehfcl-men-2026-27-group-phase-playing-times-pdf",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://ehfel.eurohandball.com/media/jqal4wt0/ehfcl-men-2026-27-group-phase-playing-times.pdf",
+      "bytes": 218756,
+      "sha256": "b681d6ba3ebd764018813802f54f9ad2311e0f776a546253698042387f8bdb1d",
+      "content_type": "application/pdf",
+      "file": "pages/ehfel-eurohandball-com-media-jqal4wt0-ehfcl-men-2026-27-group-phase-playing-times-pdf.pdf",
+      "representation": "verbatim_binary",
+      "fetched_at_utc": "2026-10-28T23:52:26Z"
+    },
+    {
+      "url": "https://www.pdc.tv/WCFAQ",
+      "key": "www-pdc-tv-WCFAQ",
+      "outcome": "captured",
+      "status": 200,
+      "final_url": "https://www.pdc.tv/WCFAQ",
+      "bytes": 1241747,
+      "sha256": "368945840d3933141197ea6866ed3767234b69e571f41adc68ad50ea16f6b470",
+      "content_type": "text/html",
+      "file": "pages/www-pdc-tv-WCFAQ.txt",
+      "representation": "rendered_text",
+      "file_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "fetched_at_utc": "2026-10-28T23:52:28Z"
+    }
+  ],
+  "finished_at_utc": "2026-10-28T23:52:28Z"
+}
